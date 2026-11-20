@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 73 companies tracked
+Total: 75 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -19,6 +19,7 @@ Total: 73 companies tracked
 - 📄 [[DOW|Dow Inc.]]
 - 📄 [[ECL|Ecolab Inc.]]
 - 📄 [[FCX|Freeport-McMoRan Inc.]]
+- 📄 [[GGB|Gerdau S.A.]]
 
 ## Communication Services
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
@@ -68,6 +69,7 @@ Total: 73 companies tracked
 - 📄 [[CAH|Cardinal Health, Inc.]]
 - 📄 [[CVS|CVS Health Corporation]]
 - 📄 [[DHR|Danaher Corporation]]
+- 📄 [[GILD|Gilead Sciences, Inc.]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]

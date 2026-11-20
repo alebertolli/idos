@@ -1,0 +1,1 @@
+> **Estado de investigación:** incompleto. La información disponible respalda la escala y rentabilidad operativa reportadas, pero no basta para validar una tesis de crecimiento duradero ni para concluir que la acción esté infravalorada. Se distinguen los datos reportados de las inferencias y cuestiones pendientes.

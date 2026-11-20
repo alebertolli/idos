@@ -1,0 +1,543 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El crecimiento de ingresos y el margen bruto podrían respaldar expansión, pero
+    la evidencia aportada no establece su sostenibilidad ni sus retornos sobre capital.
+  - La persistencia de FCF negativo junto con deuda neta puede restringir la financiación
+    de crecimiento; no se infiere una causa concreta.
+  - 'Ingresos: 267,74 en FY 2022 y 393,52 en FY 2025; margen bruto TTM: 64,20% al
+    2026-09-30. Fuente: https://stockanalysis.com/stocks/glng/financials/'
+  - 'FCF TTM: -149,82 y net cash: -1.967 al 2026-09-30. Fuente: https://stockanalysis.com/stocks/glng/financials/'
+  - 'Consenso de analistas: rango USD 44,50–75,00, observado el 2026-11-20; cotización:
+    USD 46,24 al 2026-10-30. Fuentes: https://stockanalysis.com/stocks/glng/forecast/
+    y https://finance.yahoo.com/quote/GLNG/'
+  preguntas_abiertas:
+  - ¿Cuál es el mercado direccionable, la penetración, la mezcla de productos y la
+    posición competitiva de GLNG?
+  - ¿Qué inversiones explican el FCF negativo y cuál es su retorno esperado, según
+    información verificable de la empresa?
+  - ¿Cuál es el gasto por intereses que permitiría verificar la cobertura publicada
+    como 0?
+  - ¿Qué trayectoria de deuda, dilución, management y asignación de capital proyecta
+    la empresa?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Research requerido; oportunidad de crecimiento con riesgos financieros
+    relevantes
+  justificacion: La evidencia muestra crecimiento de ingresos en períodos fiscales
+    comparables y margen bruto TTM elevado, pero también FCF negativo, deuda neta
+    y falta de datos suficientes para validar varios ratios solicitados.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El crecimiento de ingresos entre FY 2022 y FY 2025 y el margen bruto TTM
+    son señales favorables, pero no demuestran por sí solos mercado direccionable,
+    penetración, moat o retornos sobre capital. FCF negativo en los períodos históricos
+    incluidos y deuda neta reportada elevan la exigencia de validar la economía de
+    la reinversión; no hay datos de management, asignación de capital, productos,
+    geografía ni competencia en el paquete.
+  rating: Mixto; evidencia insuficiente para calificar ventaja competitiva o retornos
+    sobre capital
+dominio_catalizadores:
+- hecho: Los ingresos TTM reportados al 2026-09-30 fueron 484,57, frente a 393,52
+    en FY 2025.
+  hito_a_seguir: Verificar si períodos posteriores muestran crecimiento comparable
+    y si este se acompaña de FCF menos negativo o positivo.
+  limitacion: El paquete no contiene guía de la empresa ni calendario de hitos.
+- hecho: El margen bruto reportado pasó de 54,48% en FY 2025 a 64,20% TTM al 2026-09-30.
+  hito_a_seguir: Comprobar si el margen TTM se sostiene en resultados futuros y cómo
+    se traduce en caja operativa.
+  limitacion: No se aportan explicaciones de la variación ni proyecciones.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: https://stockanalysis.com/stocks/glng/financials/
+  hecho: El FCF TTM reportado fue -149,82 al 2026-09-30; el historial también muestra
+    FCF negativo en FY 2025, FY 2024, FY 2023 y FY 2022.
+  implicacion: La inversión y las necesidades de caja pueden limitar la capacidad
+    de financiar crecimiento o reducir deuda.
+- fuente: https://stockanalysis.com/stocks/glng/financials/
+  hecho: El net cash reportado fue -1.967 al 2026-09-30, frente a -1.600 en FY 2025.
+  implicacion: La posición de deuda neta es un riesgo; no se puede atribuir su cambio
+    a una causa específica con los datos suministrados.
+- fuente: https://stockanalysis.com/stocks/GLNG/statistics/
+  hecho: La cobertura de intereses publicada figura como 0 para TTM al 2026-09-30;
+    EBIT TTM reportado fue 258,27 millones.
+  implicacion: La cifra de cobertura requiere verificación antes de interpretarse,
+    pues el paquete no presenta el gasto por intereses ni explica ese valor.
+- fuente: https://finance.yahoo.com/quote/GLNG/history/
+  hecho: La cotización tuvo drawdown de 19,39% y volatilidad a 90 días de 22,79% para
+    los períodos que terminan el 2026-10-30.
+  implicacion: La trayectoria de mercado observada incluye fluctuaciones relevantes;
+    estos datos no explican sus causas.
+error_mercado:
+  catalizador_cambio: La conversión de crecimiento en FCF positivo y una reducción
+    verificable de deuda podrían cambiar la lectura; el paquete no aporta hitos operativos
+    futuros confirmados.
+  conclusion_error_valoracion: 'No se puede establecer que exista un error de valoración:
+    los datos no incluyen valoración intrínseca ni estimaciones financieras futuras
+    comparables.'
+  consenso_actual: El consenso de analistas reportado al 2026-11-20 es USD 65,83,
+    con rango USD 44,50–75,00; la cotización observada al 2026-10-30 fue USD 46,24.
+  hipotesis_contraria: 'La evidencia financiera disponible permite cuestionar que
+    el crecimiento de ingresos baste para justificar optimismo: el FCF TTM fue negativo
+    y la deuda neta reportada aumentó frente a FY 2025.'
+  razonamiento: El precio observado y el rango de analistas son referencias de mercado,
+    no una valoración propia. La evidencia financiera disponible sustenta tanto una
+    tesis de expansión como riesgos de caja y apalancamiento.
+generated_at: '2026-11-20T14:56:24.487542-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-GLNG
+prompt_inputs:
+  business_model: ''
+  ceo_tenure: 0
+  debt_to_equity: 0.012
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: GLNG
+  operating_margin: 53.3
+  pe_ratio: 25.98
+  products: ''
+  revenue: 484570000.0
+  revenue_growth: 48.36
+  roic: 6.16
+  sector: ''
+  ticker: GLNG
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/glng/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      value: -149.82
+    - period: FY 2025
+      period_end: '2025-12-31'
+      value: -382.44
+    - period: FY 2024
+      period_end: '2024-12-31'
+      value: -120.31
+    - period: FY 2023
+      period_end: '2023-12-31'
+      value: -190.33
+    - period: FY 2022
+      period_end: '2022-12-31'
+      value: -49.04
+  limitations: No hay dos períodos comparables con FCF positivo en ambos; el TTM tampoco
+    es comparable a un FY.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/glng/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/glng/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_equivalents: 672.33
+    ebitda: 312600000.0
+    total_debt: 2639.0
+  limitations: El paquete no especifica la unidad monetaria de deuda y efectivo; EBITDA
+    está reportado en provider_financial_currency. No se puede validar compatibilidad
+    de escala y moneda entre inputs.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/glng/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/GLNG/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 102100000.0
+  limitations: Falta una observación de acciones diluidas o en circulación del período
+    comparable anterior; el dato actual por sí solo no permite calcular dilución interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/GLNG/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: ''
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 46.2400016784668
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.012
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T17:55:53.455910+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: GLNG
+  operating_margin: 53.3
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: ''
+  revenue: 484570000.0
+  revenue_growth: 48.36
+  roic: 6.16
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/glng/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GLNG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GLNG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GLNG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GLNG/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/glng/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/glng/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/glng/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GLNG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/glng/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GLNG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/glng/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/glng/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/glng/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GLNG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GLNG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/glng/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    75.0, "low": 44.5, "mean": 65.83, "median": 65.83, "observed_at": "2026-11-20T14:55:56.460438-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:55:56.460438-03:00", "observed_date": "2026-11-20", "target_price":
+    65.83, "url": "https://stockanalysis.com/stocks/glng/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:55:56.460438-03:00",
+    "observed_date": "2026-11-20", "target_price": 65.83333, "url": "https://finance.yahoo.com/quote/GLNG/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 46.2400016784668,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/GLNG/"}]}}'
+  sector: ''
+  ticker: GLNG
+research_trigger:
+  discovery_snapshot_hash: 622962ee53e1897a4d6d942bb82f4eb993997d5536ddfd06c37285efc31e47b0
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 2dfbc99cbda8f21e79bee119894d9cb1a9c19424f6ce67814730a7101e61678d
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:56:24.487542-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.09 al 2026-09-30; no está por debajo del umbral.
+  source: https://stockanalysis.com/stocks/GLNG/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta un conteo comparable de acciones del período anterior.'
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30, por debajo del umbral; requiere
+    verificación porque no se aporta gasto por intereses.
+  source: https://stockanalysis.com/stocks/GLNG/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No evaluable: el paquete no aporta FCF mensual ni una tasa mensual
+    de consumo comparable.'
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No evaluable: la compatibilidad de unidad monetaria entre deuda, efectivo
+    y EBITDA no está validada.'
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta historial de acciones para un período comparable
+    de tres años.'
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados posteriores documentan FCF positivo sostenido.
+    - Evidencia verificable muestra reducción de deuda neta y crecimiento rentable.
+    id: BEAR
+    key_assumptions:
+    - El FCF negativo observado no mejora de forma suficiente.
+    - La deuda neta y la falta de evidencia sobre retornos de reinversión limitan
+      la valoración.
+    rationale: Ancla en el extremo bajo observado del consenso de analistas, no valoración
+      intrínseca propia. Representa el resultado adverso plausible si la expansión
+      de ingresos no se convierte en caja y persisten FCF negativo y deuda neta.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/glng/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/glng/financials/
+    target_price: 44.5
+  - falsifiers:
+    - Ingresos o margen bruto se deterioran en períodos posteriores.
+    - El FCF sigue negativo sin evidencia de mejora y la deuda neta aumenta.
+    id: BULL
+    key_assumptions:
+    - Se mantiene el crecimiento de ingresos observado entre FY 2022 y FY 2025.
+    - La mejora de margen bruto TTM se sostiene y se refleja en generación de caja.
+    rationale: Ancla en el extremo alto observado del consenso de analistas, no valoración
+      intrínseca propia. Representa el resultado favorable plausible si el crecimiento
+      de ingresos y el margen bruto observados se sostienen y la conversión a caja
+      mejora.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/glng/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/glng/financials/
+    target_price: 75.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 67.28
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:55:56.460438-03:00'
+  fuentes:
+    stockanalysis: 65.83
+    yfinance: 65.83333
+  mediana: 65.83
+  n_fuentes: 2
+  promedio: 65.83
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:55:56.460438-03:00'
+    observed_date: '2026-11-20'
+    target_price: 65.83
+    url: https://stockanalysis.com/stocks/glng/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:55:56.460438-03:00'
+    observed_date: '2026-11-20'
+    target_price: 65.83333
+    url: https://finance.yahoo.com/quote/GLNG/
+  target_high: 75.0
+  target_low: 44.5
+tesis_inversion: La tesis común es que el crecimiento de ingresos y el margen bruto
+  puedan sostener una expansión económica del negocio, mientras la generación de FCF
+  y la deuda determinan si ese crecimiento crea valor para el accionista. La evidencia
+  disponible no permite validar retornos sobre capital, reinversión productiva ni
+  ventajas competitivas duraderas.
+ticker: GLNG
+version: '3.0'

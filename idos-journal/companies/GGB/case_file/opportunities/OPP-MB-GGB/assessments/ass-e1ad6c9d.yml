@@ -1,0 +1,29 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida'
+- 'Market error: No se valida un error de valoración. El precio y los objetivos de
+  analistas son referencias observadas, no prueba de infravaloración o sobrevaloración
+  intrínseca.'
+- 'Thesis: La tesis a investigar es si Gerdau puede sostener o mejorar su generación
+  de caja y sus márgenes a través de sus negocios de acero y minería, mientras mantiene
+  una estructura financiera manejable. La '
+generated_at: '2026-11-20T14:53:55.063098-03:00'
+id: ass-e1ad6c9d
+recommendation: REVIEW
+risks:
+- evidencia: Los ingresos reportados fueron 82.412 en FY 2022 y 69.859 en FY 2025;
+    el paquete no aporta datos de demanda, precios ni márgenes por segmento.
+  fuente: https://stockanalysis.com/stocks/ggb/financials/
+  riesgo: Ciclicidad y exposición a condiciones de mercado del acero.
+- evidencia: Se reporta deuda total de 15.480 y net cash de -9.437 al 2026-09-30,
+    pero la escala/unidad comparable con EBITDA TTM no queda validada en el paquete.
+  fuente: https://stockanalysis.com/stocks/ggb/financials/
+  riesgo: La lectura del apalancamiento no puede cerrarse con los inputs disponibles.
+- evidencia: Sólo se proporciona una observación de acciones en circulación; no hay
+    historia de acciones ni datos de capital invertido o ROIC.
+  fuente: https://stockanalysis.com/stocks/GGB/statistics/
+  riesgo: La evidencia no permite evaluar dilución ni retornos sobre capital.
+score: 48
+status: COMPLETED
+version: '3.0'
