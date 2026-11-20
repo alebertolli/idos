@@ -470,3 +470,115 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-19T19:12:38.255605'
+- data:
+    classification: compounder_castigado
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 6079301ca00635f4c4f06d5dc3cfd0cdb8afcbcdec5859d7dd991077e398bad3
+    opp_id: OPP-20261023-018
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: AVGO
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T19:21:24.336772'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 594e6538e80533e7b067d38a2b1a5e640f0617bed58e287dfeb7310ff57b4596
+    opp_id: OPP-20261023-020
+    score: 58
+    strategy_version: positive_fundamentals_v1
+    ticker: AVY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T19:23:44.181164'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AVY
+    ticker: AVY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-19T19:24:14.532851'
+- data:
+    classification: Investigación requerida; evidencia financiera parcial
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 8af27b359c644f8349bb354728efdbb0617df46679b249f7253818b0cecb6200
+    opp_id: OPP-MB-AVY
+    score: 48
+    strategy_version: '1.5'
+    ticker: AVY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T19:26:00.334258'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 8c5a157819b8b3ebd81304a8ff87e2cf75de654f02e3b83b01c30bf8d2bea55e
+    opp_id: OPP-20261023-019
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: AXP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T23:04:27.867116'
+- data:
+    classification: compounder
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 76858c16568ecfff335ccc7ee8711fb80f97abb3ce37729836ff9090a580d8c6
+    opp_id: OPP-20261023-021
+    score: 64
+    strategy_version: positive_fundamentals_v1
+    ticker: AZN
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T23:07:19.335256'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-AZN-0001
+    ticker: AZN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-19T23:07:46.210440'
+- data:
+    errors:
+    - 'H2: prediction or trigger references an expired year'
+    event_evidence: null
+    event_type: monthly
+    opp_id: OPP-MULTIBAGGERS-AZN-0001
+    ticker: AZN
+  event_type: research:hypothesis_validation_failed
+  source: research_worker
+  timestamp: '2026-11-19T23:08:40.702586'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 17a41a532883ebea25d2addebce62c970dfb78355a35a71e678bec74edbab7ca
+    opp_id: OPP-20261023-022
+    score: 53
+    strategy_version: positive_fundamentals_v1
+    ticker: B
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T23:11:09.171233'

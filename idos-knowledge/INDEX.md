@@ -7,10 +7,12 @@ aliases:
 
 # IDOS Company Index
 
-Total: 25 companies tracked
+Total: 32 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
+- 📄 [[B|Barrick Mining Corporation]]
+- 📄 [[BHP|BHP Group Limited]]
 - 📄 [[DOW|Dow Inc.]]
 
 ## Communication Services
@@ -19,6 +21,7 @@ Total: 25 companies tracked
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
 - 📄 [[ANF|Abercrombie & Fitch Co.]]
+- 📄 [[AVY|Avery Dennison Corporation]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
@@ -30,11 +33,13 @@ Total: 25 companies tracked
 ## Financial Services
 - 📄 [[AEG|Aegon Ltd.]]
 - 📄 [[AIG|American International Group, Inc.]]
+- 📄 [[AXP|American Express Company]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
 - 📄 [[ABT|Abbott Laboratories]]
 - 📄 [[AMGN|Amgen Inc.]]
+- 📄 [[AZN|AstraZeneca PLC]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
@@ -50,6 +55,8 @@ Total: 25 companies tracked
 - 📄 [[AMD|Advanced Micro Devices, Inc.]]
 - 📄 [[ARM|Arm Holdings plc]]
 - 📄 [[ASML|ASML Holding N.V.]]
+- 📄 [[AVGO|Broadcom Inc.]]
+- 📄 [[BB|BlackBerry Limited]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 
 ---

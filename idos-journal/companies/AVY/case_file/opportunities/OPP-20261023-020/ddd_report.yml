@@ -1,0 +1,461 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La integración potencial de materiales y soluciones de identificación en procesos
+    de clientes podría contribuir a costes de cambio y relaciones duraderas; no se
+    aportan métricas que lo demuestren.
+  - La demanda de productos especializados podría ofrecer resiliencia relativa, aunque
+    la sensibilidad a ciclos económicos y costes de insumos no puede cuantificarse
+    con la evidencia disponible.
+  - El consenso de precio por encima de la cotización constituye una referencia de
+    mercado, no prueba independiente de valor intrínseco ni de error de valoración.
+  - Las probabilidades asignadas a catalizadores son estimaciones analíticas no calibradas
+    y no deben interpretarse como probabilidades de retorno.
+  preguntas_abiertas:
+  - ¿Cuáles son los niveles y vencimientos de deuda, liquidez disponible, cobertura
+    de intereses y necesidades de refinanciación?
+  - ¿Qué muestran los informes trimestrales y anuales primarios sobre resultados por
+    segmento, crecimiento orgánico, volúmenes, precios y márgenes?
+  - ¿Qué evidencia primaria respalda la diferenciación técnica, cuota de mercado,
+    retención de clientes y costes de cambio?
+  - ¿Cuál ha sido el historial de asignación de capital, adquisiciones, recompras,
+    dividendos y retornos sobre capital?
+  - ¿Qué exposición tiene la compañía a proveedores concentrados, materias primas
+    críticas, energía y rutas logísticas?
+  - ¿Qué objetivos y resultados verificables existen en emisiones, residuos, circularidad,
+    seguridad y derechos laborales?
+  - ¿Qué múltiplos actuales y estimaciones de beneficios comparables respaldan el
+    precio, y cuál es el periodo exacto de esas métricas?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: 'Compounder y compounder_castigado: la evidencia aportada
+    no basta para verificar retornos sobre capital, reinversión, durabilidad del moat
+    ni un castigo temporal del mercado. Cíclica: la exposición a la actividad económica
+    puede ser relevante, pero no hay datos que demuestren que el ciclo sea el rasgo
+    dominante. Turnaround: no se aportan pruebas de declive operativo ni un plan de
+    recuperación. Deep value: no se incluyen múltiplos completos ni evidencia de activos
+    infravalorados. Special situation y distressed: no se identifican eventos corporativos
+    ni problemas de solvencia verificables. Hype y value trap: no hay evidencia suficiente
+    para sostener esas clasificaciones.'
+  justificacion: La información proporcionada describe un negocio establecido de materiales
+    adhesivos y soluciones de identificación digital, y el precio observado está por
+    debajo del consenso de analistas disponible. Sin embargo, los datos financieros
+    son escasos y no permiten demostrar un descuento significativo ni cuantificar
+    con rigor la calidad y durabilidad del moat. La clasificación refleja una oportunidad
+    de calidad potencial a precio razonable, no una conclusión de infravaloración
+    demostrada.
+comparativa_catalizadores:
+- delta_pct: 40
+  descripcion: Resultados financieros que confirmen crecimiento de ventas y estabilidad
+    o expansión del margen operativo.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos. Se incorpora como
+    hipótesis nueva; no se verificó calendario ni evidencia de cumplimiento.
+  probabilidad_actual: 40
+  probabilidad_anterior: 0
+- delta_pct: 30
+  descripcion: Mayor evidencia de adopción rentable de soluciones de identificación
+    digital y etiquetado inteligente.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos. Es una hipótesis
+    basada en el perfil de negocio suministrado, no un evento confirmado.
+  probabilidad_actual: 30
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: El perfil suministrado describe materiales sensibles a presión, cintas
+    de desempeño y soluciones de identificación digital con presencia internacional.
+    La amplitud de aplicaciones y la posible integración en procesos de clientes podrían
+    favorecer relaciones duraderas y costes de cambio, pero esto es una inferencia,
+    no una verificación del moat. No se aportan cuotas de mercado, retención de clientes,
+    diferenciación técnica comparada ni datos de rentabilidad por segmento. Por ello,
+    la calidad parece potencialmente buena, pero la durabilidad de la ventaja competitiva
+    permanece sin validar.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Resultados financieros que confirmen crecimiento de ventas y estabilidad
+    o expansión del margen operativo.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+- descripcion: Mayor evidencia de adopción rentable de soluciones de identificación
+    digital y etiquetado inteligente.
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: No se aportan datos específicos de emisiones, gestión de residuos, uso
+    de materiales, auditorías laborales, trazabilidad o concentración de proveedores.
+    Por la naturaleza descrita del negocio, la exposición a materias primas, energía,
+    logística y requisitos ambientales podría afectar costes y continuidad operativa;
+    esto es una inferencia general, no un hecho verificado sobre AVY. Se requiere
+    investigación primaria de cadena de suministro y compromisos ESG.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia seleccionada informa FCF TTM de 1.040 millones en moneda
+    financiera del proveedor, con periodo terminado el 2026-09-30; el contexto de
+    la evidencia indica USD. También informa margen operativo TTM de 12,76% y crecimiento
+    de ingresos TTM de 6,77% en esa fecha. Son datos de fuente única en las observaciones
+    y no bastan para evaluar la salud integral del balance. No hay observaciones utilizables
+    de deuda, liquidez, vencimientos, cobertura de intereses o evolución histórica
+    de caja. El dato de flujo de caja libre no está documentado como ajustado.
+  rating: adecuada
+dominio_growth:
+  analisis: El crecimiento de ingresos TTM reportado es 6,77% para el periodo terminado
+    el 2026-09-30, según la observación seleccionada de stockanalysis.com. La observación
+    alternativa de yfinance se declara no comparable por falta de período, unidad
+    o corte equivalentes y no se usa para resolver la diferencia. No hay desglose
+    orgánico, por volumen/precio, segmentos, adquisiciones ni previsiones financieras
+    aportadas. La oportunidad de identificación digital y etiquetado es una hipótesis
+    de crecimiento que requiere validación.
+  rating: moderado
+dominio_management:
+  analisis: No se aportan datos verificables sobre dirección, incentivos, propiedad
+    accionarial, recompras, dividendos, adquisiciones, retornos sobre capital ni disciplina
+    de asignación. La calificación regular expresa falta de evidencia para una evaluación
+    positiva o negativa, no una acusación de mala gestión.
+  rating: regular
+dominio_riesgos:
+- impacto: medio
+  probabilidad: media
+  riesgo: Presión competitiva y de precios en materiales de etiquetas y productos
+    adhesivos, con posible impacto sobre márgenes.
+- impacto: medio
+  probabilidad: media
+  riesgo: Exposición a demanda industrial y de consumo, costes de insumos, energía
+    y logística.
+- impacto: medio
+  probabilidad: media
+  riesgo: La tesis de crecimiento en identificación digital podría no materializarse
+    al ritmo esperado o no traducirse en rentabilidad.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Riesgo de balance no evaluable por ausencia de datos utilizables de deuda,
+    liquidez y vencimientos.
+- impacto: medio
+  probabilidad: media
+  riesgo: Insuficiencia de evidencia para confirmar moat, retención de clientes, concentración
+    de proveedores y exposición ESG.
+error_mercado:
+  catalizador_cambio:
+    descripcion: 'Publicación de resultados que muestre crecimiento sostenido de ventas
+      y mejora o estabilidad de márgenes, con evidencia de demanda en materiales de
+      etiquetas y soluciones de identificación. Es un catalizador condicional: no
+      se aportaron calendario corporativo ni datos segmentarios para verificarlo.'
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 40
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: Al 2026-11-19, la cotización observada es USD 182,97. El consenso
+    suministrado tiene mínimo de USD 182, media y mediana de USD 203,30 y máximo de
+    USD 230. La media implica aproximadamente un 11,1% de diferencia frente a la cotización,
+    pero es una referencia de analistas, no una valoración independiente. No se proporcionan
+    múltiplos actuales completos en las observaciones financieras, por lo que no puede
+    determinarse con rigor qué escenario de beneficios descuenta el precio.
+  hipotesis_contraria: Una hipótesis contraria es que el mercado valore insuficientemente
+    la utilidad de materiales de etiquetado y soluciones digitales de identificación
+    para clientes que requieren consistencia, desempeño técnico e integración en procesos.
+    Esa resiliencia potencial podría sostener caja y crecimiento. La hipótesis alternativa
+    es que el consenso sobrestime la capacidad de crecimiento o de expansión de márgenes;
+    los datos disponibles no permiten resolverlo. Tampoco hay evidencia aportada que
+    confirme una brecha concreta entre expectativas implícitas y resultados futuros.
+  razonamiento: El precio está por debajo de la media del consenso, pero dentro del
+    rango observado y apenas por encima del límite bajo. La diferencia no prueba por
+    sí misma un error de valoración, y la evidencia no incluye múltiplos suficientes,
+    estimaciones de beneficios verificables ni una valoración independiente. La tesis
+    contraria es plausible, pero no está confirmada.
+generated_at: '2026-11-19T19:22:04.253031-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay evidencia aportada que demuestre deterioro estructural del moat,
+    destrucción de capital por la dirección, fin del crecimiento estructural, fraude,
+    insolvencia, riesgo regulatorio extremo, imposibilidad de mantener la posición,
+    riesgo de exclusión bursátil o problemas severos de mercado. La falta de datos
+    para evaluar esos riesgos no equivale a evidencia de que no existan.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-020
+prompt_inputs:
+  business_model: Avery Dennison Corporation operates as a materials science and digital
+    identification solutions company in the North America, Europe, the Middle East,
+    North Africa, Asia, and Latin America. It offers pressure-sensitive label materials,
+    which consist of papers, plastic films, and metal foils; performance tapes products,
+    including mechanical fasteners, which are precision-extruded and injection-molded
+    plastic devices; and other pressure-sensitive adhesive-based materials and converted
+    products under the Fasson, JAC, and Avery Dennison brands. The company provides
+    graphics and reflective products that include films and other products for the
+    architectural, commercial sign, digital printing, and other related market segments;
+    durable cast and reflective films to the construction, automotive, and fleet transportation
+    markets; sign shops, commercial printers, and designers for pressure-sensitive
+    materials; reflective films for traffic and safety applications; and pressure-sensitive
+    vinyl and specialty materials for digital imaging, screen printing, and sign cutting
+    applications under the Avery Dennison and Mactac brand names. In addition, it
+    offers branding solutions, which include brand embellishments, graphic tickets,
+    tags, labels, and sustainable packaging; information solutions, such as item-level
+    RFID, visibility and loss prevention, price ticketing and marking, productivity
+    and media, and brand protection and security solutions; and shelf-edge productivity
+    and media solutions under the Vestcom brand names, as well as care, content, and
+    country of origin compliance solutions. It serves home and personal care, apparel,
+    general retail, e-commerce, logistics, food and grocery, pharmaceuticals, and
+    automotive industries. The company was formerly known as Avery International Corporation
+    and changed its name to Avery Dennison Corporation in 1990. The company was founded
+    in 1935 and is headquartered in Mentor, Ohio.
+  ceo_tenure: 0
+  debt_to_equity: 0.0152
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Avery Dennison Corporation
+  operating_margin: 12.76
+  pe_ratio: 19.87
+  products: ''
+  revenue: 9360000000.0
+  revenue_growth: 6.77
+  roic: 15.25
+  sector: Consumer Cyclical
+  ticker: AVY
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: Avery Dennison Corporation operates as a materials science and digital
+    identification solutions company in the North America, Europe, the Middle East,
+    North Africa, Asia, and Latin America. It offers pressure-sensitive label materials,
+    which consist of papers, plastic films, and metal foils; performance tapes products,
+    including mechanical fasteners, which are precision-extruded and injection-molded
+    plastic devices; and other pressure-sensitive adhesive-based materials and converted
+    products under the Fasson, JAC, and Avery Dennison brands. The company provides
+    graphics and reflective products that include films and other products for the
+    architectural, commercial sign, digital printing, and other related market segments;
+    durable cast and reflective films to the construction, automotive, and fleet transportation
+    markets; sign shops, commercial printers, and designers for pressure-sensitive
+    materials; reflective films for traffic and safety applications; and pressure-sensitive
+    vinyl and specialty materials for digital imaging, screen printing, and sign cutting
+    applications under the Avery Dennison and Mactac brand names. In addition, it
+    offers branding solutions, which include brand embellishments, graphic tickets,
+    tags, labels, and sustainable packaging; information solutions, such as item-level
+    RFID, visibility and loss prevention, price ticketing and marking, productivity
+    and media, and brand protection and security solutions; and shelf-edge productivity
+    and media solutions under the Vestcom brand names, as well as care, content, and
+    country of origin compliance solutions. It serves home and personal care, apparel,
+    general retail, e-commerce, logistics, food and grocery, pharmaceuticals, and
+    automotive industries. The company was formerly known as Avery International Corporation
+    and changed its name to Avery Dennison Corporation in 1990. The company was founded
+    in 1935 and is headquartered in Mentor, Ohio.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 182.97000122070312
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0152
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:59.103719+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/AVY/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 1040000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 12.100001}, "observed_at": "2026-11-01T10:16:59.103719+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/AVY/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 12.76}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 5.2}, "observed_at": "2026-11-01T10:16:59.103719+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/avy/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 6.77}}}, "observed_at": "2026-11-19T19:15:41.950828+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Avery Dennison Corporation
+  operating_margin: 12.76
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Avery Dennison Corporation operates as a materials science and digital
+    identification solutions company in the North America, Europe, the Middle East,
+    North Africa, Asia, and Latin America. It offers pressure-sensitive label materials,
+    which consist of papers, plastic films, and metal foils; performance tapes products,
+    including mechanical fasteners, which are precision-extruded and injection-molded
+    plastic devices; and other pressure-sensitive adhesive-based materials and converted
+    products und
+  revenue: 9360000000.0
+  revenue_growth: 6.77
+  roic: 15.25
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    230.0, "low": 182.0, "mean": 203.3, "median": 203.3, "observed_at": "2026-11-19T19:21:27.843736-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T19:21:27.843736-03:00", "observed_date": "2026-11-19", "target_price":
+    203.3, "url": "https://stockanalysis.com/stocks/avy/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T19:21:27.843736-03:00",
+    "observed_date": "2026-11-19", "target_price": 203.3, "url": "https://finance.yahoo.com/quote/AVY/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 182.97000122070312,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AVY/"}]}}'
+  sector: Consumer Cyclical
+  ticker: AVY
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 594e6538e80533e7b067d38a2b1a5e640f0617bed58e287dfeb7310ff57b4596
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T19:22:04.253031-03:00'
+resumen_ejecutivo: AVY presenta una oportunidad potencial de calidad a precio razonable,
+  pero la convicción es limitada por la escasez de evidencia disponible. Las observaciones
+  financieras suministradas muestran FCF TTM de USD 1.040 millones al 2026-09-30,
+  margen operativo TTM de 12,76% y crecimiento de ingresos TTM de 6,77%, todos seleccionados
+  de una sola fuente en esta evidencia. No se debe interpretar el FCF como ajustado.
+  La cotización de USD 182,97 se encuentra cerca del extremo inferior del rango de
+  objetivos aportado. La tesis depende de que la compañía mantenga crecimiento rentable
+  y generación de caja; faltan datos de deuda, vencimientos, segmentos, asignación
+  de capital y múltiplos para respaldar una conclusión más firme.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2027-11-19'
+  scenarios:
+  - falsifiers:
+    - Revisión del consenso o nueva evidencia financiera que haga que el límite inferior
+      observado deje de ser una referencia pertinente.
+    - Resultados primarios que demuestren una aceleración rentable y persistente superior
+      a la expectativa implícita en la referencia conservadora.
+    id: BEAR
+    key_assumptions:
+    - El mercado mantiene una valoración próxima al límite inferior del rango de objetivos
+      observado.
+    - El crecimiento y la generación de caja no generan una revisión suficiente al
+      alza del consenso.
+    - La referencia del proveedor sigue siendo pertinente en el horizonte del escenario.
+    rationale: Ancla conservadora en el límite inferior del rango de objetivos observado.
+      No es una valoración independiente ni una predicción garantizada; representa
+      el caso de menor referencia disponible dentro del consenso aportado. No se extrapola
+      por debajo del rango porque la evidencia proporcionada no contiene una valoración
+      independiente que lo sustente.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: Stock Analysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/avy/forecast/
+    target_price: 182.0
+  - falsifiers:
+    - Resultados que muestren desaceleración relevante de ingresos, deterioro de márgenes
+      o menor generación de caja.
+    - Revisiones del consenso que reduzcan el límite superior o evidencia primaria
+      que invalide sus supuestos.
+    id: BULL
+    key_assumptions:
+    - El mercado considera alcanzable el límite superior del rango de objetivos observado.
+    - El crecimiento de ingresos y la generación de caja se mantienen suficientemente
+      sólidos como para respaldar esa referencia.
+    - No aparece evidencia que invalide las estimaciones de los analistas incluidas
+      en el consenso.
+    rationale: Ancla en el límite superior del rango de objetivos observado. Es una
+      referencia de analistas, no una valoración independiente ni una garantía de
+      precio. El caso requiere que resultados y expectativas respalden una valoración
+      en el extremo superior; no hay evidencia primaria aportada que permita justificar
+      un objetivo superior.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: Stock Analysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/avy/forecast/
+    target_price: 230.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T19:21:27.843736-03:00'
+  fuentes:
+    stockanalysis: 203.3
+    yfinance: 203.3
+  mediana: 203.3
+  n_fuentes: 2
+  promedio: 203.3
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T19:21:27.843736-03:00'
+    observed_date: '2026-11-19'
+    target_price: 203.3
+    url: https://stockanalysis.com/stocks/avy/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T19:21:27.843736-03:00'
+    observed_date: '2026-11-19'
+    target_price: 203.3
+    url: https://finance.yahoo.com/quote/AVY/
+  target_high: 230.0
+  target_low: 182.0
+tesis_inversion: La tesis es que AVY podría combinar materiales especializados con
+  soluciones de identificación integradas en operaciones de clientes, generando crecimiento
+  y caja relativamente resilientes. La cotización observada se sitúa por debajo de
+  la media del consenso aportado, aunque cerca del límite bajo de ese rango; esto
+  no establece por sí solo infravaloración. El caso de inversión requiere validar
+  que el crecimiento se convierte en beneficios y caja sostenibles, y que el balance
+  y la asignación de capital son prudentes. Con la evidencia actual, la valoración
+  parece razonable pero la asimetría no está demostrada.
+ticker: AVY
+version: '3.0'

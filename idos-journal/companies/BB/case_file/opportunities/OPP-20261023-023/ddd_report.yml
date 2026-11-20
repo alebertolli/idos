@@ -1,0 +1,362 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El mercado está descontando riesgos de crecimiento futuro
+  - El moat de BlackBerry se basa en certificaciones y penetración de QNX
+  - Los contratos gubernamentales pueden actuar como catalizador de precio
+  - Precio actual 8.40 USD (yfinance, 2026-11-19)
+  - FCF 92,100,000 USD (stockanalysis.com, 2026-08-31)
+  - Operating margin 16.03% (stockanalysis.com, 2026-08-31)
+  - Revenue growth 14.42% TTM (stockanalysis.com, 2026-08-31)
+  - Analyst consensus mean 9.87 USD (stockanalysis.com & yfinance, 2026-11-20)
+  preguntas_abiertas:
+  - ¿Cuál es el nivel de deuda neta y el ratio deuda/EBITDA de BB?
+  - ¿Qué porcentaje de ingresos proviene de contratos gubernamentales vs. clientes
+    comerciales?
+  - ¿Cuál es la tasa de retención de clientes en la plataforma BlackBerry Dynamics?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: compounder, compounder_castigado, turnaround, deep_value,
+    ciclica, special_situation, distressed, hype, value_trap
+  justificacion: BlackBerry muestra un negocio de software de seguridad con márgenes
+    operativos razonables (16%) y crecimiento de ingresos del 14% TTM, generación
+    de flujo de caja libre positivo (92 MM USD) y un precio de mercado (8.40 USD)
+    por debajo del consenso medio de analistas (9.87 USD). No presenta los rasgos
+    de un turnaround, distressed o deep value extremo, pero sí ofrece calidad a un
+    precio razonable.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: BlackBerry posee un moat basado en su reputación de seguridad, certificaciones
+    gubernamentales y la penetración de QNX en sistemas críticos de automoción. Sin
+    embargo, el mercado de ciberseguridad es altamente competitivo y la dependencia
+    de pocos grandes clientes introduce vulnerabilidad.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Firma de contrato multi‑año con agencia gubernamental de EE.UU. para
+    BlackBerry Dynamics
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+- descripcion: Acuerdo de licencia ampliada de QNX con un OEM automotriz líder
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 25
+dominio_esg_supply_chain:
+  analisis: BlackBerry no está expuesta a materias primas críticas y sus productos
+    son mayormente software. Los riesgos ESG se centran en la privacidad de datos
+    y cumplimiento regulatorio, áreas en las que la empresa tiene experiencia y certificaciones.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: Genera flujo de caja libre positivo (92 MM USD) y mantiene márgenes operativos
+    del 16%. No se dispone de datos de deuda, pero la ausencia de indicadores de estrés
+    financiero sugiere una posición balanceada.
+  rating: adecuada
+dominio_growth:
+  analisis: El crecimiento de ingresos del 14.42% TTM indica tracción en sus segmentos
+    de Secure Communications y QNX. La demanda de soluciones de gestión de dispositivos
+    y de seguridad automotriz respalda la visibilidad de ingresos a medio plazo.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo directivo ha reorientado exitosamente la compañía de hardware
+    a software, manteniendo la rentabilidad y ejecutando adquisiciones estratégicas
+    (p.ej., Cylance). La alineación de intereses parece adecuada, aunque la información
+    sobre compensación variable es limitada.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Intensidad competitiva en ciberseguridad
+- impacto: medio
+  probabilidad: media
+  riesgo: Concentración de ingresos en pocos contratos gubernamentales/automotrices
+- impacto: alto
+  probabilidad: baja
+  riesgo: Riesgo regulatorio de privacidad y exportación de tecnología
+error_mercado:
+  catalizador_cambio:
+    descripcion: Anuncio de un contrato multi‑año con una agencia gubernamental de
+      EE.UU. o con un gran OEM automotriz para la plataforma QNX.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas valoran BB alrededor de 9.87 USD (rango 6.6‑13.0),
+    lo que implica que el mercado está descontando riesgos de crecimiento futuro,
+    presión competitiva y posible deterioro de márgenes.
+  hipotesis_contraria: El mercado podría estar subestimando la recurrencia y la rentabilidad
+    de los contratos de seguridad gubernamental y automotriz, así como la capacidad
+    de BlackBerry para escalar sus soluciones de gestión de dispositivos (BlackBerry
+    Dynamics) en un entorno de mayor demanda de ciberseguridad.
+  razonamiento: El precio actual está ~15% por debajo del consenso medio y la empresa
+    muestra fundamentos sólidos. Si se materializa un contrato significativo, el múltiplo
+    implícito subiría, confirmando un error de valoración.
+generated_at: '2026-11-20T07:58:49.742825-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-023
+prompt_inputs:
+  business_model: 'BlackBerry Limited provides intelligent software and services to
+    enterprises and governments worldwide. The company operates through three segments:
+    Secure Communications, QNX, and Licensing. The company offers BlackBerry Dynamics,
+    a development platform and secure container for mobile applications; BlackBerry
+    Workspaces a secure Enterprise File Sync and Share (EFSS) solution; BlackBerry
+    Messenger (BBM) Enterprise, an enterprise-grade secure instant messaging solution
+    for messaging, voice, and video; BlackBerry SecuSUITE, a multi-OS voice and text
+    messaging solution; BlackBerry AtHoc, a secure networked critical event management
+    solution; and BlackBerry unified endpoint management (UEM) solutions. It also
+    provides BlackBerry Certicom, a patented elliptic curve cryptography, which provides
+    device security, anti-counterfeiting, and product authentication solutions; BlackBerry
+    Radar offers asset monitoring and telematics solutions for transportation and
+    logistics; and BlackBerry Development Platform, an enterprise-grade toolset. In
+    addition, the company offers enterprise consulting and engineering consulting
+    services. Further, it is involved in patent licensing. The company was formerly
+    known as Research In Motion Limited and changed its name to BlackBerry Limited
+    in July 2013. BlackBerry Limited was incorporated in 1984 and is headquartered
+    in Waterloo, Canada.'
+  ceo_tenure: 0
+  debt_to_equity: 0.28
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: BlackBerry Limited
+  operating_margin: 16.03
+  pe_ratio: 66.71
+  products: ''
+  revenue: 614000000.0
+  revenue_growth: 14.42
+  roic: 13.65
+  sector: Technology
+  ticker: BB
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'BlackBerry Limited provides intelligent software and services to
+    enterprises and governments worldwide. The company operates through three segments:
+    Secure Communications, QNX, and Licensing. The company offers BlackBerry Dynamics,
+    a development platform and secure container for mobile applications; BlackBerry
+    Workspaces a secure Enterprise File Sync and Share (EFSS) solution; BlackBerry
+    Messenger (BBM) Enterprise, an enterprise-grade secure instant messaging solution
+    for messaging, voice, and video; BlackBerry SecuSUITE, a multi-OS voice and text
+    messaging solution; BlackBerry AtHoc, a secure networked critical event management
+    solution; and BlackBerry unified endpoint management (UEM) solutions. It also
+    provides BlackBerry Certicom, a patented elliptic curve cryptography, which provides
+    device security, anti-counterfeiting, and product authentication solutions; BlackBerry
+    Radar offers asset monitoring and telematics solutions for transportation and
+    logistics; and BlackBerry Development Platform, an enterprise-grade toolset. In
+    addition, the company offers enterprise consulting and engineering consulting
+    services. Further, it is involved in patent licensing. The company was formerly
+    known as Research In Motion Limited and changed its name to BlackBerry Limited
+    in July 2013. BlackBerry Limited was incorporated in 1984 and is headquartered
+    in Waterloo, Canada.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 8.399999618530273
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.28
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:03.731124+00:00", "period_end_date": "2026-08-31",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-08-31", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/BB/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 92100000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 22.658001}, "observed_at": "2026-11-01T10:17:03.731124+00:00",
+    "period_end_date": "2026-08-31", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-08-31", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/BB/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-08-31", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 16.03}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 26.0}, "observed_at": "2026-11-01T10:17:03.731124+00:00", "period_end_date":
+    "2026-08-31", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-08-31", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/bb/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-08-31", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 14.42}}}, "observed_at": "2026-11-19T19:15:46.918836+00:00",
+    "period_end": "2026-08-31", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: BlackBerry Limited
+  operating_margin: 16.03
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'BlackBerry Limited provides intelligent software and services to
+    enterprises and governments worldwide. The company operates through three segments:
+    Secure Communications, QNX, and Licensing. The company offers BlackBerry Dynamics,
+    a development platform and secure container for mobile applications; BlackBerry
+    Workspaces a secure Enterprise File Sync and Share (EFSS) solution; BlackBerry
+    Messenger (BBM) Enterprise, an enterprise-grade secure instant messaging solution
+    for messaging, voice, and v'
+  revenue: 614000000.0
+  revenue_growth: 14.42
+  roic: 13.65
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    13.0, "low": 6.6, "mean": 9.87, "median": 9.87, "observed_at": "2026-11-20T07:58:40.480555-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T07:58:40.480555-03:00", "observed_date": "2026-11-20", "target_price":
+    9.94, "url": "https://stockanalysis.com/stocks/bb/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T07:58:40.480555-03:00",
+    "observed_date": "2026-11-20", "target_price": 9.8, "url": "https://finance.yahoo.com/quote/BB/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 8.399999618530273,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BB/"}]}}'
+  sector: Technology
+  ticker: BB
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: b4f84d69a5d5b74ab4c8a9ae3b3942145980b16289b8b7a20bb5ed565e4fc018
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T07:58:49.742825-03:00'
+resumen_ejecutivo: BlackBerry Limited es un proveedor de software de seguridad y plataformas
+  de gestión de dispositivos con exposición a sectores gubernamentales y automotrices.
+  Presenta crecimiento de ingresos del 14% TTM, margen operativo del 16% y flujo de
+  caja libre positivo de 92 MM USD. El precio de 8.40 USD está por debajo del consenso
+  de analistas (media 9.87 USD). El principal riesgo es la competencia en ciberseguridad,
+  pero existen catalizadores claros (contratos gubernamentales y adopción de QNX)
+  que podrían impulsar la valoración.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Anuncio de contrato gubernamental de >100 MM USD
+    - Mejora de margen operativo por encima del 18%
+    id: BEAR
+    key_assumptions:
+    - No se firma ningún contrato nuevo significativo en los próximos 12‑24 meses
+    - Márgenes operativos disminuyen al 12% o menos
+    - Crecimiento de ingresos se desacelera por debajo del 5% anual
+    rationale: El precio cae al extremo bajo del rango de analistas si la empresa
+      no logra renovar contratos clave y enfrenta mayor presión competitiva, reduciendo
+      márgenes y flujo de caja.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/bb/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BB/
+    target_price: 6.6
+  - falsifiers:
+    - Pérdida de un cliente estratégico que represente >10% de ingresos
+    - Recesión del mercado automotriz que reduzca la adopción de QNX
+    id: BULL
+    key_assumptions:
+    - Se firma al menos un contrato gubernamental >200 MM USD en los próximos 12‑24
+      meses
+    - Crecimiento de ingresos mantiene >15% anual
+    - Márgenes operativos se mantienen o mejoran por encima del 16%
+    rationale: El precio alcanza el extremo alto del rango de analistas si se materializan
+      contratos multi‑año con el gobierno y/o un OEM automotriz, impulsando ingresos
+      y mejorando márgenes, lo que eleva el múltiplo de valoración.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/bb/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BB/
+    target_price: 13.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T07:58:40.480555-03:00'
+  fuentes:
+    stockanalysis: 9.94
+    yfinance: 9.8
+  mediana: 9.87
+  n_fuentes: 2
+  promedio: 9.87
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T07:58:40.480555-03:00'
+    observed_date: '2026-11-20'
+    target_price: 9.94
+    url: https://stockanalysis.com/stocks/bb/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T07:58:40.480555-03:00'
+    observed_date: '2026-11-20'
+    target_price: 9.8
+    url: https://finance.yahoo.com/quote/BB/
+  target_high: 13.0
+  target_low: 6.6
+tesis_inversion: BlackBerry combina un negocio de software de seguridad con alta recurrencia
+  y márgenes decentes, respaldado por contratos gubernamentales y automotrices. El
+  precio actual subestima la capacidad de escalar sus plataformas y la generación
+  de flujo de caja libre, creando una oportunidad de inversión a precio justo o ligeramente
+  descontado.
+ticker: BB
+version: '3.0'

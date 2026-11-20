@@ -1,0 +1,146 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción atribuible de oro de 2027 resulta inferior al 95% del
+      punto medio de la guía anual publicada por Barrick.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía retira la guía de producción de oro de 2027 y no ofrece
+      una cifra sustituta cuantificable antes de publicar los resultados anuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción atribuible de oro de 2027 resulta inferior al 95% del punto medio
+    de la guía anual publicada por Barrick.
+  - La compañía retira la guía de producción de oro de 2027 y no ofrece una cifra
+    sustituta cuantificable antes de publicar los resultados anuales.
+  horizon: medio
+  id: H1-OPP-20261023-022
+  opportunity_id: OPP-20261023-022
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.95
+    met: null
+    metric: Producción atribuible de oro de 2027 como proporción del punto medio de
+      la guía anual
+    prediction: En los resultados anuales de 2027, la producción atribuible de oro
+      reportada será igual o superior al 95% del punto medio de la guía de producción
+      de oro para 2027 publicada por la compañía.
+    unit: proporción mínima
+  priority: critical
+  probability: 0.5
+  rationale: La producción depende de la continuidad operativa y de la ejecución en
+    las minas. Cumplir casi toda la guía sería evidencia de que los riesgos de ejecución
+    y sostenimiento no están deteriorando materialmente el negocio; la información
+    disponible al corte no permite confirmar de antemano el nivel de producción ni
+    la guía aplicable.
+  review_trigger: Dejar de creerla si Barrick reduce o retira la guía de producción
+    de 2027 por problemas operativos materiales, o si los resultados anuales publicados
+    antes del 2028-03-31 muestran una producción inferior al umbral del 95%.
+  secondary_hypotheses: []
+  statement: Durante 2027, Barrick alcanzará al menos el 95% del punto medio de la
+    guía anual de producción atribuible de oro que publique para ese ejercicio.
+  status: ACTIVE
+  ticker: B
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado reportado para 2027 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Barrick deja de divulgar el flujo de caja libre y no proporciona una
+      conciliación suficiente para calcularlo a partir de sus estados financieros.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado reportado para 2027 es cero o negativo.
+  - Barrick deja de divulgar el flujo de caja libre y no proporciona una conciliación
+    suficiente para calcularlo a partir de sus estados financieros.
+  horizon: medio
+  id: H2-OPP-20261023-022
+  opportunity_id: OPP-20261023-022
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.0
+    met: null
+    metric: Flujo de caja libre acumulado en 2027
+    prediction: El flujo de caja libre acumulado de los cuatro trimestres de 2027,
+      medido según la definición que Barrick reporte para ese ejercicio, será superior
+      a cero.
+    unit: USD, estrictamente mayor que cero
+  priority: critical
+  probability: 0.5
+  rationale: La tesis considera que la generación de caja es un soporte central del
+    caso de inversión. Si la compañía convierte la actividad minera en flujo de caja
+    libre positivo durante el ejercicio, pese a la exposición cíclica a los metales
+    y a los costos operativos y de inversión, habrá evidencia financiera favorable.
+    El dato disponible al corte no basta para proyectar su magnitud.
+  review_trigger: Dejar de creerla si un resultado trimestral de 2027 muestra que
+    el flujo de caja libre acumulado del año es negativo y la compañía no lo revierte
+    en los trimestres posteriores, o si los resultados anuales confirman un valor
+    igual o inferior a cero.
+  secondary_hypotheses:
+  - H1-OPP-20261023-022
+  statement: Barrick mantendrá flujo de caja libre reportado positivo en el conjunto
+    del ejercicio 2027.
+  status: ACTIVE
+  ticker: B
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de Barrick menos la rentabilidad del oro en USD
+      es inferior a 10 puntos porcentuales en el intervalo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción obtiene una rentabilidad total negativa en el período, aunque
+      el oro también registre una caída.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de Barrick menos la rentabilidad del oro en USD es inferior
+    a 10 puntos porcentuales en el intervalo definido.
+  - La acción obtiene una rentabilidad total negativa en el período, aunque el oro
+    también registre una caída.
+  horizon: medio
+  id: H3-OPP-20261023-022
+  opportunity_id: OPP-20261023-022
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total de Barrick menos rentabilidad del oro en USD
+    prediction: Entre el cierre del 2026-11-19 y el cierre del 2027-11-19, la rentabilidad
+      total de las acciones de Barrick, incluidos dividendos, superará en al menos
+      10 puntos porcentuales la rentabilidad del oro en USD durante el mismo intervalo.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Si el mercado está asignando demasiado peso a la volatilidad de los metales
+    y la generación de caja y la ejecución operativa se mantienen, la acción podría
+    capturar una revaloración mayor que la del metal. La diferencia entre la cotización
+    y los objetivos de analistas, por sí sola, no demuestra infravaloración; esta
+    hipótesis contrasta el desempeño bursátil con un referente observable.
+  review_trigger: Dejar de creerla si, al cierre del 2027-06-30, la rentabilidad total
+    acumulada de Barrick queda más de 10 puntos porcentuales por debajo de la del
+    oro y la compañía ha reducido su guía operativa o reportado flujo de caja libre
+    negativo; en cualquier caso, evaluar definitivamente el 2027-11-19.
+  secondary_hypotheses:
+  - H1-OPP-20261023-022
+  - H2-OPP-20261023-022
+  statement: En el período de un año posterior al corte, la rentabilidad total de
+    la acción de Barrick superará la del oro en al menos 10 puntos porcentuales.
+  status: ACTIVE
+  ticker: B
+  version: 1

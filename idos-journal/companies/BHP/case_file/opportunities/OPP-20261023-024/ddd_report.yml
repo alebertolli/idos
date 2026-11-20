@@ -1,0 +1,435 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La oportunidad se clasifica principalmente como cíclica por la exposición económica
+    inherente a commodities; la entrada no incluye datos operativos por producto que
+    permitan cuantificar esa sensibilidad.
+  - 'La cotización inferior al consenso no prueba infravaloración: los objetivos son
+    referencias de analistas y no una valoración independiente.'
+  - Los activos de escala, diversificación y posibles ventajas de costo podrían sostener
+    una ventaja competitiva, pero su magnitud y duración no se verifican con la evidencia
+    recibida.
+  - La generación de caja reportada es una señal financiera favorable, pero no basta
+    para determinar solvencia, calidad del FCF o resiliencia de ciclo.
+  - Las probabilidades asignadas a catalizadores son estimaciones analíticas no calibradas
+    y no deben interpretarse como pronósticos estadísticos.
+  - 'La observación fcf seleccionada de stockanalysis.com reporta 11,520,000,000,
+    unidad provider_financial_currency, período TTM terminado el 2026-06-30; URL:
+    https://stockanalysis.com/stocks/BHP/statistics/.'
+  - 'La observación operating_margin_pct seleccionada de stockanalysis.com reporta
+    42.1 percentage_points, período TTM terminado el 2026-06-30; URL: https://stockanalysis.com/stocks/BHP/statistics/.'
+  - 'La cotización aportada por yfinance es USD 68.95500183105469, con fecha 2026-11-19;
+    URL: https://finance.yahoo.com/quote/BHP/.'
+  - 'El consenso aportado tiene moneda USD, mínimo 67, media y mediana 79.36 y máximo
+    96, observado el 2026-11-20; fuentes: https://stockanalysis.com/stocks/bhp/forecast/
+    y https://finance.yahoo.com/quote/BHP/.'
+  preguntas_abiertas:
+  - ¿Cuál es la deuda neta, calendario de vencimientos, liquidez disponible y cobertura
+    de intereses, usando los estados financieros primarios más recientes?
+  - ¿Cuáles son los costos unitarios, volúmenes, reservas, vida útil y sensibilidad
+    de valor por activo y commodity?
+  - ¿Qué supuestos de precios, producción, costos y tipo de cambio explican los objetivos
+    de analistas y el consenso?
+  - ¿Qué proyectos están aprobados o en construcción, con qué capex, cronograma, producción
+    esperada y retornos?
+  - ¿Cómo se compara el FCF reportado con el histórico y qué partidas de capital de
+    trabajo, inversión y desinversiones lo afectan?
+  - ¿Qué riesgos materiales de seguridad, ambientales, agua, cierre, litigios, permisos
+    y comunidades afectan los activos?
+  - ¿Cuál es el historial reciente de asignación de capital, adquisiciones, recompras,
+    dividendos y remuneración ejecutiva?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Deep value no queda demostrada: faltan valoración relativa
+    completa, balance verificable y análisis de activos. Quality at fair price y compounder
+    no son la categoría principal porque la evidencia aportada no permite concluir
+    que la calidad y durabilidad del negocio compensen el ciclo a la cotización actual.
+    Compounder castigado requeriría evidencia de calidad excepcional temporalmente
+    descontada; no está establecida. Turnaround, special situation, distressed, hype
+    y value trap tampoco están sustentadas por los datos suministrados.'
+  justificacion: BHP es una minera diversificada cuyos ingresos y generación de caja
+    dependen materialmente de precios de commodities, volúmenes, costos y ciclos de
+    inversión globales. La observación financiera disponible muestra FCF TTM de USD
+    11.52 mil millones y margen operativo TTM de 42.1%, pero esos datos no eliminan
+    la exposición cíclica ni bastan para determinar un valor intrínseco. La clasificación
+    describe principalmente la naturaleza económica del negocio, no una recomendación
+    de compra.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La escala, la diversificación de commodities y la operación de activos
+    mineros pueden ofrecer ventajas de costo, capacidades técnicas y acceso a mercados;
+    son inferencias generales sobre el modelo, no conclusiones verificadas con evidencia
+    operativa de esta entrada. La diversificación no elimina la exposición común al
+    ciclo de materias primas, riesgos de ejecución ni concentración de activos. No
+    se dispone aquí de costos por activo, reservas, participación de mercado, vida
+    de mina o retorno sobre capital para comprobar la fortaleza y duración del moat.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Resultados y guía que confirmen resiliencia de caja y costos en condiciones
+    de mercado menos favorables.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 50
+- descripcion: Ejecución de proyectos de crecimiento con producción y retornos demostrables,
+    especialmente en cobre o potasa.
+  horizonte: largo
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: La actividad minera suele estar expuesta a riesgos ambientales, agua,
+    emisiones, seguridad laboral, relaciones comunitarias, permisos y continuidad
+    logística. La huella y el riesgo específico de BHP por activo, jurisdicción y
+    proveedor no están documentados en la evidencia recibida. Se requiere revisar
+    divulgaciones primarias, incidentes, obligaciones de cierre, compromisos de emisiones
+    y dependencias de energía, agua, transporte y equipos.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: 'La observación seleccionada de stockanalysis.com reporta FCF TTM de 11,520,000,000
+    en moneda financiera del proveedor para el período terminado el 2026-06-30; la
+    entrada general identifica USD como moneda. También reporta margen operativo TTM
+    de 42.1 puntos porcentuales para ese período. Son señales de generación de caja
+    y rentabilidad, pero no bastan para juzgar solvencia: no se aportan en las observaciones
+    seleccionadas deuda neta, vencimientos, liquidez, cobertura de intereses ni historial
+    comparable. El FCF reportado no se caracteriza como ajustado.'
+  rating: adecuada
+dominio_growth:
+  analisis: La exposición a cobre y el desarrollo de potasa podrían ofrecer crecimiento
+    estructural, mientras que los volúmenes y precios de mineral de hierro y carbón
+    metalúrgico pueden ser más cíclicos. Son consideraciones de negocio a investigar,
+    no hechos nuevos verificados en los datos aportados. No hay calendario de proyectos,
+    inversión comprometida, producción esperada ni retorno incremental que permita
+    cuantificar visibilidad o crecimiento.
+  rating: moderado
+dominio_management:
+  analisis: La información entregada no permite valorar de forma sustentada la asignación
+    de capital, remuneración, alineación accionarial, historial de adquisiciones o
+    cumplimiento de compromisos. La calificación refleja insuficiencia de evidencia
+    para atribuir una valoración alta o baja al equipo directivo, no una afirmación
+    de mal desempeño.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Caída de precios de commodities que reduzca márgenes, caja y valor económico
+    de reservas.
+- impacto: alto
+  probabilidad: media
+  riesgo: Retrasos, sobrecostos o menor productividad en proyectos y operaciones mineras.
+- impacto: alto
+  probabilidad: media
+  riesgo: Interrupciones por permisos, seguridad, agua, infraestructura, clima o relaciones
+    comunitarias.
+- impacto: medio
+  probabilidad: media
+  riesgo: Cambios regulatorios, fiscales o ambientales que eleven costos o limiten
+    producción.
+- impacto: alto
+  probabilidad: media
+  riesgo: Asignación de capital deficiente en adquisiciones o proyectos de larga duración.
+- impacto: medio
+  probabilidad: alta
+  riesgo: Valoración dependiente de referencias de analistas no verificadas como estimaciones
+    independientes.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Resultados y guía operativa que permitan observar si la generación
+      de caja y los márgenes se sostienen a través de condiciones menos favorables
+      de precios, junto con avances verificables de proyectos de crecimiento. No se
+      aportó un calendario ni evidencia primaria de eventos específicos.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 50
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización observada es USD 68.955 al 2026-11-19. El consenso
+    de objetivos observado al 2026-11-20 es USD 79.36, con rango USD 67-96. Esto indica
+    una referencia media superior a la cotización, pero los objetivos de analistas
+    no son una valoración independiente ni garantizan convergencia. No se proporcionan
+    múltiplos actuales suficientes para identificar con rigor qué escenario implícito
+    reflejan.
+  hipotesis_contraria: 'El mercado podría estar descontando una normalización o debilidad
+    de commodities y la sensibilidad de beneficios a esa normalización. En sentido
+    contrario, podría estar infravalorando la capacidad de activos de bajo costo y
+    la opcionalidad de crecimiento de cobre y potasa. Ambas son hipótesis, no hechos
+    verificados en la evidencia recibida. El segundo nivel es que el consenso puede
+    ser razonable si los márgenes actuales dependen de precios cíclicos elevados:
+    una empresa excelente no necesariamente es una inversión atractiva a cualquier
+    precio.'
+  razonamiento: El precio está por debajo de la media y mediana del consenso aportado,
+    pero dentro del rango observado. Sin datos suficientes sobre múltiplos, balance,
+    valor de activos, supuestos de precios de commodities y estimaciones operativas,
+    la diferencia no prueba un error de mercado explotable. La evidencia disponible
+    tampoco permite confirmar que el precio descuente un escenario excesivamente pesimista.
+generated_at: '2026-11-20T08:00:46.577562-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se aportó evidencia que demuestre la vulneración de alguna de las categorías
+    de integridad. La falta de información verificable sobre ciertos riesgos no equivale
+    a evidencia de que la tesis esté rota.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-024
+prompt_inputs:
+  business_model: 'BHP Group Limited operates as a resources company in Australia,
+    Europe, China, Japan, India, South Korea, rest of Asia, North America, and South
+    America. The company operates through three segments: Copper, Iron Ore, and Coal.
+    It explores for copper, iron, steelmaking coal, energy coal, nickel, potash, cobalt,
+    sulphide, ammonium sulphate, silver, gold, molybdenum, uranium, and zinc deposits.
+    The company is also involved in the services, marketing, trading, and finance
+    businesses; potash, nickel, and copper development; mining, smelting, refining
+    of nickel; and provision of towing, freight, administrative, and marketing support
+    and other services. BHP Group Limited was founded in 1851 and is headquartered
+    in Melbourne, Australia.'
+  ceo_tenure: 0
+  debt_to_equity: 0.5
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: BHP Group Limited
+  operating_margin: 42.1
+  pe_ratio: 18.5
+  products: ''
+  revenue: 58760000000.0
+  revenue_growth: 8.84
+  roic: 21.72
+  sector: Basic Materials
+  ticker: BHP
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'BHP Group Limited operates as a resources company in Australia,
+    Europe, China, Japan, India, South Korea, rest of Asia, North America, and South
+    America. The company operates through three segments: Copper, Iron Ore, and Coal.
+    It explores for copper, iron, steelmaking coal, energy coal, nickel, potash, cobalt,
+    sulphide, ammonium sulphate, silver, gold, molybdenum, uranium, and zinc deposits.
+    The company is also involved in the services, marketing, trading, and finance
+    businesses; potash, nickel, and copper development; mining, smelting, refining
+    of nickel; and provision of towing, freight, administrative, and marketing support
+    and other services. BHP Group Limited was founded in 1851 and is headquartered
+    in Melbourne, Australia.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 68.95500183105469
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.5
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:07.466614+00:00", "period_end_date": "2026-06-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/BHP/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 11520000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 43.34}, "observed_at": "2026-11-01T10:17:07.466614+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/BHP/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 42.1}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 18.3}, "observed_at": "2026-11-01T10:17:07.466614+00:00", "period_end_date":
+    "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/bhp/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 8.84}}}, "observed_at": "2026-11-19T19:15:48.424667+00:00",
+    "period_end": "2026-06-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: BHP Group Limited
+  operating_margin: 42.1
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'BHP Group Limited operates as a resources company in Australia,
+    Europe, China, Japan, India, South Korea, rest of Asia, North America, and South
+    America. The company operates through three segments: Copper, Iron Ore, and Coal.
+    It explores for copper, iron, steelmaking coal, energy coal, nickel, potash, cobalt,
+    sulphide, ammonium sulphate, silver, gold, molybdenum, uranium, and zinc deposits.
+    The company is also involved in the services, marketing, trading, and finance
+    businesses; potash, nickel,'
+  revenue: 58760000000.0
+  revenue_growth: 8.84
+  roic: 21.72
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    96.0, "low": 67.0, "mean": 79.36, "median": 79.36, "observed_at": "2026-11-20T08:00:13.208005-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T08:00:13.208005-03:00", "observed_date": "2026-11-20", "target_price":
+    79.36, "url": "https://stockanalysis.com/stocks/bhp/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T08:00:13.208005-03:00",
+    "observed_date": "2026-11-20", "target_price": 79.35714, "url": "https://finance.yahoo.com/quote/BHP/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 68.95500183105469,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BHP/"}]}}'
+  sector: Basic Materials
+  ticker: BHP
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 7d80c2c3b0c8999c7c41350577786304777428e752934f9d04240bd45d80500d
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T08:00:46.577562-03:00'
+resumen_ejecutivo: 'BHP presenta exposición a negocios de recursos naturales y, por
+  tanto, sensibilidad cíclica. La evidencia financiera disponible reporta FCF TTM
+  de USD 11.52 mil millones y margen operativo TTM de 42.1%, pero no ofrece una serie
+  histórica suficiente ni información completa de deuda, liquidez o valoración. La
+  cotización de USD 68.955 queda por debajo del objetivo medio observado de USD 79.36,
+  aunque dicho consenso es solo una referencia. La oportunidad es incierta: el descuento
+  aparente puede reflejar riesgo de ciclo y no necesariamente una ineficiencia. Se
+  requiere diligencia primaria sobre activos, costos, balance, asignación de capital,
+  proyectos y riesgos operativos.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Una actualización verificable del consenso que retire o sustituya el límite
+      bajo de USD 67.
+    - Resultados operativos y financieros primarios que sustenten una valoración fuera
+      del rango observado.
+    id: BEAR
+    key_assumptions:
+    - El objetivo bajo de USD 67 continúa siendo una referencia pertinente al horizonte
+      indicado.
+    - La cotización y los objetivos están expresados en USD y son comparables en la
+      forma en que los presenta la evidencia suministrada.
+    - No se interpreta la diferencia entre la cotización del 2026-11-19 y el objetivo
+      observado del 2026-11-20 como retorno garantizado.
+    rationale: Ancla bajista correspondiente al mínimo observado del rango de objetivos
+      de analistas. No es una valoración independiente ni una previsión propia; refleja
+      únicamente el límite bajo del consenso disponible. El nivel queda cerca de la
+      cotización aportada, por lo que ilustra que el rango observado no implica necesariamente
+      una revalorización.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/bhp/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BHP/
+    target_price: 67
+  - falsifiers:
+    - Una actualización verificable del consenso que retire o sustituya el límite
+      alto de USD 96.
+    - Resultados, guía o datos primarios que contradigan los supuestos de negocio
+      subyacentes al extremo alto del consenso.
+    id: BULL
+    key_assumptions:
+    - El objetivo alto observado de USD 96 continúa siendo una referencia pertinente
+      al horizonte indicado.
+    - La cotización y los objetivos están expresados en USD y son comparables en la
+      forma en que los presenta la evidencia suministrada.
+    - La referencia alcista no se presenta como resultado esperado ni lleva asociada
+      una probabilidad.
+    rationale: Ancla alcista correspondiente al máximo observado del rango de objetivos
+      de analistas. Es un límite de referencia del consenso, no una estimación independiente
+      ni una garantía. El caso requiere que el mercado acepte el extremo alto del
+      rango, pero la evidencia disponible no detalla los supuestos operativos que
+      lo fundamentan.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/bhp/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BHP/
+    target_price: 96
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 57
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T08:00:13.208005-03:00'
+  fuentes:
+    stockanalysis: 79.36
+    yfinance: 79.35714
+  mediana: 79.36
+  n_fuentes: 2
+  promedio: 79.36
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T08:00:13.208005-03:00'
+    observed_date: '2026-11-20'
+    target_price: 79.36
+    url: https://stockanalysis.com/stocks/bhp/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T08:00:13.208005-03:00'
+    observed_date: '2026-11-20'
+    target_price: 79.35714
+    url: https://finance.yahoo.com/quote/BHP/
+  target_high: 96.0
+  target_low: 67.0
+tesis_inversion: La tesis potencial es exposición a activos mineros de escala y generación
+  de caja, con opcionalidad en commodities vinculados a electrificación y fertilizantes.
+  La contrapartida es que el valor depende de precios cíclicos, ejecución, costos
+  y disciplina de capital. La cotización está por debajo del consenso observado, pero
+  la diferencia no constituye por sí sola un margen de seguridad demostrable. Con
+  la evidencia actual, la valoración se considera indeterminada y se clasifica como
+  justa de manera prudencial, no como estimación de valor intrínseco. La tesis requiere
+  validar costos por activo, reservas, balance y proyectos mediante fuentes primarias.
+ticker: BHP
+version: '3.0'

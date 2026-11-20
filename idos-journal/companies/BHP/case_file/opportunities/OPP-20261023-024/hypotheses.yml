@@ -1,0 +1,198 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El informe de producción del ejercicio fiscal 2027 muestra un aumento
+      inferior al 5% frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La producción cae interanualmente y BHP atribuye la caída a restricciones
+      operativas persistentes o retrasos de proyectos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El informe de producción del ejercicio fiscal 2027 muestra un aumento inferior
+    al 5% frente al ejercicio fiscal 2026.
+  - La producción cae interanualmente y BHP atribuye la caída a restricciones operativas
+    persistentes o retrasos de proyectos.
+  horizon: medio
+  id: H1-OPP-20261023-024
+  opportunity_id: OPP-20261023-024
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de producción atribuible de cobre en el ejercicio
+      fiscal 2027
+    prediction: La producción atribuible de cobre del ejercicio fiscal 2027 será al
+      menos un 5% superior a la del ejercicio fiscal 2026, según los informes de producción
+      de BHP.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La escala de los activos de cobre podría permitir a BHP aumentar la producción
+    si las operaciones mantienen su desempeño y los proyectos avanzan según lo previsto.
+    El contexto plantea esa opcionalidad como hipótesis, pero no aporta datos de producción,
+    costos ni guía corporativa; por tanto, el crecimiento debe verificarse frente
+    a resultados y documentos primarios.
+  review_trigger: Dejar de creerla si la guía corporativa vigente para el ejercicio
+    fiscal 2027 se sitúa por debajo de un crecimiento del 5% frente al ejercicio fiscal
+    2026, o si el informe anual publicado hasta 2027-08-31 no confirma ese crecimiento.
+  secondary_hypotheses: []
+  statement: La producción de cobre de BHP crecerá en el ejercicio fiscal 2027, apoyada
+    por el desempeño de sus operaciones y la contribución de proyectos de crecimiento.
+  status: ACTIVE
+  ticker: BHP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: BHP no comunica primera producción comercial de potasa de Jansen fase
+      1 antes del 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa anuncia un aplazamiento que desplaza la primera producción
+      comercial más allá de esa fecha.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - BHP no comunica primera producción comercial de potasa de Jansen fase 1 antes
+    del 2027-12-31.
+  - La empresa anuncia un aplazamiento que desplaza la primera producción comercial
+    más allá de esa fecha.
+  horizon: medio
+  id: H2-OPP-20261023-024
+  opportunity_id: OPP-20261023-024
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 1.0
+    met: null
+    metric: Primera producción comercial de potasa de Jansen fase 1
+    prediction: BHP comunicará la primera producción comercial de potasa de Jansen
+      fase 1 a más tardar el 2027-12-31.
+    unit: hito alcanzado antes o en 2027-12-31 (sí=1; no=0)
+  priority: important
+  probability: 0.5
+  rationale: La potasa puede diversificar la exposición de BHP hacia fertilizantes,
+    pero el valor de esa opcionalidad depende de que el proyecto se complete y entre
+    en operación. El contexto no incluye calendario, presupuesto ni avance físico
+    verificados; la predicción es, por ello, una prueba de ejecución y no una afirmación
+    sobre el estado actual del proyecto.
+  review_trigger: Dejar de creerla en cuanto BHP anuncie que la primera producción
+    comercial se retrasa más allá del 2027-12-31, o si no se confirma antes de esa
+    fecha.
+  secondary_hypotheses: []
+  statement: La fase 1 del proyecto Jansen alcanzará su primera producción comercial
+    de potasa antes de finalizar 2027.
+  status: ACTIVE
+  ticker: BHP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón deuda neta/EBITDA subyacente reportada al cierre del ejercicio
+      fiscal 2027 supera 1,0 vez.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: BHP reporta deuda neta positiva creciente junto con flujo de caja operativo
+      decreciente durante el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón deuda neta/EBITDA subyacente reportada al cierre del ejercicio fiscal
+    2027 supera 1,0 vez.
+  - BHP reporta deuda neta positiva creciente junto con flujo de caja operativo decreciente
+    durante el ejercicio fiscal 2027.
+  horizon: medio
+  id: H3-OPP-20261023-024
+  opportunity_id: OPP-20261023-024
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-31'
+    expected: 1.0
+    met: null
+    metric: Deuda neta/EBITDA subyacente al cierre del ejercicio fiscal 2027
+    prediction: La deuda neta dividida por EBITDA subyacente de BHP será igual o inferior
+      a 1,0 vez al cierre del ejercicio fiscal 2027, usando las cifras reportadas
+      por la compañía.
+    unit: veces o menos
+  priority: critical
+  probability: 0.5
+  rationale: La capacidad de generar caja de los activos puede sostener el balance
+    y preservar flexibilidad financiera, pero la sensibilidad de los beneficios a
+    precios cíclicos puede operar en sentido contrario. El contexto no proporciona
+    deuda neta, EBITDA ni escenarios de precios verificados, por lo que la hipótesis
+    se plantea como un umbral medible, no como una conclusión sobre la solvencia actual.
+  review_trigger: Dejar de creerla si un informe financiero de BHP muestra deuda neta/EBITDA
+    subyacente superior a 1,0 vez; en ausencia de una cifra intermedia, evaluarla
+    con los resultados del ejercicio fiscal 2027 publicados antes de 2027-08-31.
+  secondary_hypotheses:
+  - H1-OPP-20261023-024
+  statement: BHP mantendrá un apalancamiento neto moderado al cierre del ejercicio
+    fiscal 2027, aun con la volatilidad propia de los precios de los commodities.
+  status: ACTIVE
+  ticker: BHP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de BHP menos la del índice de referencia es inferior
+      a 5 puntos porcentuales al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: BHP obtiene una rentabilidad total inferior a la del índice durante
+      el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de BHP menos la del índice de referencia es inferior a 5
+    puntos porcentuales al 2027-11-20.
+  - BHP obtiene una rentabilidad total inferior a la del índice durante el periodo.
+  horizon: medio
+  id: H4-OPP-20261023-024
+  opportunity_id: OPP-20261023-024
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de BHP frente al S&P/ASX 200 Resources
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de BHP en dólares australianos, con dividendos reinvertidos, superará
+      en al menos 5 puntos porcentuales la del índice S&P/ASX 200 Resources en el
+      mismo periodo.
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: 'El contexto plantea que el mercado podría estar infravalorando la calidad
+    de los activos de bajo costo y la opcionalidad de cobre y potasa, aunque también
+    advierte que la cotización por debajo del consenso no demuestra por sí sola un
+    margen de seguridad y que la valoración es indeterminada. La hipótesis es, por
+    tanto, relativa y comprobable: una rentabilidad superior al índice sectorial no
+    probaría valor intrínseco, pero sí refutaría la expectativa de desempeño inferior
+    durante el periodo.'
+  review_trigger: Dejar de creerla si, al 2027-11-20, la rentabilidad total relativa
+    de BHP es inferior a 5 puntos porcentuales; antes de esa fecha, reconsiderarla
+    si se materializa una caída persistente de producción o un deterioro del balance
+    que invalide las hipótesis operativas o financieras asociadas.
+  secondary_hypotheses:
+  - H1-OPP-20261023-024
+  - H2-OPP-20261023-024
+  - H3-OPP-20261023-024
+  statement: En los doce meses siguientes al corte, la acción de BHP obtendrá una
+    rentabilidad total superior a la del índice S&P/ASX 200 Resources, lo que sería
+    compatible con una mejora relativa de la valoración o de las expectativas sobre
+    sus activos.
+  status: ACTIVE
+  ticker: BHP
+  version: 1
