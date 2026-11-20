@@ -1,0 +1,2 @@
+> [!note] Alcance y calidad de la evidencia
+> Esta entrada se basa exclusivamente en los inputs DDD y AOIF proporcionados, ambos con fecha de análisis **20 de noviembre de 2026** cuando se indica. Los inputs no incluyen enlaces, referencias documentales ni datos primarios verificables. Por ello, las métricas y valoraciones siguientes se presentan como **datos reportados por la investigación recibida**, no como hechos verificados independientemente. Cuando los inputs se contradicen o no sustentan una conclusión, se señala explícitamente.
