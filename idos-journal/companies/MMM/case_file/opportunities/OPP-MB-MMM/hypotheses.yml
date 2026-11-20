@@ -1,0 +1,198 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico de ventas del ejercicio fiscal 2027 es inferior
+      a 2,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no divulga una métrica de ventas orgánicas comparable para
+      los ejercicios fiscales 2026 y 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico de ventas del ejercicio fiscal 2027 es inferior a 2,0%.
+  - La compañía no divulga una métrica de ventas orgánicas comparable para los ejercicios
+    fiscales 2026 y 2027.
+  horizon: medio
+  id: H1-OPP-MB-MMM
+  opportunity_id: OPP-MB-MMM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 2.0
+    met: null
+    metric: Crecimiento orgánico de ventas del ejercicio fiscal 2027
+    prediction: Para el ejercicio fiscal 2027, 3M reportará crecimiento orgánico de
+      ventas de al menos 2,0% frente al ejercicio fiscal 2026, según la definición
+      que utilice la compañía.
+    unit: porcentaje interanual mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Los ingresos TTM informados son de USD 25.247 mil millones, pero la evidencia
+    disponible no documenta crecimiento orgánico. La amplitud de la cartera podría
+    permitir crecimiento en distintos mercados finales; esta posibilidad debe confirmarse
+    mediante ventas orgánicas, excluyendo adquisiciones, desinversiones y efectos
+    cambiarios.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran crecimiento
+    orgánico inferior a 2,0%, o si al publicar esos resultados no existe información
+    suficiente para calcularlo de manera comparable.
+  secondary_hypotheses: []
+  statement: La cartera de negocios de 3M volverá a generar crecimiento orgánico positivo
+    y moderado, en lugar de depender únicamente de la generación de caja de sus operaciones
+    existentes.
+  status: ACTIVE
+  ticker: MMM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La expansión del margen operativo ajustado entre 2026 y 2027 es inferior
+      a 1,0 punto porcentual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación requiere ajustes no divulgados o cambios de definición
+      que impiden verificar la expansión.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La expansión del margen operativo ajustado entre 2026 y 2027 es inferior a 1,0
+    punto porcentual.
+  - La comparación requiere ajustes no divulgados o cambios de definición que impiden
+    verificar la expansión.
+  horizon: medio
+  id: H2-OPP-MB-MMM
+  opportunity_id: OPP-MB-MMM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 1.0
+    met: null
+    metric: Variación del margen operativo ajustado entre los ejercicios fiscales
+      2026 y 2027
+    prediction: El margen operativo ajustado del ejercicio fiscal 2027 superará en
+      al menos 1,0 punto porcentual el margen operativo ajustado del ejercicio fiscal
+      2026, usando una definición comparable de la compañía.
+    unit: punto porcentual mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El margen bruto TTM disponible es 39,53%, pero no se dispone de evidencia
+    suficiente sobre rentabilidad por segmento, costes de reestructuración ni conversión
+    de ventas en beneficio operativo. Una expansión del margen operativo ajustado
+    sería una señal observable de crecimiento rentable, aunque no demostraría por
+    sí sola una ventaja competitiva duradera.
+  review_trigger: Dejar de creerla cuando 3M publique los resultados del ejercicio
+    fiscal 2027 si el margen no aumenta al menos 1,0 punto porcentual en una base
+    comparable.
+  secondary_hypotheses:
+  - H1-OPP-MB-MMM
+  statement: 3M traducirá la mejora de ventas y la gestión de costes en una expansión
+    de su margen operativo ajustado.
+  status: ACTIVE
+  ticker: MMM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón entre FCF y beneficio neto ajustado de 2027 es inferior al
+      90%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de 2027 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no divulga los componentes necesarios para calcular la
+      razón de forma reproducible.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón entre FCF y beneficio neto ajustado de 2027 es inferior al 90%.
+  - El FCF de 2027 es negativo.
+  - La compañía no divulga los componentes necesarios para calcular la razón de forma
+    reproducible.
+  horizon: medio
+  id: H3-OPP-MB-MMM
+  opportunity_id: OPP-MB-MMM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 90.0
+    met: null
+    metric: FCF dividido por beneficio neto ajustado del ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2027, el flujo de caja libre será al menos
+      el 90% del beneficio neto ajustado anual, utilizando las definiciones publicadas
+      por 3M y comprobando su conciliación.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: El paquete confirma FCF TTM positivo, pero no especifica cuánto procede
+    de beneficios recurrentes, capital de trabajo u otros factores, ni documenta las
+    necesidades de inversión. Una conversión elevada y sostenida sería compatible
+    con una capacidad de autofinanciación, pero debe evaluarse junto con gasto de
+    capital y otros usos de efectivo.
+  review_trigger: Dejar de creerla al publicarse los resultados de 2027 si el FCF
+    es negativo o representa menos del 90% del beneficio neto ajustado; también si
+    no se pueden conciliar las métricas.
+  secondary_hypotheses: []
+  statement: 3M mantendrá una conversión sólida de sus beneficios ajustados en flujo
+    de caja libre, sin sacrificar una reinversión suficiente para sostener el negocio.
+  status: ACTIVE
+  ticker: MMM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de MMM menos la del índice de referencia es inferior
+      a 10 puntos porcentuales en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de MMM es inferior a la del índice de referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de MMM menos la del índice de referencia es inferior a 10
+    puntos porcentuales en el periodo definido.
+  - La rentabilidad total de MMM es inferior a la del índice de referencia.
+  horizon: largo
+  id: H4-OPP-MB-MMM
+  opportunity_id: OPP-MB-MMM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total acumulada de MMM frente al S&P 500 Industrials Select
+      Sector Index
+    prediction: Desde el cierre del 20 de noviembre de 2026 hasta el cierre del 20
+      de noviembre de 2028, la rentabilidad total de MMM, incluidos dividendos, superará
+      en al menos 10 puntos porcentuales la del S&P 500 Industrials Select Sector
+      Index, con dividendos reinvertidos.
+    unit: puntos porcentuales de rendimiento superior mínimo
+  priority: important
+  probability: 0.5
+  rationale: La tesis plantea que la cotización podría no reflejar una recuperación
+    sostenible, pero los datos disponibles no permiten determinar la valoración relativa
+    ni la expectativa incorporada en el precio. La hipótesis es que la confirmación
+    de mejores resultados operativos reduciría esa incertidumbre y favorecería una
+    rentabilidad relativa superior; no presupone un precio objetivo.
+  review_trigger: Dejar de creerla el 2028-11-20 si la rentabilidad total relativa
+    de MMM no alcanza 10 puntos porcentuales, calculada desde precios de cierre y
+    con dividendos reinvertidos en ambos casos.
+  secondary_hypotheses:
+  - H1-OPP-MB-MMM
+  - H2-OPP-MB-MMM
+  statement: Si 3M demuestra crecimiento orgánico y expansión de márgenes, su rentabilidad
+    bursátil superará a la del mercado industrial estadounidense durante los dos años
+    siguientes al corte de investigación.
+  status: ACTIVE
+  ticker: MMM
+  version: 1

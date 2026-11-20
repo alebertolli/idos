@@ -1,0 +1,141 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM publicados al 2027-09-30 son inferiores a USD 69.400
+      millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los informes disponibles muestran que el crecimiento depende principalmente
+      de factores no recurrentes y no de ventas subyacentes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM publicados al 2027-09-30 son inferiores a USD 69.400 millones.
+  - Los informes disponibles muestran que el crecimiento depende principalmente de
+    factores no recurrentes y no de ventas subyacentes.
+  horizon: medio
+  id: H1-OPP-MB-MRK
+  opportunity_id: OPP-MB-MRK
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 69400.0
+    met: null
+    metric: Ingresos TTM
+    prediction: Al 2027-09-30, los ingresos de los últimos doce meses serán al menos
+      USD 69.400 millones, aproximadamente 3% por encima del nivel TTM informado al
+      2026-09-30.
+    unit: USD millones
+  priority: important
+  probability: 0.5
+  rationale: La empresa registró ventas TTM de USD 67.378 millones al 2026-09-30.
+    Ese nivel aporta una base observable, pero no demuestra crecimiento futuro. La
+    hipótesis es una predicción que debe contrastarse con resultados posteriores y
+    con información sobre la evolución de productos y mercados.
+  review_trigger: Dejar de creerla si los ingresos TTM informados para el trimestre
+    terminado el 2027-06-30 son inferiores a USD 67.378 millones y la guía posterior
+    de la empresa no anticipa una recuperación suficiente para alcanzar USD 69.400
+    millones al 2027-09-30.
+  secondary_hypotheses: []
+  statement: Los ingresos TTM de Merck crecerán al menos modestamente durante los
+    próximos doce meses, aunque la evidencia disponible no permite atribuir ese crecimiento
+    a productos o mercados concretos.
+  status: ACTIVE
+  ticker: MRK
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM al 2027-09-30 es inferior a USD 13.000 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF cae por debajo de USD 13.000 millones en dos informes trimestrales
+      consecutivos y la empresa no identifica una causa temporal verificable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM al 2027-09-30 es inferior a USD 13.000 millones.
+  - El FCF cae por debajo de USD 13.000 millones en dos informes trimestrales consecutivos
+    y la empresa no identifica una causa temporal verificable.
+  horizon: medio
+  id: H2-OPP-MB-MRK
+  opportunity_id: OPP-MB-MRK
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 13000.0
+    met: null
+    metric: FCF TTM
+    prediction: El FCF TTM al 2027-09-30 será igual o superior a USD 13.000 millones.
+    unit: USD millones, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: 'El FCF TTM informado al 2026-09-30 fue de USD 14.746 millones, muy superior
+    al ingreso neto TTM informado de USD 2.453 millones. La diferencia no prueba que
+    el FCF sea sostenible: puede reflejar partidas no monetarias, capital de trabajo
+    u otros factores. La hipótesis pone a prueba si la generación de caja resiste
+    una reducción moderada.'
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-06-30
+    muestra FCF TTM inferior a USD 13.000 millones sin una explicación explícita y
+    acotada en el tiempo.
+  secondary_hypotheses:
+  - H1-OPP-MB-MRK
+  statement: El flujo de caja libre TTM de Merck se mantendrá por encima de USD 13.000
+    millones durante los próximos doce meses.
+  status: ACTIVE
+  ticker: MRK
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de MRK desde el 2026-10-30 hasta el 2027-10-29
+      iguala o supera la de XLV.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La diferencia de rentabilidad total MRK menos XLV es igual o superior
+      a cero al cierre de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de MRK desde el 2026-10-30 hasta el 2027-10-29 iguala o
+    supera la de XLV.
+  - La diferencia de rentabilidad total MRK menos XLV es igual o superior a cero al
+    cierre de la fecha objetivo.
+  horizon: medio
+  id: H3-OPP-MB-MRK
+  opportunity_id: OPP-MB-MRK
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-10-29'
+    expected: -1.0
+    met: null
+    metric: Rentabilidad total relativa de MRK frente a XLV
+    prediction: Entre el cierre del 2026-10-30 y el cierre del 2027-10-29, la rentabilidad
+      total de MRK será inferior a la del ETF Health Care Select Sector SPDR (XLV),
+      incluyendo dividendos y comparando ambas inversiones en USD.
+    unit: diferencia porcentual menor que cero
+  priority: informational
+  probability: 0.5
+  rationale: La cotización avanzó durante los doce meses hasta el 2026-10-30, pero
+    ese avance, por sí solo, no demuestra que el crecimiento o la rentabilidad sean
+    sostenibles ni que la valoración sea atractiva. La falta de datos sobre valoración,
+    mercado direccionable, retornos sobre capital y erosión competitiva respalda tratar
+    la continuación de la ventaja bursátil como incierta, no como un hecho.
+  review_trigger: Dejar de creerla si MRK iguala o supera la rentabilidad total de
+    XLV en cualquier fecha de cierre mensual a partir del 2027-07-30 y mantiene esa
+    ventaja hasta el 2027-10-29.
+  secondary_hypotheses:
+  - H1-OPP-MB-MRK
+  - H2-OPP-MB-MRK
+  statement: La acción de Merck no superará al sector sanitario estadounidense en
+    rentabilidad total durante los doce meses posteriores al 2026-10-30.
+  status: ACTIVE
+  ticker: MRK
+  version: 1

@@ -1,0 +1,517 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La serie de ingresos aportada no acredita crecimiento rápido entre FY2022 y FY2025.
+  - La generación de caja es una fortaleza financiera observada, pero no prueba por
+    sí sola retornos atractivos sobre capital ni crecimiento sostenible.
+  - Ingresos FY2022 de USD 20.688 millones y FY2025 de USD 20.139 millones; fuente
+    StockAnalysis, períodos FY2022 y FY2025.
+  - FCF TTM de USD 9.071 millones y margen bruto TTM de 72,43%; fuente StockAnalysis,
+    período terminado el 2026-09-30.
+  - Precio de USD 78,03 al 2026-10-30 y rango de objetivos de analistas USD 59–85
+    observado al 2026-11-20; fuentes del paquete.
+  preguntas_abiertas:
+  - ¿Cómo evolucionan volúmenes, precios, participación, penetración y tamaño de mercado
+    por categoría?
+  - ¿Cuáles son los retornos incrementales sobre capital y la reinversión por línea
+    de producto?
+  - ¿Qué explica el valor reportado de cobertura de intereses igual a cero y cuál
+    es la cobertura calculada con EBIT y gasto por intereses?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; perfil de crecimiento multibagger no corroborado
+  justificacion: El paquete muestra fuerte momentum de precio, pero la evidencia financiera
+    disponible describe ingresos casi estables entre FY2022 y FY2025 y no valida un
+    motor de crecimiento de alto ritmo.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La generación positiva de FCF y el margen bruto reportado son fortalezas
+    observables. Sin datos de retornos sobre capital, reinversión, volúmenes, participación
+    o desempeño por categoría, no se puede validar la calidad del crecimiento, la
+    ventaja competitiva ni su durabilidad.
+  rating: Calidad mixta; evidencia incompleta
+dominio_catalizadores:
+- catalizador: Sostener la generación de FCF
+  detalle: El FCF reportado fue USD 9.071 millones TTM al 2026-09-30; su evolución
+    en períodos comparables sería una señal útil para seguir la tesis.
+  fuente: https://stockanalysis.com/stocks/mo/financials/
+- catalizador: Defensa de márgenes
+  detalle: El margen bruto reportado fue 72,43% TTM al 2026-09-30; cambios posteriores
+    ayudarían a evaluar poder de precios y presión de costos.
+  fuente: https://stockanalysis.com/stocks/mo/financials/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- detalle: Los ingresos reportados fueron USD 20.688 millones en FY2022 y USD 20.139
+    millones en FY2025; la trayectoria no evidencia expansión en ese intervalo.
+  fuente: https://stockanalysis.com/stocks/mo/financials/
+  riesgo: Crecimiento orgánico no demostrado
+- detalle: El paquete no cuantifica volúmenes, participación, cambios regulatorios
+    ni sustitución entre categorías, por lo que no permite evaluar su impacto.
+  riesgo: Erosión de categorías y marco regulatorio
+- detalle: La deuda neta reportada fue USD 21.364 millones al 2026-09-30; el dato
+    de cobertura de intereses reportado como cero requiere verificación y no debe
+    interpretarse como cobertura económica validada.
+  fuente: https://stockanalysis.com/stocks/mo/financials/
+  riesgo: Apalancamiento y cobertura de intereses
+error_mercado:
+  catalizador_cambio: La evidencia disponible no identifica un catalizador corporativo
+    fechado que permita sostener un cambio de expectativas.
+  conclusion_error_valoracion: 'No se valida un error de valoración: faltan una valoración
+    intrínseca defendible y datos suficientes sobre penetración, crecimiento de categorías
+    y expectativas operativas.'
+  consenso_actual: El precio observado fue USD 78,03 al 2026-10-30; el consenso de
+    precio objetivo fue USD 73,45 al 2026-11-20.
+  hipotesis_contraria: La estabilidad del flujo de caja libre y el margen bruto podrían
+    sostener el negocio, aunque los datos incluidos no acreditan una aceleración del
+    crecimiento.
+  razonamiento: El momentum de precio a 12 meses fue 38,4001% hasta el 2026-10-30,
+    mientras que los ingresos FY2022–FY2025 variaron poco. Esas observaciones, por
+    sí solas, no demuestran que las expectativas del mercado sean erróneas.
+generated_at: '2026-11-20T16:58:26.435000-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-MO
+prompt_inputs:
+  business_model: Altria Group, Inc., through its subsidiaries, manufactures and sells
+    smokeable and oral tobacco products in the United States. It offers cigarettes
+    primarily under the Marlboro brand; large cigars and pipe tobacco under the Black
+    & Mild brand; moist smokeless tobacco and oral tobacco products under the Copenhagen,
+    Skoal, Red Seal, and Husky brands; oral nicotine pouches under the on! brand;
+    and e-vapor products under the NJOY ACE brand. The company sells its products
+    to distributors, as well as large retail organizations, such as chain stores.
+    Altria Group, Inc. was founded in 1822 and is headquartered in Richmond, Virginia.
+  ceo_tenure: 0
+  debt_to_equity: 0
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Altria Group, Inc.
+  operating_margin: 61.24
+  pe_ratio: 15.49
+  products: ''
+  revenue: 20630000000.0
+  revenue_growth: 2.32
+  roic: 37.38
+  sector: Consumer Defensive
+  ticker: MO
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mo/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mo/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mo/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mo/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MO/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 1660000000.0
+  limitations: Sólo se proporciona una observación actual de acciones en circulación;
+    falta una cifra comparable del período anterior y no se aporta historial de acciones
+    diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MO/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Altria Group, Inc., through its subsidiaries, manufactures and sells
+    smokeable and oral tobacco products in the United States. It offers cigarettes
+    primarily under the Marlboro brand; large cigars and pipe tobacco under the Black
+    & Mild brand; moist smokeless tobacco and oral tobacco products under the Copenhagen,
+    Skoal, Red Seal, and Husky brands; oral nicotine pouches under the on! brand;
+    and e-vapor products under the NJOY ACE brand. The company sells its products
+    to distributors, as well as large retail organizations, such as chain stores.
+    Altria Group, Inc. was founded in 1822 and is headquartered in Richmond, Virginia.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 78.02999877929688
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T19:57:56.300948+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Altria Group, Inc.
+  operating_margin: 61.24
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Altria Group, Inc., through its subsidiaries, manufactures and sells
+    smokeable and oral tobacco products in the United States. It offers cigarettes
+    primarily under the Marlboro brand; large cigars and pipe tobacco under the Black
+    & Mild brand; moist smokeless tobacco and oral tobacco products under the Copenhagen,
+    Skoal, Red Seal, and Husky brands; oral nicotine pouches under the on! brand;
+    and e-vapor products under the NJOY ACE brand. The company sells its products
+    to distributors, as well as '
+  revenue: 20630000000.0
+  revenue_growth: 2.32
+  roic: 37.38
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MO/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    85.0, "low": 59.0, "mean": 73.45, "median": 73.45, "observed_at": "2026-11-20T16:57:59.484961-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T16:57:59.484961-03:00", "observed_date": "2026-11-20", "target_price":
+    73.45, "url": "https://stockanalysis.com/stocks/mo/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:57:59.484961-03:00",
+    "observed_date": "2026-11-20", "target_price": 73.45455, "url": "https://finance.yahoo.com/quote/MO/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 78.02999877929688,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/MO/"}]}}'
+  sector: Consumer Defensive
+  ticker: MO
+research_trigger:
+  discovery_snapshot_hash: 39e294d5120e556ef2eb4db6618f72b70e7fe2724faccbedf94b08d4666c8fd8
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: f9beb1c1093a696243035779c31db1b7e1ccaee942141c579a75dd21b8ea33fe
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T16:58:26.435000-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 0,58 x al 2026-09-30; no cruza el umbral configurado.
+  source: https://stockanalysis.com/stocks/MO/statistics/
+  threshold: below 0.5 x
+- metric: net_debt_ebitda
+  observation: 1,661 x, calculado con datos reportados al 2026-09-30; no cruza el
+    umbral configurado.
+  threshold: above 4.0 x
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30, pero el valor requiere verificación
+    y no se valida como cobertura económica.
+  source: https://stockanalysis.com/stocks/MO/statistics/
+  threshold: below 2.0 x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta conteo de acciones del período comparable.'
+  threshold: above 10 percent
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta historial de acciones para tres años comparables.'
+  threshold: above 5 percent
+- metric: negative_fcf_runway_months
+  observation: No aplica al FCF positivo reportado para TTM terminado el 2026-09-30.
+  threshold: below 12 months
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Crecimiento sostenido de ingresos y FCF en períodos comparables, no demostrado
+      por la evidencia disponible.
+    id: BEAR
+    key_assumptions:
+    - Se utiliza el extremo bajo observado del rango de analistas.
+    - Los ingresos y el FCF históricos aportados no garantizan su continuidad.
+    rationale: Ancla baja observada del rango de objetivos de analistas, no una valoración
+      intrínseca propia. Es consistente con un resultado desfavorable si la estabilidad
+      de ingresos y la generación de caja no compensan la presión sobre el negocio;
+      el paquete no cuantifica esa presión.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/mo/forecast/
+    target_price: 59.0
+  - falsifiers:
+    - Deterioro de FCF o márgenes respecto de los valores reportados al 2026-09-30.
+    id: BULL
+    key_assumptions:
+    - Se utiliza el extremo alto observado del rango de analistas.
+    - La generación de FCF y el margen bruto reportados se mantienen, supuesto no
+      validado para el horizonte.
+    rationale: Ancla alta observada del rango de objetivos de analistas, no una valoración
+      intrínseca propia. Es consistente con un resultado favorable si se sostienen
+      la generación de FCF y los márgenes reportados; los datos disponibles no prueban
+      crecimiento acelerado.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/mo/forecast/
+    target_price: 85.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T16:57:59.484961-03:00'
+  fuentes:
+    stockanalysis: 73.45
+    yfinance: 73.45455
+  mediana: 73.45
+  n_fuentes: 2
+  promedio: 73.45
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T16:57:59.484961-03:00'
+    observed_date: '2026-11-20'
+    target_price: 73.45
+    url: https://stockanalysis.com/stocks/mo/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T16:57:59.484961-03:00'
+    observed_date: '2026-11-20'
+    target_price: 73.45455
+    url: https://finance.yahoo.com/quote/MO/
+  target_high: 85.0
+  target_low: 59.0
+tesis_inversion: Altria vende productos de tabaco y nicotina en Estados Unidos, y
+  la evidencia financiera muestra generación positiva de FCF TTM y margen bruto elevado
+  al 2026-09-30. La tesis favorable depende de sostener esa generación de caja y defender
+  márgenes mientras evolucionan sus categorías; el historial de ingresos aportado
+  no demuestra crecimiento estructural, y el paquete no permite medir mercado direccionable,
+  penetración ni retornos sobre capital.
+ticker: MO
+version: '3.0'

@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 102 companies tracked
+Total: 105 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -50,6 +50,7 @@ Total: 102 companies tracked
 - 📄 [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]]
 - 📄 [[KO|The Coca-Cola Company]]
 - ⏳ [[MDLZ|Mondelez International, Inc.]]
+- 📄 [[MO|Altria Group, Inc.]]
 
 ## Energy
 - 📄 [[BKR|Baker Hughes Company]]
@@ -93,6 +94,7 @@ Total: 102 companies tracked
 - 📄 [[JNJ|Johnson & Johnson]]
 - 📄 [[LLY|Eli Lilly and Company]]
 - 📄 [[MDT|Medtronic plc]]
+- 📄 [[MRK|Merck & Co., Inc.]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
@@ -105,6 +107,7 @@ Total: 102 companies tracked
 - 📄 [[FDX|FedEx Corporation]]
 - 📄 [[JCI|Johnson Controls International plc]]
 - 📄 [[LMT|Lockheed Martin Corporation]]
+- 📄 [[MMM|3M Company]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]
