@@ -1,0 +1,152 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La plataforma no se lanza antes del 2027-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos incrementales reportados en FY2028 son menores a 200 millones
+      de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La plataforma no se lanza antes del 2027-06-30.
+  - Los ingresos incrementales reportados en FY2028 son menores a 200 millones de
+    dólares.
+  horizon: medio
+  id: H1-OPP-20261023-019
+  opportunity_id: OPP-20261023-019
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 500.0
+    met: null
+    metric: ingresos_incrementales
+    prediction: Ingresos incrementales de 500 millones de dólares en FY2028 derivados
+      de la nueva plataforma.
+    unit: millones USD
+  priority: critical
+  probability: 0.5
+  rationale: La compañía ha anunciado inversiones estratégicas en tecnología de pagos
+    y ha contratado talento especializado en fintech; además, la demanda de soluciones
+    de pagos integradas para pymes está creciendo a una tasa anual del 12% según datos
+    de McKinsey.
+  review_trigger: Si la empresa anuncia un retraso definitivo del lanzamiento después
+    del 2027-06-30.
+  secondary_hypotheses: []
+  statement: American Express lanzará la plataforma de pagos B2B 'AXP Business Connect'
+    en EE.UU. antes del 30 de junio de 2027, generando al menos 500 millones de dólares
+    de ingresos incrementales en el ejercicio fiscal 2028.
+  status: ACTIVE
+  ticker: AXP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La conversión de FCF reportada en FY2028 es inferior al 28%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La conversión de FCF reportada en FY2028 es inferior al 28%.
+  horizon: largo
+  id: H2-OPP-20261023-019
+  opportunity_id: OPP-20261023-019
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 30.0
+    met: null
+    metric: conversion_fcf
+    prediction: Conversión de FCF del 30% en FY2028.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: El aumento esperado de ingresos y la optimización de costos operativos
+    deberían elevar el EBIT, mientras que la gestión de capital de trabajo se mantiene
+    estable, lo que históricamente ha mejorado la conversión de FCF.
+  review_trigger: Si el 10‑K FY2028 muestra una conversión de FCF menor al 28% antes
+    del 2029-02-15.
+  secondary_hypotheses:
+  - H1-OPP-20261023-019
+  statement: La conversión de flujo de caja libre (FCF/EBIT) de American Express mejorará
+    al 30% en el ejercicio fiscal 2028, impulsada por mayores márgenes operativos
+    y la eficiencia de la nueva plataforma B2B.
+  status: ACTIVE
+  ticker: AXP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El forward P/E de AXP se mantiene por debajo de 18x al 31‑12‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El forward P/E de AXP se mantiene por debajo de 18x al 31‑12‑2027.
+  horizon: medio
+  id: H3-OPP-20261023-019
+  opportunity_id: OPP-20261023-019
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 20.0
+    met: null
+    metric: forward_PE
+    prediction: Forward P/E de 20x al cierre del 2027.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: El éxito de la plataforma B2B y la mejora en la generación de caja libre
+    deberían impulsar el EPS proyectado, mientras que la percepción de moat de marca
+    y la baja exposición a morosidad relativa aumentan la confianza de los inversores.
+  review_trigger: Si los analistas de consenso degradan la calificación a 'underweight'
+    antes del 2027-12-31.
+  secondary_hypotheses:
+  - H1-OPP-20261023-019
+  - H2-OPP-20261023-019
+  statement: El mercado revalorizará a American Express a un múltiplo forward P/E
+    de 20x para el 31 de diciembre de 2027, reflejando expectativas de crecimiento
+    superior a la media del sector.
+  status: ACTIVE
+  ticker: AXP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio de pérdidas crediticias se mantiene ≤ 2% y el margen operativo
+      ≥ 19% en FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio de pérdidas crediticias se mantiene ≤ 2% y el margen operativo ≥ 19%
+    en FY2028.
+  horizon: largo
+  id: H4-OPP-20261023-019
+  opportunity_id: OPP-20261023-019
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 2.5
+    met: null
+    metric: ratio_perdida_credito
+    prediction: Ratio de pérdidas crediticias > 2.5% y margen operativo < 18% en FY2028.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: El entorno macroeconómico de EE.UU. muestra señales de desaceleración
+    y aumento de tasas de interés, lo que históricamente eleva la morosidad en tarjetas
+    de crédito premium; además, la competencia de fintechs podría presionar la calidad
+    del crédito.
+  review_trigger: Si el 10‑K FY2028 muestra un ratio de pérdidas crediticias inferior
+    al 2% y margen operativo superior al 19% antes del 2029-02-15.
+  secondary_hypotheses: []
+  statement: El ratio de pérdidas crediticias (net charge‑offs / total loans) superará
+    el 2.5% en el ejercicio fiscal 2028, provocando una caída del margen operativo
+    por debajo del 18%.
+  status: ACTIVE
+  ticker: AXP
+  version: 1

@@ -1,0 +1,478 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La compañía puede ser un compounder de larga duración por el perfil biopharma
+    innovador descrito en el contexto previo, aunque el moat no se verifica de forma
+    independiente en los datos recibidos.
+  - La diferencia entre la cotización y el consenso observado puede representar una
+    oportunidad o una discrepancia en expectativas; no demuestra infravaloración.
+  - La cartera amplia descrita podría ofrecer diversificación, pero no se dispone
+    de datos de concentración por producto o área terapéutica.
+  - Los riesgos de exclusividad, ensayos, regulación y suministro son materialmente
+    relevantes para una farmacéutica, sin que se haya verificado un incidente específico
+    de la compañía.
+  preguntas_abiertas:
+  - ¿Cuál es la composición de ingresos y beneficios por producto, área terapéutica
+    y geografía, y cuál es la concentración en los principales medicamentos?
+  - ¿Qué medicamentos afrontan vencimientos de patentes o exclusividad, y cuál es
+    la sensibilidad cuantificada de ingresos y beneficios?
+  - ¿Qué resultados clínicos, regulatorios o anuncios de la compañía constituyen catalizadores
+    fechados y verificables en fuentes primarias?
+  - ¿Cuáles son la deuda neta, caja, vencimientos, cobertura de intereses y liquidez,
+    con período y fuente comparables?
+  - ¿Qué definición contable utiliza el proveedor para FCF y qué conciliación existe
+    con estados financieros primarios?
+  - ¿Qué adquisiciones, retornos a accionistas y decisiones de I+D permiten evaluar
+    la asignación de capital de la dirección?
+  - ¿Cuál es la exposición ESG y de suministro por instalaciones, proveedores críticos,
+    ingredientes farmacéuticos y regiones?
+  - ¿Qué múltiplos actuales y métricas de valoración comparables permiten evaluar
+    el precio frente a crecimiento y riesgo?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: 'Compounder castigado: no hay evidencia suficiente de que
+    exista un deterioro temporal del sentimiento o una dislocación fundamental específica,
+    más allá de la diferencia entre cotización y consenso. Quality at Fair Price:
+    no se dispone aquí de múltiplos comparables y verificables ni de una valoración
+    intrínseca para afirmar que el precio sea razonable. Turnaround, deep value, cíclica,
+    special situation, distressed, hype y value trap no están sustentadas por la evidencia
+    aportada; en particular, faltan datos suficientes para afirmar problemas de solvencia,
+    declive estructural o infravaloración de activos.'
+  justificacion: 'La clasificación refleja el perfil de una farmacéutica innovadora
+    de gran escala y la tesis de compounder de larga duración contenida en el contexto
+    previo, no una validación independiente de cada producto o de la posición competitiva
+    actual. La evidencia financiera disponible aquí es limitada: crecimiento de ingresos
+    TTM reportado de 7,32% y margen operativo TTM de 25,8%, ambos de una sola fuente
+    y con discrepancias no comparables frente a datos de otro proveedor. El precio
+    cotiza por debajo del consenso observado de analistas, pero ese consenso no constituye
+    una valoración independiente ni basta para concluir que la acción está barata.'
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El contexto previo caracteriza a AstraZeneca como una farmacéutica biopharma
+    que descubre, desarrolla, fabrica y comercializa medicamentos de prescripción,
+    con una cartera amplia. Esto sugiere diversificación de productos y capacidades
+    de I+D, pero no se suministran datos de cuota de mercado, concentración de ventas,
+    vencimientos de exclusividad, resultados de ensayos o competencia por producto.
+    Por tanto, la durabilidad del moat se considera plausible, no demostrada en este
+    expediente.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Confirmación en resultados futuros de crecimiento de ingresos y márgenes,
+    acompañada de conversión en caja. No se proporcionan fechas de publicación ni
+    una guía corporativa verificable.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 50
+- descripcion: Actualizaciones clínicas o regulatorias favorables en activos de la
+    cartera que se confirmen mediante fuentes primarias. No se identifican activos,
+    fechas o eventos concretos verificables en la información recibida.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Revisión de expectativas del mercado si la ejecución resulta significativamente
+    mejor o peor que la sugerida por el consenso observado de analistas.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: No se suministra evidencia específica sobre desempeño ESG, fabricación,
+    concentración de proveedores, abastecimiento de ingredientes farmacéuticos, instalaciones
+    críticas, calidad, retiradas o dependencias geográficas. Para una farmacéutica
+    global, la exposición a regulación, calidad de producto y continuidad de fabricación
+    es material; aquí se trata como exposición sectorial que requiere comprobación,
+    no como incidente verificado de AstraZeneca.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La observación seleccionada de stockanalysis.com reporta FCF TTM de 10.210
+    millones en moneda financiera del proveedor al 2026-09-30; la entrada general
+    declara USD, pero no se debe denominar ajustado porque no se documenta ese ajuste.
+    También reporta margen operativo TTM de 25,8% y crecimiento de ingresos TTM de
+    7,32%. Son datos de fuente única. La entrada señala valores de yfinance de 29,57%
+    y 6,7%, respectivamente, pero los marca como no comparables por falta de período,
+    unidad o corte suficientemente comparable. No hay observaciones seleccionadas
+    de deuda, liquidez, caja o vencimientos que permitan una conclusión sólida sobre
+    balance.
+  rating: adecuada
+dominio_growth:
+  analisis: La observación seleccionada reporta crecimiento de ingresos TTM de 7,32%
+    al 2026-09-30, aunque es de fuente única y existe un valor de otro proveedor expresamente
+    marcado no comparable. El perfil de cartera descrito ofrece posibles motores de
+    crecimiento, pero no hay desgloses por medicamento, área terapéutica, región,
+    ventas o hitos clínicos para evaluar su magnitud y visibilidad. El rating es provisional
+    y se apoya principalmente en el crecimiento reportado, no en una validación de
+    catalizadores concretos.
+  rating: fuerte
+dominio_management:
+  analisis: No se aportan datos verificables sobre decisiones recientes de asignación
+    de capital, adquisiciones, remuneración, propiedad accionaria, cumplimiento de
+    objetivos o track record de la dirección. El rating refleja insuficiencia de evidencia
+    para una evaluación positiva o negativa, no una acusación de mala gestión.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Pérdida de exclusividad, competencia de genéricos o biosimilares y sustitución
+    clínica de productos relevantes; no se aportan datos de exposición por producto
+    ni calendario de patentes.
+- impacto: alto
+  probabilidad: media
+  riesgo: Resultados clínicos, regulatorios o comerciales inferiores a lo esperado
+    en la cartera de desarrollo; no se aportan ensayos o decisiones regulatorias verificables.
+- impacto: medio
+  probabilidad: media
+  riesgo: Desaceleración del crecimiento o deterioro de márgenes respecto de la expectativa
+    incorporada en el consenso; la evidencia disponible es limitada y de fuente única
+    para las métricas seleccionadas.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Riesgo de calidad, fabricación o interrupción de suministro, propio de la
+    industria; no hay evidencia de un incidente específico en los datos recibidos.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Riesgo de balance o liquidez no evaluable por falta de datos de deuda, caja,
+    vencimientos y cobertura de intereses en las observaciones utilizables.
+- impacto: medio
+  probabilidad: media
+  riesgo: El consenso de analistas puede no representar una valoración independiente
+    y puede estar sujeto a errores de previsión o dispersión; el rango observado es
+    USD 158–240.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una secuencia de resultados y actualizaciones corporativas verificables
+      que confirme crecimiento rentable y generación de caja, o que revele desaceleración,
+      podría reducir la incertidumbre sobre la durabilidad de la cartera. No se aportan
+      fechas de eventos, resultados de ensayos ni anuncios primarios que permitan
+      identificar un catalizador corporativo concreto; este elemento es una hipótesis
+      de seguimiento, no un evento confirmado.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 50
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: Al 2026-11-19, la cotización suministrada es USD 174,87 y el consenso
+    observado de analistas es USD 209,91, con un rango de USD 158 a USD 240. La diferencia
+    entre cotización y consenso no demuestra por sí sola una expectativa de crecimiento
+    concreta ni permite inferir qué escenario está descontando el mercado. No se proporcionan
+    múltiplos actuales numéricos en las observaciones financieras seleccionadas.
+  hipotesis_contraria: El mercado podría estar infravalorando la duración de la franquicia
+    innovadora y la capacidad de sostener crecimiento y márgenes; alternativamente,
+    el consenso podría sobreestimar la persistencia del crecimiento, la productividad
+    de la cartera o la conversión de resultados en caja. Con los datos aportados no
+    es posible discriminar estas explicaciones ni atribuir al mercado una variable
+    concreta que esté exagerando o ignorando.
+  razonamiento: La cotización está por debajo del consenso observado, pero los targets
+    son referencias de analistas, no una valoración independiente, y el rango observado
+    es amplio. La evidencia financiera disponible no incluye los múltiplos necesarios
+    para evaluar el escenario implícito, ni suficiente información de balance, cartera
+    o vencimientos de patentes para contrastar la tesis. No se puede afirmar un error
+    de mercado aprovechable con confianza.
+generated_at: '2026-11-19T23:05:21.093772-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay evidencia aportada que demuestre la vulneración de una de las nueve
+    categorías de invalidación. La falta de datos en áreas relevantes constituye incertidumbre
+    y una necesidad de diligencia adicional, no evidencia de que el moat haya desaparecido,
+    de fraude o de insolvencia.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-021
+prompt_inputs:
+  business_model: AstraZeneca PLC, a biopharmaceutical company, focuses on the discovery,
+    development, manufacture, and commercialization of prescription medicines. The
+    company offers Imjudo, Datroway, Iressa, Tagrisso, Imfinzi, Lynparza, Calquence,
+    Enhertu, Orpathys, Truqap, Zoladex, Faslodex, Crestor, Andexxa, Onglyza, Symlin,
+    XIGDUO XR, Atacand, Atacand HCT, Atacand Plus, Farxiga/Forxiga, Plendil, Modip,
+    Splendil, Munobal, Flodil, Tenormin, Tenormine, Prenormine, Atenol, Zestril, Brilinta/Brilique,
+    Komboglyze, Qtern, Wainua, Byetta, Lokelma, Seloken ZOK, Toprol-XL, Betaloc ZOK,
+    XIGDUO, Accolate, Accoleit, Vanticon, Bricanyl Respules, Eklira Genuair/Tudorza/Bretaris,
+    Pulmicort Turbuhaler, Symbicort Turbuhaler, Airsupra, Bricanyl Turbuhaler, Fasenra,
+    Rhinocort, Tezspire, Bevespi Aerosphere, Daliresp/Daxas, Oxis Turbuhaler, Saphnelo,
+    Breztri Aerosphere, Duaklir Genuair, Pulmicort Respules, and Symbicort pMDI. It
+    also provides Beyfortus, Kavigale, Evusheld, Fluenz/FluMist, Synagis, Kanuma,
+    Ultomiris, Koselugo, Voydeya, Soliris, Strensiq, Nexium, and other medicines.
+    The company offers its products for ocology, cardiovascular, renal and metabolism,
+    respiratory & immunology, vaccines and immune, and therapies for rare diseases.
+    It serves primary and specialty care physicians through distributors and local
+    representative offices in the United Kingdom, USA, rest of Europe, Asia, Africa,
+    and Australasia. It has a strategic agreement with Tempus and Pathos to develop
+    the multimodal foundation model in oncology; CSPC Pharmaceutical Group Limited
+    to advance the discovery and development of oral candidates; Nucs AI Inc. to develop
+    AI-driven Response Prediction for Therapeutic Radioconjugates; and Carterra, Inc.
+    to advances lab-in-the-loop drug discovery through new scientific research collaboration.
+    The company was formerly known as Zeneca Group PLC and changed its name to AstraZeneca
+    PLC in April 1999. AstraZeneca PLC was incorporated in 1992 and is based in Cambridge,
+    the United Kingdom.
+  ceo_tenure: 0
+  debt_to_equity: 0.66
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: AstraZeneca PLC
+  operating_margin: 25.8
+  pe_ratio: 25.57
+  products: ''
+  revenue: 62380000000.0
+  revenue_growth: 7.32
+  roic: 17.15
+  sector: Healthcare
+  ticker: AZN
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: AstraZeneca PLC, a biopharmaceutical company, focuses on the discovery,
+    development, manufacture, and commercialization of prescription medicines. The
+    company offers Imjudo, Datroway, Iressa, Tagrisso, Imfinzi, Lynparza, Calquence,
+    Enhertu, Orpathys, Truqap, Zoladex, Faslodex, Crestor, Andexxa, Onglyza, Symlin,
+    XIGDUO XR, Atacand, Atacand HCT, Atacand Plus, Farxiga/Forxiga, Plendil, Modip,
+    Splendil, Munobal, Flodil, Tenormin, Tenormine, Prenormine, Atenol, Zestril, Brilinta/Brilique,
+    Komboglyze, Qtern, Wainua, Byetta, Lokelma, Seloken ZOK, Toprol-XL, Betaloc ZOK,
+    XIGDUO, Accolate, Accoleit, Vanticon, Bricanyl Respules, Eklira Genuair/Tudorza/Bretaris,
+    Pulmicort Turbuhaler, Symbicort Turbuhaler, Airsupra, Bricanyl Turbuhaler, Fasenra,
+    Rhinocort, Tezspire, Bevespi Aerosphere, Daliresp/Daxas, Oxis Turbuhaler, Saphnelo,
+    Breztri Aerosphere, Duaklir Genuair, Pulmicort Respules, and Symbicort pMDI. It
+    also provides Beyfortus, Kavigale, Evusheld, Fluenz/FluMist, Synagis, Kanuma,
+    Ultomiris, Koselugo, Voydeya, Soliris, Strensiq, Nexium, and other medicines.
+    The company offers its products for ocology, cardiovascular, renal and metabolism,
+    respiratory & immunology, vaccines and immune, and therapies for rare diseases.
+    It serves primary and specialty care physicians through distributors and local
+    representative offices in the United Kingdom, USA, rest of Europe, Asia, Africa,
+    and Australasia. It has a strategic agreement with Tempus and Pathos to develop
+    the multimodal foundation model in oncology; CSPC Pharmaceutical Group Limited
+    to advance the discovery and development of oral candidates; Nucs AI Inc. to develop
+    AI-driven Response Prediction for Therapeutic Radioconjugates; and Carterra, Inc.
+    to advances lab-in-the-loop drug discovery through new scientific research collaboration.
+    The company was formerly known as Zeneca Group PLC and changed its name to AstraZeneca
+    PLC in April 1999. AstraZeneca PLC was incorporated in 1992 and is based in Cambridge,
+    the United Kingdom.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 174.8699951171875
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.66
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:59.492910+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/AZN/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 10210000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 29.569998}, "observed_at": "2026-11-01T10:16:59.492910+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/AZN/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 25.8}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 6.7}, "observed_at": "2026-11-01T10:16:59.492910+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/azn/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 7.32}}}, "observed_at": "2026-11-19T19:15:43.667445+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: AstraZeneca PLC
+  operating_margin: 25.8
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: AstraZeneca PLC, a biopharmaceutical company, focuses on the discovery,
+    development, manufacture, and commercialization of prescription medicines. The
+    company offers Imjudo, Datroway, Iressa, Tagrisso, Imfinzi, Lynparza, Calquence,
+    Enhertu, Orpathys, Truqap, Zoladex, Faslodex, Crestor, Andexxa, Onglyza, Symlin,
+    XIGDUO XR, Atacand, Atacand HCT, Atacand Plus, Farxiga/Forxiga, Plendil, Modip,
+    Splendil, Munobal, Flodil, Tenormin, Tenormine, Prenormine, Atenol, Zestril, Brilinta/Brilique,
+    Komboglyze,
+  revenue: 62380000000.0
+  revenue_growth: 7.32
+  roic: 17.15
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    240.0, "low": 158.0, "mean": 209.91, "median": 209.91, "observed_at": "2026-11-19T23:04:31.045729-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T23:04:31.045729-03:00", "observed_date": "2026-11-19", "target_price":
+    209.91, "url": "https://stockanalysis.com/stocks/azn/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T23:04:31.045729-03:00",
+    "observed_date": "2026-11-19", "target_price": 209.90833, "url": "https://finance.yahoo.com/quote/AZN/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 174.8699951171875,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AZN/"}]}}'
+  sector: Healthcare
+  ticker: AZN
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 76858c16568ecfff335ccc7ee8711fb80f97abb3ce37729836ff9090a580d8c6
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T23:05:21.093772-03:00'
+resumen_ejecutivo: AZN se clasifica como compounder por su perfil biopharma innovador
+  descrito en el contexto previo, aunque esta revisión no verifica independientemente
+  los productos, el moat ni los eventos recientes. La evidencia financiera directa
+  disponible muestra crecimiento de ingresos TTM y margen operativo TTM reportados
+  por una única fuente seleccionada; existen valores de otro proveedor que no son
+  comparables según los metadatos. La cotización observada está por debajo del consenso
+  de analistas, pero esa diferencia no acredita infravaloración. La conclusión de
+  valoración es incierta. La revisión debe centrarse en la sostenibilidad del crecimiento,
+  la conversión a caja, el balance, los riesgos de patentes y la evidencia primaria
+  sobre cartera y catalizadores.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2027-11-19'
+  scenarios:
+  - falsifiers:
+    - Resultados futuros verificables muestran crecimiento rentable y conversión de
+      caja sostenidos, con expectativas de mercado revisadas al alza.
+    - La cotización se mantiene materialmente por encima de USD 158 durante el horizonte
+      y la ejecución fundamental respalda esa resiliencia.
+    - Fuentes primarias verificables demuestran catalizadores de crecimiento que no
+      están reflejados en este caso.
+    id: BEAR
+    key_assumptions:
+    - La cotización se aproxima al límite bajo del rango de targets de analistas observado
+      al 2026-11-19.
+    - El crecimiento reportado no se traduce en una mejora suficiente de expectativas
+      o se debilita la confianza en la persistencia de la cartera.
+    - No se asume una insolvencia ni un evento adverso corporativo específico, pues
+      no hay evidencia aportada que los sustente.
+    rationale: Ancla de escenario adverso tomada del límite bajo del rango de targets
+      observado de analistas, no de una valoración independiente. Representa un resultado
+      plausible de compresión de expectativas o ejecución inferior a la esperada,
+      pero la información recibida no permite cuantificar un precio fundamental más
+      allá de esa referencia observada.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/azn/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AZN/
+    target_price: 158
+  - falsifiers:
+    - Resultados verificables muestran desaceleración persistente, deterioro de márgenes
+      o conversión de caja inferior a lo esperado.
+    - Eventos clínicos, regulatorios o de exclusividad desfavorables afectan materialmente
+      la cartera.
+    - El precio permanece por debajo del rango de referencia y no aparecen evidencias
+      primarias que respalden una revisión al alza.
+    id: BULL
+    key_assumptions:
+    - La cotización alcanza el límite alto del rango de targets observado al 2026-11-19
+      dentro del horizonte indicado.
+    - El crecimiento TTM reportado se mantiene o mejora y la rentabilidad y generación
+      de caja resultan sostenibles.
+    - No se materializa un deterioro relevante de exclusividad, seguridad, regulación,
+      fabricación o competencia que invalide la tesis.
+    rationale: Ancla de escenario favorable tomada del límite alto del rango de targets
+      observado de analistas, no de una valoración independiente. Requiere que la
+      ejecución y las expectativas sean suficientemente favorables para que el precio
+      alcance esa referencia; los datos disponibles no permiten demostrar que ese
+      resultado sea el más probable.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/azn/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AZN/
+    target_price: 240
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 64
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T23:04:31.045729-03:00'
+  fuentes:
+    stockanalysis: 209.91
+    yfinance: 209.90833
+  mediana: 209.91
+  n_fuentes: 2
+  promedio: 209.91
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T23:04:31.045729-03:00'
+    observed_date: '2026-11-19'
+    target_price: 209.91
+    url: https://stockanalysis.com/stocks/azn/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T23:04:31.045729-03:00'
+    observed_date: '2026-11-19'
+    target_price: 209.90833
+    url: https://finance.yahoo.com/quote/AZN/
+  target_high: 240.0
+  target_low: 158.0
+tesis_inversion: La tesis favorable es que una compañía farmacéutica innovadora de
+  gran escala puede sostener crecimiento y rentabilidad mediante una cartera diversificada
+  y reinversión en I+D. La evidencia aportada es compatible con crecimiento de ingresos
+  y generación de FCF, pero no basta para validar la durabilidad del moat, el balance
+  o el valor intrínseco. La cotización está por debajo del consenso observado, pero,
+  sin múltiplos comparables y sin validación primaria de las expectativas, no se considera
+  un descuento demostrado. La tesis depende de verificar crecimiento por producto,
+  vencimientos de exclusividad, productividad de I+D y conversión de caja.
+ticker: AZN
+version: '3.0'

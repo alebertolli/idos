@@ -7,10 +7,11 @@ aliases:
 
 # IDOS Company Index
 
-Total: 27 companies tracked
+Total: 30 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
+- 📄 [[B|Barrick Mining Corporation]]
 - 📄 [[DOW|Dow Inc.]]
 
 ## Communication Services
@@ -31,11 +32,13 @@ Total: 27 companies tracked
 ## Financial Services
 - 📄 [[AEG|Aegon Ltd.]]
 - 📄 [[AIG|American International Group, Inc.]]
+- 📄 [[AXP|American Express Company]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
 - 📄 [[ABT|Abbott Laboratories]]
 - 📄 [[AMGN|Amgen Inc.]]
+- 📄 [[AZN|AstraZeneca PLC]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]

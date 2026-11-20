@@ -1,0 +1,193 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento de ingresos a tipos de cambio constantes en 2027 es
+      inferior al 7%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento agregado depende de un único producto o área terapéutica
+      y el resto de las principales áreas reporta ingresos estables o decrecientes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento de ingresos a tipos de cambio constantes en 2027 es inferior al
+    7%.
+  - El crecimiento agregado depende de un único producto o área terapéutica y el resto
+    de las principales áreas reporta ingresos estables o decrecientes.
+  horizon: medio
+  id: H1-OPP-20261023-021
+  opportunity_id: OPP-20261023-021
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-29'
+    expected: 7.0
+    met: null
+    metric: Crecimiento de ingresos totales a tipos de cambio constantes en 2027 frente
+      a 2026
+    prediction: En los resultados del ejercicio 2027, los ingresos totales crecerán
+      al menos un 7% frente a 2026 a tipos de cambio constantes.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis aportada señala crecimiento de ingresos, pero no aporta desglose
+    por producto ni evidencia suficiente sobre su duración. Si la demanda de varias
+    franquicias sigue compensando la erosión de productos maduros, el crecimiento
+    debería persistir en los próximos resultados.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran crecimiento
+    a tipos de cambio constantes inferior al 7%, o si una actualización de la compañía
+    reduce su perspectiva de crecimiento para 2027 por debajo de ese umbral.
+  secondary_hypotheses: []
+  statement: AstraZeneca mantendrá un crecimiento amplio de ingresos, apoyado por
+    la demanda de sus medicamentos innovadores y una cartera diversificada.
+  status: ACTIVE
+  ticker: AZN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La compañía comunica resultados de menos de dos ensayos pivotales de
+      fase III que cumplan su criterio principal durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Dos o más ensayos pivotales anunciados como positivos no alcanzan el
+      criterio principal preespecificado o presentan resultados que la compañía no
+      considera suficientes para respaldar una solicitud regulatoria.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La compañía comunica resultados de menos de dos ensayos pivotales de fase III
+    que cumplan su criterio principal durante el periodo.
+  - Dos o más ensayos pivotales anunciados como positivos no alcanzan el criterio
+    principal preespecificado o presentan resultados que la compañía no considera
+    suficientes para respaldar una solicitud regulatoria.
+  horizon: medio
+  id: H2-OPP-20261023-021
+  opportunity_id: OPP-20261023-021
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 2.0
+    met: null
+    metric: Ensayos pivotales de fase III con resultado positivo y criterio principal
+      alcanzado
+    prediction: Entre el 2026-11-20 y el 2027-12-31, AstraZeneca comunicará resultados
+      positivos de al menos dos ensayos pivotales de fase III en los que se alcance
+      el criterio principal de valoración preespecificado.
+    unit: ensayos como mínimo
+  priority: important
+  probability: 0.5
+  rationale: La tesis depende de que la reinversión en I+D genere medicamentos capaces
+    de reemplazar ingresos afectados por competencia o pérdida de exclusividad. Un
+    número verificable de resultados positivos en ensayos pivotales sería una señal
+    de productividad, aunque no demostraría por sí solo su éxito comercial.
+  review_trigger: Dejar de creerla el 2027-12-31 si no se han comunicado al menos
+    dos resultados positivos que cumplan el criterio principal, o antes si la compañía
+    retira o cancela programas pivotales que hacían alcanzable el umbral.
+  secondary_hypotheses:
+  - H1-OPP-20261023-021
+  statement: La cartera de I+D producirá avances clínicos relevantes suficientes para
+    respaldar la renovación de la cartera comercial.
+  status: ACTIVE
+  ticker: AZN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La proporción entre flujo de caja libre definido en esta hipótesis
+      e ingresos reportados es inferior al 18% en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre es negativo en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La proporción entre flujo de caja libre definido en esta hipótesis e ingresos
+    reportados es inferior al 18% en 2027.
+  - El flujo de caja libre es negativo en 2027.
+  horizon: medio
+  id: H3-OPP-20261023-021
+  opportunity_id: OPP-20261023-021
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-29'
+    expected: 18.0
+    met: null
+    metric: Flujo de caja libre dividido por ingresos reportados en 2027
+    prediction: En el ejercicio 2027, el flujo de caja libre calculado como flujo
+      de efectivo neto de actividades operativas menos compras de propiedad, planta
+      y equipo será al menos el 18% de los ingresos reportados.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia aportada es compatible con generación de flujo de caja libre,
+    pero no valida su conversión ni su persistencia. Medir el flujo de caja libre
+    como proporción de ventas permite contrastar directamente la conversión de ingresos
+    en caja, considerando inversiones de capital.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados anuales de 2027
+    si el flujo de caja libre calculado con la definición indicada es inferior al
+    18% de los ingresos.
+  secondary_hypotheses:
+  - H1-OPP-20261023-021
+  statement: El crecimiento de ventas se traducirá en generación de caja operativa
+    suficiente para sostener la reinversión y reducir el riesgo de que los resultados
+    contables sobreestimen la capacidad financiera.
+  status: ACTIVE
+  ticker: AZN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de AZN menos la rentabilidad total del STOXX
+      Europe 600 Health Care es inferior a 5 puntos porcentuales en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: AZN obtiene una rentabilidad total negativa durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de AZN menos la rentabilidad total del STOXX Europe 600
+    Health Care es inferior a 5 puntos porcentuales en el periodo.
+  - AZN obtiene una rentabilidad total negativa durante el periodo.
+  horizon: medio
+  id: H4-OPP-20261023-021
+  opportunity_id: OPP-20261023-021
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de AZN menos rentabilidad total del STOXX Europe 600
+      Health Care
+    prediction: Desde el cierre del 2026-11-19 hasta el cierre del 2027-11-19, la
+      rentabilidad total de AZN, incluidos dividendos, superará en al menos 5 puntos
+      porcentuales la del índice STOXX Europe 600 Health Care, medido en la misma
+      moneda.
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: La cotización se ha descrito como inferior al consenso observado, pero
+    no se aportan múltiplos comparables ni validación primaria de las expectativas.
+    Por tanto, el caso favorable debe comprobarse mediante desempeño relativo futuro,
+    no mediante una afirmación de descuento intrínseco no demostrada.
+  review_trigger: Dejar de creerla el 2027-11-19 si AZN no supera al índice por al
+    menos 5 puntos porcentuales; abandonarla antes si la compañía reduce materialmente
+    sus perspectivas de crecimiento o retira una parte sustancial de su guía por deterioro
+    operativo.
+  secondary_hypotheses:
+  - H1-OPP-20261023-021
+  - H3-OPP-20261023-021
+  statement: Si se cumplen las expectativas operativas y de caja, la acción ofrecerá
+    una rentabilidad total superior a la del sector; esta hipótesis contrasta una
+    posible infravaloración sin dar por demostrado que exista un descuento de valoración.
+  status: ACTIVE
+  ticker: AZN
+  version: 1
