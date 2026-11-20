@@ -1,0 +1,167 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El resultado operativo ajustado de Health Services en el ejercicio
+      fiscal 2027 es inferior al del ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento del resultado operativo ajustado es inferior al 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no ofrece cifras comparables y la información segmentaria
+      publicada no permite comprobar el crecimiento.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El resultado operativo ajustado de Health Services en el ejercicio fiscal 2027
+    es inferior al del ejercicio fiscal 2026.
+  - El crecimiento del resultado operativo ajustado es inferior al 5%.
+  - La compañía no ofrece cifras comparables y la información segmentaria publicada
+    no permite comprobar el crecimiento.
+  horizon: medio
+  id: H1-OPP-MB-CVS
+  opportunity_id: OPP-MB-CVS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual del resultado operativo ajustado de Health Services
+    prediction: En el ejercicio fiscal 2027, el resultado operativo ajustado de Health
+      Services aumentará al menos un 5% frente al ejercicio fiscal 2026, según cifras
+      comparables publicadas por CVS.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La integración de servicios farmacéuticos, atención y soluciones de salud
+    podría sostener la actividad y los ingresos del segmento. Sin embargo, la información
+    disponible no demuestra que esa integración produzca crecimiento rentable de forma
+    duradera; por ello, la hipótesis exige crecimiento del resultado operativo ajustado
+    y no solo de ingresos.
+  review_trigger: Dejar de creerla si los resultados anuales del ejercicio fiscal
+    2027 muestran crecimiento inferior al 5% en el resultado operativo ajustado de
+    Health Services, o si CVS retira la métrica comparable sin proporcionar una conciliación
+    verificable.
+  secondary_hypotheses: []
+  statement: El negocio de Health Services mantendrá crecimiento operativo en el ejercicio
+    fiscal 2027, señal de que los servicios farmacéuticos y de salud pueden aportar
+    crecimiento más allá de la recuperación puntual del flujo de caja.
+  status: ACTIVE
+  ticker: CVS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre reportado para el ejercicio fiscal 2027 es inferior
+      a 5.000 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cifra solo supera el umbral después de excluir salidas de caja recurrentes
+      o de emplear una definición distinta de flujo de caja libre.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica los componentes necesarios para calcular la
+      métrica de manera reproducible.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre reportado para el ejercicio fiscal 2027 es inferior a 5.000
+    millones de dólares.
+  - La cifra solo supera el umbral después de excluir salidas de caja recurrentes
+    o de emplear una definición distinta de flujo de caja libre.
+  - La compañía no publica los componentes necesarios para calcular la métrica de
+    manera reproducible.
+  horizon: medio
+  id: H2-OPP-MB-CVS
+  opportunity_id: OPP-MB-CVS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 5000.0
+    met: null
+    metric: Flujo de caja libre del ejercicio fiscal 2027
+    prediction: El flujo de caja libre acumulado del ejercicio fiscal 2027 será igual
+      o superior a 5.000 millones de dólares, calculado como flujo de caja de operaciones
+      menos inversiones en propiedad y equipo.
+    unit: millones de dólares como mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La recuperación del flujo de caja libre reportada para los doce meses
+    terminados el 2026-06-30 podría ser transitoria, y la evidencia disponible no
+    permite atribuirla a mejoras recurrentes del negocio. La generación de caja del
+    ejercicio completo permitirá comprobar si continúa después de ese periodo. Se
+    define flujo de caja libre como flujo de caja de operaciones menos inversiones
+    en propiedad y equipo, usando las cifras reportadas por CVS.
+  review_trigger: Dejar de creerla cuando CVS publique los resultados del ejercicio
+    fiscal 2027 si el flujo de caja libre calculado con la definición indicada es
+    inferior a 5.000 millones de dólares.
+  secondary_hypotheses:
+  - H1-OPP-MB-CVS
+  statement: La recuperación del flujo de caja libre será suficientemente persistente
+    para que CVS genere al menos 5.000 millones de dólares de flujo de caja libre
+    en el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: CVS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de CVS menos la rentabilidad total de XLV durante
+      el periodo es inferior a 8 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa de CVS es negativa al cierre del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden obtener precios ajustados por dividendos y desdoblamientos
+      para ambas inversiones en las fechas de inicio y fin.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de CVS menos la rentabilidad total de XLV durante el periodo
+    es inferior a 8 puntos porcentuales.
+  - La rentabilidad relativa de CVS es negativa al cierre del periodo.
+  - No se pueden obtener precios ajustados por dividendos y desdoblamientos para ambas
+    inversiones en las fechas de inicio y fin.
+  horizon: medio
+  id: H3-OPP-MB-CVS
+  opportunity_id: OPP-MB-CVS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-20'
+    expected: 8.0
+    met: null
+    metric: Rentabilidad total relativa de CVS frente a XLV
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2028-02-20, la rentabilidad
+      total de CVS, incluidos dividendos, superará en al menos 8 puntos porcentuales
+      la rentabilidad total del ETF Health Care Select Sector SPDR (XLV).
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: Si CVS demuestra crecimiento operativo y generación de caja recurrente,
+    la menor incertidumbre sobre la calidad de sus resultados podría favorecer una
+    revalorización relativa. Esta es una hipótesis de mercado, no una consecuencia
+    garantizada de los resultados; depende también de las expectativas ya incorporadas
+    en el precio y de las condiciones generales del sector.
+  review_trigger: Dejar de creerla al cierre del 2028-02-20 si la rentabilidad total
+    acumulada de CVS no supera a la de XLV en al menos 8 puntos porcentuales; no anticipar
+    la conclusión por movimientos intermedios.
+  secondary_hypotheses:
+  - H1-OPP-MB-CVS
+  - H2-OPP-MB-CVS
+  statement: La acción de CVS ofrecerá una rentabilidad total superior a la del sector
+    sanitario estadounidense durante los próximos quince meses, conforme el mercado
+    reconozca una mayor visibilidad de la generación de caja.
+  status: ACTIVE
+  ticker: CVS
+  version: 1

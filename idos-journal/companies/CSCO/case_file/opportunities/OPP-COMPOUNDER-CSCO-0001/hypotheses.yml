@@ -1,0 +1,208 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de seguridad reportados crecen menos del 8% interanual
+      en dos trimestres consecutivos disponibles antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa deja de reportar una medida comparable de ingresos de seguridad
+      y no proporciona una métrica sustitutiva que permita verificar el crecimiento.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de seguridad reportados crecen menos del 8% interanual en dos trimestres
+    consecutivos disponibles antes de la fecha objetivo.
+  - La empresa deja de reportar una medida comparable de ingresos de seguridad y no
+    proporciona una métrica sustitutiva que permita verificar el crecimiento.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-CSCO-0001
+  opportunity_id: OPP-COMPOUNDER-CSCO-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual de ingresos de seguridad reportados
+    prediction: En el trimestre fiscal que termine más cerca del 2027-11-20, los ingresos
+      de seguridad reportados crecerán al menos un 8% interanual en dos trimestres
+      consecutivos.
+    unit: porcentaje mínimo en dos trimestres consecutivos
+  priority: critical
+  probability: 0.5
+  rationale: La integración de capacidades de red y seguridad puede facilitar ventas
+    cruzadas a clientes existentes y reducir la complejidad de gestión para empresas
+    que consolidan proveedores. La tesis quedará respaldada si el crecimiento se refleja
+    en ingresos de seguridad reportados, aunque estos no permitan aislar SASE.
+  review_trigger: Dejar de creerla si dos trimestres consecutivos reportan crecimiento
+    interanual inferior al 8%, o si Cisco comunica una reducción material de su inversión
+    o de su oferta en SASE antes del 2027-11-20.
+  secondary_hypotheses: []
+  statement: Cisco aumentará la escala de su negocio de seguridad, apoyándose en la
+    integración de sus productos y en la demanda de soluciones SASE.
+  status: ACTIVE
+  ticker: CSCO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La métrica comparable de ingresos de infraestructura de IA crece menos
+      del 25% interanual en el ejercicio objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Cisco informa que los pedidos relacionados con IA no se están convirtiendo
+      en ingresos o que se han cancelado o aplazado materialmente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Cisco no proporciona información que permita distinguir ingresos de
+      infraestructura de IA de pedidos o previsiones comerciales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La métrica comparable de ingresos de infraestructura de IA crece menos del 25%
+    interanual en el ejercicio objetivo.
+  - Cisco informa que los pedidos relacionados con IA no se están convirtiendo en
+    ingresos o que se han cancelado o aplazado materialmente.
+  - Cisco no proporciona información que permita distinguir ingresos de infraestructura
+    de IA de pedidos o previsiones comerciales.
+  horizon: largo
+  id: H2-OPP-COMPOUNDER-CSCO-0001
+  opportunity_id: OPP-COMPOUNDER-CSCO-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 25.0
+    met: null
+    metric: Crecimiento interanual de ingresos reportados de infraestructura de IA
+    prediction: Para el ejercicio fiscal que termine más cerca del 2028-11-20, Cisco
+      informará que los ingresos de infraestructura de redes asociada a IA, si mantiene
+      una métrica comparable, han aumentado al menos un 25% respecto del ejercicio
+      fiscal anterior. Si no publica esa métrica, la hipótesis no se considerará confirmada.
+    unit: porcentaje mínimo en el ejercicio fiscal objetivo
+  priority: important
+  probability: 0.5
+  rationale: El despliegue de centros de datos para IA requiere conectividad de alta
+    capacidad. La base instalada de Cisco y su oferta de redes pueden convertir parte
+    de esa demanda en ventas, pero los pedidos anunciados solo serán evidencia suficiente
+    si se traducen en ingresos reportados.
+  review_trigger: Dejar de creerla si Cisco informa, antes del 2028-11-20, una caída
+    interanual de los ingresos comparables de infraestructura de IA o una conversión
+    materialmente inferior de pedidos a ventas; la ausencia de una métrica verificable
+    en la fecha objetivo también invalida la tesis como hipótesis confirmada.
+  secondary_hypotheses: []
+  statement: La demanda de infraestructura para IA aportará crecimiento medible a
+    los ingresos de redes de Cisco, más allá de anuncios de pedidos o compromisos
+    de clientes.
+  status: ACTIVE
+  ticker: CSCO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre de los últimos doce meses es inferior
+      al 20% en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los dividendos y recompras de los últimos doce meses suman menos del
+      70% del flujo de caja libre del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa reduce su dividendo ordinario o financia recompras principalmente
+      mediante un aumento material de deuda.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre de los últimos doce meses es inferior al 20%
+    en la fecha objetivo.
+  - Los dividendos y recompras de los últimos doce meses suman menos del 70% del flujo
+    de caja libre del periodo.
+  - La empresa reduce su dividendo ordinario o financia recompras principalmente mediante
+    un aumento material de deuda.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-CSCO-0001
+  opportunity_id: OPP-COMPOUNDER-CSCO-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 20.0
+    met: null
+    metric: Margen de flujo de caja libre y proporción del flujo de caja libre devuelta
+      a accionistas
+    prediction: En los doce meses terminados el 2027-11-20, Cisco generará un margen
+      de flujo de caja libre de al menos el 20% de los ingresos y devolverá a los
+      accionistas, mediante dividendos y recompras, al menos el 70% del flujo de caja
+      libre del mismo periodo.
+    unit: porcentaje mínimo de margen; retorno de capital mínimo del 70% del flujo
+      de caja libre
+  priority: critical
+  probability: 0.5
+  rationale: La combinación de ingresos recurrentes, escala y disciplina de gastos
+    puede sostener la conversión de beneficios en caja. La caja libre permitiría financiar
+    retornos de capital sin depender de una expansión acelerada de los ingresos.
+  review_trigger: Dejar de creerla si en dos informes trimestrales consecutivos el
+    margen de flujo de caja libre de los últimos doce meses cae por debajo del 20%,
+    o si Cisco reduce el dividendo ordinario antes del 2027-11-20.
+  secondary_hypotheses: []
+  statement: Cisco mantendrá una elevada generación de caja libre y devolverá a los
+    accionistas una parte sustancial de esa caja mediante dividendos y recompras.
+  status: ACTIVE
+  ticker: CSCO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de CSCO desde el 2026-11-20 hasta el 2028-11-20
+      supera al del S&P 500 en menos de 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de CSCO es inferior al del S&P 500 en la fecha
+      objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de CSCO desde el 2026-11-20 hasta el 2028-11-20 supera al
+    del S&P 500 en menos de 10 puntos porcentuales.
+  - El rendimiento total de CSCO es inferior al del S&P 500 en la fecha objetivo.
+  horizon: largo
+  id: H4-OPP-COMPOUNDER-CSCO-0001
+  opportunity_id: OPP-COMPOUNDER-CSCO-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total acumulado de CSCO frente al S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2028-11-20, el rendimiento
+      total de CSCO, incluidos dividendos, superará el rendimiento total del S&P 500
+      en al menos 10 puntos porcentuales.
+    unit: puntos porcentuales de exceso de rendimiento a dos años
+  priority: important
+  probability: 0.5
+  rationale: Si el crecimiento de los negocios de seguridad e infraestructura para
+    IA se refleja en resultados y la generación de caja se mantiene, el mercado podría
+    revisar al alza sus expectativas sobre el crecimiento y la calidad de los beneficios
+    de Cisco. La comparación con el S&P 500 permite probar el resultado de mercado
+    sin asumir un precio objetivo o un múltiplo de valoración no verificado.
+  review_trigger: Dejar de creerla antes de la fecha objetivo si, al 2027-11-20, CSCO
+    acumula un rendimiento total inferior al del S&P 500 en al menos 15 puntos porcentuales
+    y además incumple H1 o H3.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-CSCO-0001
+  - H2-OPP-COMPOUNDER-CSCO-0001
+  - H3-OPP-COMPOUNDER-CSCO-0001
+  statement: La acción de Cisco superará al mercado amplio durante los próximos dos
+    años a medida que los resultados de seguridad, IA y caja hagan más visible su
+    potencial de crecimiento y retorno de capital.
+  status: ACTIVE
+  ticker: CSCO
+  version: 1

@@ -1,0 +1,455 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El modelo integrado podría ofrecer escala y oportunidades de coordinación, pero
+    también complejidad y exposición regulatoria.
+  - El precio observado por debajo de la media del consenso podría representar oportunidad
+    o reflejar riesgos que el consenso no captura.
+  - La tesis de recuperación requiere demostrar mejora operativa sostenible; los datos
+    suministrados no permiten establecerla.
+  - Los riesgos regulatorios, de ejecución, ciberseguridad y cadena de suministro
+    son relevantes por el tipo de actividades descritas, pero no se aportan incidentes
+    ni métricas que permitan estimar su materialidad específica.
+  preguntas_abiertas:
+  - ¿Cuáles son los estados financieros completos, comparables y auditados más recientes,
+    y cómo han evolucionado por segmento?
+  - ¿Cuál es la deuda neta, el calendario de vencimientos, la cobertura de intereses
+    y la liquidez disponible?
+  - ¿Cómo se define y calcula el FCF reportado, y qué proporción es recurrente frente
+    a variaciones de capital de trabajo u otros elementos?
+  - ¿Qué períodos exactos representan el crecimiento de ingresos de 7,1% y el margen
+    operativo de 3,861%, y son comparables interanualmente?
+  - ¿Qué elementos de las guías y comunicaciones corporativas respaldan una recuperación,
+    y cuáles son las métricas verificables de seguimiento?
+  - ¿Qué rentabilidad, crecimiento, retención y posición competitiva presenta cada
+    segmento?
+  - ¿Qué riesgos regulatorios o de reembolso específicos están pendientes y cuál es
+    su exposición económica?
+  - ¿Qué evidencia primaria existe sobre calidad de dirección, asignación de capital,
+    remuneración y cumplimiento de objetivos?
+  - ¿Cuál es la concentración de proveedores críticos, los controles de privacidad
+    y ciberseguridad y los indicadores de calidad de atención?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: turnaround
+  categorias_descartadas: 'Compounder y compounder_castigado: el perfil integrado
+    puede generar ventajas, pero faltan pruebas suficientes de rendimientos persistentes
+    y moat durable. Deep value: no se aportan múltiplos completos ni evidencia de
+    activos infravalorados. Value trap: es un riesgo posible, pero no hay evidencia
+    suficiente para afirmar destrucción estructural de valor. Distressed: la información
+    disponible no permite concluir que exista riesgo de solvencia. Cíclica, special_situation,
+    hype y quality_at_fair_price no describen mejor la oportunidad con los datos disponibles.'
+  justificacion: 'La oportunidad se parece más a una tesis de recuperación que a una
+    compounder demostrada: CVS combina beneficios de salud, gestión de prestaciones
+    farmacéuticas y servicios de farmacia, pero la información proporcionada no permite
+    verificar la durabilidad de sus márgenes, la calidad de la ejecución reciente
+    ni la solidez del balance. La cotización observada está por debajo de la media
+    del consenso, aunque esa diferencia por sí sola no demuestra infravaloración.
+    La clasificación es provisional y depende de que exista una recuperación operativa
+    sostenible, que aquí no está verificada.'
+comparativa_catalizadores:
+- delta_pct: 40
+  descripcion: Evidencia de recuperación operativa sostenible y mejor conversión de
+    resultados en caja.
+  estado: nuevo
+  nota_comparacion: El historial de catalizadores previos suministrado está vacío;
+    no existe probabilidad previa que permita medir un cambio económico. Se registra
+    como nuevo y la probabilidad actual es una estimación analítica, no un hecho.
+  probabilidad_actual: 40
+  probabilidad_anterior: 0
+- delta_pct: 35
+  descripcion: Revisión de expectativas de valoración tras reducirse la incertidumbre
+    sobre la rentabilidad de los negocios principales.
+  estado: nuevo
+  nota_comparacion: El historial de catalizadores previos suministrado está vacío;
+    no existe catalizador histórico para evaluar cumplimiento. La estimación actual
+    es inferencial.
+  probabilidad_actual: 35
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: El perfil suministrado muestra integración de seguros, beneficios farmacéuticos
+    y prestación minorista de servicios de salud. Esa combinación podría aportar escala,
+    datos y canales de distribución, pero también aumenta la complejidad de coordinación
+    y la exposición a regulación y conflictos de incentivos. No se aportan cuotas
+    de mercado, retención de clientes, rentabilidad por segmento ni pruebas de ventajas
+    competitivas sostenibles; por ello no se eleva la calificación.
+  rating: regular
+dominio_catalizadores:
+- descripcion: Evidencia en resultados y guías de recuperación operativa sostenida
+    y mejor conversión de resultados en caja.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+- descripcion: Revisión de expectativas de valoración si los resultados futuros reducen
+    la incertidumbre sobre la rentabilidad de los negocios principales.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: El modelo está expuesto a riesgos de acceso y asequibilidad de medicamentos,
+    privacidad y ciberseguridad, calidad de atención, prácticas laborales y regulación
+    sanitaria. La dependencia de fabricantes farmacéuticos, redes de distribución
+    y proveedores de tecnología es plausible por el modelo descrito, pero no se aporta
+    información sobre concentración, contratos, incidentes, métricas ESG ni continuidad
+    de suministro.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La observación disponible reporta FCF TTM de USD 11.760 millones al 2026-06-30,
+    seleccionado de stockanalysis.com. La observación de yfinance reporta margen operativo
+    de 3,861% y crecimiento de ingresos de 7,1% al 2026-06-30, con período no especificado
+    por el proveedor. Son datos insuficientes para evaluar calidad de caja, cobertura
+    de intereses, vencimientos, deuda neta, liquidez o tendencia comparable; el FCF
+    reportado no se caracteriza como ajustado.
+  rating: adecuada
+dominio_growth:
+  analisis: La observación de crecimiento de ingresos es 7,1% al 2026-06-30, pero
+    el proveedor no especifica el período, de modo que no debe interpretarse como
+    tasa anual ni extrapolarse. El perfil de negocio sugiere posibles fuentes de crecimiento
+    en seguros y servicios de salud, pero faltan datos de afiliados, precios, utilización,
+    retención y crecimiento orgánico frente a adquisiciones.
+  rating: moderado
+dominio_management:
+  analisis: No se proporciona evidencia directa sobre asignación de capital, remuneración,
+    operaciones de insiders, cumplimiento de objetivos o track record de la dirección.
+    La complejidad del modelo integrado aumenta la importancia de la disciplina operativa
+    y de la transparencia por segmento. La valoración del equipo directivo queda provisional.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Rentabilidad estructuralmente presionada en uno o más segmentos, que convierta
+    la expectativa de recuperación en una tesis de valor trampa.
+- impacto: alto
+  probabilidad: media
+  riesgo: Cambios regulatorios o de reembolso que afecten seguros, gestión de beneficios
+    farmacéuticos o dispensación.
+- impacto: alto
+  probabilidad: media
+  riesgo: Ejecución deficiente al coordinar negocios integrados y mejorar resultados
+    operativos.
+- impacto: alto
+  probabilidad: media
+  riesgo: Apalancamiento, necesidades de liquidez o vencimientos menos favorables
+    de lo que sugiere la caja operativa disponible.
+- impacto: medio
+  probabilidad: media
+  riesgo: Riesgos de ciberseguridad, privacidad de datos y continuidad de operaciones
+    en servicios sanitarios.
+- impacto: alto
+  probabilidad: media
+  riesgo: Presión competitiva y cambios en utilización, costos médicos o comportamiento
+    de clientes que deterioren márgenes.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una secuencia de resultados y guías empresariales que confirme mejora
+      sostenible de márgenes y generación de caja en los negocios principales podría
+      reducir la percepción de riesgo de ejecución. La existencia de esa mejora y
+      su calendario requieren verificación en comunicaciones corporativas y documentación
+      regulatoria primaria.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 40
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización de USD 90,625 corresponde al 2026-10-30. El consenso
+    observado el 2026-11-20 es USD 109,31, con rango de USD 86 a USD 146. La media
+    del consenso supera la cotización aproximadamente un 20,6%, pero es una referencia
+    de analistas, no una valoración independiente ni una garantía. No se aportan múltiplos
+    actuales suficientes para inferir qué escenario operativo descuenta el precio.
+  hipotesis_contraria: El mercado podría estar subestimando el potencial de una recuperación
+    coordinada entre seguros, gestión farmacéutica y atención sanitaria. En sentido
+    contrario, el consenso podría subestimar la persistencia de presiones sobre rentabilidad,
+    ejecución y regulación. Con los datos disponibles no se puede determinar cuál
+    de estas variables está exagerada ni verificar las expectativas implícitas en
+    los múltiplos.
+  razonamiento: La diferencia entre la cotización y el consenso proporciona una señal
+    de posible asimetría, no prueba de error de valoración. No se suministran estados
+    financieros completos, valoración por segmentos, niveles de deuda, múltiplos ni
+    evidencia primaria sobre catalizadores operativos. El segundo nivel de análisis
+    es que el descuento puede reflejar tanto una oportunidad si la recuperación es
+    real como una valoración racional de riesgos estructurales. La evidencia actual
+    no permite distinguirlo.
+generated_at: '2026-11-20T12:41:46.519295-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se ha aportado evidencia verificable que confirme la vulneración de una
+    de las categorías de integridad enumeradas. La información insuficiente impide
+    descartar riesgos, pero no equivale a evidencia de moat perdido, insolvencia,
+    fraude o destrucción de capital.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-CVS-0001
+prompt_inputs:
+  business_model: CVS Health Corporation provides health solutions in the United States.
+    The Health Care Benefits segment offers traditional, voluntary, and consumer-directed
+    health insurance products and related services, including medical, pharmacy, dental,
+    and behavioral health plans; medical management capabilities; Medicare Advantage
+    and Medicare Supplement plans; prescription drug plans (PDPs); and Medicaid health
+    care management services. It serves employer groups, individuals, college students,
+    part-time and hourly workers, health plans, health care providers, governmental
+    units, government-sponsored plans, labor groups, and expatriates. The Health Services
+    segment offers pharmacy benefit management solutions, including plan design and
+    administration, formulary management, retail pharmacy network management, specialty
+    and mail-order pharmacy, clinical services, disease management, medical spend
+    management services, and pharmacy and other administrative services. It serves
+    employers, insurance companies, unions, government employee groups, health plans,
+    PDPs, Medicaid managed care plans, CMS, plans offered on public health insurance
+    exchanges, and other sponsors of health benefit plans. The Pharmacy & Consumer
+    Wellness segment sells prescription and over-the-counter drugs, consumer health
+    and beauty products, personal care products, and other general merchandise products.
+    This segment also distributes prescription drugs; and provides related pharmacy
+    consulting and other ancillary services to care facilities and other care settings.
+    It operates online retail pharmacy websites, retail specialty pharmacy stores,
+    and compounding pharmacies, as well as branches for infusion and enteral nutrition
+    services. The company was formerly known as CVS Caremark Corporation and changed
+    its name to CVS Health Corporation in September 2014. CVS Health Corporation was
+    founded in 1963 and is headquartered in Woonsocket, Rhode Island.
+  ceo_tenure: 0
+  debt_to_equity: 0.96
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: CVS Health Corporation
+  operating_margin: 2.95
+  pe_ratio: 23.8
+  products: ''
+  revenue: 412650000000.0
+  revenue_growth: 7.37
+  roic: 7.17
+  sector: Healthcare
+  ticker: CVS
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: CVS Health Corporation provides health solutions in the United States.
+    The Health Care Benefits segment offers traditional, voluntary, and consumer-directed
+    health insurance products and related services, including medical, pharmacy, dental,
+    and behavioral health plans; medical management capabilities; Medicare Advantage
+    and Medicare Supplement plans; prescription drug plans (PDPs); and Medicaid health
+    care management services. It serves employer groups, individuals, college students,
+    part-time and hourly workers, health plans, health care providers, governmental
+    units, government-sponsored plans, labor groups, and expatriates. The Health Services
+    segment offers pharmacy benefit management solutions, including plan design and
+    administration, formulary management, retail pharmacy network management, specialty
+    and mail-order pharmacy, clinical services, disease management, medical spend
+    management services, and pharmacy and other administrative services. It serves
+    employers, insurance companies, unions, government employee groups, health plans,
+    PDPs, Medicaid managed care plans, CMS, plans offered on public health insurance
+    exchanges, and other sponsors of health benefit plans. The Pharmacy & Consumer
+    Wellness segment sells prescription and over-the-counter drugs, consumer health
+    and beauty products, personal care products, and other general merchandise products.
+    This segment also distributes prescription drugs; and provides related pharmacy
+    consulting and other ancillary services to care facilities and other care settings.
+    It operates online retail pharmacy websites, retail specialty pharmacy stores,
+    and compounding pharmacies, as well as branches for infusion and enteral nutrition
+    services. The company was formerly known as CVS Caremark Corporation and changed
+    its name to CVS Health Corporation in September 2014. CVS Health Corporation was
+    founded in 1963 and is headquartered in Woonsocket, Rhode Island.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 90.625
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.96
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:16.657002+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CVS/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 11760000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:25.729388+00:00", "period_end_date": "2026-06-30", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1782777600, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    3.8609999999999998}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:25.729388+00:00",
+    "period_end_date": "2026-06-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1782777600,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    7.1}}}, "observed_at": "2026-10-30T16:53:16.657002+00:00", "period_end": "2026-06-30",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: CVS Health Corporation
+  operating_margin: 2.95
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'CVS Health Corporation provides health solutions in the United States.
+    The Health Care Benefits segment offers traditional, voluntary, and consumer-directed
+    health insurance products and related services, including medical, pharmacy, dental,
+    and behavioral health plans; medical management capabilities; Medicare Advantage
+    and Medicare Supplement plans; prescription drug plans (PDPs); and Medicaid health
+    care management services. It serves employer groups, individuals, college students,
+    part-time '
+  revenue: 412650000000.0
+  revenue_growth: 7.37
+  roic: 7.17
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    146.0, "low": 86.0, "mean": 109.31, "median": 109.31, "observed_at": "2026-11-20T12:41:10.982151-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T12:41:10.982151-03:00", "observed_date": "2026-11-20", "target_price":
+    109.31, "url": "https://stockanalysis.com/stocks/cvs/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T12:41:10.982151-03:00",
+    "observed_date": "2026-11-20", "target_price": 109.30615, "url": "https://finance.yahoo.com/quote/CVS/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 90.625,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CVS/"}]}}'
+  sector: Healthcare
+  ticker: CVS
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 762c1fd251e0bd03b058d6aac735fe4162c75ccda29ca3c6ae7e2d8d8c20780a
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T12:41:46.519295-03:00'
+resumen_ejecutivo: CVS presenta un modelo integrado en seguros de salud, gestión farmacéutica
+  y servicios de farmacia, pero el expediente no aporta evidencia suficiente para
+  validar el moat, la calidad de gestión ni la condición financiera integral. Las
+  observaciones financieras disponibles incluyen FCF TTM de USD 11.760 millones al
+  2026-06-30, y crecimiento de ingresos de 7,1% y margen operativo de 3,861% con período
+  reportado no especificado. La cotización de USD 90,625 está por debajo del consenso
+  medio de USD 109,31, aunque el rango observado de USD 86 a USD 146 es amplio y no
+  constituye una valoración fundamental. Tesis provisional de recuperación; error
+  de mercado incierto y riesgo de tesis no verificable sin investigación adicional.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Evidencia corporativa verificable de mejora sostenida de rentabilidad y caja
+      que reduzca materialmente la incertidumbre.
+    - Un consenso de mercado actualizado que sitúe de forma consistente su límite
+      inferior por encima de esta ancla.
+    id: BEAR
+    key_assumptions:
+    - La incertidumbre sobre la rentabilidad y la ejecución no se resuelve favorablemente
+      durante el horizonte.
+    - Los inversores continúan asignando una referencia de valoración conservadora
+      dentro del rango de consenso observado.
+    rationale: Se usa el límite inferior del rango de objetivos observado, no una
+      valoración intrínseca independiente. Representa un resultado plausible en el
+      que la incertidumbre operativa persiste y el mercado mantiene una referencia
+      baja. El rango de analistas es una referencia observada, no un precio garantizado.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/cvs/forecast/
+    target_price: 86
+  - falsifiers:
+    - Deterioro verificable de márgenes o generación de caja en resultados posteriores.
+    - Revisión del rango de consenso que reduzca su límite superior por debajo de
+      esta ancla.
+    - Evidencia de presión financiera o regulatoria que impida una recuperación sostenible.
+    id: BULL
+    key_assumptions:
+    - Se materializa una recuperación operativa que reduce la percepción de riesgo
+      de ejecución.
+    - La referencia de valoración de mercado converge hacia el extremo superior del
+      rango de analistas observado.
+    rationale: Se usa el límite superior del rango de objetivos observado como ancla
+      optimista. No es una valoración independiente ni implica que el precio vaya
+      a alcanzarse. El escenario requiere que el mercado adopte una referencia alta
+      del consenso ante una reducción de la incertidumbre, aunque los supuestos operativos
+      no pueden verificarse con la evidencia suministrada.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/cvs/forecast/
+    target_price: 146
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 47
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T12:41:10.982151-03:00'
+  fuentes:
+    stockanalysis: 109.31
+    yfinance: 109.30615
+  mediana: 109.31
+  n_fuentes: 2
+  promedio: 109.31
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T12:41:10.982151-03:00'
+    observed_date: '2026-11-20'
+    target_price: 109.31
+    url: https://stockanalysis.com/stocks/cvs/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T12:41:10.982151-03:00'
+    observed_date: '2026-11-20'
+    target_price: 109.30615
+    url: https://finance.yahoo.com/quote/CVS/
+  target_high: 146.0
+  target_low: 86.0
+tesis_inversion: La tesis es una recuperación potencial de un operador integrado de
+  salud cuyo precio observado queda por debajo del consenso de analistas. El perfil
+  de negocio y las observaciones financieras disponibles no bastan para demostrar
+  que el descuento sea excesivo. La oportunidad depende de validar mejora sostenible
+  de márgenes y caja, junto con un balance capaz de soportar obligaciones y necesidades
+  de inversión. Hasta obtener esa evidencia, el consenso no debe confundirse con valor
+  intrínseco y la clasificación de turnaround es provisional.
+ticker: CVS
+version: '3.0'
