@@ -1,0 +1,494 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - CAGR de ingresos calculado a 7.04% usando datos TTM y FY2023
+  - FCF conversion estimado en 127.3% basado en FCF y utilidad neta
+  - Precio actual 208.79 USD (yfinance, 2026-10-30)
+  - Revenue TTM 43,138 millones (stockanalysis, 2026-09-30)
+  - FCF TTM 13,600 millones (stockanalysis, 2026-09-30)
+  - Interest coverage ratio 0 (stockanalysis, 2026-09-30)
+  preguntas_abiertas:
+  - ¿Cuál es la evolución histórica de diluted shares para estimar dilution_yoy_pct?
+  - ¿Cómo impactarán futuras regulaciones específicas en la línea de productos sin
+    combustión?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Multibagger
+  justificacion: Alta rentabilidad de FCF y crecimiento de ingresos sostenido respaldan
+    potencial de apreciación superior al promedio del sector.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Margen bruto estable alrededor del 68%, generación de efectivo consistente
+    y balance con liquidez suficiente pese a deuda neta moderada.
+  rating: A-
+dominio_catalizadores:
+- catalizador: Expansión de IQOS y ZYN
+  descripcion: Crecimiento de la cuota de mercado de productos sin combustión impulsa
+    ingresos y márgenes.
+- catalizador: Generación de FCF superior al 120% de la utilidad neta
+  descripcion: Permite mayor retorno de capital a accionistas y capacidad de inversión.
+- catalizador: Posibles acuerdos de licencia o alianzas estratégicas
+  descripcion: Podrían acelerar la adopción de tecnologías de reducción de daño.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: Interest coverage ratio reportado es 0, indicando que los intereses
+    no están cubiertos por EBIT.
+  riesgo: Cobertura de intereses insuficiente
+- descripcion: Falta de historial de acciones diluidas impide evaluar la presión sobre
+    el EPS.
+  riesgo: Incógnita de dilución accionarial
+- descripcion: Posibles restricciones legales pueden afectar tanto a productos tradicionales
+    como a los de humo sin combustión.
+  riesgo: Regulación del tabaco
+error_mercado:
+  catalizador_cambio: Una normativa restrictiva en mercados clave (EE.UU., UE) que
+    limite la venta de productos de tabaco tradicional y reduzca la demanda de IQOS.
+  conclusion_error_valoracion: El rango de consenso podría estar sesgado al alza al
+    no reflejar plenamente los riesgos regulatorios emergentes.
+  consenso_actual:
+    currency: USD
+    high: 240.0
+    low: 175.0
+    mean: 212.69
+    source:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/pm/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/PM/
+  hipotesis_contraria: El mercado subestima riesgos regulatorios y la posible desaceleración
+    de la adopción de productos sin combustión.
+  razonamiento: El precio actual (208.79 USD) está cercano al promedio del consenso,
+    pero la exposición a regulaciones y la falta de datos de dilución generan incertidumbre
+    no capturada en los múltiplos.
+generated_at: '2026-11-20T18:25:16.601803-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-PM
+prompt_inputs:
+  business_model: Philip Morris International Inc. operates as a tobacco company.
+    The company offers cigarettes and smoke-free products, including heat-not-burn,
+    e-vapor, and oral nicotine products under the IQOS, VEEV, and ZYN brands; and
+    consumer accessories, such as lighters and matches. It also offers wellness products.
+    The company was incorporated in 1987 and is headquartered in Stamford, Connecticut.
+  ceo_tenure: 0
+  debt_to_equity: 0
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Philip Morris International Inc.
+  operating_margin: 41.87
+  pe_ratio: 26.96
+  products: ''
+  revenue: 43140000000.0
+  revenue_growth: 7.87
+  roic: 33.63
+  sector: Consumer Defensive
+  ticker: PM
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/pm/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF growth YoY según historial
+  inputs:
+    fcf_growth_history_TTM: 34.3
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/pm/financials/
+  status: reported
+  unit: percent
+  value: 34.3
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/PM/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/PM/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares_history: null
+  limitations: No se dispone de historial de diluted shares ni de shares outstanding
+    histórico.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Philip Morris International Inc. operates as a tobacco company.
+    The company offers cigarettes and smoke-free products, including heat-not-burn,
+    e-vapor, and oral nicotine products under the IQOS, VEEV, and ZYN brands; and
+    consumer accessories, such as lighters and matches. It also offers wellness products.
+    The company was incorporated in 1987 and is headquartered in Stamford, Connecticut.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 208.7899932861328
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T21:25:01.009918+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Philip Morris International Inc.
+  operating_margin: 41.87
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Philip Morris International Inc. operates as a tobacco company. The
+    company offers cigarettes and smoke-free products, including heat-not-burn, e-vapor,
+    and oral nicotine products under the IQOS, VEEV, and ZYN brands; and consumer
+    accessories, such as lighters and matches. It also offers wellness products. The
+    company was incorporated in 1987 and is headquartered in Stamford, Connecticut.
+  revenue: 43140000000.0
+  revenue_growth: 7.87
+  roic: 33.63
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PM/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    240.0, "low": 175.0, "mean": 212.69, "median": 212.69, "observed_at": "2026-11-20T18:25:04.721907-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T18:25:04.721907-03:00", "observed_date": "2026-11-20", "target_price":
+    212.69, "url": "https://stockanalysis.com/stocks/pm/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T18:25:04.721907-03:00",
+    "observed_date": "2026-11-20", "target_price": 212.6875, "url": "https://finance.yahoo.com/quote/PM/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 208.7899932861328,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/PM/"}]}}'
+  sector: Consumer Defensive
+  ticker: PM
+research_trigger:
+  discovery_snapshot_hash: 54a8ebcdd19ba2bbf4214fe1d4908bc2e5bc6666cdd95ee0f1a2000dd62cee90
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 00b94ece514cb4c63995e62938f0babd044f43c3659ae11ed793be8c285cc7da
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T18:25:16.601803-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- detail: Interest coverage ratio reportado es 0, inferior al umbral de 2.0.
+  observed_value: 0
+  risk: interest_coverage_below_threshold
+  threshold: 2.0
+- detail: Falta información de diluted shares para calcular dilución YoY.
+  risk: dilution_yoy_missing
+- detail: No se cuenta con series históricas de acciones para calcular CAGR de share
+    count.
+  risk: share_count_cagr_missing
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Lanzamiento exitoso de IQOS en nuevos mercados
+    - Mejora de la cobertura de intereses
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos CAGR 3y cae a 2%
+    - FCF conversion se mantiene pero FCF growth se reduce a 5%
+    - Interest coverage sigue insuficiente
+    rationale: Supone mayor presión regulatoria y desaceleración de la adopción de
+      productos sin combustión, reduciendo ingresos y márgenes.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/pm/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/PM/
+    target_price: 175.0
+  - falsifiers:
+    - Regulación restrictiva inesperada
+    - Caída significativa de la demanda de productos sin combustión
+    id: BULL
+    key_assumptions:
+    - CAGR de ingresos 3y mantiene 7%+
+    - FCF growth mantiene 30%+
+    - Net debt/EBITDA se reduce a <2x
+    rationale: Supone expansión acelerada de productos sin combustión, mejora de márgenes
+      y estabilidad regulatoria, impulsando ingresos y flujo de caja.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/pm/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/PM/
+    target_price: 240.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 87.27
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T18:25:04.721907-03:00'
+  fuentes:
+    stockanalysis: 212.69
+    yfinance: 212.6875
+  mediana: 212.69
+  n_fuentes: 2
+  promedio: 212.69
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T18:25:04.721907-03:00'
+    observed_date: '2026-11-20'
+    target_price: 212.69
+    url: https://stockanalysis.com/stocks/pm/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T18:25:04.721907-03:00'
+    observed_date: '2026-11-20'
+    target_price: 212.6875
+    url: https://finance.yahoo.com/quote/PM/
+  target_high: 240.0
+  target_low: 175.0
+tesis_inversion: Philip Morris International combina generación de flujo de caja libre
+  robusta con una transición hacia productos sin combustión, lo que permite financiar
+  crecimiento y devolver capital, aunque la exposición regulatoria y la ausencia de
+  datos de dilución representan riesgos clave.
+ticker: PM
+version: '3.0'

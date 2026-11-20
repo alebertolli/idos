@@ -1,0 +1,146 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Midstream registra EBITDA ajustado inferior a USD 500 millones en dos
+      o más trimestres de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía deja de publicar resultados segmentarios comparables que
+      permitan verificar el umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Midstream registra EBITDA ajustado inferior a USD 500 millones en dos o más trimestres
+    de 2027.
+  - La compañía deja de publicar resultados segmentarios comparables que permitan
+    verificar el umbral.
+  horizon: medio
+  id: H1-OPP-MB-PSX
+  opportunity_id: OPP-MB-PSX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-01'
+    expected: 500.0
+    met: null
+    metric: EBITDA ajustado trimestral de Midstream
+    prediction: En al menos tres de los cuatro trimestres del ejercicio 2027, Midstream
+      reportará un EBITDA ajustado de al menos USD 500 millones.
+    unit: USD millones; umbral en al menos 3 de 4 trimestres de 2027
+  priority: important
+  probability: 0.5
+  rationale: La diversificación de PSX incluye Midstream además de Refinación y otros
+    segmentos. Si los ingresos y márgenes de Midstream son suficientemente resilientes,
+    este segmento puede amortiguar la volatilidad de los resultados consolidados.
+    El contexto disponible no acredita esa resiliencia con datos de retornos o resultados
+    segmentarios, por lo que esta hipótesis se comprobará directamente con los informes
+    de la compañía.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados del segundo
+    trimestre de 2027 si Midstream registra EBITDA ajustado inferior a USD 500 millones
+    en ambos primeros trimestres del año.
+  secondary_hypotheses: []
+  statement: El segmento Midstream de Phillips 66 sostendrá una contribución operativa
+    significativa durante 2027, reflejando la capacidad de sus actividades de transporte,
+    procesamiento y almacenamiento para generar resultados menos dependientes del
+    ciclo de refinación.
+  status: ACTIVE
+  ticker: PSX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja operativo de 2027 menos las inversiones de capital
+      es inferior a los dividendos en efectivo pagados en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cobertura se obtiene solo excluyendo inversiones de capital o incorporando
+      ingresos por ventas de activos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja operativo de 2027 menos las inversiones de capital es inferior
+    a los dividendos en efectivo pagados en 2027.
+  - La cobertura se obtiene solo excluyendo inversiones de capital o incorporando
+    ingresos por ventas de activos.
+  horizon: medio
+  id: H2-OPP-MB-PSX
+  opportunity_id: OPP-MB-PSX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-01'
+    expected: 1.0
+    met: null
+    metric: Cobertura de dividendos con flujo de caja libre (flujo de caja operativo
+      menos inversiones de capital dividido por dividendos en efectivo)
+    prediction: Para el ejercicio 2027, el flujo de caja operativo menos las inversiones
+      de capital será al menos igual al total de dividendos en efectivo pagados durante
+      el ejercicio.
+    unit: veces o más en el ejercicio 2027
+  priority: critical
+  probability: 0.5
+  rationale: La sostenibilidad de los resultados y la capacidad de financiar inversiones
+    y distribuciones son centrales para evaluar la calidad financiera del negocio
+    diversificado. La información disponible no permite verificar cobertura histórica,
+    reinversión ni retornos sobre capital; por ello, la cobertura de dividendos se
+    plantea como una prueba directa de generación de caja.
+  review_trigger: Dejar de creerla si, al cierre de 2027, el flujo de caja operativo
+    acumulado menos las inversiones de capital acumuladas queda por debajo de los
+    dividendos acumulados, según los estados financieros publicados.
+  secondary_hypotheses:
+  - H1-OPP-MB-PSX
+  statement: PSX generará suficiente flujo de caja libre para cubrir sus dividendos
+    en el ejercicio 2027 sin depender de nueva deuda o de la venta de activos.
+  status: ACTIVE
+  ticker: PSX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de PSX menos el rendimiento total de XLE es inferior
+      a 5 puntos porcentuales en el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: PSX presenta un rendimiento total inferior al de XLE durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de PSX menos el rendimiento total de XLE es inferior a 5
+    puntos porcentuales en el periodo indicado.
+  - PSX presenta un rendimiento total inferior al de XLE durante el periodo.
+  horizon: medio
+  id: H3-OPP-MB-PSX
+  opportunity_id: OPP-MB-PSX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de PSX menos rendimiento total de XLE
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
+      noviembre de 2027, el rendimiento total de PSX, incluidos los dividendos reinvertidos,
+      superará el rendimiento total de XLE en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales en 12 meses
+  priority: important
+  probability: 0.5
+  rationale: Si la diversificación de PSX sostiene los resultados y la generación
+    de caja, la acción podría beneficiarse de una menor dependencia de un único segmento
+    y de una mayor confianza en la continuidad de las distribuciones. Sin embargo,
+    la divergencia entre los objetivos de analistas citados en el contexto no permite
+    inferir una valoración consensuada ni establecer una ventaja de mercado; la hipótesis
+    se prueba mediante rendimiento relativo observable.
+  review_trigger: Dejar de creerla en la fecha objetivo si la diferencia de rendimiento
+    total entre PSX y XLE es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-PSX
+  - H2-OPP-MB-PSX
+  statement: La acción de PSX obtendrá un rendimiento total superior al del ETF Energy
+    Select Sector SPDR (XLE) durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: PSX
+  version: 1

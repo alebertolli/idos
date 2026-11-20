@@ -1,0 +1,573 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La diferencia entre TTM y años fiscales hace arriesgado extrapolar el crecimiento
+    reciente sin datos comparables adicionales.
+  - La amplitud del rango de analistas sugiere desacuerdo, pero no identifica por
+    sí misma el error de valoración.
+  - Precio de USD 282.83 al 2026-10-30 y momentum de precio de 107.75% para 2025-10-31
+    a 2026-10-30 (yfinance, https://finance.yahoo.com/quote/PSX/).
+  - FCF de USD 12,358 millones y beneficio neto de USD 12,567 millones TTM al 2026-09-30
+    (StockAnalysis, https://stockanalysis.com/stocks/psx/financials/).
+  - Consenso de objetivos USD 188–346, media USD 290.53, observado al 2026-11-20 (StockAnalysis,
+    https://stockanalysis.com/stocks/psx/forecast/).
+  preguntas_abiertas:
+  - ¿Qué parte de los resultados TTM proviene de condiciones cíclicas o partidas no
+    recurrentes?
+  - ¿Cuáles son el ROIC, las necesidades de reinversión y la rentabilidad por segmento?
+  - ¿Cuál ha sido la evolución histórica del número de acciones diluidas?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación fundamental requerida; evidencia insuficiente para validar
+    una oportunidad multibagger
+  justificacion: El paquete muestra fuerte momentum de precio y mejora reciente de
+    métricas TTM, pero no aporta evidencia suficiente sobre retornos sobre capital,
+    reinversión, penetración de mercado o ventaja competitiva.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe cinco segmentos y presencia en EE. UU., Reino Unido,
+    Alemania e internacionalmente (resumen financiero, análisis al 2026-11-20). No
+    aporta cuotas de mercado, ROIC, márgenes por segmento, retornos de proyectos ni
+    evidencia para valorar moat o erosión competitiva.
+  rating: Inconcluso
+dominio_catalizadores:
+- analisis: La confirmación de que el FCF y el beneficio TTM al 2026-09-30 se sostienen
+    en períodos comparables sería informativa; el paquete no incluye guía corporativa.
+  catalizador: Verificación de resultados posteriores al período reportado
+- analisis: La evaluación de contribución por segmento y rendimientos de inversiones
+    podría aclarar el mecanismo de crecimiento; esos datos no están incluidos.
+  catalizador: Progreso de segmentos y reinversión
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- analisis: El beneficio neto reportado pasó de USD 2,107 millones en FY 2024 a USD
+    4,394 millones en FY 2025 y USD 12,567 millones TTM al 2026-09-30; el paquete
+    no separa efectos cíclicos ni extraordinarios.
+  riesgo: Ciclicidad y sostenibilidad de resultados
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/psx/financials/
+- analisis: El proveedor reporta una cobertura de intereses de 0x TTM al 2026-09-30,
+    pero no proporciona el desglose de EBIT e intereses para validar ese valor.
+  riesgo: Calidad de datos de cobertura de intereses
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+- analisis: El rango de objetivos observado al 2026-11-20 va de USD 188 a USD 346;
+    el paquete no permite atribuir la dispersión a supuestos específicos.
+  riesgo: Divergencia de objetivos publicados
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/psx/forecast/
+error_mercado:
+  catalizador_cambio: La actualización de resultados y la evolución de FCF, ingresos
+    y beneficio podrían cambiar la lectura, pero el paquete no aporta guía corporativa
+    ni calendario de eventos.
+  conclusion_error_valoracion: 'No se valida un error de valoración: no hay valoración
+    intrínseca ni estimaciones detalladas que permitan contrastar expectativas con
+    fundamentales.'
+  consenso_actual: El precio observado fue USD 282.83 al 2026-10-30; el consenso de
+    precio objetivo reportado fue USD 290.53 al 2026-11-20.
+  hipotesis_contraria: El rango de objetivos publicado, USD 188–346 al 2026-11-20,
+    refleja resultados de analistas ampliamente divergentes; el paquete no documenta
+    sus supuestos.
+  razonamiento: El precio subió 107.75% en los 12 meses terminados el 2026-10-30,
+    mientras que el FCF TTM reportado al 2026-09-30 fue muy superior al FY 2025; la
+    comparabilidad entre esos períodos limita la interpretación.
+generated_at: '2026-11-20T18:28:48.231079-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-PSX
+prompt_inputs:
+  business_model: 'Phillips 66 operates as an integrated downstream energy provider
+    in the United States, the United Kingdom, Germany, and internationally. It operates
+    through five segments: Midstream, Chemicals, Refining, Marketing and Specialties
+    (M&S), and Renewable Fuels. The Midstream segment provides crude oil and refined
+    petroleum product transportation, terminaling, and storage services, as well as
+    natural gas and natural gas liquids (NGL) gathering, processing, transportation,
+    fractionation, storage and marketing services. It also exports liquefied petroleum
+    gas. The Chemicals segment produces and markets ethylene and other olefin products;
+    aromatics and styrenics products, such as benzene, cyclohexane, styrene, and polystyrene;
+    various specialty chemical products, including organosulfur chemicals, solvents,
+    catalysts, and chemicals used in drilling and mining; and petrochemicals and plastics.
+    The Refining segment refines crude oil and other feedstocks into petroleum products,
+    such as gasolines and distillates, including aviation fuels. The M&S segment purchases
+    for resale and markets refined products, including gasolines, distillates, and
+    aviation fuels. This segment also manufactures and markets specialty products,
+    such as automotive, commercial, industrial, and specialty lubricants, as well
+    as base oils. The Renewable Fuels segment processes renewable feedstocks into
+    renewable products, as well as supplies sustainable aviation fuel. This segment
+    also procures renewable feedstocks, manages certain regulatory credits, and markets
+    renewable diesel, renewable jet fuel, and other renewable fuels. The company markets
+    its products under the Phillips 66, Conoco and 76, JET, Kendall, Red Line, and
+    other private label brands. Phillips 66 was founded in 1875 and is headquartered
+    in Houston, Texas.'
+  ceo_tenure: 0
+  debt_to_equity: 0.52
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Phillips 66
+  operating_margin: 8.2
+  pe_ratio: 7.71
+  products: ''
+  revenue: 168190000000.0
+  revenue_growth: 27.46
+  roic: 22.72
+  sector: Energy
+  ticker: PSX
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: Hay valores fechados FY 2023–FY 2025 y TTM al 2026-09-30; falta
+      un período FY comparable a tres años del punto final.
+  limitations: El TTM al 2026-09-30 no es un cierre FY comparable con FY 2023 para
+    el cálculo solicitado; no se calcula CAGR mezclando períodos.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/psx/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/psx/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/psx/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/psx/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 390070000.0
+  limitations: Sólo hay acciones en circulación para un período; falta una observación
+    comparable de acciones diluidas o acciones en circulación del período previo.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Phillips 66 operates as an integrated downstream energy provider
+    in the United States, the United Kingdom, Germany, and internationally. It operates
+    through five segments: Midstream, Chemicals, Refining, Marketing and Specialties
+    (M&S), and Renewable Fuels. The Midstream segment provides crude oil and refined
+    petroleum product transportation, terminaling, and storage services, as well as
+    natural gas and natural gas liquids (NGL) gathering, processing, transportation,
+    fractionation, storage and marketing services. It also exports liquefied petroleum
+    gas. The Chemicals segment produces and markets ethylene and other olefin products;
+    aromatics and styrenics products, such as benzene, cyclohexane, styrene, and polystyrene;
+    various specialty chemical products, including organosulfur chemicals, solvents,
+    catalysts, and chemicals used in drilling and mining; and petrochemicals and plastics.
+    The Refining segment refines crude oil and other feedstocks into petroleum products,
+    such as gasolines and distillates, including aviation fuels. The M&S segment purchases
+    for resale and markets refined products, including gasolines, distillates, and
+    aviation fuels. This segment also manufactures and markets specialty products,
+    such as automotive, commercial, industrial, and specialty lubricants, as well
+    as base oils. The Renewable Fuels segment processes renewable feedstocks into
+    renewable products, as well as supplies sustainable aviation fuel. This segment
+    also procures renewable feedstocks, manages certain regulatory credits, and markets
+    renewable diesel, renewable jet fuel, and other renewable fuels. The company markets
+    its products under the Phillips 66, Conoco and 76, JET, Kendall, Red Line, and
+    other private label brands. Phillips 66 was founded in 1875 and is headquartered
+    in Houston, Texas.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 282.8299865722656
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.52
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T21:28:16.260944+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Phillips 66
+  operating_margin: 8.2
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Phillips 66 operates as an integrated downstream energy provider
+    in the United States, the United Kingdom, Germany, and internationally. It operates
+    through five segments: Midstream, Chemicals, Refining, Marketing and Specialties
+    (M&S), and Renewable Fuels. The Midstream segment provides crude oil and refined
+    petroleum product transportation, terminaling, and storage services, as well as
+    natural gas and natural gas liquids (NGL) gathering, processing, transportation,
+    fractionation, storage and m'
+  revenue: 168190000000.0
+  revenue_growth: 27.46
+  roic: 22.72
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/psx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PSX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PSX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PSX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PSX/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/psx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/psx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/psx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PSX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/psx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PSX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/psx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/psx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/psx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PSX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PSX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/psx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    346.0, "low": 188.0, "mean": 290.53, "median": 290.53, "observed_at": "2026-11-20T18:28:19.532270-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T18:28:19.532270-03:00", "observed_date": "2026-11-20", "target_price":
+    290.53, "url": "https://stockanalysis.com/stocks/psx/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T18:28:19.532270-03:00",
+    "observed_date": "2026-11-20", "target_price": 290.5263, "url": "https://finance.yahoo.com/quote/PSX/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 282.8299865722656,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/PSX/"}]}}'
+  sector: Energy
+  ticker: PSX
+research_trigger:
+  discovery_snapshot_hash: 30b42f180e09fa38ed7cb9091a0513fd7baf17d6ecdf4d7182fcf021445545e0
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: f3b8b7f71d0c5338c3d3a2457b19bfacef4c221ea63a8707c50aa9e11743061e
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T18:28:48.231079-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.34x TTM al 2026-09-30; no cruza el umbral.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+  threshold: below 0.5x
+- metric: interest_coverage
+  observation: 0x reportado TTM al 2026-09-30; cruza el umbral como dato reportado,
+    pero no está validado por falta de inputs EBIT e interés desglosados.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+  threshold: below 2.0x
+- metric: net_debt_ebitda
+  observation: Estimación calculada de 0.82x al 2026-09-30; requiere confirmar unidades
+    comparables y no cruza el umbral bajo esa condición.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/psx/financials/
+  threshold: above 4.0x
+- metric: dilution_yoy_pct
+  observation: No disponible; falta el recuento comparable del período previo.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+  threshold: above 10%
+- metric: share_count_cagr_3y_pct
+  observation: No disponible; el paquete no aporta una serie histórica de acciones
+    para calcular CAGR.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+  threshold: above 5%
+- metric: negative_fcf_runway_months
+  observation: No aplicable al FCF TTM reportado, que es positivo al 2026-09-30.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+  threshold: below 12 months cuando FCF es negativo
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados comparables posteriores que confirmen sostenibilidad de FCF y beneficio.
+    id: BEAR
+    key_assumptions:
+    - El objetivo bajo publicado constituye el ancla del escenario.
+    - Los resultados TTM no se extrapolan como permanentes.
+    rationale: Ancla de extremo bajo del rango de objetivos de analistas observado
+      al 2026-11-20, no valoración intrínseca propia. Representa un resultado adverso
+      plausible si el elevado FCF y beneficio TTM no se sostienen; el paquete no permite
+      cuantificar esa normalización.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/psx/forecast/
+    target_price: 188
+  - falsifiers:
+    - Descenso de FCF o beneficio en períodos comparables posteriores.
+    id: BULL
+    key_assumptions:
+    - El objetivo alto publicado constituye el ancla del escenario.
+    - Los resultados TTM recientes se mantienen suficientemente sólidos para respaldar
+      ese extremo.
+    rationale: Ancla de extremo alto del rango de objetivos de analistas observado
+      al 2026-11-20, no valoración intrínseca propia. Representa el resultado favorable
+      dentro del rango publicado si se sostienen los resultados TTM recientes; el
+      paquete no documenta los supuestos de los analistas.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/psx/forecast/
+    target_price: 346
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 55
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T18:28:19.532270-03:00'
+  fuentes:
+    stockanalysis: 290.53
+    yfinance: 290.5263
+  mediana: 290.53
+  n_fuentes: 2
+  promedio: 290.53
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T18:28:19.532270-03:00'
+    observed_date: '2026-11-20'
+    target_price: 290.53
+    url: https://stockanalysis.com/stocks/psx/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T18:28:19.532270-03:00'
+    observed_date: '2026-11-20'
+    target_price: 290.5263
+    url: https://finance.yahoo.com/quote/PSX/
+  target_high: 346.0
+  target_low: 188.0
+tesis_inversion: Phillips 66 combina segmentos de midstream, químicos, refinación,
+  marketing y combustibles renovables (resumen financiero, análisis al 2026-11-20).
+  El caso favorable depende de que los resultados TTM recientes sean sostenibles y
+  de que la diversificación operativa genere flujos duraderos; el paquete no permite
+  verificar retornos sobre capital, reinversión ni una ventaja competitiva defendible.
+ticker: PSX
+version: '3.0'

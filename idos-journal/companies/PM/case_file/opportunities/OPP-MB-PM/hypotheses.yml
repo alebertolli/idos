@@ -1,0 +1,200 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El aumento de la participación de productos sin combustión frente a
+      2026 es inferior a 1,0 punto porcentual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos netos orgánicos de productos sin combustión disminuyen
+      en 2027 frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El aumento de la participación de productos sin combustión frente a 2026 es inferior
+    a 1,0 punto porcentual.
+  - Los ingresos netos orgánicos de productos sin combustión disminuyen en 2027 frente
+    a 2026.
+  horizon: medio
+  id: H1-OPP-MB-PM
+  opportunity_id: OPP-MB-PM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 3.0
+    met: null
+    metric: Aumento de la participación de productos sin combustión en los ingresos
+      netos orgánicos
+    prediction: En el ejercicio fiscal 2027, los ingresos netos orgánicos de productos
+      sin combustión representarán al menos un 3,0% más de los ingresos netos orgánicos
+      totales que en el ejercicio fiscal 2026, según las cifras comparables publicadas
+      por la empresa.
+    unit: puntos porcentuales frente al ejercicio fiscal 2026
+  priority: critical
+  probability: 0.5
+  rationale: La ampliación de la base de consumidores y la disponibilidad de productos
+    sin combustión pueden impulsar su contribución a los ingresos, mientras la migración
+    desde cigarrillos tradicionales ofrece una vía de crecimiento. El riesgo central
+    es que la adopción se desacelere por preferencias de los consumidores, competencia
+    o restricciones regulatorias.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran un aumento
+    inferior a 1,0 punto porcentual frente a 2026, o si la empresa informa que la
+    adopción o disponibilidad de estos productos se ha deteriorado de forma persistente.
+  secondary_hypotheses: []
+  statement: La adopción de productos sin combustión seguirá aumentando y elevará
+    su peso en los ingresos de Philip Morris International durante 2027.
+  status: ACTIVE
+  ticker: PM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de los doce meses terminados el 2027-12-31 es
+      inferior al de los doce meses terminados el 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no puede reconciliar la variación del flujo de caja libre
+      con sus estados financieros publicados o cambia la definición de la métrica
+      sin presentar comparativos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de los doce meses terminados el 2027-12-31 es inferior
+    al de los doce meses terminados el 2026-09-30.
+  - La empresa no puede reconciliar la variación del flujo de caja libre con sus estados
+    financieros publicados o cambia la definición de la métrica sin presentar comparativos.
+  horizon: medio
+  id: H2-OPP-MB-PM
+  opportunity_id: OPP-MB-PM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento del flujo de caja libre de los últimos doce meses
+    prediction: El flujo de caja libre de los doce meses terminados el 2027-12-31
+      será al menos un 5% superior al de los doce meses terminados el 2026-09-30,
+      usando la definición de flujo de caja libre divulgada por la empresa y cifras
+      comparables.
+    unit: por ciento frente a los doce meses terminados el 2026-09-30
+  priority: critical
+  probability: 0.5
+  rationale: Una cartera de marcas estable y la generación de caja del negocio tradicional
+    pueden financiar inversiones en productos sin combustión y dividendos. La tesis
+    falla si el capital de trabajo, la inversión necesaria o una menor rentabilidad
+    operativa absorben ese flujo.
+  review_trigger: Dejar de creerla si el flujo de caja libre comparable cae frente
+    al periodo de referencia o si dos informes trimestrales consecutivos muestran
+    una caída interanual atribuible a debilidad operativa, inversión estructuralmente
+    mayor o absorción persistente de capital de trabajo.
+  secondary_hypotheses:
+  - H1-OPP-MB-PM
+  statement: PM mantendrá una generación de flujo de caja libre creciente, suficiente
+    para sostener la inversión y las distribuciones de capital sin deteriorar sustancialmente
+    su conversión de caja.
+  status: ACTIVE
+  ticker: PM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de PM supera la del índice de referencia en menos
+      de 3 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de PM queda por debajo de la del índice durante
+      el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de PM supera la del índice de referencia en menos de 3 puntos
+    porcentuales.
+  - La rentabilidad total de PM queda por debajo de la del índice durante el periodo.
+  horizon: medio
+  id: H3-OPP-MB-PM
+  opportunity_id: OPP-MB-PM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 8.0
+    met: null
+    metric: Rentabilidad total relativa de PM frente al S&P 500 Consumer Staples
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, la rentabilidad
+      total de PM, incluidos dividendos reinvertidos, superará en al menos 8 puntos
+      porcentuales la del índice S&P 500 Consumer Staples, calculada en dólares estadounidenses.
+    unit: puntos porcentuales en doce meses
+  priority: important
+  probability: 0.5
+  rationale: Si la compañía mantiene el crecimiento de productos sin combustión y
+    la generación de caja, los inversores podrían reducir el descuento aplicado por
+    los riesgos de transición y regulación. La rentabilidad también dependerá de cambios
+    en tipos de interés, preferencias de riesgo y noticias regulatorias.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si la ventaja de rentabilidad
+    total frente al índice es inferior a 3 puntos porcentuales; una pérdida relativa
+    frente al índice constituye una refutación más contundente.
+  secondary_hypotheses:
+  - H1-OPP-MB-PM
+  - H2-OPP-MB-PM
+  statement: El mercado reconocerá la resiliencia de la generación de caja y el avance
+    de la transición de PM, dando lugar a una rentabilidad total superior a la del
+    mercado amplio de consumo defensivo en los siguientes doce meses.
+  status: ACTIVE
+  ticker: PM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: No se produce una reducción de al menos 2 puntos porcentuales en la
+      guía de crecimiento orgánico de ingresos netos dentro del horizonte.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa reduce la guía, pero atribuye el cambio exclusivamente a
+      factores distintos de la regulación o de restricciones de productos sin combustión.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - No se produce una reducción de al menos 2 puntos porcentuales en la guía de crecimiento
+    orgánico de ingresos netos dentro del horizonte.
+  - La empresa reduce la guía, pero atribuye el cambio exclusivamente a factores distintos
+    de la regulación o de restricciones de productos sin combustión.
+  horizon: largo
+  id: H4-OPP-MB-PM
+  opportunity_id: OPP-MB-PM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 2.0
+    met: null
+    metric: Reducción de la guía de crecimiento orgánico de ingresos netos atribuida
+      a regulación
+    prediction: Antes del 2028-11-20, PM reducirá al menos una vez en 2 puntos porcentuales
+      o más su guía de crecimiento orgánico de ingresos netos para el ejercicio en
+      curso, y atribuirá públicamente parte de la reducción a cambios regulatorios
+      o restricciones de comercialización de productos sin combustión.
+    unit: puntos porcentuales o más
+  priority: important
+  probability: 0.5
+  rationale: La disponibilidad y comercialización de productos de nicotina dependen
+    de autorizaciones y normas que pueden variar por jurisdicción. Una restricción
+    relevante puede frenar la adopción y ventas, aunque la diversificación geográfica
+    podría amortiguar su impacto.
+  review_trigger: Dejar de creerla el 2028-11-20 si no se ha cumplido la predicción;
+    también dejar de creerla antes si la empresa confirma que no anticipa un impacto
+    material de restricciones regulatorias sobre sus productos sin combustión durante
+    el horizonte.
+  secondary_hypotheses:
+  - H1-OPP-MB-PM
+  statement: La exposición regulatoria limitará el crecimiento de los productos sin
+    combustión en al menos un mercado material, y el riesgo se reflejará en una reducción
+    de la guía corporativa de crecimiento orgánico.
+  status: ACTIVE
+  ticker: PM
+  version: 1

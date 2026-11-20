@@ -2,39 +2,6 @@
   "schema_version": 1,
   "pending": [
     {
-      "opp_id": "OPP-MB-PM",
-      "ticker": "PM",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-MB-PSO",
-      "ticker": "PSO",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-MB-PSX",
-      "ticker": "PSX",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
       "opp_id": "OPP-MB-RACE",
       "ticker": "RACE",
       "score": 0,
@@ -1214,6 +1181,19 @@
       "next_attempt_date": "2026-11-21",
       "attempt_count": 1,
       "last_error": "Scenario validation status: invalid_pending_revision"
+    },
+    {
+      "opp_id": "OPP-MB-PSO",
+      "ticker": "PSO",
+      "score": 0,
+      "current_status": "SCREENED",
+      "reason": "new entry: SCREENED (score=0)",
+      "force_reprocess": true,
+      "trigger_type": null,
+      "event_evidence": null,
+      "next_attempt_date": "2026-11-21",
+      "attempt_count": 1,
+      "last_error": "H1: prediction or trigger references an expired year; H2: prediction or trigger references an expired year"
     }
   ]
 }

@@ -2956,3 +2956,107 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T18:18:10.632975'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-PM
+    ticker: PM
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T18:25:16.353043'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PM
+    ticker: PM
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T18:25:16.534031'
+- data:
+    classification: Multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 00b94ece514cb4c63995e62938f0babd044f43c3659ae11ed793be8c285cc7da
+    opp_id: OPP-MB-PM
+    score: 87.27
+    strategy_version: '1.5'
+    ticker: PM
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T18:26:53.245094'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-PSO
+    ticker: PSO
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T18:27:26.870021'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PSO
+    ticker: PSO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T18:27:27.060147'
+- data:
+    errors:
+    - 'H1: prediction or trigger references an expired year'
+    - 'H2: prediction or trigger references an expired year'
+    event_evidence: null
+    event_type: monthly
+    opp_id: OPP-MB-PSO
+    ticker: PSO
+  event_type: research:hypothesis_validation_failed
+  source: research_worker
+  timestamp: '2026-11-20T18:28:14.656192'
+- data:
+    metrics:
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-PSX
+    ticker: PSX
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T18:28:47.978496'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PSX
+    ticker: PSX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T18:28:48.164228'
+- data:
+    classification: Investigación fundamental requerida; evidencia insuficiente para
+      validar una oportunidad multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: f3b8b7f71d0c5338c3d3a2457b19bfacef4c221ea63a8707c50aa9e11743061e
+    opp_id: OPP-MB-PSX
+    score: 55
+    strategy_version: '1.5'
+    ticker: PSX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T18:30:19.426455'

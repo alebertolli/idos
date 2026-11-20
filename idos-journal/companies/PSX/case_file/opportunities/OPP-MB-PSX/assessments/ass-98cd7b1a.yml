@@ -1,0 +1,36 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida; evidencia insuficiente para
+  validar una oportunidad multibagger'
+- 'Market error: No se valida un error de valoración: no hay valoración intrínseca
+  ni estimaciones detalladas que permitan contrastar expectativas con fundamentales.'
+- 'Thesis: Phillips 66 combina segmentos de midstream, químicos, refinación, marketing
+  y combustibles renovables (resumen financiero, análisis al 2026-11-20). El caso
+  favorable depende de que los resultados TTM '
+generated_at: '2026-11-20T18:30:19.230019-03:00'
+id: ass-98cd7b1a
+recommendation: REVIEW
+risks:
+- analisis: El beneficio neto reportado pasó de USD 2,107 millones en FY 2024 a USD
+    4,394 millones en FY 2025 y USD 12,567 millones TTM al 2026-09-30; el paquete
+    no separa efectos cíclicos ni extraordinarios.
+  riesgo: Ciclicidad y sostenibilidad de resultados
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/psx/financials/
+- analisis: El proveedor reporta una cobertura de intereses de 0x TTM al 2026-09-30,
+    pero no proporciona el desglose de EBIT e intereses para validar ese valor.
+  riesgo: Calidad de datos de cobertura de intereses
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PSX/statistics/
+- analisis: El rango de objetivos observado al 2026-11-20 va de USD 188 a USD 346;
+    el paquete no permite atribuir la dispersión a supuestos específicos.
+  riesgo: Divergencia de objetivos publicados
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/psx/forecast/
+score: 55
+status: COMPLETED
+version: '3.0'
