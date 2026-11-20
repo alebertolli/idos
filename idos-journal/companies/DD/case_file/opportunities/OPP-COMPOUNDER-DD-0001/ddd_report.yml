@@ -1,0 +1,467 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La descripción suministrada de productos y mercados podría ser compatible con
+    diferenciación técnica y demanda recurrente, pero no verifica la existencia ni
+    la durabilidad de un moat.
+  - Las observaciones aisladas de FCF, margen operativo y crecimiento no bastan para
+    concluir que la generación de caja sea sostenible o que el crecimiento sea estructural.
+  - La brecha entre la cotización observada y los objetivos de analistas podría ser
+    una oportunidad o reflejar expectativas desalineadas; los datos no permiten resolverlo.
+  - La exposición sectorial a regulación ambiental, seguridad de producto y ciclos
+    industriales merece investigación, pero no demuestra un incidente específico.
+  - La observación financiera fcf registra valor 856000000.0, unidad provider_financial_currency,
+    período TTM terminado el 2026-06-30 y selected_source stockanalysis.com; observada
+    el 2026-10-30. La entrada no declara explícitamente la moneda de esa observación
+    individual.
+  - La observación financiera operating_margin_pct registra 14.238999999999999 percentage_points,
+    con fecha de período 2026-06-30, selected_source yfinance y período reportado
+    no especificado; observada el 2026-11-01.
+  - La observación financiera revenue_growth_pct registra 4.0 percentage_points, con
+    fecha de período 2026-06-30, selected_source yfinance y período reportado no especificado;
+    observada el 2026-11-01.
+  preguntas_abiertas:
+  - ¿Cuáles son la deuda bruta y neta, los vencimientos, el coste de financiación,
+    la liquidez disponible y la cobertura de intereses?
+  - ¿Cómo han evolucionado ingresos, márgenes, FCF, capital de trabajo y capex en
+    varios ejercicios y trimestres comparables?
+  - ¿Qué proporción del crecimiento es orgánica, por precio y por volumen, y cómo
+    se desglosa por segmento y geografía?
+  - ¿Qué evidencia primaria existe sobre participación de mercado, poder de fijación
+    de precios, retención de clientes y costes de cambio?
+  - ¿Cuál es la trayectoria verificable de la dirección en adquisiciones, desinversiones,
+    recompras, dividendos e inversión de capital?
+  - ¿Existen litigios, contingencias ambientales, obligaciones de remediación o riesgos
+    de seguridad de producto materiales no incluidos en la evidencia aportada?
+  - ¿Qué período y definición utiliza el proveedor para las observaciones de margen
+    operativo y crecimiento de ingresos?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: Compounder y compounder_castigado requieren evidencia más
+    sólida sobre retornos, resiliencia, crecimiento y moat, además de una caída o
+    descuento demostrable. Turnaround no está sustentado por evidencia de deterioro
+    operativo ni de un plan de recuperación. Deep value no puede justificarse sin
+    múltiplos y valoración de activos observables. Cíclica puede ser una exposición
+    relevante para una empresa de materiales, pero la información disponible no permite
+    afirmar que sea la característica dominante. Special situation carece de un evento
+    corporativo verificado en la evidencia aportada. Distressed no está respaldada
+    por datos de solvencia. Hype no se sostiene sin indicios de valoración especulativa
+    o ausencia de beneficios. Value trap requiere evidencia de destrucción estructural
+    de valor que no está disponible.
+  justificacion: La descripción suministrada apunta a un negocio de materiales y soluciones
+    especializadas con aplicaciones en salud, agua y protección, características compatibles
+    con cierta diferenciación y demanda recurrente. Sin embargo, la evidencia disponible
+    no demuestra la fortaleza ni la duración del moat, y no aporta múltiplos actuales
+    suficientes para afirmar que exista una gran infravaloración. La cotización observada
+    es de USD 139,68 y el consenso de objetivos de analistas es USD 172,47; este último
+    es una referencia de terceros, no una valoración independiente. La categoría es
+    provisional y refleja calidad potencial a precio razonable, no una conclusión
+    de que el valor razonable esté probado.
+comparativa_catalizadores:
+- delta_pct: 40
+  descripcion: Resultados futuros que confirmen crecimiento de ingresos y generación
+    de caja sostenibles.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos en el JSON previo;
+    se registra como nuevo y no puede evaluarse cumplimiento.
+  probabilidad_actual: 40
+  probabilidad_anterior: 0
+- delta_pct: 35
+  descripcion: Revisión de expectativas de valoración a partir de evidencia operativa
+    que contraste con los objetivos de analistas observados.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos en el JSON previo;
+    se registra como nuevo. La probabilidad es una estimación analítica no calibrada.
+  probabilidad_actual: 35
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: La descripción del negocio sugiere productos y soluciones especializados,
+    incluidos TYVEK y tecnologías de filtración y separación. Esto podría aportar
+    costes de cambio, reputación y especificaciones técnicas; son inferencias, no
+    hechos corroborados por evidencia operativa o competitiva en esta entrada. No
+    se suministran participaciones de mercado, retención de clientes, retornos sobre
+    capital, concentración de clientes ni datos de precios para evaluar durabilidad
+    del moat y resiliencia.
+  rating: regular
+dominio_catalizadores:
+- descripcion: Resultados futuros que confirmen crecimiento de ingresos y generación
+    de caja sostenibles; catalizador condicional, sin calendario corporativo verificado
+    en la entrada.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+- descripcion: Revisión de expectativas de valoración si el mercado recibe evidencia
+    operativa que valide o refute la brecha frente a los objetivos de analistas observados.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: No hay evidencia primaria en la entrada sobre emisiones, sustancias químicas,
+    litigios, remediación ambiental, seguridad laboral, trazabilidad o concentración
+    de proveedores. Dada la naturaleza de una empresa de materiales, la exposición
+    a regulación ambiental, seguridad de producto y disponibilidad de insumos merece
+    investigación; esto es una inferencia de riesgo sectorial, no evidencia de incumplimiento
+    específico de DuPont.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La observación de FCF de stockanalysis.com registra USD 856 millones para
+    TTM terminado el 2026-06-30. Yfinance reporta margen operativo de 14,239% y crecimiento
+    de ingresos de 4% para el 2026-06-30, pero con período no especificado. Estos
+    datos aislados no bastan para juzgar tendencias, conversión de caja o capacidad
+    de servicio de deuda. No se aportan aquí valores verificables de deuda, vencimientos,
+    liquidez o cobertura; su ausencia no implica que sean cero.
+  rating: adecuada
+dominio_growth:
+  analisis: Yfinance reporta crecimiento de ingresos de 4% al 2026-06-30, con período
+    no especificado. Las aplicaciones descritas en agua, salud y protección podrían
+    ofrecer impulsores estructurales, pero no se aportan desglose de ventas, crecimiento
+    orgánico, cartera de pedidos, guía corporativa ni perspectivas por segmento. No
+    se puede atribuir crecimiento futuro a esos mercados como hecho.
+  rating: moderado
+dominio_management:
+  analisis: No se suministran datos verificables sobre equipo directivo, remuneración,
+    compras o ventas de acciones, decisiones de inversión, adquisiciones, recompras,
+    dividendos ni resultados de asignación de capital. No es posible emitir un juicio
+    robusto sobre alineación o track record; la calificación refleja insuficiencia
+    de evidencia, no una acusación de mala gestión.
+  rating: regular
+dominio_riesgos:
+- impacto: medio
+  probabilidad: media
+  riesgo: Riesgo de que el consenso de objetivos refleje expectativas de crecimiento
+    o valoración que no se materialicen.
+- impacto: medio
+  probabilidad: media
+  riesgo: Ciclicidad de la demanda industrial y exposición a condiciones macroeconómicas
+    en los mercados finales.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgos regulatorios, ambientales o de responsabilidad por productos propios
+    de la industria de materiales; no se aporta evidencia de un evento concreto.
+- impacto: medio
+  probabilidad: media
+  riesgo: La generación de caja observada podría no ser representativa de resultados
+    futuros si cambian márgenes, capital de trabajo o inversión.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Falta de datos sobre deuda, vencimientos y liquidez impide descartar vulnerabilidad
+    financiera relevante.
+error_mercado:
+  catalizador_cambio:
+    descripcion: 'Publicación de resultados que confirme de forma sostenida crecimiento
+      de ingresos y generación de caja, junto con comentarios verificables de la dirección
+      sobre demanda y márgenes. Es un catalizador condicional: no se aporta calendario
+      ni evidencia de que vaya a materializarse.'
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 40
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: 'La cotización proporcionada es USD 139,68 al 2026-10-30. El consenso
+    de objetivos observado el 2026-11-20 es USD 172,47, con rango de USD 145 a USD
+    190. La diferencia entre cotización y consenso no prueba por sí sola una oportunidad:
+    los objetivos son referencias de analistas, no valoraciones independientes. No
+    se suministran múltiplos actuales, estimaciones de beneficios ni datos suficientes
+    para inferir qué escenario está descontando el precio.'
+  hipotesis_contraria: Una lectura contraria plausible es que el mercado pueda estar
+    subestimando la resiliencia de productos especializados y la conversión de ventas
+    en caja, si la demanda de sus negocios de salud, agua y protección se mantiene.
+    También es posible que el consenso de analistas sobreestime la capacidad de crecimiento
+    o la recuperación de márgenes. La evidencia suministrada no permite determinar
+    cuál de esas variables está siendo exagerada ni confirmar un error del mercado.
+  razonamiento: La cotización es inferior al consenso y al objetivo bajo observados,
+    pero esa comparación no es una valoración intrínseca y no hay múltiplos ni proyecciones
+    operativas suficientes para identificar un error aprovechable. En pensamiento
+    de segundo nivel, también debe considerarse que la aparente brecha puede reflejar
+    riesgos de ejecución, ciclo o expectativas demasiado optimistas de los analistas.
+    La evidencia disponible no permite separar esas explicaciones.
+generated_at: '2026-11-20T13:08:34.055810-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se aporta evidencia que demuestre una vulneración de las categorías de
+    integridad indicadas. La ausencia de datos suficientes sobre moat, gestión y solvencia
+    constituye una limitación de diligencia, no prueba de que la tesis se haya roto.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-DD-0001
+prompt_inputs:
+  business_model: DuPont de Nemours, Inc. provides technology-based materials and
+    solutions in the United States, Canada, the Asia Pacific, Latin America, Europe,
+    the Middle East, and Africa. It operates through two segments, Healthcare & Water
+    Technologies and Diversified Industrials. The company offers specialty components
+    for medical devices, packaging and garments, and protective suits under the brand
+    TYVEK; provides water filtration and separation solutions, including elements,
+    modules, and systems serving primarily industrial wastewater and energy markets,
+    municipal and desalination applications, and life sciences and specialty sectors.
+    It also offers AMBERLITE ion exchange resins, FILMTEC reverse osmosis and nanofiltration
+    elements, and INGE and ITEGRATEC ultrafiltration modules. In addition, the company
+    offers engineered products and integrated solutions for the non-residential, residential,
+    and repair-and-remodel construction markets, includes TYVEK house wrap, STYROFOAM
+    insulation, and CORIAN solid surface. Further, it engages in the design and production
+    of engineered components, systems, and process solutions used in OEM and operational
+    applications, such as automotive, aerospace, printing, and packaging. Additionally,
+    the company offers Vespel shapes and parts, MOLYKOTE specialty lubricants, BETAFORCE
+    and BETASEAL structural adhesives, and Cyrel flexographic printing plates. The
+    company has a collaboration with Microsoft and NobleAI to expand access to advanced
+    AI tools and resources, including machine learning that helps scientists and engineers
+    innovate faster. The company was formerly known as DowDuPont Inc. and changed
+    its name to DuPont de Nemours, Inc. in June 2019. DuPont de Nemours, Inc. was
+    incorporated in 2015 and is headquartered in Wilmington, Delaware.
+  ceo_tenure: 0
+  debt_to_equity: 0.23
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: DuPont de Nemours, Inc.
+  operating_margin: 13.64
+  pe_ratio: 357.72
+  products: ''
+  revenue: 6990000000.0
+  revenue_growth: 49.35
+  roic: 4.22
+  sector: Basic Materials
+  ticker: DD
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: DuPont de Nemours, Inc. provides technology-based materials and
+    solutions in the United States, Canada, the Asia Pacific, Latin America, Europe,
+    the Middle East, and Africa. It operates through two segments, Healthcare & Water
+    Technologies and Diversified Industrials. The company offers specialty components
+    for medical devices, packaging and garments, and protective suits under the brand
+    TYVEK; provides water filtration and separation solutions, including elements,
+    modules, and systems serving primarily industrial wastewater and energy markets,
+    municipal and desalination applications, and life sciences and specialty sectors.
+    It also offers AMBERLITE ion exchange resins, FILMTEC reverse osmosis and nanofiltration
+    elements, and INGE and ITEGRATEC ultrafiltration modules. In addition, the company
+    offers engineered products and integrated solutions for the non-residential, residential,
+    and repair-and-remodel construction markets, includes TYVEK house wrap, STYROFOAM
+    insulation, and CORIAN solid surface. Further, it engages in the design and production
+    of engineered components, systems, and process solutions used in OEM and operational
+    applications, such as automotive, aerospace, printing, and packaging. Additionally,
+    the company offers Vespel shapes and parts, MOLYKOTE specialty lubricants, BETAFORCE
+    and BETASEAL structural adhesives, and Cyrel flexographic printing plates. The
+    company has a collaboration with Microsoft and NobleAI to expand access to advanced
+    AI tools and resources, including machine learning that helps scientists and engineers
+    innovate faster. The company was formerly known as DowDuPont Inc. and changed
+    its name to DuPont de Nemours, Inc. in June 2019. DuPont de Nemours, Inc. was
+    incorporated in 2015 and is headquartered in Wilmington, Delaware.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 139.67999267578125
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.23
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:23.986749+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/DD/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 856000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:27.055069+00:00", "period_end_date": "2026-06-30", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1782777600, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    14.238999999999999}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:27.055069+00:00",
+    "period_end_date": "2026-06-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1782777600,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    4.0}}}, "observed_at": "2026-10-30T16:53:23.986749+00:00", "period_end": "2026-06-30",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: DuPont de Nemours, Inc.
+  operating_margin: 13.64
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: DuPont de Nemours, Inc. provides technology-based materials and solutions
+    in the United States, Canada, the Asia Pacific, Latin America, Europe, the Middle
+    East, and Africa. It operates through two segments, Healthcare & Water Technologies
+    and Diversified Industrials. The company offers specialty components for medical
+    devices, packaging and garments, and protective suits under the brand TYVEK; provides
+    water filtration and separation solutions, including elements, modules, and systems
+    serving p
+  revenue: 6990000000.0
+  revenue_growth: 49.35
+  roic: 4.22
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    190.0, "low": 145.0, "mean": 172.47, "median": 172.47, "observed_at": "2026-11-20T13:07:58.118780-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T13:07:58.118780-03:00", "observed_date": "2026-11-20", "target_price":
+    172.47, "url": "https://stockanalysis.com/stocks/dd/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:07:58.118780-03:00",
+    "observed_date": "2026-11-20", "target_price": 172.4706, "url": "https://finance.yahoo.com/quote/DD/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 139.67999267578125,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/DD/"}]}}'
+  sector: Basic Materials
+  ticker: DD
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 9d62825db41b8eea4162f48cf783fa6b7843759626c47c33577be32be7de555e
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T13:08:34.055810-03:00'
+resumen_ejecutivo: 'La información aportada describe actividades especializadas en
+  materiales, salud, agua y protección, pero no contiene evidencia suficiente para
+  validar la calidad del moat, la posición competitiva, la deuda, la asignación de
+  capital o la trayectoria histórica. Las observaciones financieras disponibles indican
+  FCF TTM de USD 856 millones al 2026-06-30, crecimiento de ingresos reportado de
+  4% y margen operativo reportado de 14,239%, ambos con período no especificado por
+  el proveedor. Son señales útiles, pero insuficientes para concluir sobre sostenibilidad
+  o valoración. La cotización de USD 139,68 y el consenso de objetivos de USD 145–190
+  permiten referencias de escenario, no demuestran infravaloración. Resultado: oportunidad
+  de calidad potencial a precio razonable, con convicción baja y diligencia pendiente.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Evidencia verificable de crecimiento orgánico y generación de caja sostenidos
+      que respalde una valoración superior.
+    - Una revisión material de los objetivos de analistas o una valoración independiente
+      sustentada en información operativa nueva.
+    id: BEAR
+    key_assumptions:
+    - Los objetivos observados son referencias de terceros y no precios garantizados.
+    - El crecimiento y la caja recientes no se aceleran o no demuestran ser sostenibles.
+    - No se dispone de una fuente independiente que respalde un objetivo inferior
+      al límite bajo observado.
+    rationale: Se utiliza el objetivo bajo observado como ancla del caso bajista,
+      no como valoración independiente. La referencia está por encima de la cotización
+      proporcionada, lo que muestra que el rango de objetivos disponible no permite
+      representar un caso de caída por debajo del precio actual sin inventar una referencia.
+      La ancla no prueba que USD 145 sea un suelo.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/dd/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DD/
+    target_price: 145
+  - falsifiers:
+    - Descenso sostenido del crecimiento de ingresos o de la generación de caja en
+      datos comparables.
+    - Revisiones a la baja de objetivos o evidencia de riesgos financieros, regulatorios
+      u operativos que impida sostener la expectativa de valoración.
+    id: BULL
+    key_assumptions:
+    - El crecimiento de ingresos reportado se mantiene o mejora y se vuelve verificable
+      en períodos comparables.
+    - La generación de FCF reportada resulta sostenible y no depende de factores transitorios.
+    - El mercado acepta una valoración compatible con el extremo alto de los objetivos
+      observados.
+    rationale: Se utiliza el objetivo alto observado como ancla del caso alcista,
+      no como valoración independiente. Este escenario supone que la ejecución y la
+      generación de caja justifican que la acción alcance el extremo alto del consenso;
+      la información aportada no valida esa hipótesis.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/dd/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DD/
+    target_price: 190
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 52
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T13:07:58.118780-03:00'
+  fuentes:
+    stockanalysis: 172.47
+    yfinance: 172.4706
+  mediana: 172.47
+  n_fuentes: 2
+  promedio: 172.47
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T13:07:58.118780-03:00'
+    observed_date: '2026-11-20'
+    target_price: 172.47
+    url: https://stockanalysis.com/stocks/dd/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T13:07:58.118780-03:00'
+    observed_date: '2026-11-20'
+    target_price: 172.4706
+    url: https://finance.yahoo.com/quote/DD/
+  target_high: 190.0
+  target_low: 145.0
+tesis_inversion: 'Tesis provisional de calidad potencial a precio razonable: la descripción
+  del negocio sugiere exposición a soluciones especializadas, mientras que las observaciones
+  disponibles muestran FCF TTM positivo reportado y crecimiento de ingresos de 4%
+  en un período no especificado. No obstante, no hay base suficiente para afirmar
+  que el moat sea duradero, que la caja sea sostenible o que la acción esté infravalorada.
+  La diferencia entre cotización y objetivos de analistas es una referencia para investigar,
+  no una señal de compra por sí sola. La tesis mejoraría con evidencia de crecimiento
+  orgánico, márgenes resilientes, balance manejable y retornos de capital disciplinados;
+  se debilitaría si la caja o la rentabilidad observadas resultan transitorias.'
+ticker: DD
+version: '3.0'

@@ -1,0 +1,138 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM al 2027-09-30 son iguales o inferiores a USD 74.0
+      mil millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos TTM disminuyen frente a los USD 71.8 mil millones reportados
+      al 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM al 2027-09-30 son iguales o inferiores a USD 74.0 mil millones.
+  - Los ingresos TTM disminuyen frente a los USD 71.8 mil millones reportados al 2026-09-30.
+  horizon: medio
+  id: H1-OPP-MB-DAL
+  opportunity_id: OPP-MB-DAL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 74.0
+    met: null
+    metric: Ingresos TTM
+    prediction: Los ingresos TTM reportados al 2027-09-30 serán superiores a USD 74.0
+      mil millones.
+    unit: USD mil millones
+  priority: important
+  probability: 0.5
+  rationale: La compañía reportó ingresos TTM de USD 71.8 mil millones al 2026-09-30
+    y opera redes domésticas e internacionales de pasajeros y carga. Una expansión
+    de ingresos es plausible, pero el paquete no aporta datos de demanda, capacidad,
+    tarifas ni participación de mercado que permitan identificar su causa o sostenibilidad.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes del 2027-09-30 muestran ingresos interanuales decrecientes, o si el dato
+    TTM al 2027-09-30 no supera USD 74.0 mil millones.
+  secondary_hypotheses: []
+  statement: Los ingresos de Delta crecerán moderadamente durante los próximos doce
+    meses, sin que la información disponible permita atribuir ese crecimiento a una
+    ganancia duradera de cuota de mercado.
+  status: ACTIVE
+  ticker: DAL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM al 2027-09-30 es inferior a USD 3.3 mil millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM desciende por debajo de USD 3.022 mil millones en dos cierres
+      trimestrales consecutivos antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM al 2027-09-30 es inferior a USD 3.3 mil millones.
+  - El FCF TTM desciende por debajo de USD 3.022 mil millones en dos cierres trimestrales
+    consecutivos antes de la fecha objetivo.
+  horizon: medio
+  id: H2-OPP-MB-DAL
+  opportunity_id: OPP-MB-DAL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 3.3
+    met: null
+    metric: FCF TTM
+    prediction: El FCF TTM reportado al 2027-09-30 será al menos USD 3.3 mil millones.
+    unit: USD mil millones
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM era de USD 3.022 mil millones al 2026-09-30 y se señala un
+    descenso reciente. Una mejora de ingresos o de conversión de caja podría elevarlo,
+    pero faltan datos sobre márgenes futuros, inversiones, capital de trabajo y servicio
+    de deuda para establecer un mecanismo cuantificado más específico.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos muestran
+    FCF TTM inferior a USD 3.022 mil millones, o si el FCF TTM al 2027-09-30 queda
+    por debajo de USD 3.3 mil millones.
+  secondary_hypotheses:
+  - H1-OPP-MB-DAL
+  statement: El flujo de caja libre TTM de Delta se recuperará respecto del nivel
+    reportado al 2026-09-30, aunque el paquete disponible no permite determinar si
+    la recuperación será sostenible ni si reducirá materialmente la deuda neta.
+  status: ACTIVE
+  ticker: DAL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El valor de empresa dividido por el FCF TTM más reciente disponible
+      supera 12 veces al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El múltiplo supera 12 veces en dos cierres mensuales consecutivos antes
+      de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El valor de empresa dividido por el FCF TTM más reciente disponible supera 12
+    veces al 2027-11-20.
+  - El múltiplo supera 12 veces en dos cierres mensuales consecutivos antes de la
+    fecha objetivo.
+  horizon: medio
+  id: H3-OPP-MB-DAL
+  opportunity_id: OPP-MB-DAL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 12.0
+    met: null
+    metric: Valor de empresa / FCF TTM
+    prediction: Al 2027-11-20, el valor de empresa dividido por el FCF TTM más reciente
+      divulgado será igual o inferior a 12 veces.
+    unit: veces, máximo
+  priority: informational
+  probability: 0.5
+  rationale: El FCF TTM reportado fue de USD 3.022 mil millones y la deuda neta limita
+    lo que puede inferirse sobre el valor atribuible a los accionistas. Como no se
+    proporcionan cotización, capitalización bursátil, importe de deuda neta ni expectativas
+    incorporadas en el precio, no hay base para afirmar que el mercado esté sobrevalorando
+    o infravalorando la empresa. La hipótesis se limita a un múltiplo empresarial
+    observable.
+  review_trigger: Dejar de creerla si el múltiplo EV/FCF supera 12 veces en dos cierres
+    mensuales consecutivos, calculado con valor de empresa y FCF TTM publicados y
+    precios de cierre verificables.
+  secondary_hypotheses:
+  - H2-OPP-MB-DAL
+  statement: La valoración de Delta no se sostendrá por encima de 12 veces su FCF
+    TTM durante el horizonte de la hipótesis; este umbral es una prueba prospectiva,
+    no una conclusión sobre si la cotización actual es barata o cara.
+  status: ACTIVE
+  ticker: DAL
+  version: 1

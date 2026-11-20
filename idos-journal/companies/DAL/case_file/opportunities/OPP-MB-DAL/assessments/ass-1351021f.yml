@@ -1,0 +1,35 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; evidencia insuficiente para validar una oportunidad
+  de crecimiento compuesto'
+- 'Market error: No validado: los objetivos de analistas son referencias observadas,
+  no una valoración intrínseca, y no hay evidencia suficiente para cuantificar el
+  error de valoración.'
+- 'Thesis: Delta opera transporte aéreo de pasajeros y carga, con segmentos Airline
+  y Refinery y redes domésticas e internacionales descritas en el resumen financiero.
+  Los datos reportados muestran ingresos TTM '
+generated_at: '2026-11-20T13:07:54.852303-03:00'
+id: ass-1351021f
+recommendation: REVIEW
+risks:
+- evidencia: Current ratio reportado de 0.4 al 2026-09-30, inferior al umbral configurado
+    de 0.5.
+  fuente: stockanalysis.com, estadísticas de DAL, período TTM al 2026-09-30.
+  riesgo: Liquidez corriente ajustada
+- evidencia: Deuda total reportada de USD 19.935 mil millones y efectivo e inversiones
+    de USD 3.787 mil millones al 2026-09-30; la cobertura de intereses reportada como
+    0 no permite verificar una razón EBIT/intereses utilizable.
+  fuente: stockanalysis.com, estadísticas de DAL, período TTM al 2026-09-30.
+  riesgo: Deuda y cobertura de intereses no validadas
+- evidencia: FCF reportado de USD 3.022 mil millones TTM al 2026-09-30 frente a USD
+    3.843 mil millones en FY 2025; los períodos no son anuales comparables.
+  fuente: stockanalysis.com, estadísticas de DAL, períodos indicados.
+  riesgo: FCF TTM inferior al FY 2025
+- evidencia: La compañía presta transporte aéreo de pasajeros y carga, pero el paquete
+    no cuantifica sensibilidad a demanda, combustible, capacidad o disrupciones.
+  fuente: Resumen financiero de contexto, consultado al 2026-11-20.
+  riesgo: Exposición cíclica y operativa no cuantificada
+score: 42
+status: COMPLETED
+version: '3.0'

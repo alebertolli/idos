@@ -741,3 +741,55 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T12:57:25.681452'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: acd59e849e6abd36f1321c6c719c3a7d2013df5f11d73ed57f4f62718f9ca34a
+    opp_id: OPP-COMPOUNDER-DAL-0001
+    score: 68
+    strategy_version: positive_fundamentals_v1
+    ticker: DAL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:06:01.409352'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DAL
+    ticker: DAL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T13:06:26.848071'
+- data:
+    classification: Research requerido; evidencia insuficiente para validar una oportunidad
+      de crecimiento compuesto
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 6cac4425b6f99efc7771a0bbc04cb0c6817521120279b642fabe22636b122c47
+    opp_id: OPP-MB-DAL
+    score: 42
+    strategy_version: '1.5'
+    ticker: DAL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:07:54.901344'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 9d62825db41b8eea4162f48cf783fa6b7843759626c47c33577be32be7de555e
+    opp_id: OPP-COMPOUNDER-DD-0001
+    score: 52
+    strategy_version: positive_fundamentals_v1
+    ticker: DD
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:10:10.413459'

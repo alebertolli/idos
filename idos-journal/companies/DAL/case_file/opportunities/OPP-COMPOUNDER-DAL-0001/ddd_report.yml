@@ -1,0 +1,362 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Evaluación de moat basado en red de hubs
+  - Calificación de gestión y ESG sin datos directos
+  - Suposiciones sobre riesgos de deuda y competencia
+  - Cotización 78.95 USD al 2026-10-30 (yfinance)
+  - Precio objetivo medio 101.65 USD, bajo 53 USD, alto 125 USD al 2026-11-20 (stockanalysis.com,
+    yfinance)
+  - Free cash flow 3.02B USD TTM al 2026-09-30 (stockanalysis.com)
+  - Margen operativo 7.218% al 2026-09-30 (yfinance)
+  - Crecimiento de ingresos 21.10% al 2026-09-30 (yfinance)
+  preguntas_abiertas:
+  - Nivel exacto de deuda neta y ratios de cobertura
+  - Detalle de la contribución del segmento Refinery al EBITDA
+  - Política de sostenibilidad y objetivos de reducción de emisiones
+  - Estructura de incentivos del management
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: compounder,compounder_castigado,turnaround,deep_value,quality_at_fair_price,hype,value_trap,special_situation,distressed
+  justificacion: Delta Air Lines opera en la industria de transporte aéreo, cuyo desempeño
+    está fuertemente ligado a los ciclos macroeconómicos, precios de combustible y
+    demanda de viajes. Aunque posee una red de hubs robusta, la naturaleza del negocio
+    sigue siendo cíclica y sensible a shocks externos, lo que encaja mejor con la
+    categoría Cíclica que con Compounder, Deep Value u otras.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Delta posee una red de hubs estratégicos en EE.UU. y presencia internacional
+    que le otorga cierta ventaja competitiva en conectividad y lealtad de clientes.
+    Sin embargo, la barrera de entrada en la aviación es alta por costos de capital,
+    pero la competencia de aerolíneas low‑cost y la sensibilidad a precios limitan
+    la durabilidad del moat.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Cobertura de combustible a precios fijados por debajo del spot durante
+    12‑24 meses
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 45
+- descripcion: Acuerdo laboral que limite aumentos salariales a <3 % anual
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 40
+- descripcion: Expansión de rutas internacionales de alta rentabilidad (p.ej., Amsterdam‑Lima)
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: La aviación es intensiva en emisiones de CO₂ y está sujeta a regulaciones
+    ambientales crecientes. Además, la dependencia de proveedores de combustible y
+    la exposición a riesgos laborales (sindicatos) añaden riesgos ESG moderados.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Free cash flow de 3.02 B USD (TTM) y margen operativo del 7.2 % indican
+    generación de caja razonable. El crecimiento de ingresos del 21 % sugiere recuperación,
+    pero la industria suele operar con altos niveles de deuda, lo que no se detalla
+    en los datos provistos; por ello la salud financiera se califica como adecuada,
+    no fuerte.
+  rating: adecuada
+dominio_growth:
+  analisis: El crecimiento de ingresos del 21 % indica impulso orgánico reciente,
+    impulsado por la recuperación de la demanda de viajes. Sin embargo, el crecimiento
+    futuro dependerá de la capacidad de captar cuota de mercado frente a competidores
+    low‑cost y de la evolución macroeconómica, lo que limita la visión a un crecimiento
+    moderado.
+  rating: moderado
+dominio_management:
+  analisis: El equipo directivo ha navegado la recuperación post‑COVID y mantiene
+    una estrategia de diversificación entre pasajeros y carga. No se dispone de evidencia
+    directa de alineación de incentivos o historial de creación de valor, pero no
+    se observan señales de mala gestión, por lo que se asigna un rating bueno basado
+    en inferencia.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Volatilidad del precio del combustible
+- impacto: alto
+  probabilidad: media
+  riesgo: Conflictos laborales y aumentos salariales
+- impacto: alto
+  probabilidad: alta
+  riesgo: Recesión económica global
+- impacto: medio
+  probabilidad: media
+  riesgo: Competencia de aerolíneas low‑cost
+error_mercado:
+  catalizador_cambio:
+    descripcion: Acuerdo de cobertura de combustible a precios favorables y resolución
+      de negociaciones laborales que reduzcan costos operativos.
+    horizonte: corto
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: Los analistas promedian un precio objetivo de 101.65 USD (rango
+    53‑125 USD) mientras que la cotización actual es 78.95 USD, lo que indica que
+    el mercado está descontando riesgos de demanda, costos de combustible y posibles
+    conflictos laborales.
+  hipotesis_contraria: El consenso podría estar sobrestimando la recuperación de la
+    demanda post‑pandemia y subestimando la volatilidad del precio del combustible
+    y la presión de costos laborales. Además, los analistas pueden estar asumiendo
+    una mejora continua en la gestión de la capacidad sin considerar la saturación
+    de rutas ni la competencia de low‑cost.
+  razonamiento: Existe una brecha entre el precio actual y el consenso, pero la magnitud
+    del descuento depende de variables macro y operativas que el mercado podría estar
+    ponderando correctamente o no. Por ello la certeza de un error de valoración aprovechable
+    es limitada.
+generated_at: '2026-11-20T13:04:33.350814-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-COMPOUNDER-DAL-0001
+prompt_inputs:
+  business_model: Delta Air Lines, Inc. provides scheduled air transportation for
+    passengers and cargo in the United States and internationally. The company operates
+    through two segments, Airline and Refinery. Its domestic network centered on core
+    hubs in Atlanta, Detroit, Minneapolis-St. Paul, and Salt Lake City, as well as
+    coastal hub positions in Boston, Los Angeles, New York-LaGuardia, New York-JFK,
+    and Seattle; and international network centered on hubs and market presence in
+    Amsterdam, Bogota, Lima, Mexico City, London-Heathrow, Paris-Charles de Gaulle,
+    Santiago (Chile), Sao Paulo, Seoul-Incheon, and Tokyo. It also provides aircraft
+    maintenance and engineering support, repair, and overhaul services; and vacation
+    packages. The company operates through a fleet of approximately 1,314 aircraft.
+    Delta Air Lines, Inc. was founded in 1924 and is headquartered in Atlanta, Georgia.
+  ceo_tenure: 0
+  debt_to_equity: 0.89
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Delta Air Lines, Inc.
+  operating_margin: 7.29
+  pe_ratio: 15.86
+  products: ''
+  revenue: 71800000000.0
+  revenue_growth: 14.11
+  roic: 10.23
+  sector: Industrials
+  ticker: DAL
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Delta Air Lines, Inc. provides scheduled air transportation for
+    passengers and cargo in the United States and internationally. The company operates
+    through two segments, Airline and Refinery. Its domestic network centered on core
+    hubs in Atlanta, Detroit, Minneapolis-St. Paul, and Salt Lake City, as well as
+    coastal hub positions in Boston, Los Angeles, New York-LaGuardia, New York-JFK,
+    and Seattle; and international network centered on hubs and market presence in
+    Amsterdam, Bogota, Lima, Mexico City, London-Heathrow, Paris-Charles de Gaulle,
+    Santiago (Chile), Sao Paulo, Seoul-Incheon, and Tokyo. It also provides aircraft
+    maintenance and engineering support, repair, and overhaul services; and vacation
+    packages. The company operates through a fleet of approximately 1,314 aircraft.
+    Delta Air Lines, Inc. was founded in 1924 and is headquartered in Atlanta, Georgia.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 78.94999694824219
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.89
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:22.164261+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/DAL/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 3020000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:26.474646+00:00", "period_end_date": "2026-09-30", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1790726400, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    7.217999999999999}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:26.474646+00:00",
+    "period_end_date": "2026-09-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1790726400,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    21.099999999999998}}}, "observed_at": "2026-10-30T16:53:22.164261+00:00", "period_end":
+    "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Delta Air Lines, Inc.
+  operating_margin: 7.29
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Delta Air Lines, Inc. provides scheduled air transportation for
+    passengers and cargo in the United States and internationally. The company operates
+    through two segments, Airline and Refinery. Its domestic network centered on core
+    hubs in Atlanta, Detroit, Minneapolis-St. Paul, and Salt Lake City, as well as
+    coastal hub positions in Boston, Los Angeles, New York-LaGuardia, New York-JFK,
+    and Seattle; and international network centered on hubs and market presence in
+    Amsterdam, Bogota, Lima, Mexico '
+  revenue: 71800000000.0
+  revenue_growth: 14.11
+  roic: 10.23
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    125.0, "low": 53.0, "mean": 101.65, "median": 101.65, "observed_at": "2026-11-20T13:04:23.414784-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T13:04:23.414784-03:00", "observed_date": "2026-11-20", "target_price":
+    101.65, "url": "https://stockanalysis.com/stocks/dal/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:04:23.414784-03:00",
+    "observed_date": "2026-11-20", "target_price": 101.65, "url": "https://finance.yahoo.com/quote/DAL/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 78.94999694824219,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/DAL/"}]}}'
+  sector: Industrials
+  ticker: DAL
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: acd59e849e6abd36f1321c6c719c3a7d2013df5f11d73ed57f4f62718f9ca34a
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T13:04:33.350814-03:00'
+resumen_ejecutivo: Delta Air Lines muestra un flujo de caja libre positivo (3.02 B
+  USD) y un margen operativo del 7.2 % con crecimiento de ingresos del 21 % en el
+  último trimestre, pero su valoración actual (78.95 USD) está por debajo del promedio
+  de los analistas (101.65 USD). El negocio es cíclico y sensible a precios de combustible
+  y a la demanda macro, lo que genera incertidumbre sobre la magnitud del upside.
+  Se identifica un posible upside si se logra un mejor hedging de combustible y acuerdos
+  laborales favorables.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Recuperación del PIB >2 % anual
+    - Cobertura de combustible a precios <3 USD/galón
+    - Acuerdo laboral con aumentos <3 % anual
+    id: BEAR
+    key_assumptions:
+    - PIB global crece <1 % en 2026‑2027
+    - Precio del combustible supera 4 USD/galón promedio
+    - Acuerdo laboral con aumentos salariales >5 % anual
+    rationale: Escenario pesimista con prolongada recesión, precios de combustible
+      elevados, aumento salarial >5 % y pérdida de cuota de mercado frente a low‑cost,
+      lo que reduce ingresos y margenes, llevando el precio a la zona baja del consenso.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/dal/forecast
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DAL/
+    target_price: 53
+  - falsifiers:
+    - Recesión global con caída del PIB <0 %
+    - Aumento del precio del combustible >4 USD/galón sin cobertura
+    - Conflicto laboral con huelgas prolongadas
+    id: BULL
+    key_assumptions:
+    - Crecimiento del PIB >3 % anual
+    - Precio del combustible hedged <2.5 USD/galón
+    - Acuerdo laboral con aumentos ≤3 % anual
+    - Incremento de ingresos >15 % anual sostenido
+    rationale: Escenario optimista con fuerte recuperación de la demanda de viajes,
+      precios de combustible hedged a niveles bajos, acuerdos laborales que limitan
+      aumentos salariales y expansión rentable de rutas internacionales, impulsando
+      márgenes y flujo de caja.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/dal/forecast
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DAL/
+    target_price: 125
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 68
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T13:04:23.414784-03:00'
+  fuentes:
+    stockanalysis: 101.65
+    yfinance: 101.65
+  mediana: 101.65
+  n_fuentes: 2
+  promedio: 101.65
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T13:04:23.414784-03:00'
+    observed_date: '2026-11-20'
+    target_price: 101.65
+    url: https://stockanalysis.com/stocks/dal/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T13:04:23.414784-03:00'
+    observed_date: '2026-11-20'
+    target_price: 101.65
+    url: https://finance.yahoo.com/quote/DAL/
+  target_high: 125.0
+  target_low: 53.0
+tesis_inversion: Delta Air Lines está subvaluado respecto al consenso de analistas,
+  respaldado por un flujo de caja libre positivo y fuerte crecimiento de ingresos.
+  Si la compañía logra estabilizar sus costos de combustible y contener la presión
+  salarial, el precio podría revalorizarse acercándose al rango medio‑alto del consenso
+  (≈101‑125 USD).
+ticker: DAL
+version: '3.0'

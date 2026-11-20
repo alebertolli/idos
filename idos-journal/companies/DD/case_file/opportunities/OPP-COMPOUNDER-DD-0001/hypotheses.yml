@@ -1,0 +1,207 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas orgánicas acumuladas de los cuatro trimestres terminados
+      en la fecha objetivo crecen 0% o menos interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Dos trimestres consecutivos dentro del período muestran contracción
+      orgánica interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas orgánicas acumuladas de los cuatro trimestres terminados en la fecha
+    objetivo crecen 0% o menos interanual.
+  - Dos trimestres consecutivos dentro del período muestran contracción orgánica interanual.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-DD-0001
+  opportunity_id: OPP-COMPOUNDER-DD-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 2.0
+    met: null
+    metric: Crecimiento interanual acumulado de ventas orgánicas en cuatro trimestres
+    prediction: En los cuatro trimestres consecutivos más recientes reportados hasta
+      2027-11-20, las ventas orgánicas acumuladas de DuPont crecerán al menos 2% interanual,
+      excluyendo adquisiciones, desinversiones y efecto cambiario según la definición
+      de la compañía.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La exposición descrita a productos para salud, agua y protección podría
+    sostener la demanda si esos productos son menos sensibles al ciclo que los materiales
+    más comoditizados. El crecimiento de ingresos de 4% mencionado en el contexto
+    es una señal preliminar, pero su período y composición no están especificados
+    y no demuestra crecimiento orgánico.
+  review_trigger: Dejar de creerla si dos trimestres consecutivos reportan ventas
+    orgánicas interanuales negativas, o si los datos publicados al 2027-11-20 muestran
+    crecimiento acumulado inferior al 2%.
+  secondary_hypotheses: []
+  statement: DuPont mantendrá crecimiento orgánico positivo en sus negocios de soluciones
+    especializadas durante los próximos cuatro trimestres reportados.
+  status: ACTIVE
+  ticker: DD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF acumulado de los cuatro trimestres es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Con ingreso neto ajustado acumulado positivo, el cociente FCF/ingreso
+      neto ajustado es inferior al 70%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía atribuye la mayor parte del FCF positivo a liberaciones
+      no recurrentes de capital de trabajo o a reducciones de inversión que no sean
+      sostenibles.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF acumulado de los cuatro trimestres es negativo.
+  - Con ingreso neto ajustado acumulado positivo, el cociente FCF/ingreso neto ajustado
+    es inferior al 70%.
+  - La compañía atribuye la mayor parte del FCF positivo a liberaciones no recurrentes
+    de capital de trabajo o a reducciones de inversión que no sean sostenibles.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-DD-0001
+  opportunity_id: OPP-COMPOUNDER-DD-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 70.0
+    met: null
+    metric: FCF como porcentaje del ingreso neto ajustado acumulado de cuatro trimestres
+    prediction: Para los cuatro trimestres terminados el 2027-11-20, el flujo de caja
+      libre acumulado será positivo y equivaldrá al menos al 70% del ingreso neto
+      ajustado acumulado, siempre que este último sea positivo. FCF se medirá como
+      flujo de caja operativo menos gastos de capital, usando cifras reportadas por
+      la compañía.
+    unit: porcentaje mínimo, con FCF positivo
+  priority: critical
+  probability: 0.5
+  rationale: El contexto indica FCF TTM positivo, pero no aporta su cuantía, composición
+    ni comparación con ganancias. La conversión sostenida sería evidencia más sólida
+    de calidad financiera que un dato aislado y ayudaría a distinguir caja operativa
+    recurrente de efectos temporales de capital de trabajo o inversión.
+  review_trigger: Dejar de creerla si el FCF móvil de cuatro trimestres se vuelve
+    negativo y permanece así en el siguiente informe, o si el cociente de conversión
+    queda por debajo del 70% al 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DD-0001
+  statement: La generación de caja de DuPont será suficientemente recurrente para
+    convertir una proporción sustancial de sus ganancias ajustadas en flujo de caja
+    libre.
+  status: ACTIVE
+  ticker: DD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen EBITDA ajustado móvil de cuatro trimestres cae más de 1,0
+      punto porcentual frente al período de comparación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa deterioro persistente de precios o costos que no
+      se compensa con productividad y mezcla, y que resulta en una caída del margen
+      superior al umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen EBITDA ajustado móvil de cuatro trimestres cae más de 1,0 punto porcentual
+    frente al período de comparación.
+  - La compañía informa deterioro persistente de precios o costos que no se compensa
+    con productividad y mezcla, y que resulta en una caída del margen superior al
+    umbral.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-DD-0001
+  opportunity_id: OPP-COMPOUNDER-DD-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -1.0
+    met: null
+    metric: Variación interanual del margen EBITDA ajustado móvil de cuatro trimestres
+    prediction: El margen EBITDA ajustado de los cuatro trimestres terminados el 2027-11-20
+      será como máximo 1,0 punto porcentual inferior al margen EBITDA ajustado de
+      los cuatro trimestres terminados el 2026-11-20, calculados con la misma definición
+      y perímetro de reporte.
+    unit: punto porcentual mínimo respecto al margen de referencia
+  priority: important
+  probability: 0.5
+  rationale: Si los productos especializados conservan demanda y poder de fijación
+    de precios, la compañía podría sostener márgenes pese a la variabilidad de volúmenes
+    y costos. La información disponible no incluye márgenes ni permite confirmar esta
+    resiliencia; por ello, la hipótesis requiere una comparación verificable contra
+    el nivel reportado al corte.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos muestran
+    un margen móvil de cuatro trimestres más de 1,0 punto porcentual por debajo del
+    período de comparación, o si el resultado al 2027-11-20 confirma esa caída.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DD-0001
+  statement: La rentabilidad operativa ajustada de DuPont resistirá la evolución de
+    la demanda sin una contracción material de margen.
+  status: ACTIVE
+  ticker: DD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de DD supera al del S&P 500 en menos de 5 puntos
+      porcentuales durante el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: DD obtiene un rendimiento total inferior al del S&P 500 y, al mismo
+      tiempo, no cumple H1 ni H2.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de DD supera al del S&P 500 en menos de 5 puntos porcentuales
+    durante el período.
+  - DD obtiene un rendimiento total inferior al del S&P 500 y, al mismo tiempo, no
+    cumple H1 ni H2.
+  horizon: medio
+  id: H4-OPP-COMPOUNDER-DD-0001
+  opportunity_id: OPP-COMPOUNDER-DD-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de DD menos rendimiento total del S&P 500
+    prediction: El rendimiento total de DD, incluidos dividendos y medido desde el
+      cierre del 2026-11-20 hasta el cierre del 2027-11-20, superará en al menos 5
+      puntos porcentuales el rendimiento total del S&P 500 en el mismo intervalo.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: Una mejora verificable en crecimiento orgánico y generación de caja podría
+    reducir la incertidumbre sobre la calidad de las ganancias y favorecer una reevaluación
+    de la acción. Sin embargo, la diferencia entre cotización y objetivos de analistas
+    no demuestra infravaloración; esta hipótesis se prueba mediante rendimiento relativo,
+    no mediante esos objetivos.
+  review_trigger: Dejar de creerla al 2027-11-20 si la rentabilidad relativa acumulada
+    es inferior a 5 puntos porcentuales; antes de esa fecha, revisarla si la empresa
+    incumple de forma persistente las condiciones de crecimiento orgánico y conversión
+    de caja de H1 o H2.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DD-0001
+  - H2-OPP-COMPOUNDER-DD-0001
+  - H3-OPP-COMPOUNDER-DD-0001
+  statement: Desde el precio de cierre del 2026-11-20, la acción de DuPont obtendrá
+    un rendimiento total superior al del S&P 500 durante los siguientes doce meses,
+    si el crecimiento y la conversión de caja de la compañía se materializan.
+  status: ACTIVE
+  ticker: DD
+  version: 1
