@@ -1,0 +1,140 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas netas de FY 2027 crecen menos del 5% en moneda constante
+      frente a FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa una caída interanual de ventas en moneda constante
+      para FY 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas netas de FY 2027 crecen menos del 5% en moneda constante frente a FY
+    2026.
+  - La compañía informa una caída interanual de ventas en moneda constante para FY
+    2027.
+  horizon: medio
+  id: H1-OPP-MB-NVS
+  opportunity_id: OPP-MB-NVS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento de ventas netas de FY 2027 frente a FY 2026 en moneda constante
+    prediction: Las ventas netas de FY 2027 crecerán al menos un 5% en moneda constante
+      frente a FY 2026, según los resultados anuales publicados por la compañía.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible indica que los ingresos superan los de FY 2022
+    y que la compañía conserva un margen bruto elevado. Esto es compatible con una
+    cartera capaz de generar crecimiento, aunque el paquete no permite verificar penetración
+    de productos ni ventaja competitiva. La hipótesis quedaría respaldada si el crecimiento
+    continúa en el siguiente ejercicio completo.
+  review_trigger: Dejar de creerla si los resultados anuales de FY 2027 muestran crecimiento
+    de ventas inferior al 5% en moneda constante o una contracción interanual.
+  secondary_hypotheses: []
+  statement: Novartis mantendrá el crecimiento de sus ventas mediante la expansión
+    de sus productos, sin que una caída generalizada de la demanda anule el crecimiento
+    del negocio.
+  status: ACTIVE
+  ticker: NVS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF de FY 2027 es inferior al FCF TTM reportado a 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de FY 2027 aumenta menos del 10% frente a ese nivel TTM.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF de FY 2027 es inferior al FCF TTM reportado a 2026-11-20.
+  - El FCF de FY 2027 aumenta menos del 10% frente a ese nivel TTM.
+  horizon: medio
+  id: H2-OPP-MB-NVS
+  opportunity_id: OPP-MB-NVS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: Aumento del FCF de FY 2027 frente al FCF TTM a 2026-11-20
+    prediction: El FCF reportado de FY 2027 será al menos un 10% superior al FCF TTM
+      reportado a 2026-11-20, usando la misma definición de FCF de la compañía.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Los ingresos y el FCF reportados son positivos, pero el FCF TTM ha disminuido
+    frente al período comparable y la deuda neta ha aumentado. Si el crecimiento de
+    las ventas se sostiene y la reinversión no absorbe desproporcionadamente el flujo
+    operativo, el FCF anual debería superar el nivel TTM disponible al corte. La tesis
+    no presupone un retorno sobre capital concreto, que el paquete no permite calcular.
+  review_trigger: Dejar de creerla cuando la compañía publique los resultados de FY
+    2027 si el FCF no alcanza un aumento del 10% frente al nivel TTM al corte, o antes
+    si anuncia una revisión que implique una caída del FCF anual.
+  secondary_hypotheses:
+  - H1-OPP-MB-NVS
+  statement: La generación de caja libre se recuperará en FY 2027, pese a la caída
+    del FCF TTM observada en la información disponible al corte.
+  status: ACTIVE
+  ticker: NVS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de NVS es igual o inferior a la del STOXX Europe
+      600 Health Care durante el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de NVS supera al índice, pero por menos de 5
+      puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de NVS es igual o inferior a la del STOXX Europe 600 Health
+    Care durante el período.
+  - La rentabilidad total de NVS supera al índice, pero por menos de 5 puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-MB-NVS
+  opportunity_id: OPP-MB-NVS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de NVS menos rentabilidad total del STOXX Europe 600
+      Health Care
+    prediction: Entre 2026-11-20 y 2027-11-20, la rentabilidad total de NVS, incluidos
+      dividendos, superará en al menos 5 puntos porcentuales la rentabilidad total
+      del STOXX Europe 600 Health Care.
+    unit: puntos porcentuales mínimo
+  priority: important
+  probability: 0.5
+  rationale: Un crecimiento de ventas sostenido y una recuperación del FCF podrían
+    reducir la preocupación por la caída reciente de caja y el aumento de deuda neta.
+    Sin embargo, la evidencia disponible no permite concluir que la valoración sea
+    atractiva ni medir plenamente la ventaja competitiva; por ello, esta es una hipótesis
+    de desempeño relativo, no una afirmación de infravaloración.
+  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de rentabilidad
+    total frente al índice es inferior a 5 puntos porcentuales; revisar antes si NVS
+    recorta su previsión de ventas o FCF para FY 2027.
+  secondary_hypotheses:
+  - H1-OPP-MB-NVS
+  - H2-OPP-MB-NVS
+  statement: La acción de Novartis obtendrá una rentabilidad total superior a la del
+    índice STOXX Europe 600 Health Care durante los 12 meses posteriores a la fecha
+    de corte.
+  status: ACTIVE
+  ticker: NVS
+  version: 1

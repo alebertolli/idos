@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 111 companies tracked
+Total: 114 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -23,6 +23,7 @@ Total: 111 companies tracked
 - 📄 [[HL|Hecla Mining Company]]
 - 📄 [[IFF|International Flavors & Fragrances Inc.]]
 - 📄 [[NEM|Newmont Corporation]]
+- 📄 [[NUE|Nucor Corporation]]
 
 ## Communication Services
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
@@ -80,6 +81,7 @@ Total: 111 companies tracked
 - 📄 [[MA|Mastercard Incorporated]]
 - 📄 [[MFG|Mizuho Financial Group, Inc.]]
 - 📄 [[MUFG|Mitsubishi UFJ Financial Group, Inc.]]
+- 📄 [[NMR|Nomura Holdings, Inc.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -97,6 +99,7 @@ Total: 111 companies tracked
 - 📄 [[LLY|Eli Lilly and Company]]
 - 📄 [[MDT|Medtronic plc]]
 - 📄 [[MRK|Merck & Co., Inc.]]
+- 📄 [[NVS|Novartis AG]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
