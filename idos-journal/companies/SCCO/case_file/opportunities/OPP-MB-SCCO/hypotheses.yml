@@ -1,0 +1,179 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción de cobre de 2027 resulta inferior a la de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El aumento de producción es menor a 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción de cobre de 2027 resulta inferior a la de 2026.
+  - El aumento de producción es menor a 3%.
+  horizon: medio
+  id: H1-OPP-MB-SCCO
+  opportunity_id: OPP-MB-SCCO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de producción de cobre
+    prediction: La producción anual de cobre reportada para 2027 será al menos 3%
+      superior a la de 2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La tesis plantea que el crecimiento puede sostenerse mediante reinversión
+    productiva, pero la información disponible no incluye producción, capex ni desglose
+    de proyectos; por tanto, esto es una hipótesis por verificar, no un mecanismo
+    ya confirmado. Un aumento de producción permitiría distinguir crecimiento operativo
+    de uno explicado principalmente por precios.
+  review_trigger: Dejar de creerla si el reporte anual de 2027, o una actualización
+    corporativa que confirme el resultado, muestra crecimiento de producción inferior
+    a 3% frente a 2026.
+  secondary_hypotheses: []
+  statement: Southern Copper aumentará su producción anual de cobre en 2027 respecto
+    de 2026, señal de que la reinversión y la ejecución operativa pueden sostener
+    el crecimiento del negocio.
+  status: ACTIVE
+  ticker: SCCO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo anual de 2027 es inferior a 35%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen cae por debajo de 35% en dos trimestres consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo anual de 2027 es inferior a 35%.
+  - El margen cae por debajo de 35% en dos trimestres consecutivos de 2027.
+  horizon: medio
+  id: H2-OPP-MB-SCCO
+  opportunity_id: OPP-MB-SCCO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 35.0
+    met: null
+    metric: Margen operativo anual
+    prediction: El margen operativo anual de 2027, calculado como resultado operativo
+      dividido por ingresos, será igual o superior a 35%.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis investiga si los márgenes observados hasta septiembre de 2026
+    pueden perdurar. La información proporcionada no cuantifica costes unitarios ni
+    sensibilidad a precios; por ello, la predicción debe contrastarse con estados
+    financieros y no puede atribuirse de antemano a una ventaja de costes. Un margen
+    dentro del umbral indicaría resiliencia financiera durante el período.
+  review_trigger: Dejar de creerla si el reporte anual de 2027 muestra un margen operativo
+    inferior a 35%, usando cifras reportadas y una definición consistente.
+  secondary_hypotheses:
+  - H1-OPP-MB-SCCO
+  statement: Southern Copper sostendrá en 2027 un margen operativo anual de al menos
+    35%, pese a posibles fluctuaciones de precios y costes.
+  status: ACTIVE
+  ticker: SCCO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado de 2027 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre es positivo, pero inferior al 10% de los ingresos
+      de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado de 2027 es cero o negativo.
+  - El flujo de caja libre es positivo, pero inferior al 10% de los ingresos de 2027.
+  horizon: medio
+  id: H3-OPP-MB-SCCO
+  opportunity_id: OPP-MB-SCCO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: Flujo de caja libre como porcentaje de ingresos
+    prediction: El flujo de caja libre acumulado de 2027 —flujo de efectivo de operaciones
+      menos compras de propiedad, planta y equipo— será positivo y equivaldrá al menos
+      al 10% de los ingresos de 2027.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis pregunta si la generación de caja puede sostenerse mediante
+    reinversión productiva. El paquete no incluye capex ni flujo de caja libre cuantificado,
+    así que no permite evaluar esa relación. Una generación positiva después de capex
+    sería evidencia observable de que la operación financia las inversiones sin consumir
+    caja neta en el ejercicio.
+  review_trigger: Dejar de creerla si los estados financieros anuales de 2027 muestran
+    flujo de caja libre inferior al 10% de los ingresos, calculado con la definición
+    indicada.
+  secondary_hypotheses:
+  - H1-OPP-MB-SCCO
+  - H2-OPP-MB-SCCO
+  statement: Southern Copper generará flujo de caja libre positivo en 2027 y conservará
+    una conversión significativa de ingresos en caja después de inversiones de capital.
+  status: ACTIVE
+  ticker: SCCO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de SCCO es igual o inferior al de COPX durante
+      el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: SCCO supera a COPX, pero por menos de 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de SCCO es igual o inferior al de COPX durante el período.
+  - SCCO supera a COPX, pero por menos de 5 puntos porcentuales.
+  horizon: medio
+  id: H4-OPP-MB-SCCO
+  opportunity_id: OPP-MB-SCCO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total excedente de SCCO frente a COPX
+    prediction: El rendimiento total de SCCO superará en al menos 5 puntos porcentuales
+      el rendimiento total del ETF Global X Copper Miners (COPX) durante el período
+      indicado.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: La tesis de retornos duraderos solo tendrá respaldo de mercado si la
+    acción supera a una referencia sectorial comparable. No se proporciona valoración,
+    precio objetivo ni evidencia de una prima competitiva; por tanto, esta hipótesis
+    contrasta desempeño relativo y no presupone que SCCO esté barata. El rendimiento
+    total incorpora dividendos para hacer la comparación más completa.
+  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de rendimiento total
+    entre SCCO y COPX es inferior a 5 puntos porcentuales; usar precios ajustados
+    por distribuciones y la misma moneda y ventana temporal.
+  secondary_hypotheses:
+  - H2-OPP-MB-SCCO
+  - H3-OPP-MB-SCCO
+  statement: Entre el 20 de noviembre de 2026 y el 20 de noviembre de 2027, SCCO tendrá
+    un rendimiento total superior al de un índice de compañías mineras de cobre, reflejando
+    que el mercado reconocerá la continuidad de sus resultados.
+  status: ACTIVE
+  ticker: SCCO
+  version: 1

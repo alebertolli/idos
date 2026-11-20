@@ -1,0 +1,551 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La mejora del FCF TTM frente a FY 2025 no establece por sí sola una tendencia
+    estructural, dada la variación histórica reportada y la falta de desglose causal.
+  - La integración de segmentos podría diversificar operaciones, pero el paquete no
+    prueba una ventaja competitiva ni retornos superiores sobre capital.
+  - StockAnalysis reporta ingresos TTM de 321.300 millones, FCF de 37.361 millones
+    y utilidad neta de 32.707 millones para el período terminado el 2026-09-30; los
+    importes históricos se presentan como importes reportados por la fuente.
+  - StockAnalysis reporta margen bruto de 26,93% TTM al 2026-09-30 y current ratio
+    de 1,38 para el período terminado en esa fecha.
+  - Yfinance reporta momentum de precio a 12 meses de 45,0748% y volatilidad de 90
+    días de 21,8021% hasta el 2026-10-30.
+  - El resumen financiero indica cotización de USD 108,69 al 2026-10-30 y objetivos
+    de analistas entre USD 100 y USD 129 observados el 2026-11-20.
+  preguntas_abiertas:
+  - ¿Cuál es el FCF comparable y la utilidad neta en períodos homogéneos, con moneda
+    y unidades verificadas?
+  - ¿Cuáles son los retornos sobre capital y las necesidades de reinversión por segmento?
+  - ¿Qué hipótesis de precios, volúmenes y márgenes subyacen a las estimaciones de
+    analistas?
+  - ¿Cuál es la evolución de acciones diluidas y el costo efectivo de intereses en
+    períodos comparables?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; oportunidad de crecimiento no validada
+  justificacion: El paquete muestra fuerte momentum de precio y FCF TTM reportado,
+    pero no permite validar los ratios requeridos de crecimiento de ingresos, conversión
+    de FCF, apalancamiento neto ni dilución.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La integración de actividades de gas, extracción, marketing, químicos
+    y productos puede diversificar fuentes de ingresos, pero la evidencia suministrada
+    no cuantifica sinergias, retornos sobre capital, moat, penetración de mercado
+    ni calidad de asignación de capital. El margen bruto reportado fue 26,93% TTM
+    al 2026-09-30, sin datos suficientes para inferir retornos incrementales sobre
+    reinversión.
+  rating: No concluyente
+dominio_catalizadores:
+- analisis: La comparación de próximos períodos financieros con el FCF TTM de 37.361
+    millones al 2026-09-30 permitiría evaluar si la recuperación reportada se sostiene.
+  catalizador: Confirmación de flujo de caja
+- analisis: Retornos por segmento y resultados de proyectos de capital podrían aclarar
+    si la reinversión crea valor; esos datos no están incluidos en el paquete.
+  catalizador: Evidencia de reinversión rentable
+- analisis: Los extremos observados de objetivos de analistas son USD 100 y USD 129
+    al 2026-11-20; nuevas estimaciones operativas comparables ayudarían a explicar
+    cambios en el rango.
+  catalizador: Actualización de expectativas de mercado
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- analisis: 'El FCF reportado varía entre ejercicios: 45.814 millones en FY 2022,
+    31.198 millones en FY 2023, 35.086 millones en FY 2024 y 23.916 millones en FY
+    2025. El FCF TTM al 2026-09-30 fue 37.361 millones; el paquete no permite separar
+    ciclo, precios, volúmenes ni capital circulante.'
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/shel/financials/
+  riesgo: Ciclicidad y sostenibilidad del flujo de caja
+- analisis: La serie de net cash reporta -39.650 millones al 2026-09-30; no se valida
+    net debt/EBITDA por incompatibilidad de unidades monetarias entre los campos proporcionados.
+    La cobertura de intereses reportada como 0 requiere verificación antes de interpretarse.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/shel/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SHEL/statistics/
+  riesgo: Apalancamiento y cobertura financiera no validados
+- analisis: El paquete describe segmentos diversos, pero no aporta cuota de mercado,
+    costos unitarios, retornos por segmento, penetración de renovables ni datos comparables
+    de competidores para medir ventaja o erosión.
+  riesgo: Erosión competitiva y transición energética
+error_mercado:
+  catalizador_cambio: Resultados financieros posteriores con ingresos, FCF y balance
+    comparables podrían confirmar o refutar la mejora observada en FCF TTM.
+  conclusion_error_valoracion: 'No puede validarse un error de valoración: faltan
+    expectativas operativas detalladas y una valoración fundamental defendible.'
+  consenso_actual: La cotización observada fue USD 108.69 al 2026-10-30; el consenso
+    de precio objetivo informado el 2026-11-20 fue USD 110.81.
+  hipotesis_contraria: El rango de objetivos de analistas, USD 100–129, permite resultados
+    observados distintos, pero el paquete no aporta estimaciones operativas para atribuirles
+    causas fundamentales.
+  razonamiento: El consenso medio está cerca de la cotización observada, pero el paquete
+    no proporciona una serie comparable de estimaciones ni un método de valoración
+    intrínseca.
+generated_at: '2026-11-20T19:07:49.012559-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-SHEL
+prompt_inputs:
+  business_model: 'Shell plc operates as an energy and petrochemical company in Europe,
+    Asia, Oceania, Africa, the United States, and other parts of the Americas. It
+    operates through the following segments: Integrated Gas, Upstream, Marketing,
+    Chemicals and Products, and Renewables and Energy Solutions. The company explores
+    for and extracts natural gas to produce liquefied natural gas or convert it into
+    gas-to-liquids (GTL) fuels and other products; explores for and extracts crude
+    oil, natural gas, and natural gas liquids; and operates marketing and transportation
+    of oil, gas, and liquids, supported by the infrastructure required to deliver
+    them to market or to process them within Shell''s chemical manufacturing plants
+    and refineries. It is also involved in marketing, which includes mobility, lubricants,
+    and sectors focused on decarbonization; operates a retail network, including electric
+    vehicle charging, convenience retail, and the wholesale commercial fuels business
+    for transport and industry; sells products for road transport and machinery in
+    manufacturing, mining, power generation, agriculture, and construction; and provides
+    low-carbon energy solutions, such as biofuels, to a broad range of commercial
+    customers, including those in the aviation, marine, and agriculture sectors. In
+    addition, the company offers chemicals and products, including chemicals manufacturing
+    plants with their own marketing network, and refineries that turn crude oil and
+    other feedstocks into a range of oil products, which are moved and marketed around
+    the world for domestic, industrial, and transport use; and operates a pipeline
+    business, trading, and optimization of crude oil, oil products, and petrochemicals.
+    The company was formerly known as Royal Dutch Shell plc and changed its name to
+    Shell plc in January 2022. Shell plc was founded in 1897 and is headquartered
+    in London, United Kingdom.'
+  ceo_tenure: 0
+  debt_to_equity: 0.38
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Shell plc
+  operating_margin: 15.25
+  pe_ratio: 8.26
+  products: ''
+  revenue: 321300000000.0
+  revenue_growth: 19.41
+  roic: 13.94
+  sector: Energy
+  ticker: SHEL
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: null
+  limitations: La serie incluye TTM al 2026-09-30 y FY 2023, pero no un período comparable
+    t-3 ni una serie FY completa que permita calcular CAGR de tres años.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF growth reportado por la fuente para TTM
+  inputs:
+    fcf_growth_history: 41.49
+  limitations: La fuente reporta crecimiento TTM de 41,49%; no se proporcionan en
+    el paquete los períodos comparativos subyacentes ni una definición que permita
+    verificar independientemente el cálculo.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/shel/financials/
+  status: reported
+  unit: percent
+  value: 41.49
+- formula: FCF / net_income * 100
+  inputs:
+    fcf_history: 37361.0
+    net_income_history: 32707.0
+  limitations: Los campos están fechados al mismo período, pero sus unidades se reportan
+    como importes de fuente sin moneda explícita verificable; no se puede validar
+    compatibilidad de moneda para el cálculo.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash /
+    EBITDA si net_cash = cash - debt
+  inputs:
+    ebitda: 67560000000.0
+    net_cash_history: -39650.0
+  limitations: El net cash se reporta como importe de fuente sin escala monetaria
+    explícita en la serie, mientras EBITDA se informa como 67.560.000.000; unidades
+    y escala no son verificablemente compatibles.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 5730000000.0
+    shares_outstanding_history: null
+  limitations: Sólo se proporciona una observación de acciones en circulación al 2026-09-30;
+    falta una observación comparable del período anterior.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Shell plc operates as an energy and petrochemical company in Europe,
+    Asia, Oceania, Africa, the United States, and other parts of the Americas. It
+    operates through the following segments: Integrated Gas, Upstream, Marketing,
+    Chemicals and Products, and Renewables and Energy Solutions. The company explores
+    for and extracts natural gas to produce liquefied natural gas or convert it into
+    gas-to-liquids (GTL) fuels and other products; explores for and extracts crude
+    oil, natural gas, and natural gas liquids; and operates marketing and transportation
+    of oil, gas, and liquids, supported by the infrastructure required to deliver
+    them to market or to process them within Shell''s chemical manufacturing plants
+    and refineries. It is also involved in marketing, which includes mobility, lubricants,
+    and sectors focused on decarbonization; operates a retail network, including electric
+    vehicle charging, convenience retail, and the wholesale commercial fuels business
+    for transport and industry; sells products for road transport and machinery in
+    manufacturing, mining, power generation, agriculture, and construction; and provides
+    low-carbon energy solutions, such as biofuels, to a broad range of commercial
+    customers, including those in the aviation, marine, and agriculture sectors. In
+    addition, the company offers chemicals and products, including chemicals manufacturing
+    plants with their own marketing network, and refineries that turn crude oil and
+    other feedstocks into a range of oil products, which are moved and marketed around
+    the world for domestic, industrial, and transport use; and operates a pipeline
+    business, trading, and optimization of crude oil, oil products, and petrochemicals.
+    The company was formerly known as Royal Dutch Shell plc and changed its name to
+    Shell plc in January 2022. Shell plc was founded in 1897 and is headquartered
+    in London, United Kingdom.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 108.69000244140625
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.38
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T22:07:21.721773+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Shell plc
+  operating_margin: 15.25
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Shell plc operates as an energy and petrochemical company in Europe,
+    Asia, Oceania, Africa, the United States, and other parts of the Americas. It
+    operates through the following segments: Integrated Gas, Upstream, Marketing,
+    Chemicals and Products, and Renewables and Energy Solutions. The company explores
+    for and extracts natural gas to produce liquefied natural gas or convert it into
+    gas-to-liquids (GTL) fuels and other products; explores for and extracts crude
+    oil, natural gas, and natural gas'
+  revenue: 321300000000.0
+  revenue_growth: 19.41
+  roic: 13.94
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/shel/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SHEL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SHEL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SHEL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SHEL/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/shel/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/shel/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/shel/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SHEL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/shel/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SHEL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/shel/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/shel/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/shel/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SHEL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SHEL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/shel/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    129.0, "low": 100.0, "mean": 110.81, "median": 110.81, "observed_at": "2026-11-20T19:07:24.674230-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T19:07:24.674230-03:00", "observed_date": "2026-11-20", "target_price":
+    110.81, "url": "https://stockanalysis.com/stocks/shel/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:07:24.674230-03:00",
+    "observed_date": "2026-11-20", "target_price": 110.80667, "url": "https://finance.yahoo.com/quote/SHEL/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 108.69000244140625,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/SHEL/"}]}}'
+  sector: Energy
+  ticker: SHEL
+research_trigger:
+  discovery_snapshot_hash: f743d2d3ad895ed800878feda0cbf900e2a241ddbe5acd4c204983bce583d45f
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: db65b277dcf34bcd67b31a8b19eef335804b316e16b4ccbb3bf79655adee5efc
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T19:07:49.012559-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.38x para el período terminado el 2026-09-30
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SHEL/statistics/
+  status: no supera el umbral configurado
+  threshold: below 0.5x
+- metric: dilution_yoy_pct
+  observation: No disponible; falta histórico comparable de acciones diluidas o en
+    circulación.
+  status: no evaluable
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 para TTM terminado el 2026-09-30.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SHEL/statistics/
+  status: observación por verificar; el valor reportado no se sustituye ni interpreta
+    como cobertura validada
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica al FCF TTM positivo reportado de 37.361 millones al 2026-09-30;
+    no se calcula runway.
+  status: sin señal de runway evaluable en el período
+  threshold: below 12 months cuando FCF es negativo
+- metric: net_debt_ebitda
+  observation: No disponible por incompatibilidad verificable de escala/unidades entre
+    net cash y EBITDA.
+  status: no evaluable
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: No disponible; falta una serie de acciones con observaciones fechadas
+    comparables a tres años.
+  status: no evaluable
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T19:07:24.674230-03:00'
+  fuentes:
+    stockanalysis: 110.81
+    yfinance: 110.80667
+  mediana: 110.81
+  n_fuentes: 2
+  promedio: 110.81
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T19:07:24.674230-03:00'
+    observed_date: '2026-11-20'
+    target_price: 110.81
+    url: https://stockanalysis.com/stocks/shel/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T19:07:24.674230-03:00'
+    observed_date: '2026-11-20'
+    target_price: 110.80667
+    url: https://finance.yahoo.com/quote/SHEL/
+  target_high: 129.0
+  target_low: 100.0
+tesis_inversion: Shell combina operaciones integradas de gas, upstream, marketing,
+  químicos y productos, y renovables y soluciones energéticas. La evidencia suministrada
+  muestra FCF TTM de 37.361 millones en el período terminado el 2026-09-30 y momentum
+  de precio a 12 meses de 45,0748% hasta el 2026-10-30; no basta para establecer que
+  ese flujo sea sostenible, que la reinversión produzca retornos crecientes o que
+  exista una oportunidad de crecimiento tipo multibagger.
+ticker: SHEL
+version: '3.0'

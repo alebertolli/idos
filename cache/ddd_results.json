@@ -1,47 +1,50 @@
 {
-  "total": 4,
+  "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-RTX",
-      "ticker": "RTX",
+      "opp_id": "OPP-MB-SCCO",
+      "ticker": "SCCO",
       "status": "completed",
-      "score": 58,
+      "score": 67,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-SAN",
-      "ticker": "SAN",
+      "opp_id": "OPP-MB-SHEL",
+      "ticker": "SHEL",
       "status": "quality_failed",
-      "score": 48,
+      "score": 58,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "opp_id": "OPP-MB-SBS",
-      "ticker": "SBS",
-      "status": "completed",
-      "score": 38,
+      "opp_id": "OPP-MULTIBAGGERS-SIEGY-0001",
+      "ticker": "SIEGY",
+      "status": "quality_failed",
+      "score": 52,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-SBUX",
-      "ticker": "SBUX",
-      "status": "completed",
-      "score": 67,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "SAN",
-      "opp_id": "OPP-MB-SAN",
+      "ticker": "SHEL",
+      "opp_id": "OPP-MB-SHEL",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "ticker": "SIEGY",
+      "opp_id": "OPP-MULTIBAGGERS-SIEGY-0001",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -50,7 +53,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 92,
+  "deferred_count": 91,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

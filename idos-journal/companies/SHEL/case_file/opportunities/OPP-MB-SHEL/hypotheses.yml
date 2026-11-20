@@ -1,0 +1,150 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción total de hidrocarburos del cuarto trimestre de 2027 es
+      inferior al 95% o superior al 105% de la cifra comparable del cuarto trimestre
+      de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Shell no publica datos comparables que permitan verificar el cambio
+      de producción.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción total de hidrocarburos del cuarto trimestre de 2027 es inferior
+    al 95% o superior al 105% de la cifra comparable del cuarto trimestre de 2026.
+  - Shell no publica datos comparables que permitan verificar el cambio de producción.
+  horizon: medio
+  id: H1-OPP-MB-SHEL
+  opportunity_id: OPP-MB-SHEL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 100.0
+    met: null
+    metric: Producción total de hidrocarburos del cuarto trimestre de 2027 respecto
+      del cuarto trimestre de 2026
+    prediction: En el informe correspondiente al cuarto trimestre de 2027, la producción
+      total de hidrocarburos del cuarto trimestre de 2027 estará entre el 95% y el
+      105% de la producción del cuarto trimestre de 2026, calculada con la misma definición
+      y perímetro que comunique Shell.
+    unit: '%; intervalo aceptable de 95% a 105%'
+  priority: important
+  probability: 0.5
+  rationale: La integración de upstream, gas y actividades comerciales puede amortiguar
+    interrupciones o descensos de producción en un segmento. Sin embargo, la información
+    suministrada no incluye volúmenes, capacidad disponible ni planes de inversión;
+    esta hipótesis plantea una prueba de estabilidad, no presupone crecimiento.
+  review_trigger: Dejar de creerla si Shell comunica una reducción estructural de
+    capacidad que haga probable una caída superior al 5%, o si la producción comparable
+    de cualquier trimestre de 2027 cae más del 5% interanual.
+  secondary_hypotheses: []
+  statement: La cartera integrada de Shell mantendrá estable su producción de hidrocarburos
+    durante los próximos doce meses, sin una caída material respecto del nivel comunicado
+    al cierre de 2026.
+  status: ACTIVE
+  ticker: SHEL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre TTM publicado para los doce meses terminados
+      el 30 de septiembre de 2027 es inferior a USD 30.000 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Shell cambia la definición de flujo de caja libre y no proporciona
+      una conciliación que permita comparar el dato con los USD 37.361 millones de
+      referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre TTM publicado para los doce meses terminados el 30 de septiembre
+    de 2027 es inferior a USD 30.000 millones.
+  - Shell cambia la definición de flujo de caja libre y no proporciona una conciliación
+    que permita comparar el dato con los USD 37.361 millones de referencia.
+  horizon: medio
+  id: H2-OPP-MB-SHEL
+  opportunity_id: OPP-MB-SHEL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-15'
+    expected: 30000.0
+    met: null
+    metric: Flujo de caja libre TTM
+    prediction: El flujo de caja libre de los doce meses terminados el 30 de septiembre
+      de 2027 será de al menos USD 30.000 millones.
+    unit: USD millones como mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El flujo de caja libre TTM informado fue de USD 37.361 millones al 30
+    de septiembre de 2026. Esa cifra constituye evidencia de generación reciente de
+    caja, pero no demuestra que sea sostenible. La hipótesis admite una moderación
+    y será evaluada con la misma definición de flujo de caja libre que utilice la
+    empresa.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 30
+    de septiembre de 2027 muestra que el flujo de caja libre TTM comparable ha caído
+    por debajo de USD 30.000 millones, o si una revisión de resultados reduce el dato
+    de referencia y elimina la comparabilidad.
+  secondary_hypotheses:
+  - H1-OPP-MB-SHEL
+  statement: Shell conservará una generación de flujo de caja libre elevada, aunque
+    inferior a la observada en los doce meses terminados el 30 de septiembre de 2026.
+  status: ACTIVE
+  ticker: SHEL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de SHEL menos la rentabilidad total de XLE durante
+      el período especificado es inferior a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden comparar ambas rentabilidades con datos de precios ajustados
+      por dividendos y expresados en USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de SHEL menos la rentabilidad total de XLE durante el período
+    especificado es inferior a 5 puntos porcentuales.
+  - No se pueden comparar ambas rentabilidades con datos de precios ajustados por
+    dividendos y expresados en USD.
+  horizon: medio
+  id: H3-OPP-MB-SHEL
+  opportunity_id: OPP-MB-SHEL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de SHEL menos rentabilidad total de XLE
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 19 de
+      noviembre de 2027, la rentabilidad total de SHEL en NYSE, incluidos dividendos
+      y medida en USD, superará la rentabilidad total de XLE en al menos 5 puntos
+      porcentuales.
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: La acción registró un avance de precio del 45,0748% en los doce meses
+    hasta el 30 de octubre de 2026, y el rango de objetivos de analistas proporcionado,
+    USD 100–129, refleja expectativas de valoración diversas. Ese desempeño pasado
+    no garantiza rendimientos futuros; la hipótesis es una prueba relativa frente
+    a un índice sectorial y no depende de que se alcance un objetivo de precio concreto.
+  review_trigger: Dejar de creerla si al cierre de cualquier trimestre posterior al
+    20 de noviembre de 2026 SHEL acumula una rentabilidad total al menos 5 puntos
+    porcentuales inferior a XLE y los resultados publicados no muestran una mejora
+    que permita esperar una reversión antes de la fecha objetivo.
+  secondary_hypotheses:
+  - H2-OPP-MB-SHEL
+  statement: La acción de Shell en la Bolsa de Nueva York ofrecerá una rentabilidad
+    total superior a la del ETF Energy Select Sector SPDR (XLE) durante los doce meses
+    posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: SHEL
+  version: 1
