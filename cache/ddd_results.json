@@ -1,58 +1,39 @@
 {
-  "total": 4,
+  "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-COMPOUNDER-CSCO-0001",
-      "ticker": "CSCO",
+      "opp_id": "OPP-COMPOUNDER-CVX-0001",
+      "ticker": "CVX",
       "status": "completed",
       "score": 78,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-CSCO",
-      "ticker": "CSCO",
+      "opp_id": "OPP-MB-CVX",
+      "ticker": "CVX",
       "status": "quality_failed",
-      "score": 54,
+      "score": 48,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "opp_id": "OPP-COMPOUNDER-CVS-0001",
-      "ticker": "CVS",
+      "opp_id": "OPP-COMPOUNDER-CX-0001",
+      "ticker": "CX",
       "status": "completed",
-      "score": 47,
+      "score": 52,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-CVS",
-      "ticker": "CVS",
-      "status": "quality_failed",
-      "score": 35,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "CSCO",
-      "opp_id": "OPP-MB-CSCO",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "ticker": "CVS",
-      "opp_id": "OPP-MB-CVS",
+      "ticker": "CVX",
+      "opp_id": "OPP-MB-CVX",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -61,7 +42,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 141,
+  "deferred_count": 139,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

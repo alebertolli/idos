@@ -1,0 +1,197 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos comparables de 2027 crecen menos de 3% frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La mejora de ingresos depende exclusivamente de adquisiciones, cambios
+      de perímetro o conversión cambiaria y no aparece en la métrica comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos comparables de 2027 crecen menos de 3% frente a 2026.
+  - La mejora de ingresos depende exclusivamente de adquisiciones, cambios de perímetro
+    o conversión cambiaria y no aparece en la métrica comparable.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-CX-0001
+  opportunity_id: OPP-COMPOUNDER-CX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de ingresos comparables
+    prediction: En los resultados del ejercicio terminado el 2027-12-31, los ingresos
+      consolidados comparables, a tipo de cambio constante y excluyendo cambios de
+      perímetro, serán al menos un 3% superiores a los de 2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La tesis plantea que una eventual recuperación de demanda y precios podría
+    impulsar el negocio, pero la evidencia entregada no confirma que ya esté ocurriendo.
+    El crecimiento comparable permite comprobarlo sin confundirlo con cambios de divisas
+    o perímetro.
+  review_trigger: Dejar de creerla si los resultados de 2027 muestran crecimiento
+    comparable inferior a 3%; revisar antes si dos trimestres consecutivos reportan
+    contracción comparable interanual.
+  secondary_hypotheses: []
+  statement: CEMEX aumentará sus ingresos orgánicos comparables durante 2027, reflejando
+    una mejora de demanda, precios o mezcla frente al ciclo previo.
+  status: ACTIVE
+  ticker: CX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de efectivo de operaciones menos inversiones de capital acumulado
+      en esos cuatro trimestres es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La caja positiva reportada se explica por ventas de activos u otras
+      entradas no recurrentes, mientras el flujo de operaciones menos inversión de
+      capital resulta no positivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de efectivo de operaciones menos inversiones de capital acumulado en
+    esos cuatro trimestres es cero o negativo.
+  - La caja positiva reportada se explica por ventas de activos u otras entradas no
+    recurrentes, mientras el flujo de operaciones menos inversión de capital resulta
+    no positivo.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-CX-0001
+  opportunity_id: OPP-COMPOUNDER-CX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-15'
+    expected: 0.0
+    met: null
+    metric: Flujo de efectivo de operaciones menos inversiones de capital acumulado
+      en cuatro trimestres
+    prediction: La suma del flujo de efectivo de operaciones menos inversiones de
+      capital de los cuatro trimestres terminados el 2027-09-30 será superior a cero,
+      usando cifras reportadas y una definición consistente entre periodos.
+    unit: millones de dólares, estrictamente superior a cero
+  priority: critical
+  probability: 0.5
+  rationale: El contexto identifica una señal favorable de caja reportada, pero no
+    aporta su importe, comparabilidad ni recurrencia. La hipótesis comprueba si la
+    generación de caja resiste un periodo adicional y descuenta la inversión de capital,
+    en vez de asumir que una mejora puntual es estructural.
+  review_trigger: Dejar de creerla cuando se publiquen cuatro trimestres consecutivos
+    hasta el 2027-09-30 con flujo de operaciones menos inversiones de capital no positivo,
+    o antes si la compañía revisa materialmente a la baja sus cifras comparables.
+  secondary_hypotheses: []
+  statement: La señal favorable de caja se sostendrá y CEMEX generará flujo de caja
+    libre positivo durante los próximos cuatro trimestres.
+  status: ACTIVE
+  ticker: CX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón deuda neta/EBITDA ajustado de 2027 supera la de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: CEMEX no divulga información suficiente para reconciliar deuda neta
+      y EBITDA ajustado de ambos ejercicios; en ese caso, la hipótesis queda sin confirmar
+      y no se considera validada.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón deuda neta/EBITDA ajustado de 2027 supera la de 2026.
+  - CEMEX no divulga información suficiente para reconciliar deuda neta y EBITDA ajustado
+    de ambos ejercicios; en ese caso, la hipótesis queda sin confirmar y no se considera
+    validada.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-CX-0001
+  opportunity_id: OPP-COMPOUNDER-CX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.0
+    met: null
+    metric: Cambio interanual de deuda neta/EBITDA ajustado
+    prediction: En el reporte anual de 2027, la razón deuda neta/EBITDA ajustado será
+      igual o inferior a la reportada para 2026, calculada con la misma definición
+      de deuda y EBITDA.
+    unit: veces, cambio igual o inferior a cero
+  priority: critical
+  probability: 0.5
+  rationale: La tesis advierte que faltan datos de deuda y que el endeudamiento podría
+    limitar la flexibilidad financiera. Por ello, la generación de caja debe evaluarse
+    junto con una métrica de apalancamiento divulgada de forma consistente por la
+    compañía.
+  review_trigger: Dejar de creerla al publicarse el reporte anual de 2027 si el apalancamiento
+    calculado con definiciones comparables aumenta; revisar antes si la deuda neta
+    sube durante dos reportes trimestrales consecutivos mientras el EBITDA ajustado
+    cae.
+  secondary_hypotheses:
+  - H2-OPP-COMPOUNDER-CX-0001
+  statement: La flexibilidad financiera de CEMEX será suficiente para que la generación
+    de caja no se vea neutralizada por un aumento del apalancamiento neto.
+  status: ACTIVE
+  ticker: CX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La cotización del 2027-11-20 ha cerrado menos del 25% de la brecha
+      inicial, o la brecha se ha ampliado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden verificar el precio de cierre y los límites del rango
+      de objetivos vigentes al 2026-11-20; en tal caso, la predicción no es evaluable
+      y no debe tratarse como confirmada.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La cotización del 2027-11-20 ha cerrado menos del 25% de la brecha inicial, o
+    la brecha se ha ampliado.
+  - No se pueden verificar el precio de cierre y los límites del rango de objetivos
+    vigentes al 2026-11-20; en tal caso, la predicción no es evaluable y no debe tratarse
+    como confirmada.
+  horizon: medio
+  id: H4-OPP-COMPOUNDER-CX-0001
+  opportunity_id: OPP-COMPOUNDER-CX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 25.0
+    met: null
+    metric: Proporción de la brecha inicial al punto medio del rango de objetivos
+      cerrada
+    prediction: Para el 2027-11-20, la cotización de CX habrá cerrado al menos el
+      25% de la brecha inicial entre el precio de cierre del 2026-11-20 y el punto
+      medio del rango de objetivos de analistas disponible en esa fecha. La comparación
+      usará el mismo valor negociado y moneda; la brecha inicial se fijará con esos
+      datos y no se actualizará con revisiones posteriores de objetivos.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: El contexto indica que la cotización se encuentra por debajo del rango
+    de objetivos suministrado, pero advierte que el consenso no es una valoración
+    independiente y que faltan datos fundamentales. La hipótesis es únicamente que
+    esa brecha se estrechará, no que el precio objetivo sea correcto.
+  review_trigger: Dejar de creerla el 2027-11-20 si no se ha cerrado al menos el 25%
+    de la brecha inicial; abandonar antes si la cotización cierra por debajo del precio
+    del 2026-11-20 durante 20 sesiones consecutivas.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-CX-0001
+  - H2-OPP-COMPOUNDER-CX-0001
+  - H3-OPP-COMPOUNDER-CX-0001
+  statement: La cotización de CX reducirá parte de la brecha frente al punto medio
+    del rango de objetivos de analistas observado en la fecha de corte, aunque esa
+    convergencia por sí sola no demostrará infravaloración.
+  status: ACTIVE
+  ticker: CX
+  version: 1

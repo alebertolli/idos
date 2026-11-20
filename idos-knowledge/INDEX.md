@@ -7,13 +7,14 @@ aliases:
 
 # IDOS Company Index
 
-Total: 55 companies tracked
+Total: 57 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
 - 📄 [[B|Barrick Mining Corporation]]
 - 📄 [[BHP|BHP Group Limited]]
 - 📄 [[CDE|Coeur Mining, Inc.]]
+- 📄 [[CX|CEMEX, S.A.B. de C.V.]]
 - 📄 [[DOW|Dow Inc.]]
 
 ## Communication Services
@@ -35,6 +36,7 @@ Total: 55 companies tracked
 - 📄 [[BKR|Baker Hughes Company]]
 - 📄 [[BP|BP p.l.c.]]
 - 📄 [[COP|ConocoPhillips]]
+- 📄 [[CVX|Chevron Corporation]]
 - 📄 [[E|Eni S.p.A.]]
 - 📄 [[TS|Tenaris S.A.]]
 

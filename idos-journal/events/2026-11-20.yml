@@ -690,3 +690,54 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T12:45:12.764250'
+- data:
+    classification: compounder
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: d74a29a78a430de71eb6559a083c19964aa23ef9749a847702a84e45264d829b
+    opp_id: OPP-COMPOUNDER-CVX-0001
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: CVX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:53:31.781361'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CVX
+    ticker: CVX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T12:53:54.776026'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 7b15d3ab7282350141f6672fa13d41af0cda85107a9444a3d9dece6322c174b3
+    opp_id: OPP-MB-CVX
+    score: 48
+    strategy_version: '1.5'
+    ticker: CVX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:55:20.441444'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b3cab6fcd838d25035d2d5b17197aa8e0664c4f495fd622dfce209cc6bb68cb8
+    opp_id: OPP-COMPOUNDER-CX-0001
+    score: 52
+    strategy_version: positive_fundamentals_v1
+    ticker: CX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:57:25.681452'

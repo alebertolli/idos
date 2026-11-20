@@ -1,0 +1,135 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción neta de 2027 es inferior al 98% de la de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Chevron no publica cifras comparables que permitan calcular la variación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción neta de 2027 es inferior al 98% de la de 2026.
+  - Chevron no publica cifras comparables que permitan calcular la variación.
+  horizon: medio
+  id: H1-OPP-MB-CVX
+  opportunity_id: OPP-MB-CVX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-20'
+    expected: 98.0
+    met: null
+    metric: Producción neta anual de 2027 como porcentaje de la de 2026
+    prediction: La producción neta anual de 2027, según la definición reportada por
+      Chevron, será como mínimo el 98% de la producción neta anual de 2026.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La integración de actividades upstream y downstream puede amortiguar
+    parcialmente la volatilidad del negocio, pero la evidencia proporcionada no permite
+    atribuir crecimiento de producción a proyectos concretos. Por ello, esta hipótesis
+    plantea estabilidad, no crecimiento.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran una
+    caída superior al 2% frente a 2026, o si la empresa confirma antes de esa fecha
+    una reducción estructural de producción que haga inviable el umbral.
+  secondary_hypotheses: []
+  statement: La producción neta atribuible a Chevron se mantendrá aproximadamente
+    estable durante 2027 frente a 2026.
+  status: ACTIVE
+  ticker: CVX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM al 2027-12-31 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No es posible calcular una cifra TTM comparable con la definición utilizada
+      en la evidencia inicial.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM al 2027-12-31 es cero o negativo.
+  - No es posible calcular una cifra TTM comparable con la definición utilizada en
+    la evidencia inicial.
+  horizon: medio
+  id: H2-OPP-MB-CVX
+  opportunity_id: OPP-MB-CVX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 0.0
+    met: null
+    metric: FCF TTM
+    prediction: El FCF TTM, calculado con la definición de la fuente financiera utilizada
+      en la evidencia y evaluado al 2027-12-31, será superior a cero.
+    unit: USD miles de millones, estrictamente superior a 0
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia proporcionada indica FCF TTM positivo y un margen bruto
+    TTM superior a los valores FY 2022–2025 reportados por la misma fuente. Esto respalda
+    una hipótesis de continuidad a corto plazo, pero no demuestra que la mejora sea
+    duradera ni permite fijar un importe futuro de FCF.
+  review_trigger: Dejar de creerla si un informe trimestral oficial muestra FCF TTM
+    negativo y el siguiente informe disponible no vuelve a situarlo por encima de
+    cero; en todo caso, reevaluar al 2027-12-31.
+  secondary_hypotheses:
+  - H1-OPP-MB-CVX
+  statement: Chevron conservará flujo de caja libre TTM positivo hasta el cierre de
+    2027.
+  status: ACTIVE
+  ticker: CVX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La prima de EV/EBITDA de Chevron frente a la mediana definida supera
+      2,0 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden obtener datos comparables de EV y EBITDA TTM para Chevron
+      o para al menos tres de las cuatro empresas del grupo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La prima de EV/EBITDA de Chevron frente a la mediana definida supera 2,0 veces.
+  - No se pueden obtener datos comparables de EV y EBITDA TTM para Chevron o para
+    al menos tres de las cuatro empresas del grupo.
+  horizon: medio
+  id: H3-OPP-MB-CVX
+  opportunity_id: OPP-MB-CVX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 2.0
+    met: null
+    metric: Prima de EV/EBITDA de Chevron frente a la mediana del grupo comparable
+    prediction: El EV/EBITDA de los últimos doce meses de Chevron al 2027-11-20 será
+      como máximo 2,0 veces superior a la mediana del mismo múltiplo para Exxon Mobil,
+      Shell, BP y TotalEnergies, usando valores de mercado y financieros disponibles
+      en esa fecha.
+    unit: veces como máximo
+  priority: informational
+  probability: 0.5
+  rationale: 'La evidencia disponible no demuestra que Chevron esté infravalorada
+    ni sobrevalorada: no incluye precio, valoración, previsiones de energía ni estimaciones
+    de beneficios. Esta hipótesis convierte la cuestión de valoración relativa en
+    una comparación futura y observable, sin afirmar que la valoración actual sea
+    incorrecta.'
+  review_trigger: Dejar de creerla si datos comparables publicados antes o en 2027-11-20
+    muestran una prima superior a 2,0 veces; si cambia la composición del grupo o
+    las definiciones contables impiden compararlo, suspender la conclusión y reconstruir
+    la serie.
+  secondary_hypotheses:
+  - H2-OPP-MB-CVX
+  statement: Al 2027-11-20, Chevron no cotizará con una prima superior a 2,0 veces
+    EV/EBITDA frente a la mediana de un grupo comparable de grandes petroleras integradas.
+  status: ACTIVE
+  ticker: CVX
+  version: 1
