@@ -1,0 +1,531 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La variación del margen bruto y el crecimiento moderado de FCF justifican investigar
+    la persistencia de los resultados, pero no demuestran una tendencia estructural.
+  - Los extremos de analistas se usan como anclas de escenarios de mercado, no como
+    valoraciones intrínsecas.
+  - FCF TTM reportado de 15,340 y margen bruto TTM de 50.59%, con período terminado
+    2026-09-30; StockAnalysis.
+  - FCF de FY 2026 de 15,147 y FY 2025 de 14,044, con períodos terminados 2026-06-30
+    y 2025-06-30; StockAnalysis.
+  - Precio USD 161.57 al 2026-10-30 y rango de objetivos USD 151–190 observado el
+    2026-11-20; resumen financiero, fuentes Yahoo Finance y StockAnalysis.
+  preguntas_abiertas:
+  - '¿Qué explican los cambios de margen y FCF: precio, volumen, mezcla, costos, capital
+    de trabajo u otros factores?'
+  - ¿Cuáles son el mercado direccionable, la penetración, los retornos sobre capital
+    y la necesidad de reinversión?
+  - ¿Qué muestran las series completas de deuda, acciones diluidas y resultados comparables
+    para validar apalancamiento y dilución?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación fundamental requerida; calidad operativa observable, pero
+    evidencia insuficiente para validar una tesis de multibagger.
+  justificacion: El paquete muestra generación positiva de FCF y márgenes brutos cercanos
+    al 51%, pero no aporta evidencia suficiente sobre mercado direccionable, penetración,
+    retornos sobre capital o crecimiento estructural.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El paquete reporta FCF positivo de 15,340 y margen bruto TTM de 50.59%,
+    ambos al 2026-09-30. No contiene datos suficientes para evaluar retornos sobre
+    capital, reinversión, moat, erosión competitiva, productos, geografía o mercado
+    direccionable.
+  rating: Calidad operativa observable, validación incompleta
+dominio_catalizadores:
+- catalizador: El crecimiento reportado del FCF en FY 2026 fue positivo frente a FY
+    2025.
+  evidencia: FCF de 15,147 en FY 2026 y 14,044 en FY 2025; períodos fiscales terminados
+    2026-06-30 y 2025-06-30, respectivamente; StockAnalysis.
+  hito: Verificar en períodos futuros si el crecimiento y la conversión de caja se
+    mantienen.
+- catalizador: El consenso de analistas ofrece un rango de objetivos observable en
+    USD.
+  evidencia: Rango USD 151–190, observado el 2026-11-20; resumen financiero, fuentes
+    StockAnalysis y Yahoo Finance.
+  hito: Revisar cambios de objetivos junto con resultados financieros publicados;
+    el paquete no aporta estimaciones de resultados.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: Current ratio 0.72, período terminado 2026-09-30; StockAnalysis.
+  implicacion: Revisar composición y vencimientos de pasivos antes de concluir sobre
+    liquidez.
+  riesgo: La liquidez corriente reportada es inferior a 1; el paquete no incluye activos
+    y pasivos corrientes desglosados para verificar el cálculo.
+- evidencia: 50.59% TTM al 2026-09-30 frente a 51.34% en FY 2025; StockAnalysis.
+  implicacion: El paquete no desglosa precios, volúmenes, mezcla ni costos para identificar
+    la causa.
+  riesgo: El margen bruto TTM reportado es inferior al de FY 2025.
+- evidencia: Faltan historia de ingresos FY 2023 y serie de acciones; EBITDA no está
+    entre los campos permitidos para este ratio.
+  implicacion: Estos aspectos permanecen sin resolver, no se interpretan como ausencia
+    de riesgo.
+  riesgo: No hay datos suficientes en los campos permitidos para validar crecimiento
+    de ingresos a tres años, dilución o deuda neta/EBITDA.
+error_mercado:
+  catalizador_cambio: Una mejora sostenida del margen bruto junto con aceleración
+    del FCF sería evidencia para revisar la hipótesis de menor impulso; el paquete
+    no documenta catalizadores corporativos concretos.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el paquete ofrece
+    consenso de analistas, pero no un método de valoración propio ni evidencia suficiente
+    para juzgar si el consenso refleja correctamente los fundamentales.'
+  consenso_actual: 'El consenso de analistas observado el 2026-11-20 registra objetivo
+    medio de USD 175.31 y rango de USD 151 a USD 190; la cotización observada fue
+    USD 161.57 al 2026-10-30. Fuentes: StockAnalysis y Yahoo Finance, resumen financiero.'
+  hipotesis_contraria: 'La compresión del margen bruto TTM frente a FY 2025 y el crecimiento
+    moderado del FCF podrían ser indicios de menor impulso operativo; no bastan para
+    demostrar que el mercado subestima un deterioro duradero. Fuente: StockAnalysis,
+    período terminado 2026-09-30 y ejercicios fiscales indicados.'
+  razonamiento: La cotización y los objetivos de analistas son observaciones de mercado,
+    no estimaciones intrínsecas. El historial financiero disponible describe resultados,
+    pero no permite evaluar penetración, retornos sobre capital o expectativas de
+    crecimiento incorporadas en el precio.
+generated_at: '2026-11-20T18:16:26.058865-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-PG
+prompt_inputs:
+  business_model: ''
+  ceo_tenure: 0
+  debt_to_equity: 0.7
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: The Procter & Gamble Company
+  operating_margin: 24.88
+  pe_ratio: 25.61
+  products: ''
+  revenue: 87920000000.0
+  revenue_growth: 3.52
+  roic: 21.88
+  sector: ''
+  ticker: PG
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: Hay observaciones fechadas desde FY 2024, pero no una fila FY
+      2023 utilizable.
+  limitations: Falta revenue FY 2023 en la historia suministrada; no se puede calcular
+    una CAGR de tres años con períodos compatibles.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/pg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2026-06-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/pg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/pg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    net_cash_history:
+      Current al 2026-09-30: -23560.0
+    total_debt_history:
+      Current al 2026-09-30: 38925.0
+  limitations: EBITDA no figura entre los campos permitidos para este ratio; la deuda
+    neta no puede dividirse por EBITDA sin usar un input no autorizado.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/pg/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: No se proporciona diluted_shares_history ni una serie comparable de
+    acciones diluidas con fuente y períodos; las acciones en circulación actuales
+    no bastan para calcular dilución interanual.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: ''
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 161.57000732421875
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.7
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T21:15:52.759451+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: The Procter & Gamble Company
+  operating_margin: 24.88
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: ''
+  revenue: 87920000000.0
+  revenue_growth: 3.52
+  roic: 21.88
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PG/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    190.0, "low": 151.0, "mean": 175.31, "median": 175.31, "observed_at": "2026-11-20T18:15:56.139593-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T18:15:56.139593-03:00", "observed_date": "2026-11-20", "target_price":
+    175.83, "url": "https://stockanalysis.com/stocks/pg/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T18:15:56.139593-03:00",
+    "observed_date": "2026-11-20", "target_price": 174.78261, "url": "https://finance.yahoo.com/quote/PG/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 161.57000732421875,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/PG/"}]}}'
+  sector: ''
+  ticker: PG
+research_trigger:
+  discovery_snapshot_hash: d8d8bee112697f6bb621cc6fc80b87fbd29bc0907cbac39b9b2409b01469efad
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: ce2da933e07a8c7bb584a44f0d96b1814429a6d4ce0a5a665aa8e81bd9ec4d73
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T18:16:26.058865-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- assessment_note: Observación para Assessment; no constituye decisión de inversión.
+  metric: current_ratio
+  observation: 0.72 al 2026-09-30, fuente StockAnalysis; no está por debajo del umbral
+    configurado.
+  threshold: below 0.5
+- assessment_note: No puede determinarse si supera el umbral.
+  metric: dilution_yoy_pct
+  observation: 'No disponible: falta serie comparable de acciones diluidas.'
+  threshold: above 10%
+- assessment_note: Dato reportado no validado; no se interpreta como cobertura nula
+    confirmada.
+  metric: interest_coverage
+  observation: El proveedor reporta 0 al 2026-09-30; no se proporcionan EBIT y gasto
+    por intereses compatibles para verificarlo.
+  threshold: below 2.0x
+- assessment_note: No calcular runway con FCF positivo.
+  metric: negative_fcf_runway_months
+  observation: FCF TTM positivo de 15,340 al 2026-09-30; la condición de FCF negativo
+    no aplica a ese período.
+  threshold: below 12 months
+- assessment_note: No puede determinarse si supera el umbral.
+  metric: net_debt_ebitda
+  observation: 'No disponible: EBITDA no está entre los inputs permitidos para este
+    ratio.'
+  threshold: above 4.0x
+- assessment_note: No puede determinarse si supera el umbral.
+  metric: share_count_cagr_3y_pct
+  observation: 'No disponible: falta historia de acciones con observaciones fechadas
+    comparables.'
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Mejora sostenida del margen bruto y aceleración del FCF debilitarían esta lectura
+      adversa.
+    id: BEAR
+    key_assumptions:
+    - El objetivo bajo de analistas observado el 2026-11-20 se usa como ancla de escenario.
+    - El paquete no permite cuantificar cuánto del movimiento reflejaría cambios futuros
+      de fundamentales.
+    rationale: Ancla observada en el extremo bajo del rango de objetivos de analistas,
+      no valoración intrínseca propia. Es el resultado adverso relativo dentro del
+      rango observado; la compresión del margen bruto TTM frente a FY 2025 aporta
+      una señal operativa cautelosa, pero no prueba deterioro persistente.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/pg/forecast/
+    - as_of_date: '2026-09-30'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/pg/financials/
+    target_price: 151.0
+  - falsifiers:
+    - Descenso persistente del margen bruto o deterioro del FCF debilitarían esta
+      lectura favorable.
+    id: BULL
+    key_assumptions:
+    - El objetivo alto de analistas observado el 2026-11-20 se usa como ancla de escenario.
+    - La generación de FCF y la resiliencia del margen se mantienen; el paquete no
+      proporciona una proyección que cuantifique esa hipótesis.
+    rationale: Ancla observada en el extremo alto del rango de objetivos de analistas,
+      no valoración intrínseca propia. Es el resultado favorable relativo dentro del
+      rango observado; FCF positivo y crecimiento reportado en FY 2026 son evidencia
+      compatible con ese caso, pero no demuestran que se sostenga.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/pg/forecast/
+    - as_of_date: '2026-09-30'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/pg/financials/
+    target_price: 190.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 59
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T18:15:56.139593-03:00'
+  fuentes:
+    stockanalysis: 175.83
+    yfinance: 174.78261
+  mediana: 175.31
+  n_fuentes: 2
+  promedio: 175.31
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T18:15:56.139593-03:00'
+    observed_date: '2026-11-20'
+    target_price: 175.83
+    url: https://stockanalysis.com/stocks/pg/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T18:15:56.139593-03:00'
+    observed_date: '2026-11-20'
+    target_price: 174.78261
+    url: https://finance.yahoo.com/quote/PG/
+  target_high: 190.0
+  target_low: 151.0
+tesis_inversion: La evidencia disponible muestra una compañía con FCF positivo y margen
+  bruto elevado, aunque el margen TTM está por debajo de FY 2025 y el crecimiento
+  de FCF reportado es moderado. La hipótesis a investigar es si la generación de caja
+  y la capacidad de sostener márgenes pueden mantenerse; faltan datos del paquete
+  sobre mecanismo de crecimiento, reinversión, retornos sobre capital, mercado direccionable,
+  penetración, ventaja competitiva y asignación de capital para validar esa hipótesis.
+ticker: PG
+version: '3.0'

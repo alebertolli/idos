@@ -1,0 +1,181 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción media anual de 2027 crece menos del 3% frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La producción media anual de 2027 es igual o inferior a la de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción media anual de 2027 crece menos del 3% frente a 2026.
+  - La producción media anual de 2027 es igual o inferior a la de 2026.
+  horizon: medio
+  id: H1-OPP-MB-PBR
+  opportunity_id: OPP-MB-PBR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento de la producción media anual de petróleo y gas frente a 2026
+    prediction: La producción media anual de petróleo y gas de 2027 será al menos
+      un 3% superior a la media anual de 2026, según la misma definición de producción
+      utilizada por Petrobras.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La tesis incluye una operación integrada y el crecimiento de producción
+    sería una señal observable de avance operativo. El contexto disponible no aporta
+    datos suficientes para confirmar el ritmo de expansión ni la ejecución de proyectos,
+    por lo que esta hipótesis requiere validación con resultados oficiales.
+  review_trigger: Dejar de creerla si los datos oficiales de cierre de 2027 muestran
+    un crecimiento inferior al 3% frente a 2026, o si Petrobras revisa a la baja sus
+    previsiones de producción de forma incompatible con ese umbral.
+  secondary_hypotheses: []
+  statement: La producción total de petróleo y gas de Petrobras crecerá durante 2027
+    frente a 2026, reflejando la incorporación de capacidad de producción.
+  status: ACTIVE
+  ticker: PBR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF acumulado de los cuatro trimestres terminados el 2027-09-30
+      es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No es posible reconciliar una medida de FCF consistente y verificable
+      a partir de los estados financieros publicados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF acumulado de los cuatro trimestres terminados el 2027-09-30 es cero o negativo.
+  - No es posible reconciliar una medida de FCF consistente y verificable a partir
+    de los estados financieros publicados.
+  horizon: medio
+  id: H2-OPP-MB-PBR
+  opportunity_id: OPP-MB-PBR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: FCF acumulado de cuatro trimestres
+    prediction: La suma del flujo de caja operativo menos inversiones de capital de
+      los cuatro trimestres terminados el 2027-09-30 será superior a cero, calculada
+      con la metodología publicada por la empresa o, si no está disponible, con una
+      definición consistente entre periodos.
+    unit: positivo en la moneda de reporte
+  priority: critical
+  probability: 0.5
+  rationale: El contexto indica FCF TTM positivo, pero no demuestra que sea sostenible.
+    La hipótesis prueba si la generación de caja supera las necesidades de inversión
+    a lo largo de un periodo futuro, sin asumir que un dato TTM aislado continuará.
+  review_trigger: Dejar de creerla cuando los estados financieros del tercer trimestre
+    de 2027 permitan comprobar que el FCF acumulado de los cuatro trimestres es cero
+    o negativo.
+  secondary_hypotheses:
+  - H1-OPP-MB-PBR
+  statement: Petrobras mantendrá generación de flujo de caja libre positiva durante
+    los cuatro trimestres comprendidos entre el cuarto trimestre de 2026 y el tercer
+    trimestre de 2027.
+  status: ACTIVE
+  ticker: PBR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto TTM al 2027-09-30 es igual o inferior al 45%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los datos publicados no permiten calcular el margen con una definición
+      consistente con el 52,09% de referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto TTM al 2027-09-30 es igual o inferior al 45%.
+  - Los datos publicados no permiten calcular el margen con una definición consistente
+    con el 52,09% de referencia.
+  horizon: medio
+  id: H3-OPP-MB-PBR
+  opportunity_id: OPP-MB-PBR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 45.0
+    met: null
+    metric: Margen bruto TTM
+    prediction: El margen bruto de los doce meses terminados el 2027-09-30 será superior
+      al 45%, calculado como ingresos menos coste de ventas, dividido por ingresos,
+      usando cifras comparables de los estados financieros.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: El paquete disponible muestra un margen bruto TTM de 52,09%, pero no
+    prueba su sostenibilidad. Mantener un umbral inferior al dato observado permite
+    someter a prueba la persistencia de la rentabilidad bruta sin asumir que el nivel
+    actual se repetirá exactamente.
+  review_trigger: Dejar de creerla si cualquier publicación trimestral muestra un
+    margen bruto TTM igual o inferior al 45%, o si un cambio contable invalida la
+    comparación y no puede reconciliarse.
+  secondary_hypotheses: []
+  statement: El margen bruto TTM de Petrobras se mantendrá por encima del 45% hasta
+    el tercer trimestre de 2027.
+  status: ACTIVE
+  ticker: PBR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de PBR menos la del Bovespa, ambas expresadas
+      en dólares estadounidenses y en el mismo periodo, es inferior a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total relativa es cero o negativa.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de PBR menos la del Bovespa, ambas expresadas en dólares
+    estadounidenses y en el mismo periodo, es inferior a 10 puntos porcentuales.
+  - La rentabilidad total relativa es cero o negativa.
+  horizon: medio
+  id: H4-OPP-MB-PBR
+  opportunity_id: OPP-MB-PBR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Exceso de rentabilidad total de PBR frente al Bovespa
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de PBR
+      en dólares estadounidenses, incluidos dividendos y ajustada por distribuciones,
+      superará en al menos 10 puntos porcentuales la rentabilidad total del índice
+      Bovespa convertida a dólares estadounidenses.
+    unit: puntos porcentuales mínimos
+  priority: informational
+  probability: 0.5
+  rationale: 'La información disponible no demuestra que el mercado esté subestimando
+    el crecimiento, la rentabilidad sostenible o la asignación de capital. Esta hipótesis
+    convierte esa posible mejora de percepción en una prueba de mercado: exige una
+    rentabilidad relativa positiva y material, incluidos los dividendos.'
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la rentabilidad total
+    relativa frente al Bovespa es inferior a 10 puntos porcentuales; no se requiere
+    esperar a una fecha posterior para evaluar el resultado.
+  secondary_hypotheses:
+  - H2-OPP-MB-PBR
+  - H3-OPP-MB-PBR
+  statement: La rentabilidad total de PBR superará a la del índice Bovespa durante
+    los doce meses siguientes a la fecha de corte.
+  status: ACTIVE
+  ticker: PBR
+  version: 1

@@ -1,0 +1,522 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La cotización cercana al consenso observado no prueba que el mercado esté valorando
+    mal la compañía.
+  - El aumento del FCF TTM frente a FY 2025 es favorable como observación, pero no
+    demuestra una tendencia estructural ni su origen.
+  - Precio de USD 30,52 al 2026-10-30, fuente yfinance.
+  - Ingresos TTM de 63.620 millones y FCF TTM de 11.786 millones, período terminado
+    el 2026-09-27, fuente Stockanalysis.
+  - Margen bruto TTM de 74,9% y razón corriente de 1,42x, período terminado el 2026-09-27,
+    fuente Stockanalysis.
+  - Consenso de precio objetivo USD 30,22 y rango USD 25–37, observado el 2026-11-20,
+    fuentes Stockanalysis y yfinance.
+  preguntas_abiertas:
+  - ¿Qué productos, áreas terapéuticas, geografías y patentes explican ingresos, crecimiento
+    y ventaja competitiva?
+  - ¿Cuáles son el pipeline, los hitos clínicos/regulatorios fechados y los vencimientos
+    de patentes?
+  - ¿Qué inversión incremental se requiere y qué retornos sobre capital produce?
+  - ¿Qué explican la deuda neta, el cambio en ingresos y la variabilidad del FCF en
+    períodos comparables?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
+    de crecimiento multibagger
+  justificacion: El paquete documenta recuperación de precio y generación positiva
+    de FCF, pero no aporta datos verificables suficientes sobre crecimiento de ingresos
+    a largo plazo, reinversión, retornos sobre capital, pipeline o penetración de
+    mercado.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Los datos reportados muestran margen bruto TTM de 74,9%, FCF TTM positivo
+    y razón corriente de 1,42x al 2026-09-27. Sin información verificable sobre retornos
+    sobre capital, reinversión, productos, moat o crecimiento comparable de ingresos,
+    no se puede valorar la calidad ni la durabilidad del negocio.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: El margen bruto TTM reportado está por encima de FY 2023.
+  evidencia: 74,9% TTM al 2026-09-27 frente a 59,72% en FY 2023; esta observación
+    no establece la causa ni la sostenibilidad.
+- catalizador: El FCF TTM reportado supera los valores FY 2024 y FY 2025.
+  evidencia: FCF 11.786 TTM al 2026-09-27, frente a 9.835 en FY 2024 y 9.075 en FY
+    2025.
+- catalizador: La cotización registró momentum positivo de 12 meses en el período
+    observado.
+  evidencia: 23,8134% para 2025-10-31/2026-10-30, según yfinance.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: 'La caja neta reportada fue -49.129 para Current al 2026-09-27; fuente:
+    Stockanalysis, estados financieros.'
+  riesgo: La deuda supera al efectivo según la serie de caja neta reportada; no puede
+    calcularse deuda neta/EBITDA con los campos permitidos para ese ratio.
+- evidencia: 'FCF: 4.793 en FY 2023, 9.835 en FY 2024, 9.075 en FY 2025 y 11.786 TTM
+    al 2026-09-27; ingreso neto TTM: 4.033.'
+  riesgo: El FCF histórico es volátil y el ingreso neto TTM es inferior a los valores
+    FY 2024 y FY 2025 reportados.
+- evidencia: Esos campos no están informados en el resumen financiero ni en la evidencia
+    por campo proporcionada.
+  riesgo: La evidencia no identifica productos, patentes, vencimientos, competidores,
+    pipeline ni concentración de ingresos.
+error_mercado:
+  catalizador_cambio: Una actualización verificable de ingresos, flujo de caja, pipeline
+    o perspectivas de productos podría modificar la lectura, pero el paquete no proporciona
+    hitos corporativos fechados.
+  conclusion_error_valoracion: No se valida un error de valoración con la evidencia
+    disponible.
+  consenso_actual: El consenso de precio objetivo observado es USD 30,22, prácticamente
+    igual a la cotización de USD 30,52 del 30-10-2026. El intervalo observado de objetivos
+    es USD 25–37.
+  hipotesis_contraria: El rango de analistas no demuestra por sí solo un error de
+    valoración; los datos disponibles no permiten establecer valor intrínseco ni expectativas
+    operativas implícitas.
+  razonamiento: El precio y los objetivos están expresados en USD y tienen observaciones
+    fechadas, pero faltan datos de valoración y expectativas operativas para contrastar
+    el consenso.
+generated_at: '2026-11-20T18:14:25.095563-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-PFE
+prompt_inputs:
+  business_model: ''
+  ceo_tenure: 0
+  debt_to_equity: 0.71
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: PFE
+  operating_margin: 29.07
+  pe_ratio: 38.98
+  products: ''
+  revenue: 63620000000.0
+  revenue_growth: 1.34
+  roic: 12.83
+  sector: ''
+  ticker: PFE
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history:
+    - period: FY 2023
+      period_end: '2023-12-31'
+      unit: source_reported_amount
+      value: 59554
+    - period: FY 2024
+      period_end: '2024-12-31'
+      unit: source_reported_amount
+      value: 63627
+    - period: FY 2025
+      period_end: '2025-12-31'
+      unit: source_reported_amount
+      value: 62579
+    - period: TTM
+      period_end: '2026-09-27'
+      unit: source_reported_amount
+      value: 63624
+  limitations: No hay observación FY 2026 ni un período t-3 comparable al TTM terminado
+    el 2026-09-27; la serie disponible no permite aplicar la fórmula a períodos anuales
+    comparables.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources:
+  - name: Stockanalysis
+    url: https://stockanalysis.com/stocks/pfe/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: Stockanalysis
+    url: https://stockanalysis.com/stocks/pfe/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-27'
+  sources:
+  - name: Stockanalysis
+    url: https://stockanalysis.com/stocks/PFE/statistics/
+  - name: Stockanalysis
+    url: https://stockanalysis.com/stocks/pfe/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    net_cash_history:
+      period: Current
+      period_end: '2026-09-27'
+      unit: source_reported_amount
+      value: -49129
+    total_debt_history:
+      period: Current
+      period_end: '2026-09-27'
+      unit: source_reported_amount
+      value: 63408
+  limitations: Los campos permitidos para este ratio no incluyen EBITDA ni una serie
+    de efectivo compatible para completar y verificar la fórmula; no se calcula usando
+    un campo fuera de configured_ratio_inputs.
+  metric: net_debt_ebitda
+  period_end: '2026-09-27'
+  sources:
+  - name: Stockanalysis
+    url: https://stockanalysis.com/stocks/pfe/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding:
+      period: TTM
+      period_end: '2026-09-27'
+      unit: provider_reported_shares
+      value: 5700000000
+  limitations: Sólo se proporciona una observación actual de acciones en circulación;
+    falta una observación comparable del período anterior o una serie histórica de
+    acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-27'
+  sources:
+  - name: Stockanalysis
+    url: https://stockanalysis.com/stocks/PFE/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: ''
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 30.520000457763672
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.71
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T21:13:55.937303+00:00", "period_end": "2026-09-27",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: PFE
+  operating_margin: 29.07
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: ''
+  revenue: 63620000000.0
+  revenue_growth: 1.34
+  roic: 12.83
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pfe/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PFE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PFE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PFE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PFE/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pfe/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pfe/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pfe/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PFE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pfe/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PFE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pfe/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pfe/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pfe/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PFE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PFE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pfe/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    37.0, "low": 25.0, "mean": 30.22, "median": 30.22, "observed_at": "2026-11-20T18:13:59.970978-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T18:13:59.970978-03:00", "observed_date": "2026-11-20", "target_price":
+    30.22, "url": "https://stockanalysis.com/stocks/pfe/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T18:13:59.970978-03:00",
+    "observed_date": "2026-11-20", "target_price": 30.22115, "url": "https://finance.yahoo.com/quote/PFE/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 30.520000457763672,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/PFE/"}]}}'
+  sector: ''
+  ticker: PFE
+research_trigger:
+  discovery_snapshot_hash: afcb4c46614497625f2bdfcf317cbe81df90572bfb1e4fb3f0a0c2bec1942070
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 46993581c6d3a3fc7dcb7bc0f511df323e8c8a9d30dad6eb5813b131621d8d23
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T18:14:25.095563-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1,42x al 2026-09-27; no está por debajo del umbral configurado.
+  source:
+    name: Stockanalysis
+    url: https://stockanalysis.com/stocks/PFE/statistics/
+  threshold: below 0.5x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta una serie comparable de acciones diluidas.'
+  source:
+    name: Stockanalysis
+    url: https://stockanalysis.com/stocks/PFE/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: El proveedor reporta 0 al 2026-09-27, pero la observación no permite
+    validar si es un valor económico o un dato faltante; no se interpreta como cobertura
+    confirmada.
+  source:
+    name: Stockanalysis
+    url: https://stockanalysis.com/stocks/PFE/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplicable a la observación TTM: el FCF reportado es positivo, 11.786,
+    al 2026-09-27.'
+  source:
+    name: Stockanalysis
+    url: https://stockanalysis.com/stocks/PFE/financials/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No evaluable con los inputs permitidos para el ratio; EBITDA no está
+    entre los campos configurados para este cálculo.
+  source:
+    name: Stockanalysis
+    url: https://stockanalysis.com/stocks/pfe/financials/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: este ratio no figura entre ratios_to_review y no hay
+    serie histórica de acciones en los inputs proporcionados.'
+  source:
+    name: Stockanalysis
+    url: https://stockanalysis.com/stocks/PFE/statistics/
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 61
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T18:13:59.970978-03:00'
+  fuentes:
+    stockanalysis: 30.22
+    yfinance: 30.22115
+  mediana: 30.22
+  n_fuentes: 2
+  promedio: 30.22
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T18:13:59.970978-03:00'
+    observed_date: '2026-11-20'
+    target_price: 30.22
+    url: https://stockanalysis.com/stocks/pfe/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T18:13:59.970978-03:00'
+    observed_date: '2026-11-20'
+    target_price: 30.22115
+    url: https://finance.yahoo.com/quote/PFE/
+  target_high: 37.0
+  target_low: 25.0
+tesis_inversion: La hipótesis a investigar es que la generación de caja y la recuperación
+  del margen bruto puedan sostener el negocio pese a la deuda neta y a la variabilidad
+  histórica del FCF; el paquete no permite validar crecimiento estructural, rentabilidad
+  incremental de reinversión ni durabilidad de la ventaja competitiva.
+ticker: PFE
+version: '3.0'

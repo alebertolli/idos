@@ -1,0 +1,519 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La combinación de FCF TTM positivo y margen bruto reportado es compatible con
+    capacidad actual de generación de caja, pero no acredita su sostenibilidad ni
+    la rentabilidad incremental del capital.
+  - La subida de precio y el consenso cercano a la cotización no bastan para inferir
+    una discrepancia de valoración.
+  - StockAnalysis reporta ingresos TTM de 113.890 millones y margen bruto de 52,09%
+    al 2026-09-30; la URL disponible no especifica moneda en los valores resumidos.
+  - StockAnalysis reporta FCF TTM de 21.689 en la serie financiera y utilidad neta
+    TTM de 27.109, ambos al 2026-09-30 y en unidades reportadas por la fuente.
+  - Yahoo Finance reporta momentum de precio de 12 meses de 89,433%, drawdown de 15,711%
+    y volatilidad de 90 días de 43,155%, con período terminado el 2026-10-30.
+  preguntas_abiertas:
+  - ¿Cuáles son los retornos sobre capital y la economía de los proyectos actuales
+    y planificados, con períodos y moneda comparables?
+  - ¿Qué evidencia cuantifica reservas, costos, cuota de mercado, demanda direccionable
+    y penetración por segmento?
+  - ¿Qué decisiones recientes de management y asignación de capital explican la inversión,
+    deuda y distribución al accionista?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia parcial
+  justificacion: El paquete muestra un impulso de precio de 12 meses elevado, pero
+    no aporta evidencia suficiente para validar una tesis de crecimiento estructural
+    ni valorar los riesgos de asignación de capital y control estatal.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen identifica tres segmentos, pero no ofrece datos de cuota de
+    mercado, reservas, costos relativos, retornos sobre capital, retorno de proyectos
+    ni penetración del mercado direccionable. La evolución del margen bruto y el FCF
+    aporta contexto financiero, pero no basta para establecer un moat o su erosión.
+  rating: Incompleta
+dominio_catalizadores:
+- catalizador: La actualización de resultados posteriores al 2026-09-30 podría aportar
+    evidencia sobre continuidad de ventas, márgenes y generación de FCF.
+  estado: Hito de seguimiento; el paquete no incluye resultados posteriores.
+  fuente: https://stockanalysis.com/stocks/pbr/financials/
+- catalizador: La trayectoria de FCF y deuda puede ayudar a evaluar capacidad de inversión
+    y flexibilidad financiera.
+  estado: Pendiente de validar con estados financieros comparables y unidades reconciliadas.
+  fuente: https://stockanalysis.com/stocks/pbr/financials/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: https://stockanalysis.com/stocks/PBR/statistics/
+  riesgo: 'Apalancamiento y liquidez: la razón corriente reportada es 0,9 al 2026-09-30;
+    no se pudo validar deuda neta/EBITDA con unidades compatibles.'
+- fuente: Resumen financiero del paquete; no incluye URL para este detalle.
+  riesgo: Exposición a precios de hidrocarburos y a decisiones operativas y de inversión;
+    el paquete no cuantifica sensibilidades ni retornos por proyecto.
+- fuente: No hay evidencia específica disponible en el paquete.
+  riesgo: Gobierno corporativo y asignación de capital no evaluables con la evidencia
+    entregada; faltan datos específicos sobre decisiones, inversiones y retornos.
+- fuente: https://finance.yahoo.com/quote/PBR/history/
+  riesgo: La volatilidad a 90 días fue 43,155% al 2026-10-30, según historial de precios
+    de Yahoo Finance.
+error_mercado:
+  catalizador_cambio: Resultados operativos y financieros comparables, junto con evidencia
+    verificable sobre inversiones y retornos de capital, podrían cambiar la evaluación;
+    el paquete no documenta hitos específicos.
+  conclusion_error_valoracion: No se valida un error de valoración. El precio objetivo
+    de consenso está cerca de la cotización, pero el paquete no aporta un método de
+    valoración independiente.
+  consenso_actual: La cotización observada fue USD 22,05 al 2026-10-30; el consenso
+    de precio objetivo era USD 22,83 al 2026-11-20, con rango USD 17,40–27,00.
+  hipotesis_contraria: La evidencia disponible no demuestra que el mercado esté subestimando
+    el crecimiento, la rentabilidad sostenible o la calidad de la asignación de capital.
+  razonamiento: El precio avanzó 89,433% en el período de 12 meses terminado el 2026-10-30,
+    con volatilidad a 90 días de 43,155%; esas observaciones describen el mercado,
+    no prueban infravaloración.
+generated_at: '2026-11-20T18:12:27.126816-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-PBR
+prompt_inputs:
+  business_model: 'Petróleo Brasileiro S.A. - Petrobras explores, produces, and sells
+    oil and gas in Brazil, China, the United States, the Americas, Asia, Europe, Singapore,
+    and internationally. It operates through three segments: Exploration and Production;
+    Refining, Transportation & Marketing; and Gas & Low Carbon Energies. The Exploration
+    and Production segment explores, develops, and produces crude oil, natural gas
+    liquids, and natural gas primarily for supplies to the domestic refineries. Its
+    Refining, Transportation and Marketing segment engages in the refining, logistics,
+    transport, acquisition, and export of crude oil; trading of oil products; and
+    production of fertilizers, as well as holding interests in petrochemical companies.
+    The Gas and Low Carbon Energies segment is involved in the logistic and trading
+    of natural gas and electricity; transportation and trading of liquefied natural
+    gas; generation of electricity through thermoelectric power plants; renewable
+    energy business; low carbon business; and natural gas processing business, as
+    well as production of biodiesel and its co-products. It also engages in prospecting,
+    drilling, refining, processing, trading, and transporting crude oil from producing
+    onshore and offshore oil fields, and shale or other rocks, as well as oil products,
+    natural gas, and other liquid hydrocarbons. In addition, the company engages in
+    research, development, production, transportation, distribution, and trading of
+    energy. Petróleo Brasileiro S.A. - Petrobras was incorporated in 1953 and is headquartered
+    in Rio De Janeiro, Brazil.'
+  ceo_tenure: 0
+  debt_to_equity: 0.72
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Petróleo Brasileiro S.A. - Petrobras
+  operating_margin: 38.1
+  pe_ratio: 4.45
+  products: ''
+  revenue: 113890000000.0
+  revenue_growth: 23.51
+  roic: 20.55
+  sector: Energy
+  ticker: PBR
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: null
+    revenue_ttm: 113890000000.0
+  limitations: La serie disponible no contiene un dato fechado de ingresos para FY
+    2023, necesario para la comparación de tres años; el TTM no sustituye ese período.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/pbr/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PBR/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF growth reportado por la fuente; no recalculado
+  inputs:
+    fcf_growth_history: 22.87
+  limitations: La fuente reporta crecimiento TTM de 22,87%, pero el paquete no especifica
+    en este campo la base comparativa exacta ni permite verificar que ambos períodos
+    sean comparables y positivos.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/pbr/financials/
+  status: reported
+  unit: percent
+  value: 22.87
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/pbr/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history: 12092.0
+    ebitda: 52040000000.0
+    total_debt_history: 69983.0
+  limitations: Deuda y efectivo se presentan como importes reportados sin escala explícita
+    en la serie histórica, mientras EBITDA aparece como 52.040.000.000; no se puede
+    confirmar compatibilidad de unidades para el cociente.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/pbr/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PBR/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares: null
+    diluted_shares_history: null
+    shares_outstanding: 12890000000.0
+    shares_outstanding_history: null
+  limitations: Sólo hay un dato actual de acciones en circulación; falta el conteo
+    comparable del período anterior y no se aporta historial de acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/PBR/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Petróleo Brasileiro S.A. - Petrobras explores, produces, and sells
+    oil and gas in Brazil, China, the United States, the Americas, Asia, Europe, Singapore,
+    and internationally. It operates through three segments: Exploration and Production;
+    Refining, Transportation & Marketing; and Gas & Low Carbon Energies. The Exploration
+    and Production segment explores, develops, and produces crude oil, natural gas
+    liquids, and natural gas primarily for supplies to the domestic refineries. Its
+    Refining, Transportation and Marketing segment engages in the refining, logistics,
+    transport, acquisition, and export of crude oil; trading of oil products; and
+    production of fertilizers, as well as holding interests in petrochemical companies.
+    The Gas and Low Carbon Energies segment is involved in the logistic and trading
+    of natural gas and electricity; transportation and trading of liquefied natural
+    gas; generation of electricity through thermoelectric power plants; renewable
+    energy business; low carbon business; and natural gas processing business, as
+    well as production of biodiesel and its co-products. It also engages in prospecting,
+    drilling, refining, processing, trading, and transporting crude oil from producing
+    onshore and offshore oil fields, and shale or other rocks, as well as oil products,
+    natural gas, and other liquid hydrocarbons. In addition, the company engages in
+    research, development, production, transportation, distribution, and trading of
+    energy. Petróleo Brasileiro S.A. - Petrobras was incorporated in 1953 and is headquartered
+    in Rio De Janeiro, Brazil.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 22.049999237060547
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.72
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T21:11:59.947779+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Petróleo Brasileiro S.A. - Petrobras
+  operating_margin: 38.1
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Petróleo Brasileiro S.A. - Petrobras explores, produces, and sells
+    oil and gas in Brazil, China, the United States, the Americas, Asia, Europe, Singapore,
+    and internationally. It operates through three segments: Exploration and Production;
+    Refining, Transportation & Marketing; and Gas & Low Carbon Energies. The Exploration
+    and Production segment explores, develops, and produces crude oil, natural gas
+    liquids, and natural gas primarily for supplies to the domestic refineries. Its
+    Refining, Transp'
+  revenue: 113890000000.0
+  revenue_growth: 23.51
+  roic: 20.55
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pbr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PBR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PBR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PBR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PBR/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pbr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pbr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pbr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PBR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pbr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PBR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pbr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pbr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pbr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PBR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/PBR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/pbr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    27.0, "low": 17.4, "mean": 22.83, "median": 22.83, "observed_at": "2026-11-20T18:12:03.404790-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T18:12:03.404790-03:00", "observed_date": "2026-11-20", "target_price":
+    22.83, "url": "https://stockanalysis.com/stocks/pbr/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T18:12:03.404790-03:00",
+    "observed_date": "2026-11-20", "target_price": 22.825, "url": "https://finance.yahoo.com/quote/PBR/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 22.049999237060547,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/PBR/"}]}}'
+  sector: Energy
+  ticker: PBR
+research_trigger:
+  discovery_snapshot_hash: 6a42f9d34b7258e67a17c4ef6c10acb16f6123dc670bfa588f41b1f401b7e241
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 1fff59da3740ee28b19e541ebcaefd61953a6225caea6d16d5d005351474be15
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T18:12:27.126816-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- assessment_note: Observación para Assessment; no constituye una decisión.
+  metric: current_ratio
+  observation: 0,9x al 2026-09-30; por encima del umbral configurado de 0,5x.
+- assessment_note: No se sustituyó EBIT por EBITDA ni se calculó cobertura con inputs
+    incompatibles.
+  metric: interest_coverage
+  observation: La fuente reporta 0x al 2026-09-30, por debajo del umbral de 2,0x;
+    el valor requiere validación por posible problema de definición o dato.
+- assessment_note: Solicitar cifras con unidad monetaria y período comparables.
+  metric: net_debt_ebitda
+  observation: No disponible por incompatibilidad no resuelta de escala entre inputs;
+    no es posible evaluar el umbral de 4,0x.
+- assessment_note: El umbral es una observación para Assessment, no una decisión.
+  metric: dilution_yoy_pct
+  observation: No disponible; falta el número de acciones comparable del período anterior
+    para evaluar el umbral de 10%.
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 48
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T18:12:03.404790-03:00'
+  fuentes:
+    stockanalysis: 22.83
+    yfinance: 22.825
+  mediana: 22.83
+  n_fuentes: 2
+  promedio: 22.83
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T18:12:03.404790-03:00'
+    observed_date: '2026-11-20'
+    target_price: 22.83
+    url: https://stockanalysis.com/stocks/pbr/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T18:12:03.404790-03:00'
+    observed_date: '2026-11-20'
+    target_price: 22.825
+    url: https://finance.yahoo.com/quote/PBR/
+  target_high: 27.0
+  target_low: 17.4
+tesis_inversion: Petrobras opera en exploración y producción, refinación, transporte
+  y comercialización, y gas y energías bajas en carbono. El paquete muestra margen
+  bruto TTM de 52,09% y FCF TTM positivo según StockAnalysis, pero no permite concluir
+  que ese desempeño sea sostenible ni medir retornos sobre capital, reinversión, penetración
+  de mercado o ventaja competitiva; la tesis depende de validar esos elementos y la
+  disciplina de asignación de capital.
+ticker: PBR
+version: '3.0'
