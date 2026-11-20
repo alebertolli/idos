@@ -1,0 +1,37 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; oportunidad de crecimiento no validada'
+- 'Market error: No puede validarse un error de valoración: faltan expectativas operativas
+  detalladas y una valoración fundamental defendible.'
+- 'Thesis: Shell combina operaciones integradas de gas, upstream, marketing, químicos
+  y productos, y renovables y soluciones energéticas. La evidencia suministrada muestra
+  FCF TTM de 37.361 millones en el períod'
+generated_at: '2026-11-20T19:09:09.171264-03:00'
+id: ass-8e57bc9d
+recommendation: REVIEW
+risks:
+- analisis: 'El FCF reportado varía entre ejercicios: 45.814 millones en FY 2022,
+    31.198 millones en FY 2023, 35.086 millones en FY 2024 y 23.916 millones en FY
+    2025. El FCF TTM al 2026-09-30 fue 37.361 millones; el paquete no permite separar
+    ciclo, precios, volúmenes ni capital circulante.'
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/shel/financials/
+  riesgo: Ciclicidad y sostenibilidad del flujo de caja
+- analisis: La serie de net cash reporta -39.650 millones al 2026-09-30; no se valida
+    net debt/EBITDA por incompatibilidad de unidades monetarias entre los campos proporcionados.
+    La cobertura de intereses reportada como 0 requiere verificación antes de interpretarse.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/shel/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SHEL/statistics/
+  riesgo: Apalancamiento y cobertura financiera no validados
+- analisis: El paquete describe segmentos diversos, pero no aporta cuota de mercado,
+    costos unitarios, retornos por segmento, penetración de renovables ni datos comparables
+    de competidores para medir ventaja o erosión.
+  riesgo: Erosión competitiva y transición energética
+score: 58
+status: COMPLETED
+version: '3.0'
