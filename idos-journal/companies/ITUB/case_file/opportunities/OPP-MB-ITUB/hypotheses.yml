@@ -1,0 +1,190 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de la cartera de crédito bruta al 2027-12-31
+      es inferior al 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El índice de préstamos vencidos por más de 90 días supera el 3,0% al
+      2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de la cartera de crédito bruta al 2027-12-31 es inferior
+    al 10%.
+  - El índice de préstamos vencidos por más de 90 días supera el 3,0% al 2027-12-31.
+  horizon: medio
+  id: H1-OPP-MB-ITUB
+  opportunity_id: OPP-MB-ITUB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual de cartera de crédito bruta al 2027-12-31
+    prediction: Al 2027-12-31, la cartera de crédito bruta consolidada será al menos
+      un 10% mayor que al 2026-12-31, y el índice de préstamos vencidos por más de
+      90 días no superará el 3,0%.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El aumento de los ingresos reportados entre FY2022 y FY2025 es compatible
+    con una expansión del negocio, pero por sí solo no demuestra crecimiento de volumen
+    ni calidad sostenible. La hipótesis es que la franquicia minorista y mayorista
+    permitirá expandir la cartera y que la gestión de riesgos limitará el deterioro.
+  review_trigger: Dejar de creerla si el informe de resultados de FY2027, o una divulgación
+    oficial equivalente, muestra cualquiera de los dos criterios de falsación.
+  secondary_hypotheses: []
+  statement: La cartera de crédito de Itaú continuará creciendo en 2027, sin que el
+    crecimiento dependa de una expansión descontrolada del riesgo.
+  status: ACTIVE
+  ticker: ITUB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ROE recurrente consolidado anualizado del cuarto trimestre de 2027
+      es inferior al 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La entidad deja de publicar una medida comparable y la conciliación
+      con el resultado atribuible al accionista no permite verificar el umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ROE recurrente consolidado anualizado del cuarto trimestre de 2027 es inferior
+    al 20%.
+  - La entidad deja de publicar una medida comparable y la conciliación con el resultado
+    atribuible al accionista no permite verificar el umbral.
+  horizon: medio
+  id: H2-OPP-MB-ITUB
+  opportunity_id: OPP-MB-ITUB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 20.0
+    met: null
+    metric: ROE recurrente consolidado anualizado del cuarto trimestre de 2027
+    prediction: El ROE recurrente consolidado anualizado del cuarto trimestre de 2027
+      será igual o superior al 20%.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La expansión de ingresos reportada entre FY2022 y FY2025 podría sostener
+    una rentabilidad atractiva si se traduce en márgenes y eficiencia, pero la información
+    disponible no permite confirmar ese mecanismo. La predicción pone a prueba si
+    el negocio convierte sus ingresos en retornos sobre el capital.
+  review_trigger: Dejar de creerla si los resultados oficiales del cuarto trimestre
+    de 2027 muestran un ROE recurrente anualizado inferior al 20%; si la métrica deja
+    de ser verificable, suspender la hipótesis hasta disponer de una conciliación
+    comparable.
+  secondary_hypotheses:
+  - H1-OPP-MB-ITUB
+  statement: Itaú mantendrá una rentabilidad sobre el patrimonio elevada durante el
+    último trimestre de 2027.
+  status: ACTIVE
+  ticker: ITUB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El índice publicado de préstamos vencidos por más de 90 días supera
+      el 2,8% al 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Un cambio metodológico impide reconstruir una serie comparable y la
+      entidad no proporciona una conciliación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El índice publicado de préstamos vencidos por más de 90 días supera el 2,8% al
+    2027-12-31.
+  - Un cambio metodológico impide reconstruir una serie comparable y la entidad no
+    proporciona una conciliación.
+  horizon: medio
+  id: H3-OPP-MB-ITUB
+  opportunity_id: OPP-MB-ITUB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 2.8
+    met: null
+    metric: Índice de préstamos vencidos por más de 90 días al 2027-12-31
+    prediction: El índice de préstamos vencidos por más de 90 días al 2027-12-31 será
+      igual o inferior al 2,8%.
+    unit: porcentaje máximo
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de ingresos por sí solo no permite establecer la resiliencia
+    crediticia. Si los procesos de originación, seguimiento y cobranza limitan las
+    pérdidas, la expansión de la cartera no debería traducirse en un deterioro material
+    de los préstamos vencidos.
+  review_trigger: Dejar de creerla si el informe de resultados de FY2027 informa un
+    índice superior al 2,8%; si cambia la metodología sin conciliación, considerar
+    la hipótesis no verificada.
+  secondary_hypotheses:
+  - H1-OPP-MB-ITUB
+  statement: La calidad de activos se mantendrá contenida durante 2027, incluso si
+    continúa la expansión del crédito.
+  status: ACTIVE
+  ticker: ITUB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ITUB ADR en dólares menos la de EWZ en dólares
+      es inferior a 5 puntos porcentuales en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No pueden reconstruirse de forma consistente los precios ajustados
+      y las distribuciones de ambos instrumentos para el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ITUB ADR en dólares menos la de EWZ en dólares es inferior
+    a 5 puntos porcentuales en el periodo definido.
+  - No pueden reconstruirse de forma consistente los precios ajustados y las distribuciones
+    de ambos instrumentos para el periodo.
+  horizon: medio
+  id: H4-OPP-MB-ITUB
+  opportunity_id: OPP-MB-ITUB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total en dólares de ITUB ADR menos rentabilidad total en
+      dólares de EWZ
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total en dólares
+      de ITUB ADR, con dividendos reinvertidos, superará en al menos 5 puntos porcentuales
+      la rentabilidad total en dólares del ETF EWZ, con distribuciones reinvertidas.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Una mejora demostrable en crecimiento, retorno sobre capital y calidad
+    crediticia podría reducir la incertidumbre sobre la sostenibilidad del desempeño
+    y favorecer una revaloración relativa. La información disponible no demuestra
+    que el mercado esté subestimando esos factores; por ello, esta es una hipótesis
+    de mercado sujeta a las pruebas de H1, H2 y H3.
+  review_trigger: Dejar de creerla el 2027-11-20 si la rentabilidad relativa acumulada
+    es inferior a 5 puntos porcentuales; si la cotización o las distribuciones necesarias
+    no son verificables, considerar la hipótesis no evaluable.
+  secondary_hypotheses:
+  - H1-OPP-MB-ITUB
+  - H2-OPP-MB-ITUB
+  - H3-OPP-MB-ITUB
+  statement: Si Itaú confirma crecimiento y rentabilidad sin deterioro material del
+    crédito, sus acciones obtendrán una rentabilidad total superior a la del mercado
+    brasileño durante los 12 meses siguientes al corte.
+  status: ACTIVE
+  ticker: ITUB
+  version: 1

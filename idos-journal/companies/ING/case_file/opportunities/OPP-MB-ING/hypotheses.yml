@@ -1,0 +1,182 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los ingresos netos por intereses de 2027
+      es inferior al 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos netos por intereses de 2027 son iguales o inferiores a
+      los de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los ingresos netos por intereses de 2027 es inferior
+    al 3%.
+  - Los ingresos netos por intereses de 2027 son iguales o inferiores a los de 2026.
+  horizon: medio
+  id: H1-OPP-MB-ING
+  opportunity_id: OPP-MB-ING
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de ingresos netos por intereses en 2027
+    prediction: Los ingresos netos por intereses del ejercicio 2027 serán al menos
+      un 3% superiores a los del ejercicio 2026, según los resultados anuales publicados
+      por ING.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea que una recuperación de márgenes podría respaldar los
+    ingresos, pero también advierte que el mercado quizá presupone una recuperación
+    demasiado rápida. La hipótesis se comprobará frente al resultado publicado de
+    2026, sin dar por confirmada ninguna de esas tendencias.
+  review_trigger: Abandonar la hipótesis si los resultados anuales de 2027 publicados
+    hasta 2028-02-15 muestran un crecimiento interanual inferior al 3%.
+  secondary_hypotheses: []
+  statement: La recuperación de márgenes permitirá que los ingresos netos por intereses
+    de ING aumenten en el ejercicio 2027, en vez de prolongar una contracción.
+  status: ACTIVE
+  ticker: ING
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La ratio CET1 de cierre de 2027 es inferior al 13,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ING comunica antes de la fecha objetivo una caída de CET1 por debajo
+      del 13,0% que no se revierte al cierre de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La ratio CET1 de cierre de 2027 es inferior al 13,0%.
+  - ING comunica antes de la fecha objetivo una caída de CET1 por debajo del 13,0%
+    que no se revierte al cierre de 2027.
+  horizon: medio
+  id: H2-OPP-MB-ING
+  opportunity_id: OPP-MB-ING
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 13.0
+    met: null
+    metric: Ratio CET1 al cierre de 2027
+    prediction: La ratio CET1 publicada para el cierre del ejercicio 2027 será igual
+      o superior al 13,0%.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica indicadores de solvencia débiles. Un nivel de CET1
+    igual o superior al umbral propuesto refutaría, para esta métrica y horizonte,
+    la hipótesis de deterioro material de solvencia; no presupone que el nivel actual
+    sea conocido.
+  review_trigger: Dejar de creerla si una publicación oficial de ING informa una ratio
+    CET1 inferior al 13,0% al cierre de 2027 o confirma que no se recupera ese nivel
+    antes del 2028-02-15.
+  secondary_hypotheses: []
+  statement: ING conservará un colchón de capital CET1 de al menos el 13% al cierre
+    de 2027, pese a la presión de ingresos señalada en la tesis.
+  status: ACTIVE
+  ticker: ING
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Una LCR trimestral inferior al 130% en cualquiera de los cierres comprendidos
+      entre el 2026-12-31 y el 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ING informa de restricciones de liquidez que impidan mantener una LCR
+      de al menos el 130% durante ese periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Una LCR trimestral inferior al 130% en cualquiera de los cierres comprendidos
+    entre el 2026-12-31 y el 2027-12-31.
+  - ING informa de restricciones de liquidez que impidan mantener una LCR de al menos
+    el 130% durante ese periodo.
+  horizon: medio
+  id: H3-OPP-MB-ING
+  opportunity_id: OPP-MB-ING
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 130.0
+    met: null
+    metric: LCR mínima en los cierres trimestrales del periodo
+    prediction: La LCR de ING será igual o superior al 130% en cada cierre trimestral
+      entre el 2026-12-31 y el 2027-12-31.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La tesis menciona presión de liquidez, pero no aporta una ratio ni un
+    dato de partida. La ratio de cobertura de liquidez (LCR) permite comprobar de
+    forma directa si el colchón de activos líquidos de alta calidad cubre suficientemente
+    las salidas netas de efectivo previstas a 30 días.
+  review_trigger: Dejar de creerla ante la primera divulgación oficial de una LCR
+    inferior al 130% durante el periodo, o, como máximo, al revisar los resultados
+    anuales publicados antes del 2028-02-15.
+  secondary_hypotheses: []
+  statement: La liquidez de ING se mantendrá por encima de un umbral prudencial observable,
+    incluso si persiste la presión sobre los ingresos.
+  status: ACTIVE
+  ticker: ING
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de cierre del 2027-11-20 es menos de un 15% superior al cierre
+      del 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de cierre del 2027-11-20 es igual o inferior al cierre del
+      2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de cierre del 2027-11-20 es menos de un 15% superior al cierre del 2026-11-20.
+  - El precio de cierre del 2027-11-20 es igual o inferior al cierre del 2026-11-20.
+  horizon: medio
+  id: H4-OPP-MB-ING
+  opportunity_id: OPP-MB-ING
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 15.0
+    met: null
+    metric: Rentabilidad de precio a doce meses, excluidos dividendos
+    prediction: El precio de cierre de la acción ordinaria de ING en su cotización
+      principal será al menos un 15% superior al cierre del 2026-11-20, sin incluir
+      dividendos, para el 2027-11-20.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La tesis indica que el precio está por debajo del límite inferior de
+    valoración de analistas, lo que podría ofrecer potencial de revalorización. Como
+    no se proporciona una cotización ni el rango de consenso verificable, la hipótesis
+    se formula contra el precio de cierre observable en la fecha de corte y no depende
+    de un precio objetivo no especificado.
+  review_trigger: Abandonar la hipótesis si, al cierre del 2027-11-20, la rentabilidad
+    de precio frente al cierre del 2026-11-20 es inferior al 15%; reevaluar antes
+    si ING publica una caída de CET1 por debajo del 13,0% o los ingresos netos por
+    intereses de 2027 apuntan a una contracción.
+  secondary_hypotheses:
+  - H1-OPP-MB-ING
+  - H2-OPP-MB-ING
+  statement: La acción de ING obtendrá una rentabilidad de precio positiva y material
+    a doce meses, si el mercado reconoce una mejora de ingresos y no se deteriora
+    la solvencia.
+  status: ACTIVE
+  ticker: ING
+  version: 1

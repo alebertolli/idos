@@ -1774,3 +1774,105 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T15:47:28.944650'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-ING
+    ticker: ING
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:54:31.223137'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ING
+    ticker: ING
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:54:31.313451'
+- data:
+    classification: Neutral
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: c626527c407a3030aa1ae0124b8392040882f94e34bc18dae81cd3874cab5a85
+    opp_id: OPP-MB-ING
+    score: 73
+    strategy_version: '1.5'
+    ticker: ING
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:56:00.571941'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-ITUB
+    ticker: ITUB
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:56:28.708832'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ITUB
+    ticker: ITUB
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:56:28.801315'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: f88a32000a1427fd4b974d2c7aaf0318bc1360d5c7f0955c4c14b290a6910b2a
+    opp_id: OPP-MB-ITUB
+    score: 43
+    strategy_version: '1.5'
+    ticker: ITUB
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:57:52.849986'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-JCI
+    ticker: JCI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:58:29.854890'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-JCI
+    ticker: JCI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:58:29.945313'
+- data:
+    classification: Investigación requerida; oportunidad de crecimiento industrial
+      de calidad aún no validada
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 325f48c0c6b05f9ddd7181eb0aa9e5f7f6828d920628fd2a02517be89e0452d7
+    opp_id: OPP-MB-JCI
+    score: 63
+    strategy_version: '1.5'
+    ticker: JCI
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:59:59.725607'

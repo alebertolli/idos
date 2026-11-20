@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 87 companies tracked
+Total: 90 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -67,6 +67,8 @@ Total: 87 companies tracked
 - 📄 [[C|Citigroup Inc.]]
 - 📄 [[HSBC|HSBC Holdings plc]]
 - 📄 [[IBN|ICICI Bank Limited]]
+- 📄 [[ING|ING Groep N.V.]]
+- 📄 [[ITUB|Itaú Unibanco Holding S.A.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -90,6 +92,7 @@ Total: 87 companies tracked
 - 📄 [[DE|Deere & Company]]
 - 📄 [[EFX|Equifax Inc.]]
 - 📄 [[FDX|FedEx Corporation]]
+- 📄 [[JCI|Johnson Controls International plc]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]
