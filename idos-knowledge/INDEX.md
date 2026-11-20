@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 57 companies tracked
+Total: 59 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -15,6 +15,7 @@ Total: 57 companies tracked
 - 📄 [[BHP|BHP Group Limited]]
 - 📄 [[CDE|Coeur Mining, Inc.]]
 - 📄 [[CX|CEMEX, S.A.B. de C.V.]]
+- 📄 [[DD|DuPont de Nemours, Inc.]]
 - 📄 [[DOW|Dow Inc.]]
 
 ## Communication Services
@@ -63,6 +64,7 @@ Total: 57 companies tracked
 - 📄 [[CAAP|Corporación América Airports S.A.]]
 - 📄 [[CAR|Avis Budget Group, Inc.]]
 - 📄 [[CAT|Caterpillar Inc.]]
+- 📄 [[DAL|Delta Air Lines, Inc.]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]

@@ -1,0 +1,175 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El gasto de combustible supera el 13% de los ingresos en el trimestre
+      Q3 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Delta anuncia la cancelación o reducción significativa del programa
+      de cobertura antes del Q3 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El gasto de combustible supera el 13% de los ingresos en el trimestre Q3 2027.
+  - Delta anuncia la cancelación o reducción significativa del programa de cobertura
+    antes del Q3 2027.
+  horizon: corto
+  id: H1-OPP-COMPOUNDER-DAL-0001
+  opportunity_id: OPP-COMPOUNDER-DAL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-10-31'
+    expected: 12.0
+    met: null
+    metric: gasto_combustible_percent_ingresos
+    prediction: El gasto de combustible representará ≤12% de los ingresos totales
+      reportados en el trimestre Q3 de 2027.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: El aumento de precios del combustible ha sido volátil, pero la compañía
+    ha anunciado un programa de cobertura de 1.5 mil millones de dólares y mejoras
+    en la planificación de vuelos que históricamente reducen el consumo por asiento.
+    Evidencia de reducciones de consumo en aerolíneas que implementan hedging similar
+    respalda la hipótesis.
+  review_trigger: Si el precio promedio del combustible Jet A supera los 1.20 USD
+    por galón durante tres meses consecutivos antes del 2027-10-31, indicando que
+    la cobertura no protege adecuadamente.
+  secondary_hypotheses: []
+  statement: Delta Air Lines estabilizará su gasto de combustible como porcentaje
+    de ingresos totales bajo el 12% mediante una estrategia de cobertura (hedging)
+    y optimización de rutas.
+  status: ACTIVE
+  ticker: DAL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF reportado inferior a 2.0 mil millones de USD en el trimestre Q3
+      2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Delta anuncia una revisión a la baja de sus proyecciones de ingresos
+      mayores al 5% antes del 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF reportado inferior a 2.0 mil millones de USD en el trimestre Q3 2027.
+  - Delta anuncia una revisión a la baja de sus proyecciones de ingresos mayores al
+    5% antes del 2027-09-30.
+  horizon: corto
+  id: H2-OPP-COMPOUNDER-DAL-0001
+  opportunity_id: OPP-COMPOUNDER-DAL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 2500000000.0
+    met: null
+    metric: flujo_caja_libre
+    prediction: FCF ≥ 2.5 mil millones de USD en el trimestre que finaliza el 30 de
+      septiembre de 2027.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: La compañía ha reportado un crecimiento de ingresos del 8% YoY en los
+    últimos dos trimestres y ha reducido gastos operativos en 300 millones de USD
+    mediante iniciativas de eficiencia. El FCF positivo reciente y la mejora en la
+    gestión de capital de trabajo sugieren que el nivel de 2.5B es alcanzable.
+  review_trigger: Si la ocupación promedio de los vuelos cae por debajo del 75% en
+    dos trimestres consecutivos antes del 2027-09-30.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DAL-0001
+  statement: Delta generará flujo de caja libre (FCF) de al menos 2.5 mil millones
+    de USD en el trimestre Q3 de 2027, impulsado por ingresos crecientes y control
+    de costos.
+  status: ACTIVE
+  ticker: DAL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio de cierre < 100 USD el 31 de marzo de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Revisión a la baja del consenso de EPS para 2028 en al menos 10% antes
+      del 2028-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio de cierre < 100 USD el 31 de marzo de 2028.
+  - Revisión a la baja del consenso de EPS para 2028 en al menos 10% antes del 2028-03-31.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-DAL-0001
+  opportunity_id: OPP-COMPOUNDER-DAL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 110.0
+    met: null
+    metric: precio_accion
+    prediction: Precio de cierre ≥ 110 USD el 31 de marzo de 2028.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: Si Delta logra los objetivos de costos operativos (H1) y genera FCF sólido
+    (H2), los analistas revisarán al alza sus estimaciones de EPS, reduciendo el descuento
+    implícito. Además, la estabilización del combustible y la presión salarial limitarán
+    la volatilidad de márgenes, favoreciendo una revaloración del múltiplo P/E.
+  review_trigger: Si el índice de precios al consumidor (CPI) de EE.UU. muestra una
+    inflación subyacente superior al 5% durante los últimos seis meses antes del 2028-03-31,
+    lo que podría elevar los costos laborales y de combustible.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DAL-0001
+  - H2-OPP-COMPOUNDER-DAL-0001
+  statement: El precio de la acción de Delta alcanzará al menos 110 USD, situándose
+    en el rango medio‑alto del consenso, antes del 31 de marzo de 2028.
+  status: ACTIVE
+  ticker: DAL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: P/E > 9.5 al 31 de diciembre de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Delta reporta una pérdida neta en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - P/E > 9.5 al 31 de diciembre de 2027.
+  - Delta reporta una pérdida neta en 2027.
+  horizon: medio
+  id: H4-OPP-COMPOUNDER-DAL-0001
+  opportunity_id: OPP-COMPOUNDER-DAL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 8.0
+    met: null
+    metric: PE_ratio
+    prediction: P/E ≤ 8.0 al 31 de diciembre de 2027.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: Con un EPS proyectado de 12.5 USD para 2027 y un precio de acción alrededor
+    de 100 USD (según H3), el P/E resultante sería 8.0. La mejora en márgenes operativos
+    y la generación de FCF robusto respaldan la expectativa de EPS sostenido.
+  review_trigger: Si la tasa de ocupación promedio anual de 2027 es inferior al 70%,
+    indicando una demanda débil que erosionaría ganancias.
+  secondary_hypotheses:
+  - H2-OPP-COMPOUNDER-DAL-0001
+  statement: El múltiplo precio‑utilidad (P/E) de Delta caerá por debajo de 8x al
+    cierre del año fiscal 2027, reflejando una valoración más atractiva frente a sus
+    pares.
+  status: ACTIVE
+  ticker: DAL
+  version: 1
