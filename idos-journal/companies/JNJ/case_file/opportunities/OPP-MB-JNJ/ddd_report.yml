@@ -1,0 +1,562 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La relación entre deuda neta y EBITDA calculada a partir de los datos reportados
+    es aproximadamente 0.795x.
+  - La evidencia financiera disponible permite describir escala y generación de caja,
+    pero no demostrar por sí sola calidad de reinversión o ventaja competitiva.
+  - 'La cotización reportada fue USD 273.20 al 2026-10-30, según yfinance: https://finance.yahoo.com/quote/JNJ/.'
+  - 'Al 2026-09-27, StockAnalysis reportó ingresos TTM de USD 99.335 mil millones,
+    FCF de USD 20.590 mil millones y margen bruto de 67.77%: https://stockanalysis.com/stocks/jnj/financials/.'
+  - El rango de objetivos de analistas reportado el 2026-11-20 fue USD 190–320, con
+    media y mediana de USD 279.51; las fuentes son stockanalysis y yfinance.
+  preguntas_abiertas:
+  - ¿Qué crecimiento, márgenes y retornos sobre capital esperan las estimaciones de
+    consenso y qué supuestos sostienen sus objetivos?
+  - ¿Cuáles son el mercado direccionable, la penetración y la dinámica competitiva
+    por producto y segmento?
+  - ¿Cómo se explican el ingreso neto TTM y la variación reciente del margen bruto;
+    qué calendario y condiciones tiene la deuda?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; perfil multibaggers
+  justificacion: El paquete asigna discovery_score 86.8 y market_confirmation 86.8,
+    pero no aporta evidencia suficiente para validar crecimiento multibagger, penetración
+    de mercado ni retornos incrementales sobre capital.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La empresa opera en Innovative Medicine y MedTech; los datos reportados
+    muestran escala, FCF positivo y margen bruto TTM de 67.77% al 2026-09-27. No se
+    aportan datos de cuota de mercado, patentes, éxito de I+D, retornos sobre capital,
+    asignación de capital ni métricas de gestión; por ello no puede afirmarse una
+    ventaja competitiva durable ni evaluar su erosión.
+  rating: Calidad operativa observable, calidad de crecimiento no validada
+dominio_catalizadores:
+- catalizador: El crecimiento de ingresos reportado entre FY 2022 y FY 2025 permite
+    seguir evaluando la expansión del negocio.
+  hito_observable: Verificar crecimiento comparable por segmento en períodos futuros;
+    el paquete no proporciona desglose segmentario.
+- catalizador: El FCF TTM reportado de USD 20.590 mil millones ofrece una base observable
+    para monitorear conversión de caja.
+  hito_observable: Comprobar persistencia del FCF y reconciliarlo con ingresos netos
+    y partidas no recurrentes.
+- catalizador: El paquete contiene un rango de objetivos de analistas de USD 190–320.
+  hito_observable: Contrastar revisiones posteriores del rango con resultados y evidencia
+    de negocio; las fuentes no explican sus supuestos.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- implicacion: No es posible comprobar si el crecimiento financiero se apoya en expansión
+    de mercado, innovación rentable o factores transitorios.
+  riesgo: La cobertura de mercado, penetración, cartera de productos y retornos incrementales
+    sobre capital no está documentada en la evidencia entregada.
+- implicacion: La dirección es desfavorable, aunque la evidencia no identifica sus
+    causas ni permite atribuirla a erosión competitiva.
+  riesgo: El margen bruto reportado descendió de 69.56% en FY 2024 a 67.77% TTM al
+    2026-09-27.
+- implicacion: Los períodos no son directamente comparables; se necesita conciliación
+    temporal y de partidas para evaluar la tendencia.
+  riesgo: El ingreso neto TTM de USD 16.095 mil millones es inferior al reportado
+    para FY 2025, USD 26.804 mil millones.
+- implicacion: El apalancamiento calculado es aproximadamente 0.795x; faltan calendario
+    de vencimientos y condiciones de deuda.
+  riesgo: La deuda neta reportada fue USD 27.423 mil millones al 2026-09-27, frente
+    a EBITDA TTM de USD 34.500 mil millones.
+error_mercado:
+  catalizador_cambio: La evidencia del paquete no identifica catalizadores clínicos,
+    regulatorios o de producto fechados; la evolución de ingresos y FCF es observable,
+    pero no demuestra por sí sola un cambio de expectativas.
+  conclusion_error_valoracion: 'No puede establecerse un error de valoración con estos
+    datos: el consenso está cerca de la cotización, pero faltan una valoración intrínseca
+    defendible y expectativas de negocio verificables.'
+  consenso_actual: La cotización observada fue USD 273.20 al 2026-10-30; el consenso
+    de precio objetivo reportado el 2026-11-20 fue USD 279.51, con rango USD 190–320.
+  hipotesis_contraria: El avance del precio de 44.6498% en los 12 meses terminados
+    el 2026-10-30 podría exceder lo que justifica la evidencia financiera disponible;
+    esta no documenta crecimiento de beneficios sostenible ni retornos sobre capital.
+  razonamiento: El precio subió 44.6498% interanual según yfinance; el consenso medio
+    observado es USD 279.51 frente a USD 273.20 de cotización. Las métricas disponibles
+    muestran ingresos TTM de USD 99.335 mil millones y FCF TTM de USD 20.590 mil millones
+    al 2026-09-27, pero no aportan estimaciones futuras ni desglose que explique la
+    valoración.
+generated_at: '2026-11-20T16:07:33.956456-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-JNJ
+prompt_inputs:
+  business_model: Johnson & Johnson, together with its subsidiaries, engages in the
+    research and development, manufacture, and sale of a range of products in the
+    healthcare field worldwide. It operates in two segments, Innovative Medicine and
+    MedTech. The Innovative Medicine segment offers products for various therapeutic
+    areas, such as oncology, immunology, neuroscience, pulmonary hypertension, infectious
+    diseases, and cardiovascular and metabolism distributed through retailers, wholesalers,
+    distributors, hospitals, and healthcare professionals for prescription use. The
+    MedTech segment provides a portfolio of products used in the surgery, orthopedic,
+    cardiovascular, and vision fields distributed through wholesalers, hospitals and
+    retailers, and used in the professional fields by physicians, nurses, hospitals,
+    eye care professionals and clinics. This segment also offers products and enabling
+    technologies that support joint reconstruction, trauma, spine, sports related
+    injuries, and others, as well as open, laparoscopic, and robotic surgical procedures;
+    instrumentation, energy devices, stapling systems, wound closure, biosurgery products,
+    and digital and robotic technologies; breast aesthetics and reconstruction; contact
+    lenses under the ACUVUE brand; intraocular lenses for cataract surgery, and other
+    products used in cataract and refractive procedures under the TECNIS brand. The
+    company was founded in 1886 and is based in New Brunswick, New Jersey.
+  ceo_tenure: 0
+  debt_to_equity: 0.55
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Johnson & Johnson
+  operating_margin: 26.59
+  pe_ratio: 41.17
+  products: ''
+  revenue: 99340000000.0
+  revenue_growth: 7.8
+  roic: 21.57
+  sector: Healthcare
+  ticker: JNJ
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-28'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/jnj/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2025-12-28'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/jnj/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/JNJ/statistics/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/jnj/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/jnj/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/JNJ/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: Falta una serie de acciones diluidas de dos períodos comparables; solo
+    se proporciona shares_outstanding actual, que no permite calcular dilución interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/JNJ/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Johnson & Johnson, together with its subsidiaries, engages in the
+    research and development, manufacture, and sale of a range of products in the
+    healthcare field worldwide. It operates in two segments, Innovative Medicine and
+    MedTech. The Innovative Medicine segment offers products for various therapeutic
+    areas, such as oncology, immunology, neuroscience, pulmonary hypertension, infectious
+    diseases, and cardiovascular and metabolism distributed through retailers, wholesalers,
+    distributors, hospitals, and healthcare professionals for prescription use. The
+    MedTech segment provides a portfolio of products used in the surgery, orthopedic,
+    cardiovascular, and vision fields distributed through wholesalers, hospitals and
+    retailers, and used in the professional fields by physicians, nurses, hospitals,
+    eye care professionals and clinics. This segment also offers products and enabling
+    technologies that support joint reconstruction, trauma, spine, sports related
+    injuries, and others, as well as open, laparoscopic, and robotic surgical procedures;
+    instrumentation, energy devices, stapling systems, wound closure, biosurgery products,
+    and digital and robotic technologies; breast aesthetics and reconstruction; contact
+    lenses under the ACUVUE brand; intraocular lenses for cataract surgery, and other
+    products used in cataract and refractive procedures under the TECNIS brand. The
+    company was founded in 1886 and is based in New Brunswick, New Jersey.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 273.20001220703125
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.55
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T19:06:58.409658+00:00", "period_end": "2026-09-27",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Johnson & Johnson
+  operating_margin: 26.59
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Johnson & Johnson, together with its subsidiaries, engages in the
+    research and development, manufacture, and sale of a range of products in the
+    healthcare field worldwide. It operates in two segments, Innovative Medicine and
+    MedTech. The Innovative Medicine segment offers products for various therapeutic
+    areas, such as oncology, immunology, neuroscience, pulmonary hypertension, infectious
+    diseases, and cardiovascular and metabolism distributed through retailers, wholesalers,
+    distributors, hospit
+  revenue: 99340000000.0
+  revenue_growth: 7.8
+  roic: 21.57
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/jnj/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JNJ/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JNJ/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JNJ/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JNJ/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/jnj/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/jnj/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/jnj/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JNJ/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/jnj/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JNJ/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/jnj/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/jnj/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/jnj/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JNJ/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JNJ/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/jnj/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    320.0, "low": 190.0, "mean": 279.51, "median": 279.51, "observed_at": "2026-11-20T16:07:02.147647-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T16:07:02.147647-03:00", "observed_date": "2026-11-20", "target_price":
+    279.85, "url": "https://stockanalysis.com/stocks/jnj/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:07:02.147647-03:00",
+    "observed_date": "2026-11-20", "target_price": 279.16544, "url": "https://finance.yahoo.com/quote/JNJ/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 273.20001220703125,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/JNJ/"}]}}'
+  sector: Healthcare
+  ticker: JNJ
+research_trigger:
+  discovery_snapshot_hash: a79bdd5ae75c05999a0dd28a1f30fbcce219e2dfe6efb9c5c116b91e3ca8ac83
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: ca2cfc318d671d6453a8a2c02dfdcdccdee89543aaa18bdd6a7ebdf9e4453fc5
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T16:07:33.956456-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.02x al 2026-09-27; por encima del umbral configurado.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/JNJ/statistics/
+  threshold: below 0.5
+- metric: net_debt_ebitda
+  observation: 0.795x calculado al 2026-09-27; por debajo del umbral configurado.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/JNJ/statistics/
+  threshold: above 4.0x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta historial comparable de acciones diluidas.'
+  threshold: above 10%
+- metric: interest_coverage
+  observation: 'No evaluable: el valor reportado es 0 y no se proporcionan EBIT y
+    gasto por intereses verificables para validar el cociente.'
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplicable a la evidencia disponible: FCF TTM reportado positivo
+    de USD 20.590 mil millones al 2026-09-27.'
+  threshold: below 12 months
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta historial de acciones de períodos comparables.'
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados futuros que documenten crecimiento rentable y mejora sostenida de
+      márgenes podrían refutar la lectura desfavorable.
+    id: BEAR
+    key_assumptions:
+    - El precio objetivo bajo de USD 190 del consenso observado sirve como ancla de
+      escenario.
+    - No se presupone deterioro adicional cuantificado; el paquete no ofrece datos
+      para estimarlo.
+    rationale: Ancla inferior observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Representa el extremo desfavorable plausible si la evidencia
+      financiera disponible no se traduce en crecimiento sostenible y persiste la
+      presión observada en margen bruto.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/jnj/forecast/
+    - as_of_date: '2026-09-27'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/jnj/financials/
+    target_price: 190
+  - falsifiers:
+    - Un deterioro persistente de ingresos, FCF o márgenes sería incompatible con
+      la premisa favorable.
+    id: BULL
+    key_assumptions:
+    - El precio objetivo alto de USD 320 del consenso observado sirve como ancla de
+      escenario.
+    - La continuidad del FCF TTM positivo es una condición de negocio, no una previsión
+      demostrada por el paquete.
+    rationale: Ancla superior observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Representa el extremo favorable plausible si la escala de
+      ingresos y el FCF reportados se sostienen y el mercado reconoce crecimiento
+      que el paquete actual no permite verificar.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/jnj/forecast/
+    - as_of_date: '2026-09-27'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/jnj/financials/
+    target_price: 320
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 62
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T16:07:02.147647-03:00'
+  fuentes:
+    stockanalysis: 279.85
+    yfinance: 279.16544
+  mediana: 279.51
+  n_fuentes: 2
+  promedio: 279.51
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T16:07:02.147647-03:00'
+    observed_date: '2026-11-20'
+    target_price: 279.85
+    url: https://stockanalysis.com/stocks/jnj/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T16:07:02.147647-03:00'
+    observed_date: '2026-11-20'
+    target_price: 279.16544
+    url: https://finance.yahoo.com/quote/JNJ/
+  target_high: 320.0
+  target_low: 190.0
+tesis_inversion: Johnson & Johnson combina los segmentos Innovative Medicine y MedTech
+  con ingresos TTM reportados de USD 99.335 mil millones y FCF TTM de USD 20.590 mil
+  millones al 2026-09-27. La tesis favorable requiere que esos negocios sostengan
+  crecimiento y generación de caja; el paquete no cuantifica mercado direccionable,
+  penetración, retornos sobre capital, cartera de productos ni erosión competitiva,
+  por lo que ese mecanismo aún no está validado.
+ticker: JNJ
+version: '3.0'

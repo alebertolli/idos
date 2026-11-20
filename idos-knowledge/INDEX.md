@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 90 companies tracked
+Total: 93 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -27,6 +27,7 @@ Total: 90 companies tracked
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
 - 📄 [[EA|Electronic Arts Inc]]
 - 📄 [[GOOGL|Alphabet Inc.]]
+- ⏳ [[JOYY|JOYY Inc.]]
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
@@ -69,6 +70,7 @@ Total: 90 companies tracked
 - 📄 [[IBN|ICICI Bank Limited]]
 - 📄 [[ING|ING Groep N.V.]]
 - 📄 [[ITUB|Itaú Unibanco Holding S.A.]]
+- 📄 [[JPM|JPMorgan Chase & Co.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -82,6 +84,7 @@ Total: 90 companies tracked
 - 📄 [[DHR|Danaher Corporation]]
 - 📄 [[GILD|Gilead Sciences, Inc.]]
 - 📄 [[GSK|GSK plc]]
+- 📄 [[JNJ|Johnson & Johnson]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]

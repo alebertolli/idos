@@ -1,0 +1,146 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los depósitos promedio en el trimestre
+      de 2027-12-31 es inferior al 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación publicada no permite establecer una base homogénea entre
+      ambos trimestres.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los depósitos promedio en el trimestre de 2027-12-31
+    es inferior al 3%.
+  - La comparación publicada no permite establecer una base homogénea entre ambos
+    trimestres.
+  horizon: medio
+  id: H1-OPP-MB-JPM
+  opportunity_id: OPP-MB-JPM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-01-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de depósitos promedio consolidados
+    prediction: En el trimestre finalizado el 2027-12-31, los depósitos promedio consolidados
+      serán al menos un 3% superiores a los del trimestre finalizado el 2026-12-31,
+      calculados con cifras comparables y publicadas por la compañía.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La presencia de JPMorgan en banca de consumo, comercial y de inversión
+    le permite captar depósitos desde varias relaciones de clientes. Sin datos recientes
+    de saldos, precios o mezcla de depósitos, esta hipótesis es provisional y no demuestra
+    una ventaja competitiva.
+  review_trigger: Dejar de creerla si el informe de resultados del cuarto trimestre
+    de 2027 muestra crecimiento interanual de depósitos promedio inferior al 3%, o
+    si antes de esa fecha la compañía informa una caída interanual en dos trimestres
+    consecutivos.
+  secondary_hypotheses: []
+  statement: La franquicia de banca de consumo y comercial de JPMorgan sostendrá un
+    crecimiento moderado de depósitos, señal de que conservará capacidad para atraer
+    y retener financiación de clientes.
+  status: ACTIVE
+  ticker: JPM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ROTCE del ejercicio fiscal 2027 es inferior al 17%, usando la definición
+      y los ajustes publicados por JPMorgan.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía deja de divulgar información suficiente para calcular el
+      ROTCE de forma comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ROTCE del ejercicio fiscal 2027 es inferior al 17%, usando la definición y
+    los ajustes publicados por JPMorgan.
+  - La compañía deja de divulgar información suficiente para calcular el ROTCE de
+    forma comparable.
+  horizon: medio
+  id: H2-OPP-MB-JPM
+  opportunity_id: OPP-MB-JPM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-01-31'
+    expected: 17.0
+    met: null
+    metric: ROTCE del ejercicio fiscal 2027
+    prediction: El retorno sobre el capital tangible (ROTCE) reportado para el ejercicio
+      fiscal terminado el 2027-12-31 será igual o superior al 17%.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La combinación de banca de consumo, banca comercial y de inversión, y
+    gestión de activos y patrimonio puede diversificar las fuentes de ingresos. Sin
+    estimaciones de beneficios, capital regulatorio o retornos sobre capital en el
+    paquete, no es posible validar el punto de partida; por ello, el umbral es una
+    hipótesis que debe contrastarse con resultados reportados.
+  review_trigger: Dejar de creerla cuando JPMorgan publique los resultados del ejercicio
+    2027 si el ROTCE reportado es inferior al 17%; también si, antes de esa publicación,
+    dos trimestres consecutivos muestran ROTCE inferior al 15%.
+  secondary_hypotheses:
+  - H1-OPP-MB-JPM
+  statement: JPMorgan mantendrá una rentabilidad sobre el capital tangible elevada
+    en el ejercicio 2027, pese a que la información disponible no permite confirmar
+    el nivel de beneficios, costes de crédito ni capital que la sustentaría.
+  status: ACTIVE
+  ticker: JPM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de JPM menos la del KBW Nasdaq Bank Index es
+      inferior a 5 puntos porcentuales en el período definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se dispone de precios y dividendos ajustados comparables para medir
+      la rentabilidad total de ambos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de JPM menos la del KBW Nasdaq Bank Index es inferior a
+    5 puntos porcentuales en el período definido.
+  - No se dispone de precios y dividendos ajustados comparables para medir la rentabilidad
+    total de ambos.
+  horizon: medio
+  id: H3-OPP-MB-JPM
+  opportunity_id: OPP-MB-JPM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Ventaja de rentabilidad total de JPM frente al KBW Nasdaq Bank Index
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de JPM, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      la rentabilidad total del KBW Nasdaq Bank Index.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Una franquicia diversificada y una rentabilidad sobre capital tangible
+    sostenida podrían respaldar la confianza de los inversores y el rendimiento relativo
+    de la acción. Sin valoración actual, expectativas de beneficios ni precio de mercado
+    proporcionados, no se puede afirmar que exista una brecha de valoración favorable;
+    esta hipótesis plantea únicamente un resultado relativo verificable.
+  review_trigger: Abandonar la hipótesis en la fecha objetivo si la ventaja relativa
+    es inferior a 5 puntos porcentuales; antes de esa fecha, reevaluarla si JPM queda
+    por detrás del índice en 10 puntos porcentuales o más durante cualquier período
+    móvil de seis meses.
+  secondary_hypotheses:
+  - H2-OPP-MB-JPM
+  statement: La rentabilidad total de JPMorgan superará la del índice bancario KBW
+    Nasdaq Bank Index durante los 12 meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: JPM
+  version: 1
