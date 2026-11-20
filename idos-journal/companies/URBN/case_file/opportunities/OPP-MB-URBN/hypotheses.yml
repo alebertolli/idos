@@ -1,0 +1,180 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento acumulado de ventas comparables en esos cuatro trimestres
+      es inferior a 2%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Las ventas comparables caen interanualmente en tres o más de esos cuatro
+      trimestres.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento acumulado de ventas comparables en esos cuatro trimestres es inferior
+    a 2%.
+  - Las ventas comparables caen interanualmente en tres o más de esos cuatro trimestres.
+  horizon: medio
+  id: H1-OPP-MB-URBN
+  opportunity_id: OPP-MB-URBN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 2.0
+    met: null
+    metric: Crecimiento acumulado de ventas comparables interanual
+    prediction: En los cuatro trimestres reportados hasta el 2027-11-20, el crecimiento
+      acumulado de ventas comparables será de al menos 2% interanual.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El contexto indica crecimiento reciente de ventas. Si la demanda de sus
+    marcas y canales se sostiene, las ventas comparables deberían seguir creciendo;
+    la ciclicidad del consumo y una menor disposición a gastar son los principales
+    riesgos.
+  review_trigger: Dejar de creerla si dos trimestres consecutivos reportan ventas
+    comparables negativas o si la cifra acumulada de los cuatro trimestres queda por
+    debajo de 2% al 2027-11-20.
+  secondary_hypotheses: []
+  statement: URBN mantendrá crecimiento de ventas comparables durante los próximos
+    cuatro trimestres reportados.
+  status: ACTIVE
+  ticker: URBN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La variación interanual del margen bruto acumulado es menor de 25 puntos
+      básicos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto cae interanualmente en dos trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La variación interanual del margen bruto acumulado es menor de 25 puntos básicos.
+  - El margen bruto cae interanualmente en dos trimestres consecutivos.
+  horizon: medio
+  id: H2-OPP-MB-URBN
+  opportunity_id: OPP-MB-URBN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 25.0
+    met: null
+    metric: Variación del margen bruto frente a los doce meses anteriores
+    prediction: El margen bruto acumulado de los cuatro trimestres reportados hasta
+      el 2027-11-20 superará en al menos 25 puntos básicos el margen bruto de los
+      cuatro trimestres inmediatamente anteriores.
+    unit: puntos básicos
+  priority: important
+  probability: 0.5
+  rationale: El contexto señala expansión reciente del margen bruto. Una mezcla de
+    ventas favorable y control de costos podría prolongarla; inflación de producto,
+    flete, promociones o debilitamiento de la demanda podrían impedirlo.
+  review_trigger: Dejar de creerla tras dos trimestres consecutivos de contracción
+    interanual del margen bruto o si la comparación de los períodos de doce meses
+    al 2027-11-20 muestra una mejora inferior a 25 puntos básicos.
+  secondary_hypotheses:
+  - H1-OPP-MB-URBN
+  statement: La mejora reciente del margen bruto continuará, aunque de forma moderada,
+    y no será revertida por costos o descuentos.
+  status: ACTIVE
+  ticker: URBN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF acumulado de los cuatro trimestres es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen FCF acumulado es inferior a 3% de las ventas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF acumulado de los cuatro trimestres es cero o negativo.
+  - El margen FCF acumulado es inferior a 3% de las ventas.
+  horizon: medio
+  id: H3-OPP-MB-URBN
+  opportunity_id: OPP-MB-URBN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Margen FCF acumulado de cuatro trimestres
+    prediction: El FCF acumulado de los cuatro trimestres reportados hasta el 2027-11-20
+      será positivo y su margen FCF será de al menos 3% de las ventas del mismo período.
+      FCF se define como flujo de caja operativo menos inversiones de capital.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El contexto informa FCF positivo, aunque el TTM retrocedió frente al
+    FY 2026. Si la generación operativa se mantiene y la inversión de capital no aumenta
+    desproporcionadamente, el flujo de caja debería seguir siendo positivo; una caída
+    de ventas, presión en márgenes o mayor capital de trabajo lo pondrían en riesgo.
+  review_trigger: Dejar de creerla si el FCF TTM pasa a ser negativo en dos publicaciones
+    consecutivas o si el margen FCF de los cuatro trimestres al 2027-11-20 es inferior
+    a 3%.
+  secondary_hypotheses:
+  - H1-OPP-MB-URBN
+  - H2-OPP-MB-URBN
+  statement: URBN conservará FCF positivo y recuperará parte de la debilidad del FCF
+    TTM respecto del FY 2026.
+  status: ACTIVE
+  ticker: URBN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de URBN menos el rendimiento total de XRT es inferior
+      a 5 puntos porcentuales en el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: URBN registra rendimiento total negativo durante el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de URBN menos el rendimiento total de XRT es inferior a 5
+    puntos porcentuales en el período.
+  - URBN registra rendimiento total negativo durante el período.
+  horizon: medio
+  id: H4-OPP-MB-URBN
+  opportunity_id: OPP-MB-URBN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de URBN frente a XRT
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de URBN, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      el rendimiento total del ETF SPDR S&P Retail (XRT).
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Si el mercado subestima la persistencia del crecimiento de ventas y de
+    la mejora del margen bruto, las revisiones de expectativas podrían favorecer la
+    acción. La hipótesis también reconoce el riesgo de que el precio ya incorpore
+    demasiado optimismo y de que la ciclicidad, los costos o el efectivo neto negativo
+    limiten la valoración.
+  review_trigger: Dejar de creerla si, al 2027-08-20, URBN acumula un rendimiento
+    total al menos 10 puntos porcentuales inferior a XRT y los resultados publicados
+    no muestran crecimiento de ventas comparables ni expansión del margen bruto.
+  secondary_hypotheses:
+  - H1-OPP-MB-URBN
+  - H2-OPP-MB-URBN
+  - H3-OPP-MB-URBN
+  statement: La acción de URBN superará al mercado minorista de consumo discrecional
+    durante los próximos doce meses, si la continuidad operativa se refleja en resultados.
+  status: ACTIVE
+  ticker: URBN
+  version: 1

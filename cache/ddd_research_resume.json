@@ -2,39 +2,6 @@
   "schema_version": 1,
   "pending": [
     {
-      "opp_id": "OPP-MB-UNH",
-      "ticker": "UNH",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-MB-UNP",
-      "ticker": "UNP",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-MB-URBN",
-      "ticker": "URBN",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
       "opp_id": "OPP-MB-USB",
       "ticker": "USB",
       "score": 0,
@@ -1075,6 +1042,19 @@
       "next_attempt_date": "2026-11-21",
       "attempt_count": 1,
       "last_error": "400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent"
+    },
+    {
+      "opp_id": "OPP-MB-UNP",
+      "ticker": "UNP",
+      "score": 0,
+      "current_status": "SCREENED",
+      "reason": "new entry: SCREENED (score=0)",
+      "force_reprocess": true,
+      "trigger_type": null,
+      "event_evidence": null,
+      "next_attempt_date": "2026-11-21",
+      "attempt_count": 1,
+      "last_error": "HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=60)"
     }
   ]
 }

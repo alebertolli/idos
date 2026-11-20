@@ -3859,3 +3859,81 @@ events:
   event_type: research:failed
   source: research_worker
   timestamp: '2026-11-20T20:15:27.256495'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-UNH
+    ticker: UNH
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T20:23:21.063865'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-UNH
+    ticker: UNH
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:23:21.407930'
+- data:
+    classification: Investigación requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 6fbbac5949182b93cdeefb13b466aa29a261d269148b067361b0df30e691a384
+    opp_id: OPP-MB-UNH
+    score: 58
+    strategy_version: '1.5'
+    ticker: UNH
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:24:53.492880'
+- data:
+    error: 'HTTPSConnectionPool(host=''api.openai.com'', port=443): Read timed out.
+      (read timeout=60)'
+    event_evidence: null
+    event_type: monthly
+    forced: false
+    opp_id: OPP-MB-UNP
+    ticker: UNP
+  event_type: research:failed
+  source: research_worker
+  timestamp: '2026-11-20T20:26:00.436173'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-URBN
+    ticker: URBN
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T20:26:33.186499'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-URBN
+    ticker: URBN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:26:33.540239'
+- data:
+    classification: Investigación requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 5b287246233a981a46a8a8c4c856e2b509d93fcfe2bff58ea43e659314e5ad6e
+    opp_id: OPP-MB-URBN
+    score: 78
+    strategy_version: '1.5'
+    ticker: URBN
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:28:06.746356'

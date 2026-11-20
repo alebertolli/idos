@@ -1,0 +1,198 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Crecimiento de ingresos consolidados del ejercicio fiscal 2027 inferior
+      al 5% frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La publicación de resultados atribuye la mayor parte del crecimiento
+      consolidado a un único segmento y muestra contracción en los demás segmentos
+      principales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Crecimiento de ingresos consolidados del ejercicio fiscal 2027 inferior al 5%
+    frente al ejercicio fiscal 2026.
+  - La publicación de resultados atribuye la mayor parte del crecimiento consolidado
+    a un único segmento y muestra contracción en los demás segmentos principales.
+  horizon: medio
+  id: H1-OPP-MB-UNH
+  opportunity_id: OPP-MB-UNH
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ingresos consolidados del ejercicio fiscal 2027
+    prediction: Los ingresos consolidados del ejercicio fiscal 2027 crecerán al menos
+      un 5% frente al ejercicio fiscal 2026, según cifras reportadas y sobre una base
+      comparable. La predicción se considerará fallida si el crecimiento queda por
+      debajo del 5%.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La combinación de seguros y servicios de salud puede amortiguar la debilidad
+    de un segmento con actividad en otro. Sin embargo, la información disponible no
+    permite comprobar las contribuciones por segmento ni la demanda subyacente; la
+    hipótesis debe verificarse con los resultados publicados.
+  review_trigger: Dejar de creerla si los resultados de 2027 muestran crecimiento
+    consolidado inferior al 5%, o si la compañía revisa a la baja su perspectiva anual
+    de ingresos por deterioro persistente de varios segmentos.
+  secondary_hypotheses: []
+  statement: La diversificación de UnitedHealth sostendrá el crecimiento de ingresos
+    durante el ejercicio fiscal 2027, sin depender de una aceleración excepcional
+    de un único segmento.
+  status: ACTIVE
+  ticker: UNH
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón entre flujo de caja libre y beneficio neto atribuible del
+      ejercicio fiscal 2027 es inferior al 90%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre del ejercicio fiscal 2027 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón entre flujo de caja libre y beneficio neto atribuible del ejercicio fiscal
+    2027 es inferior al 90%.
+  - El flujo de caja libre del ejercicio fiscal 2027 es negativo.
+  horizon: medio
+  id: H2-OPP-MB-UNH
+  opportunity_id: OPP-MB-UNH
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 90.0
+    met: null
+    metric: Flujo de caja libre dividido por beneficio neto atribuible
+    prediction: En el ejercicio fiscal 2027, el flujo de caja libre —flujo de efectivo
+      operativo menos compras de propiedades y equipo— será al menos el 90% del beneficio
+      neto atribuible a UnitedHealth Group.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Un modelo integrado de seguros y servicios puede generar efectivo recurrente
+    si cobra primas y servicios de manera oportuna y controla pagos, gastos e inversión.
+    El paquete disponible no aporta flujos de caja, inversión de capital ni una serie
+    de conversión; por ello, esta hipótesis requiere una prueba directa en los estados
+    financieros.
+  review_trigger: Dejar de creerla cuando la publicación de resultados del ejercicio
+    fiscal 2027 muestre una conversión inferior al 90%, o antes si una revisión de
+    perspectivas advierte de un deterioro sostenido de cobros, capital de trabajo
+    o necesidades de inversión.
+  secondary_hypotheses:
+  - H1-OPP-MB-UNH
+  statement: UnitedHealth conservará una conversión suficiente de beneficios en efectivo,
+    de modo que su generación de caja no dependa únicamente del crecimiento contable
+    de los ingresos.
+  status: ACTIVE
+  ticker: UNH
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de UNH menos la rentabilidad total de XLV durante
+      el periodo es inferior a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: UNH registra rentabilidad total negativa durante el periodo, aunque
+      XLV también caiga.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de UNH menos la rentabilidad total de XLV durante el periodo
+    es inferior a 5 puntos porcentuales.
+  - UNH registra rentabilidad total negativa durante el periodo, aunque XLV también
+    caiga.
+  horizon: medio
+  id: H3-OPP-MB-UNH
+  opportunity_id: OPP-MB-UNH
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de UNH frente a XLV
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de UNH, incluidos dividendos reinvertidos, superará en al menos 5 puntos
+      porcentuales la rentabilidad total del ETF XLV, usado como referencia del sector
+      sanitario.
+    unit: puntos porcentuales mínimos
+  priority: informational
+  probability: 0.5
+  rationale: La diversificación podría respaldar beneficios y caja a través de distintos
+    negocios, lo que sería favorable para la acción si el mercado reconoce esa resiliencia.
+    No obstante, los datos suministrados no permiten determinar expectativas incorporadas
+    en el precio ni una valoración razonable; por tanto, la predicción se formula
+    como comparación observable de rendimiento, no como afirmación de infravaloración.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la rentabilidad total
+    relativa de UNH es inferior a 5 puntos porcentuales; también revisar antes de
+    esa fecha si la compañía recorta materialmente sus perspectivas de beneficios
+    o caja.
+  secondary_hypotheses:
+  - H1-OPP-MB-UNH
+  - H2-OPP-MB-UNH
+  statement: Si el crecimiento operativo y la generación de caja se mantienen, la
+    rentabilidad total de la acción superará a la del sector sanitario en los siguientes
+    doce meses.
+  status: ACTIVE
+  ticker: UNH
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Las compras de propiedades y equipo superan el 25% del flujo de efectivo
+      operativo del ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de efectivo operativo del ejercicio fiscal 2027 es nulo o
+      negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las compras de propiedades y equipo superan el 25% del flujo de efectivo operativo
+    del ejercicio fiscal 2027.
+  - El flujo de efectivo operativo del ejercicio fiscal 2027 es nulo o negativo.
+  horizon: medio
+  id: H4-OPP-MB-UNH
+  opportunity_id: OPP-MB-UNH
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 25.0
+    met: null
+    metric: Compras de propiedades y equipo divididas por flujo de efectivo operativo
+    prediction: En el ejercicio fiscal 2027, las compras de propiedades y equipo representarán
+      como máximo el 25% del flujo de efectivo operativo.
+    unit: porcentaje máximo
+  priority: important
+  probability: 0.5
+  rationale: Si el modelo diversificado puede crecer rentablemente, debería poder
+    sostener inversiones operativas y tecnológicas sin deteriorar de forma marcada
+    la caja disponible. La información proporcionada no permite evaluar retornos sobre
+    capital ni necesidades de reinversión; esta hipótesis comprueba una condición
+    financiera necesaria, pero no demuestra por sí sola que la inversión cree valor.
+  review_trigger: Dejar de creerla cuando los estados financieros del ejercicio fiscal
+    2027 muestren una proporción superior al 25%, o antes si la dirección anuncia
+    un incremento estructural de inversión que no venga acompañado de objetivos verificables
+    de capacidad o eficiencia.
+  secondary_hypotheses:
+  - H2-OPP-MB-UNH
+  statement: La generación de caja de UnitedHealth financiará la inversión en el negocio
+    sin que la inversión de capital absorba una proporción creciente del flujo de
+    caja operativo.
+  status: ACTIVE
+  ticker: UNH
+  version: 1
