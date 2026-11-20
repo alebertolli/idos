@@ -1,0 +1,39 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida'
+- 'Market error: No se valida un error de valoración: el paquete ofrece cotización
+  y objetivos de analistas, pero no un método de valoración con inputs suficientes.'
+- 'Thesis: La tesis a investigar es si el crecimiento reciente de ingresos y flujo
+  de caja libre puede sostenerse en un negocio de servicios de telecomunicaciones
+  con operaciones en varios países, mientras gesti'
+generated_at: '2026-11-20T19:36:35.006983-03:00'
+id: ass-bacf4396
+recommendation: REVIEW
+risks:
+- detalle: La deuda total reportada fue 6.074.581 y el efectivo e inversiones 1.211.109
+    al 2026-09-30; el ratio corriente reportado fue 0,65 para el período indicado.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TEO/statistics/
+  riesgo: Apalancamiento y liquidez
+- detalle: Las cifras de FCF de la página financiera y de estadísticas difieren para
+    TTM; las unidades monetarias no están explicitadas de forma suficiente en todos
+    los campos.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TEO/statistics/
+  riesgo: Calidad y comparabilidad de métricas
+- detalle: El ingreso neto anual reportado alternó entre valores positivos y negativos
+    durante FY 2022–FY 2025.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  riesgo: Variabilidad de resultados
+score: 62
+status: COMPLETED
+version: '3.0'

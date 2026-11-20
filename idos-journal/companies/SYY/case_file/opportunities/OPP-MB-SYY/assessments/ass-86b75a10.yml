@@ -1,0 +1,35 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida; negocio de distribución de
+  alimentos de gran escala'
+- 'Market error: No se valida un error de valoración con la evidencia disponible.
+  El rango de analistas es una referencia observada, no una estimación de valor intrínseco.'
+- 'Thesis: Sysco distribuye alimentos y productos relacionados a clientes de foodservice
+  en varios segmentos operativos. La evidencia disponible respalda escala de ingresos,
+  FCF positivo y márgenes brutos histór'
+generated_at: '2026-11-20T19:34:32.078696-03:00'
+id: ass-86b75a10
+recommendation: REVIEW
+risks:
+- fuente: StockAnalysis, financials y statistics
+  implicacion: La deuda neta calculada frente a EBITDA queda por debajo del umbral
+    configurado de 4x, pero sigue siendo un factor que limita flexibilidad financiera.
+  riesgo: 'Apalancamiento: deuda total reportada de 15.464 millones y caja e inversiones
+    de 3.171 millones al 2026-09-26.'
+  url: https://stockanalysis.com/stocks/syy/financials/
+- fuente: StockAnalysis, financials
+  implicacion: La variabilidad observada hace importante comprobar la persistencia
+    de la conversión de beneficios en caja.
+  riesgo: El FCF anual reportado varió entre 1.604 millones en FY 2025 y 2.157 millones
+    en FY 2024.
+  url: https://stockanalysis.com/stocks/syy/financials/
+- fuente: Research Intake Package; campos disponibles de StockAnalysis
+  implicacion: No puede evaluarse el crecimiento del número de acciones ni validar
+    cobertura de intereses con EBIT e intereses.
+  riesgo: No se proporcionan historial de acciones diluidas ni gastos por intereses
+    verificables en las fuentes aceptadas.
+  url: https://stockanalysis.com/stocks/SYY/statistics/
+score: 58
+status: COMPLETED
+version: '3.0'

@@ -1,0 +1,155 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos por servicios comparables en moneda constante crecen al
+      menos 3% interanual en el período de doce meses terminado el 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía publica una conciliación verificable que muestra crecimiento
+      orgánico real igual o superior a 3% en ese período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos por servicios comparables en moneda constante crecen al menos 3%
+    interanual en el período de doce meses terminado el 2027-09-30.
+  - La compañía publica una conciliación verificable que muestra crecimiento orgánico
+    real igual o superior a 3% en ese período.
+  horizon: medio
+  id: H1-OPP-MB-TEO
+  opportunity_id: OPP-MB-TEO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de ingresos por servicios orgánicos en moneda constante
+      y ajustados por inflación, en los cuatro trimestres terminados el 2027-09-30
+    prediction: En los cuatro trimestres terminados el 2027-09-30, los ingresos por
+      servicios en moneda constante y ajustados por inflación aumentarán menos de
+      3% frente a los cuatro trimestres comparables anteriores, excluyendo adquisiciones
+      y cambios de perímetro cuando la información lo permita.
+    unit: porcentaje máximo
+  priority: critical
+  probability: 0.5
+  rationale: El contexto señala expansión reciente de ingresos, pero no aporta datos
+    para verificar penetración, retención, poder de precios o crecimiento orgánico
+    por país. En un negocio de telecomunicaciones, los aumentos nominales de tarifas
+    pueden no compensar inflación, competencia y pérdida de clientes; por ello, el
+    crecimiento nominal por sí solo no demuestra expansión del negocio.
+  review_trigger: Dejar de creer esta hipótesis si los resultados publicados para
+    los cuatro trimestres terminados el 2027-09-30 muestran crecimiento orgánico real
+    de ingresos por servicios igual o superior a 3%.
+  secondary_hypotheses: []
+  statement: El crecimiento reciente de los ingresos de Telecom Argentina no se traducirá
+    en crecimiento real sostenido durante los próximos doce meses.
+  status: ACTIVE
+  ticker: TEO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón deuda neta/EBITDA al 2027-09-30 es al menos 0,25 veces inferior
+      a la calculada con los datos disponibles al 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La reducción se mantiene al recalcular ambas razones con definiciones
+      contables consistentes y sin atribuirla principalmente a ventas de activos o
+      cambios de perímetro.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón deuda neta/EBITDA al 2027-09-30 es al menos 0,25 veces inferior a la
+    calculada con los datos disponibles al 2026-11-20.
+  - La reducción se mantiene al recalcular ambas razones con definiciones contables
+    consistentes y sin atribuirla principalmente a ventas de activos o cambios de
+    perímetro.
+  horizon: medio
+  id: H2-OPP-MB-TEO
+  opportunity_id: OPP-MB-TEO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: Cambio de deuda neta/EBITDA de los últimos doce meses frente a la base
+      calculada al 2026-11-20
+    prediction: La deuda neta dividida por EBITDA de los últimos doce meses al 2027-09-30
+      será igual o superior a la misma razón calculada con los datos publicados disponibles
+      al 2026-11-20; para hacer la comparación, se aplicará una definición consistente
+      de deuda neta y EBITDA y se excluirán efectos de cambios de perímetro si están
+      desglosados.
+    unit: veces o más
+  priority: critical
+  probability: 0.5
+  rationale: El contexto menciona flujo de caja libre reciente, pero también deuda
+    neta y volatilidad, y no aporta datos sobre inversión necesaria, vencimientos,
+    costo financiero o conversión de EBITDA en caja. Si el flujo de caja libre se
+    debilita o se destina principalmente a inversión y otros usos, la deuda neta puede
+    no disminuir frente a la capacidad operativa.
+  review_trigger: Dejar de creer esta hipótesis si los estados financieros publicados
+    para el trimestre terminado el 2027-09-30 muestran una reducción comparable de
+    deuda neta/EBITDA de al menos 0,25 veces respecto de la base al 2026-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-TEO
+  statement: La generación de flujo de caja libre no será suficiente para reducir
+    de forma significativa la presión relativa de la deuda durante los próximos doce
+    meses.
+  status: ACTIVE
+  ticker: TEO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de TEO supera al del MSCI Emerging Markets Index
+      en menos de 10 puntos porcentuales durante el período definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden verificar precios ajustados por distribuciones, tipos
+      de cambio y la serie del índice para comparar ambos rendimientos con la misma
+      fecha y moneda.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de TEO supera al del MSCI Emerging Markets Index en menos
+    de 10 puntos porcentuales durante el período definido.
+  - No se pueden verificar precios ajustados por distribuciones, tipos de cambio y
+    la serie del índice para comparar ambos rendimientos con la misma fecha y moneda.
+  horizon: medio
+  id: H3-OPP-MB-TEO
+  opportunity_id: OPP-MB-TEO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -10.0
+    met: null
+    metric: Rendimiento total relativo de TEO frente al MSCI Emerging Markets Index,
+      en dólares estadounidenses
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, el rendimiento
+      total de TEO, incluidos dividendos y expresado en dólares estadounidenses, será
+      al menos 10 puntos porcentuales inferior al rendimiento total del MSCI Emerging
+      Markets Index en dólares estadounidenses.
+    unit: puntos porcentuales o menos
+  priority: important
+  probability: 0.5
+  rationale: El contexto identifica volatilidad y no aporta evidencia suficiente de
+    ventajas competitivas, retornos sobre capital o asignación de capital que justifique
+    una revaloración sostenida. La incertidumbre sobre la continuidad del crecimiento
+    y la gestión de la deuda puede limitar la valoración relativa de la acción, aunque
+    la empresa reporte crecimiento nominal.
+  review_trigger: Dejar de creer esta hipótesis al cierre del 2027-11-19 si el rendimiento
+    total relativo de TEO no es inferior al índice en al menos 10 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-TEO
+  - H2-OPP-MB-TEO
+  statement: La acción TEO tendrá un rendimiento total inferior al de un índice amplio
+    de mercados emergentes durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: TEO
+  version: 1

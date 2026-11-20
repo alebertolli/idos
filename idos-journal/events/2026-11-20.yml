@@ -3491,3 +3491,108 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T19:23:34.903814'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MULTIBAGGERS-SPGI-0001
+    ticker: SPGI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:31:10.923592'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-SPGI-0001
+    ticker: SPGI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:31:11.107836'
+- data:
+    classification: Research required
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: bfbc8736ae15b12a6f617e4ceb4c836c01f4d9cde8957a277aa30443b12b85cf
+    opp_id: OPP-MULTIBAGGERS-SPGI-0001
+    score: 65.73
+    strategy_version: '1.5'
+    ticker: SPGI
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:32:33.396043'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-SYY
+    ticker: SYY
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:33:03.269334'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-SYY
+    ticker: SYY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:33:03.455489'
+- data:
+    classification: Investigación fundamental requerida; negocio de distribución de
+      alimentos de gran escala
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 2502d07eda7c81b05e98d18bb5afc9a6b40e6a977cce9f2dfafadde6a4d5df64
+    opp_id: OPP-MB-SYY
+    score: 58
+    strategy_version: '1.5'
+    ticker: SYY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:34:32.234635'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-TEO
+    ticker: TEO
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:35:04.424044'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TEO
+    ticker: TEO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:35:04.656890'
+- data:
+    classification: Investigación fundamental requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 3fdfab27e6f1309f26b5d7a26ee7d4e7f0630a75975181aa85e78fd777f28410
+    opp_id: OPP-MB-TEO
+    score: 62
+    strategy_version: '1.5'
+    ticker: TEO
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:36:35.162346'
