@@ -1,0 +1,573 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El crecimiento de ingresos y FCF, junto con margen bruto alto, es consistente
+    con escalabilidad, pero no demuestra por sí solo retornos atractivos sobre capital.
+  - La diferencia entre EBIT negativo y FCF positivo justifica investigar los componentes
+    de caja y la conversión a rentabilidad.
+  - Al 2026-07-31, StockAnalysis reportó ingresos TTM de USD 5,396 millones, margen
+    bruto de 75.19%, FCF de USD 1,610 millones y EBIT de -USD 133.18 millones.
+  - StockAnalysis reportó ingresos FY 2026 de USD 4,812 millones y FY 2023 de USD
+    2,241 millones; períodos terminados el 2026-01-31 y el 2023-01-31.
+  - Yfinance reportó momentum de precio a 12 meses de 84.48%, drawdown de 10.20% y
+    volatilidad de 90 días de 67.60%, períodos terminados el 2026-10-30.
+  - El resumen financiero reporta cotización de USD 250.43 al 2026-10-30 y rango de
+    objetivos de analistas USD 132–325 al 2026-11-20.
+  preguntas_abiertas:
+  - ¿Cómo evolucionan retención, expansión de clientes, ingresos recurrentes y adopción
+    por módulo?
+  - ¿Cuál es el capital empleado y qué retornos genera la reinversión?
+  - ¿Qué parte del FCF refleja partidas no recurrentes o diferencias de capital de
+    trabajo?
+  - ¿Cuál es la dilución interanual y la evolución de acciones diluidas en tres años?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: 'Investigación requerida: crecimiento de software de ciberseguridad con
+    evidencia financiera mixta'
+  justificacion: El paquete muestra crecimiento de ingresos y FCF y margen bruto elevado,
+    pero también EBIT TTM negativo, utilidad neta TTM reducida y ausencia de datos
+    verificables para varios ratios requeridos.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El margen bruto TTM de 75.19% y el crecimiento de ingresos respaldan una
+    economía de software escalable. No se puede concluir sobre retornos sobre capital
+    sin capital empleado y rentabilidad operativa positiva; la utilidad neta y EBIT
+    TTM reportados fueron USD 45 millones y -USD 133.18 millones, respectivamente.
+  rating: Mixta; evidencia de crecimiento y caja, retornos operativos aún no demostrados
+dominio_catalizadores:
+- catalizador: Crecimiento de ingresos
+  detalle: Ingresos FY 2026 de USD 4,812 millones frente a USD 2,241 millones en FY
+    2023, según la serie financiera de StockAnalysis.
+- catalizador: Generación de FCF
+  detalle: FCF TTM de USD 1,609 millones al 2026-07-31 y crecimiento interanual reportado
+    de 45.37% para ese período.
+- catalizador: Ampliación de la plataforma
+  detalle: La cobertura descrita incluye endpoints, cargas cloud, identidad y datos;
+    el paquete no cuantifica adopción o ingresos por producto.
+- catalizador: Próxima evidencia operativa
+  detalle: La evolución de EBIT y utilidad neta frente al FCF permitirá comprobar
+    si la generación de caja se acompaña de rentabilidad operativa.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- detalle: El EBIT TTM al 2026-07-31 fue -USD 133.18 millones pese a FCF TTM informado
+    de USD 1,610 millones.
+  fuente: StockAnalysis, estadísticas financieras y estados financieros al 2026-07-31.
+  riesgo: Rentabilidad operativa
+- detalle: La cotización tuvo momentum de 84.48% y volatilidad de 90 días de 67.60%
+    durante los períodos terminados el 2026-10-30; el paquete no aporta una valoración
+    fundamental.
+  riesgo: Concentración de expectativas en crecimiento futuro
+- detalle: No hay evidencia específica en el paquete sobre retención, competencia,
+    precios, incidentes de producto o evolución de cuota de mercado.
+  riesgo: Erosión competitiva y ejecución
+- detalle: La conversión FCF/utilidad neta calculada resulta excepcionalmente alta
+    porque la utilidad neta TTM reportada es pequeña; requiere evaluar componentes
+    y sostenibilidad.
+  riesgo: Calidad de métricas de caja
+error_mercado:
+  catalizador_cambio: La evidencia futura sobre crecimiento de ingresos, generación
+    de FCF y mejora del resultado operativo permitiría contrastar esas hipótesis.
+  conclusion_error_valoracion: 'No hay evidencia suficiente para afirmar que el mercado
+    esté equivocado: el consenso medio está próximo a la cotización y no se proporcionan
+    estimaciones de valoración fundamental.'
+  consenso_actual: La cotización observada fue USD 250.43 al 2026-10-30; el consenso
+    de precio objetivo informado al 2026-11-20 fue USD 251.28.
+  hipotesis_contraria: El precio podría no reflejar adecuadamente la capacidad de
+    sostener crecimiento y generación de FCF; también podría subestimar el riesgo
+    de ejecución y la valoración implícita.
+  razonamiento: El precio subió 84.48% en los 12 meses terminados el 2026-10-30, mientras
+    que el EBIT TTM al 2026-07-31 fue negativo. Son observaciones, no prueba de infravaloración
+    o sobrevaloración.
+generated_at: '2026-11-20T12:28:59.877174-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-CRWD
+prompt_inputs:
+  business_model: CrowdStrike Holdings, Inc. provides cybersecurity solutions in the
+    United States and internationally. Its unified platform provides cloud-delivered
+    protection of endpoints, cloud workloads, identity, and data through a software
+    as a service (SaaS) subscription-based model. The company offers corporate endpoint
+    and cloud workload security, managed security, security and vulnerability management,
+    IT operations management, identity protection, threat intelligence, data protection,
+    SaaS security posture management, and AI powered workflow automation, and securing
+    generative AI workload services, as well as security orchestration, automation,
+    and response; and security information and event management, and log management
+    services. It primarily sells subscriptions to its Falcon platform and cloud modules.
+    The company has a strategic alliance with Cognizant Technology Solutions Corporation
+    to help enterprises secure artificial intelligence across its lifecycle, from
+    the AI agents and models to the foundational infrastructure that supports the
+    entire AI ecosystem and with Snowflake to bring AI-native security and enterprise
+    data at scale. Additionally, it has a partnership with Fortanix Inc. to combine
+    its Falcon platform with Fortanix Confidential AI to provide an integrated solution
+    for end-to-end AI security. The company was incorporated in 2011 and is headquartered
+    in Austin, Texas.
+  ceo_tenure: 0
+  debt_to_equity: 0.16
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: CrowdStrike Holdings, Inc.
+  operating_margin: -2.47
+  pe_ratio: 6604.28
+  products: ''
+  revenue: 5400000000.0
+  revenue_growth: 24.3
+  roic: -14.1
+  sector: Technology
+  ticker: CRWD
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-01-31'
+  sources:
+  - name: StockAnalysis, estados financieros
+    url: https://stockanalysis.com/stocks/crwd/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2026-01-31'
+  sources:
+  - name: StockAnalysis, estados financieros
+    url: https://stockanalysis.com/stocks/crwd/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-07-31'
+  sources:
+  - name: StockAnalysis, estados financieros
+    url: https://stockanalysis.com/stocks/crwd/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    ebitda:
+      period: TTM
+      period_end: '2026-07-31'
+      value: 106860000.0
+    net_cash_history:
+      period: Current
+      period_end: '2026-07-31'
+      unit: source_reported_amount
+      value: 4194.0
+  limitations: La unidad y escala de net_cash_history no es comparable de forma verificable
+    con el EBITDA reportado; no se puede calcular un ratio fiable con esos inputs.
+  metric: net_debt_ebitda
+  period_end: '2026-07-31'
+  sources:
+  - name: StockAnalysis, estados financieros
+    url: https://stockanalysis.com/stocks/crwd/financials/
+  - name: StockAnalysis, estadísticas
+    url: https://stockanalysis.com/stocks/CRWD/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares_history: null
+    shares_outstanding:
+      period_end: '2026-07-31'
+      value: 1030000000.0
+  limitations: Sólo se proporciona un dato de acciones en circulación; falta una serie
+    comparable interanual de acciones diluidas o en circulación.
+  metric: dilution_yoy_pct
+  period_end: '2026-07-31'
+  sources:
+  - name: StockAnalysis, estadísticas
+    url: https://stockanalysis.com/stocks/CRWD/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: CrowdStrike Holdings, Inc. provides cybersecurity solutions in the
+    United States and internationally. Its unified platform provides cloud-delivered
+    protection of endpoints, cloud workloads, identity, and data through a software
+    as a service (SaaS) subscription-based model. The company offers corporate endpoint
+    and cloud workload security, managed security, security and vulnerability management,
+    IT operations management, identity protection, threat intelligence, data protection,
+    SaaS security posture management, and AI powered workflow automation, and securing
+    generative AI workload services, as well as security orchestration, automation,
+    and response; and security information and event management, and log management
+    services. It primarily sells subscriptions to its Falcon platform and cloud modules.
+    The company has a strategic alliance with Cognizant Technology Solutions Corporation
+    to help enterprises secure artificial intelligence across its lifecycle, from
+    the AI agents and models to the foundational infrastructure that supports the
+    entire AI ecosystem and with Snowflake to bring AI-native security and enterprise
+    data at scale. Additionally, it has a partnership with Fortanix Inc. to combine
+    its Falcon platform with Fortanix Confidential AI to provide an integrated solution
+    for end-to-end AI security. The company was incorporated in 2011 and is headquartered
+    in Austin, Texas.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 250.42999267578125
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.16
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T15:28:21.220559+00:00", "period_end": "2026-07-31",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: CrowdStrike Holdings, Inc.
+  operating_margin: -2.47
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: CrowdStrike Holdings, Inc. provides cybersecurity solutions in the
+    United States and internationally. Its unified platform provides cloud-delivered
+    protection of endpoints, cloud workloads, identity, and data through a software
+    as a service (SaaS) subscription-based model. The company offers corporate endpoint
+    and cloud workload security, managed security, security and vulnerability management,
+    IT operations management, identity protection, threat intelligence, data protection,
+    SaaS security pos
+  revenue: 5400000000.0
+  revenue_growth: 24.3
+  roic: -14.1
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/crwd/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CRWD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CRWD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CRWD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CRWD/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/crwd/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/crwd/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/crwd/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CRWD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/crwd/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CRWD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/crwd/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/crwd/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/crwd/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CRWD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CRWD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/crwd/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    325.0, "low": 132.0, "mean": 251.28, "median": 251.28, "observed_at": "2026-11-20T12:28:24.876265-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T12:28:24.876265-03:00", "observed_date": "2026-11-20", "target_price":
+    251.28, "url": "https://stockanalysis.com/stocks/crwd/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T12:28:24.876265-03:00",
+    "observed_date": "2026-11-20", "target_price": 251.2834, "url": "https://finance.yahoo.com/quote/CRWD/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 250.42999267578125,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CRWD/"}]}}'
+  sector: Technology
+  ticker: CRWD
+research_trigger:
+  discovery_snapshot_hash: 90a7dddc003052abd6f9f3deb1c7e959680a3f009f94480225807e3889e982fc
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 3da5644bf877e003334f717f95875d6b2d153eba7df2a476efbef60cb2170ac1
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T12:28:59.877174-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.57x al 2026-07-31; no cruza el umbral.
+  source:
+    name: StockAnalysis, estadísticas
+    url: https://stockanalysis.com/stocks/CRWD/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta serie comparable de acciones diluidas.'
+  threshold: above 10 percent
+- metric: interest_coverage
+  observation: StockAnalysis reporta 0 al 2026-07-31; el EBIT TTM reportado es negativo.
+    Observar, no interpretar como recomendación.
+  source:
+    name: StockAnalysis, estadísticas
+    url: https://stockanalysis.com/stocks/CRWD/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplicable al FCF TTM positivo reportado; no se calcula runway.
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No evaluable por incompatibilidad verificable de escala entre net cash
+    y EBITDA.
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta historia de acciones para tres años.'
+  threshold: above 5 percent
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Mejora sostenida del EBIT acompañada de crecimiento de ingresos y FCF.
+    id: BEAR
+    key_assumptions:
+    - El precio objetivo bajo reportado sirve como ancla de escenario, no como pronóstico
+      garantizado.
+    - El EBIT TTM negativo al 2026-07-31 constituye evidencia del riesgo de ejecución
+      de rentabilidad.
+    rationale: Ancla baja observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Representa el extremo adverso plausible si la rentabilidad
+      operativa débil y la volatilidad pesan más que el crecimiento de ingresos y
+      FCF observado.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de analistas
+      url: https://stockanalysis.com/stocks/crwd/forecast/
+    - as_of_date: '2026-07-31'
+      name: StockAnalysis, estadísticas financieras
+      url: https://stockanalysis.com/stocks/CRWD/statistics/
+    target_price: 132.0
+  - falsifiers:
+    - Desaceleración de ingresos o FCF junto con persistencia de EBIT negativo.
+    id: BULL
+    key_assumptions:
+    - El precio objetivo alto reportado sirve como ancla de escenario, no como pronóstico
+      garantizado.
+    - El crecimiento histórico de ingresos y FCF continúa y la rentabilidad operativa
+      mejora; la continuidad y mejora no están demostradas por el paquete.
+    rationale: Ancla alta observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Representa el extremo favorable plausible si continúan el
+      crecimiento de ingresos y FCF y la empresa convierte esa escala en mejores resultados
+      operativos.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de analistas
+      url: https://stockanalysis.com/stocks/crwd/forecast/
+    - as_of_date: '2026-07-31'
+      name: StockAnalysis, estados financieros
+      url: https://stockanalysis.com/stocks/crwd/financials/
+    target_price: 325.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 66.17
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T12:28:24.876265-03:00'
+  fuentes:
+    stockanalysis: 251.28
+    yfinance: 251.2834
+  mediana: 251.28
+  n_fuentes: 2
+  promedio: 251.28
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T12:28:24.876265-03:00'
+    observed_date: '2026-11-20'
+    target_price: 251.28
+    url: https://stockanalysis.com/stocks/crwd/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T12:28:24.876265-03:00'
+    observed_date: '2026-11-20'
+    target_price: 251.2834
+    url: https://finance.yahoo.com/quote/CRWD/
+  target_high: 325.0
+  target_low: 132.0
+tesis_inversion: CrowdStrike vende ciberseguridad mediante suscripción SaaS y una
+  plataforma que cubre endpoints, cargas de trabajo cloud, identidad y datos. La evidencia
+  financiera disponible respalda crecimiento de ingresos y FCF, con margen bruto TTM
+  de 75.19%, pero el EBIT TTM negativo y la utilidad neta TTM de USD 45 millones limitan
+  la evidencia de retornos operativos sobre capital; faltan datos de capital empleado
+  y de penetración del mercado para evaluarlos.
+ticker: CRWD
+version: '3.0'

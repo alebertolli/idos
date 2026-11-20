@@ -1,0 +1,189 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los ingresos por suscripción en el trimestre
+      fiscal terminado el 31 de octubre de 2027 es inferior al 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa una desaceleración del crecimiento atribuible a
+      menor expansión de clientes existentes o a una caída persistente de la demanda.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los ingresos por suscripción en el trimestre fiscal
+    terminado el 31 de octubre de 2027 es inferior al 20%.
+  - La empresa informa una desaceleración del crecimiento atribuible a menor expansión
+    de clientes existentes o a una caída persistente de la demanda.
+  horizon: medio
+  id: H1-OPP-MB-CRWD
+  opportunity_id: OPP-MB-CRWD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 20.0
+    met: null
+    metric: crecimiento interanual de ingresos por suscripción
+    prediction: En el trimestre fiscal que finalice el 31 de octubre de 2027, el crecimiento
+      interanual de los ingresos por suscripción será de al menos 20%.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La plataforma cubre endpoints, cargas de trabajo cloud, identidad y datos,
+    lo que permite ampliar el gasto por cliente existente además de captar nuevos
+    clientes. La evidencia disponible respalda crecimiento de ingresos, aunque no
+    aporta datos suficientes sobre penetración de mercado ni sobre la evolución futura
+    de la demanda.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-11-20
+    muestra crecimiento interanual de ingresos por suscripción inferior al 15%, o
+    si la previsión de la dirección para ese crecimiento cae por debajo del 15%.
+  secondary_hypotheses: []
+  statement: CrowdStrike sostendrá un crecimiento elevado de su negocio de suscripción
+    gracias a la venta cruzada de módulos de seguridad sobre su plataforma.
+  status: ACTIVE
+  ticker: CRWD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF de los doce meses terminados el 31 de octubre de 2027
+      es inferior al 25%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de los doce meses terminados el 31 de octubre de 2027 disminuye
+      respecto a los doce meses anteriores.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF de los doce meses terminados el 31 de octubre de 2027 es inferior
+    al 25%.
+  - El FCF de los doce meses terminados el 31 de octubre de 2027 disminuye respecto
+    a los doce meses anteriores.
+  horizon: medio
+  id: H2-OPP-MB-CRWD
+  opportunity_id: OPP-MB-CRWD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 25.0
+    met: null
+    metric: margen de FCF TTM
+    prediction: En los doce meses terminados el 31 de octubre de 2027, el margen de
+      FCF será de al menos 25%, calculado como flujo de caja libre dividido por ingresos.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El modelo SaaS de suscripción y el margen bruto TTM de 75,19% ofrecen
+    una base para generar caja al escalar. Sin embargo, el EBIT TTM negativo y la
+    utilidad neta TTM de USD 45 millones muestran que la evidencia sobre rentabilidad
+    operativa todavía es limitada; por ello, la conversión de crecimiento en FCF debe
+    verificarse directamente.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos muestran
+    margen de FCF TTM inferior al 20%, o si la dirección reduce explícitamente su
+    perspectiva de generación de FCF por debajo de ese nivel.
+  secondary_hypotheses:
+  - H1-OPP-MB-CRWD
+  statement: CrowdStrike convertirá el crecimiento de ingresos en una generación de
+    caja libre proporcionalmente sólida.
+  status: ACTIVE
+  ticker: CRWD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EBIT GAAP TTM a 31 de octubre de 2027 es igual o inferior a cero.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen EBIT GAAP TTM permanece por debajo del 1% pese al crecimiento
+      de ingresos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EBIT GAAP TTM a 31 de octubre de 2027 es igual o inferior a cero.
+  - El margen EBIT GAAP TTM permanece por debajo del 1% pese al crecimiento de ingresos.
+  horizon: medio
+  id: H3-OPP-MB-CRWD
+  opportunity_id: OPP-MB-CRWD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 1.0
+    met: null
+    metric: margen EBIT GAAP TTM
+    prediction: El EBIT GAAP de los doce meses terminados el 31 de octubre de 2027
+      será positivo y su margen será de al menos 1%.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: El margen bruto TTM de 75,19% indica que una parte sustancial de los
+    ingresos queda disponible para cubrir gastos operativos. No obstante, el EBIT
+    TTM negativo señala que la conversión de esa ventaja bruta en rentabilidad operativa
+    aún no está demostrada. La hipótesis depende de que el crecimiento no requiera
+    un aumento proporcional de los gastos operativos.
+  review_trigger: Dejar de creerla si el EBIT GAAP TTM continúa siendo negativo en
+    dos informes trimestrales consecutivos publicados antes del 2027-11-20 y la dirección
+    no ofrece una senda concreta y cuantificada hacia el equilibrio.
+  secondary_hypotheses:
+  - H1-OPP-MB-CRWD
+  - H2-OPP-MB-CRWD
+  statement: La escala del negocio permitirá que CrowdStrike alcance rentabilidad
+    operativa GAAP positiva en términos TTM.
+  status: ACTIVE
+  ticker: CRWD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El retorno total de CRWD durante el periodo es igual o inferior al
+      del Nasdaq-100.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción cae más que el Nasdaq-100 mientras la empresa incumple los
+      umbrales de crecimiento o FCF de H1 o H2.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El retorno total de CRWD durante el periodo es igual o inferior al del Nasdaq-100.
+  - La acción cae más que el Nasdaq-100 mientras la empresa incumple los umbrales
+    de crecimiento o FCF de H1 o H2.
+  horizon: medio
+  id: H4-OPP-MB-CRWD
+  opportunity_id: OPP-MB-CRWD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: exceso de retorno total frente al Nasdaq-100
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el retorno total de CRWD, incluidos
+      dividendos si los hubiera, superará en al menos 10 puntos porcentuales el retorno
+      total del Nasdaq-100.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Si la empresa sostiene el crecimiento de suscripción y convierte ese
+    crecimiento en FCF, podría reducirse la incertidumbre sobre la calidad económica
+    del modelo. La tesis puede fallar si la valoración implícita ya descuenta esos
+    resultados o si la rentabilidad operativa decepciona; por eso se mide frente a
+    un índice y no mediante una afirmación sobre el valor intrínseco.
+  review_trigger: Dejar de creerla si, antes del 2027-11-20, CRWD queda rezagada frente
+    al Nasdaq-100 en al menos 10 puntos porcentuales durante un periodo móvil de seis
+    meses y además incumple H1 o H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-CRWD
+  - H2-OPP-MB-CRWD
+  - H3-OPP-MB-CRWD
+  statement: La valoración de mercado reconocerá la combinación de crecimiento y generación
+    de caja de CrowdStrike, permitiendo que la acción supere al mercado amplio durante
+    los próximos doce meses.
+  status: ACTIVE
+  ticker: CRWD
+  version: 1

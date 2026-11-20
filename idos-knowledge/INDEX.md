@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 51 companies tracked
+Total: 53 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -75,6 +75,8 @@ Total: 51 companies tracked
 - 📄 [[AVGO|Broadcom Inc.]]
 - 📄 [[BB|BlackBerry Limited]]
 - 📄 [[CLS|Celestica Inc.]]
+- 📄 [[CRM|Salesforce, Inc.]]
+- 📄 [[CRWD|CrowdStrike Holdings, Inc.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 
 ## Utilities

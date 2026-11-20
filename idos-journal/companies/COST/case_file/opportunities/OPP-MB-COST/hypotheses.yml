@@ -1,0 +1,166 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Tasa de renovación reportada inferior al 92% en el Q2 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Disminución sostenida de la tasa de renovación durante tres trimestres
+      consecutivos antes del 2027-07-01.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Tasa de renovación reportada inferior al 92% en el Q2 2027.
+  - Disminución sostenida de la tasa de renovación durante tres trimestres consecutivos
+    antes del 2027-07-01.
+  horizon: medio
+  id: H1-OPP-MB-COST
+  opportunity_id: OPP-MB-COST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 95.0
+    met: null
+    metric: tasa_renovacion_membresia
+    prediction: La tasa de renovación de membresía alcanzará al menos el 95% al cierre
+      del trimestre Q2 2027.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La propuesta de valor de Costco (precios bajos, surtido amplio y experiencia
+    de compra) genera alta lealtad. Históricamente la tasa de renovación ha sido >94%
+    y la expansión de servicios (gasolina, farmacia) refuerza la retención.
+  review_trigger: Si el informe de resultados del Q2 2027 muestra una tasa de renovación
+    por debajo del 92% antes del 2027-07-01.
+  secondary_hypotheses: []
+  statement: Costco mantendrá una tasa de renovación de membresía superior al 95%
+    en el segundo semestre de 2027.
+  status: ACTIVE
+  ticker: COST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Ratio FCF/EBIT reportado inferior al 80% al cierre del FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Desviación negativa sostenida del margen operativo que reduzca la generación
+      de efectivo en más del 5% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ratio FCF/EBIT reportado inferior al 80% al cierre del FY2027.
+  - Desviación negativa sostenida del margen operativo que reduzca la generación de
+    efectivo en más del 5% interanual.
+  horizon: medio
+  id: H2-OPP-MB-COST
+  opportunity_id: OPP-MB-COST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 85.0
+    met: null
+    metric: conversion_fcf
+    prediction: El ratio FCF/EBIT alcanzará al menos 85% al cierre del FY2027.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: El modelo de negocio de alta rotación y bajo margen bruto, junto con
+    la disciplina de gestión de inventario, ha permitido históricamente conversiones
+    de FCF superiores al 80%. La mejora en la eficiencia operativa y el crecimiento
+    de membresías deberían elevar la conversión.
+  review_trigger: Si el reporte intermedio Q3 2027 muestra un ratio FCF/EBIT por debajo
+    del 78% y la tendencia es descendente.
+  secondary_hypotheses: []
+  statement: El ratio de conversión de flujo de caja libre (FCF/EBIT) de Costco será
+    igual o superior al 85% en el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: COST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: P/E reportado superior a 24 en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Caída del precio de la acción que eleve el P/E por encima de 24 debido
+      a deterioro de ganancias.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - P/E reportado superior a 24 en la fecha objetivo.
+  - Caída del precio de la acción que eleve el P/E por encima de 24 debido a deterioro
+    de ganancias.
+  horizon: largo
+  id: H3-OPP-MB-COST
+  opportunity_id: OPP-MB-COST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 22.0
+    met: null
+    metric: PE_ratio
+    prediction: El P/E de Costco será ≤ 22 al 2028-03-31.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento sostenido de ingresos y la fuerte generación de efectivo
+    deberían reforzar la confianza de los inversores, mientras que la ligera sobrevaloración
+    actual (precio 1090.91) sugiere margen de corrección. Además, la presión de tasas
+    de interés y la rotación de capital pueden comprimir el múltiplo.
+  review_trigger: Si el P/E a 2028-03-31 supera 24, indicando que la corrección esperada
+    no ocurrió.
+  secondary_hypotheses:
+  - H2-OPP-MB-COST
+  statement: El múltiplo precio‑utilidad (P/E) de Costco caerá a 22 o menos antes
+    del 31 de marzo de 2028, situándose por debajo del promedio del sector Consumer
+    Defensive (≈24).
+  status: ACTIVE
+  ticker: COST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Participación de Kirkland inferior al 16.5% al cierre del FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Reducción de la participación durante dos trimestres consecutivos antes
+      del 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Participación de Kirkland inferior al 16.5% al cierre del FY2027.
+  - Reducción de la participación durante dos trimestres consecutivos antes del 2027-12-31.
+  horizon: medio
+  id: H4-OPP-MB-COST
+  opportunity_id: OPP-MB-COST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 18.0
+    met: null
+    metric: participacion_kirkland
+    prediction: La proporción de ventas Kirkland será ≥ 18% en el FY2027.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: Kirkland ha demostrado ser un motor de margen superior y la compañía
+    ha invertido en expansión de categorías (alimentación, salud, tecnología). La
+    tendencia histórica muestra un crecimiento del 1‑2% anual en participación.
+  review_trigger: Si el reporte Q3 2027 muestra una participación de Kirkland por
+    debajo del 16% y la tendencia es a la baja.
+  secondary_hypotheses:
+  - H1-OPP-MB-COST
+  statement: La participación de ventas de la marca propia Kirkland en los ingresos
+    totales de Costco alcanzará el 18% al cierre del FY2027.
+  status: ACTIVE
+  ticker: COST
+  version: 1

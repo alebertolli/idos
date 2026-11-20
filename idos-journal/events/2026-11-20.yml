@@ -529,3 +529,87 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T12:17:38.455157'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-COST
+    ticker: COST
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T12:24:34.796906'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-COST
+    ticker: COST
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T12:24:34.821474'
+- data:
+    classification: multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 7079f66cd644f5e65aaef7f180fa055aafe2037174dfff06774c6840c404fe09
+    opp_id: OPP-MB-COST
+    score: 74.62
+    strategy_version: '1.5'
+    ticker: COST
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:26:05.838989'
+- data:
+    classification: compounder
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 5e154b719b1edb026d14a11a71f0b84dc810caeb6d779b8b77852fd0246be8ed
+    opp_id: OPP-20261023-001
+    score: 63
+    strategy_version: positive_fundamentals_v1
+    ticker: CRM
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:28:19.819188'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-CRWD
+    ticker: CRWD
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T12:28:59.838423'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CRWD
+    ticker: CRWD
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T12:28:59.864938'
+- data:
+    classification: 'Investigación requerida: crecimiento de software de ciberseguridad
+      con evidencia financiera mixta'
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 3da5644bf877e003334f717f95875d6b2d153eba7df2a476efbef60cb2170ac1
+    opp_id: OPP-MB-CRWD
+    score: 66.17
+    strategy_version: '1.5'
+    ticker: CRWD
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:30:37.165030'
