@@ -1,0 +1,31 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; oportunidad no validada'
+- 'Market error: No se valida un error de valoración: los objetivos de analistas son
+  referencias observadas, no una valoración intrínseca independiente.'
+- 'Thesis: Pampa Energía combina generación eléctrica, petróleo y gas, petroquímica
+  y otros negocios, pero la evidencia suministrada no permite cuantificar el crecimiento
+  por segmento, el retorno sobre capital n'
+generated_at: '2026-11-20T18:01:50.035570-03:00'
+id: ass-4a58f40c
+recommendation: REVIEW
+risks:
+- fuente: https://stockanalysis.com/stocks/pam/financials/
+  observacion: El FCF reportado fue -863 millones en TTM al 2026-09-30, frente a -215
+    millones en FY 2025; las cifras son períodos distintos.
+  riesgo: Generación de caja
+- fuentes:
+  - https://stockanalysis.com/stocks/pam/financials/
+  - https://stockanalysis.com/stocks/PAM/statistics/
+  observacion: La deuda total reportada pasó de 1.928 millones en FY 2025 a 2.788
+    millones al 2026-09-30; la cobertura de intereses reportada es 0x, cuya definición
+    y contexto no están disponibles.
+  riesgo: Deuda y cobertura
+- observacion: No se incluyen datos de retornos sobre capital, penetración de mercado,
+    capacidad de fijación de precios ni resultados desagregados suficientes para probar
+    ventaja competitiva o asignación de capital.
+  riesgo: Calidad de evidencia estratégica
+score: 52
+status: COMPLETED
+version: '3.0'

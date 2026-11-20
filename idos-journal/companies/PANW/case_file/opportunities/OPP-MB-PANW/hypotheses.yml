@@ -1,0 +1,189 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento de ingresos del ejercicio fiscal 2027 es inferior a
+      15%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no puede demostrar crecimiento orgánico positivo cuando
+      haya adquisiciones materiales que afecten la comparabilidad.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento de ingresos del ejercicio fiscal 2027 es inferior a 15%.
+  - La compañía no puede demostrar crecimiento orgánico positivo cuando haya adquisiciones
+    materiales que afecten la comparabilidad.
+  horizon: medio
+  id: H1-OPP-MB-PANW
+  opportunity_id: OPP-MB-PANW
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 15.0
+    met: null
+    metric: Crecimiento interanual de ingresos del ejercicio fiscal 2027
+    prediction: En los resultados del ejercicio fiscal 2027, que deberían publicarse
+      antes del 2027-09-30, los ingresos reportados crecerán al menos 15% frente al
+      ejercicio fiscal 2026. La compañía también informará crecimiento positivo de
+      ingresos orgánicos, excluyendo adquisiciones materiales si las hubiera.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible indica crecimiento de ingresos y una oferta que
+    cubre seguridad de red, acceso, aplicaciones y ecosistemas de IA. La expansión
+    y venta cruzada de estas plataformas podrían sostener la demanda; sin datos de
+    penetración de mercado ni desgloses suficientes, esta hipótesis debe validarse
+    con los resultados publicados.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
+    crecimiento de ingresos inferior a 15%, o si una actualización de guidance anterior
+    reduce la previsión de crecimiento anual por debajo de ese umbral.
+  secondary_hypotheses: []
+  statement: Palo Alto Networks mantendrá un crecimiento de ingresos de al menos 15%
+    en el ejercicio fiscal 2027, sin depender exclusivamente de adquisiciones.
+  status: ACTIVE
+  ticker: PANW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF del ejercicio fiscal 2027 es inferior a 30%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía modifica la definición de FCF y, bajo una definición comparable,
+      el margen cae por debajo de 30%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF del ejercicio fiscal 2027 es inferior a 30%.
+  - La compañía modifica la definición de FCF y, bajo una definición comparable, el
+    margen cae por debajo de 30%.
+  horizon: medio
+  id: H2-OPP-MB-PANW
+  opportunity_id: OPP-MB-PANW
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 30.0
+    met: null
+    metric: Margen de FCF del ejercicio fiscal 2027
+    prediction: El margen de FCF del ejercicio fiscal 2027 será de al menos 30%, calculado
+      como FCF dividido por ingresos, usando la definición de FCF que la compañía
+      haya mantenido de forma consistente y conciliando cualquier cambio metodológico.
+    unit: porcentaje mínimo de ingresos
+  priority: critical
+  probability: 0.5
+  rationale: La información suministrada señala crecimiento del flujo de caja libre
+    (FCF), pero no permite evaluar su margen ni su sostenibilidad. Un margen de FCF
+    robusto sería evidencia de que el crecimiento de la plataforma no requiere un
+    consumo desproporcionado de recursos.
+  review_trigger: Dejar de creerla cuando los resultados del ejercicio fiscal 2027
+    indiquen un margen de FCF inferior a 30%, o cuando la compañía anticipe un margen
+    inferior a ese nivel para el ejercicio completo.
+  secondary_hypotheses:
+  - H1-OPP-MB-PANW
+  statement: Palo Alto Networks sostendrá una conversión de ingresos en flujo de caja
+    libre elevada durante el ejercicio fiscal 2027, sin que el crecimiento dependa
+    de un deterioro material de la rentabilidad de caja.
+  status: ACTIVE
+  ticker: PANW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF por acción diluida del ejercicio fiscal 2027 crece menos de
+      10% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF total crece, pero el aumento del promedio ponderado de acciones
+      diluidas limita el crecimiento del FCF por acción a menos de 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF por acción diluida del ejercicio fiscal 2027 crece menos de 10% interanual.
+  - El FCF total crece, pero el aumento del promedio ponderado de acciones diluidas
+    limita el crecimiento del FCF por acción a menos de 10%.
+  horizon: medio
+  id: H3-OPP-MB-PANW
+  opportunity_id: OPP-MB-PANW
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual del FCF por acción diluida
+    prediction: El FCF por acción diluida del ejercicio fiscal 2027 será al menos
+      10% superior al del ejercicio fiscal 2026, calculado con FCF anual dividido
+      por el promedio ponderado de acciones diluidas del mismo ejercicio.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: 'La tesis requiere que la generación de FCF cree valor por acción. El
+    FCF total, por sí solo, no permite comprobarlo: la evolución del número de acciones
+    diluidas y las recompras también determinan el resultado para cada accionista.'
+  review_trigger: Dejar de creerla al publicarse los resultados del ejercicio fiscal
+    2027 si el FCF por acción diluida no alcanza un crecimiento interanual de 10%,
+    o antes si la guía anual implica que no podrá alcanzar ese umbral.
+  secondary_hypotheses:
+  - H2-OPP-MB-PANW
+  statement: El crecimiento del FCF se traducirá en crecimiento del FCF por acción,
+    y no será absorbido por la dilución de acciones.
+  status: ACTIVE
+  ticker: PANW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de PANW menos el rendimiento total del Nasdaq
+      Composite es inferior a 5 puntos porcentuales durante el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción queda por detrás del Nasdaq Composite, independientemente
+      de que la empresa cumpla sus objetivos operativos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de PANW menos el rendimiento total del Nasdaq Composite es
+    inferior a 5 puntos porcentuales durante el periodo indicado.
+  - La acción queda por detrás del Nasdaq Composite, independientemente de que la
+    empresa cumpla sus objetivos operativos.
+  horizon: medio
+  id: H4-OPP-MB-PANW
+  opportunity_id: OPP-MB-PANW
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de PANW frente al Nasdaq Composite
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de PANW, incluidos dividendos si los hubiera, superará al del Nasdaq Composite
+      en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales de exceso de rendimiento
+  priority: important
+  probability: 0.5
+  rationale: La expansión de plataformas y el crecimiento de ingresos y FCF podrían
+    respaldar el desempeño relativo de la acción. Sin datos sobre cotización, múltiplos
+    o expectativas implícitas no puede afirmarse que la valoración sea atractiva;
+    por ello, esta hipótesis se limita a una predicción de rendimiento relativo verificable
+    y queda condicionada a la confirmación operativa.
+  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de rendimiento total
+    frente al Nasdaq Composite es inferior a 5 puntos porcentuales; también se debilita
+    si los resultados del ejercicio fiscal 2027 incumplen H1 o H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-PANW
+  - H2-OPP-MB-PANW
+  statement: La acción de Palo Alto Networks superará al Nasdaq Composite durante
+    los 12 meses posteriores a la fecha de corte, siempre que los resultados confirmen
+    crecimiento y generación de caja.
+  status: ACTIVE
+  ticker: PANW
+  version: 1
