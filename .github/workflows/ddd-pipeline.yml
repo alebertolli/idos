@@ -355,18 +355,71 @@ jobs:
             echo "::error::Scheduled DDD results PR could not be resolved"
             exit 1
           fi
-          PREVIOUS_RUN_ID=$(gh run list --workflow ci.yml --branch codex/ddd-research-results --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // empty')
-          gh workflow run ci.yml --ref codex/ddd-research-results
+          EXPECTED_SHA=$(gh pr view "$OPEN_PR_NUMBER" --json headRefOid --jq '.headRefOid')
+          if [ -z "$EXPECTED_SHA" ]; then
+            echo "::error::Scheduled DDD results PR head SHA could not be resolved"
+            exit 1
+          fi
+          PREVIOUS_RUN_ID=""
+          PREVIOUS_RUN_LOOKUP_OK=false
+          for attempt in {1..12}; do
+            if PREVIOUS_RUN_ID=$(gh run list --workflow ci.yml --branch codex/ddd-research-results --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // empty'); then
+              PREVIOUS_RUN_LOOKUP_OK=true
+              break
+            fi
+            echo "[WARN] Could not read previous CI run (attempt $attempt/12)"
+            sleep 5
+          done
+          if [ "$PREVIOUS_RUN_LOOKUP_OK" != "true" ]; then
+            echo "::error::Could not establish the previous scheduled results CI run"
+            exit 1
+          fi
+          if ! gh workflow run ci.yml --ref codex/ddd-research-results; then
+            echo "[WARN] CI dispatch response failed; checking whether GitHub accepted the run"
+          fi
           RUN_ID=""
           for attempt in {1..24}; do
-            RUN_ID=$(gh run list --workflow ci.yml --branch codex/ddd-research-results --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // empty')
+            if LATEST_RUN_ID=$(gh run list --workflow ci.yml --branch codex/ddd-research-results --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // empty'); then
+              RUN_ID="$LATEST_RUN_ID"
+            else
+              echo "[WARN] GitHub Actions run list temporarily unavailable (attempt $attempt/24)"
+              RUN_ID=""
+            fi
             if [ -n "$RUN_ID" ] && [ "$RUN_ID" != "$PREVIOUS_RUN_ID" ]; then break; fi
             RUN_ID=""
             sleep 5
           done
           if [ -z "$RUN_ID" ]; then echo "::error::CI workflow_dispatch did not appear"; exit 1; fi
-          gh run watch "$RUN_ID" --exit-status
-          gh pr checks "$OPEN_PR_NUMBER" --watch --fail-fast
+          CI_PASSED=false
+          for attempt in {1..90}; do
+            if RUN_DETAILS=$(gh run view "$RUN_ID" --json event,headSha,status,conclusion --jq '[.event, .headSha, .status, (.conclusion // "")] | @tsv'); then
+              IFS=$'\t' read -r CI_EVENT CI_SHA CI_STATUS CI_CONCLUSION <<< "$RUN_DETAILS"
+              if [ "$CI_EVENT" != "workflow_dispatch" ] || [ "$CI_SHA" != "$EXPECTED_SHA" ]; then
+                echo "::error::CI run does not validate the current scheduled results PR head"
+                exit 1
+              fi
+              if [ "$CI_STATUS" = "completed" ]; then
+                if [ "$CI_CONCLUSION" = "success" ]; then
+                  CI_PASSED=true
+                  break
+                fi
+                echo "::error::Scheduled results CI concluded with $CI_CONCLUSION"
+                exit 1
+              fi
+            else
+              echo "[WARN] GitHub Actions run status temporarily unavailable (attempt $attempt/90)"
+            fi
+            sleep 10
+          done
+          if [ "$CI_PASSED" != "true" ]; then
+            echo "::error::Scheduled results CI did not complete successfully within 15 minutes"
+            exit 1
+          fi
+          CURRENT_SHA=$(gh pr view "$OPEN_PR_NUMBER" --json headRefOid --jq '.headRefOid')
+          if [ "$CURRENT_SHA" != "$EXPECTED_SHA" ]; then
+            echo "::error::Scheduled results PR changed during CI; refusing to merge an untested head"
+            exit 1
+          fi
           gh pr merge "$OPEN_PR_NUMBER" --squash
           PR_STATE=""
           for attempt in {1..60}; do

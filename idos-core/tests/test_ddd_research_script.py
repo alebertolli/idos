@@ -140,6 +140,7 @@ def test_research_worker_failure_marks_run_failed_and_returns_nonzero(
     resume_queue = json.loads((tmp_path / "cache" / "ddd_research_resume.json").read_text(encoding="utf-8"))
     assert ramp_state["paused"] is False
     assert ramp_state["next_batch_size"] == 1
+    assert ramp_state["updated_at"] == ramp_state["last_failure"]["at"]
     assert len(resume_queue["pending"]) == 2
     failed = next(item for item in resume_queue["pending"] if item["ticker"] == "TEST")
     assert failed["attempt_count"] == 1
@@ -764,7 +765,17 @@ def test_scheduled_results_pr_requires_a_published_commit():
 
     assert publish["id"] == "publish-results"
     assert "gh pr list --base main --head codex/ddd-research-results --state open" in publish_pr["run"]
-    assert 'gh pr checks "$OPEN_PR_NUMBER" --watch --fail-fast' in publish_pr["run"]
+    assert "PREVIOUS_RUN_LOOKUP_OK=true" in publish_pr["run"]
+    assert 'Could not establish the previous scheduled results CI run' in publish_pr["run"]
+    assert 'if ! gh workflow run ci.yml --ref codex/ddd-research-results; then' in publish_pr["run"]
+    assert 'gh pr view "$OPEN_PR_NUMBER" --json headRefOid --jq' in publish_pr["run"]
+    assert 'gh run view "$RUN_ID" --json event,headSha,status,conclusion' in publish_pr["run"]
+    assert '"$CI_EVENT" != "workflow_dispatch"' in publish_pr["run"]
+    assert '"$CI_SHA" != "$EXPECTED_SHA"' in publish_pr["run"]
+    assert '"$CI_CONCLUSION" = "success"' in publish_pr["run"]
+    assert '"$CURRENT_SHA" != "$EXPECTED_SHA"' in publish_pr["run"]
+    assert "gh pr checks" not in publish_pr["run"]
+    assert 'GitHub Actions run status temporarily unavailable' in publish_pr["run"]
     assert 'gh pr merge "$OPEN_PR_NUMBER" --squash' in publish_pr["run"]
     assert "--auto" not in publish_pr["run"]
     assert 'gh pr view "$OPEN_PR_NUMBER" --json state' in publish_pr["run"]
