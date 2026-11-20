@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 124 companies tracked
+Total: 127 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -31,6 +31,7 @@ Total: 124 companies tracked
 - 📄 [[GOOGL|Alphabet Inc.]]
 - ⏳ [[JOYY|JOYY Inc.]]
 - ⏳ [[PSO|Pearson plc]]
+- 📄 [[ROKU|Roku, Inc.]]
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
@@ -44,6 +45,8 @@ Total: 124 companies tracked
 - 📄 [[GM|General Motors Company]]
 - 📄 [[HMC|Honda Motor Co., Ltd.]]
 - ⏳ [[HOG|Harley-Davidson, Inc.]]
+- 📄 [[RACE|Ferrari N.V.]]
+- 📄 [[ROST|Ross Stores, Inc.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]

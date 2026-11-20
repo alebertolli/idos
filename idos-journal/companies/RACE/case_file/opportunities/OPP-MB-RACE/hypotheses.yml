@@ -1,0 +1,190 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos netos de 2027 crecen menos del 5% frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Las entregas de 2027 aumentan más del 5% frente a 2026, de modo que
+      no se cumple la condición de crecimiento sin una expansión más rápida del volumen.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos netos de 2027 crecen menos del 5% frente a 2026.
+  - Las entregas de 2027 aumentan más del 5% frente a 2026, de modo que no se cumple
+    la condición de crecimiento sin una expansión más rápida del volumen.
+  horizon: medio
+  id: H1-OPP-MB-RACE
+  opportunity_id: OPP-MB-RACE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ingresos netos en 2027, con crecimiento de entregas
+      de hasta el 5%
+    prediction: En los resultados de 2027 publicados a más tardar el 2028-03-31, los
+      ingresos netos de Ferrari crecerán al menos un 5% frente a 2026, mientras que
+      las entregas aumentarán como máximo un 5% frente a 2026.
+    unit: porcentaje mínimo de crecimiento de ingresos
+  priority: critical
+  probability: 0.5
+  rationale: La tesis aportada señala crecimiento histórico de ingresos, pero no incluye
+    datos operativos suficientes para atribuirlo a volumen, precios o mix. La hipótesis
+    pone a prueba si el crecimiento puede continuar sin que las entregas aumenten
+    desproporcionadamente, algo relevante para la resiliencia de la marca y la ejecución
+    del negocio.
+  review_trigger: Dejar de creerla si los resultados auditados de 2027 incumplen cualquiera
+    de los dos umbrales; la fecha límite para evaluarla es 2028-03-31.
+  secondary_hypotheses: []
+  statement: Ferrari mantendrá un crecimiento de ingresos en 2027 sin depender de
+    un aumento acelerado de entregas, lo que sería compatible con una combinación
+    favorable de precios, configuración de vehículos y mix de producto.
+  status: ACTIVE
+  ticker: RACE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen EBITDA reportado para 2027 es inferior al 38%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa deja de presentar los componentes necesarios para calcular
+      el margen con una definición comparable y no proporciona una conciliación verificable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen EBITDA reportado para 2027 es inferior al 38%.
+  - La empresa deja de presentar los componentes necesarios para calcular el margen
+    con una definición comparable y no proporciona una conciliación verificable.
+  horizon: medio
+  id: H2-OPP-MB-RACE
+  opportunity_id: OPP-MB-RACE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 38.0
+    met: null
+    metric: Margen EBITDA reportado de 2027
+    prediction: En el ejercicio 2027, el margen EBITDA reportado será de al menos
+      el 38%, calculado como EBITDA dividido por ingresos netos, según las cifras
+      oficiales publicadas a más tardar el 2028-03-31.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El contexto indica que el margen bruto histórico ha mejorado, pero no
+    aporta datos suficientes para validar su sostenibilidad ni los retornos incrementales
+    del capital. El margen EBITDA permite contrastar esa persistencia con resultados
+    financieros publicados.
+  review_trigger: Dejar de creerla si el margen EBITDA de 2027 queda por debajo del
+    38%; evaluar con los resultados oficiales y, como máximo, el 2028-03-31.
+  secondary_hypotheses:
+  - H1-OPP-MB-RACE
+  statement: Ferrari conservará una elevada rentabilidad operativa en 2027, señal
+    de que el crecimiento de ingresos no se obtendrá mediante una erosión material
+    de márgenes.
+  status: ACTIVE
+  ticker: RACE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF industrial de 2027 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF industrial positivo representa menos del 10% de los ingresos
+      netos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa cambia la definición de FCF y no ofrece una conciliación
+      que permita evaluar el umbral con cifras comparables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF industrial de 2027 es cero o negativo.
+  - El FCF industrial positivo representa menos del 10% de los ingresos netos de 2027.
+  - La empresa cambia la definición de FCF y no ofrece una conciliación que permita
+    evaluar el umbral con cifras comparables.
+  horizon: medio
+  id: H3-OPP-MB-RACE
+  opportunity_id: OPP-MB-RACE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: FCF industrial de 2027 como porcentaje de ingresos netos
+    prediction: En 2027, Ferrari reportará FCF industrial positivo y equivalente al
+      menos al 10% de los ingresos netos, según resultados publicados a más tardar
+      el 2028-03-31.
+    unit: porcentaje mínimo, con FCF industrial positivo
+  priority: important
+  probability: 0.5
+  rationale: El contexto señala crecimiento histórico del FCF, pero no aporta cifras
+    sobre inversión, conversión de beneficios en caja ni capital circulante. Medir
+    el FCF industrial como porcentaje de ingresos permite comprobar si la generación
+    de caja acompaña al crecimiento.
+  review_trigger: 'Dejar de creerla si se incumple cualquiera de los umbrales en los
+    resultados de 2027; fecha límite de evaluación: 2028-03-31.'
+  secondary_hypotheses:
+  - H1-OPP-MB-RACE
+  statement: La generación de caja libre industrial seguirá siendo positiva y material
+    respecto de los ingresos durante 2027, pese a las necesidades de inversión y a
+    posibles variaciones del capital circulante.
+  status: ACTIVE
+  ticker: RACE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de RACE menos la del STOXX Europe 600 es inferior
+      a 5 puntos porcentuales en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de RACE es inferior a la del índice en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de RACE menos la del STOXX Europe 600 es inferior a 5 puntos
+    porcentuales en el periodo.
+  - La rentabilidad total de RACE es inferior a la del índice en el periodo.
+  horizon: medio
+  id: H4-OPP-MB-RACE
+  opportunity_id: OPP-MB-RACE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de RACE menos rentabilidad total del STOXX Europe 600
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de RACE, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      la del STOXX Europe 600, medida en euros.
+    unit: puntos porcentuales mínimos en 12 meses
+  priority: important
+  probability: 0.5
+  rationale: La tesis plantea que el mercado podría estar subestimando la persistencia
+    de crecimiento y márgenes, pero la información suministrada no incluye valoración,
+    expectativas de consenso ni precio de mercado. La hipótesis convierte esa posible
+    brecha en una prueba relativa de rendimiento, sin asumir que la valoración actual
+    sea barata.
+  review_trigger: Dejar de creerla si al cierre del 2027-11-20 la ventaja de rentabilidad
+    total de RACE frente al índice es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-RACE
+  - H2-OPP-MB-RACE
+  statement: Durante los 12 meses posteriores a la fecha de corte, la acción de Ferrari
+    superará al índice STOXX Europe 600 en rentabilidad total, reflejando que el mercado
+    no descuenta por completo la persistencia del crecimiento y los márgenes.
+  status: ACTIVE
+  ticker: RACE
+  version: 1

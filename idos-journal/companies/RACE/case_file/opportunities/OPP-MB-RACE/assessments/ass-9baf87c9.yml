@@ -1,0 +1,34 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida'
+- 'Market error: No puede validarse un error de valoración con la evidencia disponible;
+  el rango de analistas es una referencia observada, no una valoración intrínseca.'
+- 'Thesis: Ferrari combina diseño, ingeniería, producción y venta de vehículos deportivos
+  de lujo con servicios posventa y licencias de marca. Los datos proporcionados muestran
+  crecimiento histórico de ingresos,'
+generated_at: '2026-11-20T18:39:24.028260-03:00'
+id: ass-9baf87c9
+recommendation: REVIEW
+risks:
+- fuentes:
+  - name: Research Intake Package y resumen financiero
+    url: https://stockanalysis.com/stocks/race/financials/
+  implicacion: No se puede evaluar rigurosamente el espacio de crecimiento ni la productividad
+    de la reinversión.
+  riesgo: La base de evidencia no incluye datos de mercado direccionable, cuota/penetración
+    ni retornos sobre capital.
+- implicacion: La carga financiera y su evolución requieren reconciliar los importes
+    y unidades reportados.
+  riesgo: El apalancamiento neto no puede compararse con EBITDA por incompatibilidad
+    verificable de unidades entre las series disponibles.
+- implicacion: Son observaciones de mercado, no evidencia suficiente sobre cambios
+    en fundamentales.
+  riesgo: La cotización registró momentum de 12 meses de -1.9705% y volatilidad de
+    90 días de 25.4907% al 2026-10-30.
+- implicacion: No puede evaluarse el cambio del número de acciones con la definición
+    configurada.
+  riesgo: No hay serie de acciones diluidas u ordinarias para medir dilución.
+score: 67
+status: COMPLETED
+version: '3.0'

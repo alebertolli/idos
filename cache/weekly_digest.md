@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-11-20 14:29 AR _
+_Generado: 2026-11-20 18:43 AR _
 
 ## Resumen
 
@@ -12,27 +12,33 @@ _Generado: 2026-11-20 14:29 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **EFX** (OPP-COMPOUNDER-EFX-0001): score=61, class=?
-- ✅ **EQNR** (OPP-COMPOUNDER-EQNR-0001): score=48, class=?
-- ✅ **EQNR** (OPP-MB-EQNR): score=52, class=?
+- ✅ **RACE** (OPP-MB-RACE): score=67, class=?
+- ✅ **ROKU** (OPP-MB-ROKU): score=68, class=?
+- ✅ **ROST** (OPP-MB-ROST): score=68, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **EFX**
-  - Opp: [OPP-COMPOUNDER-EFX-0001]
-  - Conviction: 62/100 | Rec: BLOCKED
-  - Scores: Business: 58 | Valuation: 65 | Recovery: 56 | Risk: 80 | Portfolio: 50
+- ⚠️ **RACE**
+  - Opp: [OPP-MB-RACE]
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 70 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 58/70
-    - 🚫 RULE-005: Conviction: 62/65
-- ⚠️ **EQNR**
-  - Opp: [OPP-COMPOUNDER-EQNR-0001]
-  - Conviction: 65/100 | Rec: WAIT
-  - Scores: Business: 72 | Valuation: 65 | Recovery: 58 | Risk: 70 | Portfolio: 50
-- ⚠️ **EQNR**
-  - Opp: [OPP-MB-EQNR]
-  - Conviction: 65/100 | Rec: WAIT
-  - Scores: Business: 72 | Valuation: 65 | Recovery: 56 | Risk: 70 | Portfolio: 50
+    - 🚫 RULE-001: Business quality: 68/70
+    - 🚫 RULE-005: Conviction: 60/65
+    - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual
+- ⚠️ **ROKU**
+  - Opp: [OPP-MB-ROKU]
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 65 | Recovery: 57 | Risk: 80 | Portfolio: 50
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 68/70
+- ⚠️ **ROST**
+  - Opp: [OPP-MB-ROST]
+  - Conviction: 61/100 | Rec: BLOCKED
+  - Scores: Business: 64 | Valuation: 65 | Recovery: 52 | Risk: 70 | Portfolio: 50
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 64/70
+    - 🚫 RULE-005: Conviction: 61/65
 
 ---
 
