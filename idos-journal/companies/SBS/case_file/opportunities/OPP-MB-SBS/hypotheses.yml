@@ -1,0 +1,168 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de conexiones activas de agua o alcantarillado
+      es inferior al 3% al 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no divulga cifras comparables que permitan verificar la
+      variación frente al cierre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento de conexiones se acompaña de una caída interanual de
+      ingresos reales por cliente, sin explicación temporal o regulatoria documentada.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de conexiones activas de agua o alcantarillado es inferior
+    al 3% al 2027-12-31.
+  - La empresa no divulga cifras comparables que permitan verificar la variación frente
+    al cierre de 2026.
+  - El crecimiento de conexiones se acompaña de una caída interanual de ingresos reales
+    por cliente, sin explicación temporal o regulatoria documentada.
+  horizon: medio
+  id: H1-OPP-MB-SBS
+  opportunity_id: OPP-MB-SBS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de conexiones activas, por servicio
+    prediction: Al 2027-12-31, el número de conexiones activas de agua y alcantarillado
+      habrá crecido al menos un 3% frente al cierre de 2026, calculado por separado
+      para cada servicio.
+    unit: '% mínimo'
+  priority: important
+  probability: 0.5
+  rationale: La ampliación de redes puede generar nuevos clientes y volumen facturado
+    si la infraestructura entra en operación y existe demanda atendible. El material
+    disponible no documenta proyectos, contratos ni métricas de conexiones, por lo
+    que esta hipótesis requiere validación con divulgaciones primarias.
+  review_trigger: Dejar de creerla si el informe anual de 2027, o una divulgación
+    oficial equivalente publicada antes del 2028-03-31, muestra crecimiento inferior
+    al 3% en cualquiera de los dos servicios.
+  secondary_hypotheses: []
+  statement: La expansión de la infraestructura de SABESP se traducirá en crecimiento
+    medible de conexiones activas de agua y alcantarillado durante 2027.
+  status: ACTIVE
+  ticker: SBS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de los doce meses terminados el 2028-03-31 es
+      nulo o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre es positivo, pero inferior al 10% del EBITDA
+      de los mismos doce meses.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La conversión aparente depende de partidas extraordinarias o reclasificaciones
+      que no se mantienen al aplicar una metodología consistente con los estados financieros
+      auditados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de los doce meses terminados el 2028-03-31 es nulo o negativo.
+  - El flujo de caja libre es positivo, pero inferior al 10% del EBITDA de los mismos
+    doce meses.
+  - La conversión aparente depende de partidas extraordinarias o reclasificaciones
+    que no se mantienen al aplicar una metodología consistente con los estados financieros
+    auditados.
+  horizon: medio
+  id: H2-OPP-MB-SBS
+  opportunity_id: OPP-MB-SBS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: FCF de doce meses dividido por EBITDA de doce meses
+    prediction: En los doce meses terminados el 2028-03-31, el flujo de caja libre,
+      definido como flujo de caja neto de actividades operativas menos adquisiciones
+      de inmovilizado e intangibles, será positivo y equivaldrá al menos al 10% del
+      EBITDA del mismo período.
+    unit: '% mínimo, con FCF positivo'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis de inversión requiere que el crecimiento de la red y de la base
+    de clientes termine convirtiéndose en caja. El FCF negativo y el aumento reportado
+    de deuda son señales que deben reconciliarse con estados financieros primarios;
+    no se dispone aquí de cifras ni períodos verificables para establecer una base.
+  review_trigger: Dejar de creerla si los estados financieros correspondientes a los
+    doce meses terminados el 2028-03-31, una vez publicados, muestran FCF inferior
+    al umbral definido; confirmar la decisión como máximo el 2028-05-31.
+  secondary_hypotheses:
+  - H1-OPP-MB-SBS
+  statement: La inversión en infraestructura empezará a traducirse en generación de
+    caja operativa suficiente para cubrir una parte material del capex, sin deterioro
+    desproporcionado de la deuda.
+  status: ACTIVE
+  ticker: SBS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de SBS en dólares estadounidenses no supera la
+      del Ibovespa en al menos 10 puntos porcentuales al 2028-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción supera al índice únicamente por diferencias en el tratamiento
+      de dividendos, moneda o eventos corporativos que no puedan conciliarse con datos
+      públicos comparables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa es negativa al cierre del período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de SBS en dólares estadounidenses no supera la del Ibovespa
+    en al menos 10 puntos porcentuales al 2028-11-20.
+  - La acción supera al índice únicamente por diferencias en el tratamiento de dividendos,
+    moneda o eventos corporativos que no puedan conciliarse con datos públicos comparables.
+  - La rentabilidad relativa es negativa al cierre del período.
+  horizon: largo
+  id: H3-OPP-MB-SBS
+  opportunity_id: OPP-MB-SBS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total de SBS menos rentabilidad total del Ibovespa
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2028-11-20, la rentabilidad
+      total de SBS, incluidos dividendos y ajustada por eventos corporativos, superará
+      en al menos 10 puntos porcentuales la rentabilidad total del Ibovespa, medidas
+      ambas en dólares estadounidenses.
+    unit: puntos porcentuales acumulados en dólares estadounidenses
+  priority: important
+  probability: 0.5
+  rationale: Una mejora verificable en conexiones y caja podría reducir la incertidumbre
+    sobre la rentabilidad de la inversión y favorecer una reevaluación de la acción.
+    No se proporcionan precio, múltiplos, consenso ni datos de valoración, por lo
+    que esta hipótesis no presupone que la acción esté actualmente infravalorada.
+  review_trigger: Dejar de creerla si al 2028-11-20 la rentabilidad total relativa
+    acumulada es inferior a 10 puntos porcentuales; revisar antes si se publican resultados
+    que falsen H1 o H2 y no muestran una fuente alternativa y verificable de creación
+    de valor.
+  secondary_hypotheses:
+  - H1-OPP-MB-SBS
+  - H2-OPP-MB-SBS
+  statement: Si SABESP demuestra crecimiento operativo y mejora de conversión de caja,
+    la acción ofrecerá una rentabilidad superior a la del mercado brasileño en el
+    horizonte de dos años.
+  status: ACTIVE
+  ticker: SBS
+  version: 1

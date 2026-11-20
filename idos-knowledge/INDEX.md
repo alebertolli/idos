@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 127 companies tracked
+Total: 131 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -47,6 +47,7 @@ Total: 127 companies tracked
 - ⏳ [[HOG|Harley-Davidson, Inc.]]
 - 📄 [[RACE|Ferrari N.V.]]
 - 📄 [[ROST|Ross Stores, Inc.]]
+- 📄 [[SBUX|Starbucks Corporation]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
@@ -90,6 +91,7 @@ Total: 127 companies tracked
 - 📄 [[MFG|Mizuho Financial Group, Inc.]]
 - 📄 [[MUFG|Mitsubishi UFJ Financial Group, Inc.]]
 - 📄 [[NMR|Nomura Holdings, Inc.]]
+- 📄 [[SAN|Banco Santander, S.A.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -123,6 +125,7 @@ Total: 127 companies tracked
 - 📄 [[MMM|3M Company]]
 - 📄 [[PAM|Pampa Energía S.A.]]
 - ⏳ [[PBI|Pitney Bowes Inc.]]
+- 📄 [[RTX|RTX Corporation]]
 
 ## Other
 - 📄 [[PG|The Procter & Gamble Company]]
@@ -159,6 +162,7 @@ Total: 127 companies tracked
 - 📄 [[CEG|Constellation Energy Corporation]]
 - 📄 [[NEE|NextEra Energy, Inc.]]
 - 📄 [[NGG|National Grid plc]]
+- 📄 [[SBS|Companhia de Saneamento Básico do Estado de São Paulo - SABESP]]
 
 ---
 *Generated: auto-updated on each research run*

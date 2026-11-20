@@ -1,0 +1,32 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de multibagger'
+- 'Market error: La cotización está por debajo del rango de objetivos observado, pero
+  la evidencia no permite concluir que exista un error de valoración.'
+- 'Thesis: La tesis a investigar es si el crecimiento de ingresos y beneficio reportado
+  puede sostenerse y convertirse en generación de caja duradera. La evidencia disponible
+  no permite validar el mecanismo de c'
+generated_at: '2026-11-20T18:54:32.869258-03:00'
+id: ass-d1e02d8c
+recommendation: REVIEW
+risks:
+- evidencia: StockAnalysis reporta FCF de 49,0 para TTM al 2026-09-30 y valores negativos
+    para FY2025, FY2024 y FY2023; la serie no permite validar crecimiento comparable.
+  fuente: https://stockanalysis.com/stocks/san/financials/
+  riesgo: La generación de caja reportada es muy volátil entre períodos y las unidades
+    o monedas de distintas observaciones no están suficientemente conciliadas.
+- evidencia: El resumen presenta deuda total y net cash, pero EBITDA figura como n/a;
+    no se puede validar net debt/EBITDA.
+  fuente: https://stockanalysis.com/stocks/san/financials/
+  riesgo: La estructura de financiación bancaria impide interpretar deuda y caja con
+    ratios corporativos genéricos sin definiciones y datos comparables.
+- evidencia: El resumen describe segmentos y servicios, pero deja geografía y descripción
+    del moat vacías.
+  fuente: https://stockanalysis.com/stocks/san/financials/
+  riesgo: La evidencia sobre competencia, regulación, geografía, calidad de activos
+    y concentración de ingresos no está desarrollada en el paquete.
+score: 48
+status: COMPLETED
+version: '3.0'
