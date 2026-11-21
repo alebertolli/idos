@@ -2,38 +2,38 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-FDX",
-      "ticker": "FDX",
+      "opp_id": "OPP-MB-HAL",
+      "ticker": "HAL",
       "status": "completed",
-      "score": 85.54,
+      "score": 73.26,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-GILD",
-      "ticker": "GILD",
-      "status": "completed",
-      "score": 58,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-GOOGL",
-      "ticker": "GOOGL",
+      "opp_id": "OPP-MB-HOG",
+      "ticker": "HOG",
       "status": "quality_failed",
-      "score": 52,
+      "score": 48,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
+    },
+    {
+      "opp_id": "OPP-MB-HPQ",
+      "ticker": "HPQ",
+      "status": "completed",
+      "score": 68.18,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "GOOGL",
-      "opp_id": "OPP-MB-GOOGL",
+      "ticker": "HOG",
+      "opp_id": "OPP-MB-HOG",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -42,7 +42,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 59,
+  "deferred_count": 57,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

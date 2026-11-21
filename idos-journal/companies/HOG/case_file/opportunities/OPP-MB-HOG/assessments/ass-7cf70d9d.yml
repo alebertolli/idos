@@ -1,0 +1,46 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de crecimiento compuesto'
+- 'Market error: No puede validarse un error de valoración: faltan expectativas financieras
+  de consenso, múltiplos comparables y un método de valoración con inputs fechados.'
+- 'Thesis: Tesis a investigar: la capacidad de Harley-Davidson para estabilizar su
+  negocio de motocicletas y recuperar rentabilidad podría contrarrestar la contracción
+  reciente, pero los datos disponibles no acr'
+generated_at: '2026-11-21T15:57:30.234674-03:00'
+id: ass-7cf70d9d
+recommendation: REVIEW
+risks:
+- fuente:
+    name: Stock Analysis
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/hog/financials/
+  observacion: Los ingresos bajaron de USD 5.836 millones en FY 2023 a USD 3.982 millones
+    TTM al 2026-09-30; los períodos no son comparables como serie anual completa.
+  tipo: hecho
+- fuente:
+    name: Stock Analysis
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/hog/financials/
+  observacion: El beneficio neto TTM fue -USD 131,96 millones al 2026-09-30, frente
+    a USD 338,74 millones en FY 2025.
+  tipo: hecho
+- fuente:
+    name: Stock Analysis
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/hog/financials/
+  observacion: El margen bruto TTM fue 19,68% al 2026-09-30, frente a 29,84% en FY
+    2025; el paquete no explica las causas.
+  tipo: hecho
+- fuente:
+    name: Resumen financiero de contexto
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/HOG/statistics/
+  observacion: La mezcla de negocio incluye servicios financieros y motocicletas;
+    sin datos segmentarios suficientes no puede aislarse el riesgo crediticio ni el
+    desempeño de cada segmento.
+  tipo: pregunta abierta
+score: 48
+status: COMPLETED
+version: '3.0'
