@@ -1,144 +1,217 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos netos consolidados del ejercicio fiscal 2027 crecen menos
-      del 5% frente al ejercicio fiscal anterior.
+  - condition: Los ingresos netos combinados crecen menos del 5% respecto del ejercicio
+      fiscal 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen de beneficio antes de impuestos del ejercicio fiscal 2027
-      es igual o superior al 10%.
+  - condition: El beneficio antes de impuestos combinado disminuye respecto del ejercicio
+      fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Nomura no publica datos comparables que permitan verificar ingresos
+      y beneficio de ambos segmentos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos netos consolidados del ejercicio fiscal 2027 crecen menos del 5%
-    frente al ejercicio fiscal anterior.
-  - El margen de beneficio antes de impuestos del ejercicio fiscal 2027 es igual o
-    superior al 10%.
+  - Los ingresos netos combinados crecen menos del 5% respecto del ejercicio fiscal
+    2026.
+  - El beneficio antes de impuestos combinado disminuye respecto del ejercicio fiscal
+    2026.
+  - Nomura no publica datos comparables que permitan verificar ingresos y beneficio
+    de ambos segmentos.
   horizon: medio
   id: H1-OPP-MB-NMR
   opportunity_id: OPP-MB-NMR
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-06-30'
+    deadline: '2027-05-31'
     expected: 5.0
     met: null
-    metric: Crecimiento interanual de ingresos netos consolidados y margen de beneficio
-      antes de impuestos
-    prediction: En los resultados del ejercicio fiscal 2027, los ingresos netos consolidados
-      aumentarán al menos un 5% interanual, mientras que el margen de beneficio antes
-      de impuestos será inferior al 10%.
-    unit: '% de crecimiento mínimo; margen inferior al 10%'
+    metric: Crecimiento interanual de los ingresos netos combinados de gestión patrimonial
+      y gestión de inversiones
+    prediction: En los resultados del ejercicio fiscal 2027, los ingresos netos combinados
+      de gestión patrimonial y gestión de inversiones serán al menos un 5% superiores
+      a los del ejercicio fiscal 2026, y su beneficio antes de impuestos combinado
+      no será inferior al del ejercicio fiscal 2026.
+    unit: '%'
   priority: critical
   probability: 0.5
-  rationale: La tesis plantea que el crecimiento de ingresos puede estar ocultando
-    una conversión débil a beneficios. En una firma financiera, ingresos de intermediación
-    y negociación pueden crecer sin que ese avance produzca una mejora equivalente
-    de los beneficios si aumentan los costes, la remuneración variable o las pérdidas
-    de negociación.
-  review_trigger: Dejar de creerla cuando Nomura publique sus resultados anuales del
-    ejercicio fiscal 2027 si el margen antes de impuestos alcanza el 10% o más, o
-    si los ingresos crecen menos del 5%.
+  rationale: La tesis plantea que los ingresos recurrentes de estos negocios pueden
+    sostener crecimiento rentable. La información disponible identifica ambos segmentos,
+    pero no demuestra su crecimiento ni rentabilidad; por ello, la hipótesis requiere
+    comprobarse contra los resultados comparables del ejercicio fiscal 2026.
+  review_trigger: Abandonar la hipótesis si los resultados del ejercicio fiscal 2027,
+    publicados a más tardar el 2027-05-31, incumplen cualquiera de los dos umbrales
+    cuantitativos.
   secondary_hypotheses: []
-  statement: Nomura aumentará sus ingresos en el ejercicio fiscal terminado el 2027-03-31,
-    pero el crecimiento no se traducirá en una mejora proporcional de la rentabilidad
-    antes de impuestos.
+  statement: Los negocios de gestión patrimonial y gestión de inversiones de Nomura
+    aumentarán sus ingresos netos combinados en el ejercicio fiscal que termina el
+    2027-03-31, sin sacrificar la rentabilidad conjunta.
   status: ACTIVE
   ticker: NMR
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Nomura informa un ROE consolidado igual o superior al 8% para el ejercicio
-      fiscal 2027.
+  - condition: Las entradas netas acumuladas son nulas o negativas.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía informa un ROE inferior al 8% únicamente por un cargo extraordinario
-      identificado, mientras que el ROE excluyendo ese cargo alcanza o supera el 8%.
+  - condition: Las entradas netas positivas representan menos del 1% de los activos
+      gestionados al inicio del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los activos gestionados crecen, pero la información divulgada muestra
+      que el crecimiento se explica por rendimientos de mercado y no por entradas
+      netas.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Nomura informa un ROE consolidado igual o superior al 8% para el ejercicio fiscal
-    2027.
-  - La compañía informa un ROE inferior al 8% únicamente por un cargo extraordinario
-    identificado, mientras que el ROE excluyendo ese cargo alcanza o supera el 8%.
+  - Las entradas netas acumuladas son nulas o negativas.
+  - Las entradas netas positivas representan menos del 1% de los activos gestionados
+    al inicio del periodo.
+  - Los activos gestionados crecen, pero la información divulgada muestra que el crecimiento
+    se explica por rendimientos de mercado y no por entradas netas.
   horizon: medio
   id: H2-OPP-MB-NMR
   opportunity_id: OPP-MB-NMR
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-06-30'
-    expected: 8.0
+    deadline: '2027-05-31'
+    expected: 1.0
     met: null
-    metric: ROE consolidado del ejercicio fiscal 2027
-    prediction: El ROE consolidado del ejercicio fiscal terminado el 2027-03-31 será
-      inferior al 8%.
-    unit: '%; inferior al umbral'
-  priority: critical
+    metric: Entradas netas acumuladas como porcentaje de los activos gestionados al
+      inicio del periodo
+    prediction: Entre el 2026-04-01 y el 2027-03-31, las entradas netas acumuladas
+      de clientes en gestión patrimonial y gestión de inversiones serán positivas
+      y equivaldrán al menos al 1% de los activos gestionados al inicio del periodo.
+    unit: '%'
+  priority: important
   probability: 0.5
-  rationale: Si los ingresos aumentan pero los beneficios no avanzan en la misma proporción,
-    el rendimiento sobre el capital puede permanecer bajo. Esta hipótesis contrasta
-    directamente la capacidad de convertir la actividad del negocio en beneficios
-    atribuibles a los accionistas, sin tratar el flujo de caja operativo —que puede
-    ser muy volátil en una entidad financiera— como una medida aislada de solvencia.
-  review_trigger: Dejar de creerla cuando se publiquen los resultados anuales del
-    ejercicio fiscal 2027 si el ROE reportado y el ROE ajustado por partidas extraordinarias
-    son ambos iguales o superiores al 8%.
+  rationale: Las entradas netas de clientes ofrecerían evidencia observable de demanda
+    y de capacidad para generar ingresos recurrentes. El contexto disponible no informa
+    sobre penetración de mercado ni flujos netos, así que la hipótesis es condicional
+    a que Nomura divulgue datos comparables de entradas, salidas y activos gestionados.
+  review_trigger: Abandonar la hipótesis si la divulgación de resultados del ejercicio
+    fiscal 2027, prevista a más tardar el 2027-05-31, muestra flujos netos inferiores
+    al umbral o no permite distinguir flujos de rendimientos de mercado.
   secondary_hypotheses:
   - H1-OPP-MB-NMR
-  statement: La rentabilidad sobre el capital de Nomura seguirá por debajo de un nivel
-    que evidencie una conversión sólida del crecimiento en rendimiento para los accionistas.
+  statement: La gestión patrimonial y la gestión de inversiones captarán activos netos
+    de clientes durante el ejercicio fiscal 2027, en lugar de depender exclusivamente
+    de la revalorización de mercado para crecer.
   status: ACTIVE
   ticker: NMR
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de NMR desde el 2026-11-20 hasta el 2027-11-20
-      no queda al menos 10 puntos porcentuales por debajo de la rentabilidad total
-      del TOPIX.
+  - condition: El ROE consolidado del ejercicio fiscal 2027 es inferior al 8%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: NMR supera al TOPIX en rentabilidad total durante el periodo.
+  - condition: El dato no es comparable con el del ejercicio fiscal anterior por cambios
+      de definición no conciliados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El ROE alcanza el umbral únicamente por una reducción del patrimonio
+      que Nomura identifique como extraordinaria o no recurrente.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de NMR desde el 2026-11-20 hasta el 2027-11-20 no queda
-    al menos 10 puntos porcentuales por debajo de la rentabilidad total del TOPIX.
-  - NMR supera al TOPIX en rentabilidad total durante el periodo.
+  - El ROE consolidado del ejercicio fiscal 2027 es inferior al 8%.
+  - El dato no es comparable con el del ejercicio fiscal anterior por cambios de definición
+    no conciliados.
+  - El ROE alcanza el umbral únicamente por una reducción del patrimonio que Nomura
+    identifique como extraordinaria o no recurrente.
   horizon: medio
   id: H3-OPP-MB-NMR
   opportunity_id: OPP-MB-NMR
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: -10.0
+    deadline: '2027-05-31'
+    expected: 8.0
     met: null
-    metric: Rentabilidad total relativa de NMR frente al TOPIX a doce meses
-    prediction: Desde el cierre del 2026-11-20 hasta el 2027-11-20, la rentabilidad
-      total de NMR, incluidos dividendos, será al menos 10 puntos porcentuales inferior
-      a la del índice TOPIX en yenes.
-    unit: puntos porcentuales
-  priority: important
+    metric: ROE consolidado del ejercicio fiscal 2027
+    prediction: El ROE consolidado del ejercicio fiscal terminado el 2027-03-31 será
+      igual o superior al 8%, calculado con la definición que Nomura utilice en sus
+      resultados y aplicada de forma comparable.
+    unit: '%'
+  priority: critical
   probability: 0.5
-  rationale: La tesis identifica el riesgo de que la valoración incorpore expectativas
-    de que el crecimiento de ingresos se convertirá en rentabilidad sostenible. Una
-    decepción en ROE o en conversión a beneficios puede reducir la prima de valoración
-    y pesar sobre la rentabilidad de la acción frente al mercado. La comparación relativa
-    permite evaluar esta predicción sin depender de un precio objetivo absoluto.
-  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia entre la rentabilidad
-    total de NMR y la del TOPIX es superior a -10 puntos porcentuales.
+  rationale: La tesis depende de crecimiento rentable y reinversión disciplinada,
+    pero el contexto no aporta retornos sobre capital comparables. El ROE consolidado
+    permite comprobar si el beneficio generado remunera el patrimonio, aunque por
+    sí solo no identifica la contribución de cada segmento.
+  review_trigger: Abandonar la hipótesis cuando se publiquen los resultados del ejercicio
+    fiscal 2027, a más tardar el 2027-05-31, si el ROE comparable es inferior al 8%
+    o depende de un efecto extraordinario sobre el patrimonio.
   secondary_hypotheses:
   - H1-OPP-MB-NMR
-  - H2-OPP-MB-NMR
-  statement: Si la rentabilidad no alcanza niveles sólidos, el mercado penalizará
-    a Nomura frente al mercado japonés durante los próximos doce meses.
+  statement: Nomura sostendrá una rentabilidad sobre el patrimonio de al menos el
+    8% en el ejercicio fiscal 2027, señal de que el crecimiento de sus negocios se
+    traduce en rentabilidad para el capital.
+  status: ACTIVE
+  ticker: NMR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El aumento del P/B entre las dos fechas es inferior a 0,10 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El P/B disminuye respecto del nivel del 2026-11-21.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El aparente aumento resulta de un cambio no comparable en el cálculo
+      del valor contable por acción.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El aumento del P/B entre las dos fechas es inferior a 0,10 veces.
+  - El P/B disminuye respecto del nivel del 2026-11-21.
+  - El aparente aumento resulta de un cambio no comparable en el cálculo del valor
+    contable por acción.
+  horizon: medio
+  id: H4-OPP-MB-NMR
+  opportunity_id: OPP-MB-NMR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 0.1
+    met: null
+    metric: Variación del múltiplo precio/valor contable frente al 2026-11-21
+    prediction: Al cierre del 2027-11-21, el múltiplo precio/valor contable de Nomura
+      será al menos 0,10 veces superior al múltiplo calculado al cierre del 2026-11-21,
+      usando precio de cierre y valor contable por acción publicados y el mismo criterio
+      de cálculo.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: Si los ingresos recurrentes y la rentabilidad se sostienen, el mercado
+    podría asignar un mayor valor al patrimonio contable. Sin datos de valoración
+    de partida en el contexto, la hipótesis se expresa como un cambio verificable
+    respecto del P/B observado al cierre del 2026-11-21, no como un precio objetivo
+    absoluto.
+  review_trigger: Abandonar la hipótesis al cierre del 2027-11-21 si el P/B, calculado
+    de forma comparable, no supera en al menos 0,10 veces el nivel del 2026-11-21.
+  secondary_hypotheses:
+  - H1-OPP-MB-NMR
+  - H3-OPP-MB-NMR
+  statement: La valoración relativa de Nomura mejorará durante los próximos doce meses,
+    reflejando mayor confianza del mercado en la sostenibilidad de sus beneficios.
   status: ACTIVE
   ticker: NMR
   version: 1

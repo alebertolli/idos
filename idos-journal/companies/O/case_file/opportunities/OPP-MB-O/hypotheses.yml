@@ -1,189 +1,189 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La ocupación divulgada para el trimestre terminado el 2027-09-30 es
-      inferior al 98,0%.
+  - condition: La ocupación publicada para el cuarto trimestre de 2027 es inferior
+      al 98,0%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía deja de divulgar una métrica de ocupación comparable y
-      no ofrece datos suficientes para verificarla.
+  - condition: La ocupación cae por debajo del 97,0% en dos trimestres consecutivos
+      antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La ocupación divulgada para el trimestre terminado el 2027-09-30 es inferior al
-    98,0%.
-  - La compañía deja de divulgar una métrica de ocupación comparable y no ofrece datos
-    suficientes para verificarla.
+  - La ocupación publicada para el cuarto trimestre de 2027 es inferior al 98,0%.
+  - La ocupación cae por debajo del 97,0% en dos trimestres consecutivos antes de
+    la fecha objetivo.
   horizon: medio
   id: H1-OPP-MB-O
   opportunity_id: OPP-MB-O
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
+    deadline: '2028-02-29'
     expected: 98.0
     met: null
-    metric: Ocupación de cartera reportada por la compañía
-    prediction: En la divulgación de resultados correspondiente al trimestre terminado
-      el 2027-09-30, Realty Income informará una ocupación de cartera de al menos
-      98,0%, usando su propia definición publicada.
-    unit: '%'
+    metric: Ocupación de la cartera
+    prediction: En el informe correspondiente al cuarto trimestre de 2027, la ocupación
+      de la cartera será igual o superior al 98,0%, medida según la definición de
+      la compañía.
+    unit: porcentaje mínimo
   priority: important
   probability: 0.5
-  rationale: La cartera diversificada y los ingresos recurrentes por alquiler pueden
-    amortiguar problemas aislados en propiedades o inquilinos. Sin datos de ocupación
-    recientes en la evidencia disponible, esta es una hipótesis que debe validarse
-    con divulgaciones de la compañía, no una conclusión sobre su nivel actual.
-  review_trigger: Dejar de creerla cuando se publique la ocupación del trimestre terminado
-    el 2027-09-30 si es inferior al 98,0%, o en 2027-11-20 si para entonces no existe
-    una métrica comparable verificable.
+  rationale: La compañía posee una cartera de más de 15.500 propiedades en Estados
+    Unidos y Europa a 2026-06-30. La diversificación puede amortiguar vacantes individuales,
+    aunque el contexto disponible no aporta una tasa de ocupación reciente que confirme
+    esta hipótesis.
+  review_trigger: Dejar de creerla si la ocupación cae por debajo del 97,0% en dos
+    trimestres consecutivos, o si la compañía anuncia una reducción material de su
+    previsión de ocupación antes del 2028-02-29.
   secondary_hypotheses: []
-  statement: La ocupación de la cartera de Realty Income se mantendrá elevada durante
-    el próximo año, señal de que la demanda de los inquilinos seguirá sosteniendo
-    la operación de sus inmuebles.
+  statement: La cartera de Realty Income mantendrá una ocupación elevada durante el
+    próximo año, apoyada por la diversificación de inquilinos y la demanda de ubicaciones
+    comerciales.
   status: ACTIVE
   ticker: O
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El AFFO diluido por acción del ejercicio fiscal 2027 crece menos del
-      2,0% frente al ejercicio fiscal 2026.
+  - condition: La compañía informa crecimiento interanual de ingresos por alquiler
+      comparables inferior al 1,0% para 2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía no publica datos comparables para ambos ejercicios o cambia
-      la metodología sin ofrecer una conciliación suficiente.
+  - condition: La métrica comparable es negativa durante dos trimestres consecutivos
+      de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El AFFO diluido por acción del ejercicio fiscal 2027 crece menos del 2,0% frente
-    al ejercicio fiscal 2026.
-  - La compañía no publica datos comparables para ambos ejercicios o cambia la metodología
-    sin ofrecer una conciliación suficiente.
+  - La compañía informa crecimiento interanual de ingresos por alquiler comparables
+    inferior al 1,0% para 2027.
+  - La métrica comparable es negativa durante dos trimestres consecutivos de 2027.
   horizon: medio
   id: H2-OPP-MB-O
   opportunity_id: OPP-MB-O
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 2.0
+    deadline: '2028-02-29'
+    expected: 1.0
     met: null
-    metric: Crecimiento del AFFO diluido por acción frente al ejercicio fiscal 2026
-    prediction: El AFFO diluido por acción del ejercicio fiscal 2027, calculado con
-      la definición y metodología que la compañía publique, será al menos un 2,0%
-      superior al AFFO diluido por acción del ejercicio fiscal 2026.
-    unit: '%'
-  priority: critical
+    metric: Crecimiento interanual de ingresos por alquiler de propiedades comparables
+      en 2027
+    prediction: Para el ejercicio 2027, el crecimiento de los ingresos por alquiler
+      de propiedades comparables será de al menos el 1,0% interanual, según la métrica
+      comparable que publique la compañía.
+    unit: porcentaje mínimo
+  priority: important
   probability: 0.5
-  rationale: La recurrencia de los alquileres y las adquisiciones pueden contribuir
-    al crecimiento del AFFO por acción, pero su efecto depende de los rendimientos
-    de inversión, los costes de financiación y la dilución. La evidencia disponible
-    no permite establecer que las adquisiciones creen valor ni usar las cifras incompatibles
-    de FCF para estimar la capacidad de reinversión.
-  review_trigger: Dejar de creerla al publicarse los resultados del ejercicio fiscal
-    2027 si el crecimiento comparable es inferior al 2,0%; si no se publican antes,
-    dejar de creerla el 2028-03-31 por falta de verificación.
-  secondary_hypotheses: []
-  statement: El AFFO diluido por acción de Realty Income crecerá en el ejercicio fiscal
-    2027 frente al ejercicio fiscal 2026.
+  rationale: El modelo de propietario inmobiliario y la expansión de la cartera pueden
+    generar ingresos recurrentes. Sin datos verificables en el contexto sobre aumentos
+    contractuales, renovaciones o rentas comparables, la hipótesis supone crecimiento
+    modesto y queda sujeta a confirmación por los resultados publicados.
+  review_trigger: Dejar de creerla si la métrica de ingresos por alquiler comparables
+    resulta negativa durante dos trimestres consecutivos de 2027 o si la compañía
+    retira su metodología comparable sin ofrecer una serie alternativa verificable.
+  secondary_hypotheses:
+  - H1-OPP-MB-O
+  statement: El crecimiento de las rentas de propiedades comparables será positivo
+    y moderado, contribuyendo al crecimiento orgánico de los ingresos.
   status: ACTIVE
   ticker: O
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El dividendo mensual anualizado por acción vigente el 2027-11-20 es
-      inferior a 1,01 veces el vigente el 2026-11-20.
+  - condition: La proporción de pago del dividendo ordinario sobre AFFO por acción
+      supera el 85% para 2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía recorta o suspende el dividendo antes de la fecha objetivo.
+  - condition: La compañía reduce el dividendo ordinario por acción antes de la fecha
+      objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El dividendo mensual anualizado por acción vigente el 2027-11-20 es inferior a
-    1,01 veces el vigente el 2026-11-20.
-  - La compañía recorta o suspende el dividendo antes de la fecha objetivo.
+  - La proporción de pago del dividendo ordinario sobre AFFO por acción supera el
+    85% para 2027.
+  - La compañía reduce el dividendo ordinario por acción antes de la fecha objetivo.
   horizon: medio
   id: H3-OPP-MB-O
   opportunity_id: OPP-MB-O
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 1.0
+    deadline: '2028-02-29'
+    expected: 85.0
     met: null
-    metric: Aumento del dividendo mensual anualizado por acción
-    prediction: El dividendo mensual anualizado por acción vigente el 2027-11-20 será
-      al menos un 1,0% superior al vigente el 2026-11-20. Se calculará como el importe
-      mensual declarado multiplicado por 12.
-    unit: '%'
-  priority: important
+    metric: Dividendo ordinario por acción / AFFO por acción en 2027
+    prediction: En el ejercicio 2027, el dividendo ordinario declarado por acción
+      dividido por AFFO por acción será igual o inferior al 85%, usando las cifras
+      anuales divulgadas por la compañía.
+    unit: porcentaje máximo
+  priority: critical
   probability: 0.5
-  rationale: La compañía declara una misión centrada en dividendos mensuales que aumentan
-    con el tiempo, lo que respalda la hipótesis de continuidad de incrementos. Esa
-    declaración no garantiza futuros aumentos ni demuestra que sean sostenibles; la
-    capacidad para hacerlo debe comprobarse con los anuncios de dividendos y las métricas
-    de cobertura.
-  review_trigger: Dejar de creerla ante un anuncio de recorte o suspensión; en ausencia
-    de ese evento, dejar de creerla el 2027-11-20 si el aumento acumulado es inferior
-    al 1,0%.
+  rationale: La política de dividendos mensuales crecientes hace que la cobertura
+    sea central para evaluar su sostenibilidad. El contexto no cuantifica AFFO, dividendo
+    por acción ni proporción de pago; por tanto, esta hipótesis plantea un umbral
+    comprobable, no una afirmación sobre la cobertura actual.
+  review_trigger: Dejar de creerla si la proporción de pago supera el 85% en cualquier
+    periodo anualizado durante dos trimestres consecutivos, si la compañía reduce
+    el dividendo ordinario, o si deja de divulgar AFFO por acción sin una métrica
+    reconciliable.
   secondary_hypotheses:
   - H2-OPP-MB-O
-  statement: Realty Income aumentará su dividendo mensual anualizado por acción durante
-    los próximos doce meses.
+  statement: El dividendo ordinario seguirá cubierto por los fondos ajustados de operaciones
+    por acción (AFFO por acción), sin que la proporción de pago anual supere el 85%.
   status: ACTIVE
   ticker: O
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de O menos la rentabilidad total de VNQ en el
-      periodo es inferior a 1,0 punto porcentual.
+  - condition: El rendimiento total de O menos el rendimiento total del FTSE Nareit
+      All Equity REITs Index es inferior a 3 puntos porcentuales en el periodo definido.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No se dispone de precios ajustados o datos de dividendos suficientes
-      para calcular de forma comparable la rentabilidad total de ambos instrumentos.
+  - condition: El rendimiento total de O es negativo en el periodo definido.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de O menos la rentabilidad total de VNQ en el periodo es
-    inferior a 1,0 punto porcentual.
-  - No se dispone de precios ajustados o datos de dividendos suficientes para calcular
-    de forma comparable la rentabilidad total de ambos instrumentos.
+  - El rendimiento total de O menos el rendimiento total del FTSE Nareit All Equity
+    REITs Index es inferior a 3 puntos porcentuales en el periodo definido.
+  - El rendimiento total de O es negativo en el periodo definido.
   horizon: medio
   id: H4-OPP-MB-O
   opportunity_id: OPP-MB-O
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 1.0
+    deadline: '2027-11-21'
+    expected: 3.0
     met: null
-    metric: Rentabilidad total de O menos rentabilidad total de VNQ
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
-      total de O, con dividendos reinvertidos, superará en al menos 1,0 punto porcentual
-      la rentabilidad total de VNQ, usando precios ajustados y la misma convención
-      de reinversión.
-    unit: puntos porcentuales
+    metric: Rendimiento total de O menos rendimiento total del FTSE Nareit All Equity
+      REITs Index
+    prediction: Entre el cierre del 2026-11-21 y el cierre del 2027-11-21, el rendimiento
+      total de O, incluidos dividendos reinvertidos, superará en al menos 3 puntos
+      porcentuales el rendimiento total del FTSE Nareit All Equity REITs Index.
+    unit: puntos porcentuales mínimos
   priority: informational
   probability: 0.5
-  rationale: Una cartera diversificada y rentas recurrentes podrían contribuir a la
-    rentabilidad total, incluidos los dividendos. Sin embargo, la evidencia disponible
-    no acredita infravaloración, una ventaja competitiva ni supuestos que permitan
-    anticipar una rentabilidad superior; por ello, esta hipótesis es una prueba relativa
-    de mercado, no una conclusión de valoración.
-  review_trigger: Dejar de creerla al cierre del 2027-11-20 si O no supera a VNQ por
-    al menos 1,0 punto porcentual, o antes si un evento corporativo impide una comparación
-    válida.
-  secondary_hypotheses: []
-  statement: La rentabilidad total de la acción de Realty Income superará la del ETF
-    Vanguard Real Estate (VNQ) durante los doce meses posteriores a la fecha de corte.
+  rationale: Una cartera amplia de propiedades y el dividendo mensual pueden atraer
+    inversores que buscan ingresos, pero el contexto no permite determinar si la valoración
+    actual compensa el apalancamiento, el coste de capital o los riesgos de crecimiento.
+    La hipótesis es una prueba de desempeño relativo, no una conclusión de infravaloración.
+  review_trigger: Dejar de creerla si, al cierre del 2027-05-21, O acumula un rendimiento
+    total al menos 5 puntos porcentuales inferior al índice desde el cierre del 2026-11-21;
+    en todo caso, evaluar definitivamente la hipótesis el 2027-11-21.
+  secondary_hypotheses:
+  - H1-OPP-MB-O
+  - H2-OPP-MB-O
+  - H3-OPP-MB-O
+  statement: La acción de Realty Income obtendrá un rendimiento total superior al
+    de un índice amplio de REIT cotizados durante los doce meses posteriores al corte.
   status: ACTIVE
   ticker: O
   version: 1

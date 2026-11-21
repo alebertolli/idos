@@ -1,0 +1,31 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No se valida un error de valoración; el consenso es una referencia
+  observada, no una estimación intrínseca independiente.'
+- 'Thesis: Realty Income se describe como proveedor de capital inmobiliario y propietario
+  de más de 15,500 propiedades en Estados Unidos y Europa a 2026-06-30, con una misión
+  de dividendos mensuales crecientes. '
+generated_at: '2026-11-21T17:22:31.877947-03:00'
+id: ass-0000cc51
+recommendation: REVIEW
+risks:
+- analisis: La fuente reporta deuda total de 32,110.0 y net cash de -31,707.0 al 2026-09-30,
+    pero las unidades de esos campos no son comparables con EBITDA en la evidencia
+    disponible.
+  riesgo: Apalancamiento y financiación
+- analisis: El FCF TTM aparece como -3.16 mil millones en estadísticas, mientras que
+    la historia financiera reporta FCF TTM de 4,149.0; la diferencia impide usarlo
+    sin reconciliación.
+  riesgo: Calidad y comparabilidad de FCF
+- analisis: No hay una serie suficiente de acciones para calcular dilución ni una
+    serie completa de ingresos para el CAGR de tres años solicitado.
+  riesgo: Evaluación incompleta de retornos y dilución
+- analisis: El paquete no aporta datos de vacancia, concentración de inquilinos, vencimientos
+    de contratos, rentas comparables ni costes de financiación para evaluar erosión
+    o resiliencia.
+  riesgo: Erosión competitiva y exposición inmobiliaria
+score: 43
+status: COMPLETED
+version: '3.0'
