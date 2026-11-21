@@ -1,0 +1,27 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: alto potencial'
+- 'Market error: Existe una brecha entre el precio de mercado y el consenso medio
+  que sugiere una valoración ligeramente alta.'
+- 'Thesis: DocuSign muestra un fuerte crecimiento de ingresos y márgenes, pero su
+  alta volatilidad y cobertura de intereses nula generan incertidumbre; los escenarios
+  de valoración dependen de la capacidad de es'
+generated_at: '2026-11-21T15:29:54.400924-03:00'
+id: ass-b9cf12da
+recommendation: REVIEW
+risks:
+- descripcion: Interest coverage ratio es 0, muy por debajo del umbral de 2.0.
+  tipo: cobertura_intereses
+- descripcion: No se dispone de datos de acciones diluidas históricas para evaluar
+    la dilución YoY.
+  tipo: dilución
+- descripcion: Riesgo de pérdida de cuota de mercado frente a competidores emergentes
+    de firma electrónica.
+  tipo: competencia
+- descripcion: Entorno económico incierto que podría afectar el gasto empresarial
+    en soluciones SaaS.
+  tipo: macro
+score: 68
+status: COMPLETED
+version: '3.0'
