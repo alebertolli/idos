@@ -1,78 +1,59 @@
 calidad_evidencia:
-  hechos_verificados: []
-  inferencias_llm:
-  - El crecimiento histórico de ingresos indica expansión nominal, pero no establece
-    crecimiento orgánico, crecimiento real ni creación de valor.
-  - La cotización observada por encima del objetivo medio observado no demuestra por
-    sí sola una infravaloración o sobrevaloración.
-  - 'Ingresos reportados: 114542 en FY 2022 y 138947 en FY 2025; fuente: StockAnalysis,
-    estados financieros, períodos FY 2022 y FY 2025.'
-  - 'Beneficio neto reportado: 29207 en FY 2022 y 44857 en FY 2025; fuente: StockAnalysis,
-    estados financieros, períodos FY 2022 y FY 2025.'
-  - 'Cotización de USD 9,435 observada el 2026-10-23; fuente: Yahoo Finance.'
-  - 'Consenso de objetivos: media USD 8,69, mínimo USD 6,10 y máximo USD 10,20; fuentes:
-    StockAnalysis y Yahoo Finance, observación 2026-11-20.'
-  preguntas_abiertas:
-  - ¿Qué moneda y escala utilizan los valores históricos financieros reportados y
-    cómo se concilian con las métricas estadísticas en otra unidad?
-  - ¿Cuáles son los retornos sobre capital, la calidad de activos, la evolución del
-    coste de riesgo y las métricas de capital regulatorio?
-  - ¿Qué horizonte y metodología respaldan los objetivos de analistas y cómo se explica
-    su rango?
-  - ¿Qué evidencia cuantifica mercado direccionable, penetración, ventajas competitivas
-    y asignación de capital?
-catalizadores_previos: &id001 []
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T15:56:28.836394-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-ITUB
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T15:56:28.836394-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-ITUB
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia fundamental incompleta
-  justificacion: El paquete aporta señales de mercado y algunas series financieras,
-    pero no permite validar varios ratios requeridos ni fundamentar supuestos operativos
-    suficientes para escenarios de negocio.
+  categoria: Multibagger
+  justificacion: El perfil de descubrimiento indica potencial de alta rentabilidad
+    según métricas de momentum y drawdown.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe productos y segmentos bancarios, pero no ofrece evidencia
-    suficiente sobre moat, eficiencia, retornos sobre capital, reinversión o desempeño
-    frente a competidores. El flujo de caja libre reportado no se interpreta como
-    medida concluyente de calidad para un banco.
-  rating: No concluyente
+  analisis: Datos limitados impiden una evaluación completa de la calidad del negocio.
+  rating: N/A
 dominio_catalizadores:
-- catalizador: Los ingresos reportados pasan de 114542 en FY 2022 a 138947 en FY 2025.
-  hito: Contrastar el crecimiento histórico con resultados posteriores y con métricas
-    de rentabilidad y calidad de activos, no incluidas en este paquete.
-- catalizador: El consenso de objetivos de analistas observado el 2026-11-20 presenta
-    un rango de USD 6,10 a USD 10,20.
-  hito: Una actualización verificable del consenso podría cambiar la referencia de
-    mercado; el paquete no proporciona su metodología ni horizonte.
+- catalizador: Mejora en la calidad crediticia de la cartera
+  impacto: Positivo
+- catalizador: Expansión de servicios digitales y bancarios
+  impacto: Positivo
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- implicacion: 'La interpretación requiere cautela: el paquete no establece si la
-    métrica es comparable o informativa para un banco.'
-  riesgo: La generación de flujo de caja libre reportada es negativa en FY 2023, FY
-    2024, FY 2025 y TTM a 2026-09-30.
-- implicacion: No se puede validar apalancamiento neto sobre EBITDA con los campos
-    disponibles.
-  riesgo: El endeudamiento y el efectivo se presentan en valores reportados sin aclarar
-    moneda ni unidades comparables con EBITDA.
-- implicacion: Quedan sin verificar factores centrales para evaluar la calidad y sostenibilidad
-    del negocio.
-  riesgo: No se aportan datos de cuota, penetración, coste de financiación, calidad
-    crediticia, retornos sobre capital ni evolución de ventajas competitivas.
+- impacto: Alto
+  riesgo: Liquidez negativa por flujo de caja libre negativo
+- impacto: Alto
+  riesgo: Cobertura de intereses insuficiente
 error_mercado:
-  catalizador_cambio: No se aportaron fechas de resultados, previsiones de analistas
-    ni eventos corporativos que permitan identificar un catalizador verificable.
-  conclusion_error_valoracion: No se valida un error de valoración con la evidencia
-    suministrada.
-  consenso_actual: La cotización observada fue USD 9,435 el 2026-10-23; el consenso
-    de precio objetivo observado el 2026-11-20 fue USD 8,69, con rango de USD 6,10
-    a USD 10,20.
-  hipotesis_contraria: La evidencia disponible no permite establecer si el mercado
-    subestima el crecimiento, la rentabilidad o la resiliencia de Itaú.
-  razonamiento: El precio observado supera el objetivo medio observado, pero el paquete
-    no incluye supuestos de valoración ni previsiones operativas que expliquen esa
-    diferencia.
-generated_at: '2026-11-20T15:56:28.836394-03:00'
+  catalizador_cambio: Revaluación de riesgos crediticios en Brasil o mejora inesperada
+    de ingresos.
+  conclusion_error_valoracion: El mercado podría estar subestimando riesgos operacionales
+    y de liquidez.
+  consenso_actual:
+    currency: USD
+    high: 10.2
+    low: 6.1
+    mean: 8.69
+  hipotesis_contraria: El precio actual (9.44 USD) supera el promedio de consenso,
+    sugiriendo sobrevaloración del mercado.
+  razonamiento: La diferencia entre precio y consenso medio refleja una posible discrepancia
+    en la percepción de riesgos.
+generated_at: '2026-11-21T16:20:25.407234-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-ITUB
@@ -99,7 +80,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Itaú Unibanco Holding S.A.
   operating_margin: 36.56
-  pe_ratio: 9.18
+  pe_ratio: 9.05
   products: ''
   revenue: 28400000000.0
   revenue_growth: 8.67
@@ -110,76 +91,61 @@ ratios_investigados:
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
-  period_end: '2025-12-31'
-  sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/itub/financials/
-  status: unavailable
-  unit: percent
-  value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
-  inputs:
-    fcf_history:
-      FY_2022: 105840
-      FY_2023: -6043
-      FY_2024: -97578
-      FY_2025: -26451
-      TTM_2026-09-30: -49626
-  limitations: No hay dos períodos consecutivos comparables con FCF positivo en ambos,
-    como exige la definición; la unidad monetaria tampoco está especificada.
-  metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/itub/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: FCF / net_income * 100
+- formula: (FCF_t / FCF_t-1) - 1
   inputs:
-    fcf_history:
-      TTM_2026-09-30: -49626
-    net_income_history:
-      TTM_2026-09-30: 47749
-  limitations: No se puede validar que los valores TTM de FCF y beneficio neto compartan
-    moneda y escala; el FCF de la página estadística también se reporta con otro valor.
+    FCF_t: null
+    FCF_t-1: null
+  limitations: Solo se dispone del crecimiento de FY 2022; falta periodo previo para
+    cálculo.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/itub/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ITUB/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
+- formula: (Total_Debt - Cash_and_Investments) / EBITDA
   inputs:
-    cash_and_investments_history:
-      Current_2026-09-30: 602051
-    ebitda: n/a
-    total_debt_history:
-      Current_2026-09-30: 1172953
-  limitations: EBITDA está reportado como n/a; por tanto falta el denominador requerido.
-    No se especifica la moneda ni escala de deuda y efectivo.
+    Cash_and_Investments: 602051
+    EBITDA: null
+    Total_Debt: 1172953
+  limitations: EBITDA no reportado (n/a) en la fuente.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/itub/financials/
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ITUB/statistics/
   status: unavailable
   unit: x
   value: null
-- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+- formula: (Diluted_Shares_t / Diluted_Shares_t-1) - 1
   inputs:
-    shares_outstanding: 11020000000
-  limitations: Falta una serie histórica comparable de acciones diluidas o en circulación
-    para el período anterior; un único dato no permite calcular dilución interanual.
+    Diluted_Shares_t: null
+    Diluted_Shares_t-1: null
+  limitations: Histórico de acciones diluidas no proporcionado.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
-  sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/ITUB/statistics/
+  sources: []
   status: unavailable
   unit: percent
   value: null
@@ -214,7 +180,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'Itaú Unibanco Holding S.A. provides various financial products
     and services to personal and corporate customers in Brazil and internationally.
     It operates through three segments: Retail Business, Wholesale Business and Activities
@@ -239,7 +205,321 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.049
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Itaú Unibanco Holding S.A. (ITUB) es un banco universal brasileño que ofrece productos
+    y servicios financieros a clientes personales y corporativos en Brasil y otros
+    mercados. Su actividad combina intermediación financiera, servicios bancarios
+    y de pagos, comisiones y gestión de activos. La información disponible identifica
+    productos como cuentas corrientes, pagos y cobros, préstamos y financiación, incluidos
+    créditos inmobiliarios.
+
+
+    La evidencia aportada describe una posición destacada en Brasil y posibles ventajas
+    de escala y distribución, pero no incluye datos suficientes para cuantificar su
+    presencia por mercado o evaluar su desempeño frente a competidores como [[BSBR]],
+    [[IBN]], [[C]] y [[HSBC]]. También comparte exposición a riesgos bancarios y macroeconómicos
+    con entidades como [[ING]].
+
+
+    **Clasificación actual:** investigación requerida; la evidencia fundamental disponible
+    es incompleta. La recomendación del proceso AOIF quedó como **PENDIENTE_DECISION_BOARD**.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Fuentes de ingresos y cadena de valor
+
+
+    El modelo descrito consiste en captar depósitos y otras fuentes de financiación,
+    evaluar y originar créditos e inversiones, y distribuir productos por canales
+    digitales y físicos. Los ingresos proceden principalmente de:
+
+
+    - Intermediación financiera.
+
+    - Servicios bancarios y de pagos.
+
+    - Comisiones.
+
+    - Gestión de activos.
+
+
+    El paquete no desglosa la contribución de cada fuente de ingresos ni ofrece resultados
+    por segmento o geografía.
+
+
+    ### Posición competitiva y moat
+
+
+    El análisis AOIF caracteriza a Itaú como líder y atribuye posibles ventajas a
+    la escala, la marca, la base de clientes, la distribución, los datos y la diversificación
+    de productos. Estas ventajas son hipótesis cualitativas: la evidencia proporcionada
+    no cuantifica su persistencia, rentabilidad ni superioridad frente a competidores
+    como [[BSBR]] e [[IBN]].
+
+
+    La banca brasileña combina regulación y relevancia de la escala y la distribución
+    con competencia de bancos establecidos y fintechs. Las tasas de interés, el ciclo
+    crediticio y la innovación tecnológica pueden alterar la dinámica competitiva.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes se reproducen tal como aparecen en los inputs. No se especifican
+    de forma suficiente la moneda, la escala, la metodología o la fuente de varias
+    métricas; por tanto, no deben tratarse como indicadores plenamente comparables
+    o validados.
+
+
+    | Métrica | Dato reportado | Periodo o referencia | Observación |
+
+    |---|---:|---|---|
+
+    | Ingresos | 114542 | FY 2022 | Moneda y escala no especificadas |
+
+    | Ingresos | 138947 | FY 2025 | Moneda y escala no especificadas |
+
+    | Crecimiento de ingresos | 8,67 % | Periodo no indicado | Dato AOIF; metodología
+    y fuente no especificadas |
+
+    | Margen operativo | 36,56 % | Periodo no indicado | Dato AOIF; metodología y
+    fuente no especificadas |
+
+    | ROIC | 19,98 % | Periodo no indicado | Dato AOIF; no validado; su interpretación
+    para un banco requiere cautela |
+
+    | PER | 9,18 | Fecha no indicada | Dato AOIF; fuente y referencia de precio no
+    especificadas |
+
+    | Flujo de caja libre (FCF) | 105840 | FY 2022 | Unidad monetaria no especificada
+    |
+
+    | FCF | -6043 | FY 2023 | Unidad monetaria no especificada |
+
+    | FCF | -97578 | FY 2024 | Unidad monetaria no especificada |
+
+    | FCF | -26451 | FY 2025 | Unidad monetaria no especificada |
+
+    | FCF | -49626 | TTM terminado el 2026-09-30 | Unidad monetaria no especificada
+    |
+
+    | Cotización observada | USD 9,435 | 2026-10-23 | Observación de mercado incluida
+    en DDD |
+
+    | Objetivo medio de analistas | USD 8,69 | 2026-11-20 | Rango observado: USD 6,10–10,20;
+    metodología y horizonte no informados |
+
+
+    El aumento de ingresos reportados entre FY 2022 y FY 2025 no establece por sí
+    solo crecimiento orgánico, crecimiento real ni creación de valor. La moneda y
+    la escala de la serie tampoco están aclaradas.
+
+
+    El FCF convencional no es necesariamente una medida informativa para un banco:
+    depósitos, préstamos y otros activos y pasivos financieros forman parte de su
+    operación. La cifra negativa en varios periodos se registra como observación,
+    pero no se interpreta aquí como deterioro económico sin una metodología bancaria
+    apropiada. El crecimiento del FCF se clasificó como no disponible porque no hay
+    dos periodos consecutivos comparables con FCF positivo en ambos.
+
+
+    No se aportaron datos suficientes para evaluar la estructura de capital o validar
+    ratios de apalancamiento, capital regulatorio, calidad de activos, coste de riesgo
+    o rentabilidad bancaria. El campo de *current ratio* reportado como 0 para TTM
+    al 2026-09-30 no se considera interpretable para un banco con la evidencia disponible.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF asigna calificaciones cualitativas de calidad «regular», alineamiento de
+    insiders «moderado» y asignación de capital «neutral». No se proporcionan datos
+    actuales sobre el equipo directivo, remuneración, propiedad de insiders, decisiones
+    de asignación de capital o cumplimiento de objetivos que permitan verificar esas
+    valoraciones.
+
+
+    Tampoco se aportan datos sobre composición, independencia, competencias o funcionamiento
+    del consejo de administración. Las calificaciones de management deben considerarse
+    preliminares y no concluyentes.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista — hipótesis por verificar
+
+
+    - Itaú opera como banco universal con una oferta diversificada de productos y
+    clientes, lo que podría sostener varias fuentes de ingresos.
+
+    - La escala, la marca, la distribución y las relaciones con clientes podrían constituir
+    ventajas competitivas. El análisis AOIF describe a la entidad como líder en Brasil,
+    aunque no aporta evidencia cuantitativa para validar esa posición o su persistencia.
+
+    - Los ingresos reportados aumentaron de 114542 en FY 2022 a 138947 en FY 2025.
+    Esta serie puede justificar seguimiento, pero no permite concluir que haya habido
+    crecimiento real u orgánico, ni que ese crecimiento se haya traducido en mayor
+    rentabilidad.
+
+    - Los datos de ROIC, margen operativo y crecimiento de ingresos incluidos por
+    AOIF podrían ser relevantes si se verifican con periodos, definiciones, unidades
+    y fuentes comparables.
+
+
+    La evidencia disponible no valida una infravaloración ni establece que el mercado
+    subestime el crecimiento, la rentabilidad o la resiliencia de Itaú.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos principales
+
+
+    | Riesgo | Evaluación del input | Posible implicación |
+
+    |---|---|---|
+
+    | Deterioro crediticio | Impacto alto; probabilidad media | Mayor morosidad, provisiones
+    y pérdidas en carteras de préstamos |
+
+    | Cambios macroeconómicos | Impacto alto; probabilidad alta | Variaciones de tasas,
+    actividad, empleo o tipo de cambio podrían afectar demanda de crédito y márgenes
+    |
+
+    | Competencia | Riesgo cualitativo | Bancos establecidos y fintechs pueden presionar
+    distribución, precios y relaciones con clientes |
+
+    | Incertidumbre sobre métricas financieras | Evidencia incompleta | Dificulta
+    valorar la rentabilidad, el riesgo y la creación de valor |
+
+    | Interpretación del FCF | FCF reportado negativo en varios periodos | No permite
+    una conclusión directa para un banco sin una métrica apropiada y comparable |
+
+    | Capital y apalancamiento | Datos insuficientes | No se pueden verificar ratios
+    regulatorios ni apalancamiento con los campos disponibles |
+
+
+    ### Contra-tesis y falsadores
+
+
+    - Una serie comparable y documentada que muestre deterioro sostenido de ingresos
+    o beneficio debilitaría la lectura favorable de la tendencia histórica.
+
+    - Evidencia verificable de deterioro de calidad crediticia, rentabilidad o capital
+    debilitaría cualquier tesis positiva sobre la resiliencia del negocio.
+
+    - Si las ventajas de escala, marca y distribución no se reflejan en resultados
+    sostenibles frente a competidores, la hipótesis de moat perdería sustento.
+
+    - El precio observado por encima del objetivo medio de analistas no demuestra
+    por sí mismo infravaloración ni sobrevaloración. No hay suficiente información
+    para validar un error de valoración.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Fecha o hito | Evento observado o pendiente | Impacto potencial |
+
+    |---|---|---|
+
+    | 2026-11-20 | Consenso observado de objetivos de analistas: media USD 8,69; rango
+    USD 6,10–10,20 | Una actualización verificable podría modificar la referencia
+    de mercado. No se conoce la metodología ni el horizonte del consenso. |
+
+    | Próxima actualización financiera; fecha no aportada | Contrastar ingresos posteriores
+    a FY 2025 con rentabilidad, calidad de activos y coste de riesgo | Permitiría
+    comprobar si el crecimiento reportado se acompaña de resultados y calidad crediticia
+    adecuados. |
+
+    | Fechas de resultados y eventos corporativos no aportadas | No se identificaron
+    catalizadores fechados verificables | No es posible anticipar un evento concreto
+    ni estimar su impacto. |
+
+
+    El paquete no incluye fechas de resultados, previsiones de analistas ni eventos
+    corporativos que permitan construir un calendario de catalizadores más preciso.
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración intrínseca no puede determinarse con la información disponible.
+    AOIF señala que el PER reportado es 9,18, pero no aporta fecha, fuente o precio
+    de referencia verificables. Tampoco ofrece beneficios normalizados, previsiones,
+    coste de capital ni supuestos de crecimiento. Por tanto, la estimación de margen
+    de seguridad es **insuficiente**.
+
+
+    Para un banco, la evaluación debería priorizar métricas compatibles con el modelo
+    financiero de la entidad, respaldadas por periodos y metodologías comparables.
+    Antes de formular escenarios sería necesario verificar, entre otros, la rentabilidad
+    sobre capital, la calidad de activos, el coste del riesgo y el capital regulatorio.
+
+
+    La cotización observada fue USD 9,435 el 2026-10-23, frente a un objetivo medio
+    observado de USD 8,69 el 2026-11-20. La diferencia no es una valoración independiente:
+    sin supuestos operativos ni metodología del consenso, no permite concluir que
+    ITUB esté cara o barata. No se dispone de base para un análisis de sensibilidad
+    cuantitativo.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿En qué moneda y escala están expresados los ingresos, el FCF, el endeudamiento
+    y el efectivo reportados? ¿Cómo se concilian con las métricas presentadas en otras
+    unidades?
+
+    2. ¿Cuál es la fuente, el periodo y la metodología del crecimiento de ingresos,
+    el margen operativo, el ROIC y el PER incluidos por AOIF?
+
+    3. ¿Cómo evolucionan la rentabilidad sobre capital, la calidad de activos, la
+    morosidad, las provisiones, las pérdidas crediticias y el coste del riesgo?
+
+    4. ¿Cuáles son los ratios actuales de capital regulatorio y cómo han cambiado
+    por periodo?
+
+    5. ¿Qué proporción de los ingresos proviene de intermediación, servicios, comisiones
+    y gestión de activos? ¿Cómo varían por segmento y geografía?
+
+    6. ¿Qué evidencia cuantitativa respalda la posición competitiva y las posibles
+    ventajas de escala, marca, distribución y datos frente a [[BSBR]], [[IBN]], [[C]]
+    y [[HSBC]]?
+
+    7. ¿Quién integra actualmente el equipo directivo y el consejo? ¿Cuáles son las
+    políticas de remuneración, la propiedad de insiders y el historial de asignación
+    de capital?
+
+    8. ¿Cuál es el horizonte y la metodología del consenso de analistas observado
+    el 2026-11-20?
+
+    9. ¿Qué métrica de flujo de caja o rentabilidad es apropiada para seguir la generación
+    económica de valor de un banco en lugar del FCF convencional?
+
+    10. ¿Qué resultados posteriores a FY 2025 permitirían verificar o falsar la tendencia
+    reportada de ingresos y las hipótesis sobre rentabilidad y resiliencia?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]],
+    [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone
+    Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]],
+    [[ING|ING Groep N.V.]]
+
+    - **Same Industry**: [[BSBR|Banco Santander (Brasil) S.A.]], [[IBN|ICICI Bank
+    Limited]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -272,7 +552,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T18:56:02.209754+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T19:20:10.899415+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -417,12 +697,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    10.2, "low": 6.1, "mean": 8.69, "median": 8.69, "observed_at": "2026-11-20T15:56:05.640894-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T15:56:05.640894-03:00", "observed_date": "2026-11-20", "target_price":
+    10.2, "low": 6.1, "mean": 8.69, "median": 8.69, "observed_at": "2026-11-21T16:20:13.964349-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T16:20:13.964349-03:00", "observed_date": "2026-11-21", "target_price":
     8.69, "url": "https://stockanalysis.com/stocks/itub/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T15:56:05.640894-03:00",
-    "observed_date": "2026-11-20", "target_price": 8.6875, "url": "https://finance.yahoo.com/quote/ITUB/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T16:20:13.964349-03:00",
+    "observed_date": "2026-11-21", "target_price": 8.6875, "url": "https://finance.yahoo.com/quote/ITUB/"}]},
     "current_quote": {"as_of_date": "2026-10-23", "currency": "USD", "price": 9.4350004196167,
     "sources": [{"as_of_date": "2026-10-23", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ITUB/"}]}}'
   sector: Financial Services
@@ -432,49 +712,92 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: f88a32000a1427fd4b974d2c7aaf0318bc1360d5c7f0955c4c14b290a6910b2a
+    sha256: 60dd500b01a6f304caf76e2d20db9ec8590ccc1e16546b60d61e861d5bd304c0
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T15:56:28.836394-03:00'
+  triggered_at: '2026-11-21T16:20:25.407234-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_note: Umbral incluido como observación; no constituye decisión de inversión.
-  metric: current_ratio
-  observation: El campo reportado es 0 para TTM terminado el 2026-09-30; no se valida
-    como ratio interpretable para un banco con la evidencia disponible.
-  threshold: below 0.5
-- assessment_note: No puede evaluarse frente al umbral.
-  metric: dilution_yoy_pct
-  observation: 'No calculable: falta una serie histórica comparable de acciones.'
-  threshold: above 10 percent
-- assessment_note: No se valida cobertura de intereses; no se sustituye EBIT por EBITDA.
-  metric: interest_coverage
-  observation: El campo reportado es 0 para TTM terminado el 2026-09-30; EBIT figura
-    como n/a.
-  threshold: below 2.0x
-- assessment_note: El FCF negativo reportado no basta para calcular runway.
-  metric: negative_fcf_runway_months
-  observation: 'No calculable: faltan una serie mensual de FCF comparable y datos
-    compatibles de efectivo.'
-  threshold: below 12 months
-- assessment_note: No puede evaluarse frente al umbral.
-  metric: net_debt_ebitda
-  observation: No calculable porque EBITDA figura como n/a.
-  threshold: above 4.0x
-- assessment_note: No puede evaluarse frente al umbral.
-  metric: share_count_cagr_3y_pct
-  observation: 'No calculable: falta una serie histórica de acciones para tres años.'
-  threshold: above 5 percent
-scenario_analysis: null
+- Current ratio 0 below umbral 0.5 (source stockanalysis.com)
+- Interest coverage ratio 0 below umbral 2.0 (source stockanalysis.com)
+scenario_analysis:
+  as_of_date: '2026-10-23'
+  currency: USD
+  horizon_date: '2027-10-23'
+  scenarios:
+  - falsifiers:
+    - Recuperación rápida del PIB brasileño
+    - Reducción significativa de morosidad
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos < 2% anual
+    - Incremento de provisiones por préstamos incobrables
+    - Degradación de la cobertura de intereses
+    - Mantenimiento de flujo de caja libre negativo
+    rationale: Precio bajo del consenso refleja expectativas de deterioro macroeconómico
+      y mayores pérdidas crediticias.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/itub/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ITUB/
+    target_price: 6.1
+  - falsifiers:
+    - Aumento inesperado de la deuda neta
+    - Deterioro de la rentabilidad
+    id: BASE
+    key_assumptions:
+    - CAGR de ingresos ~5.5% anual
+    - FCF negativo moderado
+    - Cobertura de intereses estable en 0
+    - Ratio de liquidez sin mejora
+    rationale: Precio medio del consenso asume desempeño estable de ingresos y control
+      de riesgos.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/itub/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ITUB/
+    target_price: 8.69
+  - falsifiers:
+    - Incremento de la regulación bancaria
+    - Recesión prolongada en Brasil
+    id: BULL
+    key_assumptions:
+    - CAGR de ingresos >7% anual
+    - Reducción de pérdidas crediticias
+    - Mejora de cobertura de intereses
+    - Conversión de FCF positiva
+    rationale: Precio alto del consenso supone fuerte crecimiento de ingresos y mejora
+      de la rentabilidad.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/itub/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ITUB/
+    target_price: 10.2
+  schema_version: bear_bull_v2
 scenario_validation:
   errors:
-  - scenario_analysis ausente
+  - as_of_date debe coincidir con la fecha actual del análisis
+  - 'BEAR.sources[0]: la fecha de fuente no puede superar as_of_date'
+  - 'BEAR.sources[1]: la fecha de fuente no puede superar as_of_date'
+  - 'BASE.sources[0]: la fecha de fuente no puede superar as_of_date'
+  - 'BASE.sources[1]: la fecha de fuente no puede superar as_of_date'
+  - 'BULL.sources[0]: la fecha de fuente no puede superar as_of_date'
+  - 'BULL.sources[1]: la fecha de fuente no puede superar as_of_date'
   status: invalid_pending_revision
-score_general: 43
+score_general: 75.02
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T15:56:05.640894-03:00'
+  calculado_at: '2026-11-21T16:20:13.964349-03:00'
   fuentes:
     stockanalysis: 8.69
     yfinance: 8.6875
@@ -482,24 +805,21 @@ target_consensus:
   n_fuentes: 2
   promedio: 8.69
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T15:56:05.640894-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:20:13.964349-03:00'
+    observed_date: '2026-11-21'
     target_price: 8.69
     url: https://stockanalysis.com/stocks/itub/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T15:56:05.640894-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:20:13.964349-03:00'
+    observed_date: '2026-11-21'
     target_price: 8.6875
     url: https://finance.yahoo.com/quote/ITUB/
   target_high: 10.2
   target_low: 6.1
-tesis_inversion: Itaú es un banco con actividades minoristas y mayoristas y servicios
-  financieros en Brasil e internacionalmente. Los ingresos reportados aumentaron entre
-  FY 2022 y FY 2025, pero la evidencia disponible no basta para validar el motor de
-  crecimiento, la reinversión, los retornos sobre capital, la penetración de mercado
-  ni la sostenibilidad de una ventaja competitiva.
+tesis_inversion: ITUB muestra fuerte impulso de precio y crecimiento de ingresos,
+  pero enfrenta riesgos de liquidez y cobertura de intereses.
 ticker: ITUB
 version: '3.0'
