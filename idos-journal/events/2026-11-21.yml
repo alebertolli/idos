@@ -1650,3 +1650,114 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T17:24:58.728103'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-PAM
+    ticker: PAM
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:32:33.309953'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PAM
+    ticker: PAM
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:32:33.455329'
+- data:
+    classification: 'Investigación requerida: empresa integrada de energía con señales
+      mixtas de crecimiento, reinversión y generación de caja.'
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 3982697f250e0da60883eb97d0114c884d6dcba3ed49781c3e97ff26390ecd17
+    opp_id: OPP-MB-PAM
+    original_status: UNDER_RESEARCH
+    score: 72.45
+    strategy_version: '1.5'
+    ticker: PAM
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:34:20.441217'
+- data:
+    metrics:
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-PANW
+    ticker: PANW
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:34:58.613822'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PANW
+    ticker: PANW
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:34:58.763867'
+- data:
+    classification: Investigación fundamental requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 821d57ff42afefc50c735680976ad5ca0c9f3f1e4218b188df61d7788e16b1e2
+    opp_id: OPP-MB-PANW
+    original_status: UNDER_RESEARCH
+    score: 67.67
+    strategy_version: '1.5'
+    ticker: PANW
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:36:52.181903'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-PBI
+    ticker: PBI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:37:25.449443'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PBI
+    ticker: PBI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:37:25.678123'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 33733d269675ec58404318a8b4f4875bc5aca9aa253f4893aabd60a0028f2d34
+    opp_id: OPP-MB-PBI
+    original_status: SCREENED
+    score: 52
+    strategy_version: '1.5'
+    ticker: PBI
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:39:06.072052'

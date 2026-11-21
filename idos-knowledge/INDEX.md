@@ -148,7 +148,7 @@ Total: 164 companies tracked
 - 📄 [[LMT|Lockheed Martin Corporation]]
 - 📄 [[MMM|3M Company]]
 - 📄 [[PAM|Pampa Energía S.A.]]
-- ⏳ [[PBI|Pitney Bowes Inc.]]
+- 📄 [[PBI|Pitney Bowes Inc.]]
 - 📄 [[RTX|RTX Corporation]]
 - 📄 [[SIEGY|Siemens Aktiengesellschaft]]
 - 📄 [[SNA|Snap-on Incorporated]]

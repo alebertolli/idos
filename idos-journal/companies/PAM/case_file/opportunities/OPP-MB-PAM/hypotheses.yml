@@ -1,139 +1,142 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La producción promedio del trimestre terminado el 2027-09-30 crece
-      menos de un 3% interanual.
+  - condition: La producción promedio diaria de hidrocarburos de 2027 es inferior
+      al 8% de crecimiento interanual.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía no informa una serie comparable de producción de hidrocarburos
-      para ambos trimestres.
+  - condition: La compañía no informa datos suficientes para comparar 2027 con 2026
+      bajo una definición consistente.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La producción promedio del trimestre terminado el 2027-09-30 crece menos de un
-    3% interanual.
-  - La compañía no informa una serie comparable de producción de hidrocarburos para
-    ambos trimestres.
+  - La producción promedio diaria de hidrocarburos de 2027 es inferior al 8% de crecimiento
+    interanual.
+  - La compañía no informa datos suficientes para comparar 2027 con 2026 bajo una
+    definición consistente.
   horizon: medio
   id: H1-OPP-MB-PAM
   opportunity_id: OPP-MB-PAM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-30'
-    expected: 3.0
+    deadline: '2028-03-31'
+    expected: 8.0
     met: null
-    metric: Variación interanual de la producción promedio de hidrocarburos
-    prediction: La producción promedio de hidrocarburos reportada para el trimestre
-      terminado el 2027-09-30 será al menos un 3% superior a la del trimestre terminado
-      el 2026-09-30, comparando ambas en la misma unidad y perímetro.
+    metric: Crecimiento interanual de la producción promedio diaria de hidrocarburos
+    prediction: Para el ejercicio 2027, la producción promedio diaria anual de hidrocarburos
+      será al menos un 8% superior a la de 2026, usando la misma definición de producción
+      y perímetro que informe la compañía.
     unit: '%'
   priority: important
   probability: 0.5
-  rationale: La compañía combina petróleo y gas con generación eléctrica y otros negocios,
-    lo que ofrece varias fuentes potenciales de actividad. Sin embargo, la información
-    disponible no incluye volúmenes, inversión ni capacidad por segmento; por eso,
-    el crecimiento de producción es una hipótesis por comprobar, no una tendencia
-    confirmada.
-  review_trigger: Dejar de creerla cuando se publique el informe operativo del trimestre
-    terminado el 2027-09-30 si la producción interanual resulta inferior al 3%, o
-    si no existe información comparable antes del 2027-11-30.
+  rationale: La integración de actividades energéticas y la exposición al desarrollo
+    de gas y petróleo pueden permitir que inversiones y capacidad productiva se reflejen
+    en mayores volúmenes. El paquete disponible no cuantifica el crecimiento esperado,
+    por lo que esta hipótesis debe contrastarse con datos de producción divulgados
+    por la compañía.
+  review_trigger: Dejar de creerla si una actualización oficial posterior al 2026-11-21
+    indica que la producción de 2027 será inferior a la de 2026, o si el informe anual
+    de 2027 muestra un crecimiento menor al 8%.
   secondary_hypotheses: []
-  statement: La producción promedio de hidrocarburos de Pampa Energía aumentará interanualmente
-    al menos un 3% en el trimestre terminado el 2027-09-30.
+  statement: Pampa Energía aumentará su producción promedio anual de hidrocarburos
+    en 2027, señal de que el crecimiento de su negocio upstream se está traduciendo
+    en mayor escala operativa.
   status: ACTIVE
   ticker: PAM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF TTM al 2027-09-30 es igual o inferior a 0 millones de dólares.
+  - condition: El flujo de caja libre de 2027 es cero o negativo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía no publica datos suficientes para calcular el FCF TTM de
-      forma comparable.
+  - condition: La compañía no proporciona partidas suficientes para calcular de forma
+      consistente flujo operativo menos inversiones de capital.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF TTM al 2027-09-30 es igual o inferior a 0 millones de dólares.
-  - La compañía no publica datos suficientes para calcular el FCF TTM de forma comparable.
+  - El flujo de caja libre de 2027 es cero o negativo.
+  - La compañía no proporciona partidas suficientes para calcular de forma consistente
+    flujo operativo menos inversiones de capital.
   horizon: medio
   id: H2-OPP-MB-PAM
   opportunity_id: OPP-MB-PAM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-30'
+    deadline: '2028-03-31'
     expected: 0.0
     met: null
-    metric: FCF acumulado de los últimos doce meses
-    prediction: El FCF TTM reportado al 2027-09-30 será superior a 0 millones de dólares,
-      usando la definición y el perímetro de la compañía.
-    unit: millones de dólares, estrictamente superior a 0
+    metric: Flujo de caja libre anual (flujo operativo menos inversiones de capital)
+    prediction: El flujo de caja libre de 2027 será positivo, calculado como flujo
+      de efectivo de las actividades operativas menos inversiones de capital, y con
+      la misma definición y perímetro en ambos componentes.
+    unit: USD, mayor que cero
   priority: critical
   probability: 0.5
-  rationale: El FCF TTM negativo al 2026-09-30 y el aumento de deuda reportada hacen
-    que la conversión de resultados en caja sea un riesgo central. La hipótesis plantea
-    una recuperación futura, pero los datos suministrados no permiten cuantificar
-    su probabilidad ni identificar qué segmentos podrían impulsarla.
-  review_trigger: Dejar de creerla al publicarse los resultados del trimestre terminado
-    el 2027-09-30 si el FCF TTM continúa en cero o en terreno negativo.
+  rationale: Una mayor escala de producción y la operación integrada podrían elevar
+    los flujos operativos y permitir absorber las inversiones de capital. Sin embargo,
+    el historial de FCF negativo señalado en el paquete hace que la conversión de
+    crecimiento en caja sea una hipótesis por demostrar, no una conclusión.
+  review_trigger: Dejar de creerla si la compañía comunica antes del cierre de 2027
+    una previsión que implique FCF anual negativo, o si sus estados financieros de
+    2027 muestran FCF no positivo.
   secondary_hypotheses:
   - H1-OPP-MB-PAM
-  statement: El flujo de caja libre (FCF) acumulado de los últimos doce meses de Pampa
-    Energía volverá a terreno positivo a más tardar el 2027-09-30.
+  statement: Pampa Energía convertirá el crecimiento operativo y la reinversión en
+    generación de caja libre positiva durante 2027, revirtiendo la señal de FCF negativo
+    observada en el TTM y en los ejercicios FY 2023–FY 2025.
   status: ACTIVE
   ticker: PAM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de PAM en dólares es igual o superior al de XLE
-      menos 5 puntos porcentuales.
+  - condition: La ventaja de rendimiento total de PAM frente a XLE es inferior a 10
+      puntos porcentuales al cierre del período.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No es posible calcular rendimientos comparables, ajustados por distribuciones
-      y expresados en dólares, para ambos activos en las fechas indicadas.
+  - condition: PAM obtiene un rendimiento total inferior al de XLE durante el período.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de PAM en dólares es igual o superior al de XLE menos 5 puntos
-    porcentuales.
-  - No es posible calcular rendimientos comparables, ajustados por distribuciones
-    y expresados en dólares, para ambos activos en las fechas indicadas.
+  - La ventaja de rendimiento total de PAM frente a XLE es inferior a 10 puntos porcentuales
+    al cierre del período.
+  - PAM obtiene un rendimiento total inferior al de XLE durante el período.
   horizon: medio
   id: H3-OPP-MB-PAM
   opportunity_id: OPP-MB-PAM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: -5.0
+    deadline: '2027-11-21'
+    expected: 10.0
     met: null
-    metric: Rendimiento total de PAM menos rendimiento total de XLE
-    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-20, el
-      rendimiento total de PAM, medido en dólares e incluyendo distribuciones, será
-      al menos 5 puntos porcentuales inferior al rendimiento total de XLE durante
-      el mismo período.
-    unit: puntos porcentuales o menos
+    metric: Ventaja de rendimiento total de PAM frente a XLE
+    prediction: Entre el 2026-11-21 y el 2027-11-21, el rendimiento total de PAM en
+      dólares, incluidos dividendos y ajustado por eventos corporativos, superará
+      en al menos 10 puntos porcentuales el rendimiento total de XLE en dólares.
+    unit: puntos porcentuales en 12 meses
   priority: important
   probability: 0.5
-  rationale: El FCF TTM negativo y el aumento de deuda reportada pueden presionar
-    la valoración si persisten, mientras que los objetivos de analistas mencionados
-    en el contexto podrían no reflejar el deterioro de caja. No se suministran precios,
-    múltiplos ni estimaciones suficientes para inferir una valoración intrínseca;
-    esta hipótesis prueba una posible penalización relativa del mercado.
-  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la brecha de rendimiento
-    total de PAM frente a XLE es superior a -5 puntos porcentuales.
+  rationale: La diferencia entre cotización y objetivos de analistas podría reflejar
+    expectativas de mejora operativa, pero el paquete no aporta estimaciones detalladas
+    que permitan validar esa explicación. La hipótesis plantea una prueba de mercado
+    relativa y no presupone que los objetivos de analistas sean alcanzables.
+  review_trigger: Dejar de creerla si, al 2027-05-21, PAM acumula un rendimiento total
+    al menos 10 puntos porcentuales inferior al de XLE y no existe evidencia divulgada
+    de mejora en FCF o producción; la evaluación final se realizará el 2027-11-21.
   secondary_hypotheses:
+  - H1-OPP-MB-PAM
   - H2-OPP-MB-PAM
-  statement: Durante los doce meses hasta el 2027-11-20, el rendimiento total de PAM
-    en dólares estadounidenses quedará por detrás del rendimiento total del ETF XLE
-    en al menos 5 puntos porcentuales.
+  statement: La acción de PAM tendrá un rendimiento total en dólares superior al del
+    ETF XLE durante los 12 meses posteriores a la fecha de corte, si el mercado empieza
+    a reconocer una mejora verificable en la generación de caja.
   status: ACTIVE
   ticker: PAM
   version: 1
