@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-11-20 18:43 AR _
+_Generado: 2026-11-21 06:24 AR _
 
 ## Resumen
 
@@ -12,33 +12,33 @@ _Generado: 2026-11-20 18:43 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **RACE** (OPP-MB-RACE): score=67, class=?
-- ✅ **ROKU** (OPP-MB-ROKU): score=68, class=?
-- ✅ **ROST** (OPP-MB-ROST): score=68, class=?
+- ✅ **ABNB** (OPP-MB-ABNB): score=68, class=?
+- ✅ **ABT** (OPP-20261023-004): score=54, class=?
+- ✅ **ADI** (OPP-20261023-007): score=62, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **RACE**
-  - Opp: [OPP-MB-RACE]
-  - Conviction: 60/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 70 | Portfolio: 50
+- ⚠️ **ABNB**
+  - Opp: [OPP-MB-ABNB]
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 63 | Valuation: 65 | Recovery: 56 | Risk: 80 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/70
-    - 🚫 RULE-005: Conviction: 60/65
+    - 🚫 RULE-001: Business quality: 63/70
+    - 🚫 RULE-005: Conviction: 63/65
+- ⚠️ **ABT**
+  - Opp: [OPP-20261023-004]
+  - Conviction: 57/100 | Rec: BLOCKED
+  - Scores: Business: 54 | Valuation: 55 | Recovery: 58 | Risk: 70 | Portfolio: 50
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 54/70
+    - 🚫 RULE-005: Conviction: 57/65
+- ⚠️ **ADI**
+  - Opp: [OPP-20261023-007]
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Scores: Business: 66 | Valuation: 70 | Recovery: 61 | Risk: 80 | Portfolio: 50
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 66/70
     - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual
-- ⚠️ **ROKU**
-  - Opp: [OPP-MB-ROKU]
-  - Conviction: 65/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 65 | Recovery: 57 | Risk: 80 | Portfolio: 50
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/70
-- ⚠️ **ROST**
-  - Opp: [OPP-MB-ROST]
-  - Conviction: 61/100 | Rec: BLOCKED
-  - Scores: Business: 64 | Valuation: 65 | Recovery: 52 | Risk: 70 | Portfolio: 50
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 64/70
-    - 🚫 RULE-005: Conviction: 61/65
 
 ---
 

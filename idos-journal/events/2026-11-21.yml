@@ -1,0 +1,68 @@
+events:
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ABNB
+    ticker: ABNB
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T06:18:03.541681'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ABNB
+    ticker: ABNB
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T06:18:03.543509'
+- data:
+    classification: Growth
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 07aa3576d71cef10fc7372f0dcc5a138b1980cecb1f9bfe21b8f1854bf1f90fe
+    opp_id: OPP-MB-ABNB
+    original_status: UNDER_RESEARCH
+    score: 68
+    strategy_version: '1.5'
+    ticker: ABNB
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T06:19:29.224615'
+- data:
+    classification: quality_at_fair_price
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b75bbe47af819d6801ef7b37a9f150c5a6480a36f1aac88d51bb00af33c4b86d
+    opp_id: OPP-20261023-004
+    original_status: UNDER_RESEARCH
+    score: 54
+    strategy_version: positive_fundamentals_v1
+    ticker: ABT
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T06:21:46.747978'
+- data:
+    classification: quality_at_fair_price
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 4cd5201c722a98f1dfa673fa6f97125c721b8bbd10ab1663b0f5e69ae2f59e48
+    opp_id: OPP-20261023-007
+    original_status: UNDER_RESEARCH
+    score: 62
+    strategy_version: positive_fundamentals_v1
+    ticker: ADI
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T06:24:04.130286'

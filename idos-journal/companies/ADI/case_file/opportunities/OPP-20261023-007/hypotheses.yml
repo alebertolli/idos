@@ -1,161 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos GAAP acumulados de los cuatro trimestres fiscales más
-      recientes publicados al 2027-12-15 crecen un 20% o más interanual.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La empresa mantiene un crecimiento interanual igual o superior al 25%
-      en al menos tres informes trimestrales consecutivos publicados antes de la fecha
-      objetivo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Los ingresos GAAP acumulados de los cuatro trimestres fiscales más recientes publicados
-    al 2027-12-15 crecen un 20% o más interanual.
-  - La empresa mantiene un crecimiento interanual igual o superior al 25% en al menos
-    tres informes trimestrales consecutivos publicados antes de la fecha objetivo.
-  horizon: medio
-  id: H1-OPP-20261023-007
-  opportunity_id: OPP-20261023-007
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-12-15'
-    expected: 20.0
-    met: null
-    metric: Crecimiento interanual de ingresos GAAP de los cuatro trimestres fiscales
-      más recientes publicados
-    prediction: La variación interanual de los ingresos GAAP acumulados de los cuatro
-      trimestres fiscales más recientes publicados será inferior al 20% en la información
-      financiera disponible al 2027-12-15.
-    unit: porcentaje máximo
-  priority: critical
-  probability: 0.5
-  rationale: El crecimiento reciente puede reflejar recuperación cíclica y comparaciones
-    interanuales favorables, no una tasa sostenible. Una desaceleración macroeconómica
-    o una menor demanda de clientes industriales puede reducir pedidos y limitar la
-    conversión de cartera en ventas; además, la demanda de IA y automoción no necesariamente
-    compensa debilidad en otros mercados.
-  review_trigger: Dejar de creer esta hipótesis si dos informes trimestrales consecutivos
-    publicados antes del 2027-12-15 muestran crecimiento interanual de ingresos igual
-    o superior al 25%, o si la métrica acumulada alcanza el 20% antes de la fecha
-    objetivo.
-  secondary_hypotheses: []
-  statement: El crecimiento de ingresos de ADI se desacelerará frente al ritmo del
-    33,6% citado en la tesis, debido a una normalización de la demanda industrial
-    y a una expansión menos uniforme entre mercados finales.
-  status: ACTIVE
-  ticker: ADI
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: El margen operativo no GAAP medio de los cuatro trimestres fiscales
-      más recientes publicados al 2027-12-15 cae menos de 150 puntos básicos frente
-      al ejercicio fiscal 2026.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: ADI informa de una mejora interanual del margen operativo no GAAP durante
-      tres trimestres fiscales consecutivos antes de la fecha objetivo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El margen operativo no GAAP medio de los cuatro trimestres fiscales más recientes
-    publicados al 2027-12-15 cae menos de 150 puntos básicos frente al ejercicio fiscal
-    2026.
-  - ADI informa de una mejora interanual del margen operativo no GAAP durante tres
-    trimestres fiscales consecutivos antes de la fecha objetivo.
-  horizon: medio
-  id: H2-OPP-20261023-007
-  opportunity_id: OPP-20261023-007
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-12-15'
-    expected: -150.0
-    met: null
-    metric: Variación del margen operativo no GAAP medio de cuatro trimestres frente
-      al ejercicio fiscal 2026
-    prediction: El margen operativo no GAAP medio de los cuatro trimestres fiscales
-      más recientes publicados al 2027-12-15 será al menos 150 puntos básicos inferior
-      al margen operativo no GAAP del ejercicio fiscal 2026, calculado con la metodología
-      que ADI presenta en sus informes.
-    unit: puntos básicos como máximo
-  priority: critical
-  probability: 0.5
-  rationale: Si la demanda se normaliza más rápido que los costes fijos y la capacidad,
-    la menor absorción de costes puede comprimir el margen. La competencia y eventuales
-    restricciones de suministro también pueden exigir precios más agresivos o costes
-    de aprovisionamiento superiores. La combinación de estos factores puede erosionar
-    la rentabilidad incluso si los ingresos siguen creciendo.
-  review_trigger: Dejar de creer esta hipótesis si, en dos informes trimestrales consecutivos
-    publicados antes del 2027-12-15, el margen operativo no GAAP supera el del trimestre
-    comparable del ejercicio fiscal 2026 y la guía de la dirección no anticipa compresión
-    adicional.
-  secondary_hypotheses:
-  - H1-OPP-20261023-007
-  statement: La presión de utilización de capacidad, mezcla de productos y costes
-    de suministro reducirá el margen operativo no GAAP de ADI frente al ejercicio
-    fiscal 2026.
-  status: ACTIVE
-  ticker: ADI
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: Ninguno de los trimestres fiscales publicados en el periodo presenta
-      un margen de flujo de caja libre inferior al 25%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El margen de flujo de caja libre acumulado de los cuatro trimestres
-      fiscales más recientes publicados al 2027-12-15 es igual o superior al 30%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Ninguno de los trimestres fiscales publicados en el periodo presenta un margen
-    de flujo de caja libre inferior al 25%.
-  - El margen de flujo de caja libre acumulado de los cuatro trimestres fiscales más
-    recientes publicados al 2027-12-15 es igual o superior al 30%.
-  horizon: medio
-  id: H3-OPP-20261023-007
-  opportunity_id: OPP-20261023-007
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-12-15'
-    expected: 25.0
-    met: null
-    metric: Margen trimestral de flujo de caja libre inferior al umbral en al menos
-      dos trimestres
-    prediction: El margen de flujo de caja libre —flujo de caja operativo menos compras
-      de propiedad, planta y equipo, dividido por ingresos— será inferior al 25% en
-      al menos dos trimestres fiscales publicados entre el 2026-11-19 y el 2027-12-15.
-    unit: porcentaje de ingresos
-  priority: important
-  probability: 0.5
-  rationale: Una menor conversión de ventas en efectivo puede surgir de inventarios
-    o cuentas por cobrar que crezcan más que los ingresos, junto con desembolsos de
-    capital que no se ajusten con rapidez a la demanda. Esto pondría a prueba la tesis
-    de generación robusta de caja, aunque la compañía conserve márgenes elevados.
-  review_trigger: Dejar de creer esta hipótesis si se publican cuatro trimestres fiscales
-    consecutivos con margen de flujo de caja libre igual o superior al 30% y sin un
-    aumento persistente de inventarios o cuentas por cobrar respecto a los ingresos.
-  secondary_hypotheses:
-  - H1-OPP-20261023-007
-  - H2-OPP-20261023-007
-  statement: La generación de flujo de caja libre de ADI se debilitará en relación
-    con los ingresos si la desaceleración de ventas coincide con inversión de capital
-    y necesidades de capital circulante elevadas.
-  status: ACTIVE
-  ticker: ADI
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: El rendimiento total de ADI desde el cierre del 2026-11-19 hasta el
       cierre del 2027-11-19 supera al del SOX o queda menos de 10 puntos porcentuales
       por debajo.
@@ -204,6 +49,175 @@ hypotheses:
   statement: La acción de ADI tendrá un rendimiento inferior al índice PHLX Semiconductor
     Sector (SOX) durante los doce meses posteriores al corte, si la desaceleración
     de crecimiento y la compresión de márgenes reducen las expectativas de beneficios.
+  status: ACTIVE
+  ticker: ADI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos acumulados de los cuatro trimestres más recientes crecen
+      menos del 5% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La dirección atribuye el crecimiento principalmente a acumulación de
+      inventario en clientes, adquisiciones o efectos cambiarios, sin evidencia de
+      recuperación amplia de la demanda final.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Dos trimestres consecutivos muestran contracción interanual de ingresos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos acumulados de los cuatro trimestres más recientes crecen menos del
+    5% interanual.
+  - La dirección atribuye el crecimiento principalmente a acumulación de inventario
+    en clientes, adquisiciones o efectos cambiarios, sin evidencia de recuperación
+    amplia de la demanda final.
+  - Dos trimestres consecutivos muestran contracción interanual de ingresos.
+  horizon: medio
+  id: H1-OPP-20261023-007
+  opportunity_id: OPP-20261023-007
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual de ingresos acumulados de los últimos cuatro trimestres
+    prediction: En los cuatro trimestres fiscales que terminen el 2027-11-21 o antes,
+      los ingresos acumulados de ADI crecerán al menos un 10% interanual, calculados
+      con cifras reportadas y comparables.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: Los componentes analógicos especializados pueden beneficiarse de ciclos
+    de diseño prolongados y costos de sustitución en aplicaciones críticas. Sin embargo,
+    la evidencia suministrada no demuestra que esos factores estén compensando actualmente
+    la volatilidad de la demanda; la hipótesis requiere confirmación en resultados
+    y comentarios de la empresa.
+  review_trigger: Dejar de creerla si, al publicarse el informe anual o trimestral
+    que cubra los cuatro trimestres terminados en o antes de 2027-11-21, el crecimiento
+    acumulado interanual es inferior al 5%, o antes si ADI informa dos trimestres
+    consecutivos de contracción interanual.
+  secondary_hypotheses: []
+  statement: La demanda de los mercados industriales, automotrices y de comunicaciones
+    permitirá que ADI retome un crecimiento orgánico de ingresos de doble dígito,
+    pese a la normalización cíclica.
+  status: ACTIVE
+  ticker: ADI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF de los últimos doce meses es inferior al 20% en la
+      fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen cae por debajo del 25% durante dos reportes trimestrales
+      consecutivos y la caída no se explica únicamente por un pago extraordinario
+      claramente identificado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La generación de FCF depende de una reducción persistente de inversión
+      necesaria para sostener el negocio.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF de los últimos doce meses es inferior al 20% en la fecha objetivo.
+  - El margen cae por debajo del 25% durante dos reportes trimestrales consecutivos
+    y la caída no se explica únicamente por un pago extraordinario claramente identificado.
+  - La generación de FCF depende de una reducción persistente de inversión necesaria
+    para sostener el negocio.
+  horizon: medio
+  id: H2-OPP-20261023-007
+  opportunity_id: OPP-20261023-007
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 25.0
+    met: null
+    metric: Margen de flujo de caja libre TTM
+    prediction: Para el periodo de doce meses terminado el 2027-11-21 o antes, el
+      flujo de caja libre reportado —flujo operativo menos compras de propiedad y
+      equipo— será al menos el 25% de los ingresos del mismo periodo.
+    unit: porcentaje mínimo de ingresos
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM suministrado se describe como sustancial, y el modelo de componentes
+    especializados podría permitir una generación de caja resiliente. No obstante,
+    faltan datos para evaluar la conversión histórica, el gasto de capital y la normalización
+    cíclica; por eso la predicción se limita a una métrica futura verificable.
+  review_trigger: Dejar de creerla si un informe presentado antes o en 2027-11-21
+    muestra un margen de FCF TTM inferior al 20%, o si dos reportes trimestrales consecutivos
+    muestran un margen inferior al 25% sin una explicación temporal verificable.
+  secondary_hypotheses:
+  - H1-OPP-20261023-007
+  statement: ADI conservará una conversión de caja sólida mientras se recupera la
+    actividad, manteniendo un margen de flujo de caja libre de al menos el 25%.
+  status: ACTIVE
+  ticker: ADI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de ADI queda igual o por debajo del rendimiento
+      total del SOX al 2028-11-21.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ADI supera al SOX únicamente por una expansión de múltiplos mientras
+      sus ingresos y FCF no cumplen las predicciones operacionales y financieras relacionadas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa se deteriora de forma persistente tras revisiones
+      a la baja de previsiones de ingresos o flujo de caja.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de ADI queda igual o por debajo del rendimiento total del
+    SOX al 2028-11-21.
+  - ADI supera al SOX únicamente por una expansión de múltiplos mientras sus ingresos
+    y FCF no cumplen las predicciones operacionales y financieras relacionadas.
+  - La rentabilidad relativa se deteriora de forma persistente tras revisiones a la
+    baja de previsiones de ingresos o flujo de caja.
+  horizon: largo
+  id: H3-OPP-20261023-007
+  opportunity_id: OPP-20261023-007
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-21'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total acumulado de ADI menos rendimiento total acumulado del
+      SOX
+    prediction: Entre el 2026-11-21 y el 2028-11-21, el rendimiento total de ADI,
+      incluidos dividendos y ajustado por desdoblamientos, superará al rendimiento
+      total del SOX en al menos 10 puntos porcentuales.
+    unit: puntos porcentuales mínimos
+  priority: informational
+  probability: 0.5
+  rationale: Una posible lectura de segundo nivel es que el mercado esté descontando
+    demasiado la normalización cíclica y no suficiente la persistencia de productos
+    especializados y relaciones de diseño. Esta interpretación no está demostrada
+    por los datos suministrados; tampoco se conocen aquí múltiplos, precio de entrada
+    ni valoración relativa, por lo que la hipótesis se formula como una prueba de
+    rendimiento relativo, no como afirmación de infravaloración.
+  review_trigger: Dejar de creerla si al 2028-11-21 ADI no supera al SOX por al menos
+    10 puntos porcentuales, o antes si dos informes consecutivos muestran deterioro
+    operativo acompañado de recortes de previsiones de la empresa.
+  secondary_hypotheses:
+  - H1-OPP-20261023-007
+  - H2-OPP-20261023-007
+  statement: Si la durabilidad de la demanda y la generación de caja se confirman,
+    el mercado reconocerá esa resiliencia y ADI superará el rendimiento total del
+    índice PHLX Semiconductor Sector (SOX) en un horizonte de dos años.
   status: ACTIVE
   ticker: ADI
   version: 1

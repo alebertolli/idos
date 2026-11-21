@@ -1,160 +1,189 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos del segmento de diagnóstico son ≤ US$6.9 bn en el trimestre
-      Q3‑2028.
+  - condition: El crecimiento orgánico de ventas del ejercicio fiscal 2027 es inferior
+      a 6%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La FDA rechaza o retrasa la aprobación del nuevo dispositivo después
-      del 31‑12‑2027.
+  - condition: El crecimiento agregado depende de una sola área de negocio y las demás
+      áreas reportadas, en conjunto, registran ventas orgánicas decrecientes.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos del segmento de diagnóstico son ≤ US$6.9 bn en el trimestre Q3‑2028.
-  - La FDA rechaza o retrasa la aprobación del nuevo dispositivo después del 31‑12‑2027.
+  - El crecimiento orgánico de ventas del ejercicio fiscal 2027 es inferior a 6%.
+  - El crecimiento agregado depende de una sola área de negocio y las demás áreas
+    reportadas, en conjunto, registran ventas orgánicas decrecientes.
   horizon: medio
   id: H1-OPP-20261023-004
   opportunity_id: OPP-20261023-004
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-09-30'
-    expected: 7.5
+    deadline: '2028-02-15'
+    expected: 6.0
     met: null
-    metric: Ingresos diagnóstico
-    prediction: Los ingresos del segmento de diagnóstico alcanzarán US$7.5 bn en el
-      trimestre terminado el 30‑09‑2028.
-    unit: billones USD
+    metric: Crecimiento orgánico de ventas del ejercicio fiscal 2027
+    prediction: En los resultados del ejercicio fiscal 2027, Abbott informará crecimiento
+      orgánico de ventas de al menos 6% frente al ejercicio fiscal 2026, excluyendo
+      el efecto de divisas y adquisiciones según la definición de la compañía.
+    unit: '%'
   priority: critical
   probability: 0.5
-  rationale: El pipeline de diagnóstico de Abbott incluye varios dispositivos en fase
-    3 con datos clínicos positivos; la empresa ha invertido un 12% de su CAPEX en
-    I+D diagnóstico en los últimos 3 años y su historial muestra aprobaciones regulatorias
-    cada 18‑24 meses.
-  review_trigger: Si la FDA emite una decisión de no aprobación para el dispositivo
-    antes del 31‑12‑2027.
+  rationale: 'La presencia en varios mercados sanitarios podría amortiguar la debilidad
+    de una línea de negocio y permitir que la demanda de otras sostenga el crecimiento
+    agregado. Es una hipótesis, no un hecho: faltan resultados recientes y datos segmentados
+    para comprobar la amplitud y persistencia de esa demanda.'
+  review_trigger: Dejar de creerla si Abbott publica resultados del ejercicio fiscal
+    2027 con crecimiento orgánico inferior a 6%, o antes si una actualización oficial
+    reduce la previsión anual por debajo de ese nivel.
   secondary_hypotheses: []
-  statement: Abbott lanzará al mercado una nueva plataforma de diagnóstico point‑of‑care
-    aprobada por la FDA antes de finales de 2027, incrementando los ingresos del segmento
-    de diagnóstico en al menos un 8% YoY.
+  statement: La diversificación de Abbott sostendrá un crecimiento orgánico de ventas
+    de al menos 6% durante el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: ABT
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: FCF/Ingresos ≤ 28% en el reporte anual 2028.
+  - condition: La expansión del margen operativo ajustado es inferior a 0,5 puntos
+      porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Un aumento inesperado del CAPEX > 5% de los ingresos en 2028.
+  - condition: Abbott informa una contracción del margen operativo ajustado frente
+      al ejercicio fiscal 2026.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - FCF/Ingresos ≤ 28% en el reporte anual 2028.
-  - Un aumento inesperado del CAPEX > 5% de los ingresos en 2028.
-  horizon: largo
+  - La expansión del margen operativo ajustado es inferior a 0,5 puntos porcentuales.
+  - Abbott informa una contracción del margen operativo ajustado frente al ejercicio
+    fiscal 2026.
+  horizon: medio
   id: H2-OPP-20261023-004
   opportunity_id: OPP-20261023-004
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-12-31'
-    expected: 31.2
+    deadline: '2028-02-15'
+    expected: 0.5
     met: null
-    metric: FCF sobre ingresos
-    prediction: FCF/Ingresos = 31.2% en el reporte anual 2028.
-    unit: porcentaje
+    metric: Variación interanual del margen operativo ajustado
+    prediction: El margen operativo ajustado del ejercicio fiscal 2027 será al menos
+      0,5 puntos porcentuales superior al margen operativo ajustado del ejercicio
+      fiscal 2026, utilizando la misma definición de la compañía en ambos periodos.
+    unit: puntos porcentuales
   priority: important
   probability: 0.5
-  rationale: Abbott ha mejorado su margen operativo mediante eficiencias en la cadena
-    de suministro y ha reducido CAPEX discrecional; además, el crecimiento de ingresos
-    de alto margen (diagnóstico y nutrición) impulsa mayor generación de efectivo.
-  review_trigger: Si el reporte anual 2028 muestra un ratio de FCF/Ingresos ≤ 28%.
-  secondary_hypotheses: []
-  statement: El ratio de conversión de flujo de caja libre (FCF) sobre ingresos netos
-    de Abbott superará el 30% al cierre del ejercicio fiscal 2028.
+  rationale: Si el crecimiento procede de varias áreas y no exige un aumento desproporcionado
+    de gastos, la diversificación y el apalancamiento operativo podrían favorecer
+    los márgenes. La información disponible no permite confirmar la trayectoria de
+    costes ni fijar un margen de partida, por lo que la predicción se expresa como
+    cambio frente al ejercicio fiscal 2026.
+  review_trigger: Dejar de creerla si la guía oficial para 2027 anticipa un margen
+    ajustado plano o decreciente, o si los resultados anuales publicados muestran
+    una expansión inferior a 0,5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-20261023-004
+  statement: Abbott convertirá el crecimiento de ventas en una mejora de su rentabilidad
+    operativa ajustada durante el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: ABT
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: EV/EBITDA ≥ 14.0x en 30‑06‑2029.
+  - condition: El crecimiento del BPA ajustado diluido en 2027 es inferior a 8%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Una caída sostenida del EBITDA > 15% YoY en 2028.
+  - condition: El BPA ajustado diluido de 2027 es inferior al de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - EV/EBITDA ≥ 14.0x en 30‑06‑2029.
-  - Una caída sostenida del EBITDA > 15% YoY en 2028.
-  horizon: largo
+  - El crecimiento del BPA ajustado diluido en 2027 es inferior a 8%.
+  - El BPA ajustado diluido de 2027 es inferior al de 2026.
+  horizon: medio
   id: H3-OPP-20261023-004
   opportunity_id: OPP-20261023-004
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2029-06-30'
-    expected: 12.0
+    deadline: '2028-02-15'
+    expected: 8.0
     met: null
-    metric: EV/EBITDA
-    prediction: EV/EBITDA = 12.0x en la fecha de cierre del 30‑06‑2029.
-    unit: veces
+    metric: Crecimiento interanual del BPA ajustado diluido
+    prediction: El BPA ajustado diluido del ejercicio fiscal 2027 será al menos 8%
+      superior al BPA ajustado diluido del ejercicio fiscal 2026, calculado con la
+      definición publicada por Abbott y conciliada en ambos ejercicios.
+    unit: '%'
   priority: important
   probability: 0.5
-  rationale: El mercado está subvaluando a Abbott debido a una percepción excesiva
-    de riesgos regulatorios; la mejora operativa y la generación de caja libre superior
-    a la media deberían corregir el múltiplo.
-  review_trigger: Si el EV/EBITDA se mantiene por encima de 14.0x al 30‑06‑2029.
+  rationale: Una expansión de ventas acompañada de estabilidad o mejora de márgenes
+    puede elevar el beneficio por acción; el resultado también dependerá de impuestos,
+    intereses, recompra de acciones y otros factores financieros. No se dispone aquí
+    de una base de BPA ni de una guía oficial verificada, así que la prueba debe comparar
+    cifras reportadas bajo una definición consistente.
+  review_trigger: Dejar de creerla si Abbott reduce su guía oficial de crecimiento
+    del BPA ajustado para 2027 por debajo de 8%, o cuando publique un resultado anual
+    que no alcance ese umbral.
   secondary_hypotheses:
+  - H1-OPP-20261023-004
   - H2-OPP-20261023-004
-  statement: El múltiplo EV/EBITDA de Abbott convergerá al promedio del sector Healthcare
-    (12.0x) antes del 30‑06‑2029, lo que implicará una revaluación alcista del precio
-    de la acción.
+  statement: El crecimiento de ventas y la disciplina de costes permitirán que el
+    beneficio ajustado por acción de Abbott crezca al menos 8% en el ejercicio fiscal
+    2027.
   status: ACTIVE
   ticker: ABT
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La adquisición no se cierra antes del 31‑12‑2027.
+  - condition: El rendimiento total de ABT no supera al de XLV en el periodo de medición.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los ingresos atribuibles a MediTech en 2028 son < US$400 mm.
+  - condition: La rentabilidad relativa de ABT frente a XLV es inferior a 5 puntos
+      porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La adquisición no se cierra antes del 31‑12‑2027.
-  - Los ingresos atribuibles a MediTech en 2028 son < US$400 mm.
-  horizon: corto
+  - El rendimiento total de ABT no supera al de XLV en el periodo de medición.
+  - La rentabilidad relativa de ABT frente a XLV es inferior a 5 puntos porcentuales.
+  horizon: medio
   id: H4-OPP-20261023-004
   opportunity_id: OPP-20261023-004
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
-    expected: 0.5
+    deadline: '2027-11-21'
+    expected: 5.0
     met: null
-    metric: Ingresos adicionales por adquisición
-    prediction: Ingresos consolidados de Abbott en 2028 incluirán al menos US$500 mm
-      adicionales atribuibles a la adquisición de MediTech.
-    unit: billones USD
-  priority: critical
+    metric: Rendimiento total relativo de ABT frente a XLV
+    prediction: Entre el cierre del 2026-11-21 y el cierre del 2027-11-21, el rendimiento
+      total de ABT, incluidos dividendos reinvertidos, superará en al menos 5 puntos
+      porcentuales al rendimiento total del ETF Health Care Select Sector SPDR (XLV),
+      medidos en dólares estadounidenses.
+    unit: puntos porcentuales
+  priority: important
   probability: 0.5
-  rationale: Abbott ha anunciado intenciones de expansión inorgánica en el segmento
-    de terapias avanzadas; MediTech posee una cartera de productos aprobados y un
-    pipeline complementario que encaja con la estrategia de diversificación de Abbott.
-  review_trigger: Si la SEC o la autoridad regulatoria rechaza la transacción antes
-    del 31‑12‑2027.
-  secondary_hypotheses: []
-  statement: Abbott completará la adquisición de la empresa de biotecnología MediTech
-    antes del 31‑12‑2027, añadiendo al menos US$500 mm de ingresos anuales recurrentes
-    a partir de 2028.
+  rationale: La combinación de negocios diversificados podría reducir la dependencia
+    de un único motor de crecimiento y favorecer una revisión al alza de expectativas
+    si los resultados confirman la persistencia de la demanda. Sin embargo, la cotización
+    dentro del rango de objetivos observado no prueba que exista descuento intrínseco;
+    la comparación relativa ofrece una prueba observable sin asumir un múltiplo justo
+    no verificado.
+  review_trigger: Dejar de creerla al cierre del 2027-11-21 si la rentabilidad total
+    relativa de ABT frente a XLV es inferior a 5 puntos porcentuales; abandonar antes
+    la hipótesis si Abbott reduce materialmente su guía anual de ventas o BPA.
+  secondary_hypotheses:
+  - H1-OPP-20261023-004
+  - H2-OPP-20261023-004
+  - H3-OPP-20261023-004
+  statement: Si el mercado está descontando expectativas excesivamente cautelosas
+    sobre Abbott, la acción superará al sector sanitario estadounidense durante los
+    próximos doce meses.
   status: ACTIVE
   ticker: ABT
   version: 1
