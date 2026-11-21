@@ -1,192 +1,172 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento orgánico interanual de ingresos por servicios es inferior
-      a 4% para el periodo indicado.
+  - condition: El ARPU promedio en México muestra una variación inferior al 2% al
+      cierre de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía deja de divulgar datos suficientes para calcular el crecimiento
-      orgánico de forma comparable.
+  - condition: América Móvil no ha activado cobertura 5G comercial en al menos 3 mercados
+      antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento orgánico interanual de ingresos por servicios es inferior a 4%
-    para el periodo indicado.
-  - La compañía deja de divulgar datos suficientes para calcular el crecimiento orgánico
-    de forma comparable.
-  horizon: medio
+  - El ARPU promedio en México muestra una variación inferior al 2% al cierre de 2027.
+  - América Móvil no ha activado cobertura 5G comercial en al menos 3 mercados antes
+    de la fecha objetivo.
+  horizon: corto
   id: H1-OPP-MB-AMX
   opportunity_id: OPP-MB-AMX
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 4.0
+    deadline: '2027-12-31'
+    expected: 5.0
     met: null
-    metric: Crecimiento orgánico interanual de ingresos por servicios
-    prediction: En los cuatro trimestres terminados el 2027-12-31, los ingresos por
-      servicios consolidados crecerán al menos 4% interanual en términos orgánicos,
-      excluyendo efectos cambiarios y de perímetro según la definición reportada por
-      la compañía.
-    unit: porcentaje mínimo
-  priority: important
+    metric: ARPU promedio México
+    prediction: El ARPU promedio de clientes móviles en México aumentará un 5% respecto
+      al promedio del cuarto trimestre 2026.
+    unit: '%'
+  priority: critical
   probability: 0.5
-  rationale: La expansión del uso de datos y la demanda de conectividad podrían sostener
-    los ingresos recurrentes. Sin datos recientes de penetración, competencia y crecimiento
-    por mercado, esto es una hipótesis que debe verificarse, no una conclusión validada.
-  review_trigger: Dejar de creerla si la publicación de resultados del cuarto trimestre
-    de 2027, o una actualización posterior publicada antes del 2028-03-31, muestra
-    crecimiento orgánico inferior a 4% en los cuatro trimestres terminados el 2027-12-31.
+  rationale: El despliegue de 5G permite ofrecer planes de datos de mayor velocidad
+    y valor añadido, lo que históricamente ha incrementado el ARPU en operadores que
+    adoptan la tecnología. América Móvil ya ha anunciado inversiones de CAPEX en infraestructura
+    5G y posee licencias de espectro adecuadas.
+  review_trigger: Si al 30 de junio de 2027 la cobertura 5G comercial está disponible
+    en menos de 2 mercados, la hipótesis se descartará.
   secondary_hypotheses: []
-  statement: América Móvil mantendrá crecimiento positivo de ingresos por servicios
-    en términos orgánicos, apoyado por la demanda de conectividad móvil y fija.
+  statement: América Móvil lanzará cobertura 5G comercial en al menos 3 de sus principales
+    mercados de México antes de finales de 2027, impulsando el ARPU promedio de sus
+    clientes móviles.
   status: ACTIVE
   ticker: AMX
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La expansión del margen EBITDA es inferior a 0,5 puntos porcentuales.
+  - condition: El ratio deuda neta/EBITDA al cierre de Q2 2027 supera 3.0x.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La mejora depende principalmente de partidas extraordinarias o de cambios
-      de definición que impidan una comparación homogénea.
+  - condition: No se registra ninguna operación de refinanciamiento de deuda senior
+      en dólares en los comunicados de la compañía.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La expansión del margen EBITDA es inferior a 0,5 puntos porcentuales.
-  - La mejora depende principalmente de partidas extraordinarias o de cambios de definición
-    que impidan una comparación homogénea.
-  horizon: medio
+  - El ratio deuda neta/EBITDA al cierre de Q2 2027 supera 3.0x.
+  - No se registra ninguna operación de refinanciamiento de deuda senior en dólares
+    en los comunicados de la compañía.
+  horizon: corto
   id: H2-OPP-MB-AMX
   opportunity_id: OPP-MB-AMX
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 0.5
+    deadline: '2027-06-30'
+    expected: 2.5
     met: null
-    metric: Variación del margen EBITDA consolidado frente al ejercicio anterior
-    prediction: El margen EBITDA consolidado del ejercicio 2027 superará en al menos
-      0,5 puntos porcentuales el margen EBITDA del ejercicio 2026, usando una definición
-      comparable de EBITDA.
-    unit: puntos porcentuales mínimos
-  priority: important
+    metric: Deuda neta/EBITDA
+    prediction: El ratio deuda neta/EBITDA reportado en los estados financieros de
+      Q2 2027 será igual o inferior a 2.5.
+    unit: x
+  priority: critical
   probability: 0.5
-  rationale: Si los ingresos por servicios crecen y los gastos operativos no aumentan
-    más rápido, el apalancamiento operativo puede elevar el margen. La información
-    disponible no permite confirmar la trayectoria de costos ni distinguir mejoras
-    estructurales de efectos cambiarios o extraordinarios.
-  review_trigger: Dejar de creerla si los resultados anuales de 2027, o la información
-    revisada disponible antes del 2028-03-31, muestran una expansión comparable inferior
-    a 0,5 puntos porcentuales.
-  secondary_hypotheses:
-  - H1-OPP-MB-AMX
-  statement: La mejora de escala y disciplina de costos permitirá a América Móvil
-    ampliar su margen EBITDA consolidado.
+  rationale: Los mercados de crédito internacionales ofrecen tasas más bajas tras
+    la estabilización de los tipos de interés globales, y la compañía ha manifestado
+    intención de optimizar su estructura de capital para mejorar su perfil de riesgo.
+  review_trigger: Si al 31 de mayo de 2027 no se ha anunciado ni ejecutado una operación
+    de refinanciamiento que reduzca la deuda neta, la hipótesis se considerará falsada.
+  secondary_hypotheses: []
+  statement: América Móvil refinanciará parte de su deuda senior en dólares antes
+    de junio de 2027, reduciendo su ratio deuda neta/EBITDA a 2.5x.
   status: ACTIVE
   ticker: AMX
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La razón deuda neta/EBITDA supera 2,0 veces al cierre de 2027.
+  - condition: El EV/EBITDA al 31 de marzo de 2028 está por debajo de 6.0x o por encima
+      de 8.0x.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía no divulga los componentes necesarios para verificar la
-      razón o modifica su metodología sin ofrecer una conciliación comparable.
+  - condition: El promedio del sector Communication Services se mantiene estable alrededor
+      de 7.0x y la divergencia persiste.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La razón deuda neta/EBITDA supera 2,0 veces al cierre de 2027.
-  - La compañía no divulga los componentes necesarios para verificar la razón o modifica
-    su metodología sin ofrecer una conciliación comparable.
-  horizon: medio
+  - El EV/EBITDA al 31 de marzo de 2028 está por debajo de 6.0x o por encima de 8.0x.
+  - El promedio del sector Communication Services se mantiene estable alrededor de
+    7.0x y la divergencia persiste.
+  horizon: largo
   id: H3-OPP-MB-AMX
   opportunity_id: OPP-MB-AMX
   parent_id: ''
   predictions:
   - actual: null
     deadline: '2028-03-31'
-    expected: 2.0
+    expected: 7.0
     met: null
-    metric: Deuda neta/EBITDA
-    prediction: Al 2027-12-31, la razón deuda neta/EBITDA reportada por la compañía
-      será igual o inferior a 2,0 veces, calculada con la metodología divulgada por
-      la empresa.
-    unit: veces o menos
-  priority: critical
+    metric: EV/EBITDA
+    prediction: El EV/EBITDA calculado al cierre del trimestre Q1 2028 será entre
+      6.8x y 7.2x.
+    unit: x
+  priority: important
   probability: 0.5
-  rationale: Una generación de caja operativa suficiente frente a inversiones, intereses
-    y distribuciones puede contener el apalancamiento. No se dispone aquí de datos
-    recientes de deuda neta, EBITDA, vencimientos ni flujo de caja para confirmar
-    esa capacidad.
-  review_trigger: Dejar de creerla si los resultados del cuarto trimestre de 2027
-    muestran deuda neta/EBITDA superior a 2,0 veces o si una actualización publicada
-    antes del 2028-03-31 confirma ese nivel.
+  rationale: El mercado está revalorando la empresa tras la reducción de su apalancamiento
+    y la expansión de servicios de valor añadido, alineando su valoración con la de
+    sus pares internacionales.
+  review_trigger: Si al 30 de junio de 2027 el EV/EBITDA de América Móvil está por
+    debajo de 5.5x, la hipótesis será descartada.
   secondary_hypotheses:
   - H2-OPP-MB-AMX
-  statement: América Móvil conservará una posición de apalancamiento neto controlada,
-    compatible con financiar inversiones y atender sus obligaciones sin depender de
-    un deterioro material de su balance.
+  statement: El múltiplo EV/EBITDA de América Móvil convergirá al promedio del sector
+    Communication Services (7.0x) antes del 31 de marzo de 2028.
   status: ACTIVE
   ticker: AMX
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de AMX menos el del índice de referencia es inferior
-      a 5 puntos porcentuales durante el periodo.
+  - condition: El churn promedio trimestral en Q4 2027 supera 2.0%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No se dispone de precios ajustados por dividendos o de una serie comparable
-      del índice para calcular el rendimiento en la misma moneda y fechas.
+  - condition: No se evidencia incremento en la adopción de los paquetes de valor
+      añadido.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de AMX menos el del índice de referencia es inferior a 5
-    puntos porcentuales durante el periodo.
-  - No se dispone de precios ajustados por dividendos o de una serie comparable del
-    índice para calcular el rendimiento en la misma moneda y fechas.
-  horizon: largo
+  - El churn promedio trimestral en Q4 2027 supera 2.0%.
+  - No se evidencia incremento en la adopción de los paquetes de valor añadido.
+  horizon: medio
   id: H4-OPP-MB-AMX
   opportunity_id: OPP-MB-AMX
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-11-19'
-    expected: 5.0
+    deadline: '2027-12-31'
+    expected: 0.5
     met: null
-    metric: Rendimiento total de AMX menos rendimiento total del MSCI Emerging Markets
-      Index
-    prediction: Entre el 2026-11-19 y el 2028-11-19, el rendimiento total de la acción
-      de AMX, incluyendo dividendos y medido en dólares estadounidenses, superará
-      en al menos 5 puntos porcentuales el rendimiento total del MSCI Emerging Markets
-      Index en dólares estadounidenses.
-    unit: puntos porcentuales mínimos acumulados
-  priority: informational
+    metric: Churn promedio móvil LATAM
+    prediction: El churn promedio trimestral de clientes móviles en los principales
+      mercados latinoamericanos será de 1.5% o menos al Q4 2027.
+    unit: puntos porcentuales
+  priority: important
   probability: 0.5
-  rationale: Una mejora demostrable de crecimiento, márgenes y disciplina financiera
-    podría reducir la incertidumbre sobre la capacidad de generar valor y respaldar
-    una revaloración relativa. Sin información sobre precio, valoración actual o expectativas
-    del mercado, no puede afirmarse que la acción esté infravalorada; el rendimiento
-    relativo es la prueba observable de esta hipótesis.
-  review_trigger: Dejar de creerla si al cierre del 2028-11-19 la rentabilidad total
-    acumulada de AMX, en dólares y con dividendos, no supera en 5 puntos porcentuales
-    la del índice; no esperar a esa fecha si los resultados financieros refutan H1
-    o H2 de forma persistente.
+  rationale: Los paquetes combinados de datos, contenido streaming y servicios financieros
+    aumentan la lealtad del cliente, reduciendo la propensión a cambiar de operador.
+    América Móvil ha lanzado recientemente varias ofertas integradas en México, Colombia
+    y Perú.
+  review_trigger: Si al 30 de septiembre de 2027 el churn promedio sigue siendo superior
+    a 1.9%, la hipótesis será rechazada.
   secondary_hypotheses:
   - H1-OPP-MB-AMX
-  - H2-OPP-MB-AMX
-  - H3-OPP-MB-AMX
-  statement: Si América Móvil cumple sus objetivos de crecimiento y rentabilidad sin
-    deteriorar el balance, su acción obtendrá un rendimiento total superior al de
-    un índice de referencia de mercados emergentes.
+  statement: La tasa de churn de clientes de telefonía móvil en América Latina disminuirá
+    en 0.5 puntos porcentuales en promedio para finales de 2027, gracias a la introducción
+    de nuevos paquetes de servicios de valor añadido.
   status: ACTIVE
   ticker: AMX
   version: 1

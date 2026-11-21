@@ -1,0 +1,31 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; oportunidad no validada'
+- 'Market error: No se puede validar un error de valoración: los objetivos de analistas
+  son referencias observadas, no una valoración intrínseca, y faltan inputs verificables
+  para valorar el negocio.'
+- 'Thesis: América Móvil presta servicios de telecomunicaciones inalámbricos y fijos,
+  voz, datos y servicios de valor añadido en Latinoamérica y mercados internacionales,
+  según el resumen financiero sin fecha de'
+generated_at: '2026-11-21T14:25:07.974116-03:00'
+id: ass-95f43ed6
+recommendation: REVIEW
+risks:
+- observacion: La evidencia reporta deuda total y caja/inversiones al 2026-09-30,
+    pero la fila del ratio net_debt_ebitda queda no disponible por falta de URL admisible
+    y por incompatibilidad de escala aparente entre campos.
+  riesgo: Apalancamiento
+- observacion: El current_ratio reportado es 0.75 al 2026-09-30; está por encima del
+    umbral configurado de 0.5, sin que ello constituya una conclusión sobre suficiencia
+    de liquidez.
+  riesgo: Liquidez
+- observacion: El resumen mezcla campos con escalas y períodos que no son reconciliables
+    con seguridad; además, trusted_source_urls está vacío.
+  riesgo: Calidad de datos
+- observacion: El paquete no aporta datos por país, cuotas de mercado, precios, regulación
+    ni métricas de clientes para medir exposición o erosión competitiva.
+  riesgo: Riesgo competitivo y regulatorio
+score: 42
+status: COMPLETED
+version: '3.0'

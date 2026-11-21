@@ -190,3 +190,84 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T14:16:26.778822'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AMX
+    ticker: AMX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T14:24:00.833226'
+- data:
+    classification: Research requerido; oportunidad no validada
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 655645c41078e00da92a6034f150267731b8c43351a001e571b114076eb19cb1
+    opp_id: OPP-MB-AMX
+    original_status: UNDER_RESEARCH
+    score: 42
+    strategy_version: '1.5'
+    ticker: AMX
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T14:25:08.062540'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ANF
+    ticker: ANF
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T14:25:41.474114'
+- data:
+    classification: RESEARCH_REQUIRED
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 198f62b37b10e306951ee2e46c3f6fb7ac48f16a89ee2481eb59326913ac9171
+    opp_id: OPP-MB-ANF
+    original_status: UNDER_RESEARCH
+    score: 55
+    strategy_version: '1.5'
+    ticker: ANF
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T14:27:11.808108'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-AZN-0001
+    ticker: AZN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T14:27:40.233879'
+- data:
+    classification: Investigación requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 90a28e367bd80b0318de50dbf4182bee2fbdf09e15902135f72a811a27f71976
+    opp_id: OPP-MULTIBAGGERS-AZN-0001
+    original_status: SCREENED
+    score: 55
+    strategy_version: '1.5'
+    ticker: AZN
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T14:29:11.058190'

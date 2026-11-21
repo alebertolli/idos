@@ -1,0 +1,147 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Crecimiento de ingresos a tipos de cambio constantes inferior a 5%
+      en el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Margen bruto inferior a 80% en el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Crecimiento de ingresos a tipos de cambio constantes inferior a 5% en el ejercicio
+    fiscal 2027.
+  - Margen bruto inferior a 80% en el ejercicio fiscal 2027.
+  horizon: medio
+  id: H1-OPP-MULTIBAGGERS-AZN-0001
+  opportunity_id: OPP-MULTIBAGGERS-AZN-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento anual de ingresos a tipos de cambio constantes
+    prediction: En los resultados del ejercicio fiscal 2027, los ingresos crecerán
+      al menos 5% a tipos de cambio constantes frente al ejercicio fiscal 2026 y el
+      margen bruto será igual o superior a 80%.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible indica crecimiento de ingresos y margen bruto
+    elevado. Si el crecimiento continúa sin deterioro sustancial de la mezcla de productos
+    o de precios, los ingresos deberían aumentar mientras el margen bruto se conserva.
+    El contexto no aporta datos suficientes sobre pipeline, penetración o mercados
+    direccionables, por lo que esta hipótesis se limita a resultados financieros observables.
+  review_trigger: Dejar de creerla si un informe trimestral o semestral publicado
+    antes del 2028-03-31 muestra una caída interanual de ingresos a tipos de cambio
+    constantes y una reducción del margen bruto de al menos 2 puntos porcentuales,
+    o si los resultados anuales incumplen cualquiera de los dos umbrales.
+  secondary_hypotheses: []
+  statement: AstraZeneca mantendrá crecimiento operativo de ingresos y un margen bruto
+    elevado durante el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: AZN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF del ejercicio fiscal 2027 es igual o inferior al del ejercicio
+      fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF aumenta menos de 5% frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF del ejercicio fiscal 2027 es igual o inferior al del ejercicio fiscal 2026.
+  - El FCF aumenta menos de 5% frente al ejercicio fiscal 2026.
+  horizon: medio
+  id: H2-OPP-MULTIBAGGERS-AZN-0001
+  opportunity_id: OPP-MULTIBAGGERS-AZN-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento del FCF anual frente al ejercicio fiscal 2026
+    prediction: El FCF del ejercicio fiscal 2027, definido como flujo de efectivo
+      de actividades operativas menos adquisiciones de propiedad, planta y equipo,
+      será al menos 5% superior al del ejercicio fiscal 2026.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El contexto señala que el FCF TTM está por debajo del FCF del ejercicio
+    fiscal 2025, pese al crecimiento de ingresos y al margen bruto elevado. Si el
+    crecimiento de ventas se mantiene y no se produce un aumento desproporcionado
+    de inversión, capital de trabajo u otros usos de caja, el FCF debería crecer.
+    La evidencia disponible no permite identificar cuál de esos factores explica la
+    brecha actual, por lo que la hipótesis debe comprobarse directamente con los estados
+    de flujo de efectivo.
+  review_trigger: Dejar de creerla si los resultados anuales del ejercicio fiscal
+    2027 muestran un FCF inferior al del ejercicio fiscal 2026, o si una actualización
+    de resultados antes de esa fecha reduce la expectativa de FCF anual por debajo
+    del nivel de 2026.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-AZN-0001
+  statement: La generación de flujo de caja libre de AstraZeneca se recuperará en
+    el ejercicio fiscal 2027 y crecerá frente al ejercicio fiscal 2026.
+  status: ACTIVE
+  ticker: AZN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de AstraZeneca es igual o inferior al del índice
+      de referencia durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La ventaja de rendimiento total de AstraZeneca frente al índice es
+      inferior a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de AstraZeneca es igual o inferior al del índice de referencia
+    durante el periodo.
+  - La ventaja de rendimiento total de AstraZeneca frente al índice es inferior a
+    5 puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-MULTIBAGGERS-AZN-0001
+  opportunity_id: OPP-MULTIBAGGERS-AZN-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo frente al FTSE All-World Health Care
+    prediction: Entre el 2026-11-21 y el 2027-11-21, el rendimiento total de la acción
+      ordinaria de AstraZeneca, incluidos dividendos y medido en libras esterlinas,
+      superará en al menos 5 puntos porcentuales al del índice FTSE All-World Health
+      Care en libras esterlinas.
+    unit: puntos porcentuales de exceso de rendimiento
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de ingresos y la conservación del margen bruto podrían
+    reducir la preocupación del mercado sobre la caída del FCF TTM si además se traducen
+    en una recuperación verificable de caja. No hay evidencia en el paquete sobre
+    valoración actual, expectativas del mercado o catalizadores clínicos; por ello,
+    esta hipótesis no presupone una expansión del múltiplo y se evalúa mediante rendimiento
+    relativo observable.
+  review_trigger: Dejar de creerla si, en cualquier fecha de cierre mensual entre
+    el 2027-05-21 y el 2027-11-21, AstraZeneca acumula un rendimiento total inferior
+    al del índice en al menos 10 puntos porcentuales y no existe una recuperación
+    hasta la fecha objetivo.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-AZN-0001
+  - H2-OPP-MULTIBAGGERS-AZN-0001
+  statement: La acción ordinaria de AstraZeneca tendrá un rendimiento total superior
+    al del sector sanitario global durante los 12 meses siguientes al corte de investigación.
+  status: ACTIVE
+  ticker: AZN
+  version: 1

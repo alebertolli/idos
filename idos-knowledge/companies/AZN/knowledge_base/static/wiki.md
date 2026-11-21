@@ -1,169 +1,131 @@
 ## 1. Visión General de la Compañía
 
-AstraZeneca PLC (AZN) es una compañía biofarmacéutica integrada que descubre, desarrolla, fabrica y comercializa medicamentos de prescripción. Opera en el sector farmacéutico y biotecnológico, donde los resultados clínicos, la regulación y la protección de la propiedad intelectual son determinantes para el éxito comercial.
+AstraZeneca PLC (AZN) es una compañía biofarmacéutica integrada que descubre, desarrolla, fabrica y comercializa medicamentos de prescripción. Su cadena de valor comprende investigación y descubrimiento de fármacos, desarrollo preclínico y clínico, obtención de autorizaciones regulatorias, fabricación y comercialización. Atiende a médicos de atención primaria, especialistas y centros hospitalarios. [Fuente de investigación AOIF; no se proporcionó enlace.]
 
-Su cartera incluye productos en oncología; cardiovascular, renal y metabolismo; y otras áreas terapéuticas. Entre los medicamentos mencionados en la información disponible figuran Tagrisso, Imfinzi, Lynparza, Calquence, Enhertu, Farxiga/Forxiga, Brilinta/Brilique, Crestor y Lokelma. Los clientes y usuarios institucionales incluyen médicos de atención primaria y especialistas, hospitales, sistemas sanitarios y otros proveedores de salud.
+Su cartera abarca oncología, enfermedades cardiovasculares, renales y metabólicas, entre otras áreas terapéuticas. Entre los productos enumerados en la investigación figuran Tagrisso, Imfinzi, Lynparza, Calquence, Enhertu, Farxiga/Forxiga, Brilinta/Brilique y Lokelma. [Fuente de investigación AOIF; no se proporcionó enlace.]
 
-La cadena de valor abarca investigación y descubrimiento —incluidas colaboraciones tecnológicas y científicas—, desarrollo preclínico y clínico, fabricación y comercialización. La información suministrada no desglosa ingresos por geografía ni describe la distribución regional de operaciones.
-
-**Contexto de inversión:** los análisis aportados clasifican AZN como *compounder*, pero reconocen que la evidencia financiera y de valoración disponible es incompleta y que la decisión final de inversión está pendiente de validación.
-
-**Compañías relacionadas:** [[ABBV]], [[ABT]] y [[AMGN]] pertenecen al mismo sector según la wiki existente. La información aportada no establece comparaciones cuantitativas directas entre estas compañías y AZN.
+AZN participa en una industria intensiva en I+D y altamente regulada, donde los resultados clínicos, las autorizaciones y la protección de patentes influyen directamente en el desempeño comercial. Entre compañías relacionadas del sector se encuentran [[ABBV]], [[AMGN]], [[BMY]], [[GILD]], [[GSK]], [[JNJ]] y [[LLY]].
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Drivers de ingresos
+Los ingresos se generan principalmente mediante la comercialización de medicamentos de prescripción. La investigación caracteriza a AZN como líder competitivo, con una cartera amplia y capacidades científicas y de I+D que podrían constituir ventajas competitivas. Sin embargo, la amplitud del moat y la posición competitiva son evaluaciones cualitativas del análisis AOIF; no se aportaron métricas comparativas para verificarlas.
 
-- Crecimiento del volumen y adopción de medicamentos nuevos y de productos de la cartera en crecimiento.
-- Resultados clínicos favorables, aprobaciones regulatorias y ampliaciones de indicación.
-- Capacidad de desarrollar y comercializar nuevas terapias y de sostener la adopción de productos existentes.
+Los principales drivers por investigar son:
 
-### Ventajas competitivas y dinámica del sector
+- Crecimiento y penetración de los productos existentes y lanzamientos nuevos.
+- Resultados clínicos, autorizaciones y expansión comercial por área terapéutica y geografía.
+- Continuidad de la innovación y capacidad de reemplazar ingresos de productos que pierdan exclusividad.
+- Evolución de precios, competencia y sustitución por genéricos o biosimilares.
 
-La evaluación AOIF considera que AZN tiene un moat potencialmente amplio y una posición competitiva de liderazgo. Las fuentes posibles de ventaja descritas son la propiedad intelectual, la evidencia clínica, las capacidades regulatorias y la escala comercial. Estas características son ventajas potenciales: los datos suministrados no cuantifican su duración ni su contribución económica por producto.
-
-La industria combina altos costes y largos plazos de desarrollo con incertidumbre clínica y regulación. La cartera diversificada y las capacidades integradas pueden respaldar la competitividad, pero el éxito depende de resultados clínicos, aprobaciones y adopción comercial. La pérdida de exclusividad, la entrada de genéricos o biosimilares y la sustitución clínica pueden erosionar las ventas de productos relevantes.
-
-**Relación con pares:** [[ABBV]], [[ABT]] y [[AMGN]] son referencias sectoriales pertinentes para una comparación futura de carteras, crecimiento, rentabilidad, vencimientos de exclusividad y valoración. No se proporcionan métricas comparables en los datos disponibles.
+La dinámica sectorial también es relevante para [[ABBV]], [[BMY]], [[GILD]], [[GSK]], [[JNJ]] y [[LLY]], aunque los datos aportados no permiten comparar carteras, crecimiento ni cuota de mercado entre estas compañías.
 
 ## 3. Perfil Financiero
 
-Las métricas proceden de fuentes y observaciones descritas de manera incompleta. No deben interpretarse como una serie financiera homogénea ni como cifras confirmadas mediante fuentes primarias. El análisis DDD señala una observación de Stock Analysis con crecimiento de ingresos TTM al 30 de septiembre de 2026 y FCF TTM; el resto de los indicadores carece de fechas y definiciones detalladas en el material aportado.
+Las métricas siguientes provienen de la investigación suministrada. Los períodos y las bases de cálculo no siempre son comparables entre sí.
 
-| Métrica | Valor aportado | Fecha o definición disponible | Observaciones |
+| Métrica | Valor reportado | Período / fecha | Fuente y observaciones |
 |---|---:|---|---|
-| Crecimiento de ingresos TTM | 7,32% | Al 30-09-2026; observación atribuida a Stock Analysis | Fuente única según DDD; requiere validación. |
-| Margen operativo | 25,8% | Periodo no especificado | AOIF no aporta definición ni serie temporal. |
-| ROIC | 17,15% | Periodo no especificado | AOIF no aporta definición ni serie temporal. |
-| FCF TTM | 10.210 millones | Moneda financiera del proveedor; periodo TTM, según DDD | La moneda y la fecha de la observación deben confirmarse. |
-| PER | 25,57 | Fecha y base no especificadas | Métrica suministrada por AOIF; no basta por sí sola para estimar valor intrínseco. |
-| EV/EBITDA | 14,29 | Fecha y base no especificadas | Requiere verificar periodo, ajustes y fuente. |
-| FCF yield | 0 | Definición y fecha no especificadas | No queda claro si representa un dato reportado, una ausencia de dato o un cálculo. |
+| Ingresos | USD 45.811 millones | FY 2023 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| Ingresos | USD 58.739 millones | FY 2025 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| Ingresos | Crecimiento de 7,32% | Período no especificado | AOIF; no se indicó método, base ni fuente |
+| Margen bruto | 81,71% | FY 2025 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| Margen bruto | 81,78% | TTM terminado el 2026-09-30 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| FCF | USD 11.765 millones | FY 2025 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| FCF | USD 10.210 millones | TTM terminado el 2026-09-30 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| Margen operativo | 25,8% | Período no especificado | AOIF; no se indicó fuente ni base |
+| ROIC | 17,15% | Período no especificado | AOIF; no se indicó fuente ni base |
+| Deuda total | USD 34.325 millones | 2026-09-30 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| Net cash | -USD 26.159 millones | 2026-09-30 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| Deuda total | No especificada en el dato resumido | FY 2025 | La fuente indica que aumentó frente a FY 2025 |
+| Net cash | -USD 23.984 millones | FY 2025 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| Current ratio | 1,01 | 2026-09-30 | Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/; no está por debajo del umbral de 0,5 |
 
-**Tendencias y calidad de conversión:** AOIF describe los indicadores disponibles como compatibles con crecimiento de ingresos y rentabilidad operativa, pero no aporta periodos comparables. La conversión a FCF no es cuantificable con rigor porque falta una serie comparable de flujo de caja operativo y flujo de caja libre. DDD también advierte que la evidencia financiera es limitada.
+**Lectura de los datos:** los ingresos reportados aumentaron entre FY 2023 y FY 2025. El margen bruto TTM fue ligeramente superior al de FY 2025. En cambio, el FCF TTM reportado fue inferior al del FY 2025; no debe interpretarse como una tasa de crecimiento comparable porque enfrenta un período TTM con un ejercicio fiscal completo. La investigación no aporta cifras del mismo período para conciliar beneficio, flujo de caja operativo, inversión de capital y FCF.
 
-**Estructura de capital:** no se proporcionan cifras de deuda, caja, vencimientos, apalancamiento ni necesidades de financiación. Por tanto, no es posible caracterizar la estructura de capital ni evaluar la liquidez con la información disponible.
+El cálculo de CAGR de ingresos a tres años y el de crecimiento de FCF se marcaron como no disponibles por falta de fuentes verificables o períodos comparables. La cifra de FCF yield de AOIF es 0, pero no se proporcionó su fórmula o base, por lo que no se utiliza como estimación validada.
 
 ## 4. Management y Gobierno Corporativo
 
-La evaluación disponible califica la calidad del management como buena, pero no aporta información verificable suficiente para evaluar su desempeño histórico en detalle.
+AOIF asigna evaluaciones cualitativas de calidad de management «buena», asignación de capital «crea valor» y alineamiento de insiders «moderado». La amplitud de la cartera y las colaboraciones estratégicas se citan como indicios de orientación a innovación y desarrollo, pero no se proporcionan hechos detallados que permitan verificar estas conclusiones.
 
-- **Asignación de capital:** AOIF la califica como neutral. Se mencionan acuerdos estratégicos, pero faltan datos sobre su ejecución, adquisiciones, retornos de inversión y decisiones recientes de capital.
-- **Alineamiento de insiders:** AOIF lo califica como débil. No se suministran cifras de propiedad accionaria de insiders, transacciones ni remuneración.
-- **Board y gobierno corporativo:** no se aportan datos sobre composición, independencia, comités, diversidad, permanencia o supervisión del consejo.
-- **Conclusión:** la evaluación es provisional. No hay base suficiente para formular un juicio independiente sobre incentivos, gobierno o ejecución del liderazgo.
+No se aportaron nombres o trayectoria del equipo directivo, composición del board, estructura de incentivos, porcentajes de propiedad de insiders ni datos de remuneración. Por tanto, no es posible evaluar en detalle la gobernanza ni la alineación económica entre dirección y accionistas.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista
+**Tesis por investigar:** la combinación de crecimiento de ingresos y un margen bruto elevado y estable podría sostener la generación de caja si AZN mantiene el desempeño de sus productos y convierte con eficiencia la inversión en I+D en ventas y flujo de caja.
 
-La tesis favorable es que una biofarmacéutica global con una cartera amplia, capacidades integradas y actividad de investigación y desarrollo puede sostener el crecimiento y la rentabilidad mediante la adopción de medicamentos nuevos y existentes, resultados clínicos favorables y ampliaciones de indicación.
+Elementos que apoyan la investigación de esta tesis:
 
-Elementos de respaldo en los inputs:
+- Los ingresos reportados aumentaron de USD 45.811 millones en FY 2023 a USD 58.739 millones en FY 2025. [Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/]
+- El margen bruto fue de 81,78% para el TTM terminado el 2026-09-30, frente a 81,71% en FY 2025. [Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/]
+- AOIF describe una cartera amplia, capacidades de I+D y exposición a varias áreas terapéuticas, aunque estas evaluaciones no incluyen comparación cuantitativa con pares.
 
-- AOIF describe una cartera distribuida entre oncología y cardiovascular, renal y metabolismo, entre otras áreas, y una cadena de valor integrada.
-- AOIF identifica como drivers la adopción de medicamentos, los resultados clínicos, las aprobaciones y las ampliaciones de indicación.
-- Las métricas suministradas incluyen crecimiento de ingresos TTM de 7,32%, margen operativo de 25,8% y ROIC de 17,15%. La falta de periodos comparables y validación limita la fuerza de esta evidencia.
-- DDD reporta un FCF TTM de 10.210 millones, aunque la moneda, la fecha exacta y la comparabilidad requieren confirmación.
-
-La hipótesis de *compounder* de largo plazo es plausible, pero no queda demostrada por los datos aportados: hacen falta series históricas comparables, análisis de productos y evidencia de conversión de beneficios en caja.
-
-### Precio y consenso observados
-
-Al 19-11-2026, DDD registra una cotización suministrada de **USD 174,87** y un consenso observado de analistas de **USD 209,91**. El consenso y los precios objetivo son referencias de analistas, no una valoración intrínseca ni garantía de rendimiento. DDD considera **incierto** si existe un error de valoración.
-
-**Hipótesis no confirmada:** el mercado podría estar infravalorando la duración de la cartera innovadora y su capacidad de generar crecimiento rentable. La hipótesis contraria es que el descuento refleje riesgos de exclusividad, ejecución clínica o expectativas de crecimiento y márgenes que no se materialicen.
+Estos datos no demuestran por sí solos que AZN esté infravalorada ni que el crecimiento vaya a persistir. La puntuación de descubrimiento de 67,77 y la etiqueta «MULTIBAGGERS» son clasificaciones del paquete de investigación, no evidencia de rendimiento futuro. El score general indicado es 55, sin metodología adicional disponible.
 
 ## 6. Riesgos y Contra-Tesis
 
-### Riesgos principales
+La contra-tesis es que el crecimiento de ingresos y la estabilidad del margen bruto no se traduzcan en una generación de caja sostenible, especialmente si aumentan las necesidades de inversión, empeora la conversión de beneficios o se deteriora el desempeño de productos y lanzamientos.
 
-| Riesgo | Impacto | Probabilidad indicada | Mecanismo |
-|---|---|---|---|
-| Pérdida de exclusividad, genéricos o biosimilares y sustitución clínica | Alto | Media en DDD; alta en AOIF | Puede reducir ingresos de productos relevantes al terminar la protección o perder competitividad. |
-| Resultados clínicos desfavorables, retrasos o fallos de desarrollo | Alto | Media | Pueden afectar candidatos, indicaciones y expectativas de ingresos futuros. |
-| Resultados regulatorios o comerciales inferiores a lo esperado | Alto potencial | No cuantificada de forma sólida | Puede reducir el valor esperado de los activos de la cartera y la adopción. |
-| Conversión insuficiente de beneficios en caja | No cuantificado | No cuantificada | La ausencia de series de FCF comparables impide evaluar la sostenibilidad de la generación de caja. |
-| Incertidumbre financiera y de valoración | Medio | No cuantificada | Las métricas tienen fechas, definiciones y fuentes incompletas; el consenso no equivale a valor intrínseco. |
+Riesgos identificados:
 
-### Contra-tesis
+- **Ejecución clínica y regulatoria:** ensayos fallidos, problemas de seguridad o eficacia y retrasos en desarrollo. AOIF los clasifica con impacto alto y probabilidad media.
+- **Patentes y exclusividad:** vencimientos que permitan la sustitución por genéricos o biosimilares. AOIF los clasifica con impacto alto y probabilidad alta.
+- **Conversión de caja:** el FCF reportado para el TTM terminado el 2026-09-30 fue USD 10.210 millones, inferior a los USD 11.765 millones de FY 2025. La comparación mezcla períodos distintos y requiere una serie homogénea antes de extraer una tendencia.
+- **Estructura de capital:** net cash negativo y deuda total reportada de USD 34.325 millones al 2026-09-30; el net cash reportado pasó de -USD 23.984 millones en FY 2025 a -USD 26.159 millones. [Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/]
+- **Dilución:** no evaluable; falta una serie comparable de acciones diluidas o en circulación.
+- **Liquidez corriente:** ratio de 1,01 al 2026-09-30; no activa el umbral de alerta proporcionado, definido como inferior a 0,5. [Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/]
 
-La tesis podría debilitarse si los productos principales pierden exclusividad antes de que nuevos medicamentos o indicaciones compensen la erosión, si activos relevantes fracasan en clínica o regulación, o si el crecimiento de ingresos no se traduce en generación de caja. También podría resultar errónea la hipótesis de infravaloración si el consenso observado incorpora expectativas demasiado optimistas.
+**Falsadores de la tesis:**
 
-### Triggers de falsación y seguimiento
-
-- Caída persistente de ingresos o márgenes en periodos comparables.
-- Deterioro de la conversión de beneficios en flujo de caja libre.
-- Pérdida de exclusividad con impacto material no compensado por lanzamientos o crecimiento de otros productos.
-- Fallos, retrasos o decisiones regulatorias desfavorables en activos relevantes.
-- Evidencia de que las métricas financieras suministradas no son comparables o no se reproducen en información verificable.
-
-DDD indica que no se ha identificado evidencia que demuestre la vulneración de una categoría de invalidación de la tesis. Esto no descarta riesgos: señala que la información disponible es insuficiente para probar que la tesis haya sido invalidada.
+1. Períodos posteriores de contracción de ingresos contradicen la continuidad del crecimiento.
+2. Una caída sostenida del margen bruto respecto del 81,78% reportado para el TTM terminado el 2026-09-30 debilita la hipótesis de estabilidad de márgenes.
+3. Un deterioro persistente del FCF en períodos comparables, una vez conciliadas sus causas, debilita la hipótesis de conversión de crecimiento en caja.
 
 ## 7. Catalizadores y Timeline
 
-Los horizontes son los indicados por DDD; no se aportan fechas específicas de eventos ni nombres de activos asociados a hitos clínicos o regulatorios concretos.
+La investigación disponible no identifica eventos corporativos fechados, decisiones regulatorias concretas ni resultados clínicos con fechas esperadas. Por ello, no se atribuyen catalizadores futuros específicos.
 
-| Catalizador | Horizonte esperado | Probabilidad aportada | Impacto potencial | Evidencia / condición de confirmación |
-|---|---|---:|---|---|
-| Resultados futuros que confirmen crecimiento de ingresos y márgenes, junto con conversión en caja | Medio plazo | 50% | Medio | Debe verificarse en resultados financieros comparables; DDD señala confianza baja. |
-| Actualizaciones clínicas o regulatorias favorables de activos de la cartera | Medio plazo | 45% | Alto | Requiere confirmación mediante fuentes primarias; DDD señala confianza baja. |
-| Secuencia de resultados y actualizaciones corporativas que confirme crecimiento rentable y generación de caja | Medio plazo | 50% | Medio | Catalizador propuesto por DDD para reducir la incertidumbre de valoración. |
-
-**Ventana de escenarios aportada:** fecha de referencia 19-11-2026 y horizonte 19-11-2027. No se suministra un calendario de publicaciones de resultados, decisiones regulatorias o hitos clínicos específicos.
+| Catalizador a monitorear | Fecha esperada | Impacto potencial | Evidencia disponible |
+|---|---|---|---|
+| Evolución de ingresos | Sin fecha suministrada | Puede confirmar o refutar la continuidad del crecimiento | Ingresos reportados de FY 2023 y FY 2025; Stock Analysis: https://stockanalysis.com/stocks/AZN/statistics/ |
+| Evolución del margen bruto | Sin fecha suministrada | Una estabilidad o caída sostenida afecta la tesis de rentabilidad | 81,78% TTM a 2026-09-30 frente a 81,71% FY 2025; misma fuente |
+| Conversión a FCF | Sin fecha suministrada | Puede aclarar si el crecimiento se traduce en caja disponible | FCF reportado de FY 2025 y TTM a 2026-09-30; misma fuente |
+| Desarrollo clínico y vencimientos de patentes | Sin fechas ni activos concretos suministrados | Puede afectar ventas, exclusividad y crecimiento futuro | Riesgos cualitativos identificados en AOIF |
 
 ## 8. Marco de Valoración
 
-### Evidencia de valoración disponible
+No hay base suficiente para estimar un valor intrínseco robusto. AOIF reporta PER de 25,38 y EV/EBITDA de 13,93, pero no se especifican fecha, fuente, período fiscal, convenciones de cálculo ni comparables. Los múltiplos, por sí solos, no permiten concluir infravaloración o sobrevaloración. AOIF califica el margen de seguridad como insuficiente y no presenta una valoración intrínseca estimable.
 
-| Referencia | Valor | Interpretación y limitaciones |
+La investigación DDD informa una cotización observada de **USD 176,05 al 2026-11-20**, atribuida a yfinance en el input. También registra un consenso de analistas de **USD 209,91**, con rango de **USD 158 a USD 240**. Son referencias observadas del paquete, no una estimación de valor intrínseco; no se proporcionó enlace verificable para el consenso.
+
+El análisis de escenarios disponible utiliza los extremos del rango de analistas como anclas, no como valoración fundamental:
+
+| Escenario | Precio objetivo indicado | Interpretación |
 |---|---:|---|
-| Cotización suministrada | USD 174,87 al 19-11-2026 | Observación aportada por DDD; no incluye fuente detallada en el material recibido. |
-| Consenso observado de analistas | USD 209,91 al 19-11-2026 | Referencia de analistas, no valor intrínseco. |
-| Rango de escenarios DDD | USD 158–240 al 19-11-2027 | Anclas derivadas de los extremos del rango de objetivos de analistas; no son una valoración independiente. |
-| PER | 25,57 | Fecha y definición no especificadas. |
-| EV/EBITDA | 14,29 | Fecha y definición no especificadas. |
-| FCF yield | 0 | Interpretación no aclarada. |
+| Bear | USD 158 | Extremo bajo del rango de analistas reportado; no es valoración intrínseca |
+| Bull | USD 240 | Extremo alto del rango de analistas reportado; no es valoración intrínseca |
 
-DDD califica la valoración como **justa** y el margen de seguridad como **insuficiente**, pero AOIF concluye que el valor intrínseco no puede determinarse con rigor a partir de los datos aportados. Estas conclusiones reflejan limitaciones de información; no constituyen una estimación independiente del valor razonable.
-
-### Metodología apropiada para una valoración futura
-
-- **Flujo de caja descontado:** requiere previsiones por producto o área terapéutica, márgenes, impuestos, inversión, capital de trabajo y una estimación explícita del riesgo de patentes y desarrollo.
-- **Valoración por segmentos o activos:** puede ayudar a separar productos comercializados de activos en desarrollo, siempre que se disponga de ingresos, exclusividad, probabilidad de éxito clínico y costes.
-- **Múltiplos comparables:** PER y EV/EBITDA deberían contrastarse con pares como [[ABBV]], [[ABT]] y [[AMGN]], usando periodos y definiciones homogéneos. Los datos proporcionados no permiten esa comparación.
-
-### Sensibilidades que deben modelarse
-
-1. Crecimiento y erosión de ingresos por producto, incluidos cambios por pérdida de exclusividad.
-2. Márgenes y reinversión necesaria para sostener la cartera y el desarrollo.
-3. Conversión de beneficio operativo en FCF.
-4. Probabilidad de éxito y calendario de activos clínicos y regulatorios.
-5. Supuestos de descuento y valor terminal.
-
-La amplitud del rango USD 158–240 refleja objetivos observados de analistas, no el resultado de una sensibilidad fundamental independiente. Con la información disponible no se puede calcular un margen de seguridad fiable.
+El análisis tiene fecha 2026-11-21 y horizonte 2027-11-21. La evidencia no incluye supuestos financieros detallados que expliquen esos niveles. Para una valoración más sólida se necesitarían estimaciones por producto y área terapéutica, crecimiento y margen por período comparable, inversión en I+D, conversión de beneficios a FCF, vencimientos de patentes, estructura de capital y supuestos explícitos de descuento o múltiplos terminales. La sensibilidad debería evaluar, como mínimo, cambios en crecimiento, márgenes, conversión a caja y pérdida de exclusividad.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cómo se distribuyen ingresos, beneficios y flujo de caja por producto, área terapéutica y geografía? ¿Qué grado de concentración existe?
-2. ¿Qué medicamentos afrontan vencimientos de patentes o exclusividad, y cuál es la sensibilidad cuantificada de ingresos y márgenes?
-3. ¿Qué fechas, etapas y probabilidades de éxito corresponden a los principales activos clínicos y regulatorios?
-4. ¿Qué series comparables de ingresos, margen operativo, ROIC, flujo de caja operativo y FCF confirman o contradicen las métricas aportadas?
-5. ¿Cuál es la moneda, la fecha exacta y la definición del FCF TTM de 10.210 millones reportado por Stock Analysis?
-6. ¿Cómo se financia la compañía y cuáles son sus niveles de deuda, caja, vencimientos y compromisos?
-7. ¿Qué historial verificable tiene el management en asignación de capital, adquisiciones, colaboraciones y retornos de inversión?
-8. ¿Cuál es la propiedad accionaria de insiders y cómo se relaciona la remuneración con resultados de largo plazo?
-9. ¿Cómo está compuesto el board y qué mecanismos de supervisión, independencia y gestión de riesgos mantiene?
-10. ¿Qué evidencia concreta respalda la evaluación de moat amplio y liderazgo, y cómo se compara con [[ABBV]], [[ABT]] y [[AMGN]]?
-11. ¿Qué riesgos de fabricación, proveedores, abastecimiento y ESG son relevantes? Los inputs no ofrecen evidencia específica para evaluarlos.
-12. ¿Qué fuente y metodología sustentan la cotización, el consenso y los extremos de los escenarios de analistas observados al 19-11-2026?
-13. ¿Qué resultados corporativos o clínicos futuros permitirían confirmar o invalidar la hipótesis de crecimiento rentable y generación de caja?
+- ¿Qué productos, mercados y lanzamientos explican el crecimiento de ingresos y cuál es su penetración frente a sus mercados direccionables?
+- ¿Cómo varían ingresos, márgenes y crecimiento por área terapéutica y geografía?
+- ¿Cuál es la conversión de beneficios en flujo de caja libre en períodos comparables, y qué explica la diferencia entre el FCF de FY 2025 y el TTM terminado el 2026-09-30?
+- ¿Cuál es el retorno sobre capital de forma verificable y qué reinversión se requiere para sostener el crecimiento?
+- ¿Qué vencimientos de patentes, riesgos clínicos o hitos regulatorios concretos son relevantes y en qué fechas?
+- ¿Cómo se desglosan deuda, liquidez, vencimientos y necesidades de financiación?
+- ¿Cuál es la tendencia de acciones diluidas y existe dilución material?
+- ¿Qué respaldan las cifras AOIF de crecimiento de ingresos, margen operativo, ROIC, PER y EV/EBITDA, y a qué períodos corresponden?
+- ¿Qué metodología y supuestos explican el consenso y sus extremos de USD 158 y USD 240?
+- ¿Qué datos sobre el equipo directivo, incentivos, propiedad de insiders y board permiten verificar las evaluaciones cualitativas de management?
+- ¿Puede establecerse una comparación cuantitativa con compañías del sector como [[ABBV]], [[AMGN]], [[BMY]], [[GILD]], [[GSK]], [[JNJ]] y [[LLY]]?
 
-**Estado de la tesis:** activa, pero con evidencia incompleta. La clasificación de *compounder* y la valoración requieren confirmación mediante fuentes primarias, series financieras comparables y análisis por producto.
+**Estado de la evaluación:** investigación requerida. La información disponible describe señales de crecimiento y márgenes elevados, pero no basta para confirmar la calidad de la conversión a caja, la sostenibilidad del crecimiento ni un error de valoración.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]], [[AMGN|Amgen Inc.]]
-- **Same Industry**: [[ABBV|AbbVie Inc.]], [[AMGN|Amgen Inc.]]
+- **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]], [[AMGN|Amgen Inc.]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[CAH|Cardinal Health, Inc.]], [[CVS|CVS Health Corporation]], [[DHR|Danaher Corporation]], [[GILD|Gilead Sciences, Inc.]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly and Company]], [[MDT|Medtronic plc]], [[MRK|Merck & Co., Inc.]], [[NVS|Novartis AG]], [[TMO|Thermo Fisher Scientific Inc.]], [[UNH|UnitedHealth Group Incorporated]], [[VRTX|Vertex Pharmaceuticals Incorporated]]
+- **Same Industry**: [[ABBV|AbbVie Inc.]], [[AMGN|Amgen Inc.]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[GILD|Gilead Sciences, Inc.]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly and Company]], [[MRK|Merck & Co., Inc.]], [[NVS|Novartis AG]]
