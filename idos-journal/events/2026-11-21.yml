@@ -538,3 +538,104 @@ events:
   event_type: research:hypothesis_validation_failed
   source: research_worker
   timestamp: '2026-11-21T15:07:52.318267'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-DE
+    ticker: DE
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T15:15:12.696667'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DE
+    ticker: DE
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:15:12.726263'
+- data:
+    classification: Crecimiento
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: c1a90b03dd0e9c2826f3ba88396f6e38f48935932f27f5654d6136e02066ffe5
+    opp_id: OPP-MB-DE
+    original_status: UNDER_RESEARCH
+    score: 78
+    strategy_version: '1.5'
+    ticker: DE
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:17:06.367623'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-DEO
+    ticker: DEO
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T15:17:42.338368'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DEO
+    ticker: DEO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:17:42.369233'
+- data:
+    classification: Investigación requerida; calidad de evidencia fundamental incompleta
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 263a4c555b481cded3d34eed1d08c100c7282c6911822fb2b95f68b524962bcb
+    opp_id: OPP-MB-DEO
+    original_status: UNDER_RESEARCH
+    score: 64
+    strategy_version: '1.5'
+    ticker: DEO
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:19:18.962956'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DHR
+    ticker: DHR
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:19:46.618965'
+- data:
+    classification: Investigación requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: e33bbcb0234d3c2afadacd078b9dcd0849e40d95ce319f5ee03d620053f4d341
+    opp_id: OPP-MB-DHR
+    original_status: UNDER_RESEARCH
+    score: 43
+    strategy_version: '1.5'
+    ticker: DHR
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:21:30.711050'

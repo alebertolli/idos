@@ -1,0 +1,1 @@
+Deere & Company está bien posicionada para capitalizar la demanda de equipos agrícolas de alta tecnología, aunque su elevada razón neta de deuda/EBITDA y cobertura de intereses cero representan riesgos significativos.
