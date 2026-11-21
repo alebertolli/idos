@@ -458,3 +458,83 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T14:56:18.527297'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-CVS
+    ticker: CVS
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T15:03:16.781121'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CVS
+    ticker: CVS
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:03:16.814442'
+- data:
+    classification: Growth
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 7ee9fae148a988a72e5667e66abd588004b031b1496eac4eb0bd65e25a803837
+    opp_id: OPP-MB-CVS
+    original_status: UNDER_RESEARCH
+    score: 71
+    strategy_version: '1.5'
+    ticker: CVS
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:05:09.329174'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CVX
+    ticker: CVX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:05:34.230981'
+- data:
+    errors:
+    - 'H3: prediction or trigger references an expired year'
+    event_evidence: null
+    event_type: monthly
+    opp_id: OPP-MB-CVX
+    ticker: CVX
+  event_type: research:hypothesis_validation_failed
+  source: research_worker
+  timestamp: '2026-11-21T15:06:31.564978'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DAL
+    ticker: DAL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:06:58.266528'
+- data:
+    errors:
+    - 'H1: prediction or trigger references an expired year'
+    event_evidence: null
+    event_type: monthly
+    opp_id: OPP-MB-DAL
+    ticker: DAL
+  event_type: research:hypothesis_validation_failed
+  source: research_worker
+  timestamp: '2026-11-21T15:07:52.318267'
