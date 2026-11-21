@@ -1,0 +1,28 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida; evidencia insuficiente para
+  una conclusión de valoración'
+- 'Market error: No se valida un error de valoración: el consenso es una referencia
+  observada, no una valoración intrínseca, y faltan datos de valoración y expectativas
+  de mercado comparables.'
+- 'Thesis: ICICI Bank es un grupo bancario y financiero con operaciones de banca minorista
+  y mayorista, tesorería, seguros y otros servicios. Los ingresos y el beneficio neto
+  reportados aumentaron entre FY 2023 '
+generated_at: '2026-11-21T16:10:45.598060-03:00'
+id: ass-811200f4
+recommendation: REVIEW
+risks:
+- evidencia: StockAnalysis, TTM al 2026-09-30; véase la fila de conversión de FCF.
+  riesgo: El flujo de caja libre reportado es negativo en los períodos disponibles,
+    aunque su interpretación para un banco requiere cautela y no equivale por sí sola
+    a una medida de liquidez bancaria.
+- evidencia: Faltan historial de acciones diluidas y EBITDA utilizable en el paquete.
+  riesgo: No se puede validar dilución ni apalancamiento relativo a EBITDA con los
+    campos y períodos disponibles.
+- evidencia: No se proporcionan observaciones de esos indicadores.
+  riesgo: El paquete no incluye datos de calidad de activos, pérdidas crediticias,
+    capital regulatorio ni concentración de depósitos.
+score: 61
+status: COMPLETED
+version: '3.0'

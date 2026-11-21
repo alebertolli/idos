@@ -1,81 +1,69 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El crecimiento de ingresos entre FY 2022 y FY 2025 es una señal descriptiva, pero
-    por sí sola no demuestra crecimiento rentable, retornos sobre capital atractivos
-    ni potencial multibagger.
-  - La ausencia de evidencia sobre moat, penetración y reinversión impide validar
-    la sostenibilidad del mecanismo de crecimiento.
-  - 'Ingresos reportados: 46358 en FY 2022 y 63224 en FY 2025; estados financieros
-    de StockAnalysis, períodos terminados 2022-12-31 y 2025-12-31.'
-  - 'Utilidad neta reportada: 26435 TTM al 2026-09-30; estados financieros de StockAnalysis.'
-  - Precio USD 85.42 al 2026-10-30 y objetivos de analistas USD 90.00–112.05 observados
-    el 2026-11-20; Yahoo Finance y StockAnalysis.
+  - CAGR de ingresos 3 años ≈ 6.2%.
+  - Conversión de FCF a ingreso ≈ -274%.
+  - Precio actual 85.42 USD (2026-10-30) – yfinance.
+  - Revenue TTM 67,440 millones (2026-09-30) – stockanalysis.com.
+  - FCF TTM -72,510 millones (2026-09-30) – stockanalysis.com.
+  - Current ratio 0 (2026-09-30) – stockanalysis.com.
   preguntas_abiertas:
-  - ¿Qué segmentos y geografías explican el crecimiento de ingresos y utilidad, y
-    qué retornos sobre capital generan?
-  - ¿Cómo se reconcilia el FCF reportado con los flujos de caja bancarios y qué parte
-    refleja cambios de balance?
-  - ¿Qué metas de capital, dividendos, recompras y prioridades de asignación ha comunicado
-    la dirección?
-catalizadores_previos: &id001 []
+  - EBITDA no reportado, impide cálculo de net debt/EBITDA.
+  - Datos de diluted shares ausentes, impide cálculo de dilution yoy.
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T15:42:14.421969-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-HSBC
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T15:42:14.421969-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-HSBC
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
-    de multibagger.
-  justificacion: El paquete aporta datos financieros y de mercado, pero no evidencia
-    verificable suficiente sobre retornos sobre capital, penetración de mercado, ventaja
-    competitiva o asignación de capital.
+  categoria: moderada
+  justificacion: El precio actual (85.42 USD) está por debajo del consenso medio de
+    103.02 USD, indicando posible margen de revalorización, pero la liquidez y cobertura
+    son muy débiles.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe cuatro segmentos —Hong Kong, UK, Corporate and Institutional
-    Banking e International Wealth and Premier Banking— y servicios bancarios y patrimoniales.
-    No hay evidencia suficiente sobre penetración, cuota de mercado, costo de adquisición,
-    retornos sobre capital, moat o asignación de capital para calificar la calidad
-    económica del negocio.
-  rating: No concluyente
+  analisis: Modelo de negocio diversificado y presencia global, pero la calidad de
+    activos y generación de efectivo son débiles.
+  rating: B
 dominio_catalizadores:
-- catalizador: El crecimiento de ingresos FY 2022–FY 2025 permite investigar si la
-    expansión continúa, pero el paquete no contiene orientación ni hitos corporativos
-    futuros.
-  fuente: StockAnalysis, estados financieros, FY 2022–FY 2025.
-- catalizador: La utilidad neta TTM al 2026-09-30 ofrece una base para revisar resultados
-    posteriores; no se aportan expectativas de consenso sobre resultados.
-  fuente: StockAnalysis, estados financieros, TTM al 2026-09-30.
+- catalizador: Recuperación en Asia
+  detalle: Mayor crecimiento de ingresos en el segmento Hong Kong podría impulsar
+    el CAGR.
+- catalizador: Programa de reducción de costos
+  detalle: Podría mejorar márgenes y generar flujo de caja positivo.
+- catalizador: Alivio regulatorio de capital
+  detalle: Reduciría el net debt y mejoraría la relación net debt/EBITDA.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: StockAnalysis, estados financieros e indicadores, período FY 2022–TTM al
-    2026-09-30.
-  riesgo: 'La conversión de flujo de caja libre y su crecimiento no quedan suficientemente
-    validados: el historial disponible muestra signos distintos entre ejercicios y
-    el dato TTM de FCF no comparte una unidad explícitamente conciliable con la serie
-    financiera.'
-- fuente: StockAnalysis, estados financieros e indicadores, FY 2025 y período al 2026-09-30.
-  riesgo: La deuda total reportada subió de 699906 en FY 2025 a 851906 al 2026-09-30,
-    mientras que no se dispone de EBITDA utilizable para evaluar deuda neta/EBITDA.
-- fuente: StockAnalysis, estadísticas al 2026-09-30.
-  riesgo: No se proporcionan datos históricos de acciones suficientes para medir dilución
-    interanual o CAGR de acciones.
-- fuente: Yahoo Finance, historial de HSBC, período 2025-10-31/2026-10-30.
-  riesgo: El descenso máximo observado fue 20.8047% durante 2025-10-31/2026-10-30;
-    el paquete no explica sus causas.
+- detalle: Current ratio reportado es 0, muy por debajo del umbral de 0.5.
+  riesgo: Liquidez
+- detalle: Interest coverage ratio reportado es 0, bajo el umbral de 2.0.
+  riesgo: Cobertura de intereses
+- detalle: FCF es negativo y la conversión de FCF a ingresos es -274%.
+  riesgo: Flujo de caja libre
 error_mercado:
-  catalizador_cambio: Resultados financieros posteriores, métricas de rentabilidad
-    y divulgaciones sobre capital podrían permitir contrastar expectativas; no se
-    aportan aquí objetivos cuantificados.
-  conclusion_error_valoracion: 'No validado: el paquete no permite determinar si existe
-    un error de valoración.'
-  consenso_actual: El precio observado fue USD 85.42 al 2026-10-30. El consenso de
-    precio objetivo informado el 2026-11-20 fue USD 103.02, con rango de USD 90.00
-    a USD 112.05.
-  hipotesis_contraria: El precio objetivo medio podría no reflejar riesgos o catalizadores
-    específicos de HSBC; el paquete no proporciona estimaciones de resultados ni supuestos
-    de analistas para contrastarlo.
-  razonamiento: El precio y los objetivos son observaciones de mercado, no una valoración
-    intrínseca; faltan supuestos de negocio y método de valoración verificable.
-generated_at: '2026-11-20T15:42:14.421969-03:00'
+  catalizador_cambio: Mejora inesperada en márgenes netos o reducción de deuda neta.
+  conclusion_error_valoracion: Existe una discrepancia entre el precio y el consenso
+    que justifica una revisión de los supuestos de riesgo.
+  consenso_actual: 103.02
+  hipotesis_contraria: El mercado podría estar subvalorando riesgos de liquidez y
+    generación de efectivo negativos.
+  razonamiento: El precio está 20% por debajo del promedio de los analistas, mientras
+    que indicadores clave como current ratio e interest coverage son cero.
+generated_at: '2026-11-21T16:06:55.387597-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-HSBC
@@ -98,7 +86,7 @@ prompt_inputs:
   insider_ownership: 0
   name: HSBC Holdings plc
   operating_margin: 49.04
-  pe_ratio: 10.79
+  pe_ratio: 10.63
   products: ''
   revenue: 67440000000.0
   revenue_growth: 16.35
@@ -109,68 +97,54 @@ ratios_investigados:
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
-  period_end: '2025-12-31'
+  period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/hsbc/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HSBC/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+- formula: reported
   inputs:
-    fcf_history:
-      FY 2024: 19724
-      FY 2025: -140588
-  limitations: 'No se cumple el requisito de FCF positivo en ambos períodos: FY 2025
-    es negativo.'
+    fcf_growth_FY_2022: 1352.41
+  limitations: Solo disponible FY 2022; falta serie histórica completa.
   metric: fcf_growth_pct
-  period_end: '2025-12-31'
+  period_end: '2022-12-31'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/hsbc/financials/
-  status: unavailable
+  status: reported
   unit: percent
-  value: null
+  value: 1352.41
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: fcf_conversion_pct
-  period_end: '2025-12-31'
+  period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/hsbc/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HSBC/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
-    cuando la fuente reporta net_cash = cash - debt
+- formula: (Total_Debt - Cash_and_Investments) / EBITDA
   inputs:
-    ebitda: n/a
-    net_cash_history:
-      Current: 336293
-    total_debt_history:
-      Current: 851906
-  limitations: Falta EBITDA numérico para el período; la fuente indica n/a, por lo
-    que no puede calcularse el múltiplo.
+    Cash_and_Investments: 1188199
+    Total_Debt: 851906
+  limitations: EBITDA no reportado (valor 'n/a').
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/hsbc/financials/
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/HSBC/statistics/
   status: unavailable
   unit: x
   value: null
-- formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs:
-    shares_outstanding: 17110000000
-  limitations: Sólo hay un dato puntual de acciones en circulación; falta un dato
-    comparable del período anterior.
+- formula: (Diluted_Shares_t / Diluted_Shares_t-1) - 1
+  inputs: {}
+  limitations: Datos de diluted shares no proporcionados.
   metric: dilution_yoy_pct
-  period_end: '2026-09-30'
-  sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/HSBC/statistics/
+  period_end: null
+  sources: []
   status: unavailable
   unit: percent
   value: null
@@ -205,7 +179,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'HSBC Holdings plc engages in the provision of banking and financial
     products and services worldwide. It operates through four segments: Hong Kong,
     UK, Corporate and Institutional Banking, and International Wealth and Premier
@@ -226,7 +200,178 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.0434
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: "## 1. Visión General de la Compañía\n\nHSBC Holdings plc es un banco\
+    \ universal internacional que ofrece productos y servicios bancarios y patrimoniales\
+    \ a particulares, empresas e instituciones. El resumen disponible identifica cuatro\
+    \ segmentos: Hong Kong, UK, Corporate and Institutional Banking e International\
+    \ Wealth and Premier Banking. La compañía opera en varias geografías, con presencia\
+    \ destacada en Hong Kong y el Reino Unido.\n\nSu modelo bancario comprende captación\
+    \ de depósitos y financiación mayorista, evaluación de crédito y asignación de\
+    \ capital, y distribución de préstamos, pagos y productos financieros. Los productos\
+    \ descritos incluyen cuentas, depósitos, tarjetas, préstamos hipotecarios, personales\
+    \ y comerciales, además de servicios financieros y patrimoniales.  \n**Fuente:**\
+    \ descripción de negocio proporcionada en la wiki existente y análisis AOIF; no\
+    \ se aportan fechas de referencia para estas descripciones.\n\n## 2. Modelo de\
+    \ Negocio y Posición Competitiva\n\nLos principales motores de ingresos son el\
+    \ margen entre los intereses cobrados por préstamos y los pagados por depósitos,\
+    \ junto con comisiones por servicios financieros. La financiación y los pagos\
+    \ comerciales, la banca minorista y la gestión patrimonial complementan esas fuentes.\n\
+    \nEl análisis AOIF caracteriza la posición competitiva como líder y el moat como\
+    \ estrecho. Las ventajas señaladas son la marca global, las relaciones de largo\
+    \ plazo con clientes, la escala en pagos y financiación comercial y las redes\
+    \ internacionales, incluida la presencia en Hong Kong. Estas ventajas no están\
+    \ respaldadas en el material suministrado por métricas de cuota de mercado, retención,\
+    \ precios o rentabilidad por segmento; por tanto, su sostenibilidad no queda verificada.\n\
+    \nLa industria es madura y fuertemente regulada. La rentabilidad es sensible a\
+    \ los tipos de interés, el ciclo crediticio y la actividad económica. La digitalización\
+    \ puede presionar costes y fidelidad, aunque el paquete no cuantifica esos efectos.\
+    \ Entre las compañías relacionadas del sector figuran [[C]], [[BSBR]], [[AIG]],\
+    \ [[AXP]], [[AEG]] y [[BX]]; la lista de entrada también incluye [[C]] dos veces.\n\
+    \n## 3. Perfil Financiero\n\nLas cifras siguientes se reproducen tal como aparecen\
+    \ en los inputs. No se especifican unidades ni, para varias métricas, el método\
+    \ de cálculo; no deben interpretarse como series plenamente comparables sin verificar\
+    \ la fuente primaria.\n\n| Métrica | Valor o período informado | Lectura y limitaciones\
+    \ |\n|---|---:|---|\n| Crecimiento de ingresos | 16,35% | AOIF lo informa como\
+    \ crecimiento de revenue; no se especifican período, fórmula ni unidades. |\n\
+    | Margen operativo | 49,04% | Valor AOIF; definición y período no especificados.\
+    \ |\n| ROIC | 13,63% | Valor AOIF; definición y período no especificados. La utilidad\
+    \ de esta métrica requiere revisión para un banco. |\n| PER | 10,79 | Valor AOIF;\
+    \ fecha y base de beneficios no especificadas. |\n| Ingresos FY 2022–FY 2025 |\
+    \ Se describe crecimiento | No se suministran los importes ni una tasa verificable.\
+    \ |\n| Utilidad neta TTM al 2026-09-30 | Positiva | El importe no se incluye en\
+    \ el material disponible. |\n| FCF FY 2024 | 19.724 | Unidad no especificada.\
+    \ |\n| FCF FY 2025 | -140.588 | Unidad no especificada; el cambio de signo impide\
+    \ calcular un crecimiento convencional. |\n| Deuda total FY 2025 | 699.906 | Unidad\
+    \ y definición contable no especificadas. |\n| Deuda total al 2026-09-30 | 851.906\
+    \ | Aumento frente al dato FY 2025; no se proporciona conciliación ni información\
+    \ suficiente para evaluar apalancamiento bancario. |\n| Current ratio al 2026-09-30\
+    \ | 0 | Dato reportado por la fuente; no se considera indicador validado de riesgo\
+    \ bancario sin revisar definición y componentes. |\n| FCF TTM | No disponible\
+    \ | No se proporciona un dato validado. |\n\n**Fuentes:** AOIF, sin fecha de corte\
+    \ indicada para las métricas; StockAnalysis, estados financieros e indicadores\
+    \ FY 2022–TTM al 2026-09-30, según el paquete de investigación: [estados financieros\
+    \ de HSBC](https://stockanalysis.com/stocks/hsbc/financials/).\n\nEl FCF no es\
+    \ una métrica especialmente representativa para un banco, pues los flujos operativos\
+    \ pueden variar con los movimientos de depósitos, préstamos y otros activos y\
+    \ pasivos financieros. El material tampoco permite conciliar las cifras de FCF\
+    \ con esos movimientos. No hay datos utilizables para calcular deuda neta/EBITDA,\
+    \ y el paquete advierte que esa razón no puede evaluarse con el EBITDA disponible.\n\
+    \n## 4. Management y Gobierno Corporativo\n\nEl AOIF califica la asignación de\
+    \ capital como neutral, el alineamiento de insiders como moderado y la calidad\
+    \ general como buena. Son evaluaciones cualitativas del análisis suministrado,\
+    \ no conclusiones respaldadas aquí por datos detallados.\n\nNo se proporcionan\
+    \ nombres o trayectoria del equipo directivo, composición del board, participación\
+    \ accionaria de insiders, estructura de remuneración, historial de recompras o\
+    \ dividendos, ni métricas de rentabilidad de las decisiones de capital. La evaluación\
+    \ de gobierno corporativo y alineamiento requiere investigación adicional.\n\n\
+    ## 5. Tesis de Inversión\n\n- **Franquicia diversificada:** HSBC combina banca\
+    \ minorista, comercial, institucional y patrimonial en varios mercados y segmentos.\
+    \ Esta amplitud puede diversificar sus fuentes de ingresos, aunque no se proporcionan\
+    \ datos sobre la contribución o rentabilidad de cada segmento.\n- **Presencia\
+    \ internacional y escala:** el AOIF identifica como ventajas potenciales la marca\
+    \ global, las relaciones con clientes, la escala en pagos y financiación comercial\
+    \ y la presencia en Hong Kong y el Reino Unido.\n- **Crecimiento reciente por\
+    \ investigar:** los ingresos aumentaron entre FY 2022 y FY 2025, según la descripción\
+    \ del paquete. Esta observación es una señal descriptiva; por sí sola no demuestra\
+    \ crecimiento rentable, retornos atractivos sobre capital ni sostenibilidad.\n\
+    - **Rentabilidad positiva reportada:** el paquete señala ingresos y utilidad neta\
+    \ TTM positivos al 2026-09-30. No incluye importes ni datos por segmento para\
+    \ evaluar la calidad o persistencia de esos resultados.\n- **Valoración no resuelta:**\
+    \ AOIF informa un PER de 10,79, sin fecha ni base de beneficios especificadas.\
+    \ Ese dato aislado no demuestra infravaloración; no hay una estimación verificable\
+    \ de valor intrínseco.\n\nEn conjunto, el caso alcista se apoya en la amplitud\
+    \ de la franquicia y en señales financieras que merecen seguimiento, pero la evidencia\
+    \ disponible no valida la sostenibilidad del crecimiento, el moat ni la creación\
+    \ de valor sobre el coste de capital.\n\n## 6. Riesgos y Contra-Tesis\n\n- **Riesgo\
+    \ crediticio y macroeconómico:** una desaceleración puede deteriorar la calidad\
+    \ crediticia, aumentar los impagos y elevar las provisiones. AOIF califica el\
+    \ impacto como alto y la probabilidad como media; no se incluyen cifras de morosidad\
+    \ o coste del riesgo.\n- **Exposición a Hong Kong y China:** la volatilidad económica,\
+    \ inmobiliaria y geopolítica puede afectar resultados y calidad de activos. AOIF\
+    \ califica el impacto como alto y la probabilidad como media.\n- **Sensibilidad\
+    \ a tipos de interés y ciclo:** cambios en tipos, competencia por depósitos y\
+    \ demanda de crédito pueden modificar el margen financiero neto. El paquete no\
+    \ cuantifica la sensibilidad.\n- **Sostenibilidad de la rentabilidad no demostrada:**\
+    \ no hay desglose de segmentos, retornos sobre capital verificables ni evidencia\
+    \ sobre reinversión y penetración de mercado.\n- **Conversión de caja ambigua:**\
+    \ el FCF pasa de 19.724 en FY 2024 a -140.588 en FY 2025, según la fuente citada,\
+    \ pero falta una conciliación con los flujos bancarios y movimientos de balance.\
+    \ No es posible atribuir el cambio a deterioro operativo con la información disponible.\n\
+    - **Aumento de deuda reportada:** la deuda total informada sube de 699.906 en\
+    \ FY 2025 a 851.906 al 2026-09-30. Sin definiciones, unidades y métricas bancarias\
+    \ de capital y liquidez, el dato no basta para concluir que aumentó el riesgo\
+    \ financiero.\n- **Riesgo de interpretación de ratios:** el current ratio reportado\
+    \ como cero no se considera un indicador validado para un banco sin verificar\
+    \ la definición y sus componentes.\n- **Contra-tesis de valoración:** los objetivos\
+    \ de analistas pueden no reflejar riesgos o catalizadores específicos; el paquete\
+    \ no contiene sus supuestos ni estimaciones de resultados.\n\n**Falsadores identificados\
+    \ en el paquete:** resultados futuros que contradigan la continuidad del crecimiento\
+    \ de ingresos descrito entre FY 2022 y FY 2025; o evidencia de deterioro persistente\
+    \ de la utilidad neta o de la calidad de activos. Esta última no aparece cuantificada\
+    \ en el material disponible.\n\n## 7. Catalizadores y Timeline\n\n| Fecha o ventana\
+    \ | Evento o catalizador | Impacto potencial | Estado de la evidencia |\n|---|---|---|---|\n\
+    | Sin fecha especificada | Próximos resultados financieros y métricas de rentabilidad\
+    \ | Permitirían comprobar si continúa el crecimiento y cómo evoluciona la rentabilidad.\
+    \ | No se proporcionan calendario, expectativas ni objetivos cuantificados. |\n\
+    | Sin fecha especificada | Divulgaciones sobre capital | Podrían ayudar a evaluar\
+    \ la capacidad de distribución, la solidez financiera y la asignación de capital.\
+    \ | El paquete no incluye hitos ni objetivos de capital. |\n| 2026-09-30 | Referencia\
+    \ del dato de utilidad neta TTM y de deuda reportada | Base para comparar resultados\
+    \ y estructura financiera posteriores. | La utilidad neta se describe como positiva;\
+    \ el importe y la conciliación de deuda no están disponibles. |\n| 2026-11-20\
+    \ | Consenso de precio objetivo informado: USD 103,02; rango USD 90,00–112,05\
+    \ | Referencia de expectativas de mercado, no catalizador operativo ni valor intrínseco.\
+    \ | No se aportan estimaciones de resultados ni supuestos de analistas. |\n| 2026-10-30\
+    \ | Precio observado: USD 85,42 | Punto de referencia de mercado para contextualizar\
+    \ el consenso citado. | Observación de precio; no constituye una valoración fundamental.\
+    \ |\n\n## 8. Marco de Valoración\n\nLa valoración debe priorizar métodos apropiados\
+    \ para un banco, en lugar de depender de múltiplos empresariales genéricos o del\
+    \ FCF sin ajustes:\n\n1. **Valoración por beneficios normalizados o rentabilidad\
+    \ del capital:** requiere beneficios por segmento, coste del riesgo a través del\
+    \ ciclo, coste de capital, estructura accionaria y supuestos de crecimiento sostenible.\n\
+    2. **Valoración basada en valor contable y retorno sobre patrimonio:** requiere\
+    \ capital tangible por acción, retornos sobre patrimonio normalizados, coste de\
+    \ capital y evaluación de la calidad de activos.\n3. **Múltiplos comparables bancarios:**\
+    \ el PER de 10,79 informado por AOIF puede servir únicamente como dato inicial,\
+    \ una vez verificados fecha, beneficios de referencia y comparabilidad con otros\
+    \ bancos como [[C]] y [[BSBR]].\n\nNo se considera apropiado aplicar EV/EBITDA\
+    \ o FCF yield como medidas principales con los datos suministrados: AOIF reporta\
+    \ EV/EBITDA y FCF yield como 0, pero no aporta una valoración intrínseca estimable\
+    \ ni los datos necesarios para interpretar esos valores. El propio análisis señala\
+    \ que faltan fecha de valoración, precio, beneficio normalizado, coste de capital,\
+    \ crecimiento sostenible y datos de capital y riesgo.\n\n**Referencias de mercado\
+    \ del paquete:** precio observado de USD 85,42 al 2026-10-30; precio objetivo\
+    \ medio informado de USD 103,02, con rango de USD 90,00 a USD 112,05, al 2026-11-20.\
+    \ Estas cifras no determinan el valor intrínseco ni validan un error de valoración.\n\
+    \n**Sensibilidad y margen de seguridad:** no puede cuantificarse rigurosamente\
+    \ sin supuestos verificables de beneficios normalizados, coste de capital, crecimiento,\
+    \ coste del riesgo y capital. AOIF califica el margen de seguridad como insuficiente\
+    \ y declara que el valor intrínseco no es estimable con la información proporcionada.\n\
+    \n## 9. Preguntas Abiertas y Agenda de Investigación\n\n1. ¿Qué segmentos y geografías\
+    \ explican el crecimiento de ingresos y utilidad entre FY 2022 y FY 2025, y qué\
+    \ retornos sobre capital generan?\n2. ¿Cómo evolucionan el margen financiero neto,\
+    \ su sensibilidad a los tipos de interés y el coste de financiación por depósitos?\n\
+    3. ¿Cuál es la morosidad, el coste del riesgo, el nivel de provisiones y la exposición\
+    \ crediticia a Hong Kong, China y el sector inmobiliario?\n4. ¿Qué parte del cambio\
+    \ en FCF entre FY 2024 y FY 2025 se explica por movimientos de balance, y cómo\
+    \ debe interpretarse para un banco?\n5. ¿Cómo se concilia el aumento de deuda\
+    \ total reportada entre FY 2025 y 2026-09-30? ¿Cuáles son las medidas pertinentes\
+    \ de capital, liquidez y financiación?\n6. ¿Qué evidencia cuantitativa respalda\
+    \ el moat, la posición competitiva y la sostenibilidad de las relaciones con clientes?\n\
+    7. ¿Cuál es la composición del board, cómo se remunera al equipo directivo y qué\
+    \ participación accionaria tienen los insiders?\n8. ¿Qué políticas y resultados\
+    \ históricos de asignación de capital —dividendos, recompras, adquisiciones o\
+    \ inversión— respaldan la calificación cualitativa de AOIF?\n9. ¿Cuáles son la\
+    \ fecha, definición y base de beneficios de las métricas AOIF de crecimiento de\
+    \ ingresos, margen operativo, ROIC y PER?\n10. ¿Qué supuestos de resultados y\
+    \ valoración sustentan el consenso de precio objetivo citado?\n\n**Conclusión\
+    \ de investigación:** evidencia insuficiente para validar una tesis de multibagger\
+    \ o determinar si existe un error de valoración. La prioridad es verificar rentabilidad\
+    \ por segmento, retornos sobre capital, calidad de activos, capital bancario y\
+    \ conciliación de flujos de caja.\n\n---\n\n## Related Companies\n\n- **Same Sector**:\
+    \ [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]], [[AXP|American\
+    \ Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone Inc.]],\
+    \ [[C|Citigroup Inc.]]\n- **Same Industry**: [[C|Citigroup Inc.]]"
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -259,7 +404,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T18:41:46.020130+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T19:06:39.299208+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -404,12 +549,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    112.05, "low": 90.0, "mean": 103.02, "median": 103.02, "observed_at": "2026-11-20T15:41:49.411052-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T15:41:49.411052-03:00", "observed_date": "2026-11-20", "target_price":
+    112.05, "low": 90.0, "mean": 103.02, "median": 103.02, "observed_at": "2026-11-21T16:06:42.690699-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T16:06:42.690699-03:00", "observed_date": "2026-11-21", "target_price":
     103.02, "url": "https://stockanalysis.com/stocks/hsbc/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T15:41:49.411052-03:00",
-    "observed_date": "2026-11-20", "target_price": 103.01667, "url": "https://finance.yahoo.com/quote/HSBC/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T16:06:42.690699-03:00",
+    "observed_date": "2026-11-21", "target_price": 103.01667, "url": "https://finance.yahoo.com/quote/HSBC/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 85.41999816894531,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/HSBC/"}]}}'
   sector: Financial Services
@@ -419,36 +564,79 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: d6587975541019bd837f911534bd12856a110f88fed22649ff88bb786a0c5440
+    sha256: e4235dfbbdef75929e49ae7109a84fdcba72c25551a68651d95c1a4275811b6f
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T15:42:14.421969-03:00'
+  triggered_at: '2026-11-21T16:06:55.387597-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: La fuente reporta 0 al 2026-09-30; no se interpreta como indicador
-    validado de riesgo bancario sin verificar componentes y definición.
-  threshold: below 0.5
-- metric: dilution_yoy_pct
-  observation: 'No evaluable: falta una serie comparable de acciones.'
-  threshold: above 10 percent
-- metric: interest_coverage
-  observation: 'No evaluable: EBIT e interest coverage no están disponibles como valores
-    numéricos.'
-  threshold: below 2.0x
-- metric: net_debt_ebitda
-  observation: 'No evaluable: EBITDA aparece como n/a.'
-  threshold: above 4.0x
-scenario_analysis: null
+- Current ratio 0 está por debajo del umbral de 0.5.
+- Interest coverage ratio 0 está por debajo del umbral de 2.0.
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Mejora inesperada de márgenes netos.
+    - Reducción significativa de la deuda neta.
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos se desacelera por debajo del 3% anual.
+    - Márgenes netos se comprimen y la deuda neta permanece alta.
+    rationale: El objetivo bajo del consenso refleja expectativas de presión continua
+      en márgenes y costos regulatorios.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/hsbc/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/HSBC/
+    target_price: 90.0
+  - falsifiers:
+    - Deterioro significativo de la generación de efectivo.
+    - Incremento abrupto de pérdidas crediticias.
+    id: BASE
+    key_assumptions:
+    - CAGR de ingresos de ~6% anual.
+    - Costos operativos se mantienen estables.
+    rationale: El consenso medio asume una recuperación moderada del ingreso y estabilidad
+      de costos.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/hsbc/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/HSBC/
+    target_price: 103.02
+  - falsifiers:
+    - Crisis crediticia importante.
+    - Recesión macroeconómica prolongada.
+    id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos supera el 8% anual.
+    - FCF se vuelve positivo y la deuda neta disminuye.
+    rationale: El objetivo alto del consenso supone un impulso de los mercados asiáticos
+      y eficiencias de costos.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/hsbc/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/HSBC/
+    target_price: 112.05
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 55
+  errors: []
+  status: valid_pending_decision_board
+score_general: 68
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T15:41:49.411052-03:00'
+  calculado_at: '2026-11-21T16:06:42.690699-03:00'
   fuentes:
     stockanalysis: 103.02
     yfinance: 103.01667
@@ -456,24 +644,22 @@ target_consensus:
   n_fuentes: 2
   promedio: 103.02
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T15:41:49.411052-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:06:42.690699-03:00'
+    observed_date: '2026-11-21'
     target_price: 103.02
     url: https://stockanalysis.com/stocks/hsbc/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T15:41:49.411052-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:06:42.690699-03:00'
+    observed_date: '2026-11-21'
     target_price: 103.01667
     url: https://finance.yahoo.com/quote/HSBC/
   target_high: 112.05
   target_low: 90.0
-tesis_inversion: HSBC opera en banca minorista, comercial, patrimonial e institucional
-  en varios mercados y reporta ingresos y utilidad neta TTM positivos. Sin embargo,
-  la evidencia disponible no basta para evaluar reinversión, retornos sobre capital,
-  ventaja competitiva sostenible ni la posibilidad de crecimiento extraordinario;
-  la tesis permanece sin validar.
+tesis_inversion: HSBC presenta un potencial de revalorización si logra revertir su
+  generación de efectivo negativo y mejorar su liquidez, aunque enfrenta riesgos estructurales
+  de cobertura y deuda.
 ticker: HSBC
 version: '3.0'

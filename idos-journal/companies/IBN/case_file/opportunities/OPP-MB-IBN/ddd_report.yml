@@ -1,86 +1,94 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El crecimiento histórico de ingresos y beneficio neto es favorable como observación
-    retrospectiva, pero no demuestra que vaya a persistir ni que genere retornos superiores
-    sobre capital.
-  - Los ingresos reportados fueron 1.169.021 para FY 2023 y 1.980.670 para FY 2026,
-    ambos con período terminado el 31 de marzo del año indicado; fuente Stock Analysis.
-  - El beneficio neto reportado fue 340.366 para FY 2023 y 542.077 para FY 2026; fuente
-    Stock Analysis.
-  - La cotización reportada fue USD 29,45 al 2026-10-30; Yahoo Finance. Los objetivos
-    de analistas reportados abarcan USD 36–40 al 2026-11-20; Stock Analysis y Yahoo
-    Finance.
+  - El crecimiento histórico de ingresos y beneficio neto es compatible con expansión
+    del negocio, pero no demuestra por sí solo crecimiento sostenible ni retornos
+    atractivos sobre capital.
+  - Los objetivos de analistas pueden servir como anclas observadas, pero no bastan
+    para validar una asimetría de valoración.
+  - La cotización reportada fue USD 29,45 al 2026-10-30; el momentum de precio a 12
+    meses fue -2,8053% y el drawdown reportado fue 6,1504% al 2026-10-30 (Research
+    Intake Package, yfinance).
+  - 'Ingresos reportados: 1.169.021 en FY 2023 y 1.980.670 en FY 2026; beneficio neto:
+    340.366 y 542.077, respectivamente (StockAnalysis, https://stockanalysis.com/stocks/ibn/financials/,
+    períodos FY terminados el 2023-03-31 y 2026-03-31).'
+  - El consenso de precio objetivo reportado fue USD 37,75, con rango USD 36–40, observado
+    el 2026-11-21 (StockAnalysis y Yahoo Finance, según resumen financiero).
   preguntas_abiertas:
-  - ¿Cómo evolucionan margen financiero, coste de depósitos, provisiones, morosidad,
-    capital regulatorio y retornos sobre capital?
-  - ¿Qué participación, penetración de mercado y ventaja competitiva tiene el banco
-    en sus mercados relevantes?
-  - ¿Qué uso de capital, política de dividendos y evolución de acciones diluidas explican
-    la asignación de capital para accionistas?
-catalizadores_previos: &id001 []
+  - ¿Cómo evolucionan calidad de activos, provisiones, capital regulatorio, depósitos
+    y retornos sobre capital en períodos comparables?
+  - ¿Cuál es el número de acciones diluidas histórico y cuál es la evolución comparable
+    del flujo de caja y del beneficio?
+  - ¿Qué expectativas de crecimiento y rentabilidad están incorporadas en la cotización
+    y en los objetivos de analistas?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T15:44:04.814460-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-IBN
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T15:44:04.814460-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-IBN
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia insuficiente para validar una oportunidad
-    de crecimiento compuesto
+  categoria: Investigación fundamental requerida; evidencia insuficiente para una
+    conclusión de valoración
   justificacion: El paquete muestra crecimiento histórico de ingresos y beneficio
-    neto, pero no aporta datos suficientes sobre retornos sobre capital, penetración,
-    ventaja competitiva o asignación de capital para validar la tesis.
+    neto, pero no aporta datos suficientes para validar varias métricas clave de reinversión,
+    dilución y apalancamiento. El score general refleja calidad de evidencia, no probabilidad
+    de retorno ni convicción.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo descrito abarca banca minorista y mayorista, tesorería y actividades
-    financieras relacionadas. La información disponible no permite evaluar retornos
-    sobre capital, coste de financiación, calidad de activos, franquicia, poder de
-    fijación de precios ni calidad de la reinversión.
-  rating: No concluyente
+  analisis: El grupo opera en varias actividades bancarias y financieras y presenta
+    crecimiento histórico de ingresos y beneficio neto en los datos reportados. No
+    hay evidencia suficiente para juzgar moat, retornos sobre capital, eficacia de
+    reinversión o calidad de asignación de capital.
+  rating: Incompleto
 dominio_catalizadores:
-- catalizador: Los próximos estados financieros podrían permitir contrastar la continuidad
-    del crecimiento de ingresos y beneficio neto; el paquete no proporciona fechas
-    futuras de publicación.
-  fuentes:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/ibn/financials/
-- catalizador: La actualización de objetivos de analistas o de la cotización podría
-    modificar las referencias de mercado disponibles, sin que ello por sí mismo valide
-    los fundamentos.
-  fuentes:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/ibn/forecast/
-  - name: Yahoo Finance
-    url: https://finance.yahoo.com/quote/IBN/
+- catalizador: Publicación de resultados que confirme o contradiga la trayectoria
+    de ingresos y beneficio neto observada hasta FY 2026.
+  hito: Comparar períodos futuros con los datos históricos reportados; el paquete
+    no contiene fechas de próximos resultados.
+- catalizador: Mayor claridad sobre generación de caja, capital y calidad de activos.
+  hito: Obtener métricas bancarias comparables y fechadas; no se proporcionan hitos
+    corporativos concretos.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuentes:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/IBN/statistics/
-  riesgo: La información financiera suministrada no incluye métricas bancarias clave
-    para evaluar calidad de activos, capitalización, márgenes financieros o provisiones.
-- fuentes:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/ibn/financials/
-  riesgo: El FCF reportado es negativo en los períodos presentados; su interpretación
-    como medida de generación de caja para un banco requiere cautela.
-- fuentes: []
-  riesgo: El paquete no permite evaluar la evolución de acciones diluidas ni cuantificar
-    la dilución.
+- evidencia: StockAnalysis, TTM al 2026-09-30; véase la fila de conversión de FCF.
+  riesgo: El flujo de caja libre reportado es negativo en los períodos disponibles,
+    aunque su interpretación para un banco requiere cautela y no equivale por sí sola
+    a una medida de liquidez bancaria.
+- evidencia: Faltan historial de acciones diluidas y EBITDA utilizable en el paquete.
+  riesgo: No se puede validar dilución ni apalancamiento relativo a EBITDA con los
+    campos y períodos disponibles.
+- evidencia: No se proporcionan observaciones de esos indicadores.
+  riesgo: El paquete no incluye datos de calidad de activos, pérdidas crediticias,
+    capital regulatorio ni concentración de depósitos.
 error_mercado:
-  catalizador_cambio: Resultados financieros posteriores que permitan evaluar crecimiento,
-    calidad de activos y rentabilidad; el paquete no identifica fechas ni catalizadores
-    calendarizados.
-  conclusion_error_valoracion: No puede determinarse un error de valoración con la
-    evidencia proporcionada.
-  consenso_actual: Los objetivos de analistas disponibles tienen rango de USD 36–40
-    y media de USD 37,75, observados el 2026-11-20; la cotización reportada es USD
-    29,45 al 2026-10-30.
-  hipotesis_contraria: El paquete no aporta estimaciones de beneficios, valoración
-    ni supuestos del consenso que permitan identificar qué expectativas están incorporadas
-    en la cotización.
-  razonamiento: Los objetivos de analistas son referencias de consenso, no valoraciones
-    intrínsecas. La diferencia entre esos objetivos y la cotización no basta para
-    establecer expectativas implícitas ni un desajuste de valoración.
-generated_at: '2026-11-20T15:44:04.814460-03:00'
+  catalizador_cambio: Resultados financieros futuros que permitan comprobar la continuidad
+    del crecimiento de ingresos y beneficio neto y aclarar la generación de flujo
+    de caja.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el consenso es
+    una referencia observada, no una valoración intrínseca, y faltan datos de valoración
+    y expectativas de mercado comparables.'
+  consenso_actual: La cotización observada fue USD 29,45 al 2026-10-30; el consenso
+    de precio objetivo reportado al 2026-11-21 fue USD 37,75, con rango USD 36–40.
+  hipotesis_contraria: El paquete no ofrece una explicación documentada de por qué
+    el mercado estaría subestimando o sobreestimando el crecimiento, la rentabilidad
+    o los riesgos del banco.
+  razonamiento: El precio objetivo medio observado supera la cotización observada,
+    pero esa diferencia no demuestra infravaloración. La evidencia disponible no identifica
+    expectativas implícitas ni un método de valoración verificable.
+generated_at: '2026-11-21T16:09:05.086178-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-IBN
@@ -116,7 +124,7 @@ prompt_inputs:
   insider_ownership: 0
   name: ICICI Bank Limited
   operating_margin: 29.95
-  pe_ratio: 20.33
+  pe_ratio: 20.19
   products: ''
   revenue: 22120000000.0
   revenue_growth: 11.1
@@ -129,7 +137,7 @@ ratios_investigados:
   metric: revenue_cagr_3y_pct
   period_end: '2026-03-31'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ibn/financials/
   status: unavailable
   unit: percent
@@ -137,14 +145,20 @@ ratios_investigados:
 - formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
   inputs:
     fcf_history:
-      FY 2026: -1247846.0
-      TTM: -3688403.0
-  limitations: Los valores disponibles de FCF son negativos; no se cumple el requisito
-    de FCF positivo en ambos períodos.
+    - period: FY 2025
+      period_end: '2025-03-31'
+      unit: source_reported_amount
+      value: -800222.0
+    - period: FY 2026
+      period_end: '2026-03-31'
+      unit: source_reported_amount
+      value: -1247846.0
+  limitations: 'No calculable según la definición configurada: FCF es negativo en
+    ambos períodos, por lo que no se cumple el requisito de FCF positivo.'
   metric: fcf_growth_pct
-  period_end: '2026-09-30'
+  period_end: '2026-03-31'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ibn/financials/
   status: unavailable
   unit: percent
@@ -154,25 +168,32 @@ ratios_investigados:
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ibn/financials/
   status: unavailable
   unit: percent
   value: null
 - formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
+    cash_and_investments_history:
+    - period: Current
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: 2752620.0
     ebitda: n/a
-    net_cash_history:
-      Current: -202994.0
     total_debt_history:
-      Current: 2955614.0
-  limitations: EBITDA figura como n/a; sin denominador no puede calcularse el ratio.
+    - period: Current
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: 2955614.0
+  limitations: 'Falta EBITDA utilizable: la fuente reporta n/a para el período TTM
+    terminado el 2026-09-30.'
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ibn/financials/
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/IBN/statistics/
   status: unavailable
   unit: x
@@ -180,12 +201,13 @@ ratios_investigados:
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
     shares_outstanding: 7180000000.0
-  limitations: Sólo hay un dato puntual de acciones en circulación; falta un dato
-    comparable del período anterior o una serie de acciones diluidas.
+  limitations: Falta el número de acciones diluidas o acciones en circulación de un
+    período comparable anterior; una observación aislada no permite calcular variación
+    interanual.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/IBN/statistics/
   status: unavailable
   unit: percent
@@ -221,7 +243,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: ICICI Bank Limited, together with its subsidiaries, engages in the
     provision of various banking and financial services to corporate and retail customers
     in India and internationally. The company operates through Retail Banking, Wholesale
@@ -255,7 +277,328 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.72
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    ICICI Bank Limited (IBN) es un banco universal con sede en India que ofrece servicios
+    bancarios y financieros a clientes minoristas y corporativos. Su actividad comprende
+    banca minorista y mayorista, tesorería y actividades financieras relacionadas.
+    La cadena de valor incluye captar depósitos y financiación mayorista, evaluar
+    riesgos y originar préstamos, procesar pagos y transacciones, y distribuir productos
+    financieros.
+
+
+    Los clientes descritos incluyen particulares, hogares y pequeñas y medianas empresas.
+    La información disponible también hace referencia a actividad corporativa. El
+    negocio opera en un sector sujeto a regulación, riesgo de crédito y competencia
+    de bancos públicos y privados, además de proveedores de servicios financieros
+    digitales.
+
+
+    El material disponible identifica a [[HSBC]], [[C]], [[BSBR]], [[AIG]], [[AXP]],
+    [[AEG]] y [[BX]] como compañías del mismo sector o relacionadas; no establece
+    que todas sean competidores directos de ICICI Bank.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Fuentes de ingresos
+
+
+    - **Margen de intermediación:** diferencia entre los intereses cobrados por préstamos
+    y los intereses pagados por depósitos.
+
+    - **Comisiones y otros ingresos financieros:** procedentes de pagos, transacciones
+    y distribución de productos.
+
+    - **Tesorería y actividades financieras relacionadas.**
+
+
+    Entre los productos señalados figuran cuentas de ahorro y corrientes, depósitos
+    a plazo y certificados de depósito; préstamos personales, hipotecarios, automotrices,
+    educativos, de oro y empresariales.
+
+
+    ### Moat y competencia
+
+
+    La evaluación AOIF describe ventajas potenciales derivadas de la marca, la escala,
+    la base de clientes y depósitos, la distribución nacional, las relaciones corporativas
+    y una oferta diversificada. También menciona infraestructura y capacidades de
+    distribución. La amplitud del moat se calificó como **estrecha**, y la posición
+    competitiva como **líder**, pero estas son valoraciones cualitativas del análisis
+    proporcionado, no conclusiones verificadas con métricas comparativas.
+
+
+    La banca india podría beneficiarse del crecimiento económico, la inclusión financiera
+    y la adopción de pagos digitales. En sentido contrario, afronta competencia de
+    bancos públicos y privados, presión de proveedores digitales y cambios en el coste
+    de financiación. [[HSBC]], [[C]] y [[BSBR]] son referencias del sector en la wiki,
+    pero el material no permite comparar sus cuotas de mercado, rentabilidad o posición
+    competitiva con ICICI Bank.
+
+
+    ## 3. Perfil Financiero
+
+
+    | Métrica | Dato disponible | Periodo / fecha | Fuente y limitación |
+
+    |---|---:|---|---|
+
+    | Ingresos reportados | 1.169.021 | FY 2023, finalizado el 31 de marzo | [Stock
+    Analysis — financieros](https://stockanalysis.com/stocks/ibn/financials/). La
+    moneda y unidades no se especifican en el paquete. |
+
+    | Ingresos reportados | 1.980.670 | FY 2026, finalizado el 31 de marzo | [Stock
+    Analysis — financieros](https://stockanalysis.com/stocks/ibn/financials/). La
+    moneda y unidades no se especifican en el paquete. |
+
+    | Crecimiento de ingresos | 11,1 % | Periodo no especificado | Dato indicativo
+    del análisis AOIF; no se proporcionan fuente ni periodo. |
+
+    | Margen operativo | 29,95 % | Periodo no especificado | Dato indicativo del análisis
+    AOIF; no se proporcionan fuente ni periodo. Su comparabilidad y utilidad para
+    un banco requieren validación. |
+
+    | ROIC | 9,59 % | Periodo no especificado | Dato indicativo del análisis AOIF;
+    no se proporcionan fuente ni periodo. |
+
+    | PER | 20,33 | Fecha no especificada | Dato aportado por AOIF, sin fuente confirmada.
+    |
+
+    | FCF | −1.247.846 | FY 2026 | [Stock Analysis — financieros](https://stockanalysis.com/stocks/ibn/financials/).
+    No se especifican aquí moneda ni unidades. |
+
+    | FCF | −3.688.403 | TTM hasta 2026-09-30 | [Stock Analysis — financieros](https://stockanalysis.com/stocks/ibn/financials/).
+    El FCF no es una medida especialmente representativa para un banco. |
+
+    | CAGR de ingresos a tres años | No disponible | Periodo terminado el 2026-03-31
+    | No se calculó: el análisis de origen no identificó referencias explícitas a
+    los inputs de evidencia. |
+
+    | Crecimiento de FCF | No disponible | Hasta 2026-09-30 | No calculable bajo la
+    fórmula especificada porque los valores disponibles son negativos. |
+
+
+    El DDD señala crecimiento histórico favorable de ingresos y beneficio neto, pero
+    no aporta una serie verificable de beneficio neto. Por tanto, la continuidad de
+    ese crecimiento y su relación con la rentabilidad no pueden establecerse con la
+    evidencia disponible. El DDD califica la tendencia financiera como insuficientemente
+    documentada; AOIF la describe como estable, aunque sus cifras indicativas carecen
+    de periodo y fuente.
+
+
+    No se proporcionan datos suficientes para analizar margen de interés neto, coste
+    y crecimiento de depósitos, provisiones, morosidad, capital regulatorio, apalancamiento
+    o estructura de capital. El FCF negativo debe interpretarse con cautela: los flujos
+    de un banco están influidos por depósitos, préstamos y partidas regulatorias,
+    por lo que el FCF convencional puede no medir adecuadamente su generación de caja.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación AOIF califica la calidad del management como **buena** y la asignación
+    de capital como **creadora de valor**. Sin embargo, el propio análisis indica
+    que estas apreciaciones son cualitativas y no se acompañan de datos actuales sobre
+    remuneración, propiedad de insiders o historial cuantificado de asignación de
+    capital.
+
+
+    El alineamiento de insiders se calificó como **débil**, igualmente sin datos de
+    propiedad o incentivos que permitan verificar la evaluación. No se proporciona
+    información sobre la composición, independencia, experiencia o comités del consejo
+    de administración. Estas conclusiones quedan pendientes de contraste con documentos
+    corporativos y regulatorios.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Hipótesis de inversión:** ICICI Bank podría beneficiarse de su escala, una franquicia
+    de depósitos, una presencia amplia en banca minorista y mayorista y una oferta
+    financiera diversificada en India. El análisis AOIF identifica marca, distribución,
+    relaciones corporativas y amplitud de productos como posibles ventajas competitivas.
+
+
+    **Evidencia disponible:**
+
+
+    - Los ingresos reportados aumentaron de 1.169.021 en FY 2023 a 1.980.670 en FY
+    2026, según [Stock Analysis](https://stockanalysis.com/stocks/ibn/financials/).
+    El material no aclara moneda ni unidades.
+
+    - El paquete de investigación describe favorablemente el crecimiento histórico
+    de ingresos y beneficio neto, pero no incluye una serie verificable de beneficio
+    neto.
+
+    - El modelo de banco universal diversifica la actividad entre depósitos, préstamos,
+    comisiones, pagos, tesorería y clientes minoristas y corporativos.
+
+
+    La evidencia respalda la existencia de un banco diversificado y una trayectoria
+    histórica de ingresos creciente en los datos citados. **No demuestra** que ese
+    crecimiento persista, que se traduzca en retornos superiores ni que el banco tenga
+    una ventaja competitiva sostenible. La oportunidad se clasifica como **investigación
+    requerida**; la calidad del negocio permanece **no concluyente** con la información
+    disponible.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos principales
+
+
+    - **Calidad crediticia:** un aumento de préstamos improductivos o un deterioro
+    de carteras minoristas, corporativas o de pequeñas empresas podría elevar las
+    pérdidas y las provisiones. AOIF lo califica como de impacto alto y probabilidad
+    media.
+
+    - **Presión sobre el margen:** el margen de interés neto podría reducirse si el
+    coste de los depósitos aumenta más rápido que el rendimiento de los préstamos.
+    AOIF lo califica como de impacto y probabilidad medios.
+
+    - **Capital, provisiones y rentabilidad no evaluables:** el paquete no aporta
+    métricas bancarias clave para valorar calidad de activos, capitalización, márgenes
+    financieros o provisiones.
+
+    - **FCF negativo:** los datos de FCF citados son negativos, aunque su relevancia
+    como medida de generación de caja bancaria es limitada y requiere cautela.
+
+    - **Dependencia de crecimiento histórico:** una trayectoria pasada de ingresos
+    o beneficios no garantiza su continuidad ni la creación futura de valor para el
+    accionista.
+
+    - **Riesgo de valoración:** no hay estimaciones de beneficios, supuestos del consenso
+    ni datos suficientes para inferir expectativas implícitas en la cotización.
+
+
+    ### Contra-tesis y falsadores
+
+
+    La tesis se debilitaría si los informes futuros muestran una reversión persistente
+    del crecimiento de ingresos o beneficio neto, o si revelan deterioro de calidad
+    de activos, capital o rentabilidad. Estos son los falsadores identificados en
+    el DDD; no se proporcionan umbrales cuantitativos.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Fecha esperada | Impacto potencial | Evidencia / límite |
+
+    |---|---|---|---|
+
+    | Publicación de próximos estados financieros | No especificada | Permitirá contrastar
+    la continuidad del crecimiento y evaluar calidad de activos, rentabilidad, depósitos,
+    préstamos y capital. | El paquete no identifica una fecha de publicación. Referencia:
+    [Stock Analysis — financieros](https://stockanalysis.com/stocks/ibn/financials/).
+    |
+
+    | Actualización de objetivos de analistas | No especificada | Podría modificar
+    las referencias de mercado, pero no valida por sí misma los fundamentos ni el
+    valor intrínseco. | [Stock Analysis — previsiones](https://stockanalysis.com/stocks/ibn/forecast/).
+    |
+
+    | Cambios en la cotización | Sin fecha prevista | Pueden alterar referencias de
+    mercado, sin constituir por sí solos un catalizador fundamental. | [Yahoo Finance
+    — IBN](https://finance.yahoo.com/quote/IBN/). |
+
+
+    El DDD reporta objetivos de analistas de USD 36–40, con media de USD 37,75, observados
+    el **2026-11-20**, y una cotización de USD 29,45 al **2026-10-30**. Son referencias
+    recogidas por el paquete, no estimaciones de valor intrínseco; las fechas son
+    distintas y no se debe inferir una comparación simultánea. La diferencia entre
+    objetivos y cotización no basta para demostrar un error de valoración.
+
+
+    ## 8. Marco de Valoración
+
+
+    Para un banco, un marco centrado en valor contable y rentabilidad sobre capital
+    resulta más apropiado que aplicar mecánicamente múltiplos de empresas no financieras.
+    La evaluación debería considerar, como mínimo:
+
+
+    - **Precio/valor contable (P/B)** y valor contable por acción.
+
+    - **ROE sostenible** frente al coste del capital.
+
+    - **Crecimiento sostenible**, ligado a la rentabilidad, retención de beneficios
+    y necesidades de capital.
+
+    - **Calidad de activos**, provisiones y pérdidas crediticias.
+
+    - **Margen de interés neto**, coste de depósitos y crecimiento de préstamos.
+
+    - **Capital regulatorio** y capacidad de financiar crecimiento.
+
+
+    No es posible estimar un valor intrínseco con rigor: faltan precio y fecha de
+    referencia coherentes, valor contable por acción, ROE sostenible, crecimiento,
+    coste del capital y métricas crediticias. AOIF informa un PER de 20,33 sin fecha
+    ni fuente confirmada, y considera insuficiente el margen de seguridad. No se proporcionan
+    supuestos para un análisis de sensibilidad; inventarlos produciría una precisión
+    no respaldada.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cómo evolucionan el margen de interés neto, el coste de depósitos y la mezcla
+    de financiación?
+
+    2. ¿Cuál es el crecimiento de préstamos y depósitos, y cómo se compara con el
+    de los competidores relevantes?
+
+    3. ¿Cómo evolucionan la morosidad, los préstamos improductivos, las provisiones
+    y las pérdidas crediticias por cartera?
+
+    4. ¿Qué nivel y trayectoria tienen el capital regulatorio, la rentabilidad sobre
+    capital y el ROE?
+
+    5. ¿Qué participación de mercado, penetración y ventaja competitiva tiene ICICI
+    Bank en sus mercados relevantes?
+
+    6. ¿Qué periodos, unidades y fuentes respaldan el crecimiento de ingresos del
+    11,1 %, el margen operativo del 29,95 %, el ROIC del 9,59 % y el PER de 20,33?
+
+    7. ¿Cuál fue la trayectoria del beneficio neto y qué parte del crecimiento proviene
+    de volumen, margen, comisiones u otros factores?
+
+    8. ¿Cómo se explican los valores de FCF negativos y qué métricas de flujo o capital
+    son más adecuadas para evaluar el banco?
+
+    9. ¿Cuál es la propiedad accionaria de insiders, cómo se estructuran los incentivos
+    y qué evidencia cuantitativa respalda la evaluación de asignación de capital?
+
+    10. ¿Cuál es la composición y el nivel de independencia del consejo de administración?
+
+    11. ¿Qué supuestos de beneficios, valor contable, rentabilidad y crecimiento sustentan
+    los objetivos de analistas citados?
+
+    12. ¿Qué fechas de publicación y otros eventos verificables pueden incorporarse
+    a un calendario de catalizadores?
+
+
+    **Conclusión de estado:** investigación requerida; la evidencia disponible no
+    permite validar una oportunidad de crecimiento compuesto ni determinar un error
+    de valoración.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]],
+    [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone
+    Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]]
+
+    - **Same Industry**: [[BSBR|Banco Santander (Brasil) S.A.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -288,7 +631,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T18:43:39.307519+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T19:08:32.353764+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -433,12 +776,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    40.0, "low": 36.0, "mean": 37.75, "median": 37.75, "observed_at": "2026-11-20T15:43:42.377797-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T15:43:42.377797-03:00", "observed_date": "2026-11-20", "target_price":
+    40.0, "low": 36.0, "mean": 37.75, "median": 37.75, "observed_at": "2026-11-21T16:08:35.353686-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T16:08:35.353686-03:00", "observed_date": "2026-11-21", "target_price":
     37.75, "url": "https://stockanalysis.com/stocks/ibn/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T15:43:42.377797-03:00",
-    "observed_date": "2026-11-20", "target_price": 37.75, "url": "https://finance.yahoo.com/quote/IBN/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T16:08:35.353686-03:00",
+    "observed_date": "2026-11-21", "target_price": 37.75, "url": "https://finance.yahoo.com/quote/IBN/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 29.450000762939453,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/IBN/"}]}}'
   sector: Financial Services
@@ -448,62 +791,96 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: e2b83079d13438768fc2d23cc2e7f0484c6359bceaaa6ae11a990c6e60099d1c
+    sha256: 885520544556915ebf9f3d6202b17e12cbb63b9e5de988461cca5e0de0905416
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T15:44:04.814460-03:00'
+  triggered_at: '2026-11-21T16:09:05.086178-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: La fuente reporta 0 para 2026-09-30, pero no hay desglose verificable
-    de activos y pasivos corrientes; el indicador puede no ser informativo para un
-    banco.
+  observation: La fuente reporta 0 para el período TTM terminado el 2026-09-30; no
+    se interpreta como señal de riesgo comparable sin validar la pertinencia del current
+    ratio para un banco.
   source:
-    name: Stock Analysis
+    name: stockanalysis.com
     url: https://stockanalysis.com/stocks/IBN/statistics/
-  threshold: below 0.5x
+  threshold: below 0.5
 - metric: dilution_yoy_pct
-  observation: 'No evaluable: falta una serie de acciones comparable.'
-  source:
-    name: Stock Analysis
-    url: https://stockanalysis.com/stocks/IBN/statistics/
-  threshold: above 10%
+  observation: 'No evaluable: falta historial comparable de acciones diluidas.'
+  threshold: above 10 percent
 - metric: interest_coverage
-  observation: 'No evaluable: EBIT figura como n/a y no se aporta un gasto por intereses
-    compatible.'
+  observation: 'No evaluable: EBIT e interés no están disponibles; la fuente reporta
+    EBIT como n/a para TTM terminado el 2026-09-30.'
   source:
-    name: Stock Analysis
+    name: stockanalysis.com
     url: https://stockanalysis.com/stocks/IBN/statistics/
   threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No evaluable: el paquete no proporciona efectivo y consumo mensual
+    de FCF compatibles para calcular meses de runway.'
+  threshold: below 12 months
 - metric: net_debt_ebitda
-  observation: 'No evaluable: EBITDA figura como n/a.'
+  observation: 'No evaluable: EBITDA está reportado como n/a para TTM terminado el
+    2026-09-30.'
   source:
-    name: Stock Analysis
+    name: stockanalysis.com
     url: https://stockanalysis.com/stocks/IBN/statistics/
   threshold: above 4.0x
 - metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: no se proporciona historial de acciones para tres años.'
-  source:
-    name: Stock Analysis
-    url: https://stockanalysis.com/stocks/IBN/statistics/
-  threshold: above 5%
-- metric: negative_fcf_runway_months
-  observation: 'No evaluable: no se proporciona una tasa mensual de consumo de FCF
-    comparable; además, su interpretación para un banco requiere cautela.'
-  source:
-    name: Stock Analysis
-    url: https://stockanalysis.com/stocks/ibn/financials/
-  threshold: below 12 months
-scenario_analysis: null
+  observation: 'No evaluable: falta historial de acciones en períodos comparables.'
+  threshold: above 5 percent
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Una revisión verificable de objetivos de analistas que cambie el rango observado.
+    - Datos financieros posteriores que permitan construir una valoración con método
+      e inputs comparables.
+    id: BEAR
+    key_assumptions:
+    - El objetivo bajo de USD 36,00 reportado al 2026-11-21 es una referencia observada
+      y no un resultado garantizado.
+    - No hay supuestos de negocio fechados suficientes para justificar un valor distinto
+      de esa ancla.
+    rationale: Ancla baja del rango de objetivos de analistas observado, no valoración
+      intrínseca propia. El paquete no permite atribuir ese extremo a supuestos específicos
+      de negocio ni confirmar que represente un peor resultado plausible; se presenta
+      únicamente como ancla de mercado disponible.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ibn/forecast/
+    target_price: 36.0
+  - falsifiers:
+    - Una revisión verificable de objetivos de analistas que cambie el rango observado.
+    - Datos financieros posteriores que permitan construir una valoración con método
+      e inputs comparables.
+    id: BULL
+    key_assumptions:
+    - El objetivo alto de USD 40,00 reportado al 2026-11-21 es una referencia observada
+      y no un resultado garantizado.
+    - No hay supuestos de negocio fechados suficientes para justificar un valor distinto
+      de esa ancla.
+    rationale: Ancla alta del rango de objetivos de analistas observado, no valoración
+      intrínseca propia. El paquete no aporta supuestos específicos que justifiquen
+      el extremo como mejor resultado plausible; se presenta únicamente como ancla
+      de mercado disponible.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ibn/forecast/
+    target_price: 40.0
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 42
+  errors: []
+  status: valid_pending_decision_board
+score_general: 61
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T15:43:42.377797-03:00'
+  calculado_at: '2026-11-21T16:08:35.353686-03:00'
   fuentes:
     stockanalysis: 37.75
     yfinance: 37.75
@@ -511,24 +888,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 37.75
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T15:43:42.377797-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:08:35.353686-03:00'
+    observed_date: '2026-11-21'
     target_price: 37.75
     url: https://stockanalysis.com/stocks/ibn/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T15:43:42.377797-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:08:35.353686-03:00'
+    observed_date: '2026-11-21'
     target_price: 37.75
     url: https://finance.yahoo.com/quote/IBN/
   target_high: 40.0
   target_low: 36.0
-tesis_inversion: ICICI Bank ofrece exposición a servicios bancarios y financieros
-  en India y otros mercados, y los datos disponibles muestran crecimiento histórico
-  de ingresos y beneficio neto. La evidencia no permite validar la persistencia del
-  crecimiento, los retornos sobre capital, la reinversión rentable ni la sostenibilidad
-  de una ventaja competitiva; la tesis permanece pendiente de investigación.
+tesis_inversion: ICICI Bank es un grupo bancario y financiero con operaciones de banca
+  minorista y mayorista, tesorería, seguros y otros servicios. Los ingresos y el beneficio
+  neto reportados aumentaron entre FY 2023 y FY 2026, pero el paquete no permite validar
+  de forma suficiente la sostenibilidad de retornos sobre capital, la reinversión
+  ni la ventaja competitiva; la tesis queda condicionada a verificar esos factores
+  y la generación de caja.
 ticker: IBN
 version: '3.0'

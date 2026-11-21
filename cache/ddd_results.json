@@ -2,47 +2,183 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-HAL",
-      "ticker": "HAL",
+      "opp_id": "OPP-MB-HSBC",
+      "ticker": "HSBC",
       "status": "completed",
-      "score": 73.26,
+      "score": 68,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-HOG",
-      "ticker": "HOG",
-      "status": "quality_failed",
-      "score": 48,
+      "opp_id": "OPP-MB-IBN",
+      "ticker": "IBN",
+      "status": "completed",
+      "score": 61,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "errors": []
     },
     {
-      "opp_id": "OPP-MB-HPQ",
-      "ticker": "HPQ",
+      "opp_id": "OPP-MB-IFF",
+      "ticker": "IFF",
       "status": "completed",
-      "score": 68.18,
+      "score": 57,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
   ],
   "skipped": [],
-  "assessments": [],
-  "errors": [
+  "assessments": [
     {
-      "ticker": "HOG",
-      "opp_id": "OPP-MB-HOG",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "ticker": "HSBC",
+      "opp_id": "OPP-MB-HSBC",
+      "status": "completed",
+      "conviction_score": 59,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "automatic_block_reason": "authorization_rules_not_all_passed",
+      "assessments": {
+        "BusinessAssessmentEngine": 62,
+        "ValuationAssessmentEngine": 55,
+        "RecoveryAssessmentEngine": 54,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 62/70",
+        "RULE-003": "Rerating: 54/50",
+        "RULE-004": "Risk: 70/50",
+        "RULE-005": "Conviction: 59/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    },
+    {
+      "ticker": "IBN",
+      "opp_id": "OPP-MB-IBN",
+      "status": "completed",
+      "conviction_score": 54,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "automatic_block_reason": "authorization_rules_not_all_passed",
+      "assessments": {
+        "BusinessAssessmentEngine": 62,
+        "ValuationAssessmentEngine": 45,
+        "RecoveryAssessmentEngine": 52,
+        "RiskAssessmentEngine": 60,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 62/70",
+        "RULE-003": "Rerating: 52/50",
+        "RULE-004": "Risk: 60/50",
+        "RULE-005": "Conviction: 54/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    },
+    {
+      "ticker": "IFF",
+      "opp_id": "OPP-MB-IFF",
+      "status": "completed",
+      "conviction_score": 57,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "automatic_block_reason": "authorization_rules_not_all_passed",
+      "assessments": {
+        "BusinessAssessmentEngine": 48,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 54,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-008",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 48/70",
+        "RULE-003": "Rerating: 54/50",
+        "RULE-004": "Risk: 70/50",
+        "RULE-005": "Conviction: 57/65",
+        "RULE-008": "B/R 8.4:1 \u2705 (Bull +38.2% / Bear -4.5%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
     }
   ],
-  "status": "failed",
-  "deferred_count": 57,
+  "errors": [],
+  "status": "partial_deferred",
+  "deferred_count": 54,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",
