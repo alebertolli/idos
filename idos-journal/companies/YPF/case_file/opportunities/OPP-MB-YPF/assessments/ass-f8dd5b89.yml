@@ -1,0 +1,38 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: Hay una diferencia entre la cotización y el consenso medio observado,
+  pero no evidencia suficiente para concluir que el mercado esté equivocado ni para
+  estimar valor intrínseco.'
+- 'Thesis: La tesis por investigar es si el crecimiento y la mejora de generación
+  de caja reportados para TTM al 2026-09-30 pueden sostenerse mediante reinversión
+  rentable en las actividades upstream, midstream,'
+generated_at: '2026-11-20T22:14:05.108233-03:00'
+id: ass-f8dd5b89
+recommendation: REVIEW
+risks:
+- fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ypf/financials/
+  observacion: 'La deuda neta reportada fue negativa en la métrica net_cash: -11,136,224
+    en la unidad reportada por la fuente al 2026-09-30; no se valida net debt/EBITDA
+    por falta de unidad y compatibilidad monetaria entre inputs.'
+- fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ypf/financials/
+  observacion: El beneficio neto reportado alternó entre valores positivos y negativos
+    en FY 2022–FY 2025; el FCF reportado también fue muy variable entre esos ejercicios,
+    lo que limita extrapolar el dato TTM.
+- fuentes:
+  - name: Yahoo Finance
+    url: https://finance.yahoo.com/quote/YPF/history/
+  observacion: La volatilidad a 90 días fue 33.90% para el período informado al 2026-10-30;
+    la métrica proviene del historial de precios, no de estados financieros.
+- fuentes: []
+  observacion: El paquete no aporta datos de reservas, declinación de activos, capex
+    de mantenimiento y crecimiento, exposición a precios o regulación, ni retornos
+    sobre capital invertido.
+score: 55
+status: COMPLETED
+version: '3.0'

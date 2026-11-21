@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 160 companies tracked
+Total: 164 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -87,6 +87,8 @@ Total: 160 companies tracked
 - 📄 [[TTE|TotalEnergies SE]]
 - ⏳ [[UGP|Ultrapar Participações S.A.]]
 - 📄 [[VIST|Vista Energy, S.A.B. de C.V.]]
+- 📄 [[XOM|ExxonMobil Holdings Corporation]]
+- 📄 [[YPF|YPF Sociedad Anónima]]
 
 ## Financial Services
 - 📄 [[AEG|Aegon Ltd.]]
@@ -110,6 +112,7 @@ Total: 160 companies tracked
 - 📄 [[SPGI|S&P Global Inc.]]
 - 📄 [[USB|U.S. Bancorp]]
 - 📄 [[V|Visa Inc.]]
+- 📄 [[XP|XP Inc.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -153,6 +156,7 @@ Total: 160 companies tracked
 
 ## Other
 - 📄 [[PG|The Procter & Gamble Company]]
+- ⏳ [[XLF|State Street Financial Select Sector SPDR ETF]]
 
 ## Real Estate
 - 📄 [[O|Realty Income Corporation]]

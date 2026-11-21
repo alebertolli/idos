@@ -2,49 +2,38 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-VZ",
-      "ticker": "VZ",
+      "opp_id": "OPP-MB-XOM",
+      "ticker": "XOM",
+      "status": "quality_failed",
+      "score": 88,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "opp_id": "OPP-MB-XP",
+      "ticker": "XP",
       "status": "completed",
-      "score": 67.22,
+      "score": 52,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-WMT",
-      "ticker": "WMT",
-      "status": "quality_failed",
-      "score": 62,
+      "opp_id": "OPP-MB-YPF",
+      "ticker": "YPF",
+      "status": "completed",
+      "score": 55,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-20261001-MOM-XLF",
-      "ticker": "XLF",
-      "status": "quality_failed",
-      "score": 36,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "errors": []
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "WMT",
-      "opp_id": "OPP-MB-WMT",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "ticker": "XLF",
-      "opp_id": "OPP-20261001-MOM-XLF",
+      "ticker": "XOM",
+      "opp_id": "OPP-MB-XOM",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -53,7 +42,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 78,
+  "deferred_count": 76,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

@@ -1,0 +1,34 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; calidad de evidencia financiera incompleta'
+- 'Market error: Existe una brecha observable entre la cotización y el rango de objetivos
+  recopilado, pero la evidencia disponible no permite concluir si refleja infravaloración
+  o expectativas excesivas.'
+- 'Thesis: XP opera una plataforma abierta de productos y servicios financieros en
+  Brasil. Los datos disponibles muestran crecimiento de ingresos y aumento del ingreso
+  neto en los períodos reportados, pero el FC'
+generated_at: '2026-11-20T22:11:58.639748-03:00'
+id: ass-349c73af
+recommendation: REVIEW
+risks:
+- analisis: 'El proveedor reporta FCF TTM de -910.15 al 2026-09-30, mientras otra
+    observación del paquete reporta -153020000 en una unidad monetaria distinta; no
+    se pueden reconciliar con el ingreso neto TTM reportado. Fuente: https://stockanalysis.com/stocks/xp/financials/;
+    https://stockanalysis.com/stocks/XP/statistics/.'
+  riesgo: Conversión de caja no validada
+- analisis: 'El EBITDA y el EBIT figuran como n/a al 2026-09-30 en las estadísticas
+    del proveedor, lo que impide calcular deuda neta/EBITDA e interés cubierto. Fuente:
+    https://stockanalysis.com/stocks/XP/statistics/.'
+  riesgo: Apalancamiento no evaluable sobre EBITDA
+- analisis: 'La cotización reportada de USD 29.51 al 2026-10-23 supera el máximo de
+    objetivos de analistas recopilados, USD 26.25 al 2026-11-20; son observaciones
+    en fechas distintas. Fuentes: https://finance.yahoo.com/quote/XP/; https://stockanalysis.com/stocks/xp/forecast/.'
+  riesgo: Expectativas de mercado exigentes frente al consenso recopilado
+- analisis: El paquete no incluye datos sobre retención de clientes, costes de adquisición,
+    competencia, retornos de capital, adquisiciones ni remuneración de ejecutivos;
+    estas dimensiones quedan sin validar.
+  riesgo: Erosión competitiva y riesgos de asignación de capital no cuantificados
+score: 52
+status: COMPLETED
+version: '3.0'
