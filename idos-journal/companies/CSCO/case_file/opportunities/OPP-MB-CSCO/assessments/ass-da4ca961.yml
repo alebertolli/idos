@@ -1,0 +1,40 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; encaje multibagger no demostrado'
+- 'Market error: No se valida un error de valoración: el consenso es una observación
+  de mercado, no una valoración intrínseca, y no hay método con inputs suficientes
+  para estimar valor propio.'
+- 'Thesis: Cisco vende tecnologías de conectividad, redes y seguridad, con ingresos
+  TTM de USD 63,325 millones y margen bruto reportado de 64.52% al 2026-07-25. La
+  tesis de crecimiento dependería de que sus ofer'
+generated_at: '2026-11-21T14:56:18.418751-03:00'
+id: ass-da4ca961
+recommendation: REVIEW
+risks:
+- evidencia: El resumen describe productos y segmentos, pero no aporta tamaño de mercado,
+    cuotas, rendimiento sobre capital ni métricas de reinversión.
+  fuentes: []
+  riesgo: Falta evidencia para establecer crecimiento estructural, penetración de
+    mercado y retornos incrementales sobre capital.
+- evidencia: 'FCF: USD 12,767 millones TTM al 2026-07-25 frente a USD 13,288 millones
+    FY 2025.'
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/CSCO/statistics/
+  riesgo: El FCF reportado varía entre ejercicios y el TTM más reciente es inferior
+    a FY 2025.
+- evidencia: El campo de cobertura de intereses reporta 0 para TTM al 2026-07-25,
+    pero no se suministra el gasto por intereses para comprobarlo.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/CSCO/statistics/
+  riesgo: La capacidad de servicio de deuda no queda validada por los datos proporcionados.
+- evidencia: Se proporciona una cifra de acciones en circulación, pero no una serie
+    histórica de acciones diluidas comparable.
+  fuentes: []
+  riesgo: No hay datos suficientes sobre dilución, compensación accionaria o decisiones
+    de asignación de capital.
+score: 58
+status: COMPLETED
+version: '3.0'

@@ -1,0 +1,1 @@
+> **Nota:** Toda la información proviene exclusivamente de los documentos de investigación DDD y AOIF. No se han añadido datos externos. Los hechos verificados se indican con referencias numeradas; las inferencias y suposiciones aparecen en cursiva.

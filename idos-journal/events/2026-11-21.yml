@@ -389,3 +389,72 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T14:43:45.881946'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CL
+    ticker: CL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T14:51:14.998355'
+- data:
+    classification: Investigación fundamental pendiente; encaje multibaggers no demostrado
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 3bc4363253cd884cabc4ebeff057146772ac133bf6720bcf8a42f8013d425d0a
+    opp_id: OPP-MB-CL
+    original_status: UNDER_RESEARCH
+    score: 40
+    strategy_version: '1.5'
+    ticker: CL
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T14:52:02.192494'
+- data:
+    classification: compounder
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: d5334e91d7a4188a12618c2195c73a3f847f664a10127cec66b05b57a04bd86c
+    opp_id: OPP-20261023-042
+    original_status: UNDER_RESEARCH
+    score: 70
+    strategy_version: positive_fundamentals_v1
+    ticker: COST
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T14:54:19.951700'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CSCO
+    ticker: CSCO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T14:54:47.097016'
+- data:
+    classification: Investigación requerida; encaje multibagger no demostrado
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 6a334cfd4be94a00ff32457c660102cd262696d197c328a2913a8907fc69b018
+    opp_id: OPP-MB-CSCO
+    original_status: UNDER_RESEARCH
+    score: 58
+    strategy_version: '1.5'
+    ticker: CSCO
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T14:56:18.527297'
