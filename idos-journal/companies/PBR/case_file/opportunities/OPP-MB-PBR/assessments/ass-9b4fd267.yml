@@ -1,0 +1,36 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; exposición cíclica a petróleo con evidencia
+  financiera incompleta para una tesis de multibagger.'
+- 'Market error: No puede validarse un error de valoración con el paquete: faltan
+  método e inputs para estimar valor intrínseco.'
+- 'Thesis: La tesis a investigar es si la producción de petróleo y gas y la rentabilidad
+  del negocio pueden sostener reinversión y generación de caja pese a la exposición
+  cíclica y a la incertidumbre sobre asign'
+generated_at: '2026-11-21T17:48:11.522791-03:00'
+id: ass-9b4fd267
+recommendation: REVIEW
+risks:
+- evidencia: El modelo de negocio resumido incluye exploración, producción, refinación
+    y comercialización de petróleo y gas; el paquete no aporta sensibilidad cuantificada
+    a precios.
+  fuente: Resumen financiero de contexto, consultado al 2026-11-21.
+  riesgo: Ciclicidad y dependencia de precios de hidrocarburos
+- evidencia: Current ratio reportado de 0,9x al 2026-09-30; supera el umbral de observación
+    de 0,5x, pero no elimina riesgo de liquidez.
+  fuente: https://stockanalysis.com/stocks/PBR/statistics/, período terminado 2026-09-30.
+  riesgo: Liquidez corriente acotada
+- evidencia: El paquete no incluye evidencia específica sobre decisiones de management,
+    distribución de capital, compromisos de inversión o retorno sobre capital.
+  fuente: Paquete de investigación y resumen financiero, al 2026-11-21.
+  riesgo: Gobierno corporativo y asignación de capital no evaluables
+- evidencia: Los importes financieros históricos aparecen como valores reportados
+    sin unidad monetaria explícita común en todos los campos; algunos períodos de
+    ingresos están omitidos o duplicados.
+  fuente: https://stockanalysis.com/stocks/pbr/financials/, períodos reportados hasta
+    2026-09-30.
+  riesgo: Calidad y comparabilidad de datos
+score: 56
+status: COMPLETED
+version: '3.0'

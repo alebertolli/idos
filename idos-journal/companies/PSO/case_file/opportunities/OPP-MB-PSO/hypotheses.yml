@@ -1,0 +1,144 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto de FY 2027 aumenta menos de 0,5 puntos porcentuales
+      respecto a FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto de FY 2027 es igual o inferior al de FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto de FY 2027 aumenta menos de 0,5 puntos porcentuales respecto a
+    FY 2026.
+  - El margen bruto de FY 2027 es igual o inferior al de FY 2026.
+  horizon: medio
+  id: H1-OPP-MB-PSO
+  opportunity_id: OPP-MB-PSO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.5
+    met: null
+    metric: Variación del margen bruto de FY 2027 frente a FY 2026
+    prediction: En los resultados de FY 2027, el margen bruto reportado será al menos
+      0,5 puntos porcentuales superior al de FY 2026.
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: El margen bruto mejoró entre FY 2022 y el TTM a junio de 2026. Esa evolución
+    es compatible con mejoras de mezcla, precios o eficiencia, pero la información
+    disponible no permite identificar cuál de esos factores la explica ni demostrar
+    que sea duradera.
+  review_trigger: Dejar de creerla si Pearson informa un margen bruto de FY 2027 inferior
+    al de FY 2026, o si no publica resultados comparables de FY 2027 antes del 2028-03-31.
+  secondary_hypotheses: []
+  statement: Pearson mantendrá la mejora operativa y aumentará su margen bruto en
+    el ejercicio 2027 respecto al ejercicio 2026.
+  status: ACTIVE
+  ticker: PSO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF de FY 2027 crece menos de un 5% respecto a FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de FY 2027 disminuye respecto a FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Pearson atribuye más de la mitad del incremento interanual del FCF
+      a movimientos favorables de capital circulante que identifique como no recurrentes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF de FY 2027 crece menos de un 5% respecto a FY 2026.
+  - El FCF de FY 2027 disminuye respecto a FY 2026.
+  - Pearson atribuye más de la mitad del incremento interanual del FCF a movimientos
+    favorables de capital circulante que identifique como no recurrentes.
+  horizon: medio
+  id: H2-OPP-MB-PSO
+  opportunity_id: OPP-MB-PSO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual del FCF de FY 2027 frente a FY 2026
+    prediction: El FCF reportado para FY 2027 será al menos un 5% superior al de FY
+      2026, y la empresa no atribuirá la mayor parte del incremento a movimientos
+      favorables no recurrentes de capital circulante.
+    unit: porcentaje como mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible indica crecimiento del FCF entre FY 2024 y FY
+    2025, pero no establece que el aumento sea recurrente. Si los márgenes y la conversión
+    de beneficios en caja se sostienen, el FCF podría seguir creciendo; una reversión
+    de capital circulante u otros factores puntuales podría invalidar esa lectura.
+  review_trigger: Dejar de creerla si los resultados de FY 2027 muestran crecimiento
+    del FCF inferior al 5% frente a FY 2026 o explican más de la mitad del aumento
+    por efectos no recurrentes de capital circulante.
+  secondary_hypotheses:
+  - H1-OPP-MB-PSO
+  statement: El crecimiento del flujo de caja libre observado en FY 2025 continuará
+    durante FY 2027, sin depender de una contribución extraordinaria de capital circulante.
+  status: ACTIVE
+  ticker: PSO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de PSO supera a la del FTSE All-Share en menos
+      de 8 puntos porcentuales durante el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de PSO iguala o queda por debajo de la del FTSE
+      All-Share durante el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de PSO supera a la del FTSE All-Share en menos de 8 puntos
+    porcentuales durante el periodo indicado.
+  - La rentabilidad total de PSO iguala o queda por debajo de la del FTSE All-Share
+    durante el periodo indicado.
+  horizon: medio
+  id: H3-OPP-MB-PSO
+  opportunity_id: OPP-MB-PSO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 8.0
+    met: null
+    metric: Rentabilidad total relativa de PSO frente al FTSE All-Share
+    prediction: Entre 2026-11-21 y 2027-11-21, la rentabilidad total de PSO, incluidos
+      dividendos y convertida a libras esterlinas, superará en al menos 8 puntos porcentuales
+      la rentabilidad total del índice FTSE All-Share.
+    unit: puntos porcentuales como mínimo
+  priority: informational
+  probability: 0.5
+  rationale: La mejora del margen bruto y el crecimiento reciente del FCF podrían
+    respaldar expectativas de beneficios y caja mejores que las implícitas en un escenario
+    pesimista. Sin embargo, la evidencia disponible no demuestra una ventaja competitiva
+    duradera ni permite estimar una valoración intrínseca; por eso la predicción se
+    limita a un resultado relativo observable.
+  review_trigger: Dejar de creerla el 2027-11-21 si la rentabilidad total relativa
+    acumulada de PSO es inferior a 8 puntos porcentuales; abandonar antes solo si
+    Pearson retira sus previsiones o comunica un deterioro material de sus perspectivas
+    operativas o de caja.
+  secondary_hypotheses:
+  - H1-OPP-MB-PSO
+  - H2-OPP-MB-PSO
+  statement: Si Pearson sostiene la mejora operativa y el crecimiento del FCF, la
+    acción PSO obtendrá una rentabilidad total superior a la del mercado británico
+    de renta variable durante los doce meses siguientes a la fecha de corte.
+  status: ACTIVE
+  ticker: PSO
+  version: 1

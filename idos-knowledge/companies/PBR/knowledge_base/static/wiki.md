@@ -1,114 +1,122 @@
 ## 1. Visión General de la Compañía
 
-Petróleo Brasileiro S.A. — Petrobras (PBR) es una compañía energética integrada con actividades de exploración y producción de petróleo y gas, refinación, transporte, almacenamiento, comercialización, gas y electricidad. Su cadena de valor abarca desde la prospección y el desarrollo de yacimientos —principalmente offshore— hasta la venta y exportación de hidrocarburos y productos derivados.
+Petróleo Brasileiro S.A. — Petrobras (PBR) es una compañía energética integrada que opera en la cadena de valor de hidrocarburos: prospección y desarrollo de yacimientos, extracción de petróleo y gas, procesamiento y logística, refinación y comercialización. Los productos identificados en la información disponible incluyen petróleo crudo, líquidos de gas natural, gas natural y gas natural licuado.
 
-La actividad principal se concentra en petróleo y gas. Entre sus productos se encuentran el crudo, los líquidos de gas natural y el gas natural, incluido el gas natural licuado. Sus clientes incluyen refinerías, comercializadores, distribuidores y consumidores de combustibles.
+Su exposición abarca actividades de upstream y downstream. La información recibida no especifica la distribución geográfica de activos, ingresos o producción, por lo que no se puede evaluar aquí su perfil regional.
 
-La empresa opera en una industria intensiva en capital y cíclica, expuesta a los precios internacionales de los hidrocarburos. Por su actividad y perfil sectorial, comparte riesgos y dinámicas competitivas con [[BP]], [[CVX]], [[COP]], [[E]], [[EQNR]], [[OXY]], [[BKR]], [[HAL]] y [[TS]].
+La compañía pertenece al sector energético y comparte exposiciones sectoriales con [[BP]], [[CVX]], [[SHEL]], [[TTE]] y [[E]]. También presenta riesgos industriales comunes a compañías de servicios y equipos como [[BKR]], [[HAL]] y [[SLB]], aunque sus modelos de negocio no son equivalentes.
+
+**Estado de la tesis:** investigación requerida. Hay indicadores financieros y de mercado favorables en los datos recibidos, pero faltan detalles comparables sobre producción, reservas, inversiones y generación de caja para establecer una tesis de valoración independiente o de crecimiento sostenible.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-**Drivers de ingresos y rentabilidad:** la información disponible no desglosa ingresos o márgenes por segmento. En términos generales, la actividad de Petrobras depende de la producción y venta de petróleo y gas, el procesamiento y la comercialización de productos derivados, y la operación de sus negocios de gas y electricidad. La exposición a los precios internacionales de petróleo y gas puede afectar ingresos, márgenes y generación de caja.
+**Fuentes de ingresos y cadena de valor**
 
-**Posición competitiva:** el análisis AOIF caracteriza a Petrobras como líder y atribuye sus ventajas a la escala, la experiencia técnica en aguas profundas, el acceso a recursos brasileños y la integración de actividades. Califica la amplitud de estas ventajas competitivas como **estrecha**: son relevantes, pero coexisten con una elevada intensidad de capital, exposición a ciclos de materias primas y riesgos de asignación de capital.
+- Exploración y producción de petróleo, gas y líquidos de gas natural.
+- Procesamiento, transporte y logística de hidrocarburos.
+- Refinación y producción de combustibles.
+- Comercialización a refinerías, compradores de crudo, distribuidores y comercializadores de combustibles.
 
-**Dinámica de la industria:** la competitividad depende, entre otros factores, de los costos de extracción, la productividad de los activos y la ejecución de proyectos. El paquete no aporta datos comparables sobre costos, reservas, cuota de mercado, retornos de proyectos ni participación por segmento; por tanto, no permite cuantificar la fortaleza relativa de Petrobras frente a sus pares, como [[BP]], [[CVX]], [[E]] o [[EQNR]].
+Los ingresos y márgenes están expuestos a los precios del crudo, el gas y los derivados. La integración vertical puede conectar las actividades de producción, refinación y comercialización, pero la información disponible no cuantifica cuánto reduce la volatilidad ni cómo se distribuye la rentabilidad entre segmentos.
+
+**Posición competitiva y moat**
+
+AOIF caracteriza a Petrobras como líder y atribuye su ventaja potencial a escala, integración vertical, experiencia técnica en exploración offshore e infraestructura de producción y logística. El moat se califica como **estrecho**. Estas evaluaciones no vienen acompañadas de comparaciones cuantitativas con competidores, por lo que deben tratarse como caracterizaciones preliminares, no como ventajas verificadas frente a [[BP]], [[CVX]], [[SHEL]], [[TTE]] o [[E]].
+
+La industria es intensiva en capital y cíclica. La producción, los costos unitarios, el reemplazo de reservas y la ejecución de nuevos proyectos serán determinantes para valorar la posición competitiva. Los datos entregados no incluyen series para analizarlos.
 
 ## 3. Perfil Financiero
 
-| Métrica | Valor reportado | Período / fecha | Observaciones |
+Las cifras de AOIF no incluyen referencias específicas de período, metodología o fuente primaria en el material recibido. Se presentan como datos reportados pendientes de validación. Los indicadores de DDD se refieren, cuando se especifica, al período terminado el 30 de septiembre de 2026.
+
+| Métrica | Valor reportado | Período / referencia | Estado y limitación |
 |---|---:|---|---|
-| Ingresos TTM | USD 113,89 mil millones | TTM terminado el 2026-09-30 | Fuente: [StockAnalysis — Financials](https://stockanalysis.com/stocks/pbr/financials/). |
-| Margen bruto | 52,09% | TTM; dato referido al 2026-09-30 | Reportado en el paquete DDD; no se proporciona desglose por segmento. |
-| Flujo de caja libre (FCF) | Positivo | TTM terminado el 2026-09-30 | El paquete no incluye el importe. La cifra no demuestra por sí sola que la generación sea sostenible. |
-| Crecimiento de FCF | 22,87% | TTM terminado el 2026-09-30 | Reportado por la fuente; el paquete no especifica la base comparativa exacta ni permite verificar la comparabilidad. |
-| Razón corriente | 0,9x | 2026-09-30 | Fuente: [StockAnalysis — Statistics](https://stockanalysis.com/stocks/PBR/statistics/). |
-| Cobertura de intereses | 0x | 2026-09-30 | Reportada por la fuente, pero requiere validación por posible problema de definición o dato. No se sustituyó EBIT por EBITDA. |
+| Crecimiento de ingresos | 23,51% | Período no indicado | AOIF; no se dispone de cifras subyacentes para verificar el cálculo. |
+| Margen operativo | 38,1% | Período no indicado | AOIF; metodología y período por validar. |
+| ROIC | 20,55% | Período no indicado | AOIF; metodología y período por validar. |
+| Crecimiento de FCF | 22,87% | TTM terminado el 30-09-2026 | Reportado por Stock Analysis; no se especifica en el paquete el período comparativo usado. |
+| FCF TTM | Positivo | TTM terminado el 30-09-2026 | DDD lo describe como positivo, pero no proporciona el importe. |
+| Current ratio | 0,9x | 30-09-2026 | Reportado por Stock Analysis. Está por encima del umbral de observación de 0,5x, pero no elimina el riesgo de liquidez. |
+| Cobertura de intereses | 0x | 30-09-2026 | Reportado por Stock Analysis y señalado por DDD como inferior al umbral de 2,0x. El cálculo requiere aclaración. |
+| PER | 4,37x | Período no indicado | AOIF; fuente, período y metodología no especificados. |
+| EV/EBITDA | 2,9x | Período no indicado | AOIF; fuente, período y metodología no especificados. |
+| FCF yield | 0 | Período no indicado | AOIF; unidad y metodología no especificadas; no debe interpretarse como una medida validada. |
 
-El análisis AOIF también presenta crecimiento de ingresos de **23,51%**, margen operativo de **38,1%** y ROIC de **20,55%**. No se proporcionan para estas cifras una fecha, período comparable ni fuente verificable en el paquete; deben tratarse como **datos pendientes de validación**, no como métricas directamente comparables con las cifras TTM anteriores.
+**Fuentes identificadas:** [Stock Analysis — Financials](https://stockanalysis.com/stocks/pbr/financials/) para el crecimiento de FCF y el FCF TTM; [Stock Analysis — Statistics](https://stockanalysis.com/stocks/PBR/statistics/) para current ratio y cobertura de intereses. DDD indica como período el 30 de septiembre de 2026. AOIF no adjunta fuentes o fechas específicas para las métricas de su análisis.
 
-El AOIF reporta EV/EBITDA de **2,9x**, P/E de **4,45x** y FCF yield de **0**. Sin fecha, precio de referencia, metodología ni inputs verificables, estos múltiplos no bastan para establecer una valoración. Tampoco se proporcionan deuda neta, deuda neta/EBITDA reconciliada, capex ni importe de FCF. La razón corriente de 0,9x es superior al umbral de 0,5x señalado en el paquete DDD, pero no sustituye un análisis integral de liquidez.
-
-No se pudo calcular el crecimiento de ingresos a tres años: la serie disponible no contiene el dato de FY 2023 requerido por la metodología indicada en el paquete DDD.
+No se proporcionan cifras de deuda, vencimientos, gasto de capital, flujo de caja operativo ni asignación de caja entre inversión, dividendos y reducción de deuda. Por tanto, no se puede evaluar de forma completa la estructura de capital, la conversión de beneficios en efectivo ni la sostenibilidad de las distribuciones.
 
 ## 4. Management y Gobierno Corporativo
 
-El análisis AOIF califica la calidad del management como **regular**, la asignación de capital como **neutral** y el alineamiento de insiders como **débil**. No aporta métricas, fuentes, fechas ni evidencia detallada que permita verificar esas evaluaciones.
+AOIF califica la calidad del management como **regular**, la asignación de capital como **neutral** y el alineamiento de insiders como **débil**. El material no contiene las métricas ni la evidencia que sustentan esas evaluaciones.
 
-El riesgo de gobierno más destacado en el paquete es la posible influencia de la participación estatal sobre precios de combustibles, inversiones, dividendos y prioridades operativas. No se proporcionan detalles sobre composición del board, independencia de directores, estructura de incentivos, tenencia accionaria de insiders ni mecanismos de supervisión. Estos aspectos requieren investigación adicional antes de concluir sobre la calidad del gobierno corporativo.
+No se aportan nombres o trayectoria de directivos, incentivos, participación accionaria de insiders, composición del consejo, independencia de sus miembros ni detalles sobre la influencia de accionistas o del Estado. En consecuencia, no es posible evaluar de manera independiente la calidad del liderazgo, los controles de gobierno corporativo o el grado de alineamiento entre management y accionistas.
+
+La posibilidad de interferencia política en prioridades de inversión, precios domésticos y distribución de capital figura entre los riesgos identificados por AOIF; su alcance y evidencia específica están pendientes de investigación.
 
 ## 5. Tesis de Inversión
 
-**Caso alcista — hipótesis respaldada parcialmente por la información disponible:**
+El caso alcista a investigar se apoya en los siguientes elementos, que todavía requieren validación:
 
-- Petrobras combina actividades de exploración y producción con refinación, transporte y comercialización, lo que le otorga una posición integrada dentro de la cadena de hidrocarburos.
-- El análisis AOIF identifica escala, experiencia técnica en aguas profundas y acceso a recursos brasileños como ventajas competitivas potenciales. La misma fuente las considera un moat estrecho, no una ventaja inexpugnable.
-- El paquete DDD reporta margen bruto TTM de 52,09% y FCF positivo para el TTM terminado el 2026-09-30. Esto es compatible con capacidad actual de generación de caja, pero no prueba que dicha generación sea sostenible ni que los proyectos nuevos obtengan retornos adecuados.
-- El paquete DDD reporta crecimiento del FCF de 22,87% TTM, aunque la base comparativa no está especificada de forma suficiente para verificar su comparabilidad.
+1. **Modelo integrado y escala.** Petrobras opera desde exploración y producción hasta refinación, logística y comercialización. AOIF considera que la escala, la integración vertical, la experiencia offshore y la infraestructura podrían ofrecer una ventaja competitiva estrecha.
+2. **Indicadores financieros reportados favorables.** AOIF presenta crecimiento de ingresos de 23,51%, margen operativo de 38,1% y ROIC de 20,55%. Como no se indican período, metodología ni fuente, no se pueden tomar como evidencia confirmada de una tendencia persistente.
+3. **Caja TTM positiva y crecimiento reportado.** DDD informa FCF TTM positivo y crecimiento de FCF de 22,87% al 30 de septiembre de 2026. La cifra sugiere un posible catalizador si se confirma con períodos comparables y se aclara la asignación de caja. Fuente: [Stock Analysis — Financials](https://stockanalysis.com/stocks/pbr/financials/).
+4. **Valoración aparente baja en los múltiplos reportados.** AOIF indica PER de 4,37x y EV/EBITDA de 2,9x. Sin una metodología, un período homogéneo y estimaciones de valor intrínseco, estos múltiplos no demuestran por sí solos infravaloración.
+5. **Precio y objetivos de analistas.** DDD reporta un cierre de USD 22,05 al 30 de octubre de 2026 y un rango de objetivos de USD 17,40–27,00, con objetivo medio de USD 22,83. El precio está cerca del objetivo medio; el consenso es una referencia de mercado, no una estimación independiente de valor intrínseco.
 
-**Lectura de mercado:** la cotización observada fue de **USD 22,05 al 2026-10-30**, tras una subida de **89,433%** en los 12 meses terminados en esa fecha. La volatilidad a 90 días reportada fue de **43,155%**. Estos datos describen el comportamiento del precio, pero no demuestran infravaloración. Al 2026-11-20, el consenso de precio objetivo era **USD 22,83**, con rango de **USD 17,40–27,00**; su proximidad a la cotización observada no valida por sí sola una oportunidad de inversión ni un error de valoración.
-
-Fuentes financieras citadas en el paquete DDD: [StockAnalysis — Financials](https://stockanalysis.com/stocks/pbr/financials/) y [StockAnalysis — Statistics](https://stockanalysis.com/stocks/PBR/statistics/).
+La tesis dependerá de demostrar que la producción y los proyectos pueden sostener retornos sobre capital y flujo de caja suficiente tras cubrir las necesidades de inversión.
 
 ## 6. Riesgos y Contra-Tesis
 
-- **Riesgo de materias primas:** una caída o volatilidad de los precios internacionales del petróleo y el gas podría afectar ingresos, márgenes y caja. El AOIF lo califica de impacto alto y probabilidad alta, sin aportar sensibilidades cuantitativas.
-- **Riesgo político y regulatorio:** la participación estatal puede influir en precios de combustibles, inversiones, dividendos y prioridades operativas. El AOIF lo califica de impacto alto y probabilidad media.
-- **Riesgo de asignación de capital y ejecución:** el paquete no aporta retornos sobre capital por proyecto, economía unitaria, capex comparable ni datos de ejecución de inversiones. Por tanto, no permite confirmar que el gasto futuro sostenga retornos económicos adecuados.
-- **Liquidez y apalancamiento:** la razón corriente reportada es de 0,9x al 2026-09-30. La deuda neta/EBITDA no pudo validarse con unidades compatibles. La cobertura de intereses reportada como 0x requiere comprobación.
-- **Ciclicidad e intensidad de capital:** la actividad requiere inversiones significativas y está expuesta a ciclos de materias primas, lo que puede hacer que la caja y los retornos varíen entre períodos.
-- **Riesgo de valoración:** no hay una estimación independiente del valor intrínseco ni inputs suficientes para una valoración reproducible. El consenso de precio objetivo cercano a la cotización no confirma ni descarta infravaloración.
-
-**Contra-tesis:** la evidencia disponible no demuestra que el mercado esté subestimando el crecimiento, la rentabilidad sostenible o la calidad de la asignación de capital. El avance del precio de 12 meses no constituye evidencia de una discrepancia de valoración.
-
-**Falsadores a monitorear:**
-
-1. FCF comparable persistentemente débil o negativo, en contradicción con el FCF positivo reportado para el TTM terminado el 2026-09-30.
-2. Evidencia de que las nuevas inversiones no logran retornos económicos adecuados o deterioran materialmente la generación de caja.
-3. Confirmación de que los datos de rentabilidad, liquidez o cobertura de intereses son menos favorables de lo reportado, una vez reconciliados períodos, unidades y definiciones.
+- **Ciclicidad de hidrocarburos:** una caída de precios del petróleo, gas o derivados podría reducir ingresos, márgenes y caja. Es una exposición compartida con compañías integradas como [[BP]], [[CVX]], [[SHEL]], [[TTE]] y [[E]].
+- **Riesgo regulatorio y político:** AOIF identifica como riesgo de impacto alto y probabilidad media la posible interferencia en prioridades de inversión, precios domésticos y distribución de capital. La información no detalla escenarios ni antecedentes concretos.
+- **Liquidez:** el current ratio reportado de 0,9x indica liquidez corriente acotada. La cifra está por encima del umbral de observación de 0,5x utilizado por DDD, pero se necesitan composición y vencimientos de activos y pasivos para evaluar el riesgo. Fuente: [Stock Analysis — Statistics](https://stockanalysis.com/stocks/PBR/statistics/).
+- **Cobertura de intereses no aclarada:** Stock Analysis reporta 0x al 30 de septiembre de 2026, por debajo del umbral de 2,0x. Como el paquete no valida el cálculo ni aporta los datos que lo sustentan, este indicador requiere aclaración antes de extraer conclusiones sobre solvencia.
+- **Intensidad de capital y ejecución:** retrasos de proyectos, costos superiores a lo previsto, declinación de campos o inversión necesaria para mantener producción podrían reducir el efectivo disponible.
+- **Tesis de valoración no demostrada:** los múltiplos de AOIF carecen de metodología y no hay un cálculo independiente de valor intrínseco. DDD concluye que no puede confirmarse un error de valoración con la evidencia disponible.
+- **Falsadores de la tesis:** resultados posteriores que muestren deterioro persistente de márgenes o FCF; evidencia verificable de menor producción; retrasos de proyectos; o necesidades de inversión que reduzcan la caja disponible para accionistas y balance.
 
 ## 7. Catalizadores y Timeline
 
-| Fecha esperada | Evento | Impacto potencial | Estado y evidencia |
+| Catalizador | Fecha esperada | Impacto potencial | Evidencia disponible |
 |---|---|---|---|
-| Posterior al 2026-09-30; fecha específica no indicada | Próxima actualización de resultados financieros y operativos | Podría aportar evidencia sobre continuidad de ingresos, márgenes y FCF. | Hito de seguimiento; el paquete no incluye resultados posteriores. Fuente: [StockAnalysis — Financials](https://stockanalysis.com/stocks/pbr/financials/). |
-| Sin fecha indicada | Publicación o verificación de datos comparables de deuda, caja y FCF | Ayudaría a evaluar capacidad de inversión y flexibilidad financiera. | Pendiente de validar con períodos, definiciones y unidades reconciliados. Fuente: [StockAnalysis — Financials](https://stockanalysis.com/stocks/pbr/financials/). |
-| Sin fecha indicada | Evidencia sobre producción, costos, reservas y ejecución de proyectos offshore | Podría confirmar o debilitar la tesis de ventajas técnicas y de generación de retornos. | El paquete señala estos aspectos como puntos de monitoreo, pero no identifica un evento fechado ni aporta datos cuantitativos. |
+| Confirmación de la tendencia de FCF | Próximos resultados comparables; fecha no proporcionada | Positivo si se confirma el crecimiento y se demuestra conversión sostenible a caja después de inversión; negativo si se deteriora. | FCF TTM positivo y crecimiento reportado de 22,87% al 30-09-2026. Falta identificar el período comparativo y la asignación de caja. Fuente: [Stock Analysis — Financials](https://stockanalysis.com/stocks/pbr/financials/). |
+| Evolución de producción y reservas | Sin fecha proporcionada | Positivo si la producción y las reservas respaldan crecimiento rentable; negativo si se observa deterioro o necesidad de inversión desproporcionada. | El paquete no contiene series de producción, reservas ni proyectos. |
+| Resultados financieros comparables y evidencia de ejecución | Sin fecha corporativa identificada | Podrían aclarar márgenes, FCF, inversión y sostenibilidad de retornos. | DDD no identifica un catalizador corporativo fechado. |
 
-No se documentan fechas específicas de resultados, anuncios de proyectos u otros eventos futuros. No corresponde asignarles una fecha sin evidencia.
+El escenario de DDD usa un horizonte del 21 de noviembre de 2026 al 21 de noviembre de 2027, con anclas de USD 17,40 (bajista) y USD 27,00 (alcista). Son los extremos del rango de objetivos de analistas observado, no precios objetivo derivados de una valoración intrínseca ni eventos corporativos programados.
 
 ## 8. Marco de Valoración
 
-No es posible estimar responsablemente un valor intrínseco con la información disponible. El propio análisis AOIF lo señala y no proporciona una fecha de valoración, precio de referencia, deuda neta, acciones diluidas, previsiones de producción, precios, inversión ni supuestos detallados.
+La valoración debería combinar métricas de activos y producción con una valoración de flujos de caja, debido al carácter cíclico e intensivo en capital del negocio:
 
-Para una compañía integrada y expuesta al ciclo de hidrocarburos, una valoración debería contrastar métodos basados en flujo de caja y múltiplos comparables, usando supuestos explícitos y consistentes para los segmentos relevantes. Antes de hacerlo, sería necesario:
+- **Flujo de caja:** estimar FCF normalizado a través de distintos precios de hidrocarburos, separando flujo operativo, capex de mantenimiento y capex de crecimiento. No se cuenta con las cifras necesarias para hacerlo.
+- **Valoración por múltiplos:** contrastar PER y EV/EBITDA con períodos comparables y un conjunto de empresas pertinentes, como [[BP]], [[CVX]], [[SHEL]], [[TTE]] y [[E]]. Los múltiplos recibidos —PER 4,37x y EV/EBITDA 2,9x— son preliminares y no están acompañados de período o fuente.
+- **Análisis de activos y producción:** relacionar reservas, vida de los campos, costos unitarios, declinación y proyectos futuros con la capacidad de generar caja. Faltan datos para realizarlo.
+- **Riesgo de balance y asignación de capital:** incorporar deuda, vencimientos, cobertura de intereses validada, inversión comprometida y política de distribución. El material no incluye suficiente detalle.
 
-- reconciliar los períodos y las unidades de ingresos, EBITDA, deuda, capex y FCF;
-- obtener previsiones de producción, precios realizados, costos y necesidades de inversión;
-- evaluar retornos de capital y economía de proyectos actuales y planificados;
-- verificar el número de acciones diluidas y el tratamiento de deuda neta;
-- definir escenarios de precios de hidrocarburos, ejecución operativa, inversión y política de distribución.
+**Sensibilidad disponible:** el único rango numérico de escenarios es USD 17,40–27,00 para el horizonte al 21 de noviembre de 2027. DDD lo construye con objetivos de analistas, no con supuestos independientes de precios del crudo, producción, márgenes o capex. No debe confundirse con una valoración propia.
 
-El AOIF reporta EV/EBITDA de 2,9x, P/E de 4,45x y FCF yield de 0, pero el paquete no documenta sus fuentes, fechas ni inputs. Deben tratarse como cifras no verificadas, no como base suficiente para concluir que PBR está barata. El consenso de precio objetivo al 2026-11-20 —USD 22,83, rango USD 17,40–27,00— tampoco sustituye una valoración independiente. No hay base suficiente para calcular un margen de seguridad o un análisis de sensibilidad cuantitativo.
+**Conclusión de valoración:** margen de seguridad no establecido. AOIF indica que el valor intrínseco no es estimable de forma independiente con la información disponible; DDD tampoco identifica evidencia suficiente para validar una infravaloración.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuáles son el ROIC, el costo de capital y los retornos económicos de los proyectos actuales y planificados, con períodos y monedas comparables?
-2. ¿Qué retornos generan los proyectos offshore y cómo se comparan con sus presupuestos, plazos y supuestos iniciales?
-3. ¿Cuáles son las reservas, los costos de extracción, la producción y la evolución de esos indicadores por activo o segmento?
-4. ¿Qué cuota de mercado, demanda direccionable y penetración tiene Petrobras por segmento y geografía?
-5. ¿Cuál es la serie de ingresos de FY 2023 y qué crecimiento resulta de compararla con un período equivalente?
-6. ¿Cuál es el importe de FCF y cómo se reconcilia con flujo de caja operativo, capex y ventas de activos? ¿Es comparable el crecimiento TTM reportado de 22,87%?
-7. ¿Cuál es la deuda neta/EBITDA con unidades y períodos consistentes? ¿Cómo se explica la cobertura de intereses reportada como 0x?
-8. ¿Cuál es la exposición cuantitativa de caja, márgenes y dividendos a distintos precios del petróleo y el gas?
-9. ¿Qué evidencia concreta respalda las evaluaciones AOIF sobre calidad del management, alineamiento de insiders y asignación de capital?
-10. ¿Qué estructura de gobierno, independencia del board e incentivos supervisa las decisiones de precios, inversión y distribución de capital?
-
-**Conclusión de investigación:** clasificación provisional de **investigación requerida; evidencia parcial**. La información disponible describe una empresa integrada con ventajas operativas potenciales y señales de generación de caja en el período reportado, pero no basta para validar la sostenibilidad de sus retornos, la asignación de capital ni una discrepancia de valoración.
+1. ¿Qué series verificables de producción, reservas, costos unitarios y declinación respaldan la trayectoria del negocio?
+2. ¿Qué proyectos están en ejecución, cuál es su calendario, qué capex requieren y qué retornos se esperan?
+3. ¿Cuál es el FCF en períodos comparables y qué parte se asigna a inversión, dividendos y reducción de deuda?
+4. ¿Cuál es la fuente, período y metodología de las cifras de crecimiento de ingresos, margen operativo y ROIC reportadas por AOIF?
+5. ¿Qué definición y período comparativo utiliza Stock Analysis para el crecimiento de FCF de 22,87%?
+6. ¿Cómo se calcula la cobertura de intereses de 0x reportada y qué datos de deuda e intereses la sustentan?
+7. ¿Cuál es la composición de deuda, sus vencimientos y la exposición a monedas, tasas y refinanciación?
+8. ¿Qué segmentos generan los márgenes y la caja, y cómo se comportan a través del ciclo de precios?
+9. ¿Qué mecanismos de gobierno corporativo y políticas de asignación de capital determinan las prioridades de inversión y distribución?
+10. ¿Qué fuente, fecha y supuestos sustentan los múltiplos de valoración de AOIF y el FCF yield reportado como 0?
+11. ¿Cómo se compara Petrobras, sobre bases homogéneas, con [[BP]], [[CVX]], [[SHEL]], [[TTE]] y [[E]]?
+12. ¿Qué resultados comparables o datos operativos permitirían confirmar o falsar la tesis de generación sostenible de caja?
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton Company]], [[OXY|Occidental Petroleum Corporation]], [[TS|Tenaris S.A.]]
-- **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]]
+- **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton Company]], [[OXY|Occidental Petroleum Corporation]], [[PSX|Phillips 66]], [[SHEL|Shell plc]], [[SLB|SLB N.V.]], [[TS|Tenaris S.A.]], [[TTE|TotalEnergies SE]], [[UGP|Ultrapar Participações S.A.]], [[VIST|Vista Energy, S.A.B. de C.V.]], [[XOM|ExxonMobil Holdings Corporation]], [[YPF|YPF Sociedad Anónima]]
+- **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[SHEL|Shell plc]], [[TTE|TotalEnergies SE]], [[XOM|ExxonMobil Holdings Corporation]], [[YPF|YPF Sociedad Anónima]]
