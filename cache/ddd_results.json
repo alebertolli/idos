@@ -1,43 +1,10 @@
 {
-  "total": 2,
-  "processed": [
-    {
-      "opp_id": "OPP-MB-VIST",
-      "ticker": "VIST",
-      "status": "completed",
-      "score": 75,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-VRSN",
-      "ticker": "VRSN",
-      "status": "quality_failed",
-      "score": 72,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    }
-  ],
-  "skipped": [],
-  "assessments": [],
-  "errors": [
-    {
-      "ticker": "VRSN",
-      "opp_id": "OPP-MB-VRSN",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    }
-  ],
-  "status": "failed",
-  "deferred_count": 31,
-  "quarantined_count": 0,
-  "capacity_failure": null,
+  "processed": [],
+  "errors": [],
+  "total": 0,
+  "status": "none",
   "event_type": "monthly",
   "force": false,
-  "stale_days_threshold": 30
+  "skipped": [],
+  "assessments": []
 }
