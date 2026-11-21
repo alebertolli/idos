@@ -1,112 +1,145 @@
 ## 1. Visión General de la Compañía
 
-HSBC Holdings plc es un banco universal internacional que ofrece productos y servicios bancarios y patrimoniales a particulares, empresas e instituciones. El resumen disponible identifica cuatro segmentos: Hong Kong, UK, Corporate and Institutional Banking e International Wealth and Premier Banking. La compañía opera en varias geografías, con presencia destacada en Hong Kong y el Reino Unido.
+HSBC Holdings plc es un banco universal internacional. Capta depósitos y obtiene financiación en los mercados, que utiliza para originar préstamos y mantener otros activos financieros. Complementa los ingresos por intereses con comisiones, negociación y servicios bancarios y patrimoniales.
 
-Su modelo bancario comprende captación de depósitos y financiación mayorista, evaluación de crédito y asignación de capital, y distribución de préstamos, pagos y productos financieros. Los productos descritos incluyen cuentas, depósitos, tarjetas, préstamos hipotecarios, personales y comerciales, además de servicios financieros y patrimoniales.  
-**Fuente:** descripción de negocio proporcionada en la wiki existente y análisis AOIF; no se aportan fechas de referencia para estas descripciones.
+Entre los productos indicados en la investigación figuran cuentas, depósitos, tarjetas, préstamos personales, hipotecas y financiación comercial. Atiende a clientes minoristas, hogares y clientes de banca premier y alto patrimonio. Su actividad internacional y su posición en Hong Kong, Reino Unido y banca internacional son elementos relevantes de su perfil, aunque los datos aportados no detallan ingresos, activos ni rentabilidad por región.
+
+HSBC opera en una industria madura y altamente regulada, sensible a los tipos de interés, el ciclo crediticio y las condiciones macroeconómicas. Entre las compañías del sector incluidas en la wiki están [[JPM]], [[C]], [[ING]], [[SAN]], [[LYG]], [[MUFG]], [[IBN]] y [[ITUB]].
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-Los principales motores de ingresos son el margen entre los intereses cobrados por préstamos y los pagados por depósitos, junto con comisiones por servicios financieros. La financiación y los pagos comerciales, la banca minorista y la gestión patrimonial complementan esas fuentes.
+### Drivers de ingresos
 
-El análisis AOIF caracteriza la posición competitiva como líder y el moat como estrecho. Las ventajas señaladas son la marca global, las relaciones de largo plazo con clientes, la escala en pagos y financiación comercial y las redes internacionales, incluida la presencia en Hong Kong. Estas ventajas no están respaldadas en el material suministrado por métricas de cuota de mercado, retención, precios o rentabilidad por segmento; por tanto, su sostenibilidad no queda verificada.
+Las principales actividades descritas son la captación de depósitos, la concesión de préstamos y la prestación de servicios financieros. Los ingresos pueden depender del margen entre el rendimiento de préstamos y activos y el coste de depósitos y financiación, así como de comisiones y actividades de negociación. La investigación no aporta el desglose de ingresos por línea de negocio ni la evolución histórica de estos componentes.
 
-La industria es madura y fuertemente regulada. La rentabilidad es sensible a los tipos de interés, el ciclo crediticio y la actividad económica. La digitalización puede presionar costes y fidelidad, aunque el paquete no cuantifica esos efectos. Entre las compañías relacionadas del sector figuran [[C]], [[BSBR]], [[AIG]], [[AXP]], [[AEG]] y [[BX]]; la lista de entrada también incluye [[C]] dos veces.
+### Ventajas competitivas y moat
+
+La evaluación de investigación caracteriza el moat como **estrecho**. Las ventajas potenciales identificadas son:
+
+- Marca reconocida y escala internacional.
+- Relaciones de depósito y crédito con clientes.
+- Licencias y capacidades para operar en un entorno regulatorio complejo.
+- Red internacional que puede ser útil para clientes con actividad transfronteriza.
+
+La posición competitiva fue calificada como líder, pero la información disponible no incluye métricas comparativas que permitan contrastar esa clasificación. La presencia global no elimina la competencia de bancos internacionales y locales, ni la de gestores de activos y otros proveedores financieros.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes se reproducen tal como aparecen en los inputs. No se especifican unidades ni, para varias métricas, el método de cálculo; no deben interpretarse como series plenamente comparables sin verificar la fuente primaria.
+Los indicadores aportados carecen, en varios casos, de periodo, moneda y metodología verificables. Por ello no deben interpretarse automáticamente como una serie financiera comparable.
 
-| Métrica | Valor o período informado | Lectura y limitaciones |
-|---|---:|---|
-| Crecimiento de ingresos | 16,35% | AOIF lo informa como crecimiento de revenue; no se especifican período, fórmula ni unidades. |
-| Margen operativo | 49,04% | Valor AOIF; definición y período no especificados. |
-| ROIC | 13,63% | Valor AOIF; definición y período no especificados. La utilidad de esta métrica requiere revisión para un banco. |
-| PER | 10,79 | Valor AOIF; fecha y base de beneficios no especificadas. |
-| Ingresos FY 2022–FY 2025 | Se describe crecimiento | No se suministran los importes ni una tasa verificable. |
-| Utilidad neta TTM al 2026-09-30 | Positiva | El importe no se incluye en el material disponible. |
-| FCF FY 2024 | 19.724 | Unidad no especificada. |
-| FCF FY 2025 | -140.588 | Unidad no especificada; el cambio de signo impide calcular un crecimiento convencional. |
-| Deuda total FY 2025 | 699.906 | Unidad y definición contable no especificadas. |
-| Deuda total al 2026-09-30 | 851.906 | Aumento frente al dato FY 2025; no se proporciona conciliación ni información suficiente para evaluar apalancamiento bancario. |
-| Current ratio al 2026-09-30 | 0 | Dato reportado por la fuente; no se considera indicador validado de riesgo bancario sin revisar definición y componentes. |
-| FCF TTM | No disponible | No se proporciona un dato validado. |
+| Métrica | Valor aportado | Periodo / unidad | Calidad y limitaciones |
+|---|---:|---|---|
+| Crecimiento de ingresos | 16,35% | No especificado | AOIF; sin periodo, moneda ni metodología confirmados |
+| Margen operativo | 49,04% | No especificado | AOIF; requiere verificación y contexto bancario |
+| ROIC | 13,63% | No especificado | AOIF; metodología y periodo no especificados |
+| CAGR de ingresos a 3 años | ≈ 6,2% | Inferencia | DDD la identifica como inferencia, no como hecho verificado |
+| Conversión de FCF a ingresos | ≈ −274% | Inferencia | DDD; no es una métrica especialmente comparable para un banco |
+| Crecimiento de FCF | 1.352,41% | FY 2022 | Reportado; solo se aporta un año, sin serie histórica completa |
+| P/E | 10,63 | No especificado | AOIF; faltan fecha y metodología |
+| Current ratio | 0 | No especificado | DDD; valor reportado que requiere validación, especialmente por su interpretación en banca |
+| Cobertura de intereses | 0 | No especificado | DDD; valor reportado que requiere validación y aclaración metodológica |
+| EBITDA | No disponible | — | No se pudo calcular deuda neta/EBITDA; además, no es una métrica central para valorar un banco |
+| Acciones diluidas | No disponibles | — | Impide calcular la variación interanual de acciones diluidas |
 
-**Fuentes:** AOIF, sin fecha de corte indicada para las métricas; StockAnalysis, estados financieros e indicadores FY 2022–TTM al 2026-09-30, según el paquete de investigación: [estados financieros de HSBC](https://stockanalysis.com/stocks/hsbc/financials/).
+La investigación de AOIF señala que el flujo de caja libre no es una medida directamente comparable para un banco: los movimientos de depósitos y préstamos forman parte de sus flujos financieros. Por tanto, la conversión de FCF a ingresos y el FCF yield no deben leerse como indicadores ordinarios de calidad o valoración en este caso.
 
-El FCF no es una métrica especialmente representativa para un banco, pues los flujos operativos pueden variar con los movimientos de depósitos, préstamos y otros activos y pasivos financieros. El material tampoco permite conciliar las cifras de FCF con esos movimientos. No hay datos utilizables para calcular deuda neta/EBITDA, y el paquete advierte que esa razón no puede evaluarse con el EBITDA disponible.
+Los valores de current ratio y cobertura de intereses iguales a cero aparecen como alertas en DDD, pero no hay evidencia suficiente para concluir, sin verificar la fuente y la definición, que representen insolvencia o incapacidad efectiva de pagar intereses. Para una entidad bancaria conviene complementar estos indicadores con medidas regulatorias de capital y liquidez, calidad de activos, provisiones y financiación; esos datos no se proporcionaron.
+
+**Fuentes citadas en la investigación:** StockAnalysis, [financieros de HSBC](https://stockanalysis.com/stocks/hsbc/financials/). DDD advierte que no pudo identificar referencias explícitas que respaldaran los inputs de algunos ratios. No se aportaron fechas de consulta para estas cifras.
 
 ## 4. Management y Gobierno Corporativo
 
-El AOIF califica la asignación de capital como neutral, el alineamiento de insiders como moderado y la calidad general como buena. Son evaluaciones cualitativas del análisis suministrado, no conclusiones respaldadas aquí por datos detallados.
+La evaluación disponible califica la calidad del management como regular, la asignación de capital como neutral y el alineamiento de insiders como débil. Sin embargo, la propia investigación indica que no se proporcionaron antecedentes de ejecución, métricas de remuneración, participación accionarial de insiders ni resultados de decisiones de capital.
 
-No se proporcionan nombres o trayectoria del equipo directivo, composición del board, participación accionaria de insiders, estructura de remuneración, historial de recompras o dividendos, ni métricas de rentabilidad de las decisiones de capital. La evaluación de gobierno corporativo y alineamiento requiere investigación adicional.
+No hay información disponible sobre la composición del consejo, independencia de sus miembros, comités, sucesión o políticas de remuneración. Las calificaciones anteriores deben tratarse como evaluaciones preliminares, no como conclusiones respaldadas por evidencia detallada.
 
 ## 5. Tesis de Inversión
 
-- **Franquicia diversificada:** HSBC combina banca minorista, comercial, institucional y patrimonial en varios mercados y segmentos. Esta amplitud puede diversificar sus fuentes de ingresos, aunque no se proporcionan datos sobre la contribución o rentabilidad de cada segmento.
-- **Presencia internacional y escala:** el AOIF identifica como ventajas potenciales la marca global, las relaciones con clientes, la escala en pagos y financiación comercial y la presencia en Hong Kong y el Reino Unido.
-- **Crecimiento reciente por investigar:** los ingresos aumentaron entre FY 2022 y FY 2025, según la descripción del paquete. Esta observación es una señal descriptiva; por sí sola no demuestra crecimiento rentable, retornos atractivos sobre capital ni sostenibilidad.
-- **Rentabilidad positiva reportada:** el paquete señala ingresos y utilidad neta TTM positivos al 2026-09-30. No incluye importes ni datos por segmento para evaluar la calidad o persistencia de esos resultados.
-- **Valoración no resuelta:** AOIF informa un PER de 10,79, sin fecha ni base de beneficios especificadas. Ese dato aislado no demuestra infravaloración; no hay una estimación verificable de valor intrínseco.
+### Caso alcista
 
-En conjunto, el caso alcista se apoya en la amplitud de la franquicia y en señales financieras que merecen seguimiento, pero la evidencia disponible no valida la sostenibilidad del crecimiento, el moat ni la creación de valor sobre el coste de capital.
+- **Escala y diversificación internacional:** el modelo de banco universal y su red internacional pueden permitir atender distintas necesidades de clientes y diversificar las fuentes de ingresos. La investigación destaca posiciones relevantes en Hong Kong, Reino Unido y banca internacional, sin aportar métricas regionales para cuantificar su contribución.
+- **Recuperación en Asia:** un mayor crecimiento en Hong Kong podría impulsar los ingresos. Es un catalizador propuesto por DDD, no un resultado confirmado.
+- **Reducción de costes:** un programa de eficiencia podría mejorar los márgenes y contribuir a una generación de caja más favorable; su impacto depende de la ejecución y no está cuantificado.
+- **Discrepancia entre precio y consenso:** DDD indica un precio de referencia de 85,42 USD frente a un consenso medio de 103,02 USD, una diferencia aproximada del 20%. Esto es una referencia de la investigación recibida, no una valoración independiente ni una cotización con fecha verificada.
+- **Valoración bancaria:** AOIF informa un P/E de 10,63, aunque sin periodo ni metodología detallados. Su utilidad como señal de valoración es limitada hasta verificar el dato y compararlo con beneficios normalizados y pares.
+
+La tesis depende, en particular, de confirmar que las cifras financieras sean comparables y de observar mejoras en eficiencia, calidad de activos y liquidez.
 
 ## 6. Riesgos y Contra-Tesis
 
-- **Riesgo crediticio y macroeconómico:** una desaceleración puede deteriorar la calidad crediticia, aumentar los impagos y elevar las provisiones. AOIF califica el impacto como alto y la probabilidad como media; no se incluyen cifras de morosidad o coste del riesgo.
-- **Exposición a Hong Kong y China:** la volatilidad económica, inmobiliaria y geopolítica puede afectar resultados y calidad de activos. AOIF califica el impacto como alto y la probabilidad como media.
-- **Sensibilidad a tipos de interés y ciclo:** cambios en tipos, competencia por depósitos y demanda de crédito pueden modificar el margen financiero neto. El paquete no cuantifica la sensibilidad.
-- **Sostenibilidad de la rentabilidad no demostrada:** no hay desglose de segmentos, retornos sobre capital verificables ni evidencia sobre reinversión y penetración de mercado.
-- **Conversión de caja ambigua:** el FCF pasa de 19.724 en FY 2024 a -140.588 en FY 2025, según la fuente citada, pero falta una conciliación con los flujos bancarios y movimientos de balance. No es posible atribuir el cambio a deterioro operativo con la información disponible.
-- **Aumento de deuda reportada:** la deuda total informada sube de 699.906 en FY 2025 a 851.906 al 2026-09-30. Sin definiciones, unidades y métricas bancarias de capital y liquidez, el dato no basta para concluir que aumentó el riesgo financiero.
-- **Riesgo de interpretación de ratios:** el current ratio reportado como cero no se considera un indicador validado para un banco sin verificar la definición y sus componentes.
-- **Contra-tesis de valoración:** los objetivos de analistas pueden no reflejar riesgos o catalizadores específicos; el paquete no contiene sus supuestos ni estimaciones de resultados.
+### Riesgos principales
 
-**Falsadores identificados en el paquete:** resultados futuros que contradigan la continuidad del crecimiento de ingresos descrito entre FY 2022 y FY 2025; o evidencia de deterioro persistente de la utilidad neta o de la calidad de activos. Esta última no aparece cuantificada en el material disponible.
+| Riesgo | Evaluación aportada | Implicación |
+|---|---|---|
+| Calidad crediticia | Impacto alto; probabilidad media, según AOIF | Una desaceleración, el desempleo o el estrés inmobiliario podrían elevar las pérdidas crediticias y las provisiones |
+| Margen de interés neto | Impacto financiero medio; probabilidad alta, según AOIF | Cambios en tipos y competencia por depósitos pueden reducir el margen |
+| Liquidez y cobertura | DDD reporta current ratio y cobertura de intereses de 0 | Señales que requieren comprobar la fuente, definición y pertinencia para una entidad bancaria |
+| Márgenes y costes regulatorios | Presión contemplada en el escenario bajista | Podría limitar la rentabilidad y el valor atribuible a los beneficios |
+| Generación de efectivo | Conversión FCF/ingresos estimada en ≈ −274% por DDD | Dato de carácter inferencial y de interpretación limitada para un banco; no debe tomarse aisladamente como prueba de deterioro |
+
+### Contra-tesis
+
+El descuento frente al consenso podría estar justificado si el mercado anticipa deterioro de márgenes, pérdidas crediticias, costes regulatorios o dificultades para sostener la generación de efectivo. La investigación también plantea que los datos de liquidez y cobertura podrían reflejar riesgos relevantes, pero no aporta detalle suficiente para determinar si los valores reportados son correctos o directamente aplicables a HSBC.
+
+### Triggers de falsación y seguimiento
+
+La tesis alcista perdería fuerza ante:
+
+- Deterioro significativo de la generación de efectivo, interpretado con métricas adecuadas para bancos.
+- Incremento abrupto de pérdidas crediticias o provisiones.
+- Compresión persistente del margen de interés neto por tipos o competencia por depósitos.
+- Falta de mejora en márgenes y costes, o aumento de la presión regulatoria.
+- Confirmación de debilidad en liquidez o financiación mediante medidas bancarias pertinentes.
+
+La tesis bajista se debilitaría si se verifican mejoras sostenidas en márgenes, eficiencia y calidad de activos, o una reducción significativa de la deuda neta según una definición aplicable al banco.
 
 ## 7. Catalizadores y Timeline
 
-| Fecha o ventana | Evento o catalizador | Impacto potencial | Estado de la evidencia |
+| Catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia |
 |---|---|---|---|
-| Sin fecha especificada | Próximos resultados financieros y métricas de rentabilidad | Permitirían comprobar si continúa el crecimiento y cómo evoluciona la rentabilidad. | No se proporcionan calendario, expectativas ni objetivos cuantificados. |
-| Sin fecha especificada | Divulgaciones sobre capital | Podrían ayudar a evaluar la capacidad de distribución, la solidez financiera y la asignación de capital. | El paquete no incluye hitos ni objetivos de capital. |
-| 2026-09-30 | Referencia del dato de utilidad neta TTM y de deuda reportada | Base para comparar resultados y estructura financiera posteriores. | La utilidad neta se describe como positiva; el importe y la conciliación de deuda no están disponibles. |
-| 2026-11-20 | Consenso de precio objetivo informado: USD 103,02; rango USD 90,00–112,05 | Referencia de expectativas de mercado, no catalizador operativo ni valor intrínseco. | No se aportan estimaciones de resultados ni supuestos de analistas. |
-| 2026-10-30 | Precio observado: USD 85,42 | Punto de referencia de mercado para contextualizar el consenso citado. | Observación de precio; no constituye una valoración fundamental. |
+| Recuperación de ingresos en Hong Kong / Asia | Sin fecha aportada | Positivo si impulsa el crecimiento y la rentabilidad | Hipótesis de DDD; sin estimación de contribución |
+| Programa de reducción de costes | Sin fecha aportada | Positivo si mejora márgenes y eficiencia | Catalizador propuesto; no se detallan medidas ni calendario |
+| Mejora de márgenes netos | Sin fecha aportada | Podría favorecer la valoración y debilitar la tesis bajista | Identificada por DDD como posible catalizador de cambio |
+| Reducción de deuda neta | Sin fecha aportada | Podría mejorar la percepción de riesgo financiero | Identificada por DDD; definición y plan no especificados |
+
+Los escenarios de DDD y AOIF tienen fecha de análisis **21 de noviembre de 2026** y horizonte al **21 de noviembre de 2027**. No se proporcionan fechas concretas para resultados, anuncios corporativos u otros eventos que permitan fijar un calendario más preciso.
 
 ## 8. Marco de Valoración
 
-La valoración debe priorizar métodos apropiados para un banco, en lugar de depender de múltiplos empresariales genéricos o del FCF sin ajustes:
+Para un banco, la valoración debe centrarse en medidas compatibles con su estructura financiera y regulatoria, como precio/beneficio normalizado, precio/valor contable y rentabilidad sostenible frente al coste de capital. También conviene analizar capital, liquidez, calidad de activos, provisiones y sensibilidad del margen de interés. La investigación recibida no aporta datos suficientes para calcular de forma independiente un valor intrínseco mediante estas métricas.
 
-1. **Valoración por beneficios normalizados o rentabilidad del capital:** requiere beneficios por segmento, coste del riesgo a través del ciclo, coste de capital, estructura accionaria y supuestos de crecimiento sostenible.
-2. **Valoración basada en valor contable y retorno sobre patrimonio:** requiere capital tangible por acción, retornos sobre patrimonio normalizados, coste de capital y evaluación de la calidad de activos.
-3. **Múltiplos comparables bancarios:** el PER de 10,79 informado por AOIF puede servir únicamente como dato inicial, una vez verificados fecha, beneficios de referencia y comparabilidad con otros bancos como [[C]] y [[BSBR]].
+EV/EBITDA y FCF yield aparecen como cero en AOIF por el formato de los datos, pero la misma evaluación advierte que no son métricas adecuadas para interpretar la valoración bancaria en este caso. No deben tratarse como valores económicos reales.
 
-No se considera apropiado aplicar EV/EBITDA o FCF yield como medidas principales con los datos suministrados: AOIF reporta EV/EBITDA y FCF yield como 0, pero no aporta una valoración intrínseca estimable ni los datos necesarios para interpretar esos valores. El propio análisis señala que faltan fecha de valoración, precio, beneficio normalizado, coste de capital, crecimiento sostenible y datos de capital y riesgo.
+### Escenarios recibidos
 
-**Referencias de mercado del paquete:** precio observado de USD 85,42 al 2026-10-30; precio objetivo medio informado de USD 103,02, con rango de USD 90,00 a USD 112,05, al 2026-11-20. Estas cifras no determinan el valor intrínseco ni validan un error de valoración.
+Los objetivos son referencias de escenarios provistas por la investigación, no estimaciones independientes verificadas.
 
-**Sensibilidad y margen de seguridad:** no puede cuantificarse rigurosamente sin supuestos verificables de beneficios normalizados, coste de capital, crecimiento, coste del riesgo y capital. AOIF califica el margen de seguridad como insuficiente y declara que el valor intrínseco no es estimable con la información proporcionada.
+| Escenario | Objetivo por acción | Supuestos y justificación |
+|---|---:|---|
+| Bajista | 90,00 USD | Presión continuada en márgenes y costes regulatorios; DDD menciona crecimiento inferior al 3%, compresión de márgenes y deuda neta alta |
+| Base | 103,02 USD | Recuperación moderada; DDD supone CAGR de ingresos de aproximadamente 6% y costes operativos estables |
+
+AOIF también menciona un rango de objetivos de **90,00–112,05 USD**, pero no aporta los supuestos detallados del extremo de 112,05 USD. Ese valor no debe atribuirse a un escenario concreto sin aclaración.
+
+La referencia de precio de 85,42 USD frente al consenso medio de 103,02 USD sugiere una diferencia de aproximadamente el 20%, según DDD. La comparación requiere verificar la fecha, la moneda, el instrumento y la fuente de ambos valores antes de utilizarla como margen de seguridad.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué segmentos y geografías explican el crecimiento de ingresos y utilidad entre FY 2022 y FY 2025, y qué retornos sobre capital generan?
-2. ¿Cómo evolucionan el margen financiero neto, su sensibilidad a los tipos de interés y el coste de financiación por depósitos?
-3. ¿Cuál es la morosidad, el coste del riesgo, el nivel de provisiones y la exposición crediticia a Hong Kong, China y el sector inmobiliario?
-4. ¿Qué parte del cambio en FCF entre FY 2024 y FY 2025 se explica por movimientos de balance, y cómo debe interpretarse para un banco?
-5. ¿Cómo se concilia el aumento de deuda total reportada entre FY 2025 y 2026-09-30? ¿Cuáles son las medidas pertinentes de capital, liquidez y financiación?
-6. ¿Qué evidencia cuantitativa respalda el moat, la posición competitiva y la sostenibilidad de las relaciones con clientes?
-7. ¿Cuál es la composición del board, cómo se remunera al equipo directivo y qué participación accionaria tienen los insiders?
-8. ¿Qué políticas y resultados históricos de asignación de capital —dividendos, recompras, adquisiciones o inversión— respaldan la calificación cualitativa de AOIF?
-9. ¿Cuáles son la fecha, definición y base de beneficios de las métricas AOIF de crecimiento de ingresos, margen operativo, ROIC y PER?
-10. ¿Qué supuestos de resultados y valoración sustentan el consenso de precio objetivo citado?
-
-**Conclusión de investigación:** evidencia insuficiente para validar una tesis de multibagger o determinar si existe un error de valoración. La prioridad es verificar rentabilidad por segmento, retornos sobre capital, calidad de activos, capital bancario y conciliación de flujos de caja.
+1. ¿Qué periodos, monedas, definiciones y fuentes respaldan el crecimiento de ingresos de 16,35%, el margen operativo de 49,04%, el ROIC de 13,63% y el P/E de 10,63?
+2. ¿Cuál es la fuente y la metodología de los valores de current ratio y cobertura de intereses iguales a cero? ¿Son datos observados, campos ausentes o resultados de una fórmula?
+3. ¿Qué medidas bancarias de capital y liquidez —y qué series históricas— describen mejor la posición financiera de HSBC?
+4. ¿Cómo evolucionan el margen de interés neto, el coste de depósitos y las pérdidas crediticias por mercado y segmento?
+5. ¿Cuál es la exposición a inmuebles y otras carteras sensibles al ciclo, y cómo ha cambiado la cobertura de provisiones?
+6. ¿Qué parte de los ingresos y beneficios procede de Hong Kong, Reino Unido y otras regiones? ¿Qué supuestos respaldan el potencial de recuperación en Asia?
+7. ¿Qué programa de reducción de costes está en marcha, cuál es su calendario y qué costes de ejecución implica?
+8. ¿Cuál es la evolución de acciones diluidas y qué efectos tienen las decisiones de capital sobre la participación de los accionistas?
+9. ¿Qué historial de ejecución, incentivos, propiedad de insiders y composición del consejo sustenta las evaluaciones de management?
+10. ¿A qué fechas y fuentes corresponden el precio de 85,42 USD, el consenso medio de 103,02 USD y los objetivos de escenario? ¿Qué explica el objetivo de 112,05 USD citado por AOIF?
+11. ¿Qué evidencia primaria respalda las estimaciones de CAGR de ingresos de aproximadamente 6,2% y conversión de FCF a ingresos de aproximadamente −274%? DDD las clasifica como inferencias y, además, la conversión de FCF tiene utilidad limitada para comparar bancos.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]], [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone Inc.]], [[C|Citigroup Inc.]]
-- **Same Industry**: [[C|Citigroup Inc.]]
+- **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]], [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone Inc.]], [[C|Citigroup Inc.]], [[IBN|ICICI Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase & Co.]], [[KB|KB Financial Group Inc.]], [[LYG|Lloyds Banking Group plc]], [[MA|Mastercard Incorporated]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[XP|XP Inc.]]
+- **Same Industry**: [[C|Citigroup Inc.]], [[ING|ING Groep N.V.]], [[JPM|JPMorgan Chase & Co.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[SAN|Banco Santander, S.A.]]

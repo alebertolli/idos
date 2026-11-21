@@ -1,0 +1,137 @@
+assessments:
+  BusinessAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: BusinessAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: 'High revenue growth: 26.08%'
+      type: POSITIVE
+    generated_at: '2026-11-21T16:13:17.353614-03:00'
+    id: BusinessAssessmentEngine-20261121161317
+    recommendation: NEUTRAL
+    risks:
+    - detail: 'Low ROIC: 4.46%'
+      type: CAPITAL_ALLOCATION
+    score: 48
+    status: COMPLETED
+    version: '1.0'
+  PortfolioAssessmentEngine:
+    confidence: LOW
+    dependencies: []
+    engine: PortfolioAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: Private family portfolio source is not connected; portfolio fit is not
+        assessed
+      type: PENDING
+    generated_at: '2026-11-21T16:13:17.353659-03:00'
+    id: PortfolioAssessmentEngine-20261121161317
+    recommendation: NOT_ASSESSED
+    risks:
+    - detail: Do not infer capacity, diversification, or position count from missing
+        or paper data
+      type: DATA_UNAVAILABLE
+    score: 50
+    status: COMPLETED
+    version: '1.1'
+  RecoveryAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RecoveryAssessmentEngine
+    evidence_ids: []
+    findings:
+    - dimension: business_momentum
+      level: MEDIUM
+      score: 60
+      type: DIMENSION
+    - dimension: valuation_gap
+      level: MEDIUM
+      score: 60
+      type: DIMENSION
+    - dimension: market_expectations
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: catalysts
+      level: MEDIUM
+      score: 45
+      type: DIMENSION
+    - dimension: technical_confirmation
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: risk_compression
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    generated_at: '2026-11-21T16:13:17.353649-03:00'
+    id: RecoveryAssessmentEngine-20261121161317
+    recommendation: MODERATE
+    risks: []
+    score: 54
+    status: COMPLETED
+    version: '1.0'
+  RiskAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RiskAssessmentEngine
+    evidence_ids: []
+    findings: []
+    generated_at: '2026-11-21T16:13:17.353655-03:00'
+    id: RiskAssessmentEngine-20261121161317
+    recommendation: LOW_RISK
+    risks: []
+    score: 70
+    status: COMPLETED
+    version: '1.0'
+  ValuationAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: ValuationAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: 'Price target upside: 23.4%'
+      type: POSITIVE
+    generated_at: '2026-11-21T16:13:17.353627-03:00'
+    id: ValuationAssessmentEngine-20261121161317
+    recommendation: FAIR
+    risks: []
+    score: 65
+    status: COMPLETED
+    version: '1.1'
+conviction_score: 57
+created_at: '2026-11-21T16:13:17.353720-03:00'
+financial_data_quality:
+  as_of_basis: period_end_date
+  as_of_date: '2026-09-30'
+  as_of_date_source: stockanalysis.com
+  conflicting_core_metrics: []
+  core_metric_coverage: 5/5
+  missing_core_metrics: []
+  missing_provenance: []
+  source: stockanalysis.com
+  status: good
+  unreconciled_core_metrics: []
+generated_at: '2026-11-21T16:13:17.353810-03:00'
+opportunity_id: OPP-MB-IFF
+reasoning: 'Rules blocked: RULE-001, RULE-005'
+recommendation: BLOCKED
+rules_details:
+  RULE-001: 'Business quality: 48/70'
+  RULE-003: 'Rerating: 54/50'
+  RULE-004: 'Risk: 70/50'
+  RULE-005: 'Conviction: 57/65'
+  RULE-008: B/R 8.4:1 ✅ (Bull +38.2% / Bear -4.5%)
+  RULE-010: Fuente y fecha de corte verificadas; cobertura 5/5
+rules_failed:
+- RULE-001
+- RULE-005
+rules_passed:
+- RULE-003
+- RULE-004
+- RULE-008
+- RULE-010
+scenario_hash: b2d2c6bf9c23cab71f26ef2b069580cf51038b444430e5ffb98bec426fdf0ba9
+status: BLOCKED
+type: opportunity:transitioned

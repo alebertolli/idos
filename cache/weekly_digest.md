@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-11-21 14:29 AR _
+_Generado: 2026-11-21 16:13 AR _
 
 ## Resumen
 
@@ -12,35 +12,35 @@ _Generado: 2026-11-21 14:29 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **AMX** (OPP-MB-AMX): score=42, class=?
-- ✅ **ANF** (OPP-MB-ANF): score=55, class=?
-- ✅ **AZN** (OPP-MULTIBAGGERS-AZN-0001): score=55, class=?
+- ✅ **HSBC** (OPP-MB-HSBC): score=68, class=?
+- ✅ **IBN** (OPP-MB-IBN): score=61, class=?
+- ✅ **IFF** (OPP-MB-IFF): score=57, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **AMX**
-  - Opp: [OPP-MB-AMX]
+- ⚠️ **HSBC**
+  - Opp: [OPP-MB-HSBC]
   - Conviction: 59/100 | Rec: BLOCKED
-  - Scores: Business: 54 | Valuation: 65 | Recovery: 53 | Risk: 70 | Portfolio: 50
+  - Scores: Business: 62 | Valuation: 55 | Recovery: 54 | Risk: 70 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 54/70
+    - 🚫 RULE-001: Business quality: 62/70
     - 🚫 RULE-005: Conviction: 59/65
-    - 🚫 RULE-008: B/R 2.5:1 ❌ (Bull +41.1% / Bear -16.2%)
-- ⚠️ **ANF**
-  - Opp: [OPP-MB-ANF]
-  - Conviction: 64/100 | Rec: BLOCKED
-  - Scores: Business: 60 | Valuation: 75 | Recovery: 57 | Risk: 70 | Portfolio: 50
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 60/70
-    - 🚫 RULE-005: Conviction: 64/65
     - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual
-- ⚠️ **AZN**
-  - Opp: [OPP-MULTIBAGGERS-AZN-0001]
-  - Conviction: 61/100 | Rec: BLOCKED
-  - Scores: Business: 63 | Valuation: 65 | Recovery: 54 | Risk: 70 | Portfolio: 50
+- ⚠️ **IBN**
+  - Opp: [OPP-MB-IBN]
+  - Conviction: 54/100 | Rec: BLOCKED
+  - Scores: Business: 62 | Valuation: 45 | Recovery: 52 | Risk: 60 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 63/70
-    - 🚫 RULE-005: Conviction: 61/65
+    - 🚫 RULE-001: Business quality: 62/70
+    - 🚫 RULE-005: Conviction: 54/65
+    - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual
+- ⚠️ **IFF**
+  - Opp: [OPP-MB-IFF]
+  - Conviction: 57/100 | Rec: BLOCKED
+  - Scores: Business: 48 | Valuation: 65 | Recovery: 54 | Risk: 70 | Portfolio: 50
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 48/70
+    - 🚫 RULE-005: Conviction: 57/65
 
 ---
 

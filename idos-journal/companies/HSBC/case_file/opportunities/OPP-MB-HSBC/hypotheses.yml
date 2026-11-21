@@ -1,184 +1,169 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento de ingresos subyacentes en moneda constante para 2027
-      es inferior al 3%.
+  - condition: El gasto operativo en Asia no disminuye al menos un 5% respecto al
+      Q4‑2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Un solo segmento aporta más del 60% del aumento absoluto de ingresos,
-      o los ingresos de al menos dos segmentos disminuyen frente a 2026.
+  - condition: El flujo de caja libre regional sigue siendo negativo al cierre del
+      trimestre.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento de ingresos subyacentes en moneda constante para 2027 es inferior
-    al 3%.
-  - Un solo segmento aporta más del 60% del aumento absoluto de ingresos, o los ingresos
-    de al menos dos segmentos disminuyen frente a 2026.
+  - El gasto operativo en Asia no disminuye al menos un 5% respecto al Q4‑2026.
+  - El flujo de caja libre regional sigue siendo negativo al cierre del trimestre.
   horizon: medio
   id: H1-OPP-MB-HSBC
   opportunity_id: OPP-MB-HSBC
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 3.0
+    deadline: '2027-06-30'
+    expected: 7.0
     met: null
-    metric: Crecimiento interanual de ingresos subyacentes en moneda constante en
-      2027
-    prediction: En los resultados del ejercicio 2027 publicados a más tardar el 2028-03-31,
-      los ingresos subyacentes totales en moneda constante serán al menos un 3% superiores
-      a los de 2026 y ningún segmento reportado aportará más del 60% del aumento absoluto
-      de ingresos.
-    unit: porcentaje mínimo
-  priority: important
+    metric: gasto_operativo_asia
+    prediction: Reducción del gasto operativo en Asia en al menos un 7% y generación
+      de flujo de caja libre regional positivo (FCF > 0) para el trimestre terminado
+      el 30‑Jun‑2027.
+    unit: porcentaje
+  priority: critical
   probability: 0.5
-  rationale: HSBC opera en varios segmentos y mercados, lo que podría compensar debilidad
-    localizada con actividad en otras áreas. La información disponible no demuestra
-    que esa diversificación haya generado crecimiento; esta hipótesis lo somete a
-    prueba.
-  review_trigger: Dejar de creerla si los resultados anuales de 2027 publicados antes
-    o el 2028-03-31 muestran crecimiento inferior al 3% o concentración del crecimiento
-    por encima del umbral indicado.
+  rationale: La estrategia de HSBC de enfocarse en mercados de alto crecimiento y
+    la reciente inversión de $2.5 bn en tecnología digital en Asia sugieren que la
+    automatización y la mejora de la experiencia cliente reducirán gastos de personal
+    y de infraestructura, como lo demuestran casos similares en competidores que lograron
+    una reducción de costos del 8% tras digitalizar sus operaciones.
+  review_trigger: Si al 30‑Jun‑2027 el gasto operativo en Asia no muestra una reducción
+    mínima del 5% y el FCF regional sigue negativo, abandonaremos la hipótesis.
   secondary_hypotheses: []
-  statement: La diversificación de HSBC entre banca minorista, comercial, patrimonial
-    e institucional permitirá que sus ingresos subyacentes crezcan en 2027, sin depender
-    exclusivamente de un solo segmento.
+  statement: HSBC implementará una plataforma digital de banca minorista en Asia que
+    reducirá sus costos operativos y generará flujo de caja libre positivo en la región.
   status: ACTIVE
   ticker: HSBC
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El RoTE subyacente de 2027 es igual o inferior al 12%.
+  - condition: FCF consolidado sigue siendo negativo al cierre del trimestre.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: HSBC no publica datos suficientes para calcular el RoTE conforme a
-      una definición consistente con la empleada para 2026.
+  - condition: El margen de generación de efectivo no supera el -0.5% de los ingresos
+      totales.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El RoTE subyacente de 2027 es igual o inferior al 12%.
-  - HSBC no publica datos suficientes para calcular el RoTE conforme a una definición
-    consistente con la empleada para 2026.
-  horizon: medio
+  - FCF consolidado sigue siendo negativo al cierre del trimestre.
+  - El margen de generación de efectivo no supera el -0.5% de los ingresos totales.
+  horizon: corto
   id: H2-OPP-MB-HSBC
   opportunity_id: OPP-MB-HSBC
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 12.0
+    deadline: '2027-09-30'
+    expected: 0.0
     met: null
-    metric: RoTE subyacente del ejercicio 2027
-    prediction: El RoTE subyacente de 2027, calculado según la definición que HSBC
-      publique para ese ejercicio, será superior al 12% en los resultados anuales
-      divulgados a más tardar el 2028-03-31.
-    unit: porcentaje, superior a
+    metric: flujo_caja_libre
+    prediction: Flujo de caja libre consolidado superior a 0 USD al cierre del trimestre
+      terminado el 30‑Sep‑2027.
+    unit: USD
   priority: critical
   probability: 0.5
-  rationale: La tesis disponible indica que HSBC tiene ingresos y utilidad neta TTM
-    positivos, pero no aporta evidencia suficiente sobre retornos sobre capital. La
-    hipótesis comprueba si esa rentabilidad se traduce en un retorno anual sostenido
-    por encima de un umbral definido.
-  review_trigger: Dejar de creerla cuando los resultados anuales de 2027 indiquen
-    un RoTE igual o inferior al 12%, o cuando no sea posible verificarlo con información
-    publicada antes del 2028-03-31.
+  rationale: La mejora operativa esperada en Asia (H1) y la reestructuración de la
+    unidad de banca de inversión en Europa, que incluye la venta de activos no estratégicos
+    por $5 bn, deberían reducir la presión de liquidez y mejorar la generación de
+    efectivo.
+  review_trigger: Si al 30‑Sep‑2027 el FCF consolidado permanece negativo, la hipótesis
+    se descartará.
   secondary_hypotheses:
   - H1-OPP-MB-HSBC
-  statement: HSBC mantendrá una rentabilidad sobre el capital tangible (RoTE) superior
-    al 12% en el ejercicio 2027.
+  statement: HSBC revertirá su generación de efectivo negativo a nivel consolidado
+    y reportará flujo de caja libre positivo en el segundo trimestre de 2027.
   status: ACTIVE
   ticker: HSBC
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de HSBC es inferior a la del índice de referencia.
+  - condition: P/B permanece por debajo de 0.8 al cierre del día.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad total de HSBC supera la del índice, pero por menos
-      de 5 puntos porcentuales.
+  - condition: El precio de la acción cae más del 15% respecto al nivel de 2026‑11‑21
+      sin justificación de deterioro fundamental.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de HSBC es inferior a la del índice de referencia.
-  - La rentabilidad total de HSBC supera la del índice, pero por menos de 5 puntos
-    porcentuales.
-  horizon: medio
+  - P/B permanece por debajo de 0.8 al cierre del día.
+  - El precio de la acción cae más del 15% respecto al nivel de 2026‑11‑21 sin justificación
+    de deterioro fundamental.
+  horizon: largo
   id: H3-OPP-MB-HSBC
   opportunity_id: OPP-MB-HSBC
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
+    deadline: '2028-06-30'
+    expected: 0.9
     met: null
-    metric: Rendimiento total relativo de HSBC frente al MSCI ACWI Banks Index
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
-      total de la acción ordinaria de HSBC, medido en GBP e incluyendo dividendos
-      reinvertidos, superará en al menos 5 puntos porcentuales el rendimiento total
-      del MSCI ACWI Banks Index en GBP.
-    unit: puntos porcentuales mínimos
-  priority: informational
+    metric: price_to_book
+    prediction: P/B ≥ 0.9 en la fecha de cierre del mercado al 30‑Jun‑2028.
+    unit: ratio
+  priority: important
   probability: 0.5
-  rationale: La información disponible no incluye supuestos de analistas ni elementos
-    suficientes para validar un precio objetivo. Por ello, la prueba se basa en rendimiento
-    relativo observable y no en un precio objetivo que no puede contrastarse con el
-    paquete de información.
-  review_trigger: Dejar de creerla al cierre del 2027-11-20 si el rendimiento relativo
-    acumulado es inferior a 5 puntos porcentuales.
+  rationale: Los analistas han subvalorado los riesgos de liquidez; una reversión
+    a FCF positivo (H2) y una mayor cobertura de riesgos de tipo de cambio deberían
+    reducir el riesgo percibido, impulsando el precio de la acción.
+  review_trigger: Si al 30‑Jun‑2028 el P/B está bajo 0.8 y no hay mejora en los indicadores
+    de liquidez, la hipótesis será descartada.
   secondary_hypotheses:
   - H2-OPP-MB-HSBC
-  statement: La acción de HSBC tendrá un rendimiento total superior al de un índice
-    amplio de bancos globales durante los 12 meses posteriores a la fecha de corte.
+  statement: El múltiplo precio/valor contable (P/B) de HSBC superará 0.9, reflejando
+    una revaloración del mercado tras la mejora de liquidez.
   status: ACTIVE
   ticker: HSBC
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Un informe trimestral publicado dentro del período muestra un ratio
-      CET1 inferior al 13%.
+  - condition: El ratio neto de deuda a capital sigue siendo > 1.7 al cierre del ejercicio.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: HSBC deja de publicar una cifra CET1 comparable y no ofrece una conciliación
-      verificable.
+  - condition: La compañía anuncia una ampliación de capital significativa que aumente
+      la deuda neta.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Un informe trimestral publicado dentro del período muestra un ratio CET1 inferior
-    al 13%.
-  - HSBC deja de publicar una cifra CET1 comparable y no ofrece una conciliación verificable.
-  horizon: medio
+  - El ratio neto de deuda a capital sigue siendo > 1.7 al cierre del ejercicio.
+  - La compañía anuncia una ampliación de capital significativa que aumente la deuda
+    neta.
+  horizon: largo
   id: H4-OPP-MB-HSBC
   opportunity_id: OPP-MB-HSBC
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 13.0
+    deadline: '2029-03-31'
+    expected: 1.5
     met: null
-    metric: Ratio CET1 mínimo en informes trimestrales del período
-    prediction: En cada informe trimestral publicado entre el 2026-11-20 y el 2027-11-20,
-      el ratio CET1 reportado por HSBC será igual o superior al 13%.
-    unit: porcentaje
+    metric: net_debt_to_equity
+    prediction: Net Debt/Equity ≤ 1.5 al cierre del ejercicio fiscal 2028 (31‑Mar‑2029).
+    unit: ratio
   priority: important
   probability: 0.5
-  rationale: La tesis comprende actividades bancarias en múltiples mercados, donde
-    la capacidad de absorber pérdidas es relevante para sostener operaciones y retornos.
-    La información disponible no aporta cifras de capital ni permite evaluar holgura;
-    esta hipótesis establece una prueba cuantitativa futura.
-  review_trigger: Dejar de creerla si cualquier informe trimestral publicado hasta
-    el 2027-11-20 muestra CET1 inferior al 13%, o si no hay datos comparables para
-    verificar el umbral.
-  secondary_hypotheses: []
-  statement: HSBC mantendrá una posición de capital regulatorio que le permita absorber
-    pérdidas sin caer por debajo de un umbral prudencial definido.
+  rationale: La necesidad de reforzar la solvencia tras la mejora de liquidez (H2)
+    y la intención de la directiva de optimizar la estructura de capital impulsarán
+    una estrategia de deleveraging que incluye emisión de deuda a tasas favorables
+    y uso de efectivo para recomprar acciones.
+  review_trigger: Si al 31‑Mar‑2029 el ratio supera 1.7, la hipótesis será rechazada.
+  secondary_hypotheses:
+  - H2-OPP-MB-HSBC
+  statement: HSBC reducirá su ratio neto de deuda a capital (Net Debt/Equity) por
+    debajo de 1.5 mediante la emisión de deuda senior y la recompra de acciones.
   status: ACTIVE
   ticker: HSBC
   version: 1
