@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 158 companies tracked
+Total: 160 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -36,6 +36,7 @@ Total: 158 companies tracked
 - 📄 [[ROKU|Roku, Inc.]]
 - 📄 [[TEO|Telecom Argentina S.A.]]
 - 📄 [[VOD|Vodafone Group Public Limited Company]]
+- 📄 [[VZ|Verizon Communications Inc.]]
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
@@ -67,6 +68,7 @@ Total: 158 companies tracked
 - 📄 [[PM|Philip Morris International Inc.]]
 - 📄 [[SYY|Sysco Corporation]]
 - 📄 [[TGT|Target Corporation]]
+- 📄 [[WMT|Walmart Inc.]]
 
 ## Energy
 - 📄 [[BKR|Baker Hughes Company]]

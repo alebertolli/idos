@@ -1,0 +1,35 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; perfil multibaggers'
+- 'Market error: No se valida un error de valoración: el consenso es evidencia de
+  expectativas de analistas, no una valoración intrínseca, y faltan horizonte y supuestos
+  de valoración verificables.'
+- 'Thesis: Walmart combina una operación minorista y mayorista con tiendas, clubes
+  y canales digitales en tres segmentos descritos en el resumen financiero. La evidencia
+  muestra crecimiento de ingresos y mejora '
+generated_at: '2026-11-20T21:04:30.587073-03:00'
+id: ass-1142dd83
+recommendation: REVIEW
+risks:
+- evidencia: StockAnalysis reporta FCF de 12.913 para TTM al 2026-10-31 y 14.923 para
+    FY 2026 al 2026-01-31; la fuente también informa crecimiento FCF TTM de -15,4%.
+  fuente: https://stockanalysis.com/stocks/wmt/financials/
+  riesgo: El FCF TTM reportado es menor que el FY 2026, aunque los períodos no son
+    directamente comparables.
+- evidencia: StockAnalysis reporta net cash de -67.720 para Current al 2026-10-31,
+    frente a -57.699 para FY 2026 al 2026-01-31.
+  fuente: https://stockanalysis.com/stocks/wmt/financials/
+  riesgo: La deuda neta reportada aumentó frente al FY 2026.
+- evidencia: No se proporcionan datos de mercado direccionable, cuota, ROIC, inversiones
+    desglosadas, guía de management ni historial verificable de decisiones de asignación.
+  fuente: Research Intake Package y resumen financiero proporcionados
+  riesgo: El paquete no permite evaluar penetración, retornos incrementales sobre
+    capital, ventaja competitiva o asignación de capital con datos suficientes.
+- evidencia: El resumen financiero reporta rango de objetivos USD 81–155 al 2026-11-20.
+  fuente: https://stockanalysis.com/stocks/wmt/forecast/
+  riesgo: El objetivo de analistas presenta un rango amplio y carece de horizonte
+    indicado en el paquete.
+score: 62
+status: COMPLETED
+version: '3.0'

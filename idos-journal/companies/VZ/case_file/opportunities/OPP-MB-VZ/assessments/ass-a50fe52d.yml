@@ -1,0 +1,25 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Neutral'
+- 'Market error: El rango de consenso parece amplio; la valoración actual está cerca
+  del extremo bajo, indicando posible sesgo bajista.'
+- 'Thesis: Verizon mantiene generación de flujo libre positivo y margen bruto estable,
+  pero enfrenta cobertura de intereses insuficiente y riesgo de dilución no cuantificado.'
+generated_at: '2026-11-20T21:02:15.442336-03:00'
+id: ass-a50fe52d
+recommendation: REVIEW
+risks:
+- descripcion: Cobertura de intereses = 0 (por debajo del umbral 2.0)
+  fuente:
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/VZ/statistics/
+- descripcion: Dilución YoY no disponible, impide evaluar riesgo de emisión de acciones
+  fuente:
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/vz/financials/
+score: 67.22
+status: COMPLETED
+version: '3.0'
