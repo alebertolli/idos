@@ -1,64 +1,68 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La producción de cobre de FY 2027 es inferior a la de FY 2026.
+  - condition: El volumen de cobre informado para el primer semestre del ejercicio
+      fiscal 2027 es inferior al del mismo semestre del ejercicio fiscal 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La producción de mineral de hierro de FY 2027 cae más de un 3% frente
-      a FY 2026.
+  - condition: La producción interanual aumenta menos de un 5%.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La producción de cobre de FY 2027 es inferior a la de FY 2026.
-  - La producción de mineral de hierro de FY 2027 cae más de un 3% frente a FY 2026.
-  horizon: medio
+  - El volumen de cobre informado para el primer semestre del ejercicio fiscal 2027
+    es inferior al del mismo semestre del ejercicio fiscal 2026.
+  - La producción interanual aumenta menos de un 5%.
+  horizon: corto
   id: H1-OPP-MB-BHP
   opportunity_id: OPP-MB-BHP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-08-31'
-    expected: 0.0
+    deadline: '2027-02-15'
+    expected: 5.0
     met: null
-    metric: Variación interanual de producción de cobre y mineral de hierro
-    prediction: En el informe anual de FY 2027, la producción de cobre será al menos
-      igual a la de FY 2026 y la de mineral de hierro no caerá más de un 3% frente
-      a FY 2026.
-    unit: 'cobre: al menos 0%; mineral de hierro: no inferior a -3% frente a FY 2026'
-  priority: critical
+    metric: Variación interanual de la producción de cobre en el primer semestre del
+      ejercicio fiscal 2027
+    prediction: En el informe de producción del primer semestre del ejercicio fiscal
+      2027, el volumen de cobre será al menos un 5% superior al del primer semestre
+      del ejercicio fiscal 2026.
+    unit: porcentaje mínimo
+  priority: important
   probability: 0.5
-  rationale: La continuidad de la mejora de ingresos y FCF dependerá, además de los
-    precios, de que los volúmenes no sufran interrupciones relevantes. La información
-    disponible no identifica volúmenes ni causas de la mejora; por ello, esta hipótesis
-    pone a prueba directamente la continuidad operativa sin asumir que los precios
-    seguirán favorables.
-  review_trigger: Dejar de creerla cuando BHP publique datos de producción de FY 2027
-    que incumplan cualquiera de los dos umbrales, o antes si una actualización oficial
-    revisa sustancialmente a la baja la guía de producción de ambos negocios.
+  rationale: Una mayor producción de cobre puede sostener los ingresos y la generación
+    de caja si los precios de los commodities se mantienen o mejoran. La tesis depende
+    de la capacidad de BHP para mantener operaciones estables pese a la volatilidad;
+    la comparación interanual del volumen permite comprobarlo sin depender de una
+    previsión de precios.
+  review_trigger: Dejar de creerla si el informe de producción del primer semestre
+    del ejercicio fiscal 2027 muestra un crecimiento interanual inferior al 5%, o
+    si BHP reduce su guía de producción de cobre para el ejercicio fiscal 2027 por
+    problemas operativos.
   secondary_hypotheses: []
-  statement: Durante FY 2027, BHP mantendrá una producción operativa cercana o superior
-    a FY 2026 en sus dos principales negocios de cobre y mineral de hierro.
+  statement: La producción de cobre de BHP crecerá interanualmente en el primer semestre
+    del ejercicio fiscal 2027, apoyada por la continuidad operativa de sus activos
+    principales.
   status: ACTIVE
   ticker: BHP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos de FY 2027 son inferiores al 95% de los ingresos de FY
-      2026.
+  - condition: El flujo de caja operativo menos las inversiones de capital es igual
+      o inferior a cero en el ejercicio fiscal 2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Si el FCF de FY 2026 es positivo, el FCF de FY 2027 es inferior al
-      80% del FCF de FY 2026.
+  - condition: El flujo de caja libre positivo es inferior a 5.000 millones de dólares
+      estadounidenses.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos de FY 2027 son inferiores al 95% de los ingresos de FY 2026.
-  - Si el FCF de FY 2026 es positivo, el FCF de FY 2027 es inferior al 80% del FCF
-    de FY 2026.
+  - El flujo de caja operativo menos las inversiones de capital es igual o inferior
+    a cero en el ejercicio fiscal 2027.
+  - El flujo de caja libre positivo es inferior a 5.000 millones de dólares estadounidenses.
   horizon: medio
   id: H2-OPP-MB-BHP
   opportunity_id: OPP-MB-BHP
@@ -66,83 +70,124 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-08-31'
-    expected: 95.0
+    expected: 5000.0
     met: null
-    metric: Ingresos y FCF de FY 2027 como proporción de FY 2026
-    prediction: En FY 2027, los ingresos serán al menos el 95% de los ingresos de
-      FY 2026 y el FCF, definido como flujo de caja operativo menos inversión de capital,
-      será al menos el 80% del FCF de FY 2026. Si el FCF de FY 2026 es cero o negativo,
-      esta comparación se considerará no aplicable y la hipótesis requerirá evaluación
-      separada.
-    unit: 'ingresos: al menos 95%; FCF: al menos 80%'
+    metric: Flujo de caja operativo menos inversiones de capital en el ejercicio fiscal
+      2027
+    prediction: Para el ejercicio fiscal terminado el 30 de junio de 2027, el flujo
+      de caja operativo menos las inversiones de capital será positivo y alcanzará
+      al menos 5.000 millones de dólares estadounidenses.
+    unit: millones de dólares estadounidenses, mínimo
   priority: critical
   probability: 0.5
-  rationale: El paquete indica que ingresos y FCF aumentaron en FY 2026 frente a FY
-    2025, pero no aporta precios, volúmenes, inversión ni retornos sobre capital que
-    permitan atribuir la mejora a factores estructurales. La hipótesis considera que
-    no se revertirá la mayor parte del avance en un solo ejercicio, sin dar por demostrada
-    su sostenibilidad a largo plazo.
-  review_trigger: Dejar de creerla cuando los resultados publicados de FY 2027 incumplan
-    cualquiera de los umbrales aplicables, o antes si BHP revisa oficialmente su perspectiva
-    y anticipa una caída que haga probable dicho incumplimiento.
+  rationale: La tesis atribuye a BHP márgenes brutos superiores al 85% y una posición
+    de liquidez robusta. Si la disciplina de costes y la conversión de beneficios
+    en caja se mantienen, el flujo de caja operativo debería cubrir el gasto de capital
+    y dejar un excedente. La prueba debe basarse en cifras reportadas, no solo en
+    márgenes declarados.
+  review_trigger: Dejar de creerla cuando los resultados anuales del ejercicio fiscal
+    2027 muestren flujo de caja libre inferior a 5.000 millones de dólares estadounidenses,
+    o antes si BHP informa una previsión de flujo de caja operativo inferior a sus
+    inversiones de capital para el ejercicio.
   secondary_hypotheses:
   - H1-OPP-MB-BHP
-  statement: BHP conservará en FY 2027 la mayor parte del aumento de ingresos y flujo
-    de caja libre reportado en FY 2026, aunque los resultados seguirán expuestos a
-    precios de commodities y volúmenes.
+  statement: BHP generará flujo de caja libre positivo durante el ejercicio fiscal
+    2027, incluso con precios de commodities volátiles.
   status: ACTIVE
   ticker: BHP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de BHP supera o iguala la del S&P/ASX 200 Materials
-      en el período de medición.
+  - condition: El margen bruto consolidado calculado con las cifras anuales reportadas
+      es igual o inferior al 80%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad total de BHP queda menos de 5 puntos porcentuales por
-      debajo de la del índice.
+  - condition: La empresa no publica datos suficientes para calcular el margen con
+      una definición consistente y comparable.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de BHP supera o iguala la del S&P/ASX 200 Materials en el
-    período de medición.
-  - La rentabilidad total de BHP queda menos de 5 puntos porcentuales por debajo de
-    la del índice.
+  - El margen bruto consolidado calculado con las cifras anuales reportadas es igual
+    o inferior al 80%.
+  - La empresa no publica datos suficientes para calcular el margen con una definición
+    consistente y comparable.
   horizon: medio
   id: H3-OPP-MB-BHP
   opportunity_id: OPP-MB-BHP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: -5.0
+    deadline: '2027-08-31'
+    expected: 80.0
     met: null
-    metric: Rentabilidad total de BHP menos rentabilidad total del S&P/ASX 200 Materials
-    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
-      noviembre de 2027, la rentabilidad total de BHP, incluidos dividendos y expresada
-      en dólares australianos, será al menos 5 puntos porcentuales inferior a la rentabilidad
-      total del S&P/ASX 200 Materials.
-    unit: puntos porcentuales o menos durante 12 meses
+    metric: Margen bruto consolidado del ejercicio fiscal 2027
+    prediction: El margen bruto consolidado del ejercicio fiscal 2027, calculado como
+      ingresos menos coste de ventas dividido por ingresos, será superior al 80%.
+    unit: porcentaje, superior a
   priority: important
   probability: 0.5
-  rationale: La tesis disponible señala una mejora reciente de ingresos y FCF, pero
-    no aporta datos suficientes sobre precios y volúmenes por commodity, retornos
-    sobre capital, mercado direccionable, penetración o asignación de capital para
-    concluir que el crecimiento sea sostenible o que exista una ventaja competitiva.
-    La hipótesis expresa una predicción relativa comprobable, no una conclusión sobre
-    el valor intrínseco.
-  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de rentabilidad
-    total no alcanza una desventaja de al menos 5 puntos porcentuales para BHP, o
-    antes si evidencia pública verificable demuestra mejoras sostenidas de retornos
-    sobre capital y asignación de capital que invaliden la premisa de la hipótesis.
+  rationale: La tesis sostiene que BHP parte de márgenes brutos superiores al 85%
+    y que sus activos de gran escala pueden amortiguar la volatilidad de precios mediante
+    una estructura de costes competitiva. Un umbral del 80% permite comprobar si la
+    rentabilidad se conserva sin exigir que se mantenga exactamente el nivel señalado
+    en la tesis.
+  review_trigger: Dejar de creerla cuando los resultados anuales del ejercicio fiscal
+    2027 indiquen un margen bruto igual o inferior al 80%, calculado con la misma
+    metodología aplicada al periodo comparable.
   secondary_hypotheses:
   - H2-OPP-MB-BHP
-  statement: En los 12 meses posteriores al corte, la rentabilidad total de BHP quedará
-    por detrás de la del índice S&P/ASX 200 Materials, al no estar demostrada con
-    la información disponible una ventaja competitiva o una mejora estructural que
-    compense la exposición a las condiciones de mercado.
+  statement: La rentabilidad de BHP se mantendrá elevada en el ejercicio fiscal 2027,
+    con un margen bruto superior al 80%.
+  status: ACTIVE
+  ticker: BHP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de BHP menos la del índice de referencia es inferior
+      a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: BHP obtiene un rendimiento total inferior al índice durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de BHP menos la del índice de referencia es inferior a 5
+    puntos porcentuales.
+  - BHP obtiene un rendimiento total inferior al índice durante el periodo.
+  horizon: medio
+  id: H4-OPP-MB-BHP
+  opportunity_id: OPP-MB-BHP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de BHP menos rendimiento total del S&P/ASX 200 Materials
+    prediction: Entre el 21 de noviembre de 2026 y el 21 de noviembre de 2027, el
+      rendimiento total de BHP en la ASX, en dólares australianos y con dividendos
+      reinvertidos, superará en al menos 5 puntos porcentuales el rendimiento total
+      del índice S&P/ASX 200 Materials.
+    unit: puntos porcentuales, mínimo
+  priority: important
+  probability: 0.5
+  rationale: Si el mercado está subvalorando la capacidad de BHP para preservar márgenes
+    y generar flujo de caja, la revisión de expectativas sobre beneficios y distribuciones
+    al accionista podría favorecer su rendimiento relativo. Esta hipótesis es de mercado
+    y se puede refutar comparando rendimientos totales, incluidos dividendos, en la
+    misma moneda.
+  review_trigger: Dejar de creerla el 21 de noviembre de 2027 si la ventaja de rendimiento
+    total de BHP frente al índice es inferior a 5 puntos porcentuales; también antes
+    si BHP recorta su guía de flujo de caja por debajo de las inversiones de capital.
+  secondary_hypotheses:
+  - H2-OPP-MB-BHP
+  - H3-OPP-MB-BHP
+  statement: La acción de BHP cotizada en la ASX superará el rendimiento total del
+    índice S&P/ASX 200 Materials en los 12 meses posteriores al corte de análisis.
   status: ACTIVE
   ticker: BHP
   version: 1

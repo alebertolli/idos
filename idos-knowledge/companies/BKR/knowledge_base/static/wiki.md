@@ -1,134 +1,132 @@
 ## 1. Visión General de la Compañía
 
-Baker Hughes Company (BKR) suministra tecnologías, equipos, servicios y software para los sectores energético e industrial. Su oferta para petróleo y gas abarca etapas desde la exploración y evaluación hasta la perforación, completación, producción, intervención y desmantelamiento de pozos. También ofrece tecnologías industriales, turbomaquinaria, soluciones posventa y software.
+Baker Hughes Company (BKR) es un proveedor global de tecnologías, equipos y servicios para operaciones de energía e industria. Su actividad incluye soluciones para exploración, perforación, completación, producción e intervención de pozos, además de tecnologías industriales. El negocio combina la venta e integración de equipos con servicios prestados durante la operación de los activos de los clientes. [AOIF, evaluación del negocio; fecha de referencia del análisis: 2026-11-21]
 
-Sus clientes incluyen empresas independientes, nacionales y estatales de petróleo y gas, además de contratistas de ingeniería, compras y construcción. La información disponible describe una exposición a mercados energéticos e industriales, pero no precisa el desglose geográfico de sus operaciones.
+Entre sus clientes figuran compañías de petróleo y gas, incluidas compañías nacionales, independientes y estatales. El material de investigación no ofrece un desglose geográfico ni cifras de ingresos por región o segmento. [AOIF, evaluación del negocio]
 
-BKR combina venta de equipos y productos con servicios y soluciones tecnológicas. La base instalada y los servicios posventa pueden complementar las ventas iniciales, aunque el material disponible no cuantifica la contribución de cada fuente de ingresos.
+BKR participa en una cadena de valor compartida con empresas como [[HAL]] y [[SLB]], proveedoras de servicios y equipos petroleros. Sus resultados también pueden verse influidos por las decisiones de inversión de productores como [[BP]], [[COP]], [[CVX]], [[E]], [[EQNR]], [[OXY]], [[PBR]], [[SHEL]] y [[TTE]].
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-Los principales productos y servicios descritos incluyen:
+**Actividades y productos descritos en la investigación:**
 
-- Servicios, equipos y productos para exploración, perforación, completación, producción e intervención de pozos.
-- Brocas, fluidos de perforación y completación, sistemas de levantamiento artificial y productos químicos.
-- Turbomaquinaria, soluciones industriales, servicios posventa y software.
+- Equipos y servicios para exploración, perforación, completación, producción, intervención y abandono de pozos.
+- Brocas, fluidos, sistemas de levantamiento artificial, químicos y servicios de medición y wireline.
+- Integración de tecnologías y equipos en proyectos y operaciones de clientes, con servicios asociados durante la vida operativa de los activos. [AOIF, evaluación del negocio]
 
-La amplitud de productos, la experiencia técnica, las relaciones con operadores y la base instalada podrían favorecer la venta de servicios posventa y generar costes de cambio. La evaluación suministrada caracteriza la posición competitiva como líder y el moat como estrecho. Estos juicios no están acompañados de datos comparativos sobre cuota de mercado, precios, retención de clientes o retornos por segmento.
+**Drivers de ingresos identificados:**
 
-La demanda está expuesta a los ciclos de inversión en petróleo y gas, los precios de las materias primas y el gasto de los clientes. La actividad industrial y la demanda de equipos y soluciones energéticas también pueden influir en los resultados. Entre las compañías relacionadas figuran [[E]] y [[TS]]; el material de origen repite [[TS]] en la lista sectorial.
+- Actividad de perforación y completación, y utilización de equipos.
+- Inversión de clientes de petróleo y gas, incluidas compañías nacionales e independientes. [AOIF, evaluación del negocio]
+
+El análisis AOIF describe a BKR como un **líder competitivo**, con un **moat estrecho**. La amplitud tecnológica, la experiencia operativa, la base instalada y la necesidad de fiabilidad y soporte en activos pueden favorecer la retención de clientes. Sin embargo, la evaluación también caracteriza la industria como competitiva y cíclica, con presión potencial sobre precios y márgenes.
+
+La exposición a la actividad de inversión de clientes vincula a BKR con ciclos compartidos por [[HAL]] y [[SLB]]. La investigación disponible no incluye cuotas de mercado, comparaciones de costes ni datos segmentados que permitan medir la ventaja competitiva frente a esos pares.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes proceden de los paquetes de investigación proporcionados y no todas cuentan con una URL verificable o una definición completa. Los valores de margen bruto y FCF atribuidos a StockAnalysis se refieren a períodos distintos, por lo que su comparación no demuestra por sí sola una tendencia persistente.
+Las cifras siguientes proceden de los análisis suministrados. No se aportaron estados financieros completos ni URLs verificables para todos los indicadores, por lo que no deben interpretarse como una serie homogénea sin reconciliación.
 
-| Métrica | Valor informado | Período / contexto | Limitaciones |
+| Métrica | Dato reportado | Fecha o período | Fuente y limitación |
 |---|---:|---|---|
-| Crecimiento de ingresos | 3,71% | Período no especificado en el paquete AOIF | Sin serie, fórmula ni URL de respaldo en el material disponible |
-| Margen operativo | 12,2% | Período no especificado en el paquete AOIF | Sin fuente, definición o fecha de referencia aportada |
-| ROIC | 12,12% | Período no especificado en el paquete AOIF | No se proporcionan cálculo, serie ni comparación histórica |
-| Margen bruto | 23,68% | FY 2025 | Dato atribuido a StockAnalysis |
-| Margen bruto | 23,7% | TTM terminado el 2026-09-30 | Dato atribuido a StockAnalysis; diferencia pequeña frente a FY 2025 |
-| FCF | USD 2.537 mil millones | FY 2025 | Dato atribuido a StockAnalysis |
-| FCF | USD 3.228 mil millones | TTM terminado el 2026-09-30 | Dato atribuido a StockAnalysis; observación TTM no establece persistencia |
-| Current ratio | 1,24 | TTM terminado el 2026-09-30 | Observación sin URL verificada en el paquete; el umbral señalado era inferior a 0,5 |
-| Deuda total | No se aporta valor | 2026-09-30 frente a FY 2025 | Se informa que difiere marcadamente entre períodos, sin explicación contextual |
-| Cobertura de intereses | 0 | TTM terminado el 2026-09-30 | No se aportan definición ni gastos por intereses; el dato no puede validarse |
-| Dilución interanual | No disponible | — | Falta una serie comparable de acciones diluidas |
+| Ingresos: crecimiento | 3,71% | Período no especificado en el input | AOIF; no se proporciona período de comparación |
+| Margen operativo | 12,2% | Período no especificado en el input | AOIF |
+| ROIC | 12,12% | Período no especificado en el input | AOIF |
+| Margen bruto TTM | 23,7% | TTM al 2026-09-30 | DDD; no se incluye aquí una URL admitida para validar el dato |
+| Flujo de caja libre (FCF) TTM | USD 3.228 millones | TTM al 2026-09-30 | DDD; comparabilidad con períodos FY no confirmada |
+| Current ratio | 1,24 | 2026-09-30 | DDD cita [Stock Analysis](https://stockanalysis.com/stocks/BKR/statistics/); el indicador supera el umbral de alerta configurado de 0,5 |
+| Deuda total | USD 18.264 millones | 2026-09-30 | DDD; requiere reconciliación con la serie histórica |
+| Deuda total | USD 6.702 millones | 2025-12-31 | DDD; el paquete no explica el cambio frente a 2026-09-30 |
+| PER | 15,94 | Período y fecha de referencia no especificados | AOIF; no se aportan supuestos ni fuente verificable |
+| EV/EBITDA | 11,8 | Período y fecha de referencia no especificados | AOIF |
+| FCF yield | 0% | Período y metodología no especificados | AOIF; dato que debe verificarse, dada la cifra de FCF TTM reportada por DDD |
 
-**Fuente citada para los datos de margen bruto, FCF y observaciones de deuda y cobertura:** [StockAnalysis, estadísticas de BKR](https://stockanalysis.com/stocks/BKR/statistics/). El paquete no incluye una URL verificada para los valores de crecimiento de ingresos, margen operativo, ROIC o current ratio.
+**Lectura y limitaciones:** DDD describe el FCF como positivo y el margen bruto TTM como 23,7% al 2026-09-30. AOIF califica la tendencia financiera aportada como estable, pero señala que no dispone de cifras de FCF ni de conversión de beneficios en caja para su evaluación. Por tanto, la generación de caja observada en un período no demuestra por sí sola que sea persistente.
 
-El paquete AOIF reporta PER de 16,13 y EV/EBITDA de 11,99, pero no identifica fecha, fuente ni período de referencia. El FCF yield aparece como 0; la propia evaluación señala que ese valor no permite distinguir entre un rendimiento efectivamente nulo y un dato faltante o mal definido.
-
-La evaluación AOIF califica la tendencia financiera como estable, pero indica que no se proporcionan flujo de caja operativo, capex y una serie de FCF para evaluar la conversión de caja. Por separado, el paquete DDD señala que el FCF TTM informado supera el FCF de FY 2025, aunque advierte que la observación procede de una sola fuente y de períodos no equivalentes.
+La diferencia reportada entre deuda total al 2025-12-31 y al 2026-09-30 es material y no está explicada en los inputs. No se debe inferir su causa ni su impacto económico hasta reconciliar definiciones, perímetros y períodos. Tampoco hay datos comparables suficientes para calcular de forma verificable el crecimiento de ingresos a tres años o el crecimiento del FCF.
 
 ## 4. Management y Gobierno Corporativo
 
-La evaluación AOIF califica la calidad del management como regular, la asignación de capital como neutral y el alineamiento de insiders como débil. No se proporcionan nombres, historial de decisiones de capital, métricas de remuneración, participación accionaria de directivos ni información sobre la composición del board.
+AOIF califica la calidad del management como **buena**, la asignación de capital como **neutral** y el alineamiento de insiders como **débil**. No se aportan detalles que permitan respaldar estas valoraciones con un historial de ejecución, datos de remuneración, propiedad de insiders, recompras o decisiones de dividendos.
 
-Por tanto, estas valoraciones deben tratarse como conclusiones del paquete de investigación, no como hechos corroborados mediante evidencia detallada. La calidad de la asignación de capital requiere contrastarse con adquisiciones, desinversiones, retornos a accionistas, inversión orgánica y evolución del ROIC.
+La investigación no incluye información sobre composición del board, independencia de sus miembros, comités, sucesión ejecutiva ni derechos de los accionistas. Estas áreas requieren verificación antes de formular una conclusión más firme sobre gobierno corporativo.
 
 ## 5. Tesis de Inversión
 
-BKR combina servicios y equipos para petróleo y gas con tecnologías industriales, turbomaquinaria, soluciones posventa y software. La amplitud de la oferta y la base instalada podrían ayudar a diversificar las fuentes de ingresos y sostener ventas de servicios posteriores a la instalación. El material disponible no cuantifica esa diversificación ni el peso de cada segmento.
+**Caso alcista, sujeto a verificación:**
 
-El principal indicio financiero favorable del paquete DDD es un FCF informado de USD 3.228 mil millones para el TTM terminado el 2026-09-30, frente a USD 2.537 mil millones en FY 2025. El margen bruto reportado fue de 23,7% en el TTM terminado el 2026-09-30, prácticamente igual al 23,68% de FY 2025. Ambos datos se atribuyen a [StockAnalysis](https://stockanalysis.com/stocks/BKR/statistics/), pero la comparación de períodos distintos y la dependencia de una sola fuente limitan la conclusión sobre crecimiento y sostenibilidad.
+- BKR combina equipos, tecnologías y servicios para operaciones energéticas; la amplitud de su oferta y su base instalada podrían respaldar relaciones duraderas con clientes. [AOIF, evaluación del negocio]
+- Los indicadores facilitados por AOIF —ROIC de 12,12% y margen operativo de 12,2%— son compatibles con una operación rentable en el período al que correspondan, aunque este no está especificado.
+- DDD reporta FCF TTM de USD 3.228 millones al 2026-09-30 y margen bruto TTM de 23,7%. Si las cifras son comparables y sostenibles, constituirían evidencia favorable de generación de caja y rentabilidad bruta; los inputs no prueban su persistencia.
+- La investigación recoge un consenso observado de analistas de USD 69,75, frente a una cotización de USD 45,48 al 2026-11-20. Esta diferencia es una referencia de mercado, no una demostración de infravaloración: no se facilitan los supuestos, la distribución temporal ni la metodología de las estimaciones. [DDD, datos al 2026-11-20]
 
-AOIF informa crecimiento de ingresos de 3,71%, margen operativo de 12,2% y ROIC de 12,12%, pero no ofrece fuentes, fechas ni series para validarlos. Si se confirmaran con datos comparables, podrían contribuir a evaluar la capacidad de la compañía para convertir su posición competitiva en retornos atractivos.
-
-**Lectura de la tesis:** hay indicios que justifican investigación adicional sobre generación de caja, margen bruto y retornos del negocio, pero la evidencia suministrada no permite concluir que esas tendencias sean duraderas ni establecer una valoración intrínseca fiable.
+La tesis depende de confirmar la calidad y comparabilidad de los datos financieros, la evolución del FCF, la estructura de deuda y la contribución de cada segmento.
 
 ## 6. Riesgos y Contra-Tesis
 
-- **Ciclo energético y macroeconómico:** una caída de los precios energéticos o de la actividad petrolera y gasífera podría reducir la inversión de los clientes. AOIF evalúa este riesgo como de impacto alto y probabilidad media.
-- **Competencia:** la presión competitiva en equipos, servicios y tecnología podría afectar precios, márgenes o retención de clientes. AOIF la evalúa como de impacto medio y probabilidad media.
-- **Sostenibilidad del FCF:** el FCF TTM informado podría no mantenerse. La cifra no demuestra crecimiento futuro y no se aportan datos de flujo de caja operativo, capex ni una serie comparable suficientemente documentada.
-- **Calidad de los datos de deuda y cobertura:** la deuda total informada difiere marcadamente entre 2026-09-30 y FY 2025, sin contexto explicativo. La cobertura de intereses aparece como cero, pero faltan definición y datos de intereses para interpretarla.
-- **Moat no cuantificado:** la amplitud de oferta, la experiencia técnica y la base instalada podrían favorecer a BKR, pero la caracterización del moat como estrecho y la falta de datos sobre cuota, retención y poder de precios limitan la tesis competitiva.
-- **Riesgo de valoración:** el precio y los objetivos de analistas no bastan para demostrar infravaloración, porque faltan estimaciones operativas verificables y un método de valoración defendible.
-- **Riesgo de dilución:** no se dispone de una serie comparable de acciones diluidas, por lo que no se puede evaluar la evolución del número de acciones.
+**Riesgos identificados:**
 
-**Falsadores definidos en la investigación:**
+- **Ciclicidad y exposición energética:** una caída o postergación de la inversión de clientes en exploración, producción y servicios petroleros podría reducir la actividad. AOIF califica el impacto potencial como alto y la probabilidad como media.
+- **Competencia:** la presión sobre precios puede afectar márgenes y retención de clientes. AOIF estima impacto y probabilidad medios.
+- **Deuda y calidad de los datos de balance:** DDD reporta deuda total de USD 6.702 millones al 2025-12-31 y USD 18.264 millones al 2026-09-30, sin reconciliación en el material recibido.
+- **Dependencia de la inversión de clientes:** el paquete no desglosa ingresos ni exposición geográfica o por tipo de actividad, por lo que no permite medir concentración o sensibilidad a los ciclos.
+- **Calidad de la evidencia:** varias métricas no tienen período, fuente verificable o definición explícita; además, el FCF yield de 0% reportado por AOIF no está reconciliado con el FCF TTM positivo comunicado por DDD.
 
-1. El FCF de períodos posteriores cae por debajo de USD 3.228 mil millones, nivel reportado para el TTM terminado el 2026-09-30.
-2. El margen bruto se deteriora respecto del 23,7% reportado para ese mismo período.
+**Contra-tesis:** la cotización podría reflejar riesgos de negocio o de balance que el paquete no permite evaluar suficientemente. El consenso observado no sustituye una valoración independiente ni acredita que el precio de mercado sea incorrecto.
 
-Estos son umbrales de seguimiento propuestos por el paquete, no predicciones ni garantías sobre resultados futuros.
+**Falsadores y pruebas necesarias:**
+
+- Una verificación que demuestre que el FCF TTM no es comparable con los datos FY reduciría la relevancia de utilizarlo como evidencia de tendencia.
+- Una reconciliación de deuda que contradiga las cifras o los períodos reportados invalidaría las inferencias basadas en esa serie.
+- Evidencia de deterioro sostenido en FCF, márgenes o retornos sobre capital debilitaría la tesis de calidad y generación de caja.
+- Una caída o aplazamiento significativo de la inversión de clientes presionaría la actividad, en línea con el riesgo macro señalado por AOIF.
 
 ## 7. Catalizadores y Timeline
 
-| Evento o posible catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
-|---|---|---|---|
-| Publicación de resultados posteriores que permita comprobar FCF y márgenes frente al TTM terminado el 2026-09-30 | No especificada | Podría confirmar o debilitar la lectura de mejora de FCF y estabilidad del margen bruto | Catalizador condicional; el paquete no aporta fecha de resultados ni un hito corporativo |
-| Aclaración de las variaciones de deuda total y del dato de cobertura de intereses | No especificada | Podría cambiar la evaluación de la estructura de capital y del riesgo financiero | No hay explicación ni datos detallados en el material disponible |
-| Validación de ingresos, márgenes, ROIC y conversión de caja con series comparables | No especificada | Podría fortalecer o debilitar la evaluación de calidad y crecimiento | Agenda de investigación, no evento fechado |
+El material no identifica catalizadores corporativos fechados ni publica una agenda de eventos con fecha esperada. No se asignan fechas futuras no sustentadas por los inputs.
 
-Como referencias de mercado incluidas en DDD, la cotización observada fue de USD 46,93 el 2026-11-19. El consenso informado de precio objetivo fue de USD 69,75, con un rango de USD 51 a USD 85, observado el 2026-11-20. El paquete no aporta metodología, horizonte, estimaciones subyacentes ni fuente con URL verificable para esos objetivos; no deben interpretarse como catalizadores ni como evidencia independiente de valor razonable.
+| Catalizador de seguimiento | Fecha disponible | Relevancia potencial |
+|---|---|---|
+| Evolución del FCF | Dato TTM disponible al 2026-09-30; próxima fecha no indicada | Permitiría evaluar si la generación de caja reportada es recurrente y comparable con períodos FY |
+| Evolución de ingresos y márgenes | Referencia TTM al 2026-09-30; próxima fecha no indicada | Ayudaría a medir el efecto de actividad, precios y mezcla de negocio |
+| Reconciliación de deuda total | Cambio reportado entre 2025-12-31 y 2026-09-30 | Necesaria para comprender la evolución del balance y la estructura de capital |
+| Datos por segmento y exposición geográfica | Sin fecha indicada | Permitirían evaluar concentración, crecimiento y sensibilidad a distintos mercados |
+
+Los resultados futuros y las comunicaciones corporativas podrían aportar evidencia sobre estos temas, pero los inputs no especifican fechas de publicación.
 
 ## 8. Marco de Valoración
 
-No es posible estimar un valor intrínseco con rigor a partir de la información disponible. AOIF indica que faltan precio y fecha de referencia consistentes para sus múltiplos, acciones diluidas, deuda neta, FCF normalizado y supuestos de crecimiento y coste de capital. La conclusión de margen de seguridad en AOIF es “insuficiente”.
+La valoración intrínseca **no es estimable con rigor** a partir de la información suministrada. Faltan una fecha y precio de referencia comunes para todas las métricas, FCF comparable, deuda neta reconciliada, necesidades de reinversión, crecimiento por segmento y supuestos explícitos de proyección.
 
-**Metodologías apropiadas para investigación posterior:**
+**Métricas disponibles, con limitaciones:**
 
-- **Flujo de caja descontado:** usar FCF normalizado por ciclo y proyecciones explícitas de crecimiento, márgenes, impuestos, capex y capital de trabajo; descontar con un coste de capital justificado.
-- **Múltiplos relativos:** contrastar PER y EV/EBITDA con compañías comparables y con la propia historia de BKR, asegurando consistencia en fecha, período, deuda neta y tratamiento de partidas no recurrentes.
-- **Análisis por segmentos:** si se obtienen datos desglosados, valorar por separado las actividades de energía y las industriales, evitando suponer que tienen iguales márgenes, crecimiento o exposición cíclica.
+- AOIF informa PER de 15,94 y EV/EBITDA de 11,8, pero no especifica período, fecha de referencia ni fuente.
+- AOIF informa FCF yield de 0%; la metodología y la compatibilidad con el FCF TTM de USD 3.228 millones reportado por DDD no están explicadas.
+- DDD registra consenso observado de USD 69,75, rango de USD 51–85, y cotización de USD 45,48 al 2026-11-20. El rango de consenso no equivale a un valor intrínseco.
 
-El paquete AOIF reporta PER de 16,13 y EV/EBITDA de 11,99 sin fecha ni fuente identificadas; sirven como referencias no verificadas y no como base suficiente para una conclusión de valoración. El FCF yield informado como 0 tampoco es interpretable sin aclarar su cálculo y sus inputs.
+El análisis de escenarios de DDD, fechado el 2026-11-21, utiliza USD 51 como escenario bajista y USD 85 como escenario alcista. Ambos valores se describen como anclas del extremo bajo y alto del consenso, respectivamente; **no son objetivos de valoración independiente** ni escenarios basados en proyecciones financieras desarrolladas.
 
-**Sensibilidades que deberían modelarse, sin asignar valores con los datos actuales:**
-
-| Variable | Escenario desfavorable | Escenario central | Escenario favorable |
-|---|---|---|---|
-| Actividad e inversión de clientes | Menor inversión por caída de precios o actividad | Demanda coherente con una evolución cíclica normalizada | Mayor inversión y utilización de la base instalada |
-| FCF y conversión de caja | FCF inferior al nivel TTM reportado o conversión débil | FCF normalizado sustentado por resultados y capex comprobables | Mayor generación de caja recurrente |
-| Márgenes | Compresión por competencia o mezcla desfavorable | Márgenes estables | Mejora comprobada y sostenible |
-| Coste de capital y deuda neta | Mayor coste de capital o apalancamiento superior al esperado | Supuestos respaldados por datos verificados | Menor riesgo financiero debidamente sustentado |
-
-No se asignan precios objetivo ni probabilidades: faltan inputs verificables para hacerlo.
+Para una valoración futura, sería necesario reconciliar el balance y modelar ingresos, márgenes, impuestos, inversión, capital circulante y FCF por segmento. La sensibilidad debería contemplar, como mínimo, distintos niveles de actividad de clientes, márgenes, reinversión y coste de capital. Los inputs actuales no permiten asignar valores fiables a esos supuestos ni calcular un margen de seguridad.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué segmentos impulsan el crecimiento y qué ingresos, márgenes, ROIC y necesidades de capital tiene cada uno?
-2. ¿Qué proporción de ventas y beneficios procede de equipos iniciales, servicios posventa, software y soluciones industriales?
-3. ¿Cuáles son la evolución histórica de ingresos, márgenes, flujo de caja operativo, capex y FCF sobre períodos comparables y mediante fuentes verificables?
-4. ¿El FCF de USD 3.228 mil millones para el TTM terminado el 2026-09-30 es comparable con los USD 2.537 mil millones de FY 2025? ¿Qué partidas y cambios de capital de trabajo explican la diferencia?
-5. ¿Qué explica la variación informada de deuda total entre FY 2025 y 2026-09-30, y cuál es la deuda neta pertinente para la valoración?
-6. ¿Por qué la cobertura de intereses figura como cero? Se necesitan la definición del ratio y los gastos por intereses para validar e interpretar el dato.
-7. ¿Cuál es el mercado direccionable, la penetración de BKR, su cuota frente a competidores y el riesgo de erosión de su posición?
-8. ¿La base instalada genera ingresos posventa recurrentes y costes de cambio medibles?
-9. ¿Cuál es la tendencia de acciones diluidas y qué efecto tienen remuneración en acciones, recompras o emisiones?
-10. ¿Qué evidencia respalda las evaluaciones AOIF de posición competitiva líder, moat estrecho, calidad de management regular, asignación de capital neutral y alineamiento de insiders débil?
-11. ¿Cuál es la fecha, fuente y metodología de los múltiplos, el FCF yield y los objetivos de analistas?
-12. ¿Qué supuestos de crecimiento, márgenes, FCF normalizado y coste de capital permitirían establecer escenarios de valoración defendibles?
-13. ¿Qué fechas de resultados o hitos corporativos permiten actualizar la tesis y verificar los falsadores?
+1. ¿Qué explica el aumento reportado de deuda total desde USD 6.702 millones al 2025-12-31 hasta USD 18.264 millones al 2026-09-30? ¿Son comparables ambas cifras en definición y perímetro?
+2. ¿Cuál es la serie comparable de ingresos, márgenes, ROIC y FCF por año y por segmento?
+3. ¿El FCF TTM al 2026-09-30 es comparable con el historial FY 2022–2025? ¿Qué partidas explican su evolución y qué parte es recurrente?
+4. ¿Cómo se reconcilia el FCF yield de 0% de AOIF con el FCF TTM positivo reportado por DDD?
+5. ¿Qué retornos obtiene BKR sobre el capital incremental y cuáles son sus necesidades de reinversión y capital circulante?
+6. ¿Qué proporción de ingresos y beneficios procede de cada segmento, región y tipo de cliente?
+7. ¿Cuál es la sensibilidad del negocio a la actividad de perforación, los presupuestos de productores y los cambios en los precios de energía?
+8. ¿Qué historial de ejecución, remuneración y asignación de capital sustenta las valoraciones de AOIF sobre management, insiders y calidad del liderazgo?
+9. ¿Cuál es la composición del board, su independencia y la estructura de supervisión?
+10. ¿Qué supuestos sustentan el consenso observado de USD 69,75 y su rango de USD 51–85? ¿Cómo se comparan con escenarios propios basados en FCF y balance?
+11. ¿Hay datos comparables de acciones diluidas o en circulación que permitan evaluar la dilución? DDD indica que no pudo evaluarla con los períodos disponibles.
 
-**Estado de la investigación:** investigación requerida. Los paquetes contienen indicios financieros y una descripción del negocio, pero no evidencia suficiente para validar la persistencia de la generación de caja, cuantificar retornos por segmento o determinar un error de valoración.
+**Estado general de la investigación:** investigación requerida. El paquete respalda una descripción del negocio y aporta indicadores financieros puntuales, pero no permite confirmar la persistencia del FCF, explicar la variación de deuda ni estimar con rigor el valor intrínseco.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[E|Eni S.p.A.]], [[TS|Tenaris S.A.]]
-- **Same Industry**: [[TS|Tenaris S.A.]]
+- **Same Sector**: [[BP|BP p.l.c.]], [[COP|ConocoPhillips]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton Company]], [[OXY|Occidental Petroleum Corporation]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]], [[PSX|Phillips 66]], [[SHEL|Shell plc]], [[SLB|SLB N.V.]], [[TS|Tenaris S.A.]], [[TTE|TotalEnergies SE]], [[UGP|Ultrapar Participações S.A.]], [[VIST|Vista Energy, S.A.B. de C.V.]], [[XOM|ExxonMobil Holdings Corporation]], [[YPF|YPF Sociedad Anónima]]
+- **Same Industry**: [[HAL|Halliburton Company]], [[SLB|SLB N.V.]], [[TS|Tenaris S.A.]]

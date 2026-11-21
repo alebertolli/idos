@@ -1,158 +1,151 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La producción upstream media de 2027 es igual o inferior a la de 2026.
+  - condition: La producción media de los tres primeros trimestres de 2027 cae más
+      de 3% frente al mismo periodo de 2026 en cifras comparables.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: BP no publica datos comparables suficientes para verificar el cambio;
-      en ese caso, la hipótesis se considerará no confirmada.
+  - condition: BP informa de interrupciones operativas o restricciones persistentes
+      que reduzcan la producción en más de 3% respecto del periodo comparable.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La producción upstream media de 2027 es igual o inferior a la de 2026.
-  - BP no publica datos comparables suficientes para verificar el cambio; en ese caso,
-    la hipótesis se considerará no confirmada.
+  - La producción media de los tres primeros trimestres de 2027 cae más de 3% frente
+    al mismo periodo de 2026 en cifras comparables.
+  - BP informa de interrupciones operativas o restricciones persistentes que reduzcan
+    la producción en más de 3% respecto del periodo comparable.
   horizon: medio
   id: H1-OPP-MB-BP
   opportunity_id: OPP-MB-BP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 2.0
+    deadline: '2027-11-21'
+    expected: 0.0
     met: null
-    metric: Variación interanual de la producción upstream media reportada
-    prediction: En el informe anual de 2027, la producción upstream media reportada
-      será al menos un 2,0% superior a la cifra comparable de 2026, usando la misma
-      definición que BP y sin ajustes analíticos no publicados por la compañía.
-    unit: porcentaje
+    metric: Variación interanual de la producción media de petróleo y gas en los tres
+      primeros trimestres
+    prediction: La producción reportada por BP para los tres primeros trimestres de
+      2027, calculada como promedio trimestral y comparada con el mismo periodo de
+      2026, variará entre -3% y +3%, tras aplicar los ajustes comparables que la propia
+      compañía publique.
+    unit: porcentaje; intervalo aceptable de -3% a +3%
   priority: important
   probability: 0.5
-  rationale: Una cartera integrada de petróleo y gas puede sostener o elevar el volumen
-    si las incorporaciones de nueva producción superan el declive de los campos existentes.
-    El contexto disponible no aporta datos de producción, proyectos ni tasas de declive,
-    por lo que esta hipótesis es una prueba prospectiva, no una conclusión respaldada
-    por resultados recientes.
-  review_trigger: Dejar de creerla si un resultado anual o una actualización oficial
-    de BP indica que la producción de 2027 quedará por debajo de la de 2026, o si
-    el informe anual publicado antes del 2028-03-31 muestra un aumento inferior al
-    2,0%.
+  rationale: La estabilidad de los volúmenes limitaría el riesgo de que la generación
+    reciente de caja dependa de una base de producción menguante. La información disponible
+    no permite confirmar una tendencia de producción; por ello, esta hipótesis es
+    una condición a verificar, no una conclusión respaldada por una serie histórica
+    proporcionada.
+  review_trigger: Dejar de creerla si los resultados del tercer trimestre de 2027
+    muestran una caída comparable superior al 3% o si BP anuncia antes de esa fecha
+    una revisión a la baja de producción de magnitud equivalente.
   secondary_hypotheses: []
-  statement: La producción upstream reportada por BP aumentará en 2027 frente a 2026,
-    señal de que los nuevos proyectos y la actividad de los activos existentes compensarán
-    los descensos naturales de producción.
+  statement: BP mantendrá relativamente estables sus volúmenes de producción de petróleo
+    y gas, sin una contracción operativa pronunciada durante los tres primeros trimestres
+    de 2027.
   status: ACTIVE
   ticker: BP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La deuda neta al cierre de 2027 es igual o superior a la cifra de cierre
-      de 2026.
+  - condition: El FCF acumulado de los cuatro trimestres es cero o negativo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La reducción interanual de deuda neta es inferior al 10,0%.
+  - condition: BP registra FCF negativo en dos o más de los cuatro trimestres.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Un cambio de definición o reclasificación impide una comparación comparable
-      y BP no ofrece una conciliación suficiente.
+  - condition: La compañía cambia la definición de FCF de forma que impida comparar
+      los periodos y no ofrece una conciliación verificable.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La deuda neta al cierre de 2027 es igual o superior a la cifra de cierre de 2026.
-  - La reducción interanual de deuda neta es inferior al 10,0%.
-  - Un cambio de definición o reclasificación impide una comparación comparable y
-    BP no ofrece una conciliación suficiente.
+  - El FCF acumulado de los cuatro trimestres es cero o negativo.
+  - BP registra FCF negativo en dos o más de los cuatro trimestres.
+  - La compañía cambia la definición de FCF de forma que impida comparar los periodos
+    y no ofrece una conciliación verificable.
   horizon: medio
   id: H2-OPP-MB-BP
   opportunity_id: OPP-MB-BP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 10.0
+    deadline: '2027-11-21'
+    expected: 1.0
     met: null
-    metric: Reducción de deuda neta entre cierres de ejercicio
-    prediction: La deuda neta al cierre de 2027 será al menos un 10,0% menor que la
-      deuda neta al cierre de 2026, comparando las cifras reportadas por BP con una
-      definición consistente.
-    unit: porcentaje
+    metric: FCF acumulado en cuatro trimestres consecutivos
+    prediction: En los cuatro trimestres reportados consecutivos que terminen antes
+      del 2027-11-21, BP registrará FCF acumulado positivo según su definición publicada
+      y FCF positivo en al menos tres de esos cuatro trimestres.
+    unit: USD; positivo, con FCF positivo en al menos 3 de 4 trimestres
   priority: critical
   probability: 0.5
-  rationale: Si el flujo de caja operativo cubre inversiones, dividendos y otros usos
-    de efectivo, la deuda neta puede disminuir. El contexto no proporciona cifras
-    de deuda, flujo de caja, inversión ni distribuciones; por ello, la dirección y
-    magnitud propuestas son una hipótesis que debe contrastarse con los estados financieros
-    publicados.
-  review_trigger: Dejar de creerla si una comunicación financiera oficial de BP anticipa
-    deuda neta al cierre de 2027 igual o superior a la de 2026, o si los resultados
-    anuales publicados antes del 2028-03-31 muestran una reducción inferior al 10,0%.
+  rationale: El FCF TTM positivo es compatible con una recuperación de caja, pero
+    el historial irregular y la falta de datos que validen retornos sobre capital
+    o crecimiento estructural impiden asumir que sea duradera. La estabilidad operativa
+    de H1 reduciría el riesgo de que una caída de producción erosione la caja, aunque
+    precios, márgenes, impuestos y capital circulante también influirán.
+  review_trigger: Dejar de creerla cuando se publique el segundo trimestre consecutivo
+    con FCF negativo dentro de la ventana de evaluación, o si el FCF acumulado de
+    los cuatro trimestres llega a cero o menos.
   secondary_hypotheses:
   - H1-OPP-MB-BP
-  statement: BP reducirá su deuda neta durante 2027, mostrando que el efectivo generado
-    por el negocio y la asignación de capital bastan para mejorar su posición financiera.
+  statement: La generación de caja libre positiva observada en el periodo TTM disponible
+    al corte se sostendrá durante los siguientes doce meses, aunque no necesariamente
+    crecerá de forma estructural.
   status: ACTIVE
   ticker: BP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de BP menos la rentabilidad total del índice
-      es inferior a 5 puntos porcentuales.
+  - condition: El rendimiento total de BP menos el rendimiento total del STOXX Europe
+      600 Oil & Gas es inferior a 5 puntos porcentuales en la fecha de evaluación.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: BP tiene una rentabilidad total inferior a la del índice.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: No se dispone de series de precios y dividendos comparables para calcular
-      ambas rentabilidades en la misma moneda y periodo.
+  - condition: BP obtiene un rendimiento total inferior al índice durante el periodo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de BP menos la rentabilidad total del índice es inferior
-    a 5 puntos porcentuales.
-  - BP tiene una rentabilidad total inferior a la del índice.
-  - No se dispone de series de precios y dividendos comparables para calcular ambas
-    rentabilidades en la misma moneda y periodo.
+  - El rendimiento total de BP menos el rendimiento total del STOXX Europe 600 Oil
+    & Gas es inferior a 5 puntos porcentuales en la fecha de evaluación.
+  - BP obtiene un rendimiento total inferior al índice durante el periodo.
   horizon: medio
   id: H3-OPP-MB-BP
   opportunity_id: OPP-MB-BP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
+    deadline: '2027-11-21'
     expected: 5.0
     met: null
-    metric: Rentabilidad total relativa de BP frente al STOXX Europe 600 Oil & Gas
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
-      total de la acción ordinaria de BP en libras esterlinas, incluidos dividendos
-      reinvertidos, superará en al menos 5 puntos porcentuales la rentabilidad total
-      del STOXX Europe 600 Oil & Gas, calculada en libras esterlinas y sobre el mismo
-      periodo.
+    metric: Rendimiento total de BP menos rendimiento total del índice sectorial
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, el rendimiento
+      total de BP, incluidos dividendos y medido en la misma moneda que el índice,
+      superará en al menos 5 puntos porcentuales al STOXX Europe 600 Oil & Gas.
     unit: puntos porcentuales
   priority: important
   probability: 0.5
-  rationale: Una compañía integrada podría recibir una revaloración relativa si sus
-    resultados y balance evolucionan mejor que los de sus comparables. Sin embargo,
-    el contexto disponible no demuestra que la acción esté infravalorada ni aporta
-    expectativas de mercado, precios de energía o datos de valoración; la hipótesis
-    se evalúa exclusivamente mediante rentabilidad relativa futura.
-  review_trigger: Dejar de creerla si, en cualquier fecha de revisión posterior al
-    2027-05-20, la rentabilidad total acumulada de BP queda al menos 10 puntos porcentuales
-    por debajo de la del índice; la evaluación final se realizará al cierre del 2027-11-20.
+  rationale: Una generación de caja positiva y repetida podría reducir la percepción
+    de que el FCF reciente fue transitorio y favorecer una revisión de expectativas.
+    Sin embargo, la información disponible no permite cuantificar el descuento de
+    valoración ni descartar que el mercado esté descontando riesgos del sector; por
+    eso la hipótesis se prueba mediante rendimiento relativo, no mediante una afirmación
+    de infravaloración absoluta.
+  review_trigger: Dejar de creerla si, al cierre del 2027-11-19, BP no supera al índice
+    por al menos 5 puntos porcentuales, o antes si H2 queda falsada por FCF acumulado
+    no positivo en la ventana observada.
   secondary_hypotheses:
-  - H1-OPP-MB-BP
   - H2-OPP-MB-BP
-  statement: La acción ordinaria de BP superará la rentabilidad total del índice STOXX
-    Europe 600 Oil & Gas en los 12 meses posteriores a la fecha de corte, lo que sería
-    compatible con una mejora de las expectativas del mercado sobre BP frente a sus
-    pares.
+  statement: Si BP sostiene la generación de caja prevista en H2, su acción obtendrá
+    un rendimiento total superior al del índice sectorial europeo de petróleo y gas
+    durante los doce meses siguientes al corte.
   status: ACTIVE
   ticker: BP
   version: 1

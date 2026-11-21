@@ -1,150 +1,150 @@
 ## 1. Visión General de la Compañía
 
-**Cardinal Health, Inc. (CAH)** es una compañía del sector sanitario que distribuye productos farmacéuticos y médicos y presta servicios relacionados. Conecta fabricantes con farmacias, hospitales y otros proveedores de atención sanitaria mediante operaciones de compra, almacenamiento y distribución.
+**Cardinal Health, Inc. (CAH)** es una compañía del sector sanitario que distribuye productos farmacéuticos y médicos y presta servicios a clientes del sistema de salud. Su cadena de valor incluye abastecimiento de productos de fabricantes, gestión de compras, almacenamiento y transporte de inventario, y soluciones para clientes.
 
-- **Productos y servicios descritos:** medicamentos de marca, genéricos, especializados y de venta libre; productos médicos; y servicios para fabricantes farmacéuticos y proveedores de medicamentos especializados.
-- **Clientes identificados:** farmacias comunitarias y cadenas de farmacias, hospitales y sistemas de salud.
-- **Geografía:** los datos suministrados no detallan la distribución geográfica de ingresos ni las operaciones por país.
-- **Contexto sectorial:** comparte exposición amplia al sector sanitario con compañías como [[ABBV]], [[ABT]], [[AMGN]], [[AZN]], [[BIIB]] y [[BMY]], aunque estas no necesariamente tienen el mismo modelo de distribución.
+Los segmentos geográficos, la distribución de ingresos por región y el detalle de las operaciones internacionales no están especificados en la información disponible.
 
-Las cifras y evaluaciones de esta entrada proceden de los paquetes de investigación DDD y AOIF proporcionados. Se indican las limitaciones cuando la información no permite una verificación o conclusión firme.
+**Base de evidencia:** síntesis de los inputs de investigación DDD y AOIF, fechados o referidos al análisis del 21 de noviembre de 2026. El paquete no incluye enlaces ni URLs verificables; por ello, los datos numéricos y las evaluaciones siguientes deben considerarse **reportados por los inputs, pero pendientes de validación con fuentes primarias**.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Modelo y drivers de ingresos
+### Modelo de negocio
 
-La empresa adquiere productos de fabricantes farmacéuticos y médicos, los almacena y distribuye a clientes sanitarios mediante una red logística de gran escala. También ofrece servicios especializados y productos propios, según la descripción del negocio proporcionada.
+Cardinal Health genera ingresos principalmente mediante la distribución de productos y la prestación de servicios para el sector sanitario. Los productos y servicios descritos incluyen:
 
-Los posibles drivers de ingresos incluyen el volumen distribuido, los precios, la mezcla de productos y servicios, la actividad de los clientes y las adquisiciones. Sin embargo, la investigación disponible no desglosa cuánto contribuye cada factor al crecimiento observado. Tampoco permite separar crecimiento orgánico de cambios atribuibles a adquisiciones, precios o capital de trabajo.
+- Distribución de medicamentos de marca, genéricos, especializados y de venta libre.
+- Servicios para fabricantes farmacéuticos y proveedores de atención sanitaria.
+- Abastecimiento y distribución para hospitales, sistemas de salud y farmacias.
 
-### Ventajas competitivas y dinámica
+### Drivers de ingresos
 
-AOIF caracteriza la posición competitiva como **líder**, con un **moat estrecho** basado en escala, densidad de distribución, relaciones de largo plazo, infraestructura logística e integración con los procesos de los clientes. Estas ventajas son compatibles con las exigencias operativas y regulatorias de la distribución sanitaria, pero el material disponible no aporta evidencia cuantitativa suficiente para medir la durabilidad del moat o los retornos incrementales del capital.
+La información disponible identifica las actividades comerciales, pero no desglosa los ingresos por segmento, producto, cliente o geografía. Por tanto, no permite determinar qué actividad explica el crecimiento ni medir su contribución a la rentabilidad.
 
-La distribución sanitaria se describe como una actividad de gran volumen y baja rentabilidad unitaria. La escala puede respaldar eficiencia y disponibilidad de producto, pero la competencia en precios y los márgenes reducidos limitan la capacidad de absorber aumentos de costos o cambios desfavorables en la mezcla.
+### Posición competitiva y moat
+
+AOIF caracteriza a Cardinal Health como un **líder** y califica su moat como **estrecho**. La posible ventaja competitiva se atribuye a la escala de distribución, las relaciones con proveedores y clientes, la infraestructura logística y la integración en procesos de compra y suministro. Estas conclusiones son evaluaciones del análisis suministrado, no hechos respaldados aquí con datos comparativos de cuota o retornos sobre capital.
+
+La industria descrita depende de escala, fiabilidad logística, cumplimiento normativo y gestión de inventarios. También está expuesta a la presión competitiva y a condiciones comerciales que pueden afectar una actividad de margen reducido. No hay información suficiente para comparar directamente a CAH con otras compañías ni para confirmar cuotas de mercado. Entre las compañías del sector incluidas en la wiki se encuentran [[CVS]], [[ABT]], [[DHR]] y [[MDT]]; su inclusión como compañías relacionadas **no implica que sean competidores directos en todas las líneas de negocio**.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes son las reportadas en los paquetes de investigación; no todas están respaldadas allí por fuentes primarias o enlaces verificables. Los períodos y metodologías deben confirmarse antes de usarlas en una valoración.
+Las métricas siguientes proceden del input DDD. No se proporcionaron URLs ni estados financieros para verificarlas de forma independiente.
 
-| Métrica | Dato reportado | Período / fecha | Observación |
+| Métrica | Dato reportado | Fecha o período | Observaciones |
 |---|---:|---|---|
-| Ingresos | USD 222.578 mil millones | FY 2025 | Dato del paquete DDD; fuente específica no proporcionada |
-| Ingresos | USD 254.248 mil millones | FY 2026 | Dato del paquete DDD; no se desglosa crecimiento orgánico, adquisiciones, precios o volumen |
-| Crecimiento de ingresos | 10,01% | Período y metodología no especificados en AOIF | Requiere validar el período comparable |
-| Margen operativo | 1,33% | Período no especificado en AOIF | Consistente con una actividad de distribución de bajo margen; metodología pendiente de confirmación |
-| Margen bruto | 3,9% | TTM al 2026-09-30 | Reportado por DDD; fuente no incluida |
-| ROIC | 20,5% | Período y metodología no especificados en AOIF | Debe validarse, junto con su cálculo y comparabilidad |
-| FCF | Positivo, sin serie verificable en el material | Sin período detallado | DDD advierte variabilidad anual; no hay datos suficientes para extrapolar |
-| Crecimiento interanual del FCF | 10,08% | TTM al 2026-09-30 | Dato pendiente de confirmar con períodos comparables y estados verificables |
-| FCF yield | 0 | Fecha no especificada en AOIF | AOIF indica que podría reflejar FCF nulo o una limitación de los datos; no permite una interpretación definitiva |
-| PER | 35,34 | Fecha no especificada en AOIF | Múltiplo reportado; requiere validar precio y beneficios usados |
-| EV/EBITDA | 15,47 | Fecha no especificada en AOIF | Múltiplo reportado; metodología y componentes no detallados |
-| Current ratio | 0,88 | 2026-09-30 | Stock Analysis, [estadísticas de CAH](https://stockanalysis.com/stocks/CAH/statistics/); no cruza el umbral de riesgo de 0,5 definido en DDD |
-| Cobertura de intereses | 0 | 2026-09-30 | DDD señala que no se dispone del gasto por intereses para verificar EBIT dividido por gasto por intereses |
+| Flujo de caja libre (FCF) | USD 4.901 millones | TTM al 30-09-2026 | No se aporta desglose ni conciliación con estados financieros. |
+| Margen bruto | 3,9% | TTM al 30-09-2026 | El input también reporta 3,84% para FY 2026. |
+| Margen bruto | 3,84% | FY 2026 | Reportado como superior al 3,67% de FY 2025; no se explica la variación. |
+| Margen bruto | 3,67% | FY 2025 | Base de comparación indicada en DDD. |
+| Current ratio | 0,88 | 30-09-2026 | El paquete señala que no está por debajo del umbral configurado de 0,5. |
 
-El perfil sugiere gran escala y márgenes operativos estrechos. Aunque DDD reporta FCF positivo, no se proporcionan cifras verificables de flujo de caja operativo, gastos de capital y FCF que permitan calcular la conversión de beneficios a caja. Tampoco se incluye información suficiente sobre deuda neta, vencimientos, acciones diluidas o estructura de capital.
+**Limitaciones y datos no disponibles**
+
+- El crecimiento de ingresos a tres años no pudo calcularse con fuentes verificables.
+- El crecimiento del FCF no pudo calcularse con una serie comparable validada.
+- No se aportan ingresos por segmento, beneficio operativo, beneficio neto, deuda, vencimientos, ROIC ni rentabilidad incremental de la reinversión.
+- La conversión de beneficios en FCF no puede evaluarse con la información disponible.
+- La dilución interanual no es evaluable porque falta una serie comparable de acciones.
 
 ## 4. Management y Gobierno Corporativo
 
-AOIF califica la calidad de la gestión como **buena**, la asignación de capital como **neutral** y el alineamiento de insiders como **débil**. Estas calificaciones son evaluaciones del paquete, no conclusiones respaldadas por datos detallados sobre la gestión.
+El análisis AOIF califica la calidad del management como **regular**, la asignación de capital como **neutral** y el alineamiento de insiders como **débil**. Son valoraciones cualitativas del input, sin evidencia detallada sobre remuneración, tenencia accionaria, transacciones de insiders o resultados de decisiones de capital.
 
-La investigación disponible no incluye:
-
-- Nombres, trayectoria ni evaluación individual de los principales ejecutivos.
-- Estructura, independencia, experiencia o comités del consejo de administración.
-- Compras o ventas de insiders, participación accionaria de la dirección o historial compatible de acciones para medir dilución.
-- Objetivos de compensación, métricas de incentivos o evaluación de adquisiciones y retornos de capital.
-
-Por tanto, las valoraciones de calidad de liderazgo y alineamiento deben tratarse como provisionales.
+No se proporcionaron nombres de ejecutivos, composición del consejo, independencia de sus miembros, estructura de comités ni métricas de incentivos. Por tanto, no es posible realizar una evaluación independiente de liderazgo o gobierno corporativo.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista
+### Caso potencialmente alcista
 
-- **Escala y función operativa:** CAH conecta fabricantes con farmacias, hospitales y sistemas de salud mediante una red de distribución y servicios. La escala, la densidad logística y la integración con los procesos de los clientes pueden favorecer continuidad operativa y relaciones duraderas.
-- **Demanda sanitaria subyacente:** la distribución de medicamentos y productos médicos atiende necesidades de farmacias y proveedores de atención sanitaria. La investigación describe esta demanda como un soporte sectorial, aunque no cuantifica su efecto sobre el crecimiento de CAH.
-- **Ingresos reportados en aumento:** DDD presenta ingresos de USD 222.578 mil millones en FY 2025 y USD 254.248 mil millones en FY 2026. La cifra es una observación del paquete, pero su composición y comparabilidad no están demostradas.
-- **FCF reportado como positivo:** DDD informa FCF positivo y un crecimiento interanual de 10,08% para TTM al 2026-09-30. La propia investigación advierte variabilidad anual y falta de verificación suficiente, por lo que no constituye por sí sola evidencia de una tendencia sostenible.
-- **Posición competitiva:** AOIF describe a la compañía como líder con un moat estrecho asociado a escala, relaciones e infraestructura. La tesis depende de que esas ventajas se traduzcan en retornos y generación de caja sostenibles.
+- Cardinal Health opera una red de distribución y servicios integrados para clientes sanitarios. La escala, las relaciones con fabricantes y clientes y la infraestructura logística **podrían** contribuir a sostener su posición competitiva, aunque el alcance y la durabilidad de esa ventaja no están cuantificados.
+- DDD reporta FCF de USD 4.901 millones TTM al 30 de septiembre de 2026. Si el dato se verifica y resulta sostenible, la generación de caja sería un aspecto favorable para analizar.
+- El margen bruto reportado aumentó de 3,67% en FY 2025 a 3,84% en FY 2026. El input también reporta 3,9% TTM al 30 de septiembre de 2026. La causa, comparabilidad y sostenibilidad de la mejora no están establecidas.
 
 ### Estado de la tesis
 
-La información disponible justifica **investigación adicional**, pero no valida por sí sola una ventaja competitiva duradera, la calidad de la conversión a caja ni una oportunidad de valoración. El DDD asigna un score general de 52 y describe la categoría como investigación requerida; AOIF deja la recomendación pendiente de decisión del board.
+La oportunidad se clasifica como **investigación fundamental requerida; oportunidad no validada**. La escala del negocio y los datos reportados de FCF y margen bruto justifican continuar la investigación, pero no bastan para concluir que existe una ventaja competitiva duradera o una valoración atractiva.
+
+**Evidencia:** inputs de investigación DDD y AOIF, con datos financieros referidos al 30 de septiembre de 2026 y al FY 2025–2026; no se incluyeron fuentes primarias enlazadas.
 
 ## 6. Riesgos y Contra-Tesis
 
-- **Presión sobre precios y márgenes:** AOIF identifica como riesgo de probabilidad alta e impacto alto la competencia sobre precios y márgenes en distribución farmacéutica y médica. Con un margen bruto reportado de 3,9% TTM al 2026-09-30 y un margen operativo reportado de 1,33%, variaciones relativamente pequeñas de costos, precios o mezcla podrían afectar la rentabilidad.
-- **Riesgos legales y regulatorios:** AOIF señala litigios, acuerdos y obligaciones relacionados con la distribución de opioides u otros asuntos legales como riesgo de impacto alto y probabilidad media.
-- **Calidad y sostenibilidad del crecimiento:** el paquete no separa crecimiento orgánico de adquisiciones, precios, volumen o capital de trabajo. Si el crecimiento reportado no se sostiene en períodos comparables, la tesis de expansión podría debilitarse.
-- **Volatilidad del FCF:** DDD indica que la variabilidad anual del flujo de caja libre reduce la confianza en extrapolaciones simples. Sin una serie verificable de flujo operativo y capex, la capacidad de financiar inversiones, deuda o retornos al accionista no puede evaluarse adecuadamente.
-- **Liquidez y cobertura de intereses:** el current ratio reportado de 0,88 merece seguimiento, aunque no cruza el umbral de 0,5 configurado en DDD. La cobertura de intereses reportada como cero no es verificable porque falta el gasto por intereses.
-- **Riesgo de valoración:** AOIF considera insuficiente el margen de seguridad y no estima valor intrínseco con rigor. Los múltiplos reportados requieren contrastarse con beneficios normalizados, crecimiento y generación de caja.
+### Riesgos principales
 
-### Falsadores de la tesis
+1. **Márgenes reducidos y presión competitiva.** AOIF identifica presión sobre precios y exposición a costos logísticos y condiciones comerciales. Un margen bruto reducido puede hacer relevante cualquier cambio en la economía unitaria, aunque el paquete no cuantifica esa sensibilidad.
+2. **Responsabilidad legal.** AOIF señala como riesgo litigios o acuerdos relacionados con la distribución de opioides; lo califica de impacto alto y probabilidad media. No se proporcionan importes, estado de litigios ni calendario.
+3. **Liquidez corriente.** DDD reporta un current ratio de 0,88 al 30 de septiembre de 2026. El dato queda por encima del umbral de 0,5 usado en el análisis, pero no permite por sí solo evaluar necesidades de liquidez, vencimientos o acceso a financiación.
+4. **Sostenibilidad del FCF.** El FCF TTM reportado carece de serie comparable y de conciliación verificable; podría no representar la capacidad de generación de caja de largo plazo.
+5. **Riesgo de valoración.** Sin estados financieros detallados y supuestos operativos, no se puede calcular un valor intrínseco ni un margen de seguridad.
 
-1. Una fuente financiera verificable no confirma los valores o períodos reportados, o presenta datos materialmente distintos.
-2. La mejora de ingresos o FCF no se sostiene en períodos comparables y no puede explicarse con evidencia suficiente.
-3. La validación por segmento muestra retornos sobre capital o necesidades de reinversión desfavorables frente a lo supuesto en la tesis.
-4. La presión competitiva o los costos reducen de forma persistente márgenes y generación de caja, sin compensación demostrable por escala o servicios.
+### Contra-tesis
+
+La escala y el FCF reportado no garantizan retornos atractivos si la competencia, los costos, las condiciones comerciales o los riesgos legales presionan la rentabilidad. El paquete no permite determinar si el aumento del margen bruto refleja una mejora estructural o un efecto temporal.
+
+### Falsadores y señales de revisión
+
+- Resultados posteriores comparables que contradigan la sostenibilidad del FCF TTM reportado.
+- Evidencia de deterioro persistente del margen bruto frente a los períodos reportados.
+- Datos segmentados que muestren retornos sobre capital débiles o una rentabilidad incremental insuficiente.
+- Información verificable que cambie materialmente la evaluación de obligaciones legales o liquidez.
 
 ## 7. Catalizadores y Timeline
 
-| Fecha / período | Evento o dato | Impacto potencial | Estado de la evidencia |
+| Catalizador | Fecha o ventana | Impacto potencial | Qué verificar |
 |---|---|---|---|
-| FY 2025 | Ingresos reportados de USD 222.578 mil millones | Referencia para evaluar el crecimiento posterior | Dato del paquete DDD; fuente específica no proporcionada |
-| FY 2026 | Ingresos reportados de USD 254.248 mil millones | Si se confirma y desglosa, podría ayudar a determinar si el crecimiento es orgánico y sostenible | DDD no aporta desglose por precio, volumen, adquisiciones o capital de trabajo |
-| TTM al 2026-09-30 | Crecimiento de FCF reportado de 10,08% | Podría respaldar la tesis de mejora de caja si se valida con períodos comparables | Dato pendiente de confirmar |
-| 2026-11-19 | Cotización reportada de USD 273,55499 | Punto de referencia de mercado, no estimación de valor intrínseco | DDD; enlace de cotización no proporcionado |
-| 2026-11-20 | Consenso de precio objetivo reportado de USD 300,8; rango USD 260–330 | Podría influir en expectativas de mercado, pero no demuestra infravaloración | DDD; no se incluyen supuestos de analistas ni metodología |
+| Próxima actualización de resultados y generación de caja | Próximo período de reporte; fecha no proporcionada | Confirmar o refutar la sostenibilidad del FCF reportado | FCF comparable, conciliación con estados financieros y evolución de capital de trabajo. |
+| Evolución del margen bruto | Próximos resultados comparables; fecha no proporcionada | Aclarar si continúa la mejora reportada o se revierte | Margen por segmento, composición de productos y explicación de cambios en precios y costos. |
+| Actualización de guía y perspectivas operativas | Fecha no proporcionada | Podría cambiar la lectura de crecimiento, rentabilidad y caja | Guía cuantificada, supuestos y consistencia con resultados realizados. |
+| Información sobre litigios relacionados con opioides | Sin fecha específica en los inputs | Podría afectar costos, pasivos y riesgo percibido | Estado de casos, acuerdos, pagos e impactos financieros divulgados. |
 
-No se aportan eventos corporativos futuros con fecha específica, como resultados, vencimientos, decisiones regulatorias o cambios estratégicos. La diferencia entre la cotización reportada y el consenso no permite identificar por sí sola un catalizador ni un error de valoración.
+DDD señala que resultados comparables y una actualización verificable de guía y generación de caja podrían cambiar la lectura de la compañía. No se aportan fechas concretas para estos eventos.
 
 ## 8. Marco de Valoración
 
-### Enfoques apropiados
+### Estado de la valoración
 
-Para una distribuidora de gran volumen y bajo margen, la valoración debería contrastar más de un método:
+No se dispone de una estimación de valor intrínseco respaldada. AOIF indica que no puede estimarse el valor intrínseco con la información proporcionada y califica el margen de seguridad como **insuficiente**. DDD concluye que el error de valoración no está validado.
 
-1. **Flujo de caja descontado:** utilizar flujos normalizados y reconciliados con estados financieros, separando capital de trabajo, capex y elementos no recurrentes.
-2. **Múltiplos relativos:** comparar PER y EV/EBITDA con compañías de distribución y servicios sanitarios que tengan modelos y riesgos comparables. Los datos disponibles no identifican un conjunto de comparables válido.
-3. **Análisis por segmento:** estimar crecimiento, márgenes, ROIC y reinversión por segmento, dado que la rentabilidad agregada podría ocultar diferencias importantes.
+### Referencias de mercado reportadas
 
-### Datos y supuestos que faltan
+| Referencia | Valor | Fecha |
+|---|---:|---|
+| Cotización reportada | USD 275,29 | 20-11-2026 |
+| Precio objetivo de consenso observado | USD 300,80 | Fecha del análisis: 21-11-2026 |
+| Rango de objetivos observado | USD 260–330 | Fecha del análisis: 21-11-2026 |
+| Escenario bajista | USD 260 | Horizonte indicado: 21-11-2027 |
+| Escenario alcista | USD 330 | Horizonte indicado: 21-11-2027 |
 
-No es posible estimar un valor intrínseco con rigor con la información suministrada. Faltan, entre otros, el precio y número de acciones diluidas correspondientes a la fecha de valoración, deuda neta, series verificables de FCF, beneficios normalizados y supuestos de crecimiento, márgenes, reinversión y tasa de descuento.
+Los escenarios de USD 260 y USD 330 se anclan en los extremos del rango de objetivos de analistas reportado; **no son valoraciones intrínsecas independientes**. El paquete no incluye metodología del consenso, estimaciones operativas detalladas ni valoración por múltiplos o flujo de caja.
 
-AOIF reporta PER de 35,34, EV/EBITDA de 15,47 y FCF yield de 0, pero no especifica fechas ni metodologías suficientes para interpretar esos múltiplos. DDD informa un consenso de precio objetivo de USD 300,8, con rango de USD 260–330 al 2026-11-20, frente a una cotización reportada de USD 273,55499 al 2026-11-19. Estas cifras son observaciones de mercado y no sustituyen una valoración independiente.
+### Metodología para investigación posterior
 
-### Sensibilidad a analizar
+Una valoración fundamentada requeriría, como mínimo:
 
-Una vez verificada la base financiera, conviene medir la sensibilidad del valor a:
+- Proyecciones comparables de ingresos, márgenes, impuestos, capital de trabajo y gastos de capital.
+- FCF normalizado y conciliado con los estados financieros.
+- Deuda neta, costo de capital y supuestos de crecimiento terminal para un modelo de flujo de caja descontado.
+- Comparables pertinentes y múltiplos coherentes con la estructura de negocio y la rentabilidad.
+- Sensibilidades de margen, crecimiento, capital de trabajo y costo de capital.
 
-- Crecimiento orgánico frente a adquisiciones y cambios de precios o volumen.
-- Estabilidad o erosión de márgenes brutos y operativos.
-- Capital de trabajo y conversión de beneficios en FCF.
-- ROIC, capex y necesidades de reinversión por segmento.
-- Coste de financiación, deuda neta y tasa de descuento.
+Hasta contar con esos datos, el rango de objetivos y la cotización son referencias observadas, no prueba de infravaloración o sobrevaloración.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué fuentes primarias confirman los ingresos, márgenes, ROIC, FCF y múltiplos reportados, y a qué períodos corresponden?
-2. ¿Cuánto del crecimiento de ingresos y FCF proviene de crecimiento orgánico, adquisiciones, precios, volumen y capital de trabajo?
-3. ¿Cuáles son el ROIC, los márgenes y las necesidades de reinversión por segmento?
-4. ¿Cómo se reconcilian el FCF positivo descrito por DDD y el FCF yield de cero reportado por AOIF?
-5. ¿Cuál es la serie histórica de flujo de caja operativo, capex y FCF, y qué explica su variabilidad anual?
-6. ¿Cuál es la deuda neta, el calendario de vencimientos, el gasto por intereses y la cobertura calculada con datos verificables?
-7. ¿Qué factores explican el current ratio de 0,88 y cómo evoluciona la liquidez?
-8. ¿Qué evidencia cuantitativa respalda las calificaciones de liderazgo competitivo, moat estrecho y calidad de management?
-9. ¿Cuál es la estructura actual de incentivos, participación de insiders, dilución y composición del consejo?
-10. ¿Qué litigios, acuerdos u obligaciones regulatorias están vigentes y qué posibles efectos financieros tienen?
-11. ¿Qué hipótesis de beneficios y valoración sustentan el consenso de precio objetivo de USD 300,8 y su rango de USD 260–330?
-12. ¿Qué pares de distribución sanitaria son adecuados para comparar múltiplos y rentabilidad, en lugar de usar sin ajustes compañías farmacéuticas como [[ABBV]], [[AMGN]] o [[BMY]]?
+1. ¿Cuáles son los ingresos, márgenes operativos y FCF por segmento, y cómo evolucionan en períodos comparables?
+2. ¿Cuál es el ROIC de la compañía y cuál es la rentabilidad incremental de la reinversión por segmento?
+3. ¿Qué cuota de mercado, tamaño de mercado direccionable y evolución de penetración sustentan el crecimiento?
+4. ¿Qué explica el aumento del margen bruto reportado entre FY 2025, FY 2026 y TTM al 30 de septiembre de 2026?
+5. ¿El FCF TTM de USD 4.901 millones es recurrente y cómo se concilia con el flujo de caja operativo y las necesidades de capital de trabajo?
+6. ¿Cuál es la estructura de deuda, el calendario de vencimientos y la disponibilidad de liquidez?
+7. ¿Cuál es la exposición cuantificada a litigios y acuerdos relacionados con la distribución de opioides?
+8. ¿Cómo se alinean los incentivos de la dirección con la rentabilidad a largo plazo, y cuál es la tenencia accionaria de insiders?
+9. ¿Qué fechas y supuestos respaldan el consenso de precio objetivo de USD 260–330?
+10. ¿Cuál es la serie comparable de acciones en circulación y la dilución interanual?
 
-**Fuentes de esta entrada:** paquetes de investigación DDD y AOIF suministrados; referencia de current ratio de Stock Analysis, [estadísticas de CAH](https://stockanalysis.com/stocks/CAH/statistics/).
+**Agenda prioritaria:** obtener estados financieros y presentaciones verificables; reconstruir series comparables de ingresos, márgenes y FCF; analizar resultados por segmento y retornos sobre capital; y verificar precio, deuda y supuestos antes de emitir una conclusión de valoración o decisión de inversión.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]]
+- **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[CVS|CVS Health Corporation]], [[DHR|Danaher Corporation]], [[GILD|Gilead Sciences, Inc.]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly and Company]], [[MDT|Medtronic plc]], [[MRK|Merck & Co., Inc.]], [[NVS|Novartis AG]], [[TMO|Thermo Fisher Scientific Inc.]], [[UNH|UnitedHealth Group Incorporated]], [[VRTX|Vertex Pharmaceuticals Incorporated]]
