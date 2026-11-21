@@ -1,0 +1,40 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental pendiente; encaje multibaggers no demostrado'
+- 'Market error: No validado: el consenso observado y los datos financieros suministrados
+  no bastan para identificar un error de valoración.'
+- 'Thesis: Colgate-Palmolive presenta un perfil de productos de consumo y evidencia
+  financiera de margen bruto TTM de 60,64% y FCF TTM positivo al 2026-09-30. La tesis
+  de crecimiento depende de que pueda sostene'
+generated_at: '2026-11-21T14:52:02.050073-03:00'
+id: ass-48e79da8
+recommendation: REVIEW
+risks:
+- fuentes: []
+  implicacion: La evaluación de crecimiento por acción y de calidad financiera queda
+    incompleta.
+  riesgo: La información entregada no permite cuantificar crecimiento de ingresos
+    a tres años, dilución ni varios ratios solicitados con fuentes verificables admitidas.
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/CL/statistics/
+  implicacion: No puede concluirse aquí si el apalancamiento cruza el umbral configurado.
+  riesgo: El endeudamiento neto reportado fue USD 6.104 millones al 2026-09-30; no
+    se dispone de un ratio net debt/EBITDA validado bajo las reglas de fuentes del
+    encargo.
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/CL/statistics/
+  implicacion: Es una observación de liquidez corriente, no una conclusión sobre capacidad
+    de pago.
+  riesgo: El current ratio reportado fue 0,96 al 2026-09-30, por encima del umbral
+    de observación configurado de 0,5.
+- fuentes: []
+  implicacion: Estas dimensiones requieren investigación adicional y no se presumen
+    ausentes.
+  riesgo: El paquete no aporta evidencia específica para evaluar erosión competitiva,
+    exposición geográfica detallada ni riesgos regulatorios o de insumos.
+score: 40
+status: COMPLETED
+version: '3.0'

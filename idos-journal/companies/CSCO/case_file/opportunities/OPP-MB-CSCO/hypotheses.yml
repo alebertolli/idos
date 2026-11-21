@@ -1,138 +1,157 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos TTM reportados al cierre de la fecha objetivo son inferiores
-      a USD 64.592 mil millones.
+  - condition: Los ingresos TTM publicados hasta la fecha objetivo son inferiores
+      a USD 66.491 millones.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Una disminución de ingresos en dos trimestres consecutivos durante
-      el período de evaluación deja el crecimiento TTM por debajo del umbral del 2%.
+  - condition: La empresa no registra crecimiento interanual en ingresos de seguridad
+      ni de infraestructura para centros de datos durante dos trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento de ingresos se explica principalmente por negocios distintos
+      de seguridad y centros de datos, sin contribución positiva demostrable de estos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos TTM reportados al cierre de la fecha objetivo son inferiores a USD
-    64.592 mil millones.
-  - Una disminución de ingresos en dos trimestres consecutivos durante el período
-    de evaluación deja el crecimiento TTM por debajo del umbral del 2%.
+  - Los ingresos TTM publicados hasta la fecha objetivo son inferiores a USD 66.491
+    millones.
+  - La empresa no registra crecimiento interanual en ingresos de seguridad ni de infraestructura
+    para centros de datos durante dos trimestres consecutivos.
+  - El crecimiento de ingresos se explica principalmente por negocios distintos de
+    seguridad y centros de datos, sin contribución positiva demostrable de estos.
   horizon: medio
   id: H1-OPP-MB-CSCO
   opportunity_id: OPP-MB-CSCO
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 2.0
+    deadline: '2027-11-21'
+    expected: 5.0
     met: null
-    metric: Crecimiento de ingresos TTM frente a USD 63.325 mil millones
-    prediction: Al 2027-11-20, los ingresos de los últimos doce meses reportados serán
-      al menos un 2% superiores a los ingresos TTM de USD 63.325 mil millones, medidos
-      con períodos comparables y cifras reportadas por Cisco.
-    unit: porcentaje mínimo
-  priority: important
+    metric: Crecimiento de ingresos TTM
+    prediction: En los resultados publicados hasta el 2027-11-21, los ingresos TTM
+      de Cisco serán al menos 5% superiores a los USD 63.325 millones registrados
+      al 2026-07-25, y la empresa comunicará crecimiento interanual en ingresos de
+      seguridad o de infraestructura para centros de datos en al menos dos trimestres
+      consecutivos.
+    unit: porcentaje mínimo frente a USD 63.325 millones
+  priority: critical
   probability: 0.5
-  rationale: La base de ingresos TTM informada es de USD 63.325 mil millones. Sin
-    datos verificables sobre crecimiento orgánico o demanda por línea de negocio,
-    la hipótesis prudente es que el negocio conservará crecimiento nominal positivo,
-    no que acelerará de forma sostenida.
-  review_trigger: Dejar de creerla si los resultados publicados muestran ingresos
-    TTM inferiores a USD 64.592 mil millones al 2027-11-20, o antes si dos informes
-    trimestrales consecutivos confirman contracción de ingresos.
+  rationale: La tesis atribuye el crecimiento futuro a seguridad y centros de datos,
+    pero la información disponible no cuantifica su contribución ni el mercado direccionable.
+    Por ello, esta hipótesis trata el crecimiento de ingresos como una prueba observable
+    de ejecución, no como evidencia ya confirmada.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes del 2027-11-21 muestran contracción interanual tanto en ingresos de seguridad
+    como en los indicadores disponibles de infraestructura para centros de datos.
   secondary_hypotheses: []
-  statement: Cisco mantendrá crecimiento positivo de ingresos durante los próximos
-    doce meses, aunque los datos disponibles no bastan para afirmar que ese crecimiento
-    sea estructuralmente alto.
+  statement: El crecimiento de las ofertas de seguridad y centros de datos contribuirá
+    a una expansión medible de los ingresos de Cisco durante los próximos doce meses.
   status: ACTIVE
   ticker: CSCO
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen de FCF TTM es inferior al 18% en la fecha objetivo.
+  - condition: El FCF TTM más reciente es inferior a 1,05 veces el FCF TTM reportado
+      al 2026-07-25.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF TTM cae por debajo de USD 11.627 mil millones si los ingresos
-      TTM permanecen en USD 64.592 mil millones o más.
+  - condition: El margen bruto reportado cae por debajo de 63,5% en dos informes trimestrales
+      consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La mejora del FCF depende de una reducción de inversión o de capital
+      de trabajo que la empresa identifique como temporal y no sostenible.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen de FCF TTM es inferior al 18% en la fecha objetivo.
-  - El FCF TTM cae por debajo de USD 11.627 mil millones si los ingresos TTM permanecen
-    en USD 64.592 mil millones o más.
+  - El FCF TTM más reciente es inferior a 1,05 veces el FCF TTM reportado al 2026-07-25.
+  - El margen bruto reportado cae por debajo de 63,5% en dos informes trimestrales
+    consecutivos.
+  - La mejora del FCF depende de una reducción de inversión o de capital de trabajo
+    que la empresa identifique como temporal y no sostenible.
   horizon: medio
   id: H2-OPP-MB-CSCO
   opportunity_id: OPP-MB-CSCO
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 18.0
+    deadline: '2027-11-21'
+    expected: 5.0
     met: null
-    metric: Margen de FCF TTM
-    prediction: Al 2027-11-20, el margen de FCF TTM será de al menos 18%, calculado
-      como FCF TTM dividido por ingresos TTM reportados.
-    unit: porcentaje mínimo
+    metric: Cambio del FCF TTM
+    prediction: Para el 2027-11-21, el FCF TTM será al menos 5% mayor que el FCF TTM
+      reportado al 2026-07-25, y el margen bruto reportado en el período TTM más reciente
+      será de al menos 63,5%.
+    unit: porcentaje mínimo frente al nivel reportado al 2026-07-25
   priority: critical
   probability: 0.5
-  rationale: El FCF TTM informado es de USD 12.767 mil millones sobre ingresos de
-    USD 63.325 mil millones, equivalente a un margen aproximado del 20,2%. La hipótesis
-    comprueba si esa generación de caja resiste durante el siguiente año, sin inferir
-    retornos incrementales sobre capital que no están disponibles.
-  review_trigger: Dejar de creerla si un informe oficial muestra margen de FCF TTM
-    inferior al 18%; una caída trimestral aislada no bastará si se revierte en el
-    siguiente informe.
-  secondary_hypotheses: []
-  statement: Cisco conservará una conversión sólida de ingresos en flujo de caja libre,
-    aunque esa capacidad por sí sola no demostrará crecimiento rentable de largo plazo.
+  rationale: La evidencia disponible indica que el FCF TTM era ligeramente menor que
+    en FY 2025 y que el efectivo e inversiones también habían disminuido. Una recuperación
+    del FCF, acompañada de márgenes brutos relativamente estables, permitiría comprobar
+    si el crecimiento puede convertirse en generación de caja rentable.
+  review_trigger: Dejar de creerla si un informe publicado antes del 2027-11-21 muestra
+    FCF TTM inferior al nivel del 2026-07-25 y la dirección no prevé una recuperación
+    dentro de los dos trimestres siguientes.
+  secondary_hypotheses:
+  - H1-OPP-MB-CSCO
+  statement: Cisco elevará el flujo de caja libre TTM respecto de su nivel al 2026-07-25
+    sin sacrificar sustancialmente el margen bruto.
   status: ACTIVE
   ticker: CSCO
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de CSCO iguala o supera al del S&P 500 en el período.
+  - condition: El rendimiento total de CSCO menos el rendimiento total del S&P 500
+      es inferior a 5 puntos porcentuales en la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La diferencia entre el rendimiento total de CSCO y el del S&P 500 es
-      superior a -5 puntos porcentuales.
+  - condition: CSCO registra un rendimiento total inferior al del S&P 500 y los informes
+      disponibles no muestran mejora en crecimiento de ingresos o FCF.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de CSCO iguala o supera al del S&P 500 en el período.
-  - La diferencia entre el rendimiento total de CSCO y el del S&P 500 es superior
-    a -5 puntos porcentuales.
+  - El rendimiento total de CSCO menos el rendimiento total del S&P 500 es inferior
+    a 5 puntos porcentuales en la fecha objetivo.
+  - CSCO registra un rendimiento total inferior al del S&P 500 y los informes disponibles
+    no muestran mejora en crecimiento de ingresos o FCF.
   horizon: medio
   id: H3-OPP-MB-CSCO
   opportunity_id: OPP-MB-CSCO
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: -5.0
+    deadline: '2027-11-21'
+    expected: 5.0
     met: null
-    metric: Rendimiento total relativo de CSCO frente al S&P 500
-    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de CSCO,
-      incluidos dividendos reinvertidos, quedará al menos 5 puntos porcentuales por
-      debajo del rendimiento total del S&P 500.
-    unit: puntos porcentuales como máximo
-  priority: informational
+    metric: Rendimiento total relativo frente al S&P 500
+    prediction: Entre el cierre del 2026-11-21 y el cierre del 2027-11-21, el rendimiento
+      total de CSCO, incluidos dividendos, superará el rendimiento total del S&P 500
+      en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales de exceso de rendimiento
+  priority: important
   probability: 0.5
-  rationale: El contexto no aporta datos verificables de crecimiento orgánico, mercado
-    direccionable, reinversión o retornos incrementales sobre capital que permitan
-    validar una prima de crecimiento de largo plazo. Por ello, la hipótesis de mercado
-    es que la generación de caja por sí sola no bastará para producir una ventaja
-    relativa material; no implica que la acción esté sobrevalorada.
-  review_trigger: Dejar de creerla al 2027-11-20 si CSCO alcanza o supera el rendimiento
-    total del S&P 500; también revisarla antes si nuevos resultados verificables demuestran
-    crecimiento orgánico sostenido y retornos incrementales atractivos.
+  rationale: Si las ofertas de seguridad y centros de datos impulsan crecimiento y
+    conversión a caja, el mercado podría reconocer una mejora en la trayectoria del
+    negocio. Sin datos de valoración, esta hipótesis se limita a una predicción relativa
+    de rendimiento y no presupone que la acción esté barata.
+  review_trigger: Dejar de creerla si, al cierre del 2027-05-21, CSCO acumula un rendimiento
+    total inferior al del S&P 500 en al menos 10 puntos porcentuales y no hay evidencia
+    publicada de aceleración de ingresos o recuperación del FCF.
   secondary_hypotheses:
   - H1-OPP-MB-CSCO
   - H2-OPP-MB-CSCO
-  statement: Durante los próximos doce meses, la rentabilidad total de la acción de
-    Cisco no superará de forma material a la del S&P 500.
+  statement: La acción de Cisco tendrá un rendimiento total superior al del S&P 500
+    durante los próximos doce meses.
   status: ACTIVE
   ticker: CSCO
   version: 1
