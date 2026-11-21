@@ -85,7 +85,7 @@ Total: 165 companies tracked
 - 📄 [[SLB|SLB N.V.]]
 - 📄 [[TS|Tenaris S.A.]]
 - 📄 [[TTE|TotalEnergies SE]]
-- ⏳ [[UGP|Ultrapar Participações S.A.]]
+- 📄 [[UGP|Ultrapar Participações S.A.]]
 - 📄 [[VIST|Vista Energy, S.A.B. de C.V.]]
 - 📄 [[XOM|ExxonMobil Holdings Corporation]]
 - 📄 [[YPF|YPF Sociedad Anónima]]
@@ -153,7 +153,7 @@ Total: 165 companies tracked
 - 📄 [[RTX|RTX Corporation]]
 - 📄 [[SIEGY|Siemens Aktiengesellschaft]]
 - 📄 [[SNA|Snap-on Incorporated]]
-- ⏳ [[UNP|Union Pacific Corporation]]
+- 📄 [[UNP|Union Pacific Corporation]]
 
 ## Other
 - 📄 [[PG|The Procter & Gamble Company]]
@@ -189,7 +189,7 @@ Total: 165 companies tracked
 - 📄 [[SNOW|Snowflake Inc.]]
 - 📄 [[TSM|Taiwan Semiconductor Manufacturing Company Limited]]
 - 📄 [[TWLO|Twilio Inc.]]
-- ⏳ [[TXN|Texas Instruments Incorporated]]
+- 📄 [[TXN|Texas Instruments Incorporated]]
 - 📄 [[VRSN|VeriSign, Inc.]]
 
 ## Utilities

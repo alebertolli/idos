@@ -1,0 +1,28 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia financiera parcial'
+- 'Market error: No se puede validar un error de valoración con la evidencia disponible;
+  los objetivos de analistas son referencias observadas, no valor intrínseco.'
+- 'Thesis: UNP opera servicios ferroviarios de mercancías en Estados Unidos y presenta
+  FCF TTM positivo y margen bruto reportado superior al 55% al 2026-09-30. La evidencia
+  disponible no basta para establecer el'
+generated_at: '2026-11-21T18:48:41.534039-03:00'
+id: ass-e8286883
+recommendation: REVIEW
+risks:
+- fuente: StockAnalysis, estados financieros, período finalizado 2026-09-30.
+  riesgo: La deuda neta reportada fue 28.026 millones en valor de fuente al 2026-09-30;
+    no puede calcularse deuda neta/EBITDA con unidades verificablemente compatibles.
+- fuente: StockAnalysis, estadísticas, período finalizado 2026-09-30.
+  riesgo: No hay serie de acciones diluidas ni de acciones en circulación histórica
+    suficiente para medir dilución interanual.
+- fuente: Evidencia no disponible en el paquete.
+  riesgo: El paquete no aporta datos para evaluar concentración de clientes, sensibilidad
+    por mercancía, necesidades de capital, seguridad ferroviaria o exposición regulatoria.
+- fuente: StockAnalysis, estados financieros, períodos indicados en cada ratio.
+  riesgo: La información financiera y de mercado es insuficiente para evaluar retornos
+    incrementales sobre capital o determinar si el crecimiento de FCF es sostenible.
+score: 58
+status: COMPLETED
+version: '3.0'

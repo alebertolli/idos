@@ -2230,3 +2230,112 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T18:34:50.122969'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-TXN
+    ticker: TXN
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T18:42:34.717507'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TXN
+    ticker: TXN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T18:42:34.832710'
+- data:
+    classification: RESEARCH_REQUIRED
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 35b906a316dc588867c1521c9fb104299821431da5c870242cf55b7164754190
+    opp_id: OPP-MB-TXN
+    original_status: SCREENED
+    score: 56
+    strategy_version: '1.5'
+    ticker: TXN
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T18:44:19.917973'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-UGP
+    ticker: UGP
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T18:44:53.352729'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-UGP
+    ticker: UGP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T18:44:53.507154'
+- data:
+    classification: Investigación requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 7cb95d63842290544a468aba0be99bcd18377c79f4f34c0adafd832fa8c75f0a
+    opp_id: OPP-MB-UGP
+    original_status: SCREENED
+    score: 58
+    strategy_version: '1.5'
+    ticker: UGP
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T18:46:30.239986'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-UNP
+    ticker: UNP
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T18:47:02.419993'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-UNP
+    ticker: UNP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T18:47:02.538266'
+- data:
+    classification: Investigación requerida; evidencia financiera parcial
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 31e07a491fdbb2068c7fe47de7f8f66057d792d54e355cfee2eaee0311793938
+    opp_id: OPP-MB-UNP
+    original_status: SCREENED
+    score: 58
+    strategy_version: '1.5'
+    ticker: UNP
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T18:48:41.656469'
