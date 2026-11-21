@@ -2009,3 +2009,116 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T18:08:09.564579'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - net_debt_ebitda
+    opp_id: OPP-MULTIBAGGERS-SNOW-0001
+    ticker: SNOW
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T18:15:25.644487'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-SNOW-0001
+    ticker: SNOW
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T18:15:25.742306'
+- data:
+    classification: 'Investigación requerida: crecimiento de plataforma con rentabilidad
+      GAAP negativa'
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 829edc81d8db047511b9635feff768739cb4d048e9c2af803c932d57cdad1a05
+    opp_id: OPP-MULTIBAGGERS-SNOW-0001
+    original_status: UNDER_RESEARCH
+    score: 65.2
+    strategy_version: '1.5'
+    ticker: SNOW
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T18:17:04.351524'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MULTIBAGGERS-SPGI-0001
+    ticker: SPGI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T18:17:40.763981'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-SPGI-0001
+    ticker: SPGI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T18:17:40.863341'
+- data:
+    classification: Investigación fundamental requerida; calidad de negocio potencialmente
+      alta, valoración y retornos sobre capital insuficientemente validados
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 64ecb039ba658a5de656f579a636d30cbc068a50523f8a3fd48a50b23d8e8771
+    opp_id: OPP-MULTIBAGGERS-SPGI-0001
+    original_status: UNDER_RESEARCH
+    score: 62
+    strategy_version: '1.5'
+    ticker: SPGI
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T18:19:17.983351'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-SYY
+    ticker: SYY
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T18:19:52.783333'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-SYY
+    ticker: SYY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T18:19:52.885588'
+- data:
+    classification: Investigación fundamental requerida; evidencia insuficiente para
+      clasificarla como oportunidad multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: d8fca1f076fce2b69242f9bd92361ab6b2e7ccef2fe65203b7f9476f81741be5
+    opp_id: OPP-MB-SYY
+    original_status: UNDER_RESEARCH
+    score: 55
+    strategy_version: '1.5'
+    ticker: SYY
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T18:21:27.460872'

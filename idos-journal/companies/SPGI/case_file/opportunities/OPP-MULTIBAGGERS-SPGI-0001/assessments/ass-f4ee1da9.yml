@@ -1,0 +1,38 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida; calidad de negocio potencialmente
+  alta, valoración y retornos sobre capital insuficientemente validados'
+- 'Market error: No se valida un error de valoración con la evidencia disponible:
+  hay anclas de consenso, pero faltan expectativas financieras fechadas y un método
+  defendible de valoración intrínseca.'
+- 'Thesis: La tesis a investigar es que los datos, benchmarks, ratings y soluciones
+  de workflow descritos en el resumen financiero puedan sostener ingresos recurrentes,
+  márgenes y generación de caja. La evidenci'
+generated_at: '2026-11-21T18:19:17.857402-03:00'
+id: ass-f4ee1da9
+recommendation: REVIEW
+risks:
+- evidencia: Sólo se proporciona shares_outstanding para el período terminado el 2026-09-30,
+    sin historial comparable.
+  fuente: https://stockanalysis.com/stocks/SPGI/statistics/
+  riesgo: 'La cobertura de ratios es incompleta: no puede calcularse una tasa de dilución
+    con las observaciones de acciones disponibles.'
+- evidencia: La deuda neta histórica aparece como importe reportado y EBITDA como
+    valor TTM, sin escala monetaria explícita compatible en ambos campos.
+  fuente: https://stockanalysis.com/stocks/spgi/financials/
+  riesgo: El apalancamiento neto relativo a EBITDA no queda validado por falta de
+    compatibilidad verificable de unidades entre los campos disponibles.
+- evidencia: El proveedor reporta 0 para interest_coverage_ratio TTM terminado el
+    2026-09-30; el paquete no aporta gastos por intereses para comprobarlo.
+  fuente: https://stockanalysis.com/stocks/SPGI/statistics/
+  riesgo: El dato de cobertura de intereses requiere verificación antes de interpretarse
+    como capacidad de servicio de deuda.
+- evidencia: Momentum 12 meses de 1,2178%, volatilidad de 90 días de 30,2376% y drawdown
+    reportado de 9,7386% hasta 2026-10-30.
+  fuente: https://finance.yahoo.com/quote/SPGI/history/
+  riesgo: El movimiento de precio de 12 meses fue limitado frente a la volatilidad
+    observada en el período.
+score: 62
+status: COMPLETED
+version: '3.0'

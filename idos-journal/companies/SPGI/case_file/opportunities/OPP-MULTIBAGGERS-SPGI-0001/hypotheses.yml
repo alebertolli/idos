@@ -1,145 +1,201 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento orgánico de ingresos del ejercicio 2027 es inferior
-      a 5%.
+  - condition: El crecimiento orgánico de ingresos de 2027 es inferior a 5,0%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía deja de publicar una métrica comparable y la información
-      segmentaria disponible muestra contracción de ingresos en al menos dos segmentos
-      durante 2027.
+  - condition: La compañía informa una contracción interanual de ingresos orgánicos
+      en dos trimestres consecutivos de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento orgánico de ingresos del ejercicio 2027 es inferior a 5%.
-  - La compañía deja de publicar una métrica comparable y la información segmentaria
-    disponible muestra contracción de ingresos en al menos dos segmentos durante 2027.
+  - El crecimiento orgánico de ingresos de 2027 es inferior a 5,0%.
+  - La compañía informa una contracción interanual de ingresos orgánicos en dos trimestres
+    consecutivos de 2027.
   horizon: medio
   id: H1-OPP-MULTIBAGGERS-SPGI-0001
   opportunity_id: OPP-MULTIBAGGERS-SPGI-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-15'
+    deadline: '2028-03-31'
     expected: 5.0
     met: null
     metric: Crecimiento orgánico de ingresos del ejercicio 2027
-    prediction: En los resultados del ejercicio 2027, SPGI reportará crecimiento orgánico
-      de ingresos de al menos 5% frente al ejercicio 2026, según la métrica orgánica
-      que defina y publique la compañía.
-    unit: '% mínimo interanual'
+    prediction: Para el ejercicio terminado el 2027-12-31, SPGI reportará crecimiento
+      orgánico de ingresos de al menos 5,0% interanual, medido con la definición de
+      la compañía y excluyendo el efecto de divisas y cambios de perímetro.
+    unit: '% interanual o superior'
   priority: critical
   probability: 0.5
-  rationale: La oferta combina productos de información y servicios integrados que
-    pueden generar ingresos recurrentes y beneficiarse de la actividad en mercados
-    de capitales y materias primas. Sin desglose de crecimiento, penetración o mercado
-    direccionable, esta hipótesis debe probarse con el crecimiento orgánico consolidado
-    publicado por la compañía.
-  review_trigger: Dejar de creerla cuando se publiquen los resultados del ejercicio
-    2027 si el crecimiento orgánico es inferior a 5%, o antes si dos informes trimestrales
-    consecutivos muestran contracción orgánica consolidada.
+  rationale: La compañía ofrece productos incorporados en procesos financieros y empresariales
+    que pueden generar renovaciones y uso recurrente. El margen bruto TTM de 70,99%
+    es compatible con una oferta de alto valor, pero no demuestra por sí solo la recurrencia
+    ni el crecimiento futuro; la hipótesis se comprobará con los ingresos orgánicos
+    publicados por la compañía.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-12-31
+    muestra dos trimestres consecutivos de contracción orgánica, o si los resultados
+    anuales de 2027 publicados a más tardar el 2028-03-31 muestran crecimiento inferior
+    a 5,0%.
   secondary_hypotheses: []
-  statement: SPGI mantendrá crecimiento orgánico de ingresos en sus negocios durante
-    el ejercicio 2027, señal de que la combinación de datos, analítica, workflows,
-    ratings, energía y commodities y benchmarks conserva demanda.
+  statement: La demanda recurrente de datos, benchmarks, ratings y soluciones de workflow
+    permitirá que SPGI mantenga crecimiento orgánico de ingresos durante 2027.
   status: ACTIVE
   ticker: SPGI
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF calculado como flujo de caja de operaciones menos gastos de
-      capital crece menos de 5% frente a 2026.
+  - condition: El margen bruto TTM reportado al 2027-09-30 es inferior a 69,0%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF del ejercicio 2027 es inferior al de 2026.
+  - condition: El margen bruto cae al menos 2,0 puntos porcentuales frente al 70,99%
+      de referencia y la compañía atribuye la caída a costes operativos persistentes,
+      no a un efecto transitorio o de presentación.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF calculado como flujo de caja de operaciones menos gastos de capital crece
-    menos de 5% frente a 2026.
-  - El FCF del ejercicio 2027 es inferior al de 2026.
+  - El margen bruto TTM reportado al 2027-09-30 es inferior a 69,0%.
+  - El margen bruto cae al menos 2,0 puntos porcentuales frente al 70,99% de referencia
+    y la compañía atribuye la caída a costes operativos persistentes, no a un efecto
+    transitorio o de presentación.
   horizon: medio
   id: H2-OPP-MULTIBAGGERS-SPGI-0001
   opportunity_id: OPP-MULTIBAGGERS-SPGI-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-15'
-    expected: 5.0
+    deadline: '2027-11-15'
+    expected: 69.0
     met: null
-    metric: Crecimiento del FCF frente al ejercicio 2026
-    prediction: El FCF del ejercicio 2027, definido como flujo de caja de operaciones
-      menos gastos de capital, será al menos 5% superior al FCF del ejercicio 2026.
-    unit: '% mínimo interanual'
-  priority: critical
+    metric: Margen bruto TTM al 2027-09-30
+    prediction: El margen bruto TTM de SPGI será de al menos 69,0% al 2027-09-30,
+      calculado de forma consistente con la métrica reportada para el período terminado
+      el 2026-09-30.
+    unit: '% o superior'
+  priority: important
   probability: 0.5
-  rationale: La tesis de inversión depende de que los servicios de información y análisis
-    sostengan la reinversión y generen FCF. La evidencia disponible no aporta una
-    serie de FCF ni retornos sobre capital verificables, por lo que el crecimiento
-    de caja debe contrastarse directamente con el ejercicio anterior.
-  review_trigger: Dejar de creerla al publicarse el flujo de caja anual de 2027 si
-    el crecimiento interanual del FCF es inferior a 5%; si la empresa modifica la
-    clasificación de gastos de capital, recalcular ambos ejercicios con una definición
-    consistente.
+  rationale: El margen bruto TTM reportado fue de 70,99% al 2026-09-30. La venta de
+    datos, benchmarks, ratings y software puede tener costes marginales relativamente
+    bajos, pero el dato disponible no demuestra que la estructura de costes o la mezcla
+    de ingresos se mantengan estables.
+  review_trigger: Dejar de creerla cuando la publicación de resultados correspondiente
+    al tercer trimestre de 2027 muestre un margen bruto TTM inferior a 69,0%, o una
+    caída de al menos 2,0 puntos porcentuales respecto de la referencia sin explicación
+    transitoria verificable.
   secondary_hypotheses:
   - H1-OPP-MULTIBAGGERS-SPGI-0001
-  statement: SPGI convertirá el crecimiento del negocio en mayor generación de caja
-    libre durante 2027, sin que la reinversión y las necesidades de capital absorban
-    la mayor parte del avance operativo.
+  statement: La escala y el valor de los productos de SPGI permitirán sostener un
+    margen bruto elevado pese a posibles cambios en la mezcla de negocios.
   status: ACTIVE
   ticker: SPGI
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de SPGI menos el rendimiento total del S&P 500
-      es inferior a 3 puntos porcentuales en el periodo.
+  - condition: El FCF de los doce meses terminados el 2027-09-30 es inferior a 5.400
+      millones de dólares.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: SPGI registra rendimiento total negativo durante el periodo, aunque
-      el índice también caiga.
+  - condition: El FCF cae más de 10% frente a los 5.675 millones de referencia y la
+      caída no se explica principalmente por partidas de capital circulante claramente
+      identificadas como temporales.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de SPGI menos el rendimiento total del S&P 500 es inferior
-    a 3 puntos porcentuales en el periodo.
-  - SPGI registra rendimiento total negativo durante el periodo, aunque el índice
-    también caiga.
+  - El FCF de los doce meses terminados el 2027-09-30 es inferior a 5.400 millones
+    de dólares.
+  - El FCF cae más de 10% frente a los 5.675 millones de referencia y la caída no
+    se explica principalmente por partidas de capital circulante claramente identificadas
+    como temporales.
   horizon: medio
   id: H3-OPP-MULTIBAGGERS-SPGI-0001
   opportunity_id: OPP-MULTIBAGGERS-SPGI-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 3.0
+    deadline: '2027-11-15'
+    expected: 5400.0
     met: null
-    metric: Rendimiento total relativo de SPGI frente al S&P 500
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
-      total de SPGI, incluidos dividendos, superará al rendimiento total del índice
-      S&P 500 en al menos 3 puntos porcentuales.
-    unit: puntos porcentuales mínimo
-  priority: important
+    metric: Flujo de caja libre TTM al 2027-09-30
+    prediction: El FCF para los doce meses terminados el 2027-09-30 será de al menos
+      5.400 millones de dólares, usando la definición de FCF de SPGI y comparándola
+      con la misma definición para el período de referencia.
+    unit: millones de dólares o superior
+  priority: critical
   probability: 0.5
-  rationale: El negocio puede beneficiarse de ingresos diversificados y de la demanda
-    de información, ratings y benchmarks. Sin embargo, la evidencia disponible no
-    permite concluir que la cotización esté infravalorada ni validar objetivos de
-    analistas; por ello, la ventaja de mercado se plantea como una predicción relativa
-    observable, no como una conclusión de valoración.
-  review_trigger: Dejar de creerla al cierre del 2027-11-20 si no alcanza la ventaja
-    relativa de 3 puntos porcentuales; abandonar antes si la compañía recorta su perspectiva
-    anual de crecimiento orgánico y FCF en dos comunicaciones consecutivas.
+  rationale: El FCF TTM fue de 5.675 millones para el período terminado el 2026-09-30.
+    La recurrencia de ingresos podría respaldar la conversión de caja, aunque el dato
+    aislado no acredita su durabilidad y el FCF también depende del capital circulante,
+    impuestos, inversión y partidas no recurrentes.
+  review_trigger: Dejar de creerla si la publicación de resultados del tercer trimestre
+    de 2027 informa FCF TTM inferior a 5.400 millones de dólares, o si se confirma
+    una caída superior a 10% atribuible a un deterioro persistente de la conversión
+    de caja.
   secondary_hypotheses:
   - H1-OPP-MULTIBAGGERS-SPGI-0001
   - H2-OPP-MULTIBAGGERS-SPGI-0001
-  statement: La acción de SPGI obtendrá un rendimiento total superior al del S&P 500
-    durante los 12 meses posteriores a la fecha de corte, si el crecimiento del negocio
-    y la caja compensa el riesgo de valoración.
+  statement: SPGI mantendrá una generación anual de flujo de caja libre cercana o
+    superior al nivel TTM observado, apoyada por sus negocios de datos, ratings y
+    benchmarks.
+  status: ACTIVE
+  ticker: SPGI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de SPGI menos el rendimiento total del S&P 500
+      durante el período es mayor que -5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento orgánico de ingresos de SPGI se mantiene en 5,0% o más
+      en las publicaciones trimestrales disponibles durante el período y SPGI no registra
+      una revisión material a la baja de sus previsiones corporativas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de SPGI menos el rendimiento total del S&P 500 durante el
+    período es mayor que -5 puntos porcentuales.
+  - El crecimiento orgánico de ingresos de SPGI se mantiene en 5,0% o más en las publicaciones
+    trimestrales disponibles durante el período y SPGI no registra una revisión material
+    a la baja de sus previsiones corporativas.
+  horizon: medio
+  id: H4-OPP-MULTIBAGGERS-SPGI-0001
+  opportunity_id: OPP-MULTIBAGGERS-SPGI-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total relativo de SPGI frente al S&P 500
+    prediction: Desde el cierre de SPGI y del S&P 500 del 2026-11-20 hasta el 2027-11-30,
+      el rendimiento total de SPGI, incluidos dividendos, será inferior al rendimiento
+      total del S&P 500 por al menos 5 puntos porcentuales.
+    unit: puntos porcentuales o inferior
+  priority: important
+  probability: 0.5
+  rationale: El paquete disponible no aporta estimaciones futuras de ingresos, beneficios
+    o márgenes ni datos suficientes para juzgar la valoración relativa. Por ello,
+    existe un riesgo comprobable de que el consenso o el precio objetivo no incorporen
+    una desaceleración; si las publicaciones de resultados revelan crecimiento orgánico
+    débil, podría producirse una revisión de expectativas. Esta hipótesis es de mercado
+    y no afirma que la valoración actual sea excesiva.
+  review_trigger: Dejar de creerla si el rendimiento total relativo de SPGI supera
+    -5 puntos porcentuales antes del 2027-11-30, o si la compañía confirma crecimiento
+    orgánico de al menos 5,0% y mantiene sus previsiones en dos informes trimestrales
+    consecutivos publicados antes de esa fecha.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-SPGI-0001
+  - H2-OPP-MULTIBAGGERS-SPGI-0001
+  statement: Durante los doce meses posteriores a la fecha de corte, SPGI tendrá un
+    rendimiento total inferior al S&P 500 si la generación de ingresos no confirma
+    las expectativas de crecimiento incorporadas por el mercado.
   status: ACTIVE
   ticker: SPGI
   version: 1

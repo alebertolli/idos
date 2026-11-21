@@ -1,129 +1,129 @@
 ## 1. Visión General de la Compañía
 
-S&P Global Inc. ([[SPGI]]) es un proveedor global de información y propiedad intelectual que ofrece benchmarks, datos, análisis, calificaciones crediticias, índices y soluciones de workflow. Sus productos sirven a participantes de los mercados de capitales, empresas y profesionales financieros, además de clientes de energía y commodities y del sector automotriz.
+[[SPGI]] (S&P Global Inc.) es una compañía de información y propiedad intelectual enfocada en datos, análisis, calificaciones crediticias, precios de referencia, índices y soluciones de workflow. Atiende a instituciones financieras, inversores, gestores de activos y emisores corporativos y soberanos. La información disponible describe operaciones en mercados de capitales, energía y materias primas, y automoción, distribuidas en cuatro segmentos; no proporciona cifras comparables de ingresos por segmento ni un desglose geográfico.
 
-La compañía recopila y valida datos, desarrolla metodologías, benchmarks, calificaciones e índices, y los integra en productos analíticos y herramientas de trabajo. Monetiza estos activos mediante suscripciones, licencias y otros servicios. La investigación recibida describe cuatro segmentos, pero no proporciona sus nombres, ingresos o rentabilidad individuales.
+El modelo combina ingresos recurrentes por suscripciones y licencias con comisiones más sensibles al nivel de actividad de los mercados, en especial las vinculadas a emisiones de deuda y calificaciones. La cadena de valor comprende recopilar y validar datos, producir análisis y benchmarks e integrar esos activos en productos y plataformas.
 
-La exposición a mercados de capitales, energía y commodities y automoción diversifica las áreas de uso de sus productos. La evidencia disponible no cuantifica la distribución geográfica de ingresos.
+Compañías del sector financiero incluidas en la wiki: [[AEG]], [[AIG]], [[AXP]], [[BSBR]], [[BX]], [[C]], [[HSBC]], [[IBN]], [[ING]], [[ITUB]], [[JPM]], [[KB]], [[LYG]], [[MA]], [[MFG]], [[MUFG]], [[NMR]], [[SAN]], [[USB]] y [[V]]. La información disponible no identifica cuáles son competidores directos de SPGI ni permite comparaciones operativas entre estas compañías.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Drivers de ingresos
+### Fuentes de ingresos y drivers
 
-Los principales productos y fuentes de valor identificados son:
+- Suscripciones, licencias y expansión de clientes en datos, análisis y soluciones de workflow.
+- Calificaciones, investigación y analítica; la demanda puede variar con el volumen de emisiones de deuda.
+- Índices, benchmarks y precios de referencia distribuidos mediante licencias y otros productos.
 
-- Datos, análisis, investigación y soluciones de workflow para profesionales financieros y corporativos.
-- Calificaciones crediticias, investigación y análisis.
-- Benchmarks e índices distribuidos mediante licencias y otros productos de información.
-- Soluciones relacionadas con energía, commodities y automoción.
+### Ventajas competitivas descritas
 
-La demanda está vinculada a la actividad de los mercados de capitales, la emisión de deuda, la inversión y las necesidades de información y gestión de riesgos. No se proporcionan tasas de crecimiento, retención o penetración por segmento y mercado direccionable.
+El análisis AOIF caracteriza la posición competitiva como líder y el moat como amplio. Atribuye posibles ventajas a la reputación y confianza, el reconocimiento regulatorio de las calificaciones, la marca, los efectos de red en índices y benchmarks y los costes de cambio cuando los productos se integran en workflows de clientes. Estas caracterizaciones son evaluaciones del análisis recibido; no se aportan métricas independientes de cuota de mercado, retención o poder de precios para verificarlas.
 
-### Moat y competencia
-
-La investigación caracteriza la posición competitiva como líder y el moat como amplio. Los factores propuestos son la reputación e independencia, el reconocimiento de calificaciones e índices, las metodologías especializadas, la escala de datos y los costes de sustitución de ciertos productos integrados en workflows. Son caracterizaciones de la investigación recibida; no se aportan medidas independientes de retención, poder de precios o cuota de mercado que permitan verificarlas.
-
-La amplitud de productos y mercados podría facilitar oportunidades de reinversión, pero no demuestra por sí sola crecimiento futuro ni retornos incrementales. La información proporcionada no identifica competidores concretos de SPGI ni permite comparar sistemáticamente sus productos con los de otras compañías de la lista sectorial, como [[MELI]] o [[ASML]]; estas no se consideran aquí comparables directas.
+La industria puede beneficiarse de la complejidad creciente de los mercados y de la demanda de datos y herramientas de análisis. Sin embargo, algunos negocios, especialmente los relacionados con ratings, pueden ser cíclicos y depender de la actividad de emisiones.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes son las reportadas en los inputs de investigación. Sus períodos, definiciones y comparabilidad deben confirmarse antes de usarlas en un modelo financiero.
+Las métricas recibidas provienen de fuentes y metodologías distintas. No debe asumirse que sean directamente comparables ni que describan un mismo período, salvo donde se indique.
 
-| Métrica | Valor reportado | Período / referencia | Observación |
+| Métrica | Valor reportado | Período / fecha | Fuente y limitaciones |
 |---|---:|---|---|
-| Crecimiento de ingresos | 18.85% | No especificado en el input AOIF | Definición y período no verificables con la evidencia disponible. |
-| Margen operativo | 44.09% | No especificado en el input AOIF | Dato aportado sin serie histórica ni definición. |
-| ROIC | 13.03% | No especificado en el input AOIF | No se aportan metodología, período ni componentes del cálculo. |
-| Margen bruto | 70.99% | TTM al 2026-09-30 | Fuente citada: [Stock Analysis, estados financieros](https://stockanalysis.com/stocks/spgi/financials/). |
-| Margen bruto | 66.43% | FY2022 | Fuente citada: [Stock Analysis, estados financieros](https://stockanalysis.com/stocks/spgi/financials/). |
-| Crecimiento de FCF | 3.84% | TTM al 2026-09-30 | La base comparativa exacta no está especificada. Fuente: [Stock Analysis, estados financieros](https://stockanalysis.com/stocks/spgi/financials/). |
-| Crecimiento de FCF | -1.96% | FY2025 | Dato reportado; no se incluye la serie que permitiría reconciliarlo con el dato TTM. |
-| Net cash | -USD 11,142 millones | 2026-09-30 | Dato reportado. La medida deuda/EBITDA no puede verificarse con los inputs disponibles. |
-| Current ratio | 0.74 | 2026-09-30 | Reportado por encima del umbral de alerta de 0.5 en el análisis recibido. |
-| Crecimiento de ingresos, CAGR 3 años | No disponible | Al 2026-09-30 | No se calculó: no había una observación de ingresos en 2023-09-30 comparable con TTM. |
+| Ingresos: crecimiento | 18,85% | No especificado en el input AOIF | El período y la metodología no están detallados; no se valida con una serie comparable. |
+| Margen operativo | 44,09% | No especificado en el input AOIF | Dato proporcionado en el análisis AOIF, sin período ni metodología adicionales. |
+| ROIC | 13,03% | No especificado en el input AOIF | Dato proporcionado en el análisis AOIF; faltan período y metodología para comparabilidad. |
+| Margen bruto | 66,43% | FY 2022 | StockAnalysis; el input advierte que los períodos disponibles no son todos equivalentes. |
+| Margen bruto | 70,99% | TTM terminado el 2026-09-30 | StockAnalysis; la diferencia frente a FY 2022 no demuestra por sí sola una tendencia sostenible. |
+| FCF | 5.675 millones | TTM terminado el 2026-09-30 | StockAnalysis; no se especifica aquí la convención monetaria ni se aporta serie histórica comparable. |
+| Crecimiento del FCF | 3,84% | TTM terminado el 2026-09-30 | StockAnalysis; la fuente y el paquete no detallan el período base ni la comparabilidad. |
+| Current ratio | 0,74x | 2026-09-30 | StockAnalysis; el valor reportado está por encima del umbral de alerta de 0,5x usado en el análisis. |
+| Cobertura de intereses | 0x | 2026-09-30 | StockAnalysis; debe verificarse: no se aportan gastos por intereses y el cero podría reflejar una limitación del dato. |
+| Acciones en circulación | Observación disponible | 2026-09-30 | StockAnalysis; no hay historial comparable para calcular dilución. |
+| Deuda neta / EBITDA | No validado | Datos del paquete | Los campos disponibles no tienen una escala monetaria compatible verificable. |
 
-El margen bruto reportado aumentó entre FY2022 y el TTM al 2026-09-30. Esto es compatible con un negocio de información de alto margen, pero no identifica el origen ni la durabilidad de esa evolución. El FCF fue descrito como positivo en el TTM, aunque no se proporcionan cifras absolutas de flujo de caja operativo, capex o FCF para evaluar conversión de beneficios en caja.
+No se aporta una serie comparable para calcular crecimiento anual compuesto de ingresos a tres años. Tampoco se proporcionan cifras suficientes de flujo de caja operativo, capex y FCF por período para evaluar la conversión de caja o su sostenibilidad.
+
+**Fuentes financieras:** [StockAnalysis: estados financieros](https://stockanalysis.com/stocks/spgi/financials/) y [StockAnalysis: estadísticas](https://stockanalysis.com/stocks/SPGI/statistics/).
 
 ## 4. Management y Gobierno Corporativo
 
-La evaluación AOIF califica la calidad del management como buena, la asignación de capital como neutral y el alineamiento de insiders como débil. No se aportan nombres de ejecutivos, remuneración, tenencia accionaria, composición del board, independencia de sus miembros ni historial detallado de decisiones de capital.
+El análisis AOIF evalúa la calidad del management como buena, la asignación de capital como creadora de valor y el alineamiento de insiders como moderado. No se incluyen criterios, series de resultados ni evidencia detallada que permita validar esas valoraciones.
 
-Por tanto, estas valoraciones deben tratarse como evaluaciones preliminares, no como conclusiones verificadas. La investigación no permite evaluar si las decisiones entre inversión, adquisiciones, dividendos y recompras han creado retornos atractivos sobre el capital.
+No hay información sobre nombres y trayectoria de ejecutivos, remuneración e incentivos, participación accionaria de insiders, composición del consejo, independencia de sus miembros ni políticas de gobierno corporativo. Esos aspectos requieren investigación adicional antes de formar una conclusión independiente.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista — hipótesis por verificar
+La tesis a investigar es que SPGI pueda combinar productos de información y workflow de uso recurrente con activos de referencia —calificaciones, índices, benchmarks y precios— cuya reputación, integración en procesos de clientes y costes de cambio apoyen la retención y la monetización.
 
-- SPGI combina datos, analítica, calificaciones, índices y soluciones de workflow en varios mercados. La integración de esos productos podría favorecer relaciones duraderas con clientes y costes de sustitución, aunque la evidencia recibida no incluye métricas de retención o churn.
-- La reputación, la independencia, las metodologías especializadas y la escala de datos podrían respaldar una posición competitiva diferenciada. La investigación AOIF caracteriza el moat como amplio y la posición como líder, pero no aporta métricas comparativas para cuantificarlo.
-- El margen bruto reportado fue de 70.99% en TTM al 2026-09-30, frente a 66.43% en FY2022. La expansión podría ser consistente con escalabilidad o diferenciación, pero no demuestra por sí sola una ventaja competitiva durable.
-- El score de descubrimiento del paquete DDD fue 65.73. La clasificación fue “Research required”; el score es una señal de priorización para investigación, no una validación de la tesis ni de su valoración.
+Elementos que respaldan provisionalmente esa tesis:
 
-La evidencia disponible no permite estimar con fiabilidad el crecimiento orgánico futuro, los retornos incrementales sobre el capital ni el valor intrínseco de la compañía.
+- El modelo incluye suscripciones y licencias, además de ingresos transaccionales relacionados con emisiones. La recurrencia potencial no está cuantificada con datos de retención, renovaciones o mezcla de ingresos.
+- El análisis AOIF identifica marca, confianza, reconocimiento regulatorio, efectos de red y costes de cambio como fuentes potenciales de ventaja competitiva; estas son evaluaciones cualitativas, no métricas verificadas en el paquete.
+- Se reporta un margen bruto TTM de 70,99% al 2026-09-30 y FCF de 5.675 millones para ese período. Son datos compatibles con una economía potencialmente atractiva, pero no prueban por sí solos recurrencia, ventaja competitiva ni retornos sostenibles sobre el capital.
+- AOIF reporta margen operativo de 44,09% y ROIC de 13,03%, aunque sin período ni metodología en el material recibido. Deben tratarse como referencias pendientes de validación.
+- La diversidad de productos y segmentos podría reducir la dependencia de una sola fuente de ingresos, pero no se aportan datos suficientes de contribución por segmento para confirmar ese efecto.
+
+La tesis no está validada como una oportunidad de inversión: faltan datos financieros comparables, métricas operativas por segmento y una valoración intrínseca defendible.
 
 ## 6. Riesgos y Contra-Tesis
 
 ### Riesgos principales
 
-- **Regulatorio y litigios:** posibles cambios regulatorios o litigios relacionados con calificaciones, índices, datos y metodologías. La evaluación AOIF asignó impacto alto y probabilidad media.
-- **Confianza e independencia:** una percepción de conflictos de interés o una pérdida de confianza en la independencia y calidad de benchmarks o calificaciones podría perjudicar el negocio. AOIF asignó impacto alto y probabilidad baja.
-- **Variabilidad del FCF:** el crecimiento de FCF reportado fue -1.96% en FY2025 y 3.84% en TTM al 2026-09-30. La trayectoria limita la extrapolación del crecimiento reciente.
-- **Exposición de balance:** se reportó net cash negativo por USD 11,142 millones al 2026-09-30. Los datos disponibles no permiten calcular y verificar deuda/EBITDA con una medida compatible.
-- **Dependencia de la actividad de los mercados:** la demanda de determinados productos está vinculada a la emisión de deuda, la inversión y la actividad de los mercados de capitales; la investigación no cuantifica la sensibilidad de ingresos a esos ciclos.
-- **Erosión competitiva:** no hay evidencia suficiente para evaluar cambios de precios, pérdida de clientes, sustitución de productos o durabilidad de los costes de cambio.
+- **Ciclicidad de emisiones:** una caída en las emisiones de deuda puede reducir la demanda de calificaciones y los ingresos asociados. El análisis AOIF califica el impacto y la probabilidad como medios.
+- **Riesgo regulatorio y litigios:** cambios regulatorios o litigios relativos a calificaciones, benchmarks, datos o conflictos de interés percibidos podrían afectar operaciones y reputación. AOIF califica el impacto como alto y la probabilidad como media.
+- **Sostenibilidad de márgenes y FCF:** el margen bruto reportado para FY 2022 y el TTM no corresponde a períodos equivalentes. Se necesita evidencia adicional para concluir que la expansión es sostenible.
+- **Apalancamiento y liquidez:** la deuda neta relativa a EBITDA no queda validada por incompatibilidad de escala entre los campos disponibles. La cobertura de intereses reportada en cero también requiere verificación.
+- **Retención, precios y volúmenes:** no se aportan métricas para separar crecimiento por precio, volumen, renovaciones y expansión de clientes.
+- **Inversión y retornos:** no se cuantifican las necesidades de inversión en tecnología, producto y adquisiciones ni el ROIC incremental que producen.
+- **Deterioro financiero:** la ausencia de series comparables impide determinar si los datos disponibles reflejan una tendencia estable o un período particular.
 
-### Contra-tesis y falsadores
+### Falsadores a monitorear
 
-La evidencia recibida no demuestra que el moat descrito sea duradero, que el crecimiento reciente sea sostenible ni que las referencias de mercado impliquen infravaloración. La tesis se debilitaría si se observa:
-
-1. Deterioro sostenido de ingresos, margen bruto o FCF frente a los períodos históricos reportados.
-2. Evidencia de erosión de precios, pérdida de clientes o sustitución de servicios.
-3. Caída de la confianza en la independencia o calidad de índices y calificaciones.
-4. Retornos sobre el capital inferiores a los necesarios para justificar la reinversión, cuando existan datos comparables para evaluarlos.
+- Resultados posteriores que muestren un deterioro sostenido del margen bruto frente al 70,99% TTM reportado al 2026-09-30.
+- Una reducción persistente del FCF frente a los 5.675 millones reportados para el TTM terminado el 2026-09-30.
+- Evidencia de caída sostenida en renovaciones, retención, precios o volúmenes; el paquete no aporta una línea base cuantitativa para fijar umbrales.
+- Confirmación de que la deuda neta, los gastos por intereses o la cobertura de intereses representan un riesgo material mayor al que sugieren los datos disponibles.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador / hito observable | Fecha esperada | Impacto potencial |
-|---|---|---|
-| Seguimiento de ingresos y FCF por segmento para evaluar la evolución de datos, analítica y workflows en mercados de capitales, energía y commodities y automoción | Sin fecha específica proporcionada; medir en períodos futuros | Podría confirmar o debilitar la hipótesis de diversificación y crecimiento. No se aportan previsiones. |
-| Confirmar si la expansión del margen bruto reportado se sostiene con datos comparables | Sin fecha específica proporcionada; próximo reporte comparable | Podría aportar evidencia sobre escalabilidad y estructura del negocio; no prueba por sí sola la existencia de un moat. |
-| Reconciliar la trayectoria del FCF, incluidos el dato FY2025 y el TTM al 2026-09-30 | Sin fecha específica proporcionada | Ayudaría a evaluar volatilidad, conversión de beneficios en caja y capacidad de financiación. |
-
-No se proporciona un calendario de catalizadores corporativos ni estimaciones futuras de resultados que permitan señalar un evento concreto de revisión de expectativas.
+| Evento o catalizador | Fecha esperada | Impacto potencial | Evidencia disponible |
+|---|---|---|---|
+| Publicación de resultados posteriores al período TTM | Posterior al 2026-09-30; fecha no especificada | Permitirá contrastar crecimiento, márgenes y generación de caja con las cifras reportadas. | El paquete no identifica la próxima fecha de resultados ni aporta estimaciones. |
+| Evolución del margen bruto | Próximos períodos financieros; fecha no especificada | Confirmaría o refutaría la sostenibilidad de los niveles y la tendencia observada. | 66,43% en FY 2022 y 70,99% TTM al 2026-09-30; períodos no equivalentes. |
+| Evolución del FCF | Próximos períodos financieros; fecha no especificada | Permitirá evaluar conversión, reinversión y persistencia de la generación de caja. | FCF de 5.675 millones y crecimiento reportado de 3,84% en el TTM terminado el 2026-09-30; metodología de crecimiento no detallada. |
+| Volumen de emisiones de deuda y demanda de ratings | No especificada | Podría impulsar o reducir los ingresos cíclicos relacionados con calificaciones. | Driver de ingresos identificado en AOIF; no se aportan previsiones ni datos cuantitativos de emisiones. |
 
 ## 8. Marco de Valoración
 
-La investigación AOIF reporta múltiplos de **PER 26.54** y **EV/EBITDA 16.76**, pero no especifica fecha de referencia, precio ni definición de las magnitudes utilizadas. Reporta también un **FCF yield de 0**, sin datos suficientes para verificar el cálculo. Estos valores no deben tratarse como múltiplos actuales comparables sin validar período, fuente y metodología.
+No se puede establecer un valor intrínseco defendible con la información disponible. AOIF reporta PER de 26,15x, EV/EBITDA de 16,49x y FCF yield de 0%, pero no proporciona fecha, precio de referencia ni metodología verificable para esos múltiplos. El mismo análisis declara insuficiente el margen de seguridad y señala que faltan precio, FCF normalizado, crecimiento esperado, tasa de descuento y supuestos de valor terminal.
 
-DDD reporta una cotización de **USD 466.55 al 2026-10-30** y un consenso de precio objetivo al **2026-11-20** con media de **USD 529.35** y rango de **USD 500 a USD 572**. Son referencias de mercado, no una estimación de valor intrínseco. La diferencia entre cotización y objetivos de analistas no demuestra un error de valoración.
+El material DDD incluye referencias de mercado observadas —precio objetivo de consenso de USD 529,35, rango de USD 500–572 y cotización de USD 466,55 al 2026-10-30—. Son datos atribuidos al paquete, no una estimación independiente de valor intrínseco. El momentum de precio a 12 meses reportado como 1,2178% hasta esa fecha tampoco permite inferir expectativas fundamentales.
 
-### Enfoque apropiado
+Para una valoración posterior convendría:
 
-Una valoración debería combinar:
+1. Construir un historial comparable de ingresos, márgenes, FCF, deuda y acciones en circulación.
+2. Separar crecimiento orgánico de adquisiciones y distinguir precio, volumen, renovaciones y expansión de suscripciones.
+3. Normalizar el FCF y estimar reinversión, incluyendo tecnología, producto y adquisiciones.
+4. Contrastar un modelo de flujo de caja descontado con múltiplos, usando supuestos explícitos de crecimiento, márgenes, tasa de descuento y valor terminal.
+5. Evaluar sensibilidad a una caída de emisiones, menor crecimiento de suscripciones, compresión de márgenes y mayores necesidades de inversión.
 
-- Un análisis de flujo de caja descontado, una vez disponibles FCF normalizado y proyecciones por segmento.
-- Una comprobación mediante múltiplos comparables, con período y definiciones de EV, EBITDA y beneficios uniformes.
-- Un análisis de sensibilidad que incluya crecimiento de ingresos, márgenes, conversión a FCF, coste de capital y valor terminal.
-
-No hay datos suficientes para cuantificar escenarios o margen de seguridad. AOIF concluye que el margen de seguridad es insuficiente y que el valor intrínseco no puede estimarse con fiabilidad por falta de precio y fecha de referencia coherentes, previsiones de flujos de caja, coste de capital y datos verificables de FCF. La valoración permanece **no validada**.
+No se validan ni una oportunidad de valoración ni un error de precio con la evidencia recibida.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuáles son el crecimiento orgánico, la retención de clientes, la penetración de mercado y la evolución de precios por segmento?
-2. ¿Cómo se distribuyen ingresos, márgenes y FCF entre los cuatro segmentos y los mercados atendidos?
-3. ¿Qué períodos y definiciones corresponden a las cifras reportadas de crecimiento de ingresos, margen operativo y ROIC?
-4. ¿Cuál es la serie histórica comparable de FCF, incluyendo flujo de caja operativo, capex y conversión de beneficios en caja?
-5. ¿Qué retornos sobre el capital obtiene SPGI por segmento, y cómo se asigna el capital entre inversión, adquisiciones, dividendos y recompras?
-6. ¿Cuál es la deuda neta reconciliada y qué ratio deuda/EBITDA resulta de una metodología verificable?
-7. ¿Qué evidencia cuantitativa existe sobre retención, costes de sustitución, poder de precios y cuota de mercado?
-8. ¿Qué exposición tienen ingresos y resultados a los ciclos de emisión de deuda, actividad de mercados y demanda de energía y commodities?
-9. ¿Qué composición tiene el board, cómo se estructuran los incentivos del management y qué evidencia sustenta la evaluación de alineamiento débil de insiders?
-10. ¿Qué precio y fecha corresponden a los múltiplos reportados, y cómo se calcula el FCF yield informado como cero?
+1. ¿Cuál es el crecimiento orgánico por segmento y cuánto corresponde a precios, volúmenes, adquisiciones y cambios de mezcla?
+2. ¿Cómo evolucionan renovaciones, retención, expansión de clientes y precios en datos, analytics y soluciones de workflow?
+3. ¿Qué proporción de los ingresos es recurrente frente a ingresos transaccionales sensibles a emisiones?
+4. ¿Qué segmentos explican los márgenes reportados y qué tan comparables son sus resultados entre períodos?
+5. ¿Cuáles son los gastos de inversión, capex y necesidades de inversión en tecnología, producto y adquisiciones?
+6. ¿Qué ROIC producen las inversiones incrementales y cómo se compara con el ROIC reportado de 13,03% por AOIF?
+7. ¿Cuáles son la deuda neta, el EBITDA y los gastos por intereses en unidades y fechas comparables? ¿Por qué StockAnalysis reporta cobertura de intereses de cero?
+8. ¿Cuál es la evolución histórica de acciones en circulación y la tasa de dilución?
+9. ¿Qué evidencia respalda las evaluaciones de liderazgo, asignación de capital, alineamiento de insiders y calidad del gobierno corporativo?
+10. ¿Qué metodología y período corresponden a las cifras AOIF de crecimiento de ingresos, margen operativo, ROIC y múltiplos?
+11. ¿Qué supuestos de crecimiento, márgenes, inversión, tasa de descuento y valor terminal justificarían el precio de mercado? La evidencia actual no permite responderlo.
 
-**Fuentes incluidas en los inputs:** [Stock Analysis — estados financieros de SPGI](https://stockanalysis.com/stocks/spgi/financials/) y [Stock Analysis — estadísticas de SPGI](https://stockanalysis.com/stocks/SPGI/statistics/). Los demás datos cuantitativos y evaluaciones se atribuyen a los paquetes de investigación DDD y AOIF; varios carecen de fuente, fecha o metodología verificable en la información recibida.
+**Estado de investigación:** pendiente de validación financiera y de valoración. La evidencia disponible permite formular una hipótesis de calidad de negocio potencialmente alta, pero no confirmar su sostenibilidad, sus retornos sobre capital ni un margen de seguridad.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]], [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase & Co.]], [[KB|KB Financial Group Inc.]], [[LYG|Lloyds Banking Group plc]], [[MA|Mastercard Incorporated]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]]
+- **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]], [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase & Co.]], [[KB|KB Financial Group Inc.]], [[LYG|Lloyds Banking Group plc]], [[MA|Mastercard Incorporated]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[XP|XP Inc.]]

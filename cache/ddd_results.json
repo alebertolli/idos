@@ -1,37 +1,31 @@
 {
-  "total": 4,
+  "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-SAN",
-      "ticker": "SAN",
-      "status": "completed",
-      "score": 70,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-SHEL",
-      "ticker": "SHEL",
-      "status": "completed",
-      "score": 61,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MULTIBAGGERS-SIEGY-0001",
-      "ticker": "SIEGY",
+      "opp_id": "OPP-MULTIBAGGERS-SNOW-0001",
+      "ticker": "SNOW",
       "status": "quality_failed",
-      "score": 45,
+      "score": 65.2,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "opp_id": "OPP-MB-SNA",
-      "ticker": "SNA",
+      "opp_id": "OPP-MULTIBAGGERS-SPGI-0001",
+      "ticker": "SPGI",
+      "status": "quality_failed",
+      "score": 62,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "opp_id": "OPP-MB-SYY",
+      "ticker": "SYY",
       "status": "completed",
-      "score": 58,
+      "score": 55,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
@@ -40,8 +34,17 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "SIEGY",
-      "opp_id": "OPP-MULTIBAGGERS-SIEGY-0001",
+      "ticker": "SNOW",
+      "opp_id": "OPP-MULTIBAGGERS-SNOW-0001",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "ticker": "SPGI",
+      "opp_id": "OPP-MULTIBAGGERS-SPGI-0001",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -50,7 +53,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 37,
+  "deferred_count": 36,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",
