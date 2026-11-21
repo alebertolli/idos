@@ -1,0 +1,141 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM reportados para el 2027-09-30 son inferiores a USD
+      3.783 millones, una caída superior al 5% frente a la referencia de USD 3.982
+      millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los informes disponibles hasta la fecha objetivo muestran una contracción
+      interanual de ingresos en al menos dos trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM reportados para el 2027-09-30 son inferiores a USD 3.783 millones,
+    una caída superior al 5% frente a la referencia de USD 3.982 millones.
+  - Los informes disponibles hasta la fecha objetivo muestran una contracción interanual
+    de ingresos en al menos dos trimestres consecutivos.
+  horizon: medio
+  id: H1-OPP-MB-HOG
+  opportunity_id: OPP-MB-HOG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 3982.0
+    met: null
+    metric: Ingresos consolidados TTM
+    prediction: Los ingresos consolidados de los doce meses terminados el 2027-09-30
+      serán de al menos USD 3.982 millones, según el informe trimestral disponible
+      para el 2027-11-21.
+    unit: USD millones, mínimo al 2027-09-30
+  priority: critical
+  probability: 0.5
+  rationale: La compañía reportó ingresos TTM de USD 3.982 millones al 2026-09-30.
+    La información disponible no identifica un mecanismo demostrado de expansión sostenida,
+    por lo que la hipótesis más prudente es estabilidad, no crecimiento acelerado.
+  review_trigger: Dejar de creerla si el informe del tercer trimestre de 2027, o una
+    actualización oficial anterior, muestra ingresos TTM inferiores a USD 3.783 millones.
+  secondary_hypotheses: []
+  statement: 'Los ingresos de Harley-Davidson se estabilizarán, pero no mostrarán
+    todavía un crecimiento acelerado: los ingresos TTM se mantendrán al menos al nivel
+    informado para el 2026-09-30.'
+  status: ACTIVE
+  ticker: HOG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La pérdida neta TTM al 2027-09-30 supera USD 98,97 millones, lo que
+      representa una reducción inferior al 25% frente a la referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía reporta una pérdida neta TTM igual o mayor que USD 131,96
+      millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La pérdida neta TTM al 2027-09-30 supera USD 98,97 millones, lo que representa
+    una reducción inferior al 25% frente a la referencia.
+  - La compañía reporta una pérdida neta TTM igual o mayor que USD 131,96 millones.
+  horizon: medio
+  id: H2-OPP-MB-HOG
+  opportunity_id: OPP-MB-HOG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: -65.98
+    met: null
+    metric: Beneficio neto consolidado TTM
+    prediction: La pérdida neta consolidada TTM al 2027-09-30 será como máximo de
+      USD 65,98 millones; es decir, su magnitud será al menos un 50% menor que la
+      reportada al 2026-09-30.
+    unit: USD millones o mejor al 2027-09-30
+  priority: critical
+  probability: 0.5
+  rationale: El beneficio neto TTM fue de -USD 131,96 millones al 2026-09-30. Una
+    mejora verificable en los ingresos, los costes o la rentabilidad de los segmentos
+    podría reducir la pérdida; no hay datos proporcionados que permitan atribuir esa
+    mejora a un factor concreto.
+  review_trigger: Dejar de creerla si un informe oficial muestra una pérdida neta
+    TTM superior a USD 98,97 millones; como máximo, reevaluar con el informe del tercer
+    trimestre de 2027.
+  secondary_hypotheses:
+  - H1-OPP-MB-HOG
+  statement: La pérdida neta de Harley-Davidson se reducirá sustancialmente, aunque
+    la información disponible no basta para afirmar que la compañía volverá a ser
+    rentable dentro del horizonte de esta hipótesis.
+  status: ACTIVE
+  ticker: HOG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de HOG supera al de XLY en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: HOG queda por debajo de XLY, pero la diferencia de rendimiento es inferior
+      a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de HOG supera al de XLY en el periodo.
+  - HOG queda por debajo de XLY, pero la diferencia de rendimiento es inferior a 5
+    puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-MB-HOG
+  opportunity_id: OPP-MB-HOG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total de HOG menos rendimiento total de XLY
+    prediction: El rendimiento total de HOG, incluidos dividendos, entre el cierre
+      del 2026-11-21 y el cierre del 2027-11-21 será al menos 5 puntos porcentuales
+      inferior al rendimiento total de XLY durante el mismo periodo.
+    unit: puntos porcentuales o inferior entre 2026-11-21 y 2027-11-21
+  priority: important
+  probability: 0.5
+  rationale: La pérdida neta TTM y la ausencia de datos que acrediten crecimiento,
+    ventaja competitiva o retornos atractivos sobre el capital limitan la base fundamental
+    para anticipar una revalorización relativa. Esta hipótesis es una predicción de
+    desempeño, no una afirmación sobre la valoración actual, que no está especificada.
+  review_trigger: Dejar de creerla si, antes del 2027-11-21, HOG supera a XLY por
+    al menos 5 puntos porcentuales en rendimiento total acumulado desde el 2026-11-21
+    y mantiene esa ventaja al cierre del siguiente mes calendario.
+  secondary_hypotheses:
+  - H1-OPP-MB-HOG
+  - H2-OPP-MB-HOG
+  statement: Sin evidencia de crecimiento sostenido ni de recuperación clara de beneficios,
+    la acción tendrá un rendimiento total inferior al del ETF Consumer Discretionary
+    Select Sector SPDR (XLY) durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: HOG
+  version: 1

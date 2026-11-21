@@ -839,3 +839,104 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T15:46:32.980647'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-HAL
+    ticker: HAL
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T15:53:39.178140'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HAL
+    ticker: HAL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:53:39.237145'
+- data:
+    classification: Cíclica
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 06218d048c5fb43c5c5f40c728212300d77f8f498c723470a542ae7c642a9c46
+    opp_id: OPP-MB-HAL
+    original_status: UNDER_RESEARCH
+    score: 73.26
+    strategy_version: '1.5'
+    ticker: HAL
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:55:22.549784'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HOG
+    ticker: HOG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:55:53.399557'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de crecimiento compuesto
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: bc7988f75134b8c55d1350fba013da86d382c17c9d695f5b6bd89ba2c0b3d8f4
+    opp_id: OPP-MB-HOG
+    original_status: SCREENED
+    score: 48
+    strategy_version: '1.5'
+    ticker: HOG
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:57:30.322376'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-HPQ
+    ticker: HPQ
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T15:58:07.681463'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HPQ
+    ticker: HPQ
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:58:07.745063'
+- data:
+    classification: Research requerido; oportunidad de calidad y crecimiento no validada
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 58cd7a0a1a7931b3e4ec0bf2f99a36856e1e84e044c8c7258df9a7e5c8294725
+    opp_id: OPP-MB-HPQ
+    original_status: SCREENED
+    score: 68.18
+    strategy_version: '1.5'
+    ticker: HPQ
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:59:41.781047'

@@ -1,69 +1,72 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos comparables del segmento en el cuarto trimestre de 2027
-      crecen menos de un 5% frente al cuarto trimestre de 2026.
+  - condition: Los ingresos de Norteamérica del cuarto trimestre de 2027 crecen menos
+      del 5% interanual.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa no publica información suficiente para calcular la variación
-      comparable del segmento antes de la fecha objetivo.
+  - condition: La compañía informa una caída interanual de los ingresos de Norteamérica
+      en el cuarto trimestre de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos comparables del segmento en el cuarto trimestre de 2027 crecen menos
-    de un 5% frente al cuarto trimestre de 2026.
-  - La empresa no publica información suficiente para calcular la variación comparable
-    del segmento antes de la fecha objetivo.
+  - Los ingresos de Norteamérica del cuarto trimestre de 2027 crecen menos del 5%
+    interanual.
+  - La compañía informa una caída interanual de los ingresos de Norteamérica en el
+    cuarto trimestre de 2027.
   horizon: medio
   id: H1-OPP-MB-HAL
   opportunity_id: OPP-MB-HAL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-15'
+    deadline: '2028-01-31'
     expected: 5.0
     met: null
-    metric: Crecimiento interanual comparable de ingresos de Completion and Production
-      en el cuarto trimestre de 2027
-    prediction: En el cuarto trimestre de 2027, los ingresos reportados del segmento
-      Completion and Production serán al menos un 5% superiores a los del cuarto trimestre
-      de 2026, en términos comparables y excluyendo efectos materiales de adquisiciones,
-      desinversiones o divisas.
+    metric: Crecimiento interanual de los ingresos de Norteamérica en el cuarto trimestre
+      de 2027
+    prediction: Los ingresos de Norteamérica del cuarto trimestre de 2027 serán al
+      menos un 5% superiores a los del cuarto trimestre de 2026, según los resultados
+      publicados por Halliburton.
     unit: '%'
   priority: critical
   probability: 0.5
-  rationale: La tesis plantea que los servicios de terminación y producción pueden
-    sostener o recuperar la rentabilidad. El contexto disponible no aporta datos por
-    segmento ni previsiones operativas que confirmen esa recuperación, por lo que
-    esta hipótesis debe comprobarse con resultados reportados y comparables.
-  review_trigger: Dejar de creerla si el informe del cuarto trimestre de 2027 muestra
-    crecimiento comparable inferior al 5%, o si antes de esa fecha dos informes trimestrales
-    consecutivos reportan una caída interanual comparable del segmento.
+  rationale: Una mayor actividad de perforación suele elevar la demanda de equipos
+    y servicios de completación, lo que podría compensar la debilidad regional si
+    los precios del crudo y la inversión de los productores se mantienen favorables.
+    La tesis identifica la recuperación de la actividad como el principal catalizador,
+    pero advierte que una mejora del precio del crudo no garantiza por sí sola más
+    trabajo para los contratistas.
+  review_trigger: Dejar de creerla si el informe del tercer trimestre de 2027 muestra
+    ingresos de Norteamérica inferiores a los del tercer trimestre de 2026 y la compañía
+    no comunica una mejora de actividad que permita recuperar esa diferencia en el
+    trimestre siguiente.
   secondary_hypotheses: []
-  statement: Halliburton recuperará crecimiento en su negocio de terminación y producción,
-    con una mejora que no dependa únicamente de cambios de perímetro o tipo de cambio.
+  statement: La recuperación de la actividad de perforación y terminación sostendrá
+    un crecimiento de los ingresos de Halliburton en Norteamérica para el cuarto trimestre
+    de 2027.
   status: ACTIVE
   ticker: HAL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El flujo de caja libre acumulado reportado para 2027 es inferior a
-      1.000 millones de dólares.
+  - condition: La cobertura de intereses de los últimos doce meses es inferior a 4,0
+      veces en el informe anual de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa no divulga datos suficientes para calcular el flujo de caja
-      libre con esa definición antes de la fecha objetivo.
+  - condition: El EBIT de los últimos doce meses cae interanualmente en el informe
+      anual de 2027 mientras el gasto por intereses se mantiene estable o aumenta.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El flujo de caja libre acumulado reportado para 2027 es inferior a 1.000 millones
-    de dólares.
-  - La empresa no divulga datos suficientes para calcular el flujo de caja libre con
-    esa definición antes de la fecha objetivo.
+  - La cobertura de intereses de los últimos doce meses es inferior a 4,0 veces en
+    el informe anual de 2027.
+  - El EBIT de los últimos doce meses cae interanualmente en el informe anual de 2027
+    mientras el gasto por intereses se mantiene estable o aumenta.
   horizon: medio
   id: H2-OPP-MB-HAL
   opportunity_id: OPP-MB-HAL
@@ -71,74 +74,118 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-02-15'
-    expected: 1000.0
+    expected: 4.0
     met: null
-    metric: Flujo de caja libre acumulado del ejercicio 2027
-    prediction: La compañía generará al menos 1.000 millones de dólares de flujo de
-      caja libre acumulado durante el ejercicio 2027, calculado como flujo de caja
-      operativo menos inversiones de capital.
-    unit: millones de dólares
+    metric: Cobertura de intereses de los últimos doce meses al cierre de 2027
+    prediction: La cobertura de intereses de los últimos doce meses, calculada como
+      EBIT dividido por gasto por intereses, será al menos 4,0 veces en el informe
+      anual de 2027.
+    unit: veces
   priority: critical
   probability: 0.5
-  rationale: La tesis depende de que la rentabilidad se traduzca en caja, pero la
-    evidencia disponible solo confirma datos financieros agregados y no permite evaluar
-    conversión de beneficios, capital circulante ni necesidades de inversión. Por
-    ello, la generación de caja debe verificarse directamente en los estados financieros.
-  review_trigger: Dejar de creerla cuando la publicación de resultados anuales de
-    2027 muestre flujo de caja libre inferior a 1.000 millones de dólares, o si dos
-    trimestres consecutivos de 2027 registran flujo de caja libre negativo y la empresa
-    no mejora su previsión anual.
+  rationale: Una recuperación de los ingresos y de la rentabilidad operativa aumentaría
+    los beneficios disponibles para atender los gastos financieros. La tesis señala
+    la cobertura de intereses como un riesgo; una mejora verificable de esta métrica
+    reduciría la vulnerabilidad financiera, aunque dependerá también de los costos,
+    la deuda y las tasas.
+  review_trigger: Dejar de creerla si en cualquier informe trimestral publicado antes
+    del 2027-10-31 la cobertura de intereses de los últimos doce meses es inferior
+    a 3,0 veces y la dirección no prevé una recuperación de EBIT para el cuarto trimestre.
   secondary_hypotheses:
   - H1-OPP-MB-HAL
-  statement: Halliburton convertirá la actividad operativa en generación de caja libre
-    positiva y material durante 2027.
+  statement: La mejora de la actividad y la disciplina de costos permitirán a Halliburton
+    fortalecer su cobertura de intereses para finales de 2027.
   status: ACTIVE
   ticker: HAL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de HAL menos el rendimiento total de XLE entre
-      las fechas indicadas es inferior a 10 puntos porcentuales.
+  - condition: El precio de cierre de HAL el 2027-11-21 supera los 30,74 dólares.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: HAL obtiene un rendimiento total inferior al de XLE durante el periodo.
+  - condition: Antes de la fecha objetivo, los ingresos de Norteamérica registran
+      crecimiento interanual en dos trimestres consecutivos y la acción no cae al
+      umbral previsto.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de HAL menos el rendimiento total de XLE entre las fechas
-    indicadas es inferior a 10 puntos porcentuales.
-  - HAL obtiene un rendimiento total inferior al de XLE durante el periodo.
+  - El precio de cierre de HAL el 2027-11-21 supera los 30,74 dólares.
+  - Antes de la fecha objetivo, los ingresos de Norteamérica registran crecimiento
+    interanual en dos trimestres consecutivos y la acción no cae al umbral previsto.
   horizon: medio
   id: H3-OPP-MB-HAL
   opportunity_id: OPP-MB-HAL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 10.0
+    deadline: '2027-11-21'
+    expected: 30.74
     met: null
-    metric: Exceso de rendimiento total de HAL frente a XLE en doce meses
-    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-20, el
-      rendimiento total de HAL, incluidos dividendos, superará al rendimiento total
-      de XLE en al menos 10 puntos porcentuales.
-    unit: puntos porcentuales
+    metric: Precio de cierre de HAL
+    prediction: El precio de cierre de HAL será igual o inferior a 30,74 dólares el
+      2027-11-21, una caída de al menos el 15% respecto al precio de referencia de
+      36,17 dólares.
+    unit: USD por acción o menos
   priority: important
   probability: 0.5
-  rationale: El contexto señala momentum positivo en el precio y una divergencia entre
-    cotización y consenso, pero no aporta expectativas detalladas ni evidencia suficiente
-    para atribuirla a una mejora estructural. La hipótesis es que el mercado continuará
-    premiando a HAL frente al sector si la recuperación de negocio y caja se materializa.
-  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la diferencia de rendimiento
-    total frente a XLE es inferior a 10 puntos porcentuales; también revisarla antes
-    si los resultados publicados contradicen simultáneamente las hipótesis H1 y H2.
+  rationale: El precio del crudo influye en la disposición de los productores a invertir,
+    pero no asegura un aumento inmediato de la perforación ni de los ingresos de Halliburton.
+    Si la actividad no se recupera, las expectativas de crecimiento podrían revisarse
+    a la baja y comprimir la valoración de la acción.
+  review_trigger: Dejar de creerla si HAL cierra por encima de 36,17 dólares durante
+    20 sesiones consecutivas y la compañía reporta crecimiento interanual de ingresos
+    de Norteamérica en dos trimestres consecutivos.
+  secondary_hypotheses:
+  - H1-OPP-MB-HAL
+  statement: Si la actividad de servicios de perforación continúa débil pese a precios
+    del crudo favorables, la cotización de HAL caerá desde el nivel de referencia
+    de 36,17 dólares.
+  status: ACTIVE
+  ticker: HAL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón deuda neta/EBITDA ajustado al cierre de 2027 supera 2,0 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La deuda neta aumenta entre el cierre de 2026 y el cierre de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón deuda neta/EBITDA ajustado al cierre de 2027 supera 2,0 veces.
+  - La deuda neta aumenta entre el cierre de 2026 y el cierre de 2027.
+  horizon: medio
+  id: H4-OPP-MB-HAL
+  opportunity_id: OPP-MB-HAL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 2.0
+    met: null
+    metric: Deuda neta/EBITDA ajustado al cierre de 2027
+    prediction: La razón deuda neta/EBITDA ajustado al cierre de 2027 será igual o
+      inferior a 2,0 veces, usando las definiciones y cifras reportadas por la compañía.
+    unit: veces o menos
+  priority: important
+  probability: 0.5
+  rationale: Una recuperación de la actividad, junto con el control de costos y de
+    inversiones de capital, podría elevar el flujo de caja libre y facilitar la reducción
+    de deuda. La reducción del apalancamiento disminuiría el riesgo financiero identificado
+    en la tesis, aunque no está garantizada si la demanda se mantiene débil o el capital
+    de trabajo absorbe efectivo.
+  review_trigger: Dejar de creerla si en el informe del segundo trimestre de 2027
+    la deuda neta supera la del cierre de 2026 y el flujo de caja libre acumulado
+    del primer semestre es negativo.
   secondary_hypotheses:
   - H1-OPP-MB-HAL
   - H2-OPP-MB-HAL
-  statement: La cotización de HAL superará el rendimiento total del ETF Energy Select
-    Sector SPDR (XLE) durante los próximos doce meses, si las expectativas de recuperación
-    operativa se traducen en resultados observables.
+  statement: La generación de efectivo permitirá a Halliburton reducir su deuda neta
+    frente a su capacidad de generación operativa para el cierre de 2027.
   status: ACTIVE
   ticker: HAL
   version: 1

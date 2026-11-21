@@ -1,0 +1,556 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La combinación de pérdida neta TTM, menor margen bruto y FCF decreciente eleva
+    la necesidad de comprobar una recuperación operativa antes de sostener una tesis
+    de crecimiento.
+  - El paquete no permite afirmar que el mercado esté subestimando o sobrestimando
+    el valor intrínseco.
+  - La cotización fue USD 31,22 al 2026-10-30; momentum a 12 meses de 15,7153% y volatilidad
+    a 90 días de 37,5753%, según Yahoo Finance para los períodos indicados en el paquete.
+  - Al 2026-09-30, el FCF TTM reportado fue USD 311,94 millones y el beneficio neto
+    TTM fue -USD 131,96 millones.
+  - El consenso observado de objetivo de precio fue USD 31,50; rango observado USD
+    19,00–40,00, con fecha de observación 2026-11-21.
+  preguntas_abiertas:
+  - ¿Qué explica la caída de ingresos y margen bruto, y qué parte es temporal frente
+    a estructural?
+  - ¿Cuáles son los retornos incrementales sobre capital, la inversión de mantenimiento
+    y el destino del capital?
+  - ¿Cuál es el mercado direccionable, la penetración por categoría y la evolución
+    de la posición competitiva?
+  - ¿Qué expectativas de ingresos, márgenes y beneficios están incorporadas en el
+    consenso?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
+    de crecimiento compuesto
+  justificacion: La evidencia disponible muestra contracción de ingresos, pérdida
+    neta TTM y menor flujo de caja libre, aunque la cotización registró momentum positivo
+    a 12 meses. El paquete no aporta datos suficientes para medir reinversión, retornos
+    sobre capital, mercado direccionable o penetración.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El paquete identifica tres segmentos y varias categorías de motocicletas,
+    pero no ofrece evidencia cuantitativa para evaluar ventaja competitiva, retención,
+    poder de precios, reinversión o retornos sobre capital. La contracción de ingresos,
+    el margen bruto menor y la pérdida neta TTM son señales adversas; no bastan por
+    sí solas para establecer una tendencia estructural.
+  rating: No concluyente; señales financieras recientes débiles
+dominio_catalizadores:
+- observacion: La recuperación sostenida de ingresos y margen bruto sería evidencia
+    relevante de estabilización; el paquete no aporta guía ni fechas de hitos corporativos.
+  tipo: hito a monitorear
+- fuente:
+    name: Stock Analysis
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/hog/financials/
+  observacion: La mejora del FCF frente a su caída de 20,39% reportada para TTM al
+    2026-09-30 sería una señal operativa relevante, pero no hay desglose de sus impulsores.
+  tipo: hito a monitorear
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente:
+    name: Stock Analysis
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/hog/financials/
+  observacion: Los ingresos bajaron de USD 5.836 millones en FY 2023 a USD 3.982 millones
+    TTM al 2026-09-30; los períodos no son comparables como serie anual completa.
+  tipo: hecho
+- fuente:
+    name: Stock Analysis
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/hog/financials/
+  observacion: El beneficio neto TTM fue -USD 131,96 millones al 2026-09-30, frente
+    a USD 338,74 millones en FY 2025.
+  tipo: hecho
+- fuente:
+    name: Stock Analysis
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/hog/financials/
+  observacion: El margen bruto TTM fue 19,68% al 2026-09-30, frente a 29,84% en FY
+    2025; el paquete no explica las causas.
+  tipo: hecho
+- fuente:
+    name: Resumen financiero de contexto
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/HOG/statistics/
+  observacion: La mezcla de negocio incluye servicios financieros y motocicletas;
+    sin datos segmentarios suficientes no puede aislarse el riesgo crediticio ni el
+    desempeño de cada segmento.
+  tipo: pregunta abierta
+error_mercado:
+  catalizador_cambio: Una mejora verificable en ingresos, márgenes y beneficio neto
+    en períodos posteriores podría cambiar la lectura; el paquete no incluye guía
+    de la compañía ni calendario de catalizadores.
+  conclusion_error_valoracion: 'No puede validarse un error de valoración: faltan
+    expectativas financieras de consenso, múltiplos comparables y un método de valoración
+    con inputs fechados.'
+  consenso_actual: 'El consenso observado de precio objetivo es USD 31,50, frente
+    a una cotización de USD 31,22 al 2026-10-30. Fuentes: Stock Analysis y Yahoo Finance,
+    observadas el 2026-11-21.'
+  hipotesis_contraria: 'La evidencia financiera disponible es más débil que lo que
+    sugeriría una tesis de crecimiento acelerado: ingresos TTM de USD 3.982 millones
+    y beneficio neto TTM de -USD 131,96 millones al 2026-09-30. Esto no prueba que
+    el mercado espere crecimiento acelerado; no hay datos de expectativas operativas
+    para contrastarlo.'
+  razonamiento: La cotización está cerca del objetivo medio observado, mientras que
+    los datos TTM muestran deterioro frente a los ejercicios fiscales recientes. La
+    evidencia no permite determinar qué parte de ese deterioro está incorporada en
+    el precio.
+generated_at: '2026-11-21T15:55:53.421676-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-HOG
+prompt_inputs:
+  business_model: 'Harley-Davidson, Inc. manufactures and sells motorcycles in the
+    United States and internationally. The company operates in three segments: Harley-Davidson
+    Motor Company, LiveWire, and Harley-Davidson Financial Services. The Harley-Davidson
+    Motor Company segment designs, manufactures, and sells motorcycles, including
+    cruiser, trike, Grand American touring, standard, sportbike, adventure touring,
+    and dual sport, as well as motorcycle parts, accessories, and apparel, as well
+    as licenses its trademarks and related services. This segment sells its products
+    to retail customers through a network of independent dealers, as well as e-commerce
+    channels. The LiveWire segment sells electric motorcycles, balance bikes for kids,
+    electric bikes, parts and accessories, apparel, and related parts and services.
+    The Harley-Davidson Financial Services segment provides wholesale financing services,
+    such as floorplan and open-account financing of motorcycles, and parts and accessories;
+    and retail financing services, such as installment lending for the purchase of
+    new and used Harley-Davidson motorcycles, as well as point-of-sale insurance and
+    voluntary protection products. This segment also licenses third-party financial
+    institutions that issue credit cards bearing the Harley-Davidson brand. Harley-Davidson,
+    Inc. was founded in 1903 and is based in Milwaukee, Wisconsin.'
+  ceo_tenure: 0
+  debt_to_equity: 0.79
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Harley-Davidson, Inc.
+  operating_margin: -4.26
+  pe_ratio: 0
+  products: ''
+  revenue: 3980000000.0
+  revenue_growth: -14.64
+  roic: -4.14
+  sector: Consumer Cyclical
+  ticker: HOG
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: Hay ingresos FY 2023 y TTM al 2026-09-30, pero no una observación
+      FY comparable al 2026-09-30 tres años antes.
+  limitations: No hay ingresos reportados para períodos comparables separados exactamente
+    por tres años; no se mezcla un TTM con un ejercicio fiscal para calcular CAGR.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/hog/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: 'Valor de crecimiento de FCF reportado por la fuente; definición de referencia:
+    (FCF_t / FCF_t-1) - 1'
+  inputs:
+    fcf_growth_history: 'TTM: -20.39%'
+  limitations: Se conserva el valor reportado por el proveedor; el paquete no expone
+    los períodos comparables exactos usados por la fuente para esta tasa TTM.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/hog/financials/
+  status: reported
+  unit: percent
+  value: -20.39
+- formula: FCF / net_income * 100; no significativo si net_income <= 0
+  inputs:
+    fcf: 311.94 millones, TTM al 2026-09-30
+    net_income_history: -131.96 millones, TTM al 2026-09-30
+  limitations: El beneficio neto TTM es negativo; por definición la conversión de
+    FCF no es significativa y no se informa un porcentaje.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/hog/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history: 1.436,0, unidad monetaria reportada por la fuente,
+      al 2026-09-30
+    net_cash_history: -966,7, unidad monetaria reportada por la fuente, al 2026-09-30
+    total_debt_history: 2.403,0, unidad monetaria reportada por la fuente, al 2026-09-30
+  limitations: 'No se calcula: el EBITDA reportado en statistics no tiene unidad monetaria
+    explícita en el paquete y no puede verificarse su compatibilidad de escala con
+    deuda y efectivo.'
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/hog/financials/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/HOG/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 100.990.000 al 2026-09-30
+  limitations: Falta una serie de acciones diluidas o en circulación para el período
+    comparable anterior; una observación puntual no permite calcular dilución interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/HOG/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-21'
+  business_model: 'Harley-Davidson, Inc. manufactures and sells motorcycles in the
+    United States and internationally. The company operates in three segments: Harley-Davidson
+    Motor Company, LiveWire, and Harley-Davidson Financial Services. The Harley-Davidson
+    Motor Company segment designs, manufactures, and sells motorcycles, including
+    cruiser, trike, Grand American touring, standard, sportbike, adventure touring,
+    and dual sport, as well as motorcycle parts, accessories, and apparel, as well
+    as licenses its trademarks and related services. This segment sells its products
+    to retail customers through a network of independent dealers, as well as e-commerce
+    channels. The LiveWire segment sells electric motorcycles, balance bikes for kids,
+    electric bikes, parts and accessories, apparel, and related parts and services.
+    The Harley-Davidson Financial Services segment provides wholesale financing services,
+    such as floorplan and open-account financing of motorcycles, and parts and accessories;
+    and retail financing services, such as installment lending for the purchase of
+    new and used Harley-Davidson motorcycles, as well as point-of-sale insurance and
+    voluntary protection products. This segment also licenses third-party financial
+    institutions that issue credit cards bearing the Harley-Davidson brand. Harley-Davidson,
+    Inc. was founded in 1903 and is based in Milwaukee, Wisconsin.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 31.219999313354492
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.79
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-21T18:55:23.973652+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Harley-Davidson, Inc.
+  operating_margin: -4.26
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Harley-Davidson, Inc. manufactures and sells motorcycles in the
+    United States and internationally. The company operates in three segments: Harley-Davidson
+    Motor Company, LiveWire, and Harley-Davidson Financial Services. The Harley-Davidson
+    Motor Company segment designs, manufactures, and sells motorcycles, including
+    cruiser, trike, Grand American touring, standard, sportbike, adventure touring,
+    and dual sport, as well as motorcycle parts, accessories, and apparel, as well
+    as licenses its tradema'
+  revenue: 3980000000.0
+  revenue_growth: -14.64
+  roic: -4.14
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hog/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HOG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HOG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HOG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HOG/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hog/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hog/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hog/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HOG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hog/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HOG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hog/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hog/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hog/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HOG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HOG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hog/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    40.0, "low": 19.0, "mean": 31.5, "median": 31.5, "observed_at": "2026-11-21T15:55:27.339732-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T15:55:27.339732-03:00", "observed_date": "2026-11-21", "target_price":
+    31.5, "url": "https://stockanalysis.com/stocks/hog/forecast/"}, {"as_of_date":
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T15:55:27.339732-03:00",
+    "observed_date": "2026-11-21", "target_price": 31.5, "url": "https://finance.yahoo.com/quote/HOG/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 31.219999313354492,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/HOG/"}]}}'
+  sector: Consumer Cyclical
+  ticker: HOG
+research_trigger:
+  discovery_snapshot_hash: dac1da7b105096e5d23b643648f4fcd1cfbdccd4506c712ad0613c39dbea663e
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: bc7988f75134b8c55d1350fba013da86d382c17c9d695f5b6bd89ba2c0b3d8f4
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-21T15:55:53.421676-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.97x al 2026-09-30; no cruza el umbral.
+  source:
+    name: Stock Analysis
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/HOG/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta el dato comparable de acciones del período anterior.'
+  threshold: above 10%
+- metric: interest_coverage
+  observation: 0 reportado al 2026-09-30; cruza el umbral configurado, sujeto a confirmar
+    definición y cálculo del proveedor.
+  source:
+    name: Stock Analysis
+    period_end: '2026-09-30'
+    url: https://stockanalysis.com/stocks/HOG/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica al FCF TTM reportado, que es positivo en el período terminado
+    el 2026-09-30.
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No evaluable: las unidades del EBITDA no están verificadas como compatibles
+    con deuda y efectivo al 2026-09-30.'
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta una serie de acciones con observaciones comparables
+    de tres años.'
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 48
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-21T15:55:27.339732-03:00'
+  fuentes:
+    stockanalysis: 31.5
+    yfinance: 31.5
+  mediana: 31.5
+  n_fuentes: 2
+  promedio: 31.5
+  source_references:
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
+    observed_at: '2026-11-21T15:55:27.339732-03:00'
+    observed_date: '2026-11-21'
+    target_price: 31.5
+    url: https://stockanalysis.com/stocks/hog/forecast/
+  - as_of_date: '2026-11-21'
+    name: yfinance
+    observed_at: '2026-11-21T15:55:27.339732-03:00'
+    observed_date: '2026-11-21'
+    target_price: 31.5
+    url: https://finance.yahoo.com/quote/HOG/
+  target_high: 40.0
+  target_low: 19.0
+tesis_inversion: 'Tesis a investigar: la capacidad de Harley-Davidson para estabilizar
+  su negocio de motocicletas y recuperar rentabilidad podría contrarrestar la contracción
+  reciente, pero los datos disponibles no acreditan todavía un mecanismo de crecimiento
+  sostenido, reinversión productiva ni retornos atractivos sobre capital. La información
+  proporcionada describe sus segmentos, pero no permite cuantificar mercado direccionable,
+  penetración, moat, erosión competitiva ni calidad de la asignación de capital.'
+ticker: HOG
+version: '3.0'
