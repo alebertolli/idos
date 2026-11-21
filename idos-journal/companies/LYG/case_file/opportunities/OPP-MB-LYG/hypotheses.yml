@@ -1,21 +1,18 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos del segmento en el ejercicio 2027 crecen menos del 5%
-      frente al ejercicio 2026.
+  - condition: Los ingresos netos por intereses de 2027 son inferiores a los de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía modifica la definición del segmento y no ofrece cifras
-      comparables para reconstruir la variación.
+  - condition: El crecimiento interanual de los ingresos netos por intereses es inferior
+      al 3%.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos del segmento en el ejercicio 2027 crecen menos del 5% frente al ejercicio
-    2026.
-  - La compañía modifica la definición del segmento y no ofrece cifras comparables
-    para reconstruir la variación.
+  - Los ingresos netos por intereses de 2027 son inferiores a los de 2026.
+  - El crecimiento interanual de los ingresos netos por intereses es inferior al 3%.
   horizon: medio
   id: H1-OPP-MB-LYG
   opportunity_id: OPP-MB-LYG
@@ -23,49 +20,44 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-03-31'
-    expected: 5.0
+    expected: 3.0
     met: null
-    metric: Variación interanual de los ingresos reportados de seguros, pensiones
-      e inversiones
-    prediction: En los resultados del ejercicio 2027, los ingresos reportados de seguros,
-      pensiones e inversiones serán al menos un 5% superiores a los del ejercicio
-      2026, usando la misma definición de segmento en ambos ejercicios.
-    unit: porcentaje mínimo
+    metric: Crecimiento interanual de los ingresos netos por intereses
+    prediction: Los ingresos netos por intereses del ejercicio 2027 serán al menos
+      un 3% superiores a los del ejercicio 2026, según los resultados anuales publicados
+      antes de la fecha objetivo.
+    unit: '%'
   priority: important
   probability: 0.5
-  rationale: El paquete confirma que estas actividades forman parte del negocio y
-    generan ingresos, pero no aporta cifras para demostrar crecimiento histórico,
-    reinversión o penetración. La hipótesis plantea que la actividad comercial de
-    la franquicia puede sostener crecimiento; el contraste será la comparación interanual
-    de los ingresos del segmento publicados por la compañía.
-  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran crecimiento
-    interanual inferior al 5%, o si la información publicada impide una comparación
-    homogénea.
+  rationale: Una evolución favorable del volumen de préstamos y depósitos, junto con
+    la gestión del margen entre los rendimientos de activos y el coste de financiación,
+    podría sostener los ingresos netos por intereses. La información proporcionada
+    no permite confirmar que esos factores estén evolucionando favorablemente; esta
+    hipótesis plantea un umbral que deberá comprobarse con resultados publicados.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 publicados antes
+    del 2028-03-31 muestran un crecimiento inferior al 3% frente a 2026.
   secondary_hypotheses: []
-  statement: La franquicia de seguros, pensiones e inversiones de Lloyds aumentará
-    sus ingresos reportados en el ejercicio 2027 frente al ejercicio 2026.
+  statement: Lloyds aumentará sus ingresos netos por intereses en el ejercicio 2027
+    frente al ejercicio 2026, señal de que podrá sostener el impulso de su negocio
+    bancario principal.
   status: ACTIVE
   ticker: LYG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El beneficio antes de impuestos de 2027 es inferior al de 2026.
+  - condition: La RoTE subyacente de 2027 es inferior al 13%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El crecimiento del beneficio antes de impuestos es inferior al 5%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La comparación no puede ajustarse de forma fiable por cambios contables
-      o de perímetro.
+  - condition: La cifra no puede reconciliarse con los resultados publicados o una
+      revisión de la definición la vuelve incomparable con el objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El beneficio antes de impuestos de 2027 es inferior al de 2026.
-  - El crecimiento del beneficio antes de impuestos es inferior al 5%.
-  - La comparación no puede ajustarse de forma fiable por cambios contables o de perímetro.
+  - La RoTE subyacente de 2027 es inferior al 13%.
+  - La cifra no puede reconciliarse con los resultados publicados o una revisión de
+    la definición la vuelve incomparable con el objetivo.
   horizon: medio
   id: H2-OPP-MB-LYG
   opportunity_id: OPP-MB-LYG
@@ -73,78 +65,117 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-03-31'
-    expected: 5.0
+    expected: 13.0
     met: null
-    metric: Variación interanual del beneficio antes de impuestos reportado
-    prediction: El beneficio antes de impuestos reportado para el ejercicio 2027 será
-      al menos un 5% superior al del ejercicio 2026, comparando cifras publicadas
-      bajo una base contable homogénea.
-    unit: porcentaje mínimo
-  priority: critical
+    metric: RoTE subyacente del ejercicio 2027
+    prediction: La RoTE subyacente del ejercicio 2027, calculada según la definición
+      publicada por Lloyds, será igual o superior al 13%.
+    unit: '%'
+  priority: important
   probability: 0.5
-  rationale: El paquete confirma ingresos y beneficios reportados, pero no incluye
-    datos suficientes sobre márgenes bancarios, coste del crédito, capital regulatorio
-    ni expectativas de beneficios. Por ello no permite concluir que el crecimiento
-    sea probable; esta hipótesis somete a prueba si la combinación de banca minorista
-    y comercial y actividades de seguros puede traducirse en crecimiento del beneficio
-    agregado.
-  review_trigger: Dejar de creerla cuando la publicación de resultados de 2027 muestre
-    crecimiento interanual inferior al 5%, o cuando una actualización de resultados
-    de 2027 confirme que no se alcanzará ese umbral.
+  rationale: Si los ingresos del negocio principal se sostienen y las pérdidas crediticias
+    y los costes no absorben una proporción excesiva de ellos, el grupo podría conservar
+    una rentabilidad elevada sobre su capital tangible. El contexto no proporciona
+    datos para verificar la rentabilidad actual ni su sostenibilidad; por tanto, el
+    umbral es una predicción a contrastar, no un hecho establecido.
+  review_trigger: Dejar de creerla cuando los resultados anuales de 2027 publicados
+    antes del 2028-03-31 muestren una RoTE subyacente inferior al 13%.
   secondary_hypotheses:
   - H1-OPP-MB-LYG
-  statement: Lloyds aumentará su beneficio antes de impuestos reportado en el ejercicio
-    2027 frente al ejercicio 2026.
+  statement: Lloyds mantendrá una rentabilidad sobre el capital tangible (RoTE) de
+    al menos el 13% en el ejercicio 2027.
   status: ACTIVE
   ticker: LYG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de LYG no supera la del FTSE All-Share Banks
-      en el periodo.
+  - condition: El ratio CET1 al cierre de 2027 es inferior al 13%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad total relativa de LYG frente al índice es inferior
-      a 5 puntos porcentuales.
+  - condition: La entidad no publica datos suficientes para verificar el ratio o su
+      perímetro regulatorio.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de LYG no supera la del FTSE All-Share Banks en el periodo.
-  - La rentabilidad total relativa de LYG frente al índice es inferior a 5 puntos
-    porcentuales.
+  - El ratio CET1 al cierre de 2027 es inferior al 13%.
+  - La entidad no publica datos suficientes para verificar el ratio o su perímetro
+    regulatorio.
   horizon: medio
   id: H3-OPP-MB-LYG
   opportunity_id: OPP-MB-LYG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
+    deadline: '2028-03-31'
+    expected: 13.0
+    met: null
+    metric: Ratio CET1 al cierre del ejercicio 2027
+    prediction: El ratio CET1 comunicado al cierre del ejercicio 2027 será igual o
+      superior al 13%, usando la definición regulatoria reportada por Lloyds.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La retención de beneficios y la gestión de activos ponderados por riesgo
+    pueden apoyar el capital, mientras que distribuciones, pérdidas crediticias o
+    cambios regulatorios pueden reducirlo. Con los datos aportados no se puede determinar
+    el nivel actual del colchón ni su trayectoria; esta hipótesis fija un nivel verificable
+    para evaluar la resiliencia financiera.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 publicados antes
+    del 2028-03-31 informan un ratio CET1 inferior al 13%.
+  secondary_hypotheses: []
+  statement: Lloyds conservará un colchón de capital CET1 de al menos el 13% al cierre
+    del ejercicio 2027.
+  status: ACTIVE
+  ticker: LYG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de LYG menos la del FTSE 350 Banks es inferior
+      a 5 puntos porcentuales en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El cálculo excluye dividendos o no usa precios de cierre y fechas comparables
+      para LYG y el índice.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de LYG menos la del FTSE 350 Banks es inferior a 5 puntos
+    porcentuales en el periodo definido.
+  - El cálculo excluye dividendos o no usa precios de cierre y fechas comparables
+    para LYG y el índice.
+  horizon: medio
+  id: H4-OPP-MB-LYG
+  opportunity_id: OPP-MB-LYG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
     expected: 5.0
     met: null
-    metric: Rentabilidad total de LYG menos rentabilidad total del FTSE All-Share
-      Banks
-    prediction: Desde el cierre del 20 de noviembre de 2026 hasta el cierre del 20
-      de noviembre de 2027, la rentabilidad total de LYG, incluidos dividendos reinvertidos
-      y expresada en libras esterlinas, superará en al menos 5 puntos porcentuales
-      la rentabilidad total del índice FTSE All-Share Banks en el mismo periodo.
-    unit: puntos porcentuales mínimos
+    metric: Rentabilidad total de LYG menos rentabilidad total del FTSE 350 Banks
+    prediction: Entre el cierre del 20-11-2026 y el cierre del 19-11-2027, la rentabilidad
+      total de LYG, incluidos dividendos reinvertidos, superará en al menos 5 puntos
+      porcentuales la rentabilidad total del índice FTSE 350 Banks en libras esterlinas.
+    unit: puntos porcentuales
   priority: informational
   probability: 0.5
-  rationale: 'El paquete no contiene expectativas de beneficios, métricas de valoración
-    ni datos que permitan concluir que el mercado infravalora o sobrevalora la capacidad
-    de generar retornos. Esta hipótesis no presupone una valoración atractiva: prueba
-    si la acción logra un rendimiento relativo superior durante un periodo futuro
-    definido.'
-  review_trigger: Dejar de creerla al cierre del 20 de noviembre de 2027 si la rentabilidad
-    total relativa de LYG es inferior a 5 puntos porcentuales; antes de esa fecha,
-    revisar la tesis si LYG queda al menos 10 puntos porcentuales por detrás del índice
-    al cierre de dos trimestres consecutivos.
+  rationale: Si Lloyds logra sostener sus ingresos y rentabilidad sin deteriorar su
+    capital, el mercado podría reconocer esa capacidad en el precio de la acción,
+    además de los dividendos distribuidos. Sin información sobre valoración, expectativas
+    del mercado o retornos recientes, no se puede afirmar que exista infravaloración;
+    la hipótesis se limita a una predicción relativa y medible.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si la rentabilidad total
+    relativa acumulada desde el cierre del 2026-11-20 es inferior a 5 puntos porcentuales.
   secondary_hypotheses:
+  - H1-OPP-MB-LYG
   - H2-OPP-MB-LYG
-  statement: En los doce meses posteriores a la fecha de corte, la rentabilidad total
-    de LYG superará la del índice FTSE All-Share Banks.
+  - H3-OPP-MB-LYG
+  statement: La rentabilidad total para el accionista de LYG superará a la del índice
+    FTSE 350 Banks durante el periodo de doce meses posterior al corte de investigación.
   status: ACTIVE
   ticker: LYG
   version: 1

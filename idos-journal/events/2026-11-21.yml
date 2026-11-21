@@ -1188,3 +1188,112 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T16:27:34.995693'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-KB
+    ticker: KB
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T16:34:36.279985'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-KB
+    ticker: KB
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T16:34:36.369136'
+- data:
+    classification: alto riesgo
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 4a9f8eb76c1d782b48d995ac29b2823bc58c37ccbca0d02262ffcc6959373a7f
+    opp_id: OPP-MB-KB
+    original_status: UNDER_RESEARCH
+    score: 68
+    strategy_version: '1.5'
+    ticker: KB
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T16:36:17.670215'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-KO
+    ticker: KO
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T16:36:50.058498'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-KO
+    ticker: KO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T16:36:50.134223'
+- data:
+    classification: Empresa de bebidas madura; oportunidad de crecimiento por validar
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 401416c8495467914bdac3207971e8cc831efce42f8a8a1177afe490d40c4890
+    opp_id: OPP-MB-KO
+    original_status: UNDER_RESEARCH
+    score: 61
+    strategy_version: '1.5'
+    ticker: KO
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T16:38:25.740547'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-LYG
+    ticker: LYG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T16:39:00.875458'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-LYG
+    ticker: LYG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T16:39:00.952936'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de crecimiento compuesto
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: ba3b4e6fa987c95aecbaa469ee40182890dfdcbc83dcbd0d2bdb8cbe2d362ea1
+    opp_id: OPP-MB-LYG
+    original_status: UNDER_RESEARCH
+    score: 53
+    strategy_version: '1.5'
+    ticker: LYG
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T16:40:47.751161'
