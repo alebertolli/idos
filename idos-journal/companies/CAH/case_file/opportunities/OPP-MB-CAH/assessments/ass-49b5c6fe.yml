@@ -1,0 +1,32 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida; oportunidad no validada'
+- 'Market error: No validado con la evidencia disponible.'
+- 'Thesis: Cardinal Health distribuye productos farmacéuticos y médicos y presta soluciones
+  a clientes sanitarios. Los datos aportados muestran ingresos TTM de USD 257.752
+  millones, FCF TTM de USD 4.901 millones'
+generated_at: '2026-11-21T14:43:45.780089-03:00'
+id: ass-49b5c6fe
+recommendation: REVIEW
+risks:
+- analisis: El margen bruto reportado fue 3,9% TTM al 2026-09-30; el paquete no cuantifica
+    sensibilidad a costes, precios o competencia.
+  riesgo: Margen bruto estrecho
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/CAH/statistics/
+- analisis: El current ratio reportado fue 0,88 al 2026-09-30; no alcanza el umbral
+    configurado de 0,5, aunque tampoco aporta por sí solo una evaluación completa
+    de liquidez.
+  riesgo: Liquidez corriente
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/CAH/statistics/
+- analisis: No se proporcionan datos suficientes y verificables para calcular los
+    ratios de la lista requerida conforme a las reglas de fuentes del encargo.
+  riesgo: Evidencia limitada para evaluar retornos y apalancamiento
+  sources: []
+score: 46
+status: COMPLETED
+version: '3.0'

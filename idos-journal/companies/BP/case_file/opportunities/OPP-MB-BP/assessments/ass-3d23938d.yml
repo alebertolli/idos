@@ -1,0 +1,33 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida'
+- 'Market error: No se puede concluir que exista un error de valoración: los objetivos
+  de analistas son referencias observadas, no una valoración intrínseca validada.'
+- 'Thesis: BP es una compañía integrada de energía con operaciones en petróleo y gas,
+  gas y bajas emisiones, y clientes y productos. La evidencia disponible muestra FCF
+  TTM positivo y margen bruto TTM superior a'
+generated_at: '2026-11-21T14:41:51.032365-03:00'
+id: ass-3d23938d
+recommendation: REVIEW
+risks:
+- evidencia: StockAnalysis reporta FCF de USD 23.393 millones en TTM al 2026-09-30,
+    frente a USD 11.272 millones en FY 2025 y USD 28.863 millones en FY 2022.
+  riesgo: La serie de FCF muestra variaciones pronunciadas entre períodos; el TTM
+    informado no demuestra por sí mismo una tendencia sostenible.
+- evidencia: StockAnalysis reporta deuda total de USD 69.616 millones y net cash de
+    USD -26.563 millones al 2026-09-30.
+  riesgo: El endeudamiento bruto informado es significativo y la serie de net cash
+    reporta valores negativos.
+- evidencia: El paquete no proporciona todos los inputs compatibles y verificables
+    necesarios para esos análisis.
+  riesgo: La información disponible no permite verificar retornos sobre capital, cobertura
+    de intereses calculada con EBIT y gasto por intereses, ni evolución dilutiva de
+    acciones.
+- evidencia: El resumen financiero describe actividades integradas de petróleo y gas,
+    trading, renovables e hidrógeno, sin desglose de sensibilidades.
+  riesgo: La exposición a energía puede hacer que resultados y caja sean sensibles
+    a condiciones de mercado; el paquete no aporta datos para medir esa sensibilidad.
+score: 48
+status: COMPLETED
+version: '3.0'

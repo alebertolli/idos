@@ -1,132 +1,146 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos orgánicos de FY 2027 crecen menos del 1% interanual.
+  - condition: Los ingresos TTM reportados al 2027-09-30 son iguales o inferiores
+      a USD 28.74 mil millones.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa comunica una contracción de ingresos orgánicos para FY 2027.
+  - condition: La empresa reporta ingresos TTM superiores a USD 28.74 mil millones,
+      pero inferiores a USD 30.2 mil millones.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos orgánicos de FY 2027 crecen menos del 1% interanual.
-  - La empresa comunica una contracción de ingresos orgánicos para FY 2027.
+  - Los ingresos TTM reportados al 2027-09-30 son iguales o inferiores a USD 28.74
+    mil millones.
+  - La empresa reporta ingresos TTM superiores a USD 28.74 mil millones, pero inferiores
+    a USD 30.2 mil millones.
   horizon: medio
   id: H1-OPP-MULTIBAGGERS-BKR-0001
   opportunity_id: OPP-MULTIBAGGERS-BKR-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 3.0
+    deadline: '2027-09-30'
+    expected: 30.2
     met: null
-    metric: Crecimiento interanual de ingresos orgánicos de FY 2027
-    prediction: En los resultados de FY 2027, los ingresos orgánicos crecerán al menos
-      un 3% frente a FY 2026, excluyendo efectos de divisa y adquisiciones cuando
-      la empresa los desglose.
-    unit: '%'
-  priority: important
+    metric: Ingresos TTM reportados
+    prediction: Los ingresos TTM reportados al 2027-09-30 serán superiores a USD 30.2
+      mil millones, aproximadamente un 5% por encima de los ingresos TTM de USD 28.74
+      mil millones al 2026-09-30.
+    unit: USD mil millones
+  priority: critical
   probability: 0.5
-  rationale: La compañía presta servicios y suministra tecnología a mercados energéticos
-    e industriales. El contexto disponible indica un margen bruto TTM ligeramente
-    superior al de FY 2025, pero no aporta datos sobre demanda, cartera de pedidos
-    o crecimiento orgánico que justifiquen extrapolar esa mejora.
-  review_trigger: Dejar de creerla si los resultados de FY 2027 muestran crecimiento
-    orgánico inferior al 1%, o si antes de esa fecha la empresa revisa a la baja su
-    perspectiva anual por debilidad persistente de la demanda.
+  rationale: La empresa combina productos y servicios para operaciones energéticas
+    e industriales, lo que podría permitirle captar demanda de varios mercados. Los
+    ingresos TTM de USD 28.74 mil millones al 2026-09-30 ofrecen una base cuantitativa,
+    pero el material disponible no acredita qué segmentos impulsarían el crecimiento;
+    por ello, esta hipótesis requiere validación en los resultados reportados.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-09-30
+    muestra que los ingresos TTM han caído por debajo de USD 28.74 mil millones, o
+    si la dirección reduce sus perspectivas de ingresos anuales por contracción de
+    la demanda en sus negocios principales.
   secondary_hypotheses: []
-  statement: Baker Hughes mantendrá crecimiento operativo positivo durante 2027, aunque
-    la evidencia disponible no permite concluir que la mejora reciente de márgenes
-    represente una tendencia estructural.
+  statement: Baker Hughes aumentará sus ingresos TTM durante los próximos doce meses,
+    reflejando una expansión de la actividad en sus negocios de energía e industria.
   status: ACTIVE
   ticker: BKR
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen de FCF de FY 2027 es inferior al 5%.
+  - condition: El FCF TTM al 2027-09-30 es inferior a USD 3.23 mil millones.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF de FY 2027 es negativo.
+  - condition: El FCF TTM es inferior a USD 3.5 mil millones o el margen de FCF sobre
+      ingresos TTM es inferior al 11.0%.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen de FCF de FY 2027 es inferior al 5%.
-  - El FCF de FY 2027 es negativo.
+  - El FCF TTM al 2027-09-30 es inferior a USD 3.23 mil millones.
+  - El FCF TTM es inferior a USD 3.5 mil millones o el margen de FCF sobre ingresos
+    TTM es inferior al 11.0%.
   horizon: medio
   id: H2-OPP-MULTIBAGGERS-BKR-0001
   opportunity_id: OPP-MULTIBAGGERS-BKR-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 7.0
+    deadline: '2027-09-30'
+    expected: 3.5
     met: null
-    metric: Margen de FCF de FY 2027
-    prediction: El margen de FCF de FY 2027 será de al menos el 7% de los ingresos,
-      calculado como flujo de caja libre dividido por ingresos del ejercicio.
-    unit: '%'
+    metric: FCF TTM
+    prediction: El FCF TTM reportado al 2027-09-30 será de al menos USD 3.5 mil millones
+      y su margen sobre ingresos TTM será de al menos el 11.0%.
+    unit: USD mil millones
   priority: critical
   probability: 0.5
-  rationale: 'El contexto señala que el FCF TTM supera al de FY 2025. Esa comparación
-    no demuestra por sí sola una mejora estructural: puede reflejar capital circulante,
-    calendario de cobros o partidas puntuales. El margen de FCF permite evaluar la
-    generación de caja en relación con el tamaño del negocio.'
-  review_trigger: Dejar de creerla si la publicación de FY 2027 muestra un margen
-    de FCF inferior al 5% o FCF negativo.
+  rationale: El FCF TTM informado al 2026-09-30 fue de USD 3.23 mil millones, equivalente
+    a aproximadamente el 11.2% de los ingresos TTM. Si la empresa convierte el crecimiento
+    de ingresos en caja y no sufre un deterioro significativo de capital de trabajo,
+    inversión o costes, podría superar USD 3.5 mil millones de FCF TTM. La información
+    disponible no detalla reinversión ni retornos sobre capital, de modo que la conversión
+    debe comprobarse con estados financieros futuros.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes del 2027-09-30 muestran una caída del FCF TTM por debajo de USD 3.23 mil
+    millones, o si la empresa atribuye esa caída a un deterioro persistente del margen
+    operativo, capital de trabajo o necesidades de inversión.
   secondary_hypotheses:
   - H1-OPP-MULTIBAGGERS-BKR-0001
-  statement: La generación de caja de Baker Hughes seguirá siendo sólida en FY 2027,
-    pero no hay evidencia suficiente para afirmar que la mejora de FCF frente a FY
-    2025 sea duradera.
+  statement: Baker Hughes mantendrá una generación de flujo de caja libre TTM de al
+    menos USD 3.5 mil millones, sosteniendo una conversión de caja cercana o superior
+    a la observada en la base disponible.
   status: ACTIVE
   ticker: BKR
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de BKR iguala o supera al del S&P 500 Energy durante
-      el periodo.
+  - condition: La rentabilidad total de BKR durante el periodo es igual o inferior
+      a la de XLE.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: BKR supera al índice por 5 puntos porcentuales o más.
+  - condition: BKR supera a XLE, pero por menos de 10 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de BKR iguala o supera al del S&P 500 Energy durante el periodo.
-  - BKR supera al índice por 5 puntos porcentuales o más.
+  - La rentabilidad total de BKR durante el periodo es igual o inferior a la de XLE.
+  - BKR supera a XLE, pero por menos de 10 puntos porcentuales.
   horizon: medio
   id: H3-OPP-MULTIBAGGERS-BKR-0001
   opportunity_id: OPP-MULTIBAGGERS-BKR-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: -5.0
+    deadline: '2027-12-31'
+    expected: 10.0
     met: null
-    metric: Rendimiento total de BKR menos rendimiento total del S&P 500 Energy
-    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-20, el
-      rendimiento total de BKR, incluidos dividendos, quedará al menos 5 puntos porcentuales
-      por debajo del rendimiento total del índice S&P 500 Energy.
+    metric: Rendimiento total de BKR menos rendimiento total de XLE
+    prediction: La rentabilidad total de BKR, incluidos dividendos y ajustada por
+      eventos corporativos, excederá en al menos 10 puntos porcentuales la rentabilidad
+      total de XLE desde el cierre del 2026-11-21 hasta el cierre del 2027-12-31.
     unit: puntos porcentuales
-  priority: informational
+  priority: important
   probability: 0.5
-  rationale: El contexto identifica una posible desconexión entre la cotización y
-    los objetivos de analistas, pero no aporta esos valores ni estimaciones operativas
-    para validarla. Sin pruebas de reinversión productiva, retornos sobre capital,
-    mercado direccionable o ventaja competitiva, no se puede justificar una prima
-    de valoración duradera.
-  review_trigger: Dejar de creerla el 2027-11-20 si el rendimiento total de BKR no
-    queda al menos 5 puntos porcentuales por debajo del índice.
+  rationale: 'Si BKR cumple la predicción de crecimiento de ingresos y sostiene su
+    generación de FCF, el mercado podría reconocer una mayor capacidad de generación
+    de caja y favorecer su rendimiento frente a un referente sectorial. Esta es una
+    hipótesis de mercado, no una conclusión de infravaloración: la información disponible
+    no incluye cotización, deuda neta ni múltiplos suficientes para estimar el valor
+    razonable de BKR.'
+  review_trigger: Dejar de creerla si, al cierre de cualquier trimestre posterior
+    al 2026-11-21, BKR acumula un rendimiento inferior al de XLE en más de 10 puntos
+    porcentuales y la diferencia coincide con revisiones negativas persistentes de
+    las perspectivas operativas o de FCF.
   secondary_hypotheses:
   - H1-OPP-MULTIBAGGERS-BKR-0001
   - H2-OPP-MULTIBAGGERS-BKR-0001
-  statement: La incertidumbre sobre la persistencia del crecimiento y de la generación
-    de caja limitará el rendimiento relativo de la acción frente al sector energético
-    durante los próximos doce meses.
+  statement: La rentabilidad total de BKR superará a la del ETF Energy Select Sector
+    SPDR (XLE) en al menos 10 puntos porcentuales entre el cierre del 2026-11-21 y
+    el 2027-12-31.
   status: ACTIVE
   ticker: BKR
   version: 1

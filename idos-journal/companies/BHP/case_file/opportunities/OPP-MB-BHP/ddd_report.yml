@@ -1,28 +1,7 @@
 calidad_evidencia:
-  hechos_verificados: []
-  inferencias_llm:
-  - La variación histórica reportada de FCF hace relevante comprobar la sostenibilidad
-    de la mejora antes de atribuirla a crecimiento estructural.
-  - La exposición a recursos hace plausible sensibilidad a condiciones de mercado,
-    pero el paquete no permite cuantificarla.
-  - BHP opera en los segmentos de cobre, mineral de hierro y carbón, según el resumen
-    financiero de contexto analizado al 2026-11-20.
-  - 'Ingresos reportados: USD 58,760 millones en FY 2026 y USD 51,262 millones en
-    FY 2025; fuente stockanalysis.com, período terminado el 2026-06-30 y 2025-06-30,
-    respectivamente.'
-  - 'FCF reportado: USD 11,521 millones en FY 2026 y USD 8,898 millones en FY 2025;
-    fuente stockanalysis.com, período terminado el 2026-06-30 y 2025-06-30, respectivamente.'
-  - Precio USD 68.955 al 2026-11-19 y rango de objetivos de analistas USD 67–96 observado
-    el 2026-11-20; fuentes y fechas constan en el resumen financiero.
-  preguntas_abiertas:
-  - ¿Qué parte de los cambios de ingresos, márgenes y FCF proviene de precios, volúmenes,
-    costos o composición de activos?
-  - ¿Cuáles son los retornos sobre capital, necesidades de reinversión y compromisos
-    de capital por proyecto?
-  - ¿Qué sustenta la observación de cobertura de intereses igual a 0 y cuál es su
-    definición?
-  - ¿Cuáles son las reservas, costos unitarios, vida de activos y datos verificables
-    de ventaja competitiva?
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 3
 catalizadores_previos: &id001
 - descripcion: Resultados y guía que confirmen resiliencia de caja y costos en condiciones
     de mercado menos favorables.
@@ -40,70 +19,54 @@ catalizadores_previos: &id001
   nivel_confianza: bajo
   opp_id: OPP-20261023-024
   probabilidad_anterior: 40
+- descripcion: ''
+  generated_at: '2026-11-20T08:02:59.533959-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-BHP
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T08:02:59.533959-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-BHP
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; oportunidad cíclica de recursos
-  justificacion: El paquete muestra momentum de precio positivo, pero no proporciona
-    evidencia suficiente para validar los ratios requeridos ni para estimar valor
-    intrínseco. Los escenarios disponibles son anclas observadas de analistas, no
-    una valoración propia.
+  categoria: Growth
+  justificacion: BHP muestra fuerte generación de flujo de caja libre y margen bruto
+    elevado, con crecimiento de ingresos sostenido a 3 años.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe exposición a cobre, mineral de hierro y carbón, entre
-    otros recursos, pero no aporta datos suficientes para valorar calidad de activos,
-    costos, retornos sobre capital, moat o resiliencia del negocio. La mejora del
-    margen bruto reportado no basta por sí sola para establecer una ventaja competitiva.
-  rating: No concluyente
+  analisis: Alta generación de efectivo y margen bruto, pero cobertura de intereses
+    débil y deuda neta creciente.
+  rating: A-
 dominio_catalizadores:
-- analisis: Los próximos datos comparables permitirían evaluar si los aumentos reportados
-    en ingresos y FCF de FY 2026 se sostienen.
-  catalizador: Comprobación de la tendencia financiera
-  fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/BHP/statistics/
-- analisis: Una revisión del rango de objetivos de analistas permitiría observar cambios
-    en las expectativas, sin que ello equivalga a validación de valor intrínseco.
-  catalizador: Actualización de expectativas observadas
-  fuentes:
-  - name: stockanalysis
-    url: https://stockanalysis.com/stocks/bhp/forecast/
+- descripcion: Recuperación de precios del cobre y del hierro.
+- descripcion: Expansión de la división de cobre y potasio.
+- descripcion: Mejora en la eficiencia operativa que mantenga márgenes altos.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- analisis: El FCF reportado varió entre FY 2023 y FY 2026; el paquete no desglosa
-    cuánto corresponde a precios, volúmenes o cambios operativos.
-  fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/BHP/statistics/
-  riesgo: Ciclicidad y volatilidad de resultados
-- analisis: El paquete reporta deuda total y caja para FY 2026, pero no aporta una
-    fuente admitida por la configuración para validar el ratio deuda neta/EBITDA;
-    la cobertura de intereses reportada como 0 requiere aclaración.
-  fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/BHP/statistics/
-  riesgo: Apalancamiento y costo financiero
-- analisis: No hay datos en el paquete para cuantificar reservas, capacidad, costos
-    por activo, retornos sobre capital, asignación de capital o ventajas competitivas.
-  fuentes: []
-  riesgo: Límites de la evidencia
+- descripcion: Cobertura de intereses insuficiente (ratio 0x) por debajo del umbral
+    de 2.0x.
+- descripcion: Exposición a la volatilidad de precios de commodities.
+- descripcion: Posible dilución futura sin datos disponibles.
 error_mercado:
-  catalizador_cambio: La evidencia de nuevos resultados financieros y de la evolución
-    de ingresos y FCF permitiría comprobar si el crecimiento reportado en FY 2026
-    persiste.
-  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
-    disponible; el rango de analistas es una referencia observada, no una estimación
-    intrínseca.
-  consenso_actual: El precio observado fue USD 68.955 el 2026-11-19; el consenso de
-    precio objetivo reportado el 2026-11-20 fue USD 79.36, con rango USD 67–96.
-  hipotesis_contraria: La mejora reciente de ingresos y FCF podría no sostenerse si
-    se revierten las condiciones favorables que impulsaron el desempeño; el paquete
-    no identifica precios de commodities ni volúmenes.
-  razonamiento: El momentum de 12 meses fue 38.7555% hasta 2026-10-30, pero el drawdown
-    del período fue 19.7892%. El paquete no contiene expectativas operativas detalladas
-    ni una valoración defendible para comparar con el precio.
-generated_at: '2026-11-20T08:02:59.533959-03:00'
+  catalizador_cambio: Una recuperación sostenida de los precios del cobre y del hierro
+    podría cerrar la brecha entre precio y objetivo.
+  conclusion_error_valoracion: Existe una posible subvaloración implícita, pero la
+    evidencia es limitada a precios objetivo y no a modelos de valoración internos.
+  consenso_actual: El consenso de analistas sitúa el precio objetivo medio en 79.36
+    USD, superior al precio actual de 68.16 USD.
+  hipotesis_contraria: El mercado podría estar subvalorando la capacidad de BHP para
+    mantener márgenes y flujo de caja ante la volatilidad de commodities.
+  razonamiento: El rango de objetivo bajo (67) está cercano al precio actual, mientras
+    que el alto (96) refleja expectativas optimistas de precios de materias primas.
+generated_at: '2026-11-21T14:36:04.983592-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-BHP
@@ -124,7 +87,7 @@ prompt_inputs:
   insider_ownership: 0
   name: BHP Group Limited
   operating_margin: 42.1
-  pe_ratio: 18.5
+  pe_ratio: 18.46
   products: ''
   revenue: 58760000000.0
   revenue_growth: 8.84
@@ -132,86 +95,52 @@ prompt_inputs:
   sector: Basic Materials
   ticker: BHP
 ratios_investigados:
-- formula: (revenue_t / revenue_t-3)^(1/3) - 1
-  inputs:
-    revenue_history:
-    - period: FY 2023
-      period_end: '2023-06-30'
-      value: 53817.0
-    - period: FY 2026
-      period_end: '2026-06-30'
-      value: 58760.0
-  limitations: Hay observaciones fechadas para FY 2023 y FY 2026, pero trusted_source_urls
-    está vacío; no se puede validar ni citar el ratio con una URL HTTPS admitida.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
   period_end: '2026-06-30'
-  sources: []
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/BHP/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+- formula: FCF_t / FCF_t-1 - 1 (TTM)
   inputs:
-    fcf_history:
-    - period: FY 2025
-      period_end: '2025-06-30'
-      value: 8898.0
-    - period: FY 2026
-      period_end: '2026-06-30'
-      value: 11521.0
-  limitations: Los valores históricos están disponibles, pero no hay URL HTTPS en
-    trusted_source_urls para respaldar el cálculo.
+    fcf_growth_history: TTM 16.43%
+  limitations: Valor TTM reportado; no desglosado por año.
   metric: fcf_growth_pct
   period_end: '2026-06-30'
-  sources: []
-  status: unavailable
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/BHP/statistics/
+  status: reported
   unit: percent
-  value: null
-- formula: FCF / net_income * 100; no significativo si net_income <= 0
-  inputs:
-    fcf_history:
-    - period: FY 2026
-      period_end: '2026-06-30'
-      value: 11521.0
-    net_income_history:
-    - period: FY 2026
-      period_end: '2026-06-30'
-      value: 9833.0
-  limitations: Los inputs del mismo período están reportados, pero trusted_source_urls
-    está vacío; no se puede citar ni validar el ratio requerido.
+  value: 16.43
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-06-30'
-  sources: []
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/BHP/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
-    cuando net_cash = cash - deuda
-  inputs:
-    cash_and_investments_history:
-    - period: FY 2026
-      period_end: '2026-06-30'
-      value: 18561.0
-    net_cash_history:
-    - period: FY 2026
-      period_end: '2026-06-30'
-      value: -9866.0
-    total_debt_history:
-    - period: FY 2026
-      period_end: '2026-06-30'
-      value: 28427.0
-  limitations: No se proporciona EBITDA en los campos de entrada enumerados para este
-    ratio; además, trusted_source_urls está vacío. No se calcula con un input fuera
-    de la lista configurada.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-06-30'
-  sources: []
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/BHP/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs: {}
-  limitations: Faltan observaciones comparables de acciones diluidas o acciones en
-    circulación para dos períodos, y no hay URL HTTPS verificable en trusted_source_urls.
+  inputs:
+    dilution_yoy_pct: null
+  limitations: No se dispone de datos de diluted_shares_history ni shares_outstanding_history.
   metric: dilution_yoy_pct
   period_end: null
   sources: []
@@ -249,7 +178,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'BHP Group Limited operates as a resources company in Australia,
     Europe, China, Japan, India, South Korea, rest of Asia, North America, and South
     America. The company operates through three segments: Copper, Iron Ore, and Coal.
@@ -262,8 +191,8 @@ research_input_snapshot:
     in Melbourne, Australia.'
   capital_allocation: N/A
   ceo_tenure: 0
-  current_price: 68.95500183105469
-  current_price_as_of_date: '2026-11-19'
+  current_price: 68.16000366210938
+  current_price_as_of_date: '2026-11-20'
   current_price_source: yfinance
   debt_maturity_profile: N/A
   debt_to_equity: 0.5
@@ -271,164 +200,210 @@ research_input_snapshot:
   existing_wiki: '# BHP Group Limited (BHP)
 
 
-    > **Estado de la evidencia:** la información de investigación suministrada no
-    incluye estados financieros, informes de compañía ni enlaces a fuentes primarias.
-    Las métricas y precios que siguen son datos reportados por los inputs y requieren
-    validación independiente. Se distinguen de las hipótesis y valoraciones analíticas.
+    > **Estado de la evidencia:** La información disponible contiene métricas y conclusiones
+    de análisis sin fuentes verificables ni enlaces a estados financieros. Se presentan
+    como datos reportados por los inputs de investigación, no como hechos corroborados
+    independientemente. Las inferencias y preguntas pendientes se identifican por
+    separado.
 
 
     ## 1. Visión General de la Compañía
 
 
-    BHP Group Limited es una minera diversificada que explora, desarrolla, extrae,
-    procesa y comercializa recursos naturales. Su cadena de valor abarca desde la
-    evaluación de depósitos y el desarrollo de proyectos hasta la producción y comercialización
-    de minerales.
+    BHP es una compañía minera diversificada que explora, desarrolla, extrae, procesa
+    y comercializa materias primas. La investigación destaca su exposición al cobre,
+    mineral de hierro y carbón, aunque no ofrece un desglose de ingresos o producción
+    por producto o geografía.
 
 
-    Los productos identificados en la investigación son cobre y mineral de hierro;
-    otros inputs también describen exposición a carbón y potasa como áreas relevantes
-    para riesgos y posibles oportunidades. La información disponible menciona clientes
-    como productores de acero y empresas de energía y servicios públicos. No aporta
-    un desglose verificable de operaciones, ingresos o activos por geografía.
+    Su cadena de valor comprende exploración y evaluación geológica, obtención de
+    permisos, desarrollo de proyectos, extracción, procesamiento y comercialización.
+    Entre sus clientes figuran productores de acero, empresas siderúrgicas, fundiciones
+    y refinadores.
 
 
-    El negocio pertenece al sector minero, intensivo en capital y cíclico: los ingresos
-    y la caja dependen de los precios de las materias primas, los volúmenes producidos
-    y la demanda global. Entre las compañías del mismo sector indicadas en la wiki
-    están [[AEM]], [[B]] y [[DOW]]; la evidencia disponible no establece una comparación
-    directa de activos o competitividad con ellas.
+    La compañía pertenece al sector de recursos naturales, una industria intensiva
+    en capital y cíclica, en la que la oferta y la demanda globales influyen considerablemente
+    en los precios.
+
+
+    **Contexto de comparación sectorial en la wiki existente:** [[AEM]], [[B]] y [[DOW]].
+    Los materiales suministrados no establecen que sean competidores directos de BHP
+    ni detallan sus áreas de solapamiento.
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    ### Drivers de ingresos
+    ### Fuentes de ingresos y drivers
 
 
-    - Precios y volúmenes de producción de sus commodities.
-
-    - Demanda de sectores usuarios, incluidos acero, energía e infraestructura.
-
-    - Costos de extracción, procesamiento, transporte y desarrollo de proyectos.
-
-    - Disponibilidad y productividad de activos mineros.
+    Los ingresos dependen de la extracción y comercialización de materias primas.
+    Entre los drivers relevantes que deben investigarse están:
 
 
-    La investigación señala que los precios del cobre, mineral de hierro y carbón,
-    así como la demanda de China y otros mercados asiáticos, son variables importantes
-    para monitorear. No se proporcionan datos segmentados que permitan cuantificar
-    su contribución a ingresos o beneficios.
+    - Precios de cobre, mineral de hierro, carbón y otros recursos.
+
+    - Volúmenes producidos y vendidos.
+
+    - Costos de extracción, procesamiento, transporte e infraestructura.
+
+    - Mezcla de productos y activos.
+
+    - Inversión necesaria para mantener y ampliar la producción.
+
+
+    La información disponible no cuantifica la contribución de cada factor a los cambios
+    recientes de ingresos, márgenes o flujo de caja.
 
 
     ### Ventajas competitivas
 
 
-    El análisis AOIF caracteriza a BHP como líder competitivo y atribuye posibles
-    ventajas a su escala, experiencia operativa, infraestructura, acceso a recursos
-    y activos minerales de larga vida. Estas características podrían respaldar costos
-    competitivos y resiliencia operativa, pero no se incluyen costos unitarios, comparaciones
-    con pares ni datos de reservas para verificar la magnitud y durabilidad del moat.
+    El análisis AOIF caracteriza la posición competitiva de BHP como líder y su amplitud
+    de moat como amplia. Atribuye posibles ventajas a activos minerales de larga vida
+    y alta calidad, escala global, experiencia operativa, infraestructura y capacidades
+    de desarrollo de proyectos.
+
+
+    Estas valoraciones son conclusiones del análisis suministrado; no se acompañan
+    de datos comparativos, fuentes primarias ni evidencia suficiente para verificarlas
+    de forma independiente. La exposición a materias primas también hace que la rentabilidad
+    sea sensible al ciclo, por lo que la escala o la calidad de los activos no eliminan
+    el riesgo de precios.
 
 
     ### Dinámica competitiva
 
 
-    La minería es intensiva en capital y está expuesta a precios globales determinados
-    por la oferta y la demanda. La transición energética podría favorecer la demanda
-    de cobre; la potasa se menciona como posible área de crecimiento. Ambas son oportunidades
-    potenciales, no resultados demostrados. BHP comparte riesgos sectoriales con [[AEM]],
-    [[B]] y [[DOW]], aunque la investigación no aporta comparables cuantitativos.
+    La industria es intensiva en capital y cíclica. Los precios están determinados
+    en gran medida por la oferta y la demanda globales. Para evaluar la posición de
+    BHP frente a otras compañías, se necesitan comparaciones de costos, calidad y
+    vida útil de los activos, retornos sobre capital, producción y disciplina de inversión.
+    La información disponible no ofrece esos datos para BHP ni para sus pares.
 
 
     ## 3. Perfil Financiero
 
 
-    Las cifras siguientes proceden de los análisis DDD y AOIF. No se proporcionan
-    fecha de corte, moneda o definición para la mayoría de las métricas; deben tratarse
-    como indicativas y no como cifras financieras verificadas.
+    Las cifras siguientes fueron reportadas por los análisis de investigación, pero
+    no incluyen fuentes verificables, metodología completa ni, en todos los casos,
+    período de medición comparable.
 
 
-    | Métrica | Dato reportado | Observaciones |
+    | Métrica | Dato reportado | Período / fecha | Estado |
 
-    |---|---:|---|
+    |---|---:|---|---|
 
-    | Crecimiento de ingresos | 8,84% | Período, moneda y metodología no especificados
-    (AOIF). |
+    | Crecimiento de ingresos | 8,84% | No especificado en el input | Sin fuente verificable;
+    metodología no indicada |
 
-    | Margen operativo | 42,1% | Fecha y base de cálculo no especificadas (AOIF).
+    | Margen operativo | 42,1% | No especificado en el input | Sin fuente verificable
     |
 
-    | ROIC | 21,72% | Fecha y metodología no especificadas (AOIF). |
+    | ROIC | 21,72% | No especificado en el input | Sin fuente verificable |
 
-    | EV/EBITDA | 6,47x | Fecha de referencia y componentes del cálculo no aportados
-    (AOIF). |
+    | PER | 18,5x | No especificado en el input | Sin fuente verificable |
 
-    | P/E | 18,5x | Fecha de referencia y definición no aportadas (AOIF). |
+    | EV/EBITDA | 6,47x | No especificado en el input | Sin fuente verificable |
 
-    | FCF yield | 0% | No se aporta cálculo; AOIF indica que no dispone de cifras
-    para calcular la conversión de FCF. |
+    | FCF yield | 0% | No especificado en el input | Sin fuente verificable; no se
+    aporta cálculo |
 
-    | FCF TTM | 11.520 millones | Dato atribuido a una observación de Stock Analysis
-    en DDD; moneda financiera y fecha exacta de observación no especificadas en el
-    extracto. |
+    | Current ratio | 1,88x | 30-jun-2026 | Reportado; pendiente de verificación |
+
+    | Deuda total y caja | Se reportan, sin cifras reproducidas en el paquete | FY
+    2026 | No se puede evaluar el apalancamiento neto |
+
+    | Crecimiento de ingresos a 3 años | No disponible | Hasta 30-jun-2026 | No calculable
+    con evidencia verificable |
+
+    | Crecimiento de FCF | No disponible | Hasta 30-jun-2026 | No calculable con evidencia
+    verificable |
 
 
-    AOIF califica la tendencia financiera como estable. DDD califica la salud financiera
-    como adecuada, pero destaca que faltan cifras verificables para evaluar de forma
-    completa la conversión de caja. No se dispone de deuda neta, vencimientos, liquidez,
-    cobertura de intereses ni detalle de capex; por tanto, no es posible valorar aquí
-    la estructura de capital o la resiliencia del balance.
+    El análisis AOIF califica la tendencia financiera como estable, pero no proporciona
+    cifras de flujo de caja operativo, capex ni FCF suficientes para calcular la conversión
+    a caja. El análisis DDD señala que ingresos y FCF habrían aumentado en FY 2026
+    frente a FY 2025, pero faltan fuentes y desgloses que permitan confirmar el cambio
+    o atribuirlo a precios, volúmenes, costos o composición de activos.
+
+
+    No se dispone de datos comparables sobre acciones diluidas o en circulación; por
+    tanto, la dilución no es evaluable. Tampoco se puede validar la deuda reportada,
+    su costo, vencimientos o estructura de capital.
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    La información disponible ofrece una evaluación general de calidad de management
-    como buena en AOIF, pero no incluye nombres, trayectoria, composición del consejo,
-    políticas de remuneración ni datos concretos de gobierno corporativo.
+    El análisis AOIF califica la calidad del management como buena, la asignación
+    de capital como neutral y el alineamiento de insiders como débil. No se aportan
+    nombres, historial de desempeño, criterios de evaluación ni fuentes para contrastar
+    esas calificaciones.
 
 
-    AOIF califica la asignación de capital como neutral y el alineamiento de insiders
-    como débil. DDD considera que la información es insuficiente para juzgar de forma
-    sustentada la asignación de capital, la remuneración y la alineación con accionistas.
-    Estas evaluaciones deben considerarse provisionales hasta contar con evidencia
-    sobre incentivos, tenencia accionaria, decisiones de inversión y retornos de proyectos.
+    No hay información disponible sobre:
+
+
+    - Participación accionaria de directivos o consejeros.
+
+    - Incentivos y métricas de remuneración.
+
+    - Composición, independencia y experiencia del board.
+
+    - Historial de decisiones de asignación de capital y retornos por proyecto.
+
+    - Compromisos de capital, reinversión o prioridades entre dividendos, recompra
+    de acciones y crecimiento.
+
+
+    Por falta de evidencia específica, no es posible formar una conclusión independiente
+    sobre liderazgo, gobierno corporativo o alineamiento con accionistas.
 
 
     ## 5. Tesis de Inversión
 
 
-    **Caso alcista — hipótesis, no conclusión confirmada**
+    ### Caso alcista
 
 
-    - **Escala y activos:** una cartera minera de gran escala, junto con infraestructura
-    y experiencia operativa, podría contribuir a ventajas de costo y capacidad de
-    ejecución. AOIF caracteriza la amplitud del moat como amplia y la posición competitiva
-    como de liderazgo, aunque no aporta comparables que permitan verificarlo.
+    - BHP opera en una cartera diversificada de recursos y el análisis AOIF la describe
+    como una minera global de escala líder.
 
-    - **Exposición a cobre:** el cobre podría ofrecer exposición a una demanda estructural
-    creciente asociada a la transición energética. El impacto efectivo depende de
-    precios, volúmenes, costos y nuevas inversiones.
+    - El análisis atribuye ventajas potenciales a activos de larga vida y alta calidad,
+    escala, experiencia operativa e infraestructura.
 
-    - **Potencial de crecimiento de proyectos:** la ejecución exitosa de proyectos,
-    especialmente en cobre o potasa, podría aumentar producción y retornos a largo
-    plazo. DDD asigna a este catalizador una probabilidad indicativa del 40% y un
-    impacto potencial alto; la confianza es baja.
+    - Las métricas reportadas por AOIF —margen operativo de 42,1% y ROIC de 21,72%—
+    serían compatibles con una operación rentable si se confirman con fuentes y períodos
+    comparables.
 
-    - **Generación de caja:** DDD reporta un FCF TTM de 11.520 millones según una
-    observación atribuida a Stock Analysis. Sin fecha, moneda y metodología verificables,
-    este dato no basta para establecer la capacidad sostenible de generación de caja.
+    - El análisis DDD reporta un aumento de ingresos y FCF en FY 2026 frente a FY
+    2025. Si la mejora se confirma y resulta sostenible, podría respaldar una trayectoria
+    financiera favorable.
 
-    - **Señales financieras indicativas:** los valores reportados de margen operativo
-    (42,1%) y ROIC (21,72%) serían compatibles con una rentabilidad elevada si se
-    confirman y se mantienen a lo largo del ciclo. La fuente suministrada no permite
-    verificar período, definición ni sostenibilidad.
+    - La exposición a varios recursos podría aportar diversificación frente a una
+    compañía concentrada en un solo producto; el paquete no cuantifica el grado de
+    diversificación ni su efecto sobre la volatilidad.
 
 
-    La tesis depende de que BHP mantenga costos y producción competitivos, convierta
-    resultados en caja y asigne capital de forma disciplinada a través de distintas
-    condiciones del mercado.
+    ### Evidencia de mercado reportada
+
+
+    El análisis DDD indica un precio observado de **USD 68,955 el 19-nov-2026** y
+    un consenso de precio objetivo de **USD 79,36 al 20-nov-2026**. También reporta
+    un momentum de 12 meses de **38,7555% hasta el 30-oct-2026** y un drawdown de
+    **19,7892%** durante el período analizado.
+
+
+    Estos datos describen observaciones del paquete; no prueban que exista un error
+    de valoración. La conclusión del propio análisis es que no puede validarse un
+    error de valoración con la evidencia disponible.
+
+
+    **Conclusión provisional:** oportunidad cíclica de recursos que requiere investigación
+    adicional. La tesis depende de verificar la mejora financiera de FY 2026, su sostenibilidad
+    a través del ciclo y los retornos frente a las necesidades de inversión.
 
 
     ## 6. Riesgos y Contra-Tesis
@@ -437,193 +412,182 @@ research_input_snapshot:
     ### Riesgos principales
 
 
-    | Riesgo | Evaluación suministrada | Posible efecto |
+    | Riesgo | Evaluación reportada | Implicación |
 
     |---|---|---|
 
-    | Caída o volatilidad de precios de commodities | Impacto alto; probabilidad alta
-    (AOIF). | Menores ingresos, márgenes, flujo de caja y valor económico de las reservas.
+    | Caída de precios de materias primas | Impacto alto; probabilidad alta, según
+    AOIF | Menores ingresos y márgenes si caen los precios de mineral de hierro, cobre
+    u otros recursos |
+
+    | Interrupciones operativas | Impacto alto; probabilidad media, según AOIF | Accidentes,
+    dificultades geológicas o problemas de infraestructura podrían reducir la producción
     |
 
-    | Interrupciones operativas, accidentes o dificultades geológicas | Impacto alto;
-    probabilidad media (AOIF). | Menor producción, costos adicionales y posibles consecuencias
-    para seguridad y comunidades. |
+    | Ciclicidad y volatilidad de resultados | Riesgo señalado por DDD | Las variaciones
+    de FCF entre FY 2023 y FY 2026 no están desglosadas ni verificadas |
 
-    | Retrasos, sobrecostos o productividad inferior a la prevista en proyectos |
-    Impacto alto; probabilidad media en el análisis DDD. | Menores retornos y aplazamiento
-    de producción y caja. |
-
-    | Riesgos ambientales, de agua, emisiones, seguridad laboral y relaciones comunitarias
-    | Riesgo sectorial medio según DDD. | Interrupciones, obligaciones adicionales
-    y restricciones operativas; no se aportan incidentes o exposiciones específicas
-    de BHP. |
-
-    | Balance y liquidez no analizados suficientemente | Pregunta abierta en DDD.
-    | No permite estimar la capacidad de absorber una caída de precios o financiar
-    proyectos. |
+    | Apalancamiento y costo financiero | Riesgo señalado por DDD | Se reportan deuda
+    total y caja para FY 2026, pero faltan cifras verificables y datos de vencimientos
+    |
 
 
     ### Contra-tesis
 
 
-    El mercado podría estar descontando una normalización o debilidad de precios de
-    commodities y la sensibilidad de los beneficios a esa normalización. La cotización
-    por debajo del consenso de analistas no demuestra infravaloración: los objetivos
-    no constituyen una valoración independiente y falta un análisis verificable de
-    activos, balance y beneficios normalizados.
+    El aumento reportado de ingresos y FCF en FY 2026 podría no sostenerse si cambian
+    las condiciones de mercado que lo impulsaron. Sin desgloses de precios, volúmenes,
+    costos y mezcla de activos, no puede distinguirse una mejora estructural de un
+    efecto cíclico o temporal. Tampoco se puede valorar adecuadamente la resiliencia
+    financiera sin datos verificados de deuda, capex y flujo de caja.
 
 
-    **Triggers de falsación de la tesis alcista:**
+    ### Falsadores a monitorear
 
 
-    - Debilitamiento persistente de producción, márgenes o caja frente a la guía de
-    la compañía.
+    - Ingresos y FCF comparables que reviertan la mejora reportada para FY 2026.
 
-    - Costos unitarios crecientes o ejecución deficiente de proyectos que reduzcan
-    los retornos esperados.
+    - Deterioro persistente de márgenes o generación de caja, verificado con fuente
+    y período comparable.
 
-    - Deterioro del balance que limite distribuciones o inversión durante una fase
-    bajista del ciclo.
+    - Evidencia de que los retornos sobre capital no compensan las necesidades de
+    reinversión o los compromisos por proyecto.
 
-    - Evidencia de que los activos o ventajas competitivas no sostienen costos y retornos
-    adecuados frente a pares.
+    - Confirmación de que los resultados recientes dependen principalmente de factores
+    cíclicos no sostenibles.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    Las probabilidades e impactos siguientes son estimaciones de DDD, con nivel de
-    confianza bajo. No se aportaron fechas de eventos corporativos concretos.
-
-
-    | Catalizador | Horizonte indicado | Probabilidad / impacto reportados | Qué observar
-    |
+    | Catalizador | Fecha esperada | Impacto potencial | Qué confirmar |
 
     |---|---|---|---|
 
-    | Resultados y guía que confirmen resiliencia de caja y costos en condiciones
-    menos favorables | Medio plazo | 50%; impacto medio; confianza baja | Producción,
-    costos, márgenes, caja y guía operativa. |
+    | Próximos resultados financieros comparables | Sin fecha especificada | Alto
+    para la evaluación de la tesis | Si ingresos y FCF de FY 2026 sostienen la mejora
+    frente a FY 2025, con desglose de precios, volúmenes, costos y mezcla |
 
-    | Ejecución de proyectos de crecimiento, especialmente en cobre o potasa | Largo
-    plazo | 40%; impacto alto; confianza baja | Hitos, presupuesto, calendario, producción
-    y retornos demostrables. |
+    | Actualización de expectativas de analistas | Sin fecha especificada | Informativo,
+    no concluyente por sí solo | Cambios en el rango y consenso de objetivos; estos
+    no equivalen a valor intrínseco |
+
+    | Datos operativos y de mercado de materias primas | Sin fecha especificada |
+    Potencialmente alto | Evolución de precios y volúmenes de cobre, mineral de hierro,
+    carbón y otros recursos |
+
+    | Actualización de capex y proyectos | Sin fecha especificada | Alto para retornos
+    y caja futuros | Necesidades de reinversión, compromisos de capital, calendario
+    de proyectos y retornos esperados |
 
 
-    No se proporciona un calendario de publicaciones, decisiones de inversión o fechas
-    de puesta en marcha. La demanda de cobre y la evolución de la demanda en China
-    y otros mercados asiáticos son variables de seguimiento, no catalizadores fechados
-    en la evidencia disponible. Los asuntos de oferta y demanda de commodities también
-    son relevantes para [[AEM]], [[B]] y [[DOW]], pero no se aportan catalizadores
-    específicos comunes a estas compañías.
+    El paquete no proporciona fechas de publicación ni un calendario de eventos corporativos.
+    El consenso de objetivos reportado al 20-nov-2026 constituye una observación disponible,
+    no un catalizador futuro por sí mismo.
 
 
     ## 8. Marco de Valoración
 
 
-    ### Enfoque apropiado
+    ### Metodologías apropiadas
 
 
-    Para una minera cíclica, una valoración completa debería contrastar:
+    - **Flujo de caja descontado (DCF) normalizado por ciclo:** requiere estimaciones
+    verificables de producción, precios, costos, impuestos, capex de mantenimiento
+    y crecimiento, capital de trabajo y tasa de descuento.
+
+    - **Valoración por activos o segmentos:** puede ser útil para una minera diversificada,
+    siempre que haya datos comparables de reservas, recursos, costos, vida útil y
+    compromisos de capital por activo.
+
+    - **Múltiplos comparables:** PER y EV/EBITDA pueden ofrecer referencias, pero
+    requieren períodos consistentes, ajustes por ciclo y comparables pertinentes.
 
 
-    1. **Beneficios y flujo de caja normalizados a través del ciclo**, en lugar de
-    extrapolar un año de precios favorables o desfavorables.
-
-    2. **Valoración por activos o suma de partes**, incorporando producción, costos,
-    reservas, vida útil, capex y obligaciones asociadas a cada activo.
-
-    3. **Múltiplos comparables**, con definiciones homogéneas y pares pertinentes.
-
-    4. **Balance y asignación de capital**, incluyendo deuda neta, vencimientos, liquidez
-    y necesidades de inversión.
+    ### Datos de valoración disponibles
 
 
-    ### Datos de mercado reportados
+    AOIF reporta PER de **18,5x**, EV/EBITDA de **6,47x** y FCF yield de **0%**, sin
+    especificar fecha de referencia, período de beneficios, definición de FCF ni fuente.
+    El valor intrínseco se considera no determinable en el propio análisis, entre
+    otras razones por falta de precio y fecha de referencia, acciones diluidas y otros
+    datos necesarios. La conclusión AOIF califica el margen de seguridad como insuficiente,
+    pero no se proporciona el cálculo que sustenta esa evaluación.
 
 
-    DDD sitúa la cotización observada en **USD 68,955 al 19 de noviembre de 2026**
-    y el consenso de objetivos al **20 de noviembre de 2026** en **USD 79,36**. El
-    rango de objetivos observado es de **USD 67 a USD 96**. Estos datos se presentan
-    como referencias aportadas por la investigación, no como precios o valoraciones
-    verificados de forma independiente.
+    DDD presenta escenarios basados en el rango observado de objetivos de analistas:
 
 
-    | Referencia | Valor | Interpretación |
+    | Escenario | Precio objetivo | Interpretación del paquete |
 
     |---|---:|---|
 
-    | Precio observado | USD 68,955 | Dato DDD al 19-11-2026. |
+    | Bajista | USD 67 | Extremo bajo del rango de objetivos observado |
 
-    | Consenso de objetivos | USD 79,36 | Dato DDD al 20-11-2026; no equivale a valor
-    intrínseco. |
-
-    | Ancla bajista | USD 67 | Mínimo del rango de objetivos observado; no es valoración
-    independiente. |
-
-    | Ancla alcista | USD 96 | Máximo del rango de objetivos observado; no es valoración
-    independiente. |
+    | Alcista | USD 96 | Extremo alto del rango de objetivos observado |
 
 
-    DDD califica la valoración como **justa** y el posible error de valoración como
-    **incierto**. AOIF reporta EV/EBITDA de 6,47x y P/E de 18,5x, pero no aporta fecha,
-    comparables ni datos suficientes para determinar valor intrínseco; también califica
-    insuficiente el margen de seguridad. Por tanto, el consenso y los múltiplos aislados
-    no bastan para concluir que la acción esté infravalorada.
+    Los escenarios están fechados **20-nov-2026**, en USD. Son referencias ancladas
+    a objetivos de analistas, no valoraciones fundamentales independientes ni estimaciones
+    verificadas de valor intrínseco. El paquete no facilita supuestos suficientes
+    para construir una sensibilidad financiera robusta.
 
 
-    ### Sensibilidad y datos necesarios
+    ### Sensibilidades necesarias
 
 
-    La sensibilidad económica debería modelar, por separado, variaciones en precios
-    y volúmenes de cobre, mineral de hierro y carbón, junto con costos, capex, tipo
-    de cambio y calendario de proyectos. No se aportan supuestos cuantitativos suficientes
-    para producir escenarios de valor intrínseco. Los escenarios de USD 67 y USD 96
-    son anclas del rango de analistas reportado, no resultados de un modelo financiero
-    independiente.
+    Una valoración futura debería mostrar cómo cambia el valor estimado ante variaciones
+    en:
+
+
+    1. Precios de cobre, mineral de hierro, carbón y otros productos.
+
+    2. Volúmenes, costos unitarios y disponibilidad operativa.
+
+    3. Capex de mantenimiento, expansión y compromisos por proyecto.
+
+    4. Tipo de cambio, costo de capital y costo de deuda.
+
+    5. Duración del ciclo y nivel de precios normalizado.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    - ¿Cuál es la deuda neta, el calendario de vencimientos, la liquidez disponible
-    y la cobertura de intereses, según los estados financieros más recientes?
+    1. ¿Qué parte de los cambios en ingresos, márgenes y FCF de FY 2026 proviene de
+    precios, volúmenes, costos o composición de activos?
 
-    - ¿Cuáles son los costos unitarios, volúmenes, reservas, vida útil y sensibilidad
-    de valor por activo y commodity?
+    2. ¿Se sostienen las mejoras reportadas en ingresos y FCF frente a períodos comparables
+    y a través del ciclo?
 
-    - ¿Cuál es la contribución de cada commodity y segmento a ingresos, EBITDA y flujo
-    de caja?
+    3. ¿Cuáles son el flujo de caja operativo, el capex de mantenimiento y expansión,
+    y la conversión de caja a FCF?
 
-    - ¿Cuál es la conversión de beneficios en caja a lo largo del ciclo, incluyendo
-    capex de mantenimiento y crecimiento?
+    4. ¿Qué retornos sobre capital generan los activos y proyectos, y cómo se comparan
+    con su costo de capital?
 
-    - ¿Las cifras reportadas de crecimiento de ingresos, margen operativo, ROIC, EV/EBITDA
-    y P/E corresponden al mismo período, moneda y metodología?
+    5. ¿Cuáles son las necesidades de reinversión, los compromisos de capital por
+    proyecto y el calendario de desembolsos?
 
-    - ¿Cuál es el origen, fecha exacta, moneda y definición del FCF TTM reportado
-    como 11.520 millones?
+    6. ¿Cuáles son la deuda neta, el costo financiero, los vencimientos y la capacidad
+    de servicio de deuda, usando fuentes verificables?
 
-    - ¿Qué proyectos están aprobados, cuál es su presupuesto y calendario, y qué retornos
-    se esperan bajo supuestos conservadores?
+    7. ¿Qué proporción de ingresos, EBITDA y FCF corresponde a cada producto y geografía?
 
-    - ¿Qué evidencia compara los costos y la productividad de BHP con competidores
-    pertinentes, incluidos [[AEM]], [[B]] y [[DOW]] cuando la comparación sea válida?
+    8. ¿Cómo se comparan los costos, la calidad y la vida útil de los activos de BHP
+    con los de sus competidores relevantes, incluidos los vínculos sectoriales por
+    verificar con [[AEM]], [[B]] y [[DOW]]?
 
-    - ¿Qué objetivos e incentivos rigen la remuneración ejecutiva y cuál es la participación
-    accionaria de insiders?
+    9. ¿Qué evidencia respalda las evaluaciones de moat amplio, posición de liderazgo,
+    calidad del management y alineamiento débil de insiders?
 
-    - ¿Qué riesgos ambientales, de agua, emisiones, seguridad y relaciones comunitarias
-    son materiales para los activos específicos?
+    10. ¿Cuál es el nivel de acciones diluidas y cómo ha evolucionado?
 
-    - ¿Qué fuente y metodología respaldan el precio, el consenso de analistas y los
-    múltiplos reportados al 19–20 de noviembre de 2026?
+    11. ¿Qué fuentes primarias respaldan las métricas financieras, el precio observado,
+    el consenso de analistas y los escenarios?
 
-
-    **Estado de la tesis:** activa, pero provisional. La evidencia suministrada no
-    demuestra una vulneración de la tesis, aunque las lagunas financieras, operativas
-    y de valoración impiden confirmar el margen de seguridad o la resiliencia del
-    balance.
+    12. ¿Qué parte de la cartera de recursos aporta diversificación efectiva y qué
+    parte mantiene una exposición común a los mismos factores macroeconómicos?
 
 
     ---
@@ -679,14 +643,14 @@ research_input_snapshot:
     "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
     ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
     {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
-    "observed_at": "2026-11-19T19:15:48.424667+00:00", "period_end_date": "2026-06-30",
+    "observed_at": "2026-11-20T18:55:27.611663+00:00", "period_end_date": "2026-06-30",
     "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
     null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
     {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
     "https://stockanalysis.com/stocks/BHP/statistics/", "unit": "provider_financial_currency"}},
     "unit": "provider_financial_currency", "values": {"stockanalysis.com": 11520000000.0}},
     "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
-    "non_comparable_values": {"yfinance": 42.099997}, "observed_at": "2026-11-19T19:15:48.424667+00:00",
+    "non_comparable_values": {"yfinance": 42.099997}, "observed_at": "2026-11-20T18:55:27.611663+00:00",
     "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
     "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
     "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
@@ -695,14 +659,14 @@ research_input_snapshot:
     "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
     "unit": "percentage_points", "values": {"stockanalysis.com": 42.1}}, "revenue_growth_pct":
     {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
-    {"yfinance": 18.3}, "observed_at": "2026-11-19T19:15:48.424667+00:00", "period_end_date":
+    {"yfinance": 18.3}, "observed_at": "2026-11-20T18:55:27.611663+00:00", "period_end_date":
     "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
     null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
     {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
     "https://stockanalysis.com/stocks/bhp/financials/", "unit": "percentage_points"},
     "yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
     "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
-    "values": {"stockanalysis.com": 8.84}}}, "observed_at": "2026-11-19T19:15:48.424667+00:00",
+    "values": {"stockanalysis.com": 8.84}}}, "observed_at": "2026-11-20T18:55:27.611663+00:00",
     "period_end": "2026-06-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
   geography: ''
   insider_ownership: 0
@@ -863,14 +827,14 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    96.0, "low": 67.0, "mean": 79.36, "median": 79.36, "observed_at": "2026-11-20T08:00:13.208005-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T08:00:13.208005-03:00", "observed_date": "2026-11-20", "target_price":
+    96.0, "low": 67.0, "mean": 79.36, "median": 79.36, "observed_at": "2026-11-21T14:35:54.944136-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T14:35:54.944136-03:00", "observed_date": "2026-11-21", "target_price":
     79.36, "url": "https://stockanalysis.com/stocks/bhp/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T08:00:13.208005-03:00",
-    "observed_date": "2026-11-20", "target_price": 79.35714, "url": "https://finance.yahoo.com/quote/BHP/"}]},
-    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 68.95500183105469,
-    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BHP/"}]}}'
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T14:35:54.944136-03:00",
+    "observed_date": "2026-11-21", "target_price": 79.35714, "url": "https://finance.yahoo.com/quote/BHP/"}]},
+    "current_quote": {"as_of_date": "2026-11-20", "currency": "USD", "price": 68.16000366210938,
+    "sources": [{"as_of_date": "2026-11-20", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BHP/"}]}}'
   sector: Basic Materials
   ticker: BHP
 research_trigger:
@@ -878,89 +842,84 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: c88d4063e8fb47a5c2c9b0058e1200e323327b3c4eb8bcc07383071dc40fe9d7
+    sha256: c552af425272497e69080e8fbc9aad27028384802cc3b6a79df5c7fda956474e
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T08:02:59.533959-03:00'
+  triggered_at: '2026-11-21T14:36:04.983592-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: El paquete reporta 1.88x al 2026-06-30, superior al umbral; la URL
-    no está en trusted_source_urls y queda pendiente de validación para Assessment.
-  threshold: below 0.5x
-- metric: dilution_yoy_pct
-  observation: 'No evaluable: faltan datos comparables de acciones diluidas o en circulación.'
-  threshold: above 10%
 - metric: interest_coverage
-  observation: El paquete reporta 0 al 2026-06-30; requiere aclaración de definición
-    y verificación antes de interpretarlo frente al umbral.
-  threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: No aplica a la observación de FCF positivo reportada para FY 2026;
-    no se estima runway.
-  threshold: below 12 months
-- metric: net_debt_ebitda
-  observation: 'No evaluable: falta EBITDA dentro de los campos de entrada configurados
-    para este ratio y no hay URL admitida para verificación.'
-  threshold: above 4.0x
-- metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: no hay serie histórica de acciones comparable para el
-    período requerido.'
-  threshold: above 5%
+  observed: 0
+  source:
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/BHP/statistics/
+  status: below_threshold
+  threshold: 2.0
 scenario_analysis:
-  as_of_date: '2026-11-20'
+  as_of_date: '2026-11-21'
   currency: USD
-  horizon_date: '2026-11-20'
+  horizon_date: '2027-11-21'
   scenarios:
   - falsifiers:
-    - Resultados financieros comparables que muestren continuidad de la mejora en
-      ingresos y FCF.
-    - Un rango actualizado de objetivos de analistas que deje de incluir USD 67.
+    - Recuperación de precios de cobre por encima de $9,000/ton
+    - Incremento de producción de cobre del 10%
     id: BEAR
     key_assumptions:
-    - Los ingresos y el FCF de FY 2026 no mantienen su mejora frente a FY 2025.
-    - El extremo bajo del rango de analistas sigue siendo una referencia pertinente
-      para el horizonte indicado.
-    rationale: Ancla en el extremo bajo del rango de objetivos de analistas observado.
-      Representa el peor resultado plausible dentro de ese rango si la mejora financiera
-      reportada no se sostiene; no es una valoración intrínseca propia ni una garantía.
+    - Precio del cobre baja 30%
+    - Precio del hierro baja 20%
+    rationale: Precios de commodities caen significativamente, reduciendo ingresos
+      y márgenes.
     sources:
-    - as_of_date: '2026-11-20'
+    - as_of_date: '2026-11-21'
       name: stockanalysis
       url: https://stockanalysis.com/stocks/bhp/forecast/
-    - as_of_date: '2026-06-30'
-      name: stockanalysis.com
-      url: https://stockanalysis.com/stocks/BHP/statistics/
-    target_price: 67
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BHP/
+    target_price: 67.0
   - falsifiers:
-    - Resultados comparables que muestren reversión de la mejora en ingresos y FCF.
-    - Un rango actualizado de objetivos de analistas que deje de incluir USD 96.
+    - Caída sostenida de márgenes por costos operativos mayores
+    - Aumento de la deuda neta que supere 15% del EBITDA
+    id: BASE
+    key_assumptions:
+    - Precios de cobre e hierro se mantienen alrededor de sus niveles actuales
+    - Márgenes brutos se mantienen cerca del 86%
+    rationale: Escenario medio basado en el consenso de analistas, asumiendo precios
+      de commodities estables.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/bhp/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BHP/
+    target_price: 79.36
+  - falsifiers:
+    - Regulaciones ambientales que limiten la producción de carbón
+    - Recesión global que reduzca la demanda de acero
     id: BULL
     key_assumptions:
-    - La mejora de ingresos y FCF reportada para FY 2026 se mantiene en períodos posteriores.
-    - El extremo alto del rango de analistas sigue siendo una referencia pertinente
-      para el horizonte indicado.
-    rationale: Ancla en el extremo alto del rango de objetivos de analistas observado.
-      Representa el mejor resultado plausible dentro de ese rango si se mantiene la
-      mejora financiera reportada; no es una valoración intrínseca propia ni una garantía.
+    - Precio del cobre supera $10,000/ton
+    - Precio del hierro supera $200/ton
+    rationale: Precios de commodities se disparan, impulsando ingresos y flujo de
+      caja.
     sources:
-    - as_of_date: '2026-11-20'
+    - as_of_date: '2026-11-21'
       name: stockanalysis
       url: https://stockanalysis.com/stocks/bhp/forecast/
-    - as_of_date: '2026-06-30'
-      name: stockanalysis.com
-      url: https://stockanalysis.com/stocks/BHP/statistics/
-    target_price: 96
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BHP/
+    target_price: 96.0
   schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - horizon_date debe ser posterior a la fecha actual
-  status: invalid_pending_revision
-score_general: 46
+  errors: []
+  status: valid_pending_decision_board
+score_general: 72
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T08:00:13.208005-03:00'
+  calculado_at: '2026-11-21T14:35:54.944136-03:00'
   fuentes:
     stockanalysis: 79.36
     yfinance: 79.35714
@@ -968,26 +927,22 @@ target_consensus:
   n_fuentes: 2
   promedio: 79.36
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T08:00:13.208005-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T14:35:54.944136-03:00'
+    observed_date: '2026-11-21'
     target_price: 79.36
     url: https://stockanalysis.com/stocks/bhp/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T08:00:13.208005-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T14:35:54.944136-03:00'
+    observed_date: '2026-11-21'
     target_price: 79.35714
     url: https://finance.yahoo.com/quote/BHP/
   target_high: 96.0
   target_low: 67.0
-tesis_inversion: BHP opera en recursos y el paquete reporta un aumento de ingresos
-  y FCF en FY 2026 frente a FY 2025. La tesis depende de que esos resultados se mantengan;
-  su exposición a segmentos de recursos hace relevante la variación de condiciones
-  de mercado, pero faltan datos de commodities, volúmenes, reinversión y retornos
-  sobre capital para validar crecimiento sostenible, mercado direccionable, penetración
-  o ventaja competitiva. La evidencia sobre gestión y asignación de capital también
-  es insuficiente.
+tesis_inversion: BHP combina una posición de liquidez robusta, márgenes brutos superiores
+  al 85% y generación de FCF positivo, lo que respalda una visión alcista si los precios
+  de commodities se mantienen o mejoran.
 ticker: BHP
 version: '3.0'

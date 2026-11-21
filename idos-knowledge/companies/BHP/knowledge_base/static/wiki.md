@@ -1,175 +1,174 @@
 # BHP Group Limited (BHP)
 
-> **Estado de la evidencia:** La información disponible contiene métricas y conclusiones de análisis sin fuentes verificables ni enlaces a estados financieros. Se presentan como datos reportados por los inputs de investigación, no como hechos corroborados independientemente. Las inferencias y preguntas pendientes se identifican por separado.
+> **Estado de la evidencia:** Esta entrada resume los datos proporcionados por los análisis DDD y AOIF. No se aportaron informes corporativos, estados financieros ni fuentes primarias que permitan verificar de forma independiente la mayoría de las métricas. Se distinguen los datos reportados, las inferencias analíticas y los aspectos pendientes de investigación. La única fuente enlazada para métricas financieras es [Stock Analysis: estadísticas de BHP](https://stockanalysis.com/stocks/BHP/statistics/).
 
 ## 1. Visión General de la Compañía
 
-BHP es una compañía minera diversificada que explora, desarrolla, extrae, procesa y comercializa materias primas. La investigación destaca su exposición al cobre, mineral de hierro y carbón, aunque no ofrece un desglose de ingresos o producción por producto o geografía.
+BHP es una compañía minera diversificada que explora y desarrolla yacimientos, extrae y procesa materias primas, y comercializa su producción. Los productos identificados en el análisis son cobre y mineral de hierro. Entre sus clientes se encuentran fabricantes de acero, empresas siderúrgicas, fundiciones y compañías de procesamiento de metales.
 
-Su cadena de valor comprende exploración y evaluación geológica, obtención de permisos, desarrollo de proyectos, extracción, procesamiento y comercialización. Entre sus clientes figuran productores de acero, empresas siderúrgicas, fundiciones y refinadores.
+La cadena de valor descrita incluye exploración y evaluación de yacimientos, desarrollo de proyectos e infraestructura, extracción, procesamiento y, en ciertos casos, fundición y refinación. La actividad requiere capital e infraestructura y está expuesta a los ciclos de demanda industrial y a los precios de las materias primas. El análisis señala que China y otros mercados asiáticos son relevantes para la demanda de acero y minerales, pero no aporta un desglose geográfico de ingresos o producción.
 
-La compañía pertenece al sector de recursos naturales, una industria intensiva en capital y cíclica, en la que la oferta y la demanda globales influyen considerablemente en los precios.
-
-**Contexto de comparación sectorial en la wiki existente:** [[AEM]], [[B]] y [[DOW]]. Los materiales suministrados no establecen que sean competidores directos de BHP ni detallan sus áreas de solapamiento.
+**Alcance de la información:** No se suministraron datos verificables sobre la distribución de ingresos por producto o país, la producción por activo, ni la contribución de cada división.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Fuentes de ingresos y drivers
+### Drivers de ingresos
 
-Los ingresos dependen de la extracción y comercialización de materias primas. Entre los drivers relevantes que deben investigarse están:
+Los ingresos dependen principalmente de:
 
-- Precios de cobre, mineral de hierro, carbón y otros recursos.
-- Volúmenes producidos y vendidos.
-- Costos de extracción, procesamiento, transporte e infraestructura.
-- Mezcla de productos y activos.
-- Inversión necesaria para mantener y ampliar la producción.
+- Los precios de venta del cobre, el mineral de hierro y otros commodities.
+- Los volúmenes producidos y vendidos.
+- La demanda industrial, incluida la demanda de acero en China y otros mercados asiáticos.
+- Los costos operativos y la disponibilidad de infraestructura y capacidad productiva.
 
-La información disponible no cuantifica la contribución de cada factor a los cambios recientes de ingresos, márgenes o flujo de caja.
+El análisis identifica la expansión de las divisiones de cobre y potasio como posible catalizador, aunque no incluye cronogramas, inversión prevista ni volúmenes incrementales.
 
 ### Ventajas competitivas
 
-El análisis AOIF caracteriza la posición competitiva de BHP como líder y su amplitud de moat como amplia. Atribuye posibles ventajas a activos minerales de larga vida y alta calidad, escala global, experiencia operativa, infraestructura y capacidades de desarrollo de proyectos.
+AOIF caracteriza la posición competitiva de BHP como líder y su moat como amplio. La justificación propuesta —que debe considerarse una evaluación analítica, no una ventaja cuantificada con datos comparativos— incluye:
 
-Estas valoraciones son conclusiones del análisis suministrado; no se acompañan de datos comparativos, fuentes primarias ni evidencia suficiente para verificarlas de forma independiente. La exposición a materias primas también hace que la rentabilidad sea sensible al ciclo, por lo que la escala o la calidad de los activos no eliminan el riesgo de precios.
+- Yacimientos de larga vida.
+- Escala y experiencia operativa.
+- Infraestructura integrada.
+- Acceso a mercados globales.
+- Barreras de entrada asociadas con la intensidad de capital y los largos plazos de desarrollo minero.
 
-### Dinámica competitiva
+Estas características podrían sostener costos competitivos y resiliencia operativa, pero no se proporcionaron datos de costos unitarios, reservas, vida de minas o comparación con pares para confirmarlo. Entre las compañías relacionadas del sector están [[FCX]], [[SCCO]], [[NEM]] y [[AEM]]; la información disponible no contiene una comparación directa de su posición competitiva con BHP.
 
-La industria es intensiva en capital y cíclica. Los precios están determinados en gran medida por la oferta y la demanda globales. Para evaluar la posición de BHP frente a otras compañías, se necesitan comparaciones de costos, calidad y vida útil de los activos, retornos sobre capital, producción y disciplina de inversión. La información disponible no ofrece esos datos para BHP ni para sus pares.
+### Dinámica de la industria
+
+La minería es intensiva en capital, cíclica y sensible a la demanda industrial. Los proyectos requieren largos plazos, mientras que los ingresos pueden variar significativamente con los precios de los commodities. La transición energética se menciona como contexto favorable para la relevancia del cobre, pero no se aportan estimaciones de demanda ni de exposición específica de BHP a ese crecimiento.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes fueron reportadas por los análisis de investigación, pero no incluyen fuentes verificables, metodología completa ni, en todos los casos, período de medición comparable.
+Las cifras siguientes son las reportadas por los análisis suministrados. Salvo donde se indica una fuente, no se aportaron referencias verificables a estados financieros ni detalles suficientes para establecer definiciones, períodos comparables o cálculos independientes.
 
-| Métrica | Dato reportado | Período / fecha | Estado |
+| Métrica | Valor reportado | Período / observación | Evidencia y limitaciones |
 |---|---:|---|---|
-| Crecimiento de ingresos | 8,84% | No especificado en el input | Sin fuente verificable; metodología no indicada |
-| Margen operativo | 42,1% | No especificado en el input | Sin fuente verificable |
-| ROIC | 21,72% | No especificado en el input | Sin fuente verificable |
-| PER | 18,5x | No especificado en el input | Sin fuente verificable |
-| EV/EBITDA | 6,47x | No especificado en el input | Sin fuente verificable |
-| FCF yield | 0% | No especificado en el input | Sin fuente verificable; no se aporta cálculo |
-| Current ratio | 1,88x | 30-jun-2026 | Reportado; pendiente de verificación |
-| Deuda total y caja | Se reportan, sin cifras reproducidas en el paquete | FY 2026 | No se puede evaluar el apalancamiento neto |
-| Crecimiento de ingresos a 3 años | No disponible | Hasta 30-jun-2026 | No calculable con evidencia verificable |
-| Crecimiento de FCF | No disponible | Hasta 30-jun-2026 | No calculable con evidencia verificable |
+| Crecimiento de ingresos | 8,84% | Período no especificado | AOIF lo reporta; no se proporcionó desglose ni referencia verificable. |
+| CAGR de ingresos a 3 años | No disponible | Solicitado con fecha de cierre 2026-06-30 | DDD indica que no se calculó por falta de referencias explícitas a los inputs. [Stock Analysis](https://stockanalysis.com/stocks/BHP/statistics/). |
+| Margen operativo | 42,1% | Período no especificado | AOIF; sin fuente primaria o definición del período. |
+| Margen bruto | Superior al 85% | DDD lo describe como elevado; 86% se usa como supuesto del escenario base | El 86% es una hipótesis de escenario, no una cifra confirmada para un período concreto. |
+| Crecimiento de FCF | 16,43% | TTM; fecha de referencia indicada: 2026-06-30 | Reportado, sin desglose anual. [Stock Analysis](https://stockanalysis.com/stocks/BHP/statistics/). |
+| FCF yield | 0 | Período no especificado | AOIF; no se aportó método de cálculo ni explicación del valor. |
+| ROIC | 21,72% | Período no especificado | AOIF; sin fuente verificable ni definición. |
+| P/E | 18,46 | Fecha de referencia no especificada | AOIF; no se aportó precio de referencia ni período de beneficios. |
+| EV/EBITDA | 6,33 | Fecha de referencia no especificada | AOIF; sin componentes ni fuente verificable. |
+| Cobertura de intereses | 0x | Fecha de referencia no especificada | DDD la identifica como inferior al umbral de 2,0x. [Stock Analysis](https://stockanalysis.com/stocks/BHP/statistics/). |
+| Deuda neta | Tendencia creciente | Sin cifras ni período | Afirmación cualitativa de DDD; no se aportó saldo ni relación con EBITDA. |
 
-El análisis AOIF califica la tendencia financiera como estable, pero no proporciona cifras de flujo de caja operativo, capex ni FCF suficientes para calcular la conversión a caja. El análisis DDD señala que ingresos y FCF habrían aumentado en FY 2026 frente a FY 2025, pero faltan fuentes y desgloses que permitan confirmar el cambio o atribuirlo a precios, volúmenes, costos o composición de activos.
-
-No se dispone de datos comparables sobre acciones diluidas o en circulación; por tanto, la dilución no es evaluable. Tampoco se puede validar la deuda reportada, su costo, vencimientos o estructura de capital.
+**Lectura financiera:** AOIF describe la tendencia financiera como estable y señala márgenes y retornos sólidos. DDD, por su parte, destaca generación de FCF, pero también cobertura de intereses insuficiente y deuda neta creciente. Esta tensión no puede resolverse con los datos disponibles. La afirmación de “posición de liquidez robusta” aparece en la tesis de DDD, pero no está respaldada por métricas de liquidez en los inputs.
 
 ## 4. Management y Gobierno Corporativo
 
-El análisis AOIF califica la calidad del management como buena, la asignación de capital como neutral y el alineamiento de insiders como débil. No se aportan nombres, historial de desempeño, criterios de evaluación ni fuentes para contrastar esas calificaciones.
+AOIF evalúa la calidad del management como buena, la asignación de capital como creadora de valor y el alineamiento de insiders como moderado. Estas son valoraciones cualitativas del análisis, no conclusiones verificadas mediante datos sobre resultados de proyectos, remuneración o transacciones de insiders.
 
-No hay información disponible sobre:
-
-- Participación accionaria de directivos o consejeros.
-- Incentivos y métricas de remuneración.
-- Composición, independencia y experiencia del board.
-- Historial de decisiones de asignación de capital y retornos por proyecto.
-- Compromisos de capital, reinversión o prioridades entre dividendos, recompra de acciones y crecimiento.
-
-Por falta de evidencia específica, no es posible formar una conclusión independiente sobre liderazgo, gobierno corporativo o alineamiento con accionistas.
+No se suministraron nombres o trayectorias del equipo directivo, estructura de incentivos, participación accionaria de insiders, composición e independencia del consejo, comités, ni historial de gobierno corporativo. Por tanto, no es posible evaluar esos aspectos de forma independiente.
 
 ## 5. Tesis de Inversión
 
 ### Caso alcista
 
-- BHP opera en una cartera diversificada de recursos y el análisis AOIF la describe como una minera global de escala líder.
-- El análisis atribuye ventajas potenciales a activos de larga vida y alta calidad, escala, experiencia operativa e infraestructura.
-- Las métricas reportadas por AOIF —margen operativo de 42,1% y ROIC de 21,72%— serían compatibles con una operación rentable si se confirman con fuentes y períodos comparables.
-- El análisis DDD reporta un aumento de ingresos y FCF en FY 2026 frente a FY 2025. Si la mejora se confirma y resulta sostenible, podría respaldar una trayectoria financiera favorable.
-- La exposición a varios recursos podría aportar diversificación frente a una compañía concentrada en un solo producto; el paquete no cuantifica el grado de diversificación ni su efecto sobre la volatilidad.
+La tesis favorable combina escala minera, activos de larga vida, exposición al cobre y al mineral de hierro, márgenes reportados como elevados y generación positiva de flujo de caja libre.
 
-### Evidencia de mercado reportada
+Elementos que podrían respaldarla:
 
-El análisis DDD indica un precio observado de **USD 68,955 el 19-nov-2026** y un consenso de precio objetivo de **USD 79,36 al 20-nov-2026**. También reporta un momentum de 12 meses de **38,7555% hasta el 30-oct-2026** y un drawdown de **19,7892%** durante el período analizado.
+1. **Generación de efectivo:** DDD reporta crecimiento del FCF de 16,43% TTM. La cifra es reportada, no desglosada por año y atribuida a [Stock Analysis](https://stockanalysis.com/stocks/BHP/statistics/).
+2. **Márgenes y retornos:** AOIF reporta margen operativo de 42,1% y ROIC de 21,72%, aunque sin período ni fuente primaria verificable.
+3. **Escala y activos:** AOIF atribuye la posición competitiva de BHP a yacimientos de larga vida, escala, experiencia operativa e infraestructura integrada.
+4. **Potencial de recuperación de commodities:** DDD plantea que una recuperación sostenida del cobre y el hierro podría favorecer ingresos y márgenes.
+5. **Expansión:** el desarrollo de las divisiones de cobre y potasio se identifica como catalizador potencial, sin datos de cronograma o impacto cuantitativo.
 
-Estos datos describen observaciones del paquete; no prueban que exista un error de valoración. La conclusión del propio análisis es que no puede validarse un error de valoración con la evidencia disponible.
+### Valoración de mercado reportada
 
-**Conclusión provisional:** oportunidad cíclica de recursos que requiere investigación adicional. La tesis depende de verificar la mejora financiera de FY 2026, su sostenibilidad a través del ciclo y los retornos frente a las necesidades de inversión.
+A fecha de análisis **2026-11-21**, DDD indica un precio actual de **USD 68,16** y un precio objetivo medio de consenso de **USD 79,36**. El rango citado va de **USD 67** a **USD 96**. El análisis advierte que la posible subvaloración se infiere de los objetivos de analistas y no de un modelo de valoración interno verificable. El objetivo bajo está cerca del precio actual, mientras que el alto refleja expectativas más optimistas sobre los precios de las materias primas.
 
 ## 6. Riesgos y Contra-Tesis
 
 ### Riesgos principales
 
-| Riesgo | Evaluación reportada | Implicación |
+| Riesgo | Evaluación reportada | Implicación posible |
 |---|---|---|
-| Caída de precios de materias primas | Impacto alto; probabilidad alta, según AOIF | Menores ingresos y márgenes si caen los precios de mineral de hierro, cobre u otros recursos |
-| Interrupciones operativas | Impacto alto; probabilidad media, según AOIF | Accidentes, dificultades geológicas o problemas de infraestructura podrían reducir la producción |
-| Ciclicidad y volatilidad de resultados | Riesgo señalado por DDD | Las variaciones de FCF entre FY 2023 y FY 2026 no están desglosadas ni verificadas |
-| Apalancamiento y costo financiero | Riesgo señalado por DDD | Se reportan deuda total y caja para FY 2026, pero faltan cifras verificables y datos de vencimientos |
+| Caída de los precios del cobre, hierro u otros commodities | Impacto alto; probabilidad alta según AOIF | Menores ingresos y márgenes; sensibilidad significativa del FCF. |
+| Desaceleración de China u otros mercados asiáticos | Impacto alto; probabilidad media según AOIF | Menor demanda de acero y materias primas. |
+| Cobertura de intereses insuficiente | 0x frente a umbral de 2,0x en DDD | Señal de riesgo financiero que requiere verificación del cálculo y de sus inputs. |
+| Deuda neta creciente | Afirmación cualitativa de DDD | Podría reducir flexibilidad financiera, en especial durante una caída de precios. |
+| Regulaciones ambientales restrictivas | Falsador identificado por DDD | Podrían afectar permisos, costos, calendario o viabilidad de proyectos. |
+| Intensidad de capital y riesgos operativos | Inferencia coherente con el modelo minero descrito por AOIF | Retrasos o costos superiores podrían deteriorar retornos; no se aportan datos específicos de BHP. |
 
 ### Contra-tesis
 
-El aumento reportado de ingresos y FCF en FY 2026 podría no sostenerse si cambian las condiciones de mercado que lo impulsaron. Sin desgloses de precios, volúmenes, costos y mezcla de activos, no puede distinguirse una mejora estructural de un efecto cíclico o temporal. Tampoco se puede valorar adecuadamente la resiliencia financiera sin datos verificados de deuda, capex y flujo de caja.
+La exposición a commodities puede limitar la capacidad de sostener márgenes y flujo de caja a través del ciclo. La aparente oportunidad de valoración depende de que los precios y la operación se mantengan favorables; el rango de objetivos reportado es amplio y no sustituye una valoración independiente. La cobertura de intereses de 0x y la deuda neta creciente, si se confirman bajo definiciones comparables, contrarrestarían la lectura positiva basada en márgenes y FCF.
 
-### Falsadores a monitorear
+### Triggers de falsación
 
-- Ingresos y FCF comparables que reviertan la mejora reportada para FY 2026.
-- Deterioro persistente de márgenes o generación de caja, verificado con fuente y período comparable.
-- Evidencia de que los retornos sobre capital no compensan las necesidades de reinversión o los compromisos por proyecto.
-- Confirmación de que los resultados recientes dependen principalmente de factores cíclicos no sostenibles.
+DDD identifica como falsadores:
+
+- Una caída prolongada de los precios del cobre.
+- Regulaciones ambientales restrictivas.
+
+En el escenario bajista, se añaden como condiciones que invalidarían ese escenario una recuperación del cobre por encima de **USD 9.000 por tonelada** o un aumento de **10% en la producción de cobre**. Son umbrales del análisis, no hechos observados.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Fecha esperada | Impacto potencial | Qué confirmar |
-|---|---|---|---|
-| Próximos resultados financieros comparables | Sin fecha especificada | Alto para la evaluación de la tesis | Si ingresos y FCF de FY 2026 sostienen la mejora frente a FY 2025, con desglose de precios, volúmenes, costos y mezcla |
-| Actualización de expectativas de analistas | Sin fecha especificada | Informativo, no concluyente por sí solo | Cambios en el rango y consenso de objetivos; estos no equivalen a valor intrínseco |
-| Datos operativos y de mercado de materias primas | Sin fecha especificada | Potencialmente alto | Evolución de precios y volúmenes de cobre, mineral de hierro, carbón y otros recursos |
-| Actualización de capex y proyectos | Sin fecha especificada | Alto para retornos y caja futuros | Necesidades de reinversión, compromisos de capital, calendario de proyectos y retornos esperados |
+No se proporcionaron fechas confirmadas para anuncios corporativos, puesta en marcha de proyectos o cambios de capacidad. El horizonte explícito del análisis de escenarios va del **2026-11-21 al 2027-11-21**.
 
-El paquete no proporciona fechas de publicación ni un calendario de eventos corporativos. El consenso de objetivos reportado al 20-nov-2026 constituye una observación disponible, no un catalizador futuro por sí mismo.
+| Fecha / horizonte | Catalizador o evento a seguir | Impacto potencial |
+|---|---|---|
+| Sin fecha especificada | Recuperación sostenida de los precios del cobre y el hierro | Podría elevar ingresos, márgenes y FCF; también reducir la brecha frente al objetivo de consenso reportado. |
+| Sin fecha especificada | Expansión de las divisiones de cobre y potasio | Podría aumentar capacidad o diversificar la contribución de productos; faltan calendario y cifras de producción. |
+| 2026-11-21 a 2027-11-21 | Evolución de los precios de commodities y desempeño frente a los escenarios | Determinaría si el caso se acerca al escenario bajista o base. |
+| Continuo | Demanda de acero en China y otros mercados asiáticos | Indicador de demanda para mineral de hierro y otros insumos. |
+| Continuo | Márgenes, FCF, deuda neta y cobertura de intereses | Permitiría comprobar la resiliencia financiera y resolver la discrepancia entre la generación de efectivo reportada y los indicadores de riesgo financiero. |
 
 ## 8. Marco de Valoración
 
-### Metodologías apropiadas
+La minería es cíclica; por ello, una valoración útil debería combinar métricas relativas con una estimación de flujos normalizados a través del ciclo. Los datos disponibles no permiten construir una valoración intrínseca robusta.
 
-- **Flujo de caja descontado (DCF) normalizado por ciclo:** requiere estimaciones verificables de producción, precios, costos, impuestos, capex de mantenimiento y crecimiento, capital de trabajo y tasa de descuento.
-- **Valoración por activos o segmentos:** puede ser útil para una minera diversificada, siempre que haya datos comparables de reservas, recursos, costos, vida útil y compromisos de capital por activo.
-- **Múltiplos comparables:** PER y EV/EBITDA pueden ofrecer referencias, pero requieren períodos consistentes, ajustes por ciclo y comparables pertinentes.
+### Datos disponibles
 
-### Datos de valoración disponibles
+- P/E reportado: **18,46**.
+- EV/EBITDA reportado: **6,33**.
+- FCF yield reportado: **0**, sin definición ni método de cálculo.
+- Precio actual y objetivos de analistas reportados por DDD a 2026-11-21: **USD 68,16**, objetivo medio **USD 79,36**, rango **USD 67–96**.
+- AOIF califica el margen de seguridad como **insuficiente** y afirma que no puede estimar un valor intrínseco robusto con los datos suministrados.
 
-AOIF reporta PER de **18,5x**, EV/EBITDA de **6,47x** y FCF yield de **0%**, sin especificar fecha de referencia, período de beneficios, definición de FCF ni fuente. El valor intrínseco se considera no determinable en el propio análisis, entre otras razones por falta de precio y fecha de referencia, acciones diluidas y otros datos necesarios. La conclusión AOIF califica el margen de seguridad como insuficiente, pero no se proporciona el cálculo que sustenta esa evaluación.
+### Escenarios disponibles
 
-DDD presenta escenarios basados en el rango observado de objetivos de analistas:
+| Escenario | Supuestos principales | Objetivo reportado | Limitaciones |
+|---|---|---:|---|
+| Bajista | Cobre cae 30% y hierro cae 20%; los precios reducen ingresos y márgenes | USD 67 | No se aportan modelo financiero, probabilidades ni fuentes para los supuestos. |
+| Base | Cobre y hierro se mantienen alrededor de niveles actuales; margen bruto cercano al 86% | USD 79,36 | El objetivo se describe como basado en consenso; no se aportan cálculo ni fuentes de los supuestos. |
 
-| Escenario | Precio objetivo | Interpretación del paquete |
-|---|---:|---|
-| Bajista | USD 67 | Extremo bajo del rango de objetivos observado |
-| Alcista | USD 96 | Extremo alto del rango de objetivos observado |
+No se suministró un escenario alcista estructurado. El objetivo alto de USD 96 citado por DDD no viene acompañado de supuestos o metodología.
 
-Los escenarios están fechados **20-nov-2026**, en USD. Son referencias ancladas a objetivos de analistas, no valoraciones fundamentales independientes ni estimaciones verificadas de valor intrínseco. El paquete no facilita supuestos suficientes para construir una sensibilidad financiera robusta.
+### Sensibilidades que conviene modelar
 
-### Sensibilidades necesarias
+Una investigación posterior debería estimar cómo cambian EBITDA, FCF, deuda neta y valor por acción ante variaciones en:
 
-Una valoración futura debería mostrar cómo cambia el valor estimado ante variaciones en:
-
-1. Precios de cobre, mineral de hierro, carbón y otros productos.
-2. Volúmenes, costos unitarios y disponibilidad operativa.
-3. Capex de mantenimiento, expansión y compromisos por proyecto.
-4. Tipo de cambio, costo de capital y costo de deuda.
-5. Duración del ciclo y nivel de precios normalizado.
+- Precios del cobre y del mineral de hierro.
+- Volúmenes producidos y costos unitarios.
+- Inversión de capital y calendario de expansión.
+- Tipo de cambio, impuestos y costos de cierre, si se obtienen datos verificables.
+- Deuda neta, costo de financiación y cobertura de intereses.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué parte de los cambios en ingresos, márgenes y FCF de FY 2026 proviene de precios, volúmenes, costos o composición de activos?
-2. ¿Se sostienen las mejoras reportadas en ingresos y FCF frente a períodos comparables y a través del ciclo?
-3. ¿Cuáles son el flujo de caja operativo, el capex de mantenimiento y expansión, y la conversión de caja a FCF?
-4. ¿Qué retornos sobre capital generan los activos y proyectos, y cómo se comparan con su costo de capital?
-5. ¿Cuáles son las necesidades de reinversión, los compromisos de capital por proyecto y el calendario de desembolsos?
-6. ¿Cuáles son la deuda neta, el costo financiero, los vencimientos y la capacidad de servicio de deuda, usando fuentes verificables?
-7. ¿Qué proporción de ingresos, EBITDA y FCF corresponde a cada producto y geografía?
-8. ¿Cómo se comparan los costos, la calidad y la vida útil de los activos de BHP con los de sus competidores relevantes, incluidos los vínculos sectoriales por verificar con [[AEM]], [[B]] y [[DOW]]?
-9. ¿Qué evidencia respalda las evaluaciones de moat amplio, posición de liderazgo, calidad del management y alineamiento débil de insiders?
-10. ¿Cuál es el nivel de acciones diluidas y cómo ha evolucionado?
-11. ¿Qué fuentes primarias respaldan las métricas financieras, el precio observado, el consenso de analistas y los escenarios?
-12. ¿Qué parte de la cartera de recursos aporta diversificación efectiva y qué parte mantiene una exposición común a los mismos factores macroeconómicos?
+1. **Estados financieros:** ¿Cuáles son los valores y períodos exactos detrás del crecimiento de ingresos, margen operativo, margen bruto, ROIC y crecimiento del FCF?
+2. **Cobertura de intereses:** ¿Cómo se obtuvo el valor de 0x y qué período, definición de intereses y medida de EBIT utiliza? ¿Es consistente con las demás métricas financieras?
+3. **Liquidez y deuda:** ¿Cuál es la caja, deuda bruta, deuda neta y deuda neta/EBITDA? ¿Qué evidencia respalda la afirmación de liquidez robusta y la tendencia creciente de deuda neta?
+4. **FCF:** ¿Cuál es el FCF absoluto, su conversión desde beneficios y su evolución anual? ¿Por qué se reporta un FCF yield de 0?
+5. **Crecimiento:** ¿Cuál es el crecimiento de ingresos comparable a tres años? DDD indica que el CAGR solicitado no está disponible por falta de referencias explícitas a sus inputs.
+6. **Segmentos y geografía:** ¿Qué proporción de ingresos, producción y beneficios corresponde a cobre, hierro, potasio y otras actividades? ¿Cuál es la exposición efectiva a China y otros mercados asiáticos?
+7. **Activos y costos:** ¿Cuáles son los costos unitarios, vida de minas, reservas, necesidades de mantenimiento y desempeño frente a competidores como [[FCX]], [[SCCO]], [[NEM]] y [[AEM]]?
+8. **Expansión:** ¿Qué proyectos de cobre y potasio están contemplados, con qué inversión, calendario, capacidad incremental y retornos esperados?
+9. **Management y gobierno:** ¿Quiénes integran el equipo directivo y el consejo? ¿Qué incentivos, participación accionaria de insiders e indicadores de asignación de capital sustentan la evaluación cualitativa de AOIF?
+10. **Valoración:** ¿Qué precio y fecha sustentan el P/E y EV/EBITDA reportados? ¿Cómo se construyeron los objetivos de USD 67 y USD 79,36, y qué supuestos sustentan el objetivo alto de USD 96?
+11. **Regulación y ambiente:** ¿Qué regulaciones concretas podrían afectar las operaciones o proyectos y en qué jurisdicciones?
+12. **Cadena de evidencia:** Obtener referencias primarias y fechas para verificar las métricas financieras, los precios objetivo, los riesgos y los supuestos de escenarios.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]], [[DOW|Dow Inc.]]
+- **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]], [[CDE|Coeur Mining, Inc.]], [[CX|CEMEX, S.A.B. de C.V.]], [[DD|DuPont de Nemours, Inc.]], [[DOW|Dow Inc.]], [[ECL|Ecolab Inc.]], [[FCX|Freeport-McMoRan Inc.]], [[GGB|Gerdau S.A.]], [[HL|Hecla Mining Company]], [[IFF|International Flavors & Fragrances Inc.]], [[NEM|Newmont Corporation]], [[NUE|Nucor Corporation]], [[SCCO|Southern Copper Corporation]], [[TX|Ternium S.A.]]
