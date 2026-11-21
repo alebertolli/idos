@@ -1,5 +1,73 @@
 # Changelog
 
+## [0.1.6](https://github.com/alebertolli/idos/compare/v0.1.5...v0.1.6) (2026-11-21)
+
+
+### Features
+
+* move MULTIBAGGERS ratios to Research ([#173](https://github.com/alebertolli/idos/issues/173)) ([3b7d2e6](https://github.com/alebertolli/idos/commit/3b7d2e6aaab6adfd934f5a3bf9fb4ca8595ec950))
+* **multibaggers:** complete strategy and Bear Bull research ([dca41b4](https://github.com/alebertolli/idos/commit/dca41b43cdf56169d52a22e72dbc0175cd650682))
+* **multibaggers:** simplify discovery and enrich research ([#168](https://github.com/alebertolli/idos/issues/168)) ([c207de0](https://github.com/alebertolli/idos/commit/c207de0bbaa8318131f741142663dabcdae70e15))
+* ramp DDD research capacity hourly with alerts ([#278](https://github.com/alebertolli/idos/issues/278)) ([edda1db](https://github.com/alebertolli/idos/commit/edda1db637f0e4a0531d4d1d0ec899e9e6ec1a99))
+
+
+### Bug Fixes
+
+* **board:** expose review action for blocked proposals ([e629c8f](https://github.com/alebertolli/idos/commit/e629c8fb7f19f8233c930e761a9a3cc154168a66))
+* bound wiki research context ([701e1bb](https://github.com/alebertolli/idos/commit/701e1bb64aaf439fdda212c3e252e4cce012429d))
+* configure identity for results branch merge ([#288](https://github.com/alebertolli/idos/issues/288)) ([9c3f812](https://github.com/alebertolli/idos/commit/9c3f8126be8ce63d5e65ee29a8b31d48534c6cae))
+* **ddd:** preserve results branch history on publish ([#294](https://github.com/alebertolli/idos/issues/294)) ([dabca93](https://github.com/alebertolli/idos/commit/dabca930d65cc116197c4e662a0da98b7bbb5861))
+* **ddd:** publish resumed decision artifacts ([#296](https://github.com/alebertolli/idos/issues/296)) ([9cef5d4](https://github.com/alebertolli/idos/commit/9cef5d4d04cb743c04c28c0b0721b2a30c7aebb1))
+* defer research on provider quota limits ([#276](https://github.com/alebertolli/idos/issues/276)) ([f3b55db](https://github.com/alebertolli/idos/commit/f3b55db4843c2bf9e5dc699bd6486c4917808dc0))
+* deliver hourly research alerts and CI handoff ([#285](https://github.com/alebertolli/idos/issues/285)) ([96e1a27](https://github.com/alebertolli/idos/commit/96e1a276659dd126664dd568165987726a8e77dc))
+* deploy Pages from completed build artifact ([#381](https://github.com/alebertolli/idos/issues/381)) ([f6c0609](https://github.com/alebertolli/idos/commit/f6c0609cc410f2b559632349a7a894db10f2e600))
+* fetch full history before syncing results branch ([#287](https://github.com/alebertolli/idos/issues/287)) ([c64901c](https://github.com/alebertolli/idos/commit/c64901c7807ace1bb4a981c1ac1a47c18bcea8a8))
+* improve public research decision dashboard ([#257](https://github.com/alebertolli/idos/issues/257)) ([81c10e1](https://github.com/alebertolli/idos/commit/81c10e174600fa6210c98bcbff1376d52de4a7fe))
+* make hourly DDD research self recovering ([#366](https://github.com/alebertolli/idos/issues/366)) ([115c738](https://github.com/alebertolli/idos/commit/115c738d0e5b5f179478e537385116ebd93b2f7a))
+* merge scheduled DDD results without auto-merge ([#383](https://github.com/alebertolli/idos/issues/383)) ([030a650](https://github.com/alebertolli/idos/commit/030a6506660e164be302df3bfea3297374837356))
+* **multibaggers:** pass dated financial histories to research ([a7bd4cf](https://github.com/alebertolli/idos/commit/a7bd4cfbc1547cebcb92261c1af48f6ef6070dd2))
+* normalize known scenario ids ([#379](https://github.com/alebertolli/idos/issues/379)) ([8bc16b7](https://github.com/alebertolli/idos/commit/8bc16b73fcc017f2204957f0745af5faa0b3b110))
+* preserve and drain pending DDD queue ([#368](https://github.com/alebertolli/idos/issues/368)) ([bd917ca](https://github.com/alebertolli/idos/commit/bd917caff68207e04821545d89dad886cfc57bef))
+* preserve DDD hourly ramp between batches ([581e3d8](https://github.com/alebertolli/idos/commit/581e3d87f4f9a77a6012307d2c184fb8dad7adc4))
+* preserve evidence provenance in scenario validation ([0bfd844](https://github.com/alebertolli/idos/commit/0bfd844d5b9d9b7642357160c410bac94c70a2b0))
+* preserve monthly discovery and ddd handoff ([#270](https://github.com/alebertolli/idos/issues/270)) ([5c3c6c6](https://github.com/alebertolli/idos/commit/5c3c6c696f2011520801bd246dd1a0480742989b))
+* refresh DDD ramp failure timestamp ([#387](https://github.com/alebertolli/idos/issues/387)) ([946c84d](https://github.com/alebertolli/idos/commit/946c84d12b1fdf058de2591c4c73854aa8d91922))
+* remove stray notifier syntax character ([#283](https://github.com/alebertolli/idos/issues/283)) ([0a9e1fc](https://github.com/alebertolli/idos/commit/0a9e1fc775085d642bdb22eaa4692b2f8205d785))
+* **research:** bind ratio citations to declared input evidence ([6bc197c](https://github.com/alebertolli/idos/commit/6bc197c237bbe7b41278a883dae06a658e240be8))
+* **research:** bound financial evidence sent to LLM ([7769c4f](https://github.com/alebertolli/idos/commit/7769c4ff828e5d064b4f3cf6d297c1dab93eb2c2))
+* **research:** bound knowledge wiki prompt after 413 ([3732ad3](https://github.com/alebertolli/idos/commit/3732ad30f6563c780c305f8746634cec28203451))
+* **research:** cap nested multibaggers prompt fields ([68b097b](https://github.com/alebertolli/idos/commit/68b097bd2bb226f2ce27559a5618e73e374db011))
+* **research:** complete unavailable ratio limitations ([6615fd6](https://github.com/alebertolli/idos/commit/6615fd61956e4881e8ae6322b3d6fbc8b6360441))
+* **research:** constrain ratio citations to trusted source URLs ([990f5d7](https://github.com/alebertolli/idos/commit/990f5d700ea4388de3a2ad7c5bcbf698bc0de33a))
+* resolve canonical DDD source conflicts ([bae9614](https://github.com/alebertolli/idos/commit/bae9614cb5199c5c08b132717c1b6f33d26464ed))
+* restore pending DDD research queue ([d06f9ca](https://github.com/alebertolli/idos/commit/d06f9ca68f34df1779353d6beeea8306b989d443))
+* runtime failures and OpenAI fallback ([1995224](https://github.com/alebertolli/idos/commit/19952245191bb5d957b7da06b1a4209eec7698a6))
+* safely resume scheduled DDD results branch ([551f8d5](https://github.com/alebertolli/idos/commit/551f8d5b298fd467a91c025aa0c92907c0855007))
+* scan full operable universe in monthly workflow ([#268](https://github.com/alebertolli/idos/issues/268)) ([4a15820](https://github.com/alebertolli/idos/commit/4a1582017bdc37062589c6c1a28e143902f266fc))
+* send research alert to telegram without null parse mode ([#289](https://github.com/alebertolli/idos/issues/289)) ([34c2d7b](https://github.com/alebertolli/idos/commit/34c2d7b16e73e41f0f57f64c0baed3f56cb5219b))
+* show complete multibagger evidence in dashboard ([#183](https://github.com/alebertolli/idos/issues/183)) ([79e9730](https://github.com/alebertolli/idos/commit/79e97300789b6a6ab3f1673b5fee8d543642a537))
+* skip Pages after failed upstream runs ([#250](https://github.com/alebertolli/idos/issues/250)) ([ced8a91](https://github.com/alebertolli/idos/commit/ced8a9153bc390ec8af16a06e898bfded0127f48))
+* skip scheduled results PR when unchanged ([#277](https://github.com/alebertolli/idos/issues/277)) ([a3687a0](https://github.com/alebertolli/idos/commit/a3687a05ed57f4aa4e7919e7354a232cdd58f941))
+* surface failed decision gates as dashboard alerts ([#258](https://github.com/alebertolli/idos/issues/258)) ([f0f3cd6](https://github.com/alebertolli/idos/commit/f0f3cd63943ffa6e7e9e85d881e7cdd53fe1fa9e))
+* sync results branch with current main source ([#286](https://github.com/alebertolli/idos/issues/286)) ([56326a9](https://github.com/alebertolli/idos/commit/56326a964731eb11919b8e2a9d85fabf8a39c1d3))
+* verify exact DDD results CI run ([#391](https://github.com/alebertolli/idos/issues/391)) ([afb6cef](https://github.com/alebertolli/idos/commit/afb6cef363ef0475e1e65af2c3c8f4ecd6984354))
+
+
+### Documentation
+
+* close E2E audit and JEV assessment ([#256](https://github.com/alebertolli/idos/issues/256)) ([bea0ee5](https://github.com/alebertolli/idos/commit/bea0ee568f85386a87bbebdff0355ef3fb9d42df))
+* **e2e:** record clean baseline and runtime reset ([d1cc5c1](https://github.com/alebertolli/idos/commit/d1cc5c184f57a16932454b064cbca862d95b7e63))
+* **e2e:** record clean baseline and runtime reset ([da77d90](https://github.com/alebertolli/idos/commit/da77d908a5d1ecacaaefb4bd2fa0ad96173daa67))
+* **e2e:** record post-deploy validation and remaining gates ([#260](https://github.com/alebertolli/idos/issues/260)) ([9cd192d](https://github.com/alebertolli/idos/commit/9cd192d1bd9be4589ebf67b34723bb38484ed4f1))
+* **e2e:** record post-reset dashboard confirmation ([e82b395](https://github.com/alebertolli/idos/commit/e82b39509613ad3e3a434f6660ee6982a5ba6bda))
+* **e2e:** record production provider blocker [skip ci] ([#249](https://github.com/alebertolli/idos/issues/249)) ([61d7f39](https://github.com/alebertolli/idos/commit/61d7f39d1c7bcca5c87e3efe4edfa67817afc7aa))
+* record controlled AMAT ramp resume ([965a1da](https://github.com/alebertolli/idos/commit/965a1da41480642d26e7f49d2c69ccf060f20801))
+* record dashboard acceptance and DDD outcome ([#269](https://github.com/alebertolli/idos/issues/269)) ([28effd3](https://github.com/alebertolli/idos/commit/28effd328685ebf66d319c34cd03b96ac2f6ae25))
+* record dashboard alert validation ([#259](https://github.com/alebertolli/idos/issues/259)) ([4b0c7cd](https://github.com/alebertolli/idos/commit/4b0c7cdfb1ed1e4eee3abb3d01f90bdbf06c0f7d))
+* record production multi-strategy E2E ([#255](https://github.com/alebertolli/idos/issues/255)) ([8f510b7](https://github.com/alebertolli/idos/commit/8f510b711e91920b81ab3d15a050d42cd8879fc9))
+* record production Pages E2E status [skip ci] ([7ab07a5](https://github.com/alebertolli/idos/commit/7ab07a5acb3c9b99373d2f5e9b89556bc100c2e2))
+* update MULTIBAGGERS status after main merge ([76ca085](https://github.com/alebertolli/idos/commit/76ca085a92f05274fd8cc5bbd0a6da69a9bfcbbf))
+
 ## [0.1.5](https://github.com/alebertolli/idos/compare/v0.1.4...v0.1.5) (2026-10-20)
 
 
