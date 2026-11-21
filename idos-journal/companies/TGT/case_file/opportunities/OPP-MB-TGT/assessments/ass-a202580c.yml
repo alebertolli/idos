@@ -1,0 +1,39 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida'
+- 'Market error: No se puede establecer un error de valoración con la evidencia disponible.
+  El rango de analistas es una referencia observada, no una valoración intrínseca
+  propia.'
+- 'Thesis: La tesis a investigar es si Target puede sostener la mejora observada en
+  flujo de caja libre y margen bruto y convertirla en crecimiento rentable. La información
+  disponible no basta para validar el ta'
+generated_at: '2026-11-21T18:30:27.698984-03:00'
+id: ass-a202580c
+recommendation: REVIEW
+risks:
+- evidencia: El historial disponible incluye filas duplicadas y no muestra una fila
+    fechada de FY 2023 para ingresos.
+  fuente: StockAnalysis, https://stockanalysis.com/stocks/tgt/financials/, períodos
+    reportados en el paquete.
+  riesgo: La trayectoria de ingresos no permite calcular el CAGR solicitado por falta
+    de una serie histórica fechada suficiente.
+- evidencia: La deuda neta está reportada como source_reported_amount y EBITDA como
+    valor monetario; el paquete no especifica la unidad de la primera.
+  fuente: StockAnalysis, https://stockanalysis.com/stocks/tgt/financials/ y https://stockanalysis.com/stocks/TGT/statistics/,
+    período terminado 2026-10-31.
+  riesgo: No se puede evaluar el apalancamiento neto frente a EBITDA con inputs de
+    unidades verificablemente compatibles.
+- evidencia: Valor reportado por StockAnalysis para TTM terminado 2026-10-31.
+  fuente: https://stockanalysis.com/stocks/TGT/statistics/
+  riesgo: El paquete registra cobertura de intereses de 0x, por debajo del umbral
+    configurado, pero no aporta los componentes EBIT y gasto por intereses para validar
+    el cálculo.
+- evidencia: No se aportan datos de participación de mercado, retornos sobre capital,
+    segmentos cuantificados ni competencia.
+  fuente: Resumen financiero de contexto y Research Intake Package.
+  riesgo: La descripción del negocio y los datos disponibles no bastan para evaluar
+    erosión de ventaja competitiva, mercado direccionable o concentración de riesgos.
+score: 57
+status: COMPLETED
+version: '3.0'

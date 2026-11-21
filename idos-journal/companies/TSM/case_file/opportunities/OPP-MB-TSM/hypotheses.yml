@@ -1,113 +1,126 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento interanual de los ingresos consolidados de 2027 es inferior
-      al 15%.
+  - condition: El crecimiento interanual de ingresos del cuarto trimestre de 2027
+      es inferior al 15%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los ingresos de dos trimestres consecutivos de 2027 disminuyen interanualmente.
+  - condition: La empresa no publica cifras comparables del cuarto trimestre de 2026
+      y del cuarto trimestre de 2027 antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento interanual de los ingresos consolidados de 2027 es inferior al
-    15%.
-  - Los ingresos de dos trimestres consecutivos de 2027 disminuyen interanualmente.
+  - El crecimiento interanual de ingresos del cuarto trimestre de 2027 es inferior
+    al 15%.
+  - La empresa no publica cifras comparables del cuarto trimestre de 2026 y del cuarto
+    trimestre de 2027 antes de la fecha objetivo.
   horizon: medio
   id: H1-OPP-MB-TSM
   opportunity_id: OPP-MB-TSM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
+    deadline: '2028-01-31'
     expected: 15.0
     met: null
-    metric: Crecimiento interanual de ingresos consolidados del ejercicio 2027
-    prediction: Los ingresos consolidados de TSMC para el ejercicio 2027, expresados
-      en dólares taiwaneses, superarán en al menos un 15% los ingresos consolidados
-      del ejercicio 2026.
+    metric: Crecimiento interanual de ingresos consolidados del cuarto trimestre
+    prediction: Los ingresos consolidados de TSMC en NT$ durante el cuarto trimestre
+      de 2027 serán al menos un 15% superiores a los del cuarto trimestre de 2026,
+      según los estados financieros trimestrales publicados.
     unit: porcentaje mínimo
   priority: critical
   probability: 0.5
-  rationale: La tesis disponible señala crecimiento de ingresos e inversión relevante
-    en capacidad. Si la demanda se mantiene y la nueva capacidad se utiliza, el volumen
-    fabricado y vendido debería crecer; la evidencia disponible no permite confirmar
-    por adelantado la utilización ni la demanda futura.
-  review_trigger: Dejar de creerla si el informe de resultados del cuarto trimestre
-    de 2027, o la publicación anual correspondiente, confirma crecimiento de ingresos
-    inferior al 15% en el conjunto del ejercicio.
+  rationale: Si los clientes siguen ampliando la producción de chips avanzados, la
+    combinación de mayores volúmenes y una mezcla de productos de mayor valor puede
+    sostener el crecimiento de ingresos. La información disponible no cuantifica el
+    mercado direccionable ni permite asumir que la demanda o la cuota de TSMC crecerán;
+    esta hipótesis lo somete a prueba mediante los ingresos publicados.
+  review_trigger: Dejar de creerla si los ingresos del cuarto trimestre de 2027 muestran
+    crecimiento interanual inferior al 15%, o si antes de esa fecha la empresa reduce
+    su previsión pública de crecimiento de ingresos para 2027 por debajo de ese umbral.
   secondary_hypotheses: []
-  statement: TSMC seguirá convirtiendo la demanda de sus clientes y la capacidad añadida
-    en crecimiento de ingresos durante 2027.
+  statement: La demanda de procesos avanzados y de empaquetado asociado permitirá
+    que TSMC mantenga un crecimiento interanual de ingresos de dos dígitos durante
+    2027.
   status: ACTIVE
   ticker: TSM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen bruto medio de 2027 queda más de 2 puntos porcentuales por
-      debajo del margen bruto del tercer trimestre de 2026.
+  - condition: El flujo de caja libre anual de 2027 es inferior al de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen bruto de dos trimestres consecutivos de 2027 queda más de
-      3 puntos porcentuales por debajo del nivel del tercer trimestre de 2026.
+  - condition: El crecimiento interanual del flujo de caja libre de 2027 es inferior
+      al 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No es posible reconciliar el cálculo con las partidas publicadas en
+      los estados de flujo de efectivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen bruto medio de 2027 queda más de 2 puntos porcentuales por debajo del
-    margen bruto del tercer trimestre de 2026.
-  - El margen bruto de dos trimestres consecutivos de 2027 queda más de 3 puntos porcentuales
-    por debajo del nivel del tercer trimestre de 2026.
+  - El flujo de caja libre anual de 2027 es inferior al de 2026.
+  - El crecimiento interanual del flujo de caja libre de 2027 es inferior al 10%.
+  - No es posible reconciliar el cálculo con las partidas publicadas en los estados
+    de flujo de efectivo.
   horizon: medio
   id: H2-OPP-MB-TSM
   opportunity_id: OPP-MB-TSM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-28'
-    expected: -2.0
+    deadline: '2028-03-31'
+    expected: 10.0
     met: null
-    metric: Margen bruto medio de 2027 frente al margen bruto del tercer trimestre
-      de 2026
-    prediction: El margen bruto medio de los cuatro trimestres de 2027 será como mínimo
-      igual al margen bruto reportado para el tercer trimestre de 2026 menos 2 puntos
-      porcentuales.
-    unit: puntos porcentuales como máximo de deterioro
+    metric: Crecimiento interanual del flujo de caja libre anual
+    prediction: El flujo de caja libre acumulado de 2027, calculado como flujo de
+      caja neto de actividades operativas menos adquisiciones de propiedades y equipos,
+      será al menos un 10% superior al de 2026, usando las cifras anuales consolidadas
+      en NT$.
+    unit: porcentaje mínimo
   priority: critical
   probability: 0.5
-  rationale: La tesis identifica expansión reciente del margen bruto. Una utilización
-    adecuada de capacidad y una combinación de productos favorable podrían sostenerlo;
-    la inversión elevada, los costes de puesta en marcha y cambios de mezcla podrían
-    contrarrestar esos factores.
-  review_trigger: Dejar de creerla cuando TSMC publique resultados que permitan calcular
-    el promedio de los cuatro trimestres de 2027 y este incumpla el umbral; hacerlo
-    antes si dos trimestres consecutivos activan el segundo criterio de falsación.
+  rationale: Un aumento de ingresos puede elevar el flujo de caja operativo, pero
+    la fabricación de semiconductores exige inversiones sustanciales. Por ello, el
+    crecimiento solo respaldaría una expansión efectiva del flujo de caja libre si
+    el aumento del flujo operativo supera el incremento del gasto de capital. La evidencia
+    disponible no establece cuánto de la mejora reciente es sostenible.
+  review_trigger: Dejar de creerla cuando los resultados anuales de 2027 muestren
+    crecimiento del flujo de caja libre inferior al 10% frente a 2026, o si la empresa
+    comunica antes de esa publicación una revisión de inversión que haga incompatible
+    ese umbral con sus previsiones de flujo de caja.
   secondary_hypotheses:
   - H1-OPP-MB-TSM
-  statement: La expansión reciente del margen bruto será suficientemente durable para
-    que el margen no se deteriore de forma sustancial durante 2027.
+  statement: El crecimiento de ingresos se convertirá en una expansión verificable
+    del flujo de caja libre, sin que el gasto de capital absorba todo el avance operativo.
   status: ACTIVE
   ticker: TSM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El flujo de caja operativo menos compras de propiedad, planta y equipo
-      es cero o negativo para el ejercicio 2027.
+  - condition: El margen bruto de 2027 no supera el de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El flujo de caja libre acumulado es negativo al cierre de tres trimestres
-      consecutivos de 2027.
+  - condition: La mejora del margen bruto es inferior a 1 punto porcentual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica cifras anuales comparables que permitan calcular
+      ambos márgenes con la misma base.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El flujo de caja operativo menos compras de propiedad, planta y equipo es cero
-    o negativo para el ejercicio 2027.
-  - El flujo de caja libre acumulado es negativo al cierre de tres trimestres consecutivos
-    de 2027.
+  - El margen bruto de 2027 no supera el de 2026.
+  - La mejora del margen bruto es inferior a 1 punto porcentual.
+  - La empresa no publica cifras anuales comparables que permitan calcular ambos márgenes
+    con la misma base.
   horizon: medio
   id: H3-OPP-MB-TSM
   opportunity_id: OPP-MB-TSM
@@ -115,79 +128,82 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-03-31'
-    expected: 0.0
+    expected: 1.0
     met: null
-    metric: Flujo de caja libre consolidado del ejercicio 2027
-    prediction: El flujo de caja libre consolidado acumulado del ejercicio 2027 será
-      superior a cero, calculado como flujo de caja operativo menos compras de propiedad,
-      planta y equipo.
-    unit: dólares taiwaneses, estrictamente superior a cero
+    metric: Variación interanual del margen bruto anual
+    prediction: El margen bruto consolidado de 2027, calculado como beneficio bruto
+      dividido por ingresos consolidados del mismo ejercicio, superará en al menos
+      1 punto porcentual el margen bruto de 2026.
+    unit: punto porcentual mínimo
   priority: important
   probability: 0.5
-  rationale: La tesis combina crecimiento y expansión reciente del margen con una
-    inversión relevante en capacidad. Si el crecimiento de ingresos y la rentabilidad
-    operativa compensan el gasto de capital, la empresa debería generar efectivo después
-    de inversiones; la información disponible no permite verificar el nivel de inversión
-    ni el retorno sobre el capital.
-  review_trigger: Dejar de creerla si la publicación anual de 2027 muestra flujo de
-    caja libre no positivo; reducir la confianza antes si el flujo acumulado sigue
-    negativo tras tres trimestres consecutivos.
+  rationale: Un mayor volumen de producción puede mejorar la absorción de costes fijos,
+    mientras que una mezcla más favorable podría apoyar el margen bruto. En sentido
+    contrario, costes de fabricación, rampas de producción e inversiones pueden presionarlo.
+    La tesis requiere observar el margen publicado, no inferir sostenibilidad a partir
+    de ingresos por sí solos.
+  review_trigger: Dejar de creerla al publicarse los resultados anuales de 2027 si
+    el margen bruto no mejora al menos 1 punto porcentual frente a 2026, o antes si
+    la compañía guía un margen bruto anual de 2027 que haga imposible alcanzar esa
+    mejora.
   secondary_hypotheses:
   - H1-OPP-MB-TSM
-  - H2-OPP-MB-TSM
-  statement: La inversión en capacidad no impedirá que TSMC mantenga un flujo de caja
-    libre anual positivo en 2027.
+  statement: La expansión de ingresos y flujo de caja libre se reflejará en una mejora
+    de la rentabilidad bruta anual, en lugar de que la mezcla de productos, los costes
+    o las inversiones operativas neutralicen el crecimiento.
   status: ACTIVE
   ticker: TSM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de TSMC menos el rendimiento total del SOX es
-      inferior a 5 puntos porcentuales en la fecha objetivo.
+  - condition: El rendimiento total de TSMC menos el rendimiento total del índice
+      PHLX Semiconductor es inferior a 10 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El rendimiento total de TSMC es inferior al del SOX durante todo el
-      periodo medido, según precios de cierre y dividendos.
+  - condition: No se dispone de precios ajustados por dividendos para ambas referencias
+      que cubran las fechas especificadas.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de TSMC menos el rendimiento total del SOX es inferior a
-    5 puntos porcentuales en la fecha objetivo.
-  - El rendimiento total de TSMC es inferior al del SOX durante todo el periodo medido,
-    según precios de cierre y dividendos.
+  - El rendimiento total de TSMC menos el rendimiento total del índice PHLX Semiconductor
+    es inferior a 10 puntos porcentuales.
+  - No se dispone de precios ajustados por dividendos para ambas referencias que cubran
+    las fechas especificadas.
   horizon: medio
   id: H4-OPP-MB-TSM
   opportunity_id: OPP-MB-TSM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
+    deadline: '2027-11-21'
+    expected: 10.0
     met: null
-    metric: Rendimiento total de TSMC menos rendimiento total del SOX
-    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
-      noviembre de 2027, el rendimiento total de la acción de TSMC, medido en dólares
-      estadounidenses e incluyendo dividendos, superará el rendimiento total del SOX
-      en al menos 5 puntos porcentuales.
-    unit: puntos porcentuales como mínimo
+    metric: Rendimiento total relativo de TSM frente al índice PHLX Semiconductor
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 19 de
+      noviembre de 2027, el rendimiento total de las acciones ordinarias cotizadas
+      en Nueva York, medido en USD e incluyendo dividendos reinvertidos, superará
+      en al menos 10 puntos porcentuales el rendimiento total del índice PHLX Semiconductor
+      en el mismo intervalo.
+    unit: puntos porcentuales mínimos
   priority: informational
   probability: 0.5
-  rationale: El crecimiento de ingresos y la expansión reciente del margen pueden
-    respaldar expectativas de beneficios, pero no demuestran que la acción esté infravalorada.
-    La hipótesis es una predicción relativa y verificable de mercado, no una conclusión
-    de valoración intrínseca; los múltiplos y expectativas iniciales deben analizarse
-    por separado.
-  review_trigger: Dejar de creerla al cierre del 20 de noviembre de 2027 si la diferencia
-    de rendimiento total frente al SOX es inferior a 5 puntos porcentuales; no interpretar
-    la variación de precio por sí sola como prueba de infravaloración.
+  rationale: Una mejora verificable de la generación de caja podría respaldar la valoración
+    de la acción. Sin embargo, las anclas de objetivos observadas, de USD 440 a USD
+    1.000, no incluyen metodología ni supuestos que permitan derivar un valor razonable;
+    por ello, esta hipótesis prueba el desempeño relativo del mercado y no adopta
+    esos objetivos como valoración fundamentada.
+  review_trigger: Dejar de creerla al cierre del 19 de noviembre de 2027 si la rentabilidad
+    total relativa es inferior a 10 puntos porcentuales; una caída relativa superior
+    a 10 puntos porcentuales durante al menos 20 sesiones consecutivas antes de esa
+    fecha también invalida la hipótesis anticipadamente.
   secondary_hypotheses:
-  - H1-OPP-MB-TSM
   - H2-OPP-MB-TSM
-  statement: Durante los doce meses posteriores a la fecha de corte, la acción de
-    TSMC tendrá un rendimiento total superior al del índice Philadelphia Semiconductor
-    (SOX).
+  - H3-OPP-MB-TSM
+  statement: Si TSMC convierte el crecimiento operativo en expansión del flujo de
+    caja libre, su acción tendrá un rendimiento total superior al del índice PHLX
+    Semiconductor durante los próximos doce meses.
   status: ACTIVE
   ticker: TSM
   version: 1

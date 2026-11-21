@@ -2122,3 +2122,111 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T18:21:27.460872'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-TGT
+    ticker: TGT
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T18:28:51.616823'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TGT
+    ticker: TGT
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T18:28:51.705171'
+- data:
+    classification: Investigación requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 44fd80ad8c4aa5b6bbd2578336988d204dc5e6c49ae178f47619e783ce1e060d
+    opp_id: OPP-MB-TGT
+    original_status: UNDER_RESEARCH
+    score: 57
+    strategy_version: '1.5'
+    ticker: TGT
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T18:30:27.889312'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-TSM
+    ticker: TSM
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T18:31:00.921489'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TSM
+    ticker: TSM
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T18:31:01.095147'
+- data:
+    classification: Investigación requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: c83d49cf82027300adbec4e0081309cf6ad83e5a4fa92e935978a4982f638aff
+    opp_id: OPP-MB-TSM
+    original_status: UNDER_RESEARCH
+    score: 62
+    strategy_version: '1.5'
+    ticker: TSM
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T18:32:42.290596'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-TTE
+    ticker: TTE
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T18:33:17.311750'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TTE
+    ticker: TTE
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T18:33:17.407805'
+- data:
+    classification: Investigación requerida; oportunidad de energía integrada, no
+      validada como multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 64f5c6a65634f4ba2295ffb88979374263f7b0ebafad340bba226e30943e1bf8
+    opp_id: OPP-MB-TTE
+    original_status: UNDER_RESEARCH
+    score: 58
+    strategy_version: '1.5'
+    ticker: TTE
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T18:34:50.122969'

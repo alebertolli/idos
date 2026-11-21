@@ -1,84 +1,116 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La falta de períodos comparables impide establecer que la mejora de FCF sea una
-    tendencia estructural.
-  - Los extremos de consenso pueden usarse como anclas observadas de escenario, pero
-    no prueban valor intrínseco.
-  - El resumen financiero reporta cotización de USD 154.38 al 2026-10-30, fuente Yahoo
-    Finance.
-  - El paquete reporta momentum de precio a 12 meses de 66.5013%, drawdown de 9.1294%
-    y volatilidad a 90 días de 29.1819%, con período 2025-10-31/2026-10-30 y fuente
-    Yahoo Finance.
-  - StockAnalysis reporta margen bruto TTM de 28.66%, FCF TTM de 4,157 y utilidad
-    neta TTM de 4,914, con período terminado 2026-10-31.
+  - La mejora observada en FCF y margen bruto merece comprobarse en períodos comparables
+    antes de interpretarse como una tendencia duradera.
+  - El rango de analistas funciona como ancla de escenarios, pero no demuestra valor
+    intrínseco.
+  - 'Precio de USD 154,38 al 2026-10-30 y momentum de precio a 12 meses de 66,5013%
+    para 2025-10-31/2026-10-30; fuente: Yahoo Finance, https://finance.yahoo.com/quote/TGT/history/.'
+  - 'FCF de 4.157 millones y margen bruto de 28,66% para TTM terminado 2026-10-31;
+    fuente: StockAnalysis, https://stockanalysis.com/stocks/tgt/financials/.'
+  - 'Rango de precio objetivo de analistas de USD 130 a USD 210, observado el 2026-11-21;
+    fuente: StockAnalysis, https://stockanalysis.com/stocks/tgt/forecast/.'
   preguntas_abiertas:
-  - ¿Qué explicaría la evolución de ventas, márgenes y FCF en períodos comparables?
-  - ¿Qué retornos genera la reinversión y cómo se compara con el costo de capital?
-  - ¿Qué evidencia operativa respalda penetración, moat y resiliencia competitiva?
-  - ¿Qué política de asignación de capital y trayectoria de acciones diluidas reporta
-    la compañía?
-catalizadores_previos: &id001 []
+  - ¿Cuál es la serie comparable de ingresos, FCF y acciones diluidas necesaria para
+    medir crecimiento y dilución?
+  - ¿Qué evidencia cuantifica penetración, mercado direccionable, ventaja competitiva,
+    reinversión y retornos sobre capital?
+  - ¿Qué componentes respaldan el valor reportado de cobertura de intereses de 0x?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T19:43:51.356738-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-TGT
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T19:43:51.356738-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-TGT
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T19:43:51.356738-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-TGT
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: RESEARCH_REQUIRED
-  justificacion: El paquete identifica prioridad de research 82.77 en perfil multibaggers,
-    pero la evidencia disponible no permite validar una tesis de crecimiento multibagger
-    ni varios ratios clave.
+  categoria: Investigación requerida
+  justificacion: El paquete la clasifica como RESEARCH_REQUIRED dentro del perfil
+    multibaggers. La evidencia disponible permite revisar métricas financieras y anclas
+    de consenso, pero no sustenta una valoración intrínseca ni varios ratios clave.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe a Target como minorista estadounidense de mercancía
-    general. El paquete aporta margen bruto y FCF positivos, pero no datos para medir
-    retornos sobre capital, eficiencia de reinversión, poder de fijación de precios
-    o erosión competitiva.
-  rating: Evidencia insuficiente
+  analisis: Target se describe como minorista estadounidense de mercancía general
+    con categorías de ropa, belleza y alimentos, entre otras. El paquete no aporta
+    evidencia suficiente para cuantificar la calidad del negocio, la ventaja competitiva,
+    la penetración del mercado direccionable ni los retornos de reinversión.
+  rating: Incompleta
 dominio_catalizadores:
-- catalizador: Confirmación de crecimiento de ventas en períodos comparables.
-  observacion: El paquete no aporta una secuencia histórica completa y consistente
-    para comprobarlo.
-- catalizador: Persistencia de la recuperación de margen bruto y FCF.
-  observacion: El TTM al 2026-10-31 reporta margen bruto de 28.66% y FCF de 4,157
-    en unidades reportadas por la fuente; su sostenibilidad no está demostrada.
-- catalizador: Publicación de datos operativos y de capital allocation.
-  observacion: Serían necesarios para evaluar reinversión, retornos sobre capital,
-    penetración y ventaja competitiva; no se incluyen en el paquete.
+- catalizador: Comprobar si el flujo de caja libre TTM se mantiene positivo y su crecimiento
+    se sostiene en períodos comparables.
+  evidencia: FCF reportado de 4.157 millones en TTM terminado 2026-10-31; no se dispone
+    de una comparación TTM previa en el paquete.
+  fuente: StockAnalysis, https://stockanalysis.com/stocks/tgt/financials/.
+- catalizador: Verificar si la mejora del margen bruto continúa en períodos posteriores.
+  evidencia: Margen bruto reportado de 28,66% en TTM terminado 2026-10-31, frente
+    a 27,93% en FY 2026.
+  fuente: StockAnalysis, https://stockanalysis.com/stocks/tgt/financials/.
+- catalizador: Revisar resultados financieros futuros para evaluar crecimiento orgánico,
+    reinversión y retornos sobre capital.
+  evidencia: El paquete no incluye orientación corporativa, calendario de hitos ni
+    métricas de retorno sobre capital.
+  fuente: Research Intake Package y resumen financiero de contexto.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- observacion: El historial suministrado contiene filas duplicadas/inconsistentes
-    y no ofrece una fila fechada de ingresos FY 2023.
-  riesgo: La evidencia de crecimiento de ingresos es insuficiente para calcular CAGR
-    a tres años con períodos válidos.
-- observacion: El FCF TTM y el FCF FY 2026 corresponden a períodos distintos; no se
-    debe tratar su diferencia como crecimiento interanual comparable.
-  riesgo: La mejora de FCF no queda establecida como tendencia comparable.
-- observacion: Falta historia de acciones y las unidades/escala de deuda neta y EBITDA
-    no son compatibles en la evidencia entregada.
-  riesgo: No se puede validar la evolución de acciones ni el apalancamiento neto sobre
-    EBITDA.
-- observacion: No permite evaluar cuantitativamente esos componentes ni atribuirles
-    una ventaja sostenible.
-  riesgo: El paquete no documenta penetración de mercado, retornos sobre capital,
-    moat, ni decisiones de asignación de capital.
+- evidencia: El historial disponible incluye filas duplicadas y no muestra una fila
+    fechada de FY 2023 para ingresos.
+  fuente: StockAnalysis, https://stockanalysis.com/stocks/tgt/financials/, períodos
+    reportados en el paquete.
+  riesgo: La trayectoria de ingresos no permite calcular el CAGR solicitado por falta
+    de una serie histórica fechada suficiente.
+- evidencia: La deuda neta está reportada como source_reported_amount y EBITDA como
+    valor monetario; el paquete no especifica la unidad de la primera.
+  fuente: StockAnalysis, https://stockanalysis.com/stocks/tgt/financials/ y https://stockanalysis.com/stocks/TGT/statistics/,
+    período terminado 2026-10-31.
+  riesgo: No se puede evaluar el apalancamiento neto frente a EBITDA con inputs de
+    unidades verificablemente compatibles.
+- evidencia: Valor reportado por StockAnalysis para TTM terminado 2026-10-31.
+  fuente: https://stockanalysis.com/stocks/TGT/statistics/
+  riesgo: El paquete registra cobertura de intereses de 0x, por debajo del umbral
+    configurado, pero no aporta los componentes EBIT y gasto por intereses para validar
+    el cálculo.
+- evidencia: No se aportan datos de participación de mercado, retornos sobre capital,
+    segmentos cuantificados ni competencia.
+  fuente: Resumen financiero de contexto y Research Intake Package.
+  riesgo: La descripción del negocio y los datos disponibles no bastan para evaluar
+    erosión de ventaja competitiva, mercado direccionable o concentración de riesgos.
 error_mercado:
-  catalizador_cambio: Una secuencia verificable de crecimiento de ingresos, margen
-    bruto y FCF en períodos comparables permitiría revisar la hipótesis; el paquete
-    no aporta hitos operativos futuros confirmados.
-  conclusion_error_valoracion: 'No se demuestra un error de valoración: el consenso
-    observado supera la cotización, pero el rango de analistas no es una valoración
-    intrínseca y faltan datos para validar expectativas fundamentales.'
-  consenso_actual: 'Al 2026-11-20, el consenso de analistas reportado es USD 172.34;
-    rango USD 130–210. La cotización observada fue USD 154.38 al 2026-10-30. Fuentes:
-    Stock Analysis y Yahoo Finance.'
-  hipotesis_contraria: La mejora reciente de FCF y margen bruto TTM podría ser transitoria;
-    los datos del paquete no establecen una trayectoria de crecimiento de ingresos
-    ni la duración de esa mejora.
-  razonamiento: La evidencia permite observar recuperación de FCF TTM frente al FY
-    2026, pero no comparar períodos equivalentes ni atribuirla a un mecanismo estructural.
-    La dispersión de objetivos de analistas refleja opiniones externas, no una expectativa
-    propia validada.
-generated_at: '2026-11-20T19:43:51.356738-03:00'
+  catalizador_cambio: Una evolución verificable de ventas, flujo de caja libre y margen
+    bruto podría cambiar la lectura de la recuperación; el paquete no aporta hitos
+    corporativos fechados.
+  conclusion_error_valoracion: No se puede establecer un error de valoración con la
+    evidencia disponible. El rango de analistas es una referencia observada, no una
+    valoración intrínseca propia.
+  consenso_actual: 'El consenso de precio objetivo observado es USD 172,34, con rango
+    de USD 130 a USD 210, frente a una cotización de USD 154,38 al 2026-10-30. Fuentes:
+    StockAnalysis y Yahoo Finance, ambas observadas el 2026-11-21 para el consenso;
+    Yahoo Finance para la cotización del 2026-10-30.'
+  hipotesis_contraria: La cotización podría no reflejar una recuperación sostenible
+    de ventas, flujo de caja y márgenes; la evidencia disponible no incluye pronósticos
+    financieros detallados que permitan comprobarlo.
+  razonamiento: El precio objetivo medio observado supera la cotización, pero el rango
+    es amplio y no hay estimaciones de negocio ni método de valoración aportados para
+    explicar esa diferencia.
+generated_at: '2026-11-21T18:28:51.738265-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-TGT
@@ -115,27 +147,26 @@ prompt_inputs:
 ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
-    revenue_history: Historial suministrado; filas visibles TTM y FY 2025 con inconsistencias/duplicados.
-  limitations: Falta una fila fechada FY 2023 en revenue_history y la historia visible
-    contiene períodos duplicados/inconsistentes; no se puede validar el extremo de
-    tres años.
+    revenue_history: null
+  limitations: El historial aportado no contiene una fila fechada de FY 2023 para
+    ingresos; hay filas FY duplicadas y no se puede identificar un par t/t-3 compatible.
   metric: revenue_cagr_3y_pct
-  period_end: null
+  period_end: '2026-10-31'
   sources:
-  - name: StockAnalysis financials
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/tgt/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+- formula: (FCF_t / FCF_t-1) - 1
   inputs:
-    fcf_history: TTM 4,157 al 2026-10-31; FY 2026 2,835 al 2026-01-31.
-  limitations: Los datos TTM y FY 2026 no son períodos comparables; la fuente no proporciona
-    en los campos permitidos FCF de TTM interanual comparable.
+    fcf_history: null
+  limitations: El paquete no aporta dos períodos comparables y positivos de FCF para
+    calcular crecimiento conforme a la definición; TTM y FY no son períodos equivalentes.
   metric: fcf_growth_pct
-  period_end: null
+  period_end: '2026-10-31'
   sources:
-  - name: StockAnalysis financials
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/tgt/financials/
   status: unavailable
   unit: percent
@@ -145,38 +176,42 @@ ratios_investigados:
   metric: fcf_conversion_pct
   period_end: '2026-10-31'
   sources:
-  - name: StockAnalysis financials
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/tgt/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; también -net_cash / EBITDA
-    si net_cash = cash - debt
+- formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
-    ebitda: 8,910,000,000 al 2026-10-31
-    net_cash_history: Current -14,585 al 2026-10-31
-  limitations: Los campos disponibles reportan net_cash_history como source_reported_amount
-    y EBITDA como valor numérico en dólares; no se proporciona escala compatible verificable
-    para combinarlos.
+    cash_and_investments_history: 4464
+    ebitda: 8910000000
+    total_debt_history: 19049
+  limitations: Deuda y efectivo figuran como source_reported_amount, mientras EBITDA
+    figura en moneda financiera; no se especifica una unidad compatible para deuda
+    y efectivo ni una definición conciliada de efectivo equivalente.
   metric: net_debt_ebitda
   period_end: '2026-10-31'
   sources:
-  - name: StockAnalysis financials
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/tgt/financials/
-  - name: StockAnalysis statistics
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/TGT/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    shares_outstanding: 452,730,000 al 2026-10-31
-  limitations: Sólo hay un dato puntual de acciones en circulación; falta un conteo
-    comparable del período anterior o una serie de acciones diluidas.
+    diluted_shares: null
+    diluted_shares_history: null
+    shares_outstanding: 452730000
+    shares_outstanding_history: null
+  limitations: Sólo se aporta el valor actual de shares_outstanding; falta una observación
+    comparable anterior o un historial de acciones diluidas para calcular el cambio
+    interanual.
   metric: dilution_yoy_pct
-  period_end: null
+  period_end: '2026-10-31'
   sources:
-  - name: StockAnalysis statistics
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/TGT/statistics/
   status: unavailable
   unit: percent
@@ -212,7 +247,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Target Corporation operates as a general merchandise retailer in
     the United States. It offers apparel for women, men, young adults, kids, toddlers,
     and babies, as well as jewelry, accessories, and shoes; and beauty products, such
@@ -237,7 +272,338 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.0104
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Target Corporation (TGT) es un minorista estadounidense de mercancía general con
+    un modelo omnicanal que combina tiendas físicas y ventas digitales. Su actividad
+    abarca varias categorías de consumo; entre los productos mencionados en la información
+    disponible figuran ropa, calzado, joyería, accesorios, belleza y cuidado personal.
+
+
+    La empresa atiende principalmente a consumidores y hogares que buscan comprar
+    en varias categorías en un mismo establecimiento, incluidos clientes sensibles
+    al precio y al valor. La información suministrada no especifica la distribución
+    de ingresos por categoría, canal o geografía más allá de su operación en Estados
+    Unidos.
+
+
+    En el grupo de compañías relacionadas de la wiki, [[COST]] es la referencia minorista
+    más próxima por actividad general de comercio, aunque su modelo no es idéntico.
+    Las demás compañías listadas —[[ABEV]], [[CL]], [[DEO]], [[FMX]], [[KO]], [[MDLZ]],
+    [[MO]], [[PM]] y [[SYY]]— son referencias de consumo o distribución, no equivalentes
+    directos según la información disponible.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    Target genera ingresos mediante la venta de productos en tiendas físicas y canales
+    digitales. Su cadena de valor comprende selección y diseño del surtido, abastecimiento
+    de proveedores y marcas, gestión de inventario y distribución a tiendas y canales
+    de venta. La información disponible no cuantifica la aportación de cada canal
+    ni de las marcas propias.
+
+
+    Los principales drivers de ingresos que deben analizarse son el tráfico, las ventas
+    comparables, la mezcla de productos, la actividad digital y la capacidad de ofrecer
+    valor a los consumidores. No hay una serie comparable suficiente en el paquete
+    para confirmar una tendencia sostenida de crecimiento de ventas.
+
+
+    **Moat y competencia.** El análisis suministrado califica la amplitud del moat
+    como estrecha. Sus fuentes potenciales de diferenciación son la escala nacional,
+    el reconocimiento de marca, la amplitud del surtido, las marcas propias y la integración
+    de la red de tiendas con el negocio omnicanal. Estos atributos no eliminan la
+    presión competitiva sobre precios, tráfico y participación de mercado. El comercio
+    minorista general se describe como competitivo y de márgenes relativamente ajustados;
+    Target se clasifica como retador.
+
+
+    [[COST]] puede servir como referencia para estudiar la competencia minorista y
+    la sensibilidad del sector al precio y al tráfico, sin asumir que sus economías
+    o su posicionamiento sean comparables. Las compañías de consumo de la wiki, como
+    [[CL]] y [[MDLZ]], también pueden ser referencias para riesgos compartidos de
+    demanda y mezcla de productos, aunque operan en actividades distintas.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes provienen de los análisis suministrados. Salvo indicación
+    expresa, no se especifica la base temporal o la unidad en el input AOIF; por tanto,
+    no deben interpretarse como series históricas comparables.
+
+
+    | Métrica | Valor reportado | Fecha/base | Observación |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos | 4,05% | Base no especificada en AOIF | No valida por
+    sí solo una tendencia; faltan períodos comparables documentados. |
+
+    | Margen operativo | 5,21% | Base no especificada en AOIF | Compatible con un
+    negocio minorista de márgenes relativamente ajustados, según el análisis cualitativo
+    suministrado. |
+
+    | ROIC | 13,46% | Base no especificada en AOIF | No se aportan serie histórica,
+    componentes ni comparación con el costo de capital. |
+
+    | Margen bruto | 28,66% | TTM al 2026-10-31 | Dato reportado; su persistencia
+    no está establecida. |
+
+    | FCF | 4.157, en unidades reportadas por la fuente | TTM al 2026-10-31 | No comparable
+    directamente con el FCF de FY 2026. |
+
+    | FCF | 2.835, en unidades reportadas por la fuente | FY 2026 al 2026-01-31 |
+    Período distinto del TTM; no permite calcular crecimiento interanual comparable.
+    |
+
+    | Current ratio | 0,99x | 2026-10-31 | No cruza el umbral de riesgo configurado
+    de menos de 0,5x. |
+
+    | Dilución interanual | No evaluable | Sin historia comparable de acciones diluidas
+    | No hay evidencia suficiente para cuantificarla. |
+
+
+    **Tendencias y limitaciones.** AOIF califica la calidad de tendencia financiera
+    como estable, pero la evidencia disponible no contiene una secuencia completa
+    y consistente para confirmar crecimiento de ingresos o recuperación sostenida
+    de márgenes y FCF. El historial de ingresos suministrado presenta filas duplicadas
+    o inconsistentes y carece de una fila fechada para FY 2023. Por ello, el CAGR
+    de ingresos a tres años no está disponible. Tampoco es válido tratar la diferencia
+    entre FCF TTM y FCF FY 2026 como crecimiento, pues corresponden a períodos distintos.
+
+
+    No se aportan datos suficientes sobre deuda neta, vencimientos, capex, flujo de
+    caja operativo, acciones diluidas o conversión de beneficios en FCF. En consecuencia,
+    no es posible caracterizar completamente la estructura de capital ni la conversión
+    de caja.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación suministrada califica la calidad del management como regular, la
+    asignación de capital como neutral y el alineamiento de insiders como moderado.
+    No incluye nombres de directivos, historial de decisiones de capital, remuneración,
+    porcentaje de propiedad de insiders ni información sobre la composición o independencia
+    del consejo.
+
+
+    Por tanto, estas valoraciones deben tratarse como conclusiones preliminares del
+    análisis recibido, no como una evaluación verificable del gobierno corporativo.
+    Se requiere investigar incentivos, propiedad accionaria, decisiones de inversión
+    y distribución de capital, así como composición y supervisión del board.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Tesis a investigar:** Target podría sostener una recuperación de ventas, margen
+    bruto y flujo de caja libre si su escala nacional, amplitud de surtido, marcas
+    propias y red de tiendas integrada respaldan una propuesta de valor y una operación
+    omnicanal competitivas. El paquete disponible plantea esta posibilidad, pero no
+    demuestra que la recuperación sea estructural.
+
+
+    Elementos que podrían respaldar el caso alcista:
+
+
+    - El modelo combina tiendas físicas y canales digitales, apoyado por una red de
+    distribución y una oferta amplia de productos.
+
+    - El margen bruto TTM reportado fue de 28,66% al 2026-10-31 y el FCF TTM fue de
+    4.157, en unidades reportadas por la fuente. Estos datos indican niveles observados,
+    pero no prueban persistencia ni una mejora frente a períodos equivalentes.
+
+    - AOIF reporta un ROIC de 13,46%; sin serie histórica ni costo de capital estimado,
+    no se puede concluir que la reinversión genere retornos superiores al costo de
+    capital.
+
+
+    La tesis ganaría respaldo si se confirma crecimiento de ventas comparables durante
+    períodos sucesivos y si la mejora de margen bruto y FCF persiste en datos comparables.
+    Estas condiciones todavía no están verificadas.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    La contra-tesis es que la mejora reciente de margen bruto y FCF sea transitoria
+    y que la presión competitiva o una ejecución deficiente impidan un crecimiento
+    rentable sostenido.
+
+
+    **Riesgos identificados:**
+
+
+    - **Competencia:** presión sobre precios, tráfico de tiendas y participación de
+    mercado; evaluada con impacto y probabilidad altos en AOIF.
+
+    - **Inventario y mezcla:** errores de previsión de demanda o mezcla de productos
+    podrían generar exceso de inventario, descuentos y deterioro de márgenes; AOIF
+    considera alto su impacto y probabilidad media.
+
+    - **Calidad de la evidencia:** las filas de ingresos duplicadas o inconsistentes
+    y la falta de períodos comparables dificultan validar crecimiento y tendencias.
+
+    - **Sostenibilidad del FCF:** el FCF TTM y el FY 2026 no son comparables; la mejora
+    no queda establecida como tendencia.
+
+    - **Liquidez:** el current ratio reportado de 0,99x no cruza el umbral configurado
+    de 0,5x, pero se requiere contexto adicional sobre obligaciones y liquidez.
+
+    - **Dilución:** no evaluable por falta de una historia comparable de acciones
+    diluidas.
+
+
+    **Falsadores que deben monitorearse:**
+
+
+    1. Ingresos comparables que no evidencien crecimiento durante períodos sucesivos.
+
+    2. Deterioro sostenido del margen bruto o del FCF frente a los niveles TTM reportados.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    No se proporcionan fechas de eventos corporativos concretos ni un calendario de
+    publicaciones. Los catalizadores identificados son condiciones de seguimiento,
+    no eventos fechados.
+
+
+    | Catalizador | Fecha esperada | Impacto potencial | Evidencia o condición |
+
+    |---|---|---|---|
+
+    | Confirmación de crecimiento de ventas en períodos comparables | No especificada;
+    revisar en próximas publicaciones financieras | Podría reforzar la tesis de recuperación
+    o debilitarla si no aparece | El paquete no contiene una secuencia histórica completa
+    y consistente. |
+
+    | Persistencia de la recuperación del margen bruto | No especificada; seguimiento
+    en próximos períodos comparables | Podría indicar mejora operativa más duradera;
+    un deterioro sería un falsador | Margen bruto TTM de 28,66% al 2026-10-31; sostenibilidad
+    no establecida. |
+
+    | Persistencia y comparabilidad del FCF | No especificada; seguimiento en próximos
+    períodos comparables | Podría confirmar la conversión de la operación en caja
+    | FCF TTM de 4.157 al 2026-10-31; el FY 2026 de 2.835 corresponde a otro período.
+    |
+
+    | Evolución de tráfico, ventas digitales y ventas comparables | No especificada
+    | Ayudaría a distinguir crecimiento orgánico de cambios en mezcla o canal | Identificado
+    como punto de monitoreo por AOIF; no se aportan cifras. |
+
+
+    ## 8. Marco de Valoración
+
+
+    La información disponible no permite estimar un valor intrínseco robusto. AOIF
+    indica que la valoración intrínseca no es determinable por falta de precio y fecha
+    de referencia, serie de FCF, deuda neta y acciones diluidas. Además, la conversión
+    de FCF no puede verificarse con los datos suministrados.
+
+
+    Métricas observadas en AOIF:
+
+
+    | Métrica | Valor | Limitación |
+
+    |---|---:|---|
+
+    | P/E | 15,41x | No se proporciona fecha ni precio de referencia en el input AOIF.
+    |
+
+    | EV/EBITDA | 10,09x | Faltan los supuestos y componentes empleados para el cálculo.
+    |
+
+    | FCF yield | 0 | No debe interpretarse como rendimiento económico verificable
+    sin metodología y datos subyacentes. |
+
+    | Margen de seguridad | Insuficiente | Evaluación reportada por AOIF; no se aporta
+    cálculo reproducible. |
+
+
+    El DDD recoge, al 2026-11-20, una cotización observada de USD 154 y un consenso
+    de analistas de USD 172,34, con rango de USD 130 a USD 210. Estos valores son
+    referencias observadas del paquete, no una estimación de valor intrínseco. El
+    propio análisis advierte que el consenso y sus extremos no prueban valor razonable.
+
+
+    | Escenario de referencia | Precio objetivo observado | Interpretación |
+
+    |---|---:|---|
+
+    | Bajo | USD 130 | Extremo inferior del rango de objetivos de analistas; no es
+    una valoración propia. |
+
+    | Alto | USD 210 | Extremo superior del rango de objetivos de analistas; no es
+    una valoración propia. |
+
+
+    Para una valoración propia, convendría modelar ventas comparables, márgenes, necesidades
+    de capital de trabajo, capex, FCF normalizado, deuda neta y acciones diluidas.
+    La sensibilidad debería centrarse en crecimiento, margen operativo y conversión
+    de FCF, pero los datos disponibles no permiten asignar supuestos defendibles ni
+    calcular un rango de valor.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál ha sido la evolución de ingresos, ventas comparables, tráfico y ventas
+    digitales en períodos homogéneos?
+
+    2. ¿Qué explica los cambios recientes de margen bruto y qué parte corresponde
+    a mezcla, descuentos, costes o eficiencia operativa?
+
+    3. ¿Se mantiene el FCF TTM en períodos comparables? ¿Cómo se relaciona con flujo
+    de caja operativo, capex y capital de trabajo?
+
+    4. ¿Qué retornos generan las reinversiones y cómo se comparan con el costo de
+    capital?
+
+    5. ¿Cuál es la deuda neta, el calendario de vencimientos y la capacidad de liquidez
+    de la empresa?
+
+    6. ¿Cómo evolucionan las acciones diluidas y qué efecto tienen la remuneración
+    en acciones y las recompras?
+
+    7. ¿Qué decisiones de asignación de capital respaldan o contradicen la evaluación
+    preliminar de management?
+
+    8. ¿Cuál es la participación de ventas por canal, categoría y marcas propias,
+    y cómo incide en márgenes y competitividad?
+
+    9. ¿Qué supuestos explican el P/E, EV/EBITDA y FCF yield reportados por AOIF,
+    y a qué fecha corresponden?
+
+    10. ¿Qué explica la diferencia entre el consenso de analistas y la cotización
+    observada al 2026-11-20, y qué supuestos contienen los objetivos individuales?
+
+
+    **Estado de la investigación:** evidencia insuficiente para establecer una tendencia
+    estructural de crecimiento o de recuperación del FCF. La clasificación suministrada
+    es **RESEARCH_REQUIRED**; el score general reportado es 58 y la prioridad de investigación
+    del perfil multibagger es 82,77.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ABEV|Ambev S.A.]], [[CL|Colgate-Palmolive Company]], [[COST|Costco
+    Wholesale Corporation]], [[DEO|Diageo plc]], [[FMX|Fomento Económico Mexicano,
+    S.A.B. de C.V.]], [[KO|The Coca-Cola Company]], [[MDLZ|Mondelez International,
+    Inc.]], [[MO|Altria Group, Inc.]], [[PM|Philip Morris International Inc.]], [[SYY|Sysco
+    Corporation]]
+
+    - **Same Industry**: [[COST|Costco Wholesale Corporation]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -272,7 +638,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T22:43:18.260282+00:00", "period_end": "2026-10-31",
+    "observed_at": "2026-11-21T21:28:17.682637+00:00", "period_end": "2026-10-31",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -433,12 +799,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    210.0, "low": 130.0, "mean": 172.34, "median": 172.34, "observed_at": "2026-11-20T19:43:21.852733-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T19:43:21.852733-03:00", "observed_date": "2026-11-20", "target_price":
+    210.0, "low": 130.0, "mean": 172.34, "median": 172.34, "observed_at": "2026-11-21T18:28:21.406625-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T18:28:21.406625-03:00", "observed_date": "2026-11-21", "target_price":
     172.34, "url": "https://stockanalysis.com/stocks/tgt/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:43:21.852733-03:00",
-    "observed_date": "2026-11-20", "target_price": 172.34286, "url": "https://finance.yahoo.com/quote/TGT/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T18:28:21.406625-03:00",
+    "observed_date": "2026-11-21", "target_price": 172.34286, "url": "https://finance.yahoo.com/quote/TGT/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 154.3800048828125,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/TGT/"}]}}'
   sector: Consumer Defensive
@@ -448,91 +814,101 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 0c19e84081209597d506b3f61216caee8fda3a18c8deb199128be90fcadaf40c
+    sha256: 44fd80ad8c4aa5b6bbd2578336988d204dc5e6c49ae178f47619e783ce1e060d
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T19:43:51.356738-03:00'
+  triggered_at: '2026-11-21T18:28:51.738265-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: 0.99x al 2026-10-31; no cruza el umbral configurado.
-  source: https://stockanalysis.com/stocks/TGT/statistics/
+  observation: 0.99x para TTM terminado 2026-10-31; no cruza el umbral configurado.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TGT/statistics/
   threshold: below 0.5
 - metric: dilution_yoy_pct
-  observation: 'No evaluable: falta historia comparable de acciones diluidas.'
-  source: https://stockanalysis.com/stocks/TGT/statistics/
+  observation: 'No evaluable: falta historial comparable de acciones.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TGT/statistics/
   threshold: above 10%
 - metric: interest_coverage
-  observation: El proveedor reporta 0 al 2026-10-31; no se valida como cobertura calculable
-    porque no se proporcionan EBIT e interés en los campos de evidencia disponibles.
-  source: https://stockanalysis.com/stocks/TGT/statistics/
+  observation: 0x reportado para TTM terminado 2026-10-31; requiere validar inputs
+    porque EBIT y gasto por intereses no se aportan en campos separados.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TGT/statistics/
   threshold: below 2.0x
 - metric: negative_fcf_runway_months
-  observation: No aplicable al FCF TTM reportado como positivo; no se calcula runway.
-  source: https://stockanalysis.com/stocks/TGT/statistics/
+  observation: No aplicable al FCF TTM positivo reportado de 4.157 millones; no se
+    calcula runway de quema.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/tgt/financials/
   threshold: below 12 months
 - metric: net_debt_ebitda
-  observation: No evaluable por incompatibilidad de escala verificable entre net_cash_history
-    y EBITDA.
-  source: https://stockanalysis.com/stocks/tgt/financials/
+  observation: 'No evaluable: las unidades de deuda neta y EBITDA no son verificablemente
+    compatibles en el paquete.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/tgt/financials/
   threshold: above 4.0x
 - metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: no se proporcionó historia de acciones para calcular
-    CAGR.'
-  source: https://stockanalysis.com/stocks/TGT/statistics/
+  observation: 'No evaluable: falta una serie histórica de acciones con períodos fechados
+    comparables.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TGT/statistics/
   threshold: above 5%
 scenario_analysis:
-  as_of_date: '2026-11-20'
+  as_of_date: '2026-11-21'
   currency: USD
-  horizon_date: null
+  horizon_date: '2026-11-21'
   scenarios:
   - falsifiers:
-    - Crecimiento de ingresos y FCF sostenido en períodos comparables.
+    - Una metodología de valoración con inputs fechados que justifique un resultado
+      inferior o superior a esta ancla.
+    - Estimaciones verificables que expliquen las premisas de negocio del extremo
+      inferior.
     id: BEAR
     key_assumptions:
-    - No se confirma crecimiento de ingresos en períodos comparables.
-    - La mejora de margen bruto y FCF TTM no se mantiene.
-    rationale: 'Ancla observada: extremo bajo del rango de objetivos de analistas
-      al 2026-11-20, no valoración intrínseca propia. Representa el resultado adverso
-      plausible si la mejora de FCF y margen no se sostiene y no aparece crecimiento
-      de ingresos verificable.'
+    - Se utiliza el extremo inferior publicado del rango de analistas como ancla observada.
+    - No se infiere una trayectoria futura de ventas, márgenes o flujo de caja.
+    rationale: Ancla inferior observada del rango de analistas, no valoración intrínseca
+      propia. Representa el extremo adverso del rango; la evidencia disponible no
+      permite atribuirlo a una previsión específica de negocio.
     sources:
-    - as_of_date: '2026-11-20'
-      name: Stock Analysis
+    - as_of_date: '2026-11-21'
+      name: StockAnalysis
       url: https://stockanalysis.com/stocks/tgt/forecast/
-    - as_of_date: '2026-10-31'
-      name: StockAnalysis financials
-      url: https://stockanalysis.com/stocks/tgt/financials/
-    target_price: 130.0
+    target_price: 130
   - falsifiers:
-    - Deterioro sostenido de margen bruto o FCF.
-    - Ausencia de crecimiento de ingresos en datos comparables.
+    - Una metodología de valoración con inputs fechados que justifique un resultado
+      inferior o superior a esta ancla.
+    - Estimaciones verificables que expliquen las premisas de negocio del extremo
+      superior.
     id: BULL
     key_assumptions:
-    - La mejora de margen bruto y FCF TTM resulta sostenible.
-    - Se verifica crecimiento de ingresos en períodos comparables.
-    rationale: 'Ancla observada: extremo alto del rango de objetivos de analistas
-      al 2026-11-20, no valoración intrínseca propia. Representa el mejor resultado
-      plausible si la mejora reportada de margen bruto y FCF TTM persiste y se acompaña
-      de crecimiento de ingresos que aún no está validado por el paquete.'
+    - Se utiliza el extremo superior publicado del rango de analistas como ancla observada.
+    - No se infiere una trayectoria futura de ventas, márgenes o flujo de caja.
+    rationale: Ancla superior observada del rango de analistas, no valoración intrínseca
+      propia. Representa el extremo favorable del rango; la evidencia disponible no
+      permite atribuirlo a una previsión específica de negocio.
     sources:
-    - as_of_date: '2026-11-20'
-      name: Stock Analysis
+    - as_of_date: '2026-11-21'
+      name: StockAnalysis
       url: https://stockanalysis.com/stocks/tgt/forecast/
-    - as_of_date: '2026-10-31'
-      name: StockAnalysis financials
-      url: https://stockanalysis.com/stocks/tgt/financials/
-    target_price: 210.0
+    target_price: 210
   schema_version: bear_bull_v2
 scenario_validation:
   errors:
-  - horizon_date debe ser una fecha ISO válida
+  - horizon_date debe ser posterior a la fecha actual
   status: invalid_pending_revision
-score_general: 58
+score_general: 57
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T19:43:21.852733-03:00'
+  calculado_at: '2026-11-21T18:28:21.406625-03:00'
   fuentes:
     stockanalysis: 172.34
     yfinance: 172.34286
@@ -540,25 +916,23 @@ target_consensus:
   n_fuentes: 2
   promedio: 172.34
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T19:43:21.852733-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:28:21.406625-03:00'
+    observed_date: '2026-11-21'
     target_price: 172.34
     url: https://stockanalysis.com/stocks/tgt/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T19:43:21.852733-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:28:21.406625-03:00'
+    observed_date: '2026-11-21'
     target_price: 172.34286
     url: https://finance.yahoo.com/quote/TGT/
   target_high: 210.0
   target_low: 130.0
-tesis_inversion: La tesis a investigar es si la escala y el modelo de venta minorista
-  general de Target pueden sostener una recuperación de márgenes y generación de caja
-  suficiente para respaldar crecimiento rentable. El paquete muestra FCF y margen
-  bruto TTM positivos, pero no incluye métricas operativas, retorno sobre capital,
-  inversión detallada ni evidencia suficiente para verificar crecimiento estructural,
-  penetración de mercado o ventaja competitiva.
+tesis_inversion: La tesis a investigar es si Target puede sostener la mejora observada
+  en flujo de caja libre y margen bruto y convertirla en crecimiento rentable. La
+  información disponible no basta para validar el tamaño de mercado, la penetración,
+  la ventaja competitiva, los retornos sobre capital ni la durabilidad de la reinversión.
 ticker: TGT
 version: '3.0'

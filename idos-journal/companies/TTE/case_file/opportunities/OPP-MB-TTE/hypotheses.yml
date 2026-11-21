@@ -1,19 +1,19 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Las ventas de LNG de 2027 crecen menos del 5% frente a 2026.
+  - condition: La producción anual de hidrocarburos de 2027 aumenta menos de un 2%
+      respecto de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía no publica datos comparables que permitan verificar la
-      variación de ventas de LNG.
+  - condition: La compañía informa una caída interanual de la producción en 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Las ventas de LNG de 2027 crecen menos del 5% frente a 2026.
-  - La compañía no publica datos comparables que permitan verificar la variación de
-    ventas de LNG.
+  - La producción anual de hidrocarburos de 2027 aumenta menos de un 2% respecto de
+    2026.
+  - La compañía informa una caída interanual de la producción en 2027.
   horizon: medio
   id: H1-OPP-MB-TTE
   opportunity_id: OPP-MB-TTE
@@ -21,49 +21,48 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-03-31'
-    expected: 5.0
+    expected: 2.0
     met: null
-    metric: Crecimiento interanual de ventas de LNG en 2027
-    prediction: En el ejercicio 2027, las ventas de LNG reportadas por TotalEnergies
-      serán al menos un 5% superiores a las de 2026, según las definiciones comparables
-      de la compañía.
-    unit: '% mínimo frente a 2026'
+    metric: Variación interanual de la producción anual de hidrocarburos
+    prediction: La producción anual de hidrocarburos de 2027, según la métrica comunicada
+      por la compañía y comparada en base homogénea, será al menos un 2% superior
+      a la de 2026.
+    unit: '% mínimo'
   priority: important
   probability: 0.5
-  rationale: La compañía opera en LNG, pero la información disponible no permite atribuir
-    la mejora reciente del FCF a ese segmento ni confirmar una tendencia de crecimiento.
-    Esta hipótesis pone a prueba directamente si el LNG aporta expansión de volumen,
-    en vez de asumir que el FCF agregado refleja crecimiento estructural.
-  review_trigger: Dejar de creerla si los resultados anuales de 2027 publicados por
-    la compañía muestran un crecimiento de ventas de LNG inferior al 5% frente a 2026,
-    o si para 2028-03-31 no hay información comparable verificable.
+  rationale: La producción futura depende de la puesta en marcha de proyectos y de
+    compensar el declive de los activos existentes. La tesis identifica una cartera
+    integrada, pero no aporta datos suficientes para cuantificar ese declive ni la
+    contribución de cada proyecto; por ello, la hipótesis se limita a una variación
+    anual observable.
+  review_trigger: Dejar de creerla si la guía revisada de la compañía para 2027 prevé
+    crecimiento de producción inferior al 2%, o si un aviso de retraso o interrupción
+    de proyectos hace que la producción anual publicada para 2027 no alcance ese umbral.
   secondary_hypotheses: []
-  statement: El negocio de LNG de TotalEnergies aumentará sus ventas en 2027 frente
-    a 2026, lo que indicaría crecimiento operativo observable en uno de sus negocios
-    energéticos.
+  statement: TotalEnergies aumentará la producción de hidrocarburos en el ejercicio
+    2027 frente a 2026, apoyada por la entrada en operación y la progresión de nuevos
+    proyectos.
   status: ACTIVE
   ticker: TTE
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF reportado para 2027 es cero o negativo.
+  - condition: Con un Brent medio de al menos 65 dólares por barril, el flujo de caja
+      libre de 2027 es igual o inferior a 10.000 millones de dólares.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF de 2027 es inferior al 80% del FCF de FY2026.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La compañía modifica la definición o el perímetro del FCF de modo que
-      no pueda hacerse una comparación homogénea.
+  - condition: La cifra de flujo de caja libre no puede reconciliarse con los estados
+      financieros y la definición de flujo de caja de operaciones menos inversiones
+      netas.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF reportado para 2027 es cero o negativo.
-  - El FCF de 2027 es inferior al 80% del FCF de FY2026.
-  - La compañía modifica la definición o el perímetro del FCF de modo que no pueda
-    hacerse una comparación homogénea.
+  - Con un Brent medio de al menos 65 dólares por barril, el flujo de caja libre de
+    2027 es igual o inferior a 10.000 millones de dólares.
+  - La cifra de flujo de caja libre no puede reconciliarse con los estados financieros
+    y la definición de flujo de caja de operaciones menos inversiones netas.
   horizon: medio
   id: H2-OPP-MB-TTE
   opportunity_id: OPP-MB-TTE
@@ -71,73 +70,79 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-03-31'
-    expected: 0.8
+    expected: 10000.0
     met: null
-    metric: FCF de FY2027 como proporción del FCF de FY2026
-    prediction: El FCF de 2027, según la métrica y el perímetro reportados por TotalEnergies,
-      será positivo y equivaldrá al menos al 80% del FCF de FY2026.
-    unit: veces o más; además, FCF FY2027 positivo
+    metric: Flujo de caja libre anual con Brent medio de al menos 65 USD/barril
+    prediction: Para el ejercicio 2027, el flujo de caja libre —calculado consistentemente
+      como flujo de caja de operaciones menos inversiones netas, según las cifras
+      comunicadas por la compañía— superará 10.000 millones de dólares, siempre que
+      el Brent medio anual sea de al menos 65 dólares por barril.
+    unit: millones de USD, superior a
   priority: critical
   probability: 0.5
-  rationale: La evidencia disponible indica FCF TTM positivo y superior al FY2025,
-    pero no identifica qué explica la diferencia, su sostenibilidad, la reinversión
-    por segmento ni los retornos sobre capital. Por ello, es razonable someter a prueba
-    la persistencia de la generación de caja sin asumir que el aumento reciente es
-    estructural.
-  review_trigger: Dejar de creerla al publicarse los resultados anuales de 2027 si
-    el FCF es negativo o inferior al 80% del de FY2026; si no se publica información
-    comparable antes de 2028-03-31, considerar la hipótesis no verificada.
+  rationale: La tesis parte de un FCF TTM positivo, pero no demuestra su sostenibilidad
+    ni cuánto requiere de reinversión. La hipótesis propone un umbral anual verificable
+    y condiciona el resultado a un nivel de Brent para distinguir la capacidad de
+    generación de caja de un escenario de materias primas sustancialmente más débil.
+  review_trigger: Dejar de creerla si la compañía reduce su guía de flujo de caja
+    o aumenta sustancialmente la inversión prevista para 2027 y, con Brent medio de
+    al menos 65 dólares, la proyección coherente con sus cifras cae a 10.000 millones
+    de dólares o menos; también si el Brent medio de 2027 queda por debajo de 65 dólares,
+    pues la condición de la hipótesis no se habrá cumplido.
   secondary_hypotheses: []
-  statement: TotalEnergies conservará un FCF anual positivo en 2027, pero no necesariamente
-    mantendrá el nivel elevado observado en el FCF TTM disponible a la fecha de corte.
+  statement: TotalEnergies conservará una generación anual de flujo de caja libre
+    superior a 10.000 millones de dólares en 2027 si el precio medio del Brent se
+    mantiene en al menos 65 dólares por barril.
   status: ACTIVE
   ticker: TTE
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total relativa de TotalEnergies frente al STOXX Europe
-      600 Oil & Gas es inferior a 5 puntos porcentuales en el periodo definido.
+  - condition: La rentabilidad total de TotalEnergies menos la del STOXX Europe 600
+      Energy es inferior a 5 puntos porcentuales al cierre del periodo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No se pueden obtener precios ajustados por dividendos comparables para
-      ambas inversiones en las fechas de inicio y cierre.
+  - condition: La rentabilidad total de TotalEnergies es inferior a la del índice
+      durante el periodo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total relativa de TotalEnergies frente al STOXX Europe 600 Oil
-    & Gas es inferior a 5 puntos porcentuales en el periodo definido.
-  - No se pueden obtener precios ajustados por dividendos comparables para ambas inversiones
-    en las fechas de inicio y cierre.
+  - La rentabilidad total de TotalEnergies menos la del STOXX Europe 600 Energy es
+    inferior a 5 puntos porcentuales al cierre del periodo.
+  - La rentabilidad total de TotalEnergies es inferior a la del índice durante el
+    periodo.
   horizon: medio
   id: H3-OPP-MB-TTE
   opportunity_id: OPP-MB-TTE
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
+    deadline: '2027-11-21'
     expected: 5.0
     met: null
-    metric: Rentabilidad total relativa frente al STOXX Europe 600 Oil & Gas
-    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
-      noviembre de 2027, la rentabilidad total de la acción ordinaria de TotalEnergies
-      negociada en París, en euros y con dividendos reinvertidos, superará en al menos
-      5 puntos porcentuales la rentabilidad total del STOXX Europe 600 Oil & Gas.
-    unit: puntos porcentuales o más
+    metric: Rentabilidad total relativa frente al STOXX Europe 600 Energy
+    prediction: Entre 2026-11-21 y 2027-11-21, la rentabilidad total de la acción
+      ordinaria de TotalEnergies, incluidos dividendos reinvertidos, superará en al
+      menos 5 puntos porcentuales la rentabilidad total del STOXX Europe 600 Energy
+      en la misma moneda y periodo.
+    unit: puntos porcentuales, superior a
   priority: important
   probability: 0.5
-  rationale: La mejora de FCF TTM y de margen bruto podría ser transitoria, y la información
-    disponible no valida crecimiento de largo plazo ni retornos sobre capital. La
-    hipótesis evalúa si el mercado recompensa a la acción frente a un referente sectorial,
-    sin asumir que la mejora reciente se traduzca automáticamente en una revalorización.
-  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la rentabilidad total
-    relativa es inferior a 5 puntos porcentuales; si faltan datos comparables, clasificarla
-    como no verificable y no como confirmada.
+  rationale: 'La evidencia disponible no permite determinar si la capacidad sostenible
+    de generar FCF está infravalorada o sobrevalorada, ni ofrece un método de valoración
+    defendible. Por ello, esta hipótesis no presupone un valor razonable: plantea
+    una prueba relativa de mercado que incorpora tanto la evolución del precio como
+    los dividendos.'
+  review_trigger: Dejar de creerla antes del vencimiento si una revisión de la guía
+    de caja o de producción deteriora materialmente las perspectivas y la rentabilidad
+    relativa acumulada desde la fecha de corte queda por debajo de -10 puntos porcentuales;
+    en cualquier caso, evaluar definitivamente el 2027-11-21.
   secondary_hypotheses:
   - H2-OPP-MB-TTE
-  statement: La rentabilidad total para el accionista de TotalEnergies en euros superará
-    a la del STOXX Europe 600 Oil & Gas en el periodo de un año posterior a la fecha
+  statement: La acción de TotalEnergies obtendrá una rentabilidad total superior a
+    la del índice STOXX Europe 600 Energy durante los 12 meses posteriores a la fecha
     de corte.
   status: ACTIVE
   ticker: TTE

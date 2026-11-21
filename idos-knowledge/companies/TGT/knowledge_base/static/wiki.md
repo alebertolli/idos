@@ -1,127 +1,123 @@
 ## 1. Visión General de la Compañía
 
-Target Corporation (TGT) es un minorista estadounidense de mercancía general con un modelo omnicanal que combina tiendas físicas y ventas digitales. Su actividad abarca varias categorías de consumo; entre los productos mencionados en la información disponible figuran ropa, calzado, joyería, accesorios, belleza y cuidado personal.
+Target Corporation (TGT) es un minorista estadounidense de mercancía general. Opera tiendas físicas y canales digitales, y vende categorías que incluyen ropa, calzado y accesorios, belleza y cuidado personal, además de alimentos y otros productos. Su modelo omnicanal combina la venta en tiendas y en línea. Los materiales disponibles no detallan la distribución geográfica más allá de su presencia en Estados Unidos.
 
-La empresa atiende principalmente a consumidores y hogares que buscan comprar en varias categorías en un mismo establecimiento, incluidos clientes sensibles al precio y al valor. La información suministrada no especifica la distribución de ingresos por categoría, canal o geografía más allá de su operación en Estados Unidos.
-
-En el grupo de compañías relacionadas de la wiki, [[COST]] es la referencia minorista más próxima por actividad general de comercio, aunque su modelo no es idéntico. Las demás compañías listadas —[[ABEV]], [[CL]], [[DEO]], [[FMX]], [[KO]], [[MDLZ]], [[MO]], [[PM]] y [[SYY]]— son referencias de consumo o distribución, no equivalentes directos según la información disponible.
+La compañía compite en el comercio minorista de mercancía general, una industria sensible al ciclo económico, los precios, las promociones y los cambios en las preferencias de los consumidores. Entre las compañías relacionadas del sector se encuentran [[WMT]] y [[COST]].
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-Target genera ingresos mediante la venta de productos en tiendas físicas y canales digitales. Su cadena de valor comprende selección y diseño del surtido, abastecimiento de proveedores y marcas, gestión de inventario y distribución a tiendas y canales de venta. La información disponible no cuantifica la aportación de cada canal ni de las marcas propias.
+**Fuentes de ingresos y cadena de valor.** Target obtiene ingresos de la venta de productos mediante sus canales físicos y digitales. Su cadena de valor comprende la selección del surtido, el abastecimiento, la gestión de marcas propias y colaboraciones, y el transporte y la distribución. La información disponible no incluye el desglose de ingresos por categoría o canal.
 
-Los principales drivers de ingresos que deben analizarse son el tráfico, las ventas comparables, la mezcla de productos, la actividad digital y la capacidad de ofrecer valor a los consumidores. No hay una serie comparable suficiente en el paquete para confirmar una tendencia sostenida de crecimiento de ventas.
+**Ventajas y posición competitiva.** Los posibles elementos de diferenciación señalados son la escala de compras, la red de tiendas, el reconocimiento de marca, las marcas propias y la integración entre tiendas y canales digitales. La evaluación AOIF caracteriza el moat como **estrecho** y la posición competitiva como **retador**. Estos elementos describen ventajas potenciales, pero los datos aportados no cuantifican su impacto en cuota de mercado, poder de fijación de precios o retornos sostenibles.
 
-**Moat y competencia.** El análisis suministrado califica la amplitud del moat como estrecha. Sus fuentes potenciales de diferenciación son la escala nacional, el reconocimiento de marca, la amplitud del surtido, las marcas propias y la integración de la red de tiendas con el negocio omnicanal. Estos atributos no eliminan la presión competitiva sobre precios, tráfico y participación de mercado. El comercio minorista general se describe como competitivo y de márgenes relativamente ajustados; Target se clasifica como retador.
-
-[[COST]] puede servir como referencia para estudiar la competencia minorista y la sensibilidad del sector al precio y al tráfico, sin asumir que sus economías o su posicionamiento sean comparables. Las compañías de consumo de la wiki, como [[CL]] y [[MDLZ]], también pueden ser referencias para riesgos compartidos de demanda y mezcla de productos, aunque operan en actividades distintas.
+**Dinámica competitiva.** La competencia intensa en precios y la posible pérdida de tráfico o cuota frente a minoristas físicos y digitales son riesgos relevantes. [[WMT]] y [[COST]] son referencias relacionadas para seguir la competencia en venta minorista; no se proporcionan comparaciones financieras específicas entre estas compañías y Target.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes provienen de los análisis suministrados. Salvo indicación expresa, no se especifica la base temporal o la unidad en el input AOIF; por tanto, no deben interpretarse como series históricas comparables.
+Las métricas siguientes proceden de los materiales de investigación aportados. Algunas no incluyen fecha, definición o unidades verificables; por ello, no deben interpretarse como una serie financiera homogénea.
 
-| Métrica | Valor reportado | Fecha/base | Observación |
-|---|---:|---|---|
-| Crecimiento de ingresos | 4,05% | Base no especificada en AOIF | No valida por sí solo una tendencia; faltan períodos comparables documentados. |
-| Margen operativo | 5,21% | Base no especificada en AOIF | Compatible con un negocio minorista de márgenes relativamente ajustados, según el análisis cualitativo suministrado. |
-| ROIC | 13,46% | Base no especificada en AOIF | No se aportan serie histórica, componentes ni comparación con el costo de capital. |
-| Margen bruto | 28,66% | TTM al 2026-10-31 | Dato reportado; su persistencia no está establecida. |
-| FCF | 4.157, en unidades reportadas por la fuente | TTM al 2026-10-31 | No comparable directamente con el FCF de FY 2026. |
-| FCF | 2.835, en unidades reportadas por la fuente | FY 2026 al 2026-01-31 | Período distinto del TTM; no permite calcular crecimiento interanual comparable. |
-| Current ratio | 0,99x | 2026-10-31 | No cruza el umbral de riesgo configurado de menos de 0,5x. |
-| Dilución interanual | No evaluable | Sin historia comparable de acciones diluidas | No hay evidencia suficiente para cuantificarla. |
+| Métrica | Valor reportado | Período o limitación |
+|---|---:|---|
+| Crecimiento de ingresos | 4,05% | AOIF; período y metodología no especificados |
+| Margen operativo | 5,21% | AOIF; período y metodología no especificados |
+| ROIC | 13,46% | AOIF; período y metodología no especificados |
+| Calidad de tendencia financiera | Estable | Evaluación cualitativa de AOIF |
+| Flujo de caja libre (FCF) | USD 4.157 millones | TTM terminado el 31-10-2026; StockAnalysis |
+| Margen bruto | 28,66% | TTM terminado el 31-10-2026; StockAnalysis |
+| Margen bruto | 27,93% | FY 2026; StockAnalysis |
+| Current ratio | 0,99x | TTM terminado el 31-10-2026; StockAnalysis |
 
-**Tendencias y limitaciones.** AOIF califica la calidad de tendencia financiera como estable, pero la evidencia disponible no contiene una secuencia completa y consistente para confirmar crecimiento de ingresos o recuperación sostenida de márgenes y FCF. El historial de ingresos suministrado presenta filas duplicadas o inconsistentes y carece de una fila fechada para FY 2023. Por ello, el CAGR de ingresos a tres años no está disponible. Tampoco es válido tratar la diferencia entre FCF TTM y FCF FY 2026 como crecimiento, pues corresponden a períodos distintos.
+**Tendencias y calidad de los datos.** El margen bruto TTM reportado supera el del FY 2026, pero un único contraste entre períodos no permite establecer que la mejora sea sostenible. El paquete no proporciona dos períodos comparables de FCF para calcular su crecimiento, ni una serie de ingresos completa y fechada para calcular el CAGR solicitado. El historial referido contiene filas duplicadas y carece de una fila fechada de FY 2023 para ingresos.
 
-No se aportan datos suficientes sobre deuda neta, vencimientos, capex, flujo de caja operativo, acciones diluidas o conversión de beneficios en FCF. En consecuencia, no es posible caracterizar completamente la estructura de capital ni la conversión de caja.
+| Indicador investigado | Resultado | Limitación |
+|---|---|---|
+| CAGR de ingresos a 3 años | No disponible | Serie histórica incompleta, con duplicados y sin la fila FY 2023 requerida |
+| Crecimiento del FCF | No disponible | No se aportan dos períodos comparables y positivos conforme a la definición empleada |
+| Apalancamiento neto frente a EBITDA | No evaluable | Las unidades de deuda neta y EBITDA no pueden verificarse como compatibles |
+| Dilución interanual de acciones | No evaluable | Falta historial comparable de acciones diluidas |
+
+**Fuentes financieras:** StockAnalysis, [estados financieros de TGT](https://stockanalysis.com/stocks/tgt/financials/) y [estadísticas de TGT](https://stockanalysis.com/stocks/TGT/statistics/). Los indicadores AOIF no incluyen una referencia verificable a período o fuente en los materiales proporcionados.
 
 ## 4. Management y Gobierno Corporativo
 
-La evaluación suministrada califica la calidad del management como regular, la asignación de capital como neutral y el alineamiento de insiders como moderado. No incluye nombres de directivos, historial de decisiones de capital, remuneración, porcentaje de propiedad de insiders ni información sobre la composición o independencia del consejo.
+La evaluación AOIF califica la calidad del management como **regular**, la asignación de capital como **neutral** y la alineación de insiders como **débil**. No se aportan nombres de ejecutivos, composición del consejo, porcentaje de propiedad de insiders, estructura de incentivos ni datos que permitan corroborar esas valoraciones cualitativas.
 
-Por tanto, estas valoraciones deben tratarse como conclusiones preliminares del análisis recibido, no como una evaluación verificable del gobierno corporativo. Se requiere investigar incentivos, propiedad accionaria, decisiones de inversión y distribución de capital, así como composición y supervisión del board.
+Por tanto, no es posible concluir con la evidencia disponible si la remuneración está vinculada a la creación de valor por acción, ni evaluar la independencia o experiencia del consejo.
 
 ## 5. Tesis de Inversión
 
-**Tesis a investigar:** Target podría sostener una recuperación de ventas, margen bruto y flujo de caja libre si su escala nacional, amplitud de surtido, marcas propias y red de tiendas integrada respaldan una propuesta de valor y una operación omnicanal competitivas. El paquete disponible plantea esta posibilidad, pero no demuestra que la recuperación sea estructural.
+La tesis a investigar es si Target puede sostener la mejora observada en el flujo de caja libre y el margen bruto y convertirla en una recuperación financiera duradera.
 
-Elementos que podrían respaldar el caso alcista:
+**Elementos que respaldan la investigación:**
 
-- El modelo combina tiendas físicas y canales digitales, apoyado por una red de distribución y una oferta amplia de productos.
-- El margen bruto TTM reportado fue de 28,66% al 2026-10-31 y el FCF TTM fue de 4.157, en unidades reportadas por la fuente. Estos datos indican niveles observados, pero no prueban persistencia ni una mejora frente a períodos equivalentes.
-- AOIF reporta un ROIC de 13,46%; sin serie histórica ni costo de capital estimado, no se puede concluir que la reinversión genere retornos superiores al costo de capital.
+- Se reporta FCF de USD 4.157 millones para el TTM terminado el 31-10-2026. Es una observación favorable, pero no hay un TTM comparable anterior en el paquete para demostrar crecimiento.
+- El margen bruto reportado fue de 28,66% en TTM al 31-10-2026, frente a 27,93% en FY 2026. La diferencia merece seguimiento, pero por sí sola no confirma una mejora persistente.
+- La escala de compras, las marcas propias, el reconocimiento de marca, la red de tiendas y la integración omnicanal son posibles fuentes de ventaja competitiva. Su contribución económica no está cuantificada.
+- AOIF reporta ROIC de 13,46% y margen operativo de 5,21%, aunque no especifica los períodos ni la metodología. Estos datos requieren verificación antes de usarse para valorar la rentabilidad del negocio.
 
-La tesis ganaría respaldo si se confirma crecimiento de ventas comparables durante períodos sucesivos y si la mejora de margen bruto y FCF persiste en datos comparables. Estas condiciones todavía no están verificadas.
+La evidencia disponible respalda una **agenda de investigación**, no una conclusión de que exista crecimiento sostenible o una ventaja competitiva amplia.
 
 ## 6. Riesgos y Contra-Tesis
 
-La contra-tesis es que la mejora reciente de margen bruto y FCF sea transitoria y que la presión competitiva o una ejecución deficiente impidan un crecimiento rentable sostenido.
+**Caso bajista.** Target podría no sostener la mejora observada en FCF o margen bruto. La cotización también podría no reflejar una recuperación sostenible de ventas, caja y márgenes. La información disponible es insuficiente para comprobar una trayectoria histórica comparable o estimar el valor intrínseco.
 
-**Riesgos identificados:**
+| Riesgo | Evaluación reportada | Implicación |
+|---|---|---|
+| Competencia en precios y pérdida de tráfico o cuota | Impacto alto; probabilidad alta (AOIF) | Puede presionar ventas, tráfico y márgenes frente a minoristas físicos y digitales |
+| Errores de surtido e inventario | Impacto alto; probabilidad media (AOIF) | Puede ocasionar rebajas, faltantes o deterioro de márgenes |
+| Sostenibilidad de la mejora financiera | No resuelta | Faltan períodos comparables para validar crecimiento de FCF y evolución de márgenes |
+| Calidad de la serie financiera | Riesgo de medición | Duplicados, falta de períodos fechados y unidades no verificables limitan el análisis |
+| Liquidez corriente | 0,99x; no cruza el umbral configurado de 0,5x | No representa por sí solo una señal según ese umbral, pero requiere contexto financiero |
 
-- **Competencia:** presión sobre precios, tráfico de tiendas y participación de mercado; evaluada con impacto y probabilidad altos en AOIF.
-- **Inventario y mezcla:** errores de previsión de demanda o mezcla de productos podrían generar exceso de inventario, descuentos y deterioro de márgenes; AOIF considera alto su impacto y probabilidad media.
-- **Calidad de la evidencia:** las filas de ingresos duplicadas o inconsistentes y la falta de períodos comparables dificultan validar crecimiento y tendencias.
-- **Sostenibilidad del FCF:** el FCF TTM y el FY 2026 no son comparables; la mejora no queda establecida como tendencia.
-- **Liquidez:** el current ratio reportado de 0,99x no cruza el umbral configurado de 0,5x, pero se requiere contexto adicional sobre obligaciones y liquidez.
-- **Dilución:** no evaluable por falta de una historia comparable de acciones diluidas.
+**Falsadores de la tesis:**
 
-**Falsadores que deben monitorearse:**
-
-1. Ingresos comparables que no evidencien crecimiento durante períodos sucesivos.
-2. Deterioro sostenido del margen bruto o del FCF frente a los niveles TTM reportados.
+- Datos comparables que muestren que la mejora del FCF o del margen bruto no se sostiene.
+- Una serie histórica completa y fechada que contradiga una lectura de crecimiento o recuperación basada en los datos parciales actuales.
+- Evidencia de que la competencia, las promociones o los errores de inventario impiden mejorar de forma duradera la rentabilidad.
 
 ## 7. Catalizadores y Timeline
 
-No se proporcionan fechas de eventos corporativos concretos ni un calendario de publicaciones. Los catalizadores identificados son condiciones de seguimiento, no eventos fechados.
+| Catalizador o hito de seguimiento | Fecha esperada | Evidencia disponible e impacto potencial |
+|---|---|---|
+| Verificar si el FCF TTM permanece positivo y crece en períodos comparables | Sin fecha especificada; seguimiento en próximos reportes | El FCF reportado fue de USD 4.157 millones al 31-10-2026. Una serie comparable permitiría evaluar si la generación de caja se sostiene. |
+| Comprobar la evolución del margen bruto | Sin fecha especificada; seguimiento en próximos reportes | Se reportó 28,66% en TTM al 31-10-2026 frente a 27,93% en FY 2026. La continuidad de la mejora podría respaldar una recuperación de márgenes; un retroceso la debilitaría. |
+| Completar la serie histórica de ingresos, FCF y acciones diluidas | Sin fecha especificada | Es necesaria para calcular crecimiento, dilución y tendencias comparables. |
+| Monitorear tráfico, ventas comparables, mezcla de categorías y comercio digital | Sin fecha especificada | AOIF los señala como puntos clave de seguimiento; no se aportan métricas actuales ni fechas de publicación. |
 
-| Catalizador | Fecha esperada | Impacto potencial | Evidencia o condición |
-|---|---|---|---|
-| Confirmación de crecimiento de ventas en períodos comparables | No especificada; revisar en próximas publicaciones financieras | Podría reforzar la tesis de recuperación o debilitarla si no aparece | El paquete no contiene una secuencia histórica completa y consistente. |
-| Persistencia de la recuperación del margen bruto | No especificada; seguimiento en próximos períodos comparables | Podría indicar mejora operativa más duradera; un deterioro sería un falsador | Margen bruto TTM de 28,66% al 2026-10-31; sostenibilidad no establecida. |
-| Persistencia y comparabilidad del FCF | No especificada; seguimiento en próximos períodos comparables | Podría confirmar la conversión de la operación en caja | FCF TTM de 4.157 al 2026-10-31; el FY 2026 de 2.835 corresponde a otro período. |
-| Evolución de tráfico, ventas digitales y ventas comparables | No especificada | Ayudaría a distinguir crecimiento orgánico de cambios en mezcla o canal | Identificado como punto de monitoreo por AOIF; no se aportan cifras. |
+Fuente para las cifras de FCF y margen bruto: [StockAnalysis, estados financieros de TGT](https://stockanalysis.com/stocks/tgt/financials/).
 
 ## 8. Marco de Valoración
 
-La información disponible no permite estimar un valor intrínseco robusto. AOIF indica que la valoración intrínseca no es determinable por falta de precio y fecha de referencia, serie de FCF, deuda neta y acciones diluidas. Además, la conversión de FCF no puede verificarse con los datos suministrados.
+El valor intrínseco no puede determinarse con los datos aportados: faltan una fecha de valoración y un precio de mercado claramente documentado, así como un FCF normalizado y supuestos de crecimiento que permitan construir una valoración por flujos de caja.
 
-Métricas observadas en AOIF:
+AOIF reporta **P/E de 15,41x**, **EV/EBITDA de 10,07x** y **FCF yield de 0%**. No se indican fecha, bases de cálculo ni inputs, por lo que estas cifras deben tratarse como referencias no verificadas y no como una valoración completa. AOIF califica el margen de seguridad como **insuficiente** y no determina un valor intrínseco.
 
-| Métrica | Valor | Limitación |
+DDD recoge un consenso de precio objetivo observado de **USD 172,34**, con un rango de **USD 130 a USD 210**, frente a una cotización que aparece incompleta en el material. El rango sirve como referencia de escenarios de analistas, no demuestra valor intrínseco. El análisis de escenarios proporciona:
+
+| Escenario | Precio objetivo | Interpretación |
 |---|---:|---|
-| P/E | 15,41x | No se proporciona fecha ni precio de referencia en el input AOIF. |
-| EV/EBITDA | 10,09x | Faltan los supuestos y componentes empleados para el cálculo. |
-| FCF yield | 0 | No debe interpretarse como rendimiento económico verificable sin metodología y datos subyacentes. |
-| Margen de seguridad | Insuficiente | Evaluación reportada por AOIF; no se aporta cálculo reproducible. |
+| Bajista | USD 130 | Extremo inferior observado del rango de analistas; no es una valoración intrínseca propia |
+| Alcista | USD 210 | Extremo superior observado del rango de analistas; no es una valoración intrínseca propia |
 
-El DDD recoge, al 2026-11-20, una cotización observada de USD 154 y un consenso de analistas de USD 172,34, con rango de USD 130 a USD 210. Estos valores son referencias observadas del paquete, no una estimación de valor intrínseco. El propio análisis advierte que el consenso y sus extremos no prueban valor razonable.
-
-| Escenario de referencia | Precio objetivo observado | Interpretación |
-|---|---:|---|
-| Bajo | USD 130 | Extremo inferior del rango de objetivos de analistas; no es una valoración propia. |
-| Alto | USD 210 | Extremo superior del rango de objetivos de analistas; no es una valoración propia. |
-
-Para una valoración propia, convendría modelar ventas comparables, márgenes, necesidades de capital de trabajo, capex, FCF normalizado, deuda neta y acciones diluidas. La sensibilidad debería centrarse en crecimiento, margen operativo y conversión de FCF, pero los datos disponibles no permiten asignar supuestos defendibles ni calcular un rango de valor.
+Los escenarios están fechados al 21-11-2026 y no incluyen los supuestos operativos necesarios para derivar su valor. No se puede concluir que exista un error de valoración a partir de la información disponible. La metodología apropiada para una evaluación posterior sería contrastar una valoración por flujos de caja normalizados con múltiplos comparables, una vez validados los datos financieros y sus períodos.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuál ha sido la evolución de ingresos, ventas comparables, tráfico y ventas digitales en períodos homogéneos?
-2. ¿Qué explica los cambios recientes de margen bruto y qué parte corresponde a mezcla, descuentos, costes o eficiencia operativa?
-3. ¿Se mantiene el FCF TTM en períodos comparables? ¿Cómo se relaciona con flujo de caja operativo, capex y capital de trabajo?
-4. ¿Qué retornos generan las reinversiones y cómo se comparan con el costo de capital?
-5. ¿Cuál es la deuda neta, el calendario de vencimientos y la capacidad de liquidez de la empresa?
-6. ¿Cómo evolucionan las acciones diluidas y qué efecto tienen la remuneración en acciones y las recompras?
-7. ¿Qué decisiones de asignación de capital respaldan o contradicen la evaluación preliminar de management?
-8. ¿Cuál es la participación de ventas por canal, categoría y marcas propias, y cómo incide en márgenes y competitividad?
-9. ¿Qué supuestos explican el P/E, EV/EBITDA y FCF yield reportados por AOIF, y a qué fecha corresponden?
-10. ¿Qué explica la diferencia entre el consenso de analistas y la cotización observada al 2026-11-20, y qué supuestos contienen los objetivos individuales?
+1. ¿Cuál es la serie comparable y fechada de ingresos, FCF y acciones diluidas necesaria para medir crecimiento y dilución?
+2. ¿Se mantiene positivo el FCF TTM y cómo evoluciona frente a períodos equivalentes?
+3. ¿La mejora del margen bruto se sostiene en períodos posteriores y qué parte se debe a mezcla, precios, promociones o costos?
+4. ¿Qué evidencia cuantifica la penetración, el mercado direccionable, la ventaja competitiva, la reinversión y los retornos sobre capital?
+5. ¿Qué períodos y metodología sustentan los indicadores AOIF de crecimiento de ingresos, margen operativo, ROIC y múltiplos?
+6. ¿Pueden expresarse deuda neta y EBITDA en unidades compatibles para evaluar el apalancamiento?
+7. ¿Qué datos de tráfico, ventas comparables, inventario y mezcla entre categorías discrecionales y esenciales permiten evaluar la demanda y los riesgos de surtido?
+8. ¿Qué información sobre incentivos, propiedad de insiders y composición del consejo permite verificar las evaluaciones cualitativas de management y gobierno corporativo?
+9. ¿Qué precio de mercado, fecha de valoración y supuestos operativos sustentan el consenso de analistas y los escenarios de USD 130–210?
 
-**Estado de la investigación:** evidencia insuficiente para establecer una tendencia estructural de crecimiento o de recuperación del FCF. La clasificación suministrada es **RESEARCH_REQUIRED**; el score general reportado es 58 y la prioridad de investigación del perfil multibagger es 82,77.
+**Estado de la investigación:** AOIF deja la recomendación pendiente de decisión del board. DDD clasifica la oportunidad como **investigación requerida** y asigna un score general de 57; ambos son resultados de los marcos de análisis aportados, no hechos independientes sobre el valor de Target.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ABEV|Ambev S.A.]], [[CL|Colgate-Palmolive Company]], [[COST|Costco Wholesale Corporation]], [[DEO|Diageo plc]], [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]], [[KO|The Coca-Cola Company]], [[MDLZ|Mondelez International, Inc.]], [[MO|Altria Group, Inc.]], [[PM|Philip Morris International Inc.]], [[SYY|Sysco Corporation]]
-- **Same Industry**: [[COST|Costco Wholesale Corporation]]
+- **Same Sector**: [[ABEV|Ambev S.A.]], [[CL|Colgate-Palmolive Company]], [[COST|Costco Wholesale Corporation]], [[DEO|Diageo plc]], [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]], [[KO|The Coca-Cola Company]], [[MDLZ|Mondelez International, Inc.]], [[MO|Altria Group, Inc.]], [[PM|Philip Morris International Inc.]], [[SYY|Sysco Corporation]], [[WMT|Walmart Inc.]]
+- **Same Industry**: [[COST|Costco Wholesale Corporation]], [[WMT|Walmart Inc.]]
