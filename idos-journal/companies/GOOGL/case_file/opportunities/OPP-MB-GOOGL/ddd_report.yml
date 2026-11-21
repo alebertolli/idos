@@ -1,98 +1,108 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El aumento de ingresos y margen bruto es compatible con expansión del negocio,
-    pero no demuestra por sí solo mayor retorno sobre capital.
-  - La fuerte caída de FCF TTM frente a FY 2025 crea una cuestión de calidad de beneficios
-    y comparabilidad que requiere explicación.
-  - El precio observado es USD 323,1099853515625 al 2026-10-23; fuente y fecha constan
-    en current_quote.
-  - El consenso de objetivos observado tiene rango USD 300–500 y media USD 400,15
-    al 2026-11-20.
-  - Las series financieras suministradas informan ingresos, FCF, margen bruto, beneficio
-    neto, deuda y caja neta hasta el período indicado.
+  - La tendencia histórica del margen bruto puede ser consistente con una mejora de
+    escala o mezcla, pero los datos no identifican la causa.
+  - La caída del FCF TTM frente al FY 2025 podría señalar presión de caja, pero los
+    períodos no son directamente comparables.
+  - Stock Analysis reporta ingresos de 471.098 millones y FCF de 19.747 para TTM terminado
+    el 2026-09-30.
+  - Stock Analysis reporta efectivo e inversiones de 265.098 y efectivo neto de 114.767
+    al 2026-09-30.
+  - Yahoo Finance reporta momentum de precio a 12 meses de 27,6711%, drawdown de 19,7482%
+    y volatilidad a 90 días de 32,5472% al 2026-10-23.
+  - El resumen financiero registra cotización de USD 323.11 al 2026-10-23 y consenso
+    de precio objetivo medio de USD 397.13 al 2026-11-21.
   preguntas_abiertas:
-  - ¿Qué explica la caída de FCF TTM y cómo se relaciona con inversión y capital de
-    trabajo?
-  - ¿Qué segmentos impulsan crecimiento, margen y retornos incrementales, y cuáles
-    son sus mercados direccionables y penetración?
-  - ¿Cómo se reconcilian el incremento de deuda reportada, caja, inversiones y caja
-    neta?
-  - ¿Cuáles son las hipótesis y la fecha de horizonte detrás de los objetivos de analistas?
-catalizadores_previos: &id001 []
+  - ¿Qué crecimiento, rentabilidad y necesidades de inversión reporta cada segmento
+    en períodos comparables?
+  - ¿Cuál es el retorno incremental sobre capital de las inversiones actuales y planificadas?
+  - ¿Qué expectativas de ingresos, margen, FCF y valoración están incorporadas en
+    el consenso y qué horizonte utiliza?
+  - ¿Cómo se explican la evolución reportada de deuda y el descenso del FCF TTM frente
+    al FY 2025?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T15:06:54.051855-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-GOOGL
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T15:06:54.051855-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-GOOGL
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida
-  justificacion: El paquete clasifica GOOGL como RESEARCH_REQUIRED bajo el perfil
-    MULTIBAGGERS; la evidencia financiera disponible no basta para validar todos los
-    ratios ni una valoración de escenarios.
+  categoria: Investigación fundamental requerida
+  justificacion: El paquete identifica GOOGL como oportunidad del perfil MULTIBAGGERS,
+    pero la evidencia entregada no basta para validar una tesis completa de crecimiento,
+    retornos sobre capital y expectativas.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe Google Services, Google Cloud y Other Bets y enumera
-    productos de Google Services. Las series reportadas muestran crecimiento de ingresos
-    y margen bruto, pero no bastan para juzgar ventaja competitiva, retorno sobre
-    capital, reinversión por segmento ni asignación de capital.
-  rating: Mixta; evidencia incompleta
+  analisis: La descripción del negocio muestra una cartera de plataformas y segmentos,
+    y los datos reportados incluyen crecimiento del margen bruto histórico desde 55,38%
+    en FY 2022 hasta 60,86% TTM al 2026-09-30. No hay evidencia suficiente para medir
+    retornos sobre capital, reinversión por segmento, durabilidad del moat o calidad
+    de la asignación de capital.
+  rating: No concluyente
 dominio_catalizadores:
-- catalizador: Los ingresos TTM reportados al 2026-09-30 son 471.098 millones, frente
-    a 402.836 millones en FY 2025.
-  fuente:
-    as_of_date: '2026-09-30'
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/googl/financials/
-  relevancia: La serie muestra expansión de escala, aunque los períodos no son directamente
-    equivalentes.
-- catalizador: El margen bruto reportado aumenta de 55,38% en FY 2022 a 60,86% TTM
-    al 2026-09-30.
-  fuente:
-    as_of_date: '2026-09-30'
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/googl/financials/
-  relevancia: Es una mejora histórica observable; el paquete no desglosa sus motores
-    ni su persistencia.
+- base: Ingresos TTM de 471.098 millones y margen bruto TTM de 60,86% al 2026-09-30,
+    según Stock Analysis.
+  catalizador: La evolución de ingresos y margen bruto puede aportar evidencia sobre
+    la capacidad de crecimiento y escala.
+- base: FCF reportado de 19.747 para TTM al 2026-09-30, frente a 73.266 en FY 2025;
+    períodos no homogéneos.
+  catalizador: La recuperación o continuidad del FCF sería relevante para comprobar
+    la conversión de resultados en caja.
+- base: Stock Analysis reporta efectivo e inversiones de 265.098 y efectivo neto de
+    114.767 al 2026-09-30.
+  catalizador: La evolución de deuda, efectivo e inversiones puede aclarar la flexibilidad
+    financiera disponible para reinversión y asignación de capital.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente:
-    as_of_date: '2026-09-30'
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/googl/financials/
-  implicacion: La caída limita la visibilidad sobre conversión de beneficios en caja;
-    el paquete no identifica sus causas.
-  riesgo: El FCF TTM reportado al 2026-09-30 es 19.747 millones en la serie financiera,
-    frente a 73.266 millones en FY 2025.
-- fuente:
-    as_of_date: '2026-09-30'
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/googl/financials/
-  implicacion: El cambio merece revisión de composición y comparabilidad; los datos
-    suministrados no explican sus componentes.
-  riesgo: La deuda total reportada sube de 66.996 millones en FY 2025 a 150.331 millones
+- base: El resumen describe Google Services, Google Cloud y Other Bets, pero no aporta
+    métricas segmentarias verificables.
+  riesgo: La evidencia no permite evaluar el mecanismo de crecimiento por segmento,
+    mercado direccionable, penetración ni retornos incrementales sobre capital.
+- base: Stock Analysis reporta FCF de 19.747 para TTM al 2026-09-30 y 73.266 para
+    FY 2025; la escala de los importes históricos no está especificada explícitamente
+    en el paquete.
+  riesgo: El FCF TTM reportado es marcadamente inferior al FCF del FY 2025, aunque
+    la comparación de períodos no es homogénea.
+- base: Stock Analysis reporta deuda total de 66.996 para FY 2025 y 150.331 para Current
     al 2026-09-30.
-- fuente:
-    as_of_date: '2026-09-30'
-    name: Research Intake Package y resumen financiero suministrados
-    url: https://stockanalysis.com/stocks/googl/financials/
-  implicacion: No es posible comprobar si el crecimiento reportado se traduce en una
-    ventaja económica sostenible.
-  riesgo: El paquete no contiene datos desglosados suficientes para cuantificar mercado
-    direccionable, penetración, retornos sobre capital o erosión competitiva.
+  riesgo: La historia de deuda reportada muestra un aumento entre FY 2025 y el período
+    Current al 2026-09-30; se necesita validar definición y comparabilidad de los
+    datos.
+- base: El paquete describe productos y segmentos, pero no evidencia de cuota, retención,
+    precios, litigios ni dinámica competitiva.
+  riesgo: No se aportan datos para juzgar erosión de ventaja competitiva, resultados
+    de litigios o respuesta de clientes y anunciantes.
 error_mercado:
-  catalizador_cambio: No se proporciona un calendario de eventos ni datos prospectivos
-    verificables que permitan identificar un catalizador específico.
-  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
-    disponible.
-  consenso_actual: La evidencia disponible recoge un precio de USD 323,11 al 2026-10-23
-    y un objetivo de consenso medio de USD 400,15 al 2026-11-20; no aporta una tesis
-    de consenso verificable sobre el error de mercado.
-  hipotesis_contraria: La aceleración de ingresos y margen bruto observada podría
-    coexistir con presión significativa sobre el flujo de caja libre; el paquete no
-    permite establecer qué aspecto está incorporado en el precio.
-  razonamiento: El consenso de analistas ofrece objetivos observados, pero no sus
-    supuestos subyacentes; los datos financieros históricos tampoco incluyen una valoración
-    defendible.
-generated_at: '2026-11-20T15:06:54.051855-03:00'
+  catalizador_cambio: Resultados financieros futuros que confirmen o contradigan la
+    trayectoria de ingresos, FCF y rentabilidad por segmento; el paquete no proporciona
+    fechas de próximos hitos.
+  conclusion_error_valoracion: 'No se puede validar un error de valoración con la
+    evidencia disponible: el rango de analistas es una referencia observada, no una
+    valoración intrínseca.'
+  consenso_actual: 'El 2026-11-21, el consenso de precio objetivo reportado fue USD
+    397.13 (promedio y mediana), con rango USD 300–500; la cotización disponible es
+    USD 323.11 al 2026-10-23. Fuentes: Stock Analysis y Yahoo Finance en el resumen
+    financiero.'
+  hipotesis_contraria: La cotización podría no reflejar plenamente la continuidad
+    del crecimiento y la generación de caja; el paquete no aporta evidencia de expectativas
+    operativas del mercado para contrastarlo.
+  razonamiento: El precio objetivo medio observado supera la cotización reportada,
+    pero las fechas difieren y no hay horizonte, supuestos de negocio ni método de
+    valoración que permitan concluir que el mercado está equivocado.
+generated_at: '2026-11-21T15:44:59.260878-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-GOOGL
@@ -119,7 +129,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Alphabet Inc.
   operating_margin: 33.32
-  pe_ratio: 14.23
+  pe_ratio: 13.85
   products: ''
   revenue: 471100000000.0
   revenue_growth: 22.21
@@ -137,25 +147,21 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: 'FCF growth TTM reportado por la fuente; definición compatible indicada:
-    (FCF_t / FCF_t-1) - 1'
+- formula: (FCF_t / FCF_t-1) - 1, con FCF comparable y positivo en ambos períodos
   inputs:
-    fcf_growth_history:
-      TTM: -73.15
     fcf_history:
       FY 2025: 73266.0
-      TTM: 19747.0
-  limitations: Se conserva el porcentaje reportado por la fuente; TTM y FY no son
-    períodos equivalentes y el paquete no aporta la metodología del proveedor para
-    el crecimiento TTM.
+      TTM al 2026-09-30: 19747.0
+  limitations: TTM terminado el 2026-09-30 y FY terminado el 2025-12-31 tienen duraciones
+    distintas; no constituyen períodos comparables para esta fórmula.
   metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/googl/financials/
-  status: reported
+  status: unavailable
   unit: percent
-  value: -73.15
+  value: null
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: fcf_conversion_pct
@@ -166,29 +172,23 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs:
-    cash_and_investments_history:
-      Current al 2026-09-30: 265098.0
-    total_debt_history:
-      Current al 2026-09-30: 150331.0
-  limitations: 'No se calcula: falta EBITDA en la misma fuente y URL financiera autorizada;
-    el campo EBITDA disponible tiene URL distinta, y el paquete no permite verificar
-    compatibilidad de unidades con deuda y caja.'
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/googl/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/GOOGL/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    shares_outstanding:
-      TTM al 2026-09-30: 12290000000.0
-  limitations: Falta una observación comparable de acciones diluidas o en circulación
-    del período anterior; el dato actual aislado no permite calcular dilución interanual.
+    shares_outstanding: 12290000000.0
+  limitations: Sólo se proporciona una observación de acciones en circulación; falta
+    una observación comparable del período anterior o una serie de acciones diluidas.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
@@ -228,7 +228,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Alphabet Inc. offers various products and platforms in the United
     States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America.
     It operates through Google Services, Google Cloud, and Other Bets segments. The
@@ -253,7 +253,363 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.22
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Alphabet Inc. ([[GOOGL]]) es una compañía tecnológica que opera plataformas digitales,
+    infraestructura de centros de datos, software y servicios relacionados con publicidad,
+    nube e inteligencia artificial. Su actividad abarca mercados de Norteamérica,
+    Europa, Oriente Medio, África, Asia-Pacífico y Latinoamérica, según la descripción
+    de negocio existente.
+
+
+    Los segmentos descritos en la investigación son Google Services, Google Cloud
+    y Other Bets. Google Services comprende productos como Google Search y YouTube;
+    la oferta también incluye suscripciones y servicios digitales. El paquete de investigación
+    no detalla la contribución financiera de cada segmento ni la composición de Other
+    Bets.
+
+
+    Su modelo económico se apoya principalmente en monetizar la atención y la intención
+    de usuarios mediante publicidad, complementada por suscripciones y servicios para
+    empresas. La investigación clasifica la oportunidad como **“Investigación requerida”**:
+    hay señales favorables de escala y posición competitiva, pero faltan datos comparables
+    para validar la calidad de la caja y la valoración.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    - Volumen y valor de las consultas y de la publicidad en Google Search.
+
+    - Impresiones, audiencia y monetización de YouTube.
+
+    - Crecimiento de Google Cloud y su monetización empresarial.
+
+    - Suscripciones y otros servicios digitales.
+
+
+    La investigación describe una cadena de valor que combina infraestructura de centros
+    de datos, software, modelos de IA y plataformas digitales para atraer usuarios
+    y empresas y monetizar sus servicios. No se proporcionan ingresos desglosados
+    por segmento, por lo que no es posible identificar cuánto aporta cada driver al
+    crecimiento observado.
+
+
+    ### Ventajas competitivas y dinámica de la industria
+
+
+    El análisis AOIF caracteriza la posición de Alphabet como líder, con un moat amplio
+    basado en la escala y el reconocimiento de Search y YouTube, la distribución de
+    Android y Chrome, los datos, las capacidades de aprendizaje automático y el ecosistema
+    de productos. Estas son evaluaciones del análisis, no métricas cuantitativas verificadas
+    en los datos suministrados.
+
+
+    La publicidad digital, la nube y la IA son mercados grandes y competitivos. La
+    IA generativa podría impulsar productos existentes y la demanda de nube, pero
+    también transformar la búsqueda y alterar las dinámicas competitivas. Entre las
+    compañías relacionadas por sector que figuran en la wiki están [[AMX]] y [[EA]];
+    la información suministrada no establece una comparación directa de productos
+    o competencia con ellas.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes proceden de la serie de Stock Analysis suministrada en DDD.
+    Los períodos TTM y FY no son equivalentes; las comparaciones entre ellos deben
+    interpretarse con cautela. Los importes se reproducen en las unidades reportadas
+    por la fuente, sin especificación de unidad monetaria en el paquete.
+
+
+    | Métrica | Período | Valor | Fuente y observación |
+
+    |---|---:|---:|---|
+
+    | Ingresos | FY 2025 | 402.836 | [Stock Analysis — financieros](https://stockanalysis.com/stocks/googl/financials/),
+    dato incluido en DDD |
+
+    | Ingresos | TTM al 2026-09-30 | 471.098 | Misma fuente; TTM no es directamente
+    comparable con FY |
+
+    | Margen bruto | FY 2022 | 55,38% | Misma fuente |
+
+    | Margen bruto | TTM al 2026-09-30 | 60,86% | Misma fuente; el paquete no identifica
+    los motores de la mejora |
+
+    | Flujo de caja libre (FCF) | FY 2025 | 73.266 | Misma fuente |
+
+    | Flujo de caja libre (FCF) | TTM al 2026-09-30 | 19.747 | Misma fuente; la comparabilidad
+    con FY es limitada |
+
+    | Crecimiento de FCF reportado | TTM al 2026-09-30 | −73,15% | Valor reportado
+    por el proveedor; la metodología no está documentada en el paquete |
+
+    | Deuda total | FY 2025 | 66.996 | Misma fuente |
+
+    | Deuda total | Al 2026-09-30 | 150.331 | Misma fuente; el paquete no explica
+    la composición del cambio |
+
+
+    El paquete AOIF reporta las siguientes métricas, pero advierte que deben verificarse
+    el período, la fuente y las definiciones antes de usarlas en una valoración:
+
+
+    | Métrica | Valor reportado | Limitación |
+
+    |---|---:|---|
+
+    | Crecimiento de ingresos | 22,21% | Período y definición no especificados en
+    el resumen |
+
+    | Margen operativo | 33,32% | Período y fuente no especificados en el resumen
+    |
+
+    | ROIC | 23,79% | Período y metodología no especificados en el resumen |
+
+    | PER | 14,23x | Fecha y base de beneficios no especificadas |
+
+    | EV/EBITDA | 17,45x | Fecha y definiciones no especificadas |
+
+    | FCF yield | 0% | Base de cálculo no especificada; no concuerda necesariamente
+    con las demás métricas reportadas |
+
+
+    DDD indica que la razón corriente era 2,79x al 2026-09-30, frente al umbral de
+    observación configurado de 0,5x. También registra una cobertura de intereses de
+    0x frente a un umbral de 2x, pero advierte que debe verificarse su significado
+    y la disponibilidad de gasto por intereses antes de interpretarla. [Stock Analysis
+    — estadísticas](https://stockanalysis.com/stocks/GOOGL/statistics/).
+
+
+    La señal financiera principal pendiente de explicación es la diferencia entre
+    el FCF FY 2025 y el FCF TTM reportado al 2026-09-30. La investigación no identifica
+    si se debe a inversión de capital, capital de trabajo, efectos de período u otros
+    componentes.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF califica la calidad de la dirección como buena, el alineamiento de insiders
+    como moderado y la asignación de capital como neutral. El análisis destaca la
+    creación de plataformas globales y la inversión en investigación e infraestructura,
+    pero señala que la evaluación de asignación de capital debe considerar recompras,
+    inversión y otros usos del capital.
+
+
+    El paquete no aporta datos sobre la composición del consejo, la propiedad de insiders,
+    la estructura de incentivos, la remuneración ejecutiva ni cambios recientes de
+    gobierno corporativo. Por ello, esas dimensiones no pueden verificarse con la
+    información disponible.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista sujeto a verificación:** Alphabet combina activos digitales de
+    escala global con una posición de liderazgo descrita en búsqueda y vídeo, una
+    plataforma publicitaria de gran alcance y exposición al crecimiento de nube e
+    IA.
+
+
+    La evidencia financiera disponible muestra expansión de ingresos entre FY 2025
+    y TTM al 2026-09-30, aunque esos períodos no son directamente equivalentes, y
+    una mejora histórica del margen bruto desde 55,38% en FY 2022 hasta 60,86% TTM
+    al 2026-09-30. La fuente es [Stock Analysis — financieros](https://stockanalysis.com/stocks/googl/financials/).
+    AOIF también reporta un ROIC de 23,79% y un margen operativo de 33,32%, pero ambos
+    requieren verificación de período y metodología antes de considerarlos evidencia
+    concluyente.
+
+
+    La tesis depende de que Alphabet pueda mantener la monetización de Search y YouTube,
+    desarrollar Google Cloud y aplicar IA sin deteriorar de forma estructural la economía
+    de sus productos centrales. La calidad de la conversión de beneficios en caja
+    sigue sin estar establecida: DDD señala una caída del FCF TTM reportado frente
+    al FY 2025 que necesita explicación.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos clave
+
+
+    - **Regulatorio y antimonopolio:** AOIF evalúa el impacto potencial como alto
+    y la probabilidad como alta. Cambios regulatorios o litigios podrían imponer remedios
+    o modificar prácticas de distribución y monetización.
+
+    - **Transformación de búsqueda y publicidad por IA:** AOIF evalúa el impacto como
+    alto y la probabilidad como media. La IA generativa puede alterar el comportamiento
+    de búsqueda y la competencia.
+
+    - **Conversión de beneficios en caja:** el FCF TTM reportado es marcadamente inferior
+    al FY 2025. El paquete no explica las causas ni permite concluir si se trata de
+    una caída persistente.
+
+    - **Deuda reportada:** la deuda total pasa de 66.996 en FY 2025 a 150.331 al 2026-09-30
+    en la serie suministrada. Faltan detalles sobre composición, vencimientos y comparabilidad.
+
+    - **Calidad de los indicadores financieros:** algunos ratios del paquete AOIF
+    no tienen fecha o metodología explícitas, mientras que la cobertura de intereses
+    de 0x requiere validación antes de interpretarse.
+
+
+    ### Contra-tesis
+
+
+    El crecimiento de ingresos y la mejora del margen bruto podrían coexistir con
+    un deterioro significativo de la caja, inversión elevada o cambios adversos en
+    la economía del negocio. La evidencia suministrada no permite determinar cuál
+    de estos factores explica la caída del FCF ni si es transitoria.
+
+
+    ### Triggers de falsación
+
+
+    - La mejora del margen bruto no se sostiene en períodos posteriores comparables.
+
+    - El FCF permanece materialmente por debajo de los niveles FY 2025 y no aparece
+    una explicación verificable.
+
+    - La búsqueda o la publicidad se ven afectadas de forma persistente por cambios
+    tecnológicos o competitivos.
+
+    - La evolución de Google Cloud no demuestra crecimiento rentable en métricas de
+    ingresos, margen y consumo de caja.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador o señal | Fecha esperada | Impacto potencial | Estado de evidencia
+    |
+
+    |---|---|---|---|
+
+    | Crecimiento de ingresos TTM frente a FY 2025 | Observación al 2026-09-30 | Puede
+    indicar expansión de escala | 471.098 TTM frente a 402.836 FY 2025; períodos no
+    equivalentes. [Stock Analysis](https://stockanalysis.com/stocks/googl/financials/)
+    |
+
+    | Evolución del margen bruto | Observación al 2026-09-30 | Puede respaldar mejora
+    de economía unitaria si persiste | 60,86% TTM frente a 55,38% en FY 2022; los
+    motores no están desglosados. [Stock Analysis](https://stockanalysis.com/stocks/googl/financials/)
+    |
+
+    | Recuperación o explicación del FCF | Sin fecha específica en el paquete | Ayudaría
+    a evaluar conversión de beneficios en caja y necesidades de inversión | No se
+    proporciona un catalizador fechado; requiere seguimiento de períodos comparables.
+    |
+
+    | Desarrollo de Google Cloud e inversión en IA | Sin fecha específica en el paquete
+    | Podría ampliar las fuentes de crecimiento, sujeto a rentabilidad y consumo de
+    capital | AOIF recomienda seguir crecimiento, margen operativo, consumo de caja
+    e inversión de capital. |
+
+    | Eventos regulatorios o litigios antimonopolio | Sin fecha específica en el paquete
+    | Posible efecto material sobre distribución, prácticas comerciales y monetización
+    | AOIF identifica el riesgo, pero no aporta calendario de eventos. |
+
+
+    DDD no identifica un catalizador específico con fecha prospectiva verificable
+    ni permite validar un error de valoración.
+
+
+    ## 8. Marco de Valoración
+
+
+    El paquete no permite calcular un valor intrínseco defendible. AOIF califica el
+    margen de seguridad como insuficiente e indica que su estimación es indeterminada
+    por falta de fecha de valoración, precio de mercado, datos financieros comparables
+    y supuestos explícitos de crecimiento, márgenes, inversión y tasa de descuento.
+
+
+    Un marco de valoración adecuado debería combinar:
+
+
+    1. **Flujo de caja descontado (DCF):** con proyecciones separadas para Google
+    Services, Google Cloud y Other Bets cuando se disponga de datos comparables. Requiere
+    supuestos explícitos de crecimiento, márgenes, inversión de capital, capital de
+    trabajo y tasa de descuento.
+
+    2. **Valoración por segmentos:** para distinguir la economía de la publicidad,
+    la nube, las suscripciones y otras actividades, evitando atribuirles los mismos
+    múltiplos sin justificación.
+
+    3. **Múltiplos de referencia:** PER y EV/EBITDA pueden utilizarse como comprobación
+    cruzada, no como sustitutos de una valoración sustentada en beneficios y flujos
+    de caja comparables.
+
+
+    DDD recoge un precio de USD 323,11 al 2026-10-23 y un objetivo de consenso medio
+    de USD 400,15 al 2026-11-20. La investigación no aporta los supuestos detrás del
+    consenso ni permite evaluar si ese objetivo representa valor intrínseco. Los múltiplos
+    AOIF de PER 14,23x y EV/EBITDA 17,45x, y el FCF yield de 0%, carecen de fechas
+    y definiciones suficientes para emplearlos con confianza.
+
+
+    **Sensibilidad pendiente:** no es posible cuantificarla sin supuestos y datos
+    comparables. La valoración debería someterse, como mínimo, a escenarios de crecimiento
+    de ingresos, márgenes operativos, conversión a FCF, inversión en infraestructura
+    y tasa de descuento.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    - ¿Qué explica la diferencia entre el FCF FY 2025 de 73.266 y el FCF TTM de 19.747
+    reportado al 2026-09-30? ¿Qué parte corresponde a inversión, capital de trabajo,
+    efectos de período u otros factores?
+
+    - ¿Cómo se comparan períodos equivalentes de ingresos, FCF y márgenes, y cuál
+    es la metodología de las cifras TTM?
+
+    - ¿Qué segmentos impulsan el crecimiento, el margen y los retornos incrementales?
+    ¿Cuál es la contribución de Google Services, Google Cloud y Other Bets?
+
+    - ¿Cuáles son los márgenes, necesidades de capital y trayectoria de rentabilidad
+    de Google Cloud?
+
+    - ¿Qué datos respaldan las cifras AOIF de crecimiento de ingresos, margen operativo,
+    ROIC, PER, EV/EBITDA y FCF yield? ¿Cuáles son sus fechas, definiciones y fuentes?
+
+    - ¿Qué explica el aumento de deuda total reportado entre FY 2025 y el 2026-09-30?
+    ¿Cómo se compone y cuáles son sus vencimientos?
+
+    - ¿Qué significa la cobertura de intereses reportada como 0x y qué datos de gasto
+    por intereses se utilizaron?
+
+    - ¿Qué remedios regulatorios o decisiones judiciales son posibles, y qué productos
+    o prácticas podrían afectar?
+
+    - ¿Cómo cambia la economía de Search y YouTube con la adopción de IA generativa
+    y cuáles son los efectos sobre monetización, distribución y costes?
+
+    - ¿Qué datos del consejo, incentivos ejecutivos e insider ownership permiten evaluar
+    gobierno corporativo y alineación?
+
+    - ¿Qué supuestos sostienen el precio objetivo de consenso recogido en DDD y cómo
+    se comparan con escenarios propios?
+
+
+    **Estado de decisión:** investigación incompleta; AOIF deja la recomendación como
+    `PENDIENTE_DECISION_BOARD` y DDD clasifica la oportunidad como **Investigación
+    requerida**.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AMX|América Móvil, S.A.B. de C.V.]], [[EA|Electronic Arts
+    Inc]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -288,7 +644,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T18:06:25.808903+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T18:44:26.858964+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -449,12 +805,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    500.0, "low": 300.0, "mean": 400.15, "median": 400.15, "observed_at": "2026-11-20T15:06:29.157550-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T15:06:29.157550-03:00", "observed_date": "2026-11-20", "target_price":
-    400.15, "url": "https://stockanalysis.com/stocks/googl/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T15:06:29.157550-03:00",
-    "observed_date": "2026-11-20", "target_price": 400.14716, "url": "https://finance.yahoo.com/quote/GOOGL/"}]},
+    500.0, "low": 300.0, "mean": 397.13, "median": 397.13, "observed_at": "2026-11-21T15:44:30.026646-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T15:44:30.026646-03:00", "observed_date": "2026-11-21", "target_price":
+    397.13, "url": "https://stockanalysis.com/stocks/googl/forecast/"}, {"as_of_date":
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T15:44:30.026646-03:00",
+    "observed_date": "2026-11-21", "target_price": 397.1283, "url": "https://finance.yahoo.com/quote/GOOGL/"}]},
     "current_quote": {"as_of_date": "2026-10-23", "currency": "USD", "price": 323.1099853515625,
     "sources": [{"as_of_date": "2026-10-23", "name": "yfinance", "url": "https://finance.yahoo.com/quote/GOOGL/"}]}}'
   sector: Communication Services
@@ -464,89 +820,96 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 970f959fc0121c9f8dcf2f8d1c9300ff70e67a5713d133a563cea71bc5ca3903
+    sha256: 40ea6f842b3ebaee41514c3c3405905c197535b568f3387bc5d15832f6937b3c
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T15:06:54.051855-03:00'
+  triggered_at: '2026-11-21T15:44:59.260878-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment: No cruza el umbral configurado; observación al 2026-09-30, no decisión
-    de inversión.
-  metric: current_ratio
-  observed_value: 2.79
+- metric: current_ratio
+  observation: 2.79 al 2026-09-30; no cruza el umbral.
+  period_end: '2026-09-30'
   source:
-    as_of_date: '2026-09-30'
     name: stockanalysis.com
     url: https://stockanalysis.com/stocks/GOOGL/statistics/
   threshold: below 0.5
-  unit: x
-- assessment: El valor reportado cruza el umbral; debe verificarse su significado
-    y disponibilidad de gasto por intereses antes de interpretarlo.
-  metric: interest_coverage
-  observed_value: 0
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta una observación comparable de acciones del período
+    anterior.'
+  period_end: '2026-09-30'
   source:
-    as_of_date: '2026-09-30'
     name: stockanalysis.com
     url: https://stockanalysis.com/stocks/GOOGL/statistics/
-  threshold: below 2.0
-  unit: x
-- assessment: 'No evaluable: ratio unavailable por incompatibilidad de fuentes/unidades
-    y falta de EBITDA validado en la URL financiera autorizada.'
-  metric: net_debt_ebitda
-  observed_value: null
-  threshold: above 4.0
-  unit: x
-- assessment: 'No evaluable: falta el número de acciones comparable del período anterior.'
-  metric: dilution_yoy_pct
-  observed_value: null
   threshold: above 10%
-  unit: percent
-- assessment: 'No evaluable: no se suministra una serie histórica de acciones en circulación
-    o diluidas.'
-  metric: share_count_cagr_3y_pct
-  observed_value: null
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30, pero el paquete no aclara si representa
+    ausencia de gasto por intereses o un dato faltante; no permite una interpretación
+    concluyente.
+  period_end: '2026-09-30'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/GOOGL/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplicable a la observación disponible: el FCF TTM reportado es
+    positivo al 2026-09-30.'
+  period_end: '2026-09-30'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/GOOGL/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: Cálculo indicativo de -0.62x al 2026-09-30; limitación de escala entre
+    inputs descrita en ratios_investigados.
+  period_end: '2026-09-30'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/googl/financials/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: no se proporciona una serie histórica de acciones para
+    tres años.'
+  period_end: '2026-09-30'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/GOOGL/statistics/
   threshold: above 5%
-  unit: percent
-- assessment: No aplica según el FCF TTM reportado, que es positivo; no se estima
-    runway.
-  metric: negative_fcf_runway_months
-  observed_value: null
-  threshold: below 12
-  unit: months
 scenario_analysis: null
 scenario_validation:
   errors:
   - scenario_analysis ausente
   status: invalid_pending_revision
-score_general: 68.03
+score_general: 52
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T15:06:29.157550-03:00'
+  calculado_at: '2026-11-21T15:44:30.026646-03:00'
   fuentes:
-    stockanalysis: 400.15
-    yfinance: 400.14716
-  mediana: 400.15
+    stockanalysis: 397.13
+    yfinance: 397.1283
+  mediana: 397.13
   n_fuentes: 2
-  promedio: 400.15
+  promedio: 397.13
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T15:06:29.157550-03:00'
-    observed_date: '2026-11-20'
-    target_price: 400.15
+    observed_at: '2026-11-21T15:44:30.026646-03:00'
+    observed_date: '2026-11-21'
+    target_price: 397.13
     url: https://stockanalysis.com/stocks/googl/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T15:06:29.157550-03:00'
-    observed_date: '2026-11-20'
-    target_price: 400.14716
+    observed_at: '2026-11-21T15:44:30.026646-03:00'
+    observed_date: '2026-11-21'
+    target_price: 397.1283
     url: https://finance.yahoo.com/quote/GOOGL/
   target_high: 500.0
   target_low: 300.0
-tesis_inversion: Alphabet presenta crecimiento de ingresos y mejora del margen bruto
-  en los períodos suministrados, pero el FCF TTM reportado cae marcadamente frente
-  al FY 2025. La evidencia del paquete no permite validar la sostenibilidad de esa
-  divergencia, el retorno incremental sobre capital ni una valoración intrínseca.
+tesis_inversion: La tesis a investigar es si Alphabet puede sostener el crecimiento
+  de sus plataformas y convertirlo en generación de caja, mientras financia reinversión
+  sin deterioro material de márgenes ni erosión competitiva. La evidencia disponible
+  muestra ingresos TTM de USD 471.098 millones y margen bruto TTM de 60,86% al 2026-09-30,
+  pero no desglosa crecimiento, retornos sobre capital ni necesidades de inversión
+  por segmento.
 ticker: GOOGL
 version: '3.0'

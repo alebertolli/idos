@@ -731,3 +731,111 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T15:34:02.810404'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-FDX
+    ticker: FDX
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T15:40:48.255663'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-FDX
+    ticker: FDX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:40:48.321084'
+- data:
+    classification: multibaggers
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 7569cbc30ca434afbaf184861c85b4f052932e3fd58b4dcff8d238042b1b317e
+    opp_id: OPP-MB-FDX
+    original_status: UNDER_RESEARCH
+    score: 85.54
+    strategy_version: '1.5'
+    ticker: FDX
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:42:19.353353'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-GILD
+    ticker: GILD
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T15:42:51.397048'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GILD
+    ticker: GILD
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:42:51.466305'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 427f7650bcf11c39f9f043f036e6965f7e3e36d74b30e3769c512b342fc97902
+    opp_id: OPP-MB-GILD
+    original_status: UNDER_RESEARCH
+    score: 58
+    strategy_version: '1.5'
+    ticker: GILD
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:44:25.460057'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-GOOGL
+    ticker: GOOGL
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T15:44:59.163132'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GOOGL
+    ticker: GOOGL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T15:44:59.234259'
+- data:
+    classification: Investigación fundamental requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 40ea6f842b3ebaee41514c3c3405905c197535b568f3387bc5d15832f6937b3c
+    opp_id: OPP-MB-GOOGL
+    original_status: UNDER_RESEARCH
+    score: 52
+    strategy_version: '1.5'
+    ticker: GOOGL
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T15:46:32.980647'
