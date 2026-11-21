@@ -1,93 +1,97 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El crecimiento histórico de ingresos y la mejora reciente del margen bruto son
-    compatibles con una expansión del negocio, pero no prueban que sea sostenible.
-  - La dispersión de objetivos y la falta de horizonte comparable impiden validar
-    una brecha de valoración.
-  - 'Ingresos reportados: 2,263,891 para FY 2022 y 3,809,054 para FY 2025; valores
-    de la fuente en unidad reportada, período terminado 2025-12-31.'
-  - 'Margen bruto reportado: 65.85% TTM terminado 2026-09-30.'
-  - 'FCF reportado: 44,920,000,000 en moneda financiera del proveedor, TTM terminado
-    2026-09-30; la fuente no permite reconciliarlo con la serie histórica incluida.'
-  - Precio USD 406.13 al 2026-10-30; consenso de objetivo USD 586.69 y rango USD 440–1,000
-    observados al 2026-11-20.
+  - La mejora observada de ingresos y margen bruto podría respaldar crecimiento de
+    FCF si se sostiene, pero la evidencia suministrada no valida esa condición.
+  - Los objetivos de analistas permiten construir anclas observadas para escenarios,
+    no determinar valor intrínseco.
+  - StockAnalysis reporta ingresos TTM de 4,944,817 en unidades reportadas por el
+    proveedor y margen bruto TTM de 65.85% al 2026-09-30.
+  - StockAnalysis reporta FCF TTM de USD 44,910 millones y EBITDA TTM de USD 112,970
+    millones al 2026-09-30.
+  - Yfinance reporta cotización de USD 406.13 al 2026-10-30 y momentum de precio a
+    12 meses de 35.1829% para el período 2025-10-31/2026-10-30.
   preguntas_abiertas:
-  - ¿Qué mercado direccionable, penetración y demanda futura respaldan las expectativas
-    de crecimiento?
-  - ¿Cuáles son el capital invertido y los retornos sobre capital por período comparable?
-  - ¿Qué objetivos de management, necesidades de inversión, riesgos de capacidad y
-    condiciones competitivas explican los resultados?
-  - ¿Cuál es la serie histórica comparable de acciones diluidas y FCF, con unidades
-    y moneda verificables?
-catalizadores_previos: &id001 []
+  - ¿Qué factores operativos explican el crecimiento y la variación del margen, y
+    qué expectativas futuras están respaldadas por fuentes primarias?
+  - ¿Cuáles son los retornos incrementales sobre capital, la penetración del mercado
+    direccionable y la evolución de la competencia?
+  - ¿Cuáles son las unidades y monedas de las series financieras históricas reportadas
+    y cómo se reconcilian con las estadísticas TTM?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T19:56:34.847929-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-TSM
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T19:56:34.847929-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-TSM
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T19:56:34.847929-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-TSM
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación fundamental pendiente de validar
-  justificacion: El paquete aporta evidencia financiera histórica y métricas de mercado,
-    pero no permite verificar retornos sobre capital, dilución histórica ni una valoración
-    intrínseca defendible.
+  categoria: Investigación requerida
+  justificacion: El paquete muestra crecimiento reciente de ingresos y flujo de caja
+    libre, pero faltan datos comparables para validar varios ratios clave y sustentar
+    una valoración intrínseca.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo de negocio descrito comprende fabricación, empaquetado, pruebas
-    y venta de circuitos integrados y otros semiconductores. Los datos aportados muestran
-    margen bruto TTM de 65.85% al 2026-09-30 y crecimiento histórico de ingresos;
-    no bastan para medir retornos sobre capital, intensidad de reinversión, moat o
-    riesgo de erosión competitiva.
-  rating: Evidencia parcial
+  analisis: La descripción disponible identifica un fabricante integrado de circuitos
+    y dispositivos semiconductores con operaciones internacionales. El crecimiento
+    reciente de ingresos y el margen bruto son hechos reportados, pero el paquete
+    no permite validar retornos sobre capital, mercado direccionable, penetración
+    ni duración de una ventaja competitiva.
+  rating: Evidencia incompleta
 dominio_catalizadores:
-- catalizador: El historial reportado muestra crecimiento de ingresos entre FY 2022
-    y FY 2025; confirmar su continuidad con resultados futuros sería relevante.
-  fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/tsm/financials/
-- catalizador: El margen bruto TTM reportado al 2026-09-30 supera los valores FY 2023–FY
-    2025; la sostenibilidad de esa mejora es un hito a verificar.
-  fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/tsm/financials/
-- catalizador: Una actualización de expectativas de analistas podría aclarar la dispersión
-    de objetivos, pero el paquete no permite atribuirla a un evento concreto.
-  fuentes:
-  - name: stockanalysis
-    url: https://stockanalysis.com/stocks/tsm/forecast/
+- catalizador: Confirmar si continúa la expansión reciente de ingresos y margen bruto.
+  evidencia: Ingresos TTM y margen bruto TTM reportados al 2026-09-30; falta orientación
+    futura en el paquete.
+- catalizador: Verificar la conversión del crecimiento operativo en FCF comparable.
+  evidencia: El proveedor reporta crecimiento de FCF TTM, pero las unidades de los
+    valores históricos y del FCF en estadísticas no son reconciliables con la evidencia
+    suministrada.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuentes: []
-  riesgo: La concentración de la tesis en crecimiento y márgenes sostenibles no puede
-    comprobarse con evidencia de mercado direccionable, penetración o guía corporativa
-    en el paquete.
-- fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/tsm/financials/
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/TSM/statistics/
-  riesgo: La evidencia financiera reporta cambios en FCF, pero las unidades de las
-    series históricas no se reconcilian con el FCF TTM reportado en otra métrica.
-- fuentes: []
-  riesgo: El paquete no ofrece información verificable sobre asignación de capital,
-    incentivos de management ni dilución histórica suficiente para evaluar su impacto.
-- fuentes:
-  - name: stockanalysis
-    url: https://stockanalysis.com/stocks/tsm/forecast/
-  riesgo: Los objetivos de analistas abarcan un rango amplio y no incluyen aquí supuestos
-    ni horizonte comparable; no son una valoración intrínseca.
+- evidencia: El paquete presenta series agregadas de ingresos, margen bruto y FCF,
+    sin desglose operativo.
+  riesgo: Los datos financieros agregados no bastan para atribuir el crecimiento a
+    volúmenes, precios, productos o clientes.
+- evidencia: Hay objetivos de analistas con un rango amplio, pero no sus supuestos
+    ni una metodología de valoración.
+  riesgo: La valoración es difícil de evaluar con los datos disponibles.
+- evidencia: No hay evidencia específica sobre cuota, competencia, retornos sobre
+    capital o decisiones de management.
+  riesgo: La ventaja competitiva, su posible erosión y la asignación de capital no
+    pueden evaluarse de forma suficiente.
 error_mercado:
-  catalizador_cambio: Una actualización verificable de resultados y de expectativas
-    de demanda, márgenes e inversión podría modificar la lectura de la brecha; el
-    paquete no aporta guía de management.
-  conclusion_error_valoracion: 'No validado: existe una brecha entre cotización y
-    consenso, pero no evidencia suficiente para concluir que el mercado esté equivocado.'
-  consenso_actual: El precio observado fue USD 406.13 al 2026-10-30; el consenso de
-    precio objetivo reportado al 2026-11-20 fue USD 586.69, con rango USD 440–1,000.
-  hipotesis_contraria: La diferencia entre cotización y consenso no demuestra por
-    sí sola un error de valoración; faltan supuestos y horizonte de los objetivos,
-    además de una valoración propia verificable.
-  razonamiento: Los objetivos de consenso y la cotización son observaciones de mercado
-    en fechas distintas, no una estimación intrínseca comparable con horizonte confirmado.
-generated_at: '2026-11-20T19:56:34.847929-03:00'
+  catalizador_cambio: Una actualización verificable de resultados o de perspectivas
+    operativas podría aportar evidencia para evaluar si el crecimiento y los márgenes
+    recientes son sostenibles.
+  conclusion_error_valoracion: 'No se puede validar un error de valoración: el consenso
+    no sustituye una valoración fundamental y faltan expectativas operativas detalladas.'
+  consenso_actual: La cotización observada fue USD 406.13 al 2026-10-30; el consenso
+    de precio objetivo observado fue USD 586.69 al 2026-11-21.
+  hipotesis_contraria: Las anclas de objetivos observadas oscilan entre USD 440 y
+    USD 1,000, pero el paquete no aporta metodología ni supuestos de analistas para
+    explicar esa dispersión.
+  razonamiento: El precio objetivo medio y mediano observado supera la cotización
+    fechada, pero no se proporcionan estimaciones de beneficios, múltiplos ni un método
+    defendible para inferir valor intrínseco.
+generated_at: '2026-11-21T18:31:01.133545-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-TSM
@@ -111,11 +115,11 @@ prompt_inputs:
   insider_ownership: 0
   name: Taiwan Semiconductor Manufacturing Company Limited
   operating_margin: 57.96
-  pe_ratio: 21.59
+  pe_ratio: 21.56
   products: ''
   revenue: 155160000000.0
   revenue_growth: 36.17
-  roic: 60.3
+  roic: 64.05
   sector: Technology
   ticker: TSM
 ratios_investigados:
@@ -129,12 +133,12 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: Crecimiento de FCF reportado por la fuente; no recalculado
+- formula: FCF growth TTM reportado por el proveedor; no recalculado
   inputs:
     fcf_growth_history:
       TTM: 65.96
-  limitations: El paquete no detalla la base exacta del cálculo reportado ni permite
-    reconciliar la serie con el valor de FCF de estadísticas.
+  limitations: Se conserva la tasa TTM reportada; el paquete no incluye los importes
+    comparables subyacentes ni define explícitamente el intervalo de comparación.
   metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
@@ -145,43 +149,50 @@ ratios_investigados:
   value: 65.96
 - formula: FCF / net_income * 100
   inputs:
-    fcf: null
-    net_income_ttm: 2527571.0
-  limitations: 'Falta una fuente y URL autorizada que respalde ambos inputs en moneda
-    y escala compatibles: el FCF TTM está reportado como 44,920,000,000 en moneda
-    financiera del proveedor, mientras que el beneficio neto histórico es un importe
-    reportado sin unidad explícita.'
+    fcf: 44910000000.0
+    net_income_history:
+      TTM: 2527571.0
+  limitations: Los valores disponibles tienen escalas/unidades reportadas distintas
+    y el paquete no proporciona una conciliación de moneda o unidades que permita
+    calcular una conversión válida.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TSM/statistics/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tsm/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalent to -net_cash /
+    EBITDA
   inputs:
-    cash_and_equivalents: 4016980.0
     ebitda: 112970000000.0
-    total_debt: 818380.0
-  limitations: La deuda y el efectivo son importes reportados sin unidad explícita
-    en la serie histórica; EBITDA se reporta en moneda financiera del proveedor. No
-    se puede validar compatibilidad de escala o moneda para el cálculo.
+    net_cash_history:
+      Current: 2947226.0
+  limitations: El net cash histórico está en unidades de importe reportadas por el
+    proveedor y EBITDA en USD; falta conciliación verificable de unidades y moneda.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tsm/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TSM/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    diluted_shares: null
-    diluted_shares_history: null
     shares_outstanding: 25930000000.0
-    shares_outstanding_history: null
-  limitations: Sólo hay una observación de acciones en circulación; falta una observación
-    comparable del período anterior o una serie histórica fechada.
+  limitations: Falta una observación comparable de acciones diluidas o acciones en
+    circulación del período anterior; el dato disponible es un valor puntual.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TSM/statistics/
   status: unavailable
   unit: percent
   value: null
@@ -216,7 +227,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Taiwan Semiconductor Manufacturing Company Limited, together with
     its subsidiaries, manufactures, packages, tests, and sells integrated circuits
     and other semiconductor devices in Taiwan, China, Europe, the Middle East, Africa,
@@ -238,7 +249,368 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.15
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Taiwan Semiconductor Manufacturing Company Limited (TSMC) es una fundición de
+    semiconductores que fabrica, empaqueta, prueba y vende circuitos integrados diseñados
+    principalmente por sus clientes. Su actividad combina I+D, construcción y operación
+    de plantas, adquisición de equipos y materiales especializados, y procesamiento
+    de obleas según las especificaciones de cada cliente.
+
+
+    La empresa opera en el sector de semiconductores, una industria cíclica e intensiva
+    en capital. Sus clientes y mercados finales incluyen empresas de computación de
+    alto rendimiento y centros de datos, así como diseñadores de procesadores y chips
+    para teléfonos inteligentes. La operación descrita se concentra en Taiwán, por
+    lo que las tensiones geopolíticas en torno a la isla constituyen un riesgo relevante.
+
+
+    Entre las compañías relacionadas por sector y cadena de valor están [[ASML]],
+    [[AMAT]], [[AMD]], [[ARM]], [[AVGO]] y [[ADI]]. Estas relaciones reflejan exposición
+    a la industria de semiconductores; no implican que todas sean competidores directos
+    de TSMC.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Modelo de negocio:** TSMC fabrica chips para clientes que, principalmente, diseñan
+    sus propios productos. Los procesos descritos incluyen fabricación de obleas mediante
+    CMOS y lógica avanzada, además de procesos de señal mixta, radiofrecuencia, memoria
+    integrada y BiCMOS. La compañía también ofrece empaquetado y pruebas.
+
+
+    **Drivers de ingresos potenciales:** demanda de computación de alto rendimiento,
+    centros de datos e inteligencia artificial; teléfonos inteligentes; y, en términos
+    más amplios, aplicaciones de automoción e IoT. La información recibida identifica
+    estos mercados como motores de la industria, pero no aporta estimaciones de mercado
+    direccionable, penetración ni demanda futura que permitan cuantificar su contribución
+    al crecimiento de TSMC.
+
+
+    **Ventajas competitivas descritas:** escala, conocimiento acumulado de fabricación,
+    ejecución y rendimientos de producción, inversión de capital, capacidad tecnológica
+    y confianza de los clientes. AOIF caracteriza la amplitud del moat como «amplio»
+    y la posición competitiva como «líder». Estas son evaluaciones analíticas del
+    paquete de investigación; no se acompañan de métricas comparables de cuota, rendimientos
+    o costos que permitan verificarlas independientemente.
+
+
+    **Dinámica competitiva:** la industria requiere inversión elevada y compite mediante
+    capacidades tecnológicas y ejecución de fabricación. La demanda es cíclica, mientras
+    que las inversiones en plantas y equipos comprometen capital por períodos prolongados.
+    [[ASML]] y [[AMAT]] se relacionan con la cadena de suministro de equipos; [[AMD]],
+    [[ARM]] y [[AVGO]] son compañías del ecosistema de diseño de semiconductores.
+    No se aportan datos para comparar directamente sus capacidades con las de TSMC.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes proceden de los inputs de investigación. Cuando no se proporciona
+    definición, período comparable o reconciliación, se señala expresamente.
+
+
+    | Métrica | Valor reportado | Período / referencia | Observación |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos | 36,17% | No especificado en AOIF | Falta validar período,
+    definición y fuente de cálculo. DDD señala crecimiento histórico entre FY 2022
+    y FY 2025, sin aportar aquí la serie numérica. |
+
+    | Margen operativo | 57,96% | No especificado en AOIF | Requiere validar período
+    y fuente. |
+
+    | ROIC | 60,3% | No especificado en AOIF | Requiere validar metodología, período
+    y comparabilidad. |
+
+    | Margen bruto TTM | 65,85% | 2026-09-30 | Reportado por DDD; supera los valores
+    FY 2023–FY 2025 según la investigación, cuya serie completa no se incluye. |
+
+    | Crecimiento del FCF | 65,96% | TTM, hasta 2026-09-30 | Valor reportado; la fuente
+    no detalla la base exacta ni permite reconciliarlo con otra métrica de FCF. |
+
+    | FCF / rendimiento de FCF | 0 | AOIF; período no especificado | No se proporcionan
+    definición, cifras de flujo de caja operativo ni capex suficientes para evaluar
+    la conversión. No debe interpretarse como una medición verificable del FCF generado.
+    |
+
+    | Current ratio | 2,58x | 2026-09-30 | Reportado por StockAnalysis; superior al
+    umbral de alerta de 0,5x usado en el análisis. |
+
+    | PER | 21,59x | AOIF; fecha no especificada | No se proporciona precio y fecha
+    de referencia comparables. |
+
+    | EV/EBITDA | 13,15x | AOIF; fecha no especificada | No se proporcionan inputs
+    ni período suficientes para verificar el cálculo. |
+
+
+    **Tendencia y calidad de la evidencia:** DDD observa crecimiento de ingresos entre
+    FY 2022 y FY 2025 y una mejora reciente del margen bruto. También reporta inversión
+    relevante en capacidad, pero no incluye una serie reconciliada de capex. AOIF
+    califica la tendencia financiera como «mejorando», aunque los períodos y referencias
+    de varias métricas no están especificados. Estas observaciones son compatibles
+    con expansión, pero por sí solas no demuestran que el crecimiento o la mejora
+    de márgenes sean sostenibles.
+
+
+    **Estructura de capital y dilución:** no se aportan datos suficientes para evaluar
+    la estructura de capital, los retornos sobre capital por períodos comparables
+    o la dilución histórica. DDD indica que la dilución interanual no es evaluable
+    por falta de historial comparable de acciones; esto no constituye evidencia de
+    que se haya superado un umbral de dilución.
+
+
+    **Fuentes financieras:** [StockAnalysis — Financials](https://stockanalysis.com/stocks/tsm/financials/)
+    y [StockAnalysis — Statistics](https://stockanalysis.com/stocks/TSM/statistics/).
+    DDD atribuye a estas fuentes los datos financieros y de mercado citados, pero
+    no suministra en el paquete las series completas.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF califica la calidad del management como «buena» y la asignación de capital
+    como creadora de valor. También califica el alineamiento de insiders como «débil».
+    El paquete no incluye la metodología, los períodos ni los datos subyacentes de
+    estas evaluaciones.
+
+
+    No se suministran nombres o historial de los principales ejecutivos, composición
+    del board, propiedad de insiders, remuneración, objetivos de incentivos ni historial
+    detallado de asignación de capital. Por lo tanto, las valoraciones de calidad,
+    asignación y alineamiento deben tratarse como evaluaciones pendientes de validar,
+    no como conclusiones verificadas.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista
+
+
+    - **Posición de fundición líder:** AOIF describe a TSMC como líder, con escala
+    y capacidades avanzadas de fabricación. El moat propuesto se basa en experiencia
+    de proceso, ejecución, rendimientos de producción, inversión intensiva en capital
+    y confianza de los clientes.
+
+    - **Exposición a mercados de crecimiento:** la base de clientes descrita incluye
+    computación de alto rendimiento, centros de datos y teléfonos inteligentes. La
+    industria también está expuesta a inteligencia artificial, automoción e IoT. El
+    paquete no cuantifica cuánto de los ingresos de TSMC depende de cada mercado ni
+    cuánto crecimiento podrían aportar.
+
+    - **Indicios de expansión financiera:** DDD reporta crecimiento de ingresos entre
+    FY 2022 y FY 2025 y un margen bruto TTM de 65,85% al 2026-09-30, superior a los
+    valores FY 2023–FY 2025. Si estas tendencias se confirman en resultados futuros,
+    podrían respaldar la tesis de expansión del negocio y mejora de rentabilidad.
+
+    - **Liquidez corriente:** el current ratio reportado de 2,58x al 2026-09-30 supera
+    el umbral de alerta configurado por DDD. Es una observación puntual y no sustituye
+    el análisis de liquidez, deuda y necesidades de inversión.
+
+    - **Valoración de mercado como referencia, no como valor intrínseco:** al 2026-10-30
+    se reportó una cotización de USD 406,13; al 2026-11-20, un consenso de precio
+    objetivo de USD 586,69, con rango de USD 440–1.000. La diferencia no demuestra
+    por sí sola que la acción esté infravalorada: las fechas difieren y no se aportan
+    horizonte, supuestos ni una valoración propia verificable.
+
+
+    ### Estado de la tesis
+
+
+    La evidencia disponible es compatible con un negocio de escala y con crecimiento
+    e incremento reciente del margen bruto. Sin embargo, la tesis sigue **pendiente
+    de validar**: faltan datos comparables de retornos sobre capital, conversión de
+    FCF, inversión futura, sostenibilidad de márgenes y demanda final. DDD clasifica
+    la oportunidad como investigación fundamental pendiente de validar; AOIF deja
+    la recomendación pendiente de decisión del board.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    - **Riesgo geopolítico — impacto alto, probabilidad media según AOIF:** tensiones
+    en torno a Taiwán podrían interrumpir operaciones, suministro o transporte.
+
+    - **Riesgo regulatorio y de exportación — impacto alto, probabilidad media según
+    AOIF:** controles de exportación o cambios regulatorios podrían limitar el acceso
+    a mercados, clientes o tecnología. Empresas expuestas a restricciones de la cadena
+    de semiconductores, como [[ASML]], [[AMD]] y [[AVGO]], pueden compartir ciertos
+    riesgos de industria, aunque el impacto específico en cada compañía no está establecido
+    aquí.
+
+    - **Ciclicidad e intensidad de capital:** una caída de demanda puede coincidir
+    con una base elevada de costos e inversión. El paquete señala inversión relevante
+    en capacidad, pero no aporta un presupuesto de capex ni proyecciones suficientes
+    para medir el riesgo de exceso de capacidad.
+
+    - **Sostenibilidad de crecimiento y márgenes no probada:** la concentración de
+    la tesis en crecimiento y expansión de márgenes carece de evidencia sobre mercado
+    direccionable, penetración, demanda futura y guía corporativa.
+
+    - **FCF sin reconciliación:** DDD reporta crecimiento de FCF de 65,96%, mientras
+    AOIF indica un rendimiento de FCF de 0; las definiciones, períodos y unidades
+    no están conciliados. No es posible inferir de estos datos, por sí solos, la capacidad
+    de conversión de beneficios a caja.
+
+    - **Valoración no defendible con la información disponible:** los objetivos de
+    consenso no son una estimación intrínseca comparable con la cotización sin horizonte
+    ni supuestos confirmados.
+
+    - **Dilución y retornos sobre capital pendientes:** no hay historial comparable
+    suficiente de acciones ni datos de capital invertido y retornos por períodos equivalentes.
+
+
+    **Triggers de falsación identificados:**
+
+
+    1. Resultados futuros que contradigan la continuidad del crecimiento de ingresos
+    observado entre FY 2022 y FY 2025.
+
+    2. Caída persistente del margen bruto frente al 65,85% TTM reportado al 2026-09-30.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador / hito | Fecha esperada | Impacto potencial | Estado de la evidencia
+    |
+
+    |---|---|---|---|
+
+    | Resultados futuros que permitan comprobar la continuidad del crecimiento de
+    ingresos | Sin fecha indicada | Confirmar o debilitar el caso de expansión del
+    negocio | DDD identifica el crecimiento histórico entre FY 2022 y FY 2025, pero
+    no aporta calendario de resultados ni guía futura. |
+
+    | Resultados futuros que permitan comprobar la sostenibilidad del margen bruto
+    | Sin fecha indicada | Validar o cuestionar la mejora frente al 65,85% TTM reportado
+    | La comparación con FY 2023–FY 2025 se atribuye a StockAnalysis, pero no se incluye
+    la serie completa. |
+
+    | Actualización verificable de expectativas de demanda, márgenes e inversión |
+    Sin fecha indicada | Podría modificar la lectura de crecimiento y de la brecha
+    entre precio y consenso | DDD señala que el paquete no aporta guía de management.
+    |
+
+    | Cotización observada | 2026-10-30 | Referencia de mercado para seguimiento,
+    no catalizador operativo | USD 406,13, según DDD. |
+
+    | Consenso de precio objetivo reportado | 2026-11-20 | Referencia de expectativas
+    de mercado; no prueba de valor intrínseco | USD 586,69; rango USD 440–1.000, según
+    DDD. |
+
+
+    No se incluyen fechas confirmadas para eventos corporativos específicos. Los catalizadores
+    anteriores son hitos de verificación, no anuncios de eventos con calendario conocido.
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración intrínseca **no puede estimarse con rigor** a partir del paquete
+    disponible. AOIF declara insuficientes los datos para estimarla; faltan precio
+    y fecha de referencia comparables para sus múltiplos, previsiones de flujo de
+    caja, inversión futura, costo de capital y supuestos de crecimiento.
+
+
+    **Metodología apropiada para una investigación posterior:**
+
+
+    1. **Flujo de caja descontado (DCF):** estimar ingresos, márgenes, impuestos,
+    capex, capital de trabajo y FCF en distintos escenarios; descontarlos con un costo
+    de capital explícito y justificar el valor terminal.
+
+    2. **Valoración relativa:** comparar múltiplos con compañías pertinentes de la
+    industria y la cadena de valor, teniendo en cuenta diferencias de modelo de negocio,
+    crecimiento, capital requerido y exposición geopolítica. Compañías como [[ASML]],
+    [[AMAT]], [[AMD]] y [[AVGO]] pueden servir como referencias sectoriales con cautela;
+    no son comparables directos por el solo hecho de pertenecer al ecosistema.
+
+    3. **Análisis de escenarios:** distinguir escenarios de demanda, utilización de
+    capacidad, márgenes e inversión; no tratar los valores de consenso como sustituto
+    de supuestos propios.
+
+
+    **Sensibilidades que deben cuantificarse:** crecimiento de ingresos, margen bruto
+    y operativo, conversión de beneficios a FCF, capex, utilización de capacidad,
+    costo de capital y crecimiento terminal. Sin estos inputs no es posible estimar
+    un rango de valor intrínseco ni un margen de seguridad.
+
+
+    El consenso de USD 586,69 frente a la cotización de USD 406,13 es una brecha entre
+    observaciones de mercado en fechas distintas —2026-11-20 y 2026-10-30—, no una
+    comparación con valor intrínseco. DDD concluye que no se ha validado que el mercado
+    esté equivocado. AOIF también califica el margen de seguridad como insuficiente,
+    aunque no aporta detalle de cálculo verificable.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué mercado direccionable, penetración y demanda futura respaldan las expectativas
+    de crecimiento de TSMC, y qué porción de los ingresos se relaciona con cada mercado
+    final?
+
+    2. ¿Cuál es la serie verificable de ingresos, márgenes y capex por período, y
+    cómo se reconcilia con las cifras de crecimiento y rentabilidad reportadas por
+    AOIF?
+
+    3. ¿Cuáles son el capital invertido y los retornos sobre capital en períodos comparables?
+    ¿Cómo se calculó el ROIC de 60,3% reportado por AOIF?
+
+    4. ¿Cuál es el FCF histórico y proyectado, cómo se define el rendimiento de FCF
+    de AOIF y cómo se reconcilia con el crecimiento de FCF de 65,96% reportado por
+    DDD?
+
+    5. ¿Cuál es el plan de inversión futura en capacidad, cómo se financia y qué retornos
+    se esperan de esa inversión?
+
+    6. ¿Qué datos respaldan la evaluación de moat amplio, posición líder, calidad
+    de management y asignación de capital creadora de valor?
+
+    7. ¿Cuál es la evolución histórica de acciones en circulación, compensación basada
+    en acciones y dilución?
+
+    8. ¿Quiénes son los principales ejecutivos y miembros del board, cómo se estructuran
+    los incentivos y qué evidencia respalda la evaluación de alineamiento débil de
+    insiders?
+
+    9. ¿Qué supuestos y horizontes sustentan el consenso de precio objetivo de USD
+    586,69 y su rango de USD 440–1.000?
+
+    10. ¿Cómo afectarían escenarios de tensión geopolítica, restricciones de exportación
+    o interrupción logística a operaciones, clientes y generación de caja?
+
+
+    **Fuentes disponibles en el paquete:** [StockAnalysis — Financials](https://stockanalysis.com/stocks/tsm/financials/)
+    y [StockAnalysis — Statistics](https://stockanalysis.com/stocks/TSM/statistics/).
+    No se proporcionan enlaces a las fuentes subyacentes para las evaluaciones cualitativas
+    de AOIF.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]],
+    [[ADI|Analog Devices, Inc.]], [[ADP|Automatic Data Processing, Inc.]], [[ALAB|Astera
+    Labs, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|Advanced Micro Devices,
+    Inc.]], [[ARM|Arm Holdings plc]], [[ASML|ASML Holding N.V.]], [[AVGO|Broadcom
+    Inc.]], [[BB|BlackBerry Limited]], [[CLS|Celestica Inc.]], [[CRM|Salesforce, Inc.]],
+    [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign,
+    Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[MSFT|Microsoft Corporation]],
+    [[MSI|Motorola Solutions, Inc.]], [[NVDA|NVIDIA Corporation]], [[PANW|Palo Alto
+    Networks, Inc.]], [[SNOW|Snowflake Inc.]]
+
+    - **Same Industry**: [[ADI|Analog Devices, Inc.]], [[ALAB|Astera Labs, Inc.]],
+    [[AMD|Advanced Micro Devices, Inc.]], [[ARM|Arm Holdings plc]], [[AVGO|Broadcom
+    Inc.]], [[NVDA|NVIDIA Corporation]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -273,7 +645,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T22:56:05.428447+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T21:30:29.172133+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -293,7 +665,7 @@ research_input_snapshot:
     and others. T
   revenue: 155160000000.0
   revenue_growth: 36.17
-  roic: 60.3
+  roic: 64.05
   scenario_financial_evidence:
     source_observations:
       cash_and_investments_history:
@@ -434,12 +806,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    1000.0, "low": 440.0, "mean": 586.69, "median": 586.69, "observed_at": "2026-11-20T19:56:09.049595-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T19:56:09.049595-03:00", "observed_date": "2026-11-20", "target_price":
+    1000.0, "low": 440.0, "mean": 586.69, "median": 586.69, "observed_at": "2026-11-21T18:30:32.563435-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T18:30:32.563435-03:00", "observed_date": "2026-11-21", "target_price":
     586.69, "url": "https://stockanalysis.com/stocks/tsm/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:56:09.049595-03:00",
-    "observed_date": "2026-11-20", "target_price": 586.693, "url": "https://finance.yahoo.com/quote/TSM/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T18:30:32.563435-03:00",
+    "observed_date": "2026-11-21", "target_price": 586.693, "url": "https://finance.yahoo.com/quote/TSM/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 406.1300048828125,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/TSM/"}]}}'
   sector: Technology
@@ -449,51 +821,89 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: b6eda7b67f9bccd3a0fe88a5cc63a7d2083ecf36169110d1f0efea431b367f67
+    sha256: c83d49cf82027300adbec4e0081309cf6ad83e5a4fa92e935978a4982f638aff
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T19:56:34.847929-03:00'
+  triggered_at: '2026-11-21T18:31:01.133545-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: 2.58x al 2026-09-30, por encima del umbral configurado.
-  source:
-    name: stockanalysis.com
+  observation: El current ratio reportado fue 2.58x al 2026-09-30, por encima del
+    umbral configurado.
+  sources:
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/TSM/statistics/
-  threshold: below 0.5
+  threshold: below 0.5x
 - metric: dilution_yoy_pct
-  observation: 'No evaluable: falta historial comparable de acciones; no implica que
-    se haya superado el umbral.'
+  observation: 'No evaluable: falta una serie comparable de acciones para calcular
+    dilución interanual.'
   threshold: above 10%
 - metric: interest_coverage
-  observation: El proveedor reporta 0 al 2026-09-30, pero el paquete no aclara si
-    representa ausencia de gasto por intereses o falta de dato; no se interpreta como
-    cobertura calculada.
-  source:
-    name: stockanalysis.com
+  observation: El proveedor reporta 0 al 2026-09-30, pero el paquete no explica la
+    definición ni aporta los inputs EBIT e interés para validar el ratio; no se interpreta
+    como cobertura económica verificada.
+  sources:
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/TSM/statistics/
   threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: 'No aplicable a los datos aportados: el FCF TTM reportado es positivo
-    al 2026-09-30.'
-  threshold: below 12 months
 - metric: net_debt_ebitda
-  observation: No evaluable con precisión por incompatibilidad de unidad/escala entre
-    deuda, efectivo y EBITDA reportados.
-  threshold: above 4.0x
-- metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: no se aporta historial de acciones para tres años.'
-  threshold: above 5%
-scenario_analysis: null
+  observation: No se pueden verificar net debt/EBITDA por incompatibilidad de unidades;
+    el FCF reportado es positivo, y falta serie de acciones para calcular CAGR.
+  threshold: above 4.0x; negative-FCF runway below 12 months; share-count CAGR above
+    5%
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Evidencia futura verificable de continuidad en el crecimiento y los márgenes
+      debilitaría la premisa adversa.
+    id: BEAR
+    key_assumptions:
+    - La expansión reciente de ingresos y margen bruto no se mantiene.
+    - Se conserva el objetivo bajo observado como ancla del escenario, sin extrapolarlo
+      como resultado garantizado.
+    rationale: Ancla en el objetivo bajo observado de analistas, no una valoración
+      intrínseca propia. Representa el extremo adverso dentro del rango disponible
+      si el crecimiento y la mejora reciente del margen bruto no se sostienen.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/tsm/forecast/
+    - as_of_date: '2026-09-30'
+      name: StockAnalysis financials
+      url: https://stockanalysis.com/stocks/tsm/financials/
+    target_price: 440
+  - falsifiers:
+    - Un deterioro verificable de ingresos, margen bruto o FCF debilitaría la premisa
+      favorable.
+    id: BULL
+    key_assumptions:
+    - La expansión reciente de ingresos y margen bruto resulta sostenible.
+    - Se conserva el objetivo alto observado como ancla del escenario, sin extrapolarlo
+      como resultado garantizado.
+    rationale: Ancla en el objetivo alto observado de analistas, no una valoración
+      intrínseca propia. Representa el extremo favorable del rango si se sostuvieran
+      el crecimiento y la mejora reciente del margen bruto; el paquete no aporta supuestos
+      de analistas que permitan validar ese extremo.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/tsm/forecast/
+    - as_of_date: '2026-09-30'
+      name: StockAnalysis financials
+      url: https://stockanalysis.com/stocks/tsm/financials/
+    target_price: 1000
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 65
+  errors: []
+  status: valid_pending_decision_board
+score_general: 62
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T19:56:09.049595-03:00'
+  calculado_at: '2026-11-21T18:30:32.563435-03:00'
   fuentes:
     stockanalysis: 586.69
     yfinance: 586.693
@@ -501,24 +911,23 @@ target_consensus:
   n_fuentes: 2
   promedio: 586.69
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T19:56:09.049595-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:30:32.563435-03:00'
+    observed_date: '2026-11-21'
     target_price: 586.69
     url: https://stockanalysis.com/stocks/tsm/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T19:56:09.049595-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:30:32.563435-03:00'
+    observed_date: '2026-11-21'
     target_price: 586.693
     url: https://finance.yahoo.com/quote/TSM/
   target_high: 1000.0
   target_low: 440.0
-tesis_inversion: La evidencia disponible es compatible con crecimiento de ingresos
-  y expansión reciente del margen bruto, junto con una inversión relevante en capacidad;
-  sin datos suficientes de capital invertido, retornos sobre capital, penetración
-  del mercado direccionable o expectativas de management, la durabilidad de esos resultados
-  y su valoración quedan abiertas.
+tesis_inversion: La tesis a investigar es que el crecimiento de ingresos y el margen
+  bruto recientes podrían respaldar la expansión del flujo de caja libre. La evidencia
+  disponible no permite establecer cuánto de esa mejora es sostenible, cuantificar
+  el mercado direccionable o validar retornos incrementales sobre el capital.
 ticker: TSM
 version: '3.0'
