@@ -1,78 +1,104 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La combinación de FCF TTM positivo y margen bruto reportado es compatible con
-    capacidad actual de generación de caja, pero no acredita su sostenibilidad ni
-    la rentabilidad incremental del capital.
-  - La subida de precio y el consenso cercano a la cotización no bastan para inferir
-    una discrepancia de valoración.
-  - StockAnalysis reporta ingresos TTM de 113.890 millones y margen bruto de 52,09%
-    al 2026-09-30; la URL disponible no especifica moneda en los valores resumidos.
-  - StockAnalysis reporta FCF TTM de 21.689 en la serie financiera y utilidad neta
-    TTM de 27.109, ambos al 2026-09-30 y en unidades reportadas por la fuente.
-  - Yahoo Finance reporta momentum de precio de 12 meses de 89,433%, drawdown de 15,711%
-    y volatilidad de 90 días de 43,155%, con período terminado el 2026-10-30.
+  - La actividad de upstream y downstream expone el negocio a ciclos de hidrocarburos;
+    el paquete no cuantifica esa sensibilidad.
+  - Los objetivos de analistas sirven como anclas observadas para escenarios, no como
+    estimaciones intrínsecas.
+  - 'Precio de USD 22,05 al 2026-10-30 y momentum de precio a 12 meses de 89,433%
+    para el período 2025-10-31/2026-10-30; fuente: https://finance.yahoo.com/quote/PBR/history/.'
+  - 'Ingresos TTM de 113.890.000.000, beneficio neto TTM de 27.109 y FCF TTM de 21.689
+    en valores reportados por el proveedor al 2026-09-30; fuente: https://stockanalysis.com/stocks/pbr/financials/.
+    Las unidades monetarias de los importes históricos no están explícitamente armonizadas
+    en el paquete.'
+  - 'Rango de objetivos de analistas USD 17,40–27,00 y objetivo medio USD 22,83, observados
+    al 2026-11-21; fuentes: https://stockanalysis.com/stocks/pbr/forecast/ y https://finance.yahoo.com/quote/PBR/.'
   preguntas_abiertas:
-  - ¿Cuáles son los retornos sobre capital y la economía de los proyectos actuales
-    y planificados, con períodos y moneda comparables?
-  - ¿Qué evidencia cuantifica reservas, costos, cuota de mercado, demanda direccionable
-    y penetración por segmento?
-  - ¿Qué decisiones recientes de management y asignación de capital explican la inversión,
-    deuda y distribución al accionista?
-catalizadores_previos: &id001 []
+  - ¿Qué producción, reservas, capex y proyectos respaldan el crecimiento y los retornos
+    incrementales sobre capital?
+  - ¿Cómo se compara el FCF en períodos equivalentes y qué parte se destina a inversión,
+    dividendos o reducción de deuda?
+  - ¿Cuál es la serie fechada de acciones diluidas y cuál es la moneda y escala común
+    de los importes financieros?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T18:12:27.126816-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-PBR
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T18:12:27.126816-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-PBR
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia parcial
-  justificacion: El paquete muestra un impulso de precio de 12 meses elevado, pero
-    no aporta evidencia suficiente para validar una tesis de crecimiento estructural
-    ni valorar los riesgos de asignación de capital y control estatal.
+  categoria: Investigación requerida; exposición cíclica a petróleo con evidencia
+    financiera incompleta para una tesis de multibagger.
+  justificacion: El paquete muestra momentum de precio de 12 meses positivo, pero
+    no aporta datos suficientes para validar crecimiento de ingresos a largo plazo,
+    reinversión o retornos incrementales sobre capital.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen identifica tres segmentos, pero no ofrece datos de cuota de
-    mercado, reservas, costos relativos, retornos sobre capital, retorno de proyectos
-    ni penetración del mercado direccionable. La evolución del margen bruto y el FCF
-    aporta contexto financiero, pero no basta para establecer un moat o su erosión.
-  rating: Incompleta
+  analisis: El modelo comprende exploración y producción, refinación, transporte y
+    comercialización, además de gas y energías bajas en carbono. El margen bruto TTM
+    reportado es 52,09% al 2026-09-30, pero faltan datos para juzgar ventaja competitiva,
+    retornos sobre capital, reinversión y erosión del moat.
+  rating: No concluyente
 dominio_catalizadores:
-- catalizador: La actualización de resultados posteriores al 2026-09-30 podría aportar
-    evidencia sobre continuidad de ventas, márgenes y generación de FCF.
-  estado: Hito de seguimiento; el paquete no incluye resultados posteriores.
-  fuente: https://stockanalysis.com/stocks/pbr/financials/
-- catalizador: La trayectoria de FCF y deuda puede ayudar a evaluar capacidad de inversión
-    y flexibilidad financiera.
-  estado: Pendiente de validar con estados financieros comparables y unidades reconciliadas.
-  fuente: https://stockanalysis.com/stocks/pbr/financials/
+- catalizador: Confirmación de la tendencia de generación de caja
+  evidencia: El FCF TTM reportado es positivo y el crecimiento de FCF TTM figura como
+    22,87%; hacen falta períodos comparables y detalle de sus impulsores para confirmar
+    sostenibilidad.
+  fuente: https://stockanalysis.com/stocks/pbr/financials/, TTM terminado 2026-09-30.
+- catalizador: Evolución de producción y reservas
+  evidencia: La exploración y producción es parte del modelo de negocio, pero el paquete
+    no aporta series de producción, reservas ni hitos de proyectos.
+  fuente: Resumen financiero de contexto, consultado al 2026-11-21.
+- catalizador: Próximas divulgaciones financieras
+  evidencia: La actualización financiera disponible cubre TTM hasta 2026-09-30; el
+    paquete no especifica fechas de futuras publicaciones.
+  fuente: https://stockanalysis.com/stocks/pbr/financials/, período terminado 2026-09-30.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: https://stockanalysis.com/stocks/PBR/statistics/
-  riesgo: 'Apalancamiento y liquidez: la razón corriente reportada es 0,9 al 2026-09-30;
-    no se pudo validar deuda neta/EBITDA con unidades compatibles.'
-- fuente: Resumen financiero del paquete; no incluye URL para este detalle.
-  riesgo: Exposición a precios de hidrocarburos y a decisiones operativas y de inversión;
-    el paquete no cuantifica sensibilidades ni retornos por proyecto.
-- fuente: No hay evidencia específica disponible en el paquete.
-  riesgo: Gobierno corporativo y asignación de capital no evaluables con la evidencia
-    entregada; faltan datos específicos sobre decisiones, inversiones y retornos.
-- fuente: https://finance.yahoo.com/quote/PBR/history/
-  riesgo: La volatilidad a 90 días fue 43,155% al 2026-10-30, según historial de precios
-    de Yahoo Finance.
+- evidencia: El modelo de negocio resumido incluye exploración, producción, refinación
+    y comercialización de petróleo y gas; el paquete no aporta sensibilidad cuantificada
+    a precios.
+  fuente: Resumen financiero de contexto, consultado al 2026-11-21.
+  riesgo: Ciclicidad y dependencia de precios de hidrocarburos
+- evidencia: Current ratio reportado de 0,9x al 2026-09-30; supera el umbral de observación
+    de 0,5x, pero no elimina riesgo de liquidez.
+  fuente: https://stockanalysis.com/stocks/PBR/statistics/, período terminado 2026-09-30.
+  riesgo: Liquidez corriente acotada
+- evidencia: El paquete no incluye evidencia específica sobre decisiones de management,
+    distribución de capital, compromisos de inversión o retorno sobre capital.
+  fuente: Paquete de investigación y resumen financiero, al 2026-11-21.
+  riesgo: Gobierno corporativo y asignación de capital no evaluables
+- evidencia: Los importes financieros históricos aparecen como valores reportados
+    sin unidad monetaria explícita común en todos los campos; algunos períodos de
+    ingresos están omitidos o duplicados.
+  fuente: https://stockanalysis.com/stocks/pbr/financials/, períodos reportados hasta
+    2026-09-30.
+  riesgo: Calidad y comparabilidad de datos
 error_mercado:
-  catalizador_cambio: Resultados operativos y financieros comparables, junto con evidencia
-    verificable sobre inversiones y retornos de capital, podrían cambiar la evaluación;
-    el paquete no documenta hitos específicos.
-  conclusion_error_valoracion: No se valida un error de valoración. El precio objetivo
-    de consenso está cerca de la cotización, pero el paquete no aporta un método de
-    valoración independiente.
-  consenso_actual: La cotización observada fue USD 22,05 al 2026-10-30; el consenso
-    de precio objetivo era USD 22,83 al 2026-11-20, con rango USD 17,40–27,00.
-  hipotesis_contraria: La evidencia disponible no demuestra que el mercado esté subestimando
-    el crecimiento, la rentabilidad sostenible o la calidad de la asignación de capital.
-  razonamiento: El precio avanzó 89,433% en el período de 12 meses terminado el 2026-10-30,
-    con volatilidad a 90 días de 43,155%; esas observaciones describen el mercado,
-    no prueban infravaloración.
-generated_at: '2026-11-20T18:12:27.126816-03:00'
+  catalizador_cambio: La evidencia disponible no identifica un catalizador corporativo
+    fechado; resultados financieros comparables y evidencia de producción, inversión
+    y asignación de capital podrían cambiar la evaluación.
+  conclusion_error_valoracion: 'No puede validarse un error de valoración con el paquete:
+    faltan método e inputs para estimar valor intrínseco.'
+  consenso_actual: El precio de cierre reportado fue USD 22,05 al 2026-10-30; el consenso
+    de analistas reportó objetivo medio de USD 22,83 al 2026-11-21.
+  hipotesis_contraria: La distancia entre precio y objetivo medio es limitada en estos
+    datos; no demuestra por sí sola una infravaloración ni una sobrevaloración.
+  razonamiento: El rango de objetivos observado es USD 17,40–27,00, frente a una cotización
+    de USD 22,05; es una referencia de consenso, no una valoración propia.
+generated_at: '2026-11-21T17:46:27.824240-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-PBR
@@ -103,7 +129,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Petróleo Brasileiro S.A. - Petrobras
   operating_margin: 38.1
-  pe_ratio: 4.45
+  pe_ratio: 4.37
   products: ''
   revenue: 113890000000.0
   revenue_growth: 23.51
@@ -114,73 +140,72 @@ ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
     revenue_history: null
-    revenue_ttm: 113890000000.0
-  limitations: La serie disponible no contiene un dato fechado de ingresos para FY
-    2023, necesario para la comparación de tres años; el TTM no sustituye ese período.
+  limitations: No hay observación verificable de ingresos para FY 2023 en las filas
+    disponibles; no puede establecerse el período t-3 comparable.
   metric: revenue_cagr_3y_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/pbr/financials/
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/PBR/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: FCF growth reportado por la fuente; no recalculado
+- formula: FCF growth reportado por la fuente; la definición requerida es (FCF_t /
+    FCF_t-1) - 1
   inputs:
     fcf_growth_history: 22.87
-  limitations: La fuente reporta crecimiento TTM de 22,87%, pero el paquete no especifica
-    en este campo la base comparativa exacta ni permite verificar que ambos períodos
-    sean comparables y positivos.
+  limitations: El proveedor reporta crecimiento TTM, pero el paquete no especifica
+    el período comparativo subyacente para verificar independientemente la comparabilidad
+    y la fórmula.
   metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/pbr/financials/
   status: reported
   unit: percent
   value: 22.87
-- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
-    a sus inputs de evidencia.
+- formula: FCF / net_income * 100
+  inputs:
+    fcf_history: 21689
+    net_income_history: 27109
+  limitations: Los campos comparten período TTM, pero el paquete no verifica explícitamente
+    que ambos importes tengan la misma moneda y escala; no se calcula la conversión.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/pbr/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash /
+    EBITDA si net_cash = cash - debt
   inputs:
-    cash_and_investments_history: 12092.0
-    ebitda: 52040000000.0
-    total_debt_history: 69983.0
-  limitations: Deuda y efectivo se presentan como importes reportados sin escala explícita
-    en la serie histórica, mientras EBITDA aparece como 52.040.000.000; no se puede
-    confirmar compatibilidad de unidades para el cociente.
+    ebitda: 52040000000
+    net_cash_history: -57891
+  limitations: El paquete no acredita moneda y escala comunes entre net cash reportado
+    y EBITDA; no se puede calcular un múltiplo compatible.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/pbr/financials/
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/PBR/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    diluted_shares: null
-    diluted_shares_history: null
-    shares_outstanding: 12890000000.0
+    shares_outstanding: 12890000000
     shares_outstanding_history: null
-  limitations: Sólo hay un dato actual de acciones en circulación; falta el conteo
-    comparable del período anterior y no se aporta historial de acciones diluidas.
+  limitations: Solo hay una observación de acciones en circulación; falta el dato
+    comparable del período anterior y no se proporciona historial de acciones diluidas.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/PBR/statistics/
   status: unavailable
   unit: percent
@@ -216,7 +241,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'Petróleo Brasileiro S.A. - Petrobras explores, produces, and sells
     oil and gas in Brazil, China, the United States, the Americas, Asia, Europe, Singapore,
     and internationally. It operates through three segments: Exploration and Production;
@@ -245,7 +270,326 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.72
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Petróleo Brasileiro S.A. — Petrobras (PBR) es una compañía energética integrada
+    con actividades de exploración y producción de petróleo y gas, refinación, transporte,
+    almacenamiento, comercialización, gas y electricidad. Su cadena de valor abarca
+    desde la prospección y el desarrollo de yacimientos —principalmente offshore—
+    hasta la venta y exportación de hidrocarburos y productos derivados.
+
+
+    La actividad principal se concentra en petróleo y gas. Entre sus productos se
+    encuentran el crudo, los líquidos de gas natural y el gas natural, incluido el
+    gas natural licuado. Sus clientes incluyen refinerías, comercializadores, distribuidores
+    y consumidores de combustibles.
+
+
+    La empresa opera en una industria intensiva en capital y cíclica, expuesta a los
+    precios internacionales de los hidrocarburos. Por su actividad y perfil sectorial,
+    comparte riesgos y dinámicas competitivas con [[BP]], [[CVX]], [[COP]], [[E]],
+    [[EQNR]], [[OXY]], [[BKR]], [[HAL]] y [[TS]].
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Drivers de ingresos y rentabilidad:** la información disponible no desglosa
+    ingresos o márgenes por segmento. En términos generales, la actividad de Petrobras
+    depende de la producción y venta de petróleo y gas, el procesamiento y la comercialización
+    de productos derivados, y la operación de sus negocios de gas y electricidad.
+    La exposición a los precios internacionales de petróleo y gas puede afectar ingresos,
+    márgenes y generación de caja.
+
+
+    **Posición competitiva:** el análisis AOIF caracteriza a Petrobras como líder
+    y atribuye sus ventajas a la escala, la experiencia técnica en aguas profundas,
+    el acceso a recursos brasileños y la integración de actividades. Califica la amplitud
+    de estas ventajas competitivas como **estrecha**: son relevantes, pero coexisten
+    con una elevada intensidad de capital, exposición a ciclos de materias primas
+    y riesgos de asignación de capital.
+
+
+    **Dinámica de la industria:** la competitividad depende, entre otros factores,
+    de los costos de extracción, la productividad de los activos y la ejecución de
+    proyectos. El paquete no aporta datos comparables sobre costos, reservas, cuota
+    de mercado, retornos de proyectos ni participación por segmento; por tanto, no
+    permite cuantificar la fortaleza relativa de Petrobras frente a sus pares, como
+    [[BP]], [[CVX]], [[E]] o [[EQNR]].
+
+
+    ## 3. Perfil Financiero
+
+
+    | Métrica | Valor reportado | Período / fecha | Observaciones |
+
+    |---|---:|---|---|
+
+    | Ingresos TTM | USD 113,89 mil millones | TTM terminado el 2026-09-30 | Fuente:
+    [StockAnalysis — Financials](https://stockanalysis.com/stocks/pbr/financials/).
+    |
+
+    | Margen bruto | 52,09% | TTM; dato referido al 2026-09-30 | Reportado en el paquete
+    DDD; no se proporciona desglose por segmento. |
+
+    | Flujo de caja libre (FCF) | Positivo | TTM terminado el 2026-09-30 | El paquete
+    no incluye el importe. La cifra no demuestra por sí sola que la generación sea
+    sostenible. |
+
+    | Crecimiento de FCF | 22,87% | TTM terminado el 2026-09-30 | Reportado por la
+    fuente; el paquete no especifica la base comparativa exacta ni permite verificar
+    la comparabilidad. |
+
+    | Razón corriente | 0,9x | 2026-09-30 | Fuente: [StockAnalysis — Statistics](https://stockanalysis.com/stocks/PBR/statistics/).
+    |
+
+    | Cobertura de intereses | 0x | 2026-09-30 | Reportada por la fuente, pero requiere
+    validación por posible problema de definición o dato. No se sustituyó EBIT por
+    EBITDA. |
+
+
+    El análisis AOIF también presenta crecimiento de ingresos de **23,51%**, margen
+    operativo de **38,1%** y ROIC de **20,55%**. No se proporcionan para estas cifras
+    una fecha, período comparable ni fuente verificable en el paquete; deben tratarse
+    como **datos pendientes de validación**, no como métricas directamente comparables
+    con las cifras TTM anteriores.
+
+
+    El AOIF reporta EV/EBITDA de **2,9x**, P/E de **4,45x** y FCF yield de **0**.
+    Sin fecha, precio de referencia, metodología ni inputs verificables, estos múltiplos
+    no bastan para establecer una valoración. Tampoco se proporcionan deuda neta,
+    deuda neta/EBITDA reconciliada, capex ni importe de FCF. La razón corriente de
+    0,9x es superior al umbral de 0,5x señalado en el paquete DDD, pero no sustituye
+    un análisis integral de liquidez.
+
+
+    No se pudo calcular el crecimiento de ingresos a tres años: la serie disponible
+    no contiene el dato de FY 2023 requerido por la metodología indicada en el paquete
+    DDD.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    El análisis AOIF califica la calidad del management como **regular**, la asignación
+    de capital como **neutral** y el alineamiento de insiders como **débil**. No aporta
+    métricas, fuentes, fechas ni evidencia detallada que permita verificar esas evaluaciones.
+
+
+    El riesgo de gobierno más destacado en el paquete es la posible influencia de
+    la participación estatal sobre precios de combustibles, inversiones, dividendos
+    y prioridades operativas. No se proporcionan detalles sobre composición del board,
+    independencia de directores, estructura de incentivos, tenencia accionaria de
+    insiders ni mecanismos de supervisión. Estos aspectos requieren investigación
+    adicional antes de concluir sobre la calidad del gobierno corporativo.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista — hipótesis respaldada parcialmente por la información disponible:**
+
+
+    - Petrobras combina actividades de exploración y producción con refinación, transporte
+    y comercialización, lo que le otorga una posición integrada dentro de la cadena
+    de hidrocarburos.
+
+    - El análisis AOIF identifica escala, experiencia técnica en aguas profundas y
+    acceso a recursos brasileños como ventajas competitivas potenciales. La misma
+    fuente las considera un moat estrecho, no una ventaja inexpugnable.
+
+    - El paquete DDD reporta margen bruto TTM de 52,09% y FCF positivo para el TTM
+    terminado el 2026-09-30. Esto es compatible con capacidad actual de generación
+    de caja, pero no prueba que dicha generación sea sostenible ni que los proyectos
+    nuevos obtengan retornos adecuados.
+
+    - El paquete DDD reporta crecimiento del FCF de 22,87% TTM, aunque la base comparativa
+    no está especificada de forma suficiente para verificar su comparabilidad.
+
+
+    **Lectura de mercado:** la cotización observada fue de **USD 22,05 al 2026-10-30**,
+    tras una subida de **89,433%** en los 12 meses terminados en esa fecha. La volatilidad
+    a 90 días reportada fue de **43,155%**. Estos datos describen el comportamiento
+    del precio, pero no demuestran infravaloración. Al 2026-11-20, el consenso de
+    precio objetivo era **USD 22,83**, con rango de **USD 17,40–27,00**; su proximidad
+    a la cotización observada no valida por sí sola una oportunidad de inversión ni
+    un error de valoración.
+
+
+    Fuentes financieras citadas en el paquete DDD: [StockAnalysis — Financials](https://stockanalysis.com/stocks/pbr/financials/)
+    y [StockAnalysis — Statistics](https://stockanalysis.com/stocks/PBR/statistics/).
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    - **Riesgo de materias primas:** una caída o volatilidad de los precios internacionales
+    del petróleo y el gas podría afectar ingresos, márgenes y caja. El AOIF lo califica
+    de impacto alto y probabilidad alta, sin aportar sensibilidades cuantitativas.
+
+    - **Riesgo político y regulatorio:** la participación estatal puede influir en
+    precios de combustibles, inversiones, dividendos y prioridades operativas. El
+    AOIF lo califica de impacto alto y probabilidad media.
+
+    - **Riesgo de asignación de capital y ejecución:** el paquete no aporta retornos
+    sobre capital por proyecto, economía unitaria, capex comparable ni datos de ejecución
+    de inversiones. Por tanto, no permite confirmar que el gasto futuro sostenga retornos
+    económicos adecuados.
+
+    - **Liquidez y apalancamiento:** la razón corriente reportada es de 0,9x al 2026-09-30.
+    La deuda neta/EBITDA no pudo validarse con unidades compatibles. La cobertura
+    de intereses reportada como 0x requiere comprobación.
+
+    - **Ciclicidad e intensidad de capital:** la actividad requiere inversiones significativas
+    y está expuesta a ciclos de materias primas, lo que puede hacer que la caja y
+    los retornos varíen entre períodos.
+
+    - **Riesgo de valoración:** no hay una estimación independiente del valor intrínseco
+    ni inputs suficientes para una valoración reproducible. El consenso de precio
+    objetivo cercano a la cotización no confirma ni descarta infravaloración.
+
+
+    **Contra-tesis:** la evidencia disponible no demuestra que el mercado esté subestimando
+    el crecimiento, la rentabilidad sostenible o la calidad de la asignación de capital.
+    El avance del precio de 12 meses no constituye evidencia de una discrepancia de
+    valoración.
+
+
+    **Falsadores a monitorear:**
+
+
+    1. FCF comparable persistentemente débil o negativo, en contradicción con el FCF
+    positivo reportado para el TTM terminado el 2026-09-30.
+
+    2. Evidencia de que las nuevas inversiones no logran retornos económicos adecuados
+    o deterioran materialmente la generación de caja.
+
+    3. Confirmación de que los datos de rentabilidad, liquidez o cobertura de intereses
+    son menos favorables de lo reportado, una vez reconciliados períodos, unidades
+    y definiciones.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Fecha esperada | Evento | Impacto potencial | Estado y evidencia |
+
+    |---|---|---|---|
+
+    | Posterior al 2026-09-30; fecha específica no indicada | Próxima actualización
+    de resultados financieros y operativos | Podría aportar evidencia sobre continuidad
+    de ingresos, márgenes y FCF. | Hito de seguimiento; el paquete no incluye resultados
+    posteriores. Fuente: [StockAnalysis — Financials](https://stockanalysis.com/stocks/pbr/financials/).
+    |
+
+    | Sin fecha indicada | Publicación o verificación de datos comparables de deuda,
+    caja y FCF | Ayudaría a evaluar capacidad de inversión y flexibilidad financiera.
+    | Pendiente de validar con períodos, definiciones y unidades reconciliados. Fuente:
+    [StockAnalysis — Financials](https://stockanalysis.com/stocks/pbr/financials/).
+    |
+
+    | Sin fecha indicada | Evidencia sobre producción, costos, reservas y ejecución
+    de proyectos offshore | Podría confirmar o debilitar la tesis de ventajas técnicas
+    y de generación de retornos. | El paquete señala estos aspectos como puntos de
+    monitoreo, pero no identifica un evento fechado ni aporta datos cuantitativos.
+    |
+
+
+    No se documentan fechas específicas de resultados, anuncios de proyectos u otros
+    eventos futuros. No corresponde asignarles una fecha sin evidencia.
+
+
+    ## 8. Marco de Valoración
+
+
+    No es posible estimar responsablemente un valor intrínseco con la información
+    disponible. El propio análisis AOIF lo señala y no proporciona una fecha de valoración,
+    precio de referencia, deuda neta, acciones diluidas, previsiones de producción,
+    precios, inversión ni supuestos detallados.
+
+
+    Para una compañía integrada y expuesta al ciclo de hidrocarburos, una valoración
+    debería contrastar métodos basados en flujo de caja y múltiplos comparables, usando
+    supuestos explícitos y consistentes para los segmentos relevantes. Antes de hacerlo,
+    sería necesario:
+
+
+    - reconciliar los períodos y las unidades de ingresos, EBITDA, deuda, capex y
+    FCF;
+
+    - obtener previsiones de producción, precios realizados, costos y necesidades
+    de inversión;
+
+    - evaluar retornos de capital y economía de proyectos actuales y planificados;
+
+    - verificar el número de acciones diluidas y el tratamiento de deuda neta;
+
+    - definir escenarios de precios de hidrocarburos, ejecución operativa, inversión
+    y política de distribución.
+
+
+    El AOIF reporta EV/EBITDA de 2,9x, P/E de 4,45x y FCF yield de 0, pero el paquete
+    no documenta sus fuentes, fechas ni inputs. Deben tratarse como cifras no verificadas,
+    no como base suficiente para concluir que PBR está barata. El consenso de precio
+    objetivo al 2026-11-20 —USD 22,83, rango USD 17,40–27,00— tampoco sustituye una
+    valoración independiente. No hay base suficiente para calcular un margen de seguridad
+    o un análisis de sensibilidad cuantitativo.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuáles son el ROIC, el costo de capital y los retornos económicos de los proyectos
+    actuales y planificados, con períodos y monedas comparables?
+
+    2. ¿Qué retornos generan los proyectos offshore y cómo se comparan con sus presupuestos,
+    plazos y supuestos iniciales?
+
+    3. ¿Cuáles son las reservas, los costos de extracción, la producción y la evolución
+    de esos indicadores por activo o segmento?
+
+    4. ¿Qué cuota de mercado, demanda direccionable y penetración tiene Petrobras
+    por segmento y geografía?
+
+    5. ¿Cuál es la serie de ingresos de FY 2023 y qué crecimiento resulta de compararla
+    con un período equivalente?
+
+    6. ¿Cuál es el importe de FCF y cómo se reconcilia con flujo de caja operativo,
+    capex y ventas de activos? ¿Es comparable el crecimiento TTM reportado de 22,87%?
+
+    7. ¿Cuál es la deuda neta/EBITDA con unidades y períodos consistentes? ¿Cómo se
+    explica la cobertura de intereses reportada como 0x?
+
+    8. ¿Cuál es la exposición cuantitativa de caja, márgenes y dividendos a distintos
+    precios del petróleo y el gas?
+
+    9. ¿Qué evidencia concreta respalda las evaluaciones AOIF sobre calidad del management,
+    alineamiento de insiders y asignación de capital?
+
+    10. ¿Qué estructura de gobierno, independencia del board e incentivos supervisa
+    las decisiones de precios, inversión y distribución de capital?
+
+
+    **Conclusión de investigación:** clasificación provisional de **investigación
+    requerida; evidencia parcial**. La información disponible describe una empresa
+    integrada con ventajas operativas potenciales y señales de generación de caja
+    en el período reportado, pero no basta para validar la sostenibilidad de sus retornos,
+    la asignación de capital ni una discrepancia de valoración.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]],
+    [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton
+    Company]], [[OXY|Occidental Petroleum Corporation]], [[TS|Tenaris S.A.]]
+
+    - **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]],
+    [[EQNR|Equinor ASA]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -280,7 +624,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T21:11:59.947779+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T20:45:51.050564+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -441,12 +785,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    27.0, "low": 17.4, "mean": 22.83, "median": 22.83, "observed_at": "2026-11-20T18:12:03.404790-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T18:12:03.404790-03:00", "observed_date": "2026-11-20", "target_price":
+    27.0, "low": 17.4, "mean": 22.83, "median": 22.83, "observed_at": "2026-11-21T17:45:54.558841-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T17:45:54.558841-03:00", "observed_date": "2026-11-21", "target_price":
     22.83, "url": "https://stockanalysis.com/stocks/pbr/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T18:12:03.404790-03:00",
-    "observed_date": "2026-11-20", "target_price": 22.825, "url": "https://finance.yahoo.com/quote/PBR/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T17:45:54.558841-03:00",
+    "observed_date": "2026-11-21", "target_price": 22.825, "url": "https://finance.yahoo.com/quote/PBR/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 22.049999237060547,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/PBR/"}]}}'
   sector: Energy
@@ -456,38 +800,89 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 1fff59da3740ee28b19e541ebcaefd61953a6225caea6d16d5d005351474be15
+    sha256: 7c3add2cfd6b06de1e803dc393170aee1b021e77f5f21cc661cbdaa7513c31e7
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T18:12:27.126816-03:00'
+  triggered_at: '2026-11-21T17:46:27.824240-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_note: Observación para Assessment; no constituye una decisión.
-  metric: current_ratio
-  observation: 0,9x al 2026-09-30; por encima del umbral configurado de 0,5x.
-- assessment_note: No se sustituyó EBIT por EBITDA ni se calculó cobertura con inputs
-    incompatibles.
-  metric: interest_coverage
-  observation: La fuente reporta 0x al 2026-09-30, por debajo del umbral de 2,0x;
-    el valor requiere validación por posible problema de definición o dato.
-- assessment_note: Solicitar cifras con unidad monetaria y período comparables.
-  metric: net_debt_ebitda
-  observation: No disponible por incompatibilidad no resuelta de escala entre inputs;
-    no es posible evaluar el umbral de 4,0x.
-- assessment_note: El umbral es una observación para Assessment, no una decisión.
-  metric: dilution_yoy_pct
-  observation: No disponible; falta el número de acciones comparable del período anterior
-    para evaluar el umbral de 10%.
-scenario_analysis: null
+- metric: current_ratio
+  observation: 0,9x reportado al 2026-09-30; no está por debajo del umbral configurado
+    de 0,5x.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/PBR/statistics/
+  threshold: current_ratio_below 0.5
+- metric: interest_coverage
+  observation: El valor reportado es 0x al 2026-09-30, por debajo del umbral 2,0x;
+    no se valida el cálculo y requiere aclaración del dato.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/PBR/statistics/
+  threshold: interest_coverage_below 2.0
+- metric: net_debt_ebitda
+  observation: No evaluable contra el umbral de 4,0x por incompatibilidad no resuelta
+    de moneda y escala entre inputs.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/pbr/financials/
+  threshold: net_debt_ebitda_above 4.0
+- metric: dilution_yoy_pct
+  observation: No evaluable contra el umbral de 10%; falta el número de acciones comparable
+    del período anterior.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/PBR/statistics/
+  threshold: dilution_yoy_above_pct 10
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Evidencia posterior de crecimiento sostenible de producción y FCF que contradiga
+      el caso adverso.
+    id: BEAR
+    key_assumptions:
+    - Se usa el extremo bajo observado del consenso de analistas.
+    - No se extrapola el crecimiento de FCF TTM como tendencia sostenible.
+    rationale: Ancla baja del rango observado de objetivos de analistas; representa
+      el extremo adverso del consenso, no una valoración intrínseca propia. La exposición
+      al ciclo de hidrocarburos y la falta de evidencia sobre retornos de reinversión
+      sustentan cautela, sin cuantificar una caída fundamental.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/pbr/forecast/
+    target_price: 17.4
+  - falsifiers:
+    - Deterioro sostenido de FCF o márgenes en información financiera posterior.
+    id: BULL
+    key_assumptions:
+    - Se usa el extremo alto observado del consenso de analistas.
+    - La generación positiva de FCF TTM se mantiene sin inferir tasas futuras.
+    rationale: Ancla alta del rango observado de objetivos de analistas; representa
+      el extremo favorable del consenso, no una valoración intrínseca propia. El FCF
+      TTM positivo y el margen bruto reportado aportan contexto favorable, pero el
+      paquete no demuestra que esos resultados sean sostenibles ni su vínculo con
+      reinversión.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/pbr/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/pbr/financials/
+    target_price: 27.0
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 48
+  errors: []
+  status: valid_pending_decision_board
+score_general: 56
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T18:12:03.404790-03:00'
+  calculado_at: '2026-11-21T17:45:54.558841-03:00'
   fuentes:
     stockanalysis: 22.83
     yfinance: 22.825
@@ -495,25 +890,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 22.83
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T18:12:03.404790-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T17:45:54.558841-03:00'
+    observed_date: '2026-11-21'
     target_price: 22.83
     url: https://stockanalysis.com/stocks/pbr/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T18:12:03.404790-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T17:45:54.558841-03:00'
+    observed_date: '2026-11-21'
     target_price: 22.825
     url: https://finance.yahoo.com/quote/PBR/
   target_high: 27.0
   target_low: 17.4
-tesis_inversion: Petrobras opera en exploración y producción, refinación, transporte
-  y comercialización, y gas y energías bajas en carbono. El paquete muestra margen
-  bruto TTM de 52,09% y FCF TTM positivo según StockAnalysis, pero no permite concluir
-  que ese desempeño sea sostenible ni medir retornos sobre capital, reinversión, penetración
-  de mercado o ventaja competitiva; la tesis depende de validar esos elementos y la
-  disciplina de asignación de capital.
+tesis_inversion: La tesis a investigar es si la producción de petróleo y gas y la
+  rentabilidad del negocio pueden sostener reinversión y generación de caja pese a
+  la exposición cíclica y a la incertidumbre sobre asignación de capital. El paquete
+  confirma ingresos, beneficio neto y FCF reportados para TTM al 2026-09-30, pero
+  no permite validar crecimiento de ingresos a tres años, dilución ni retornos sobre
+  capital.
 ticker: PBR
 version: '3.0'

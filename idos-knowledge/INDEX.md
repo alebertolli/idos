@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 164 companies tracked
+Total: 165 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -32,7 +32,7 @@ Total: 164 companies tracked
 - 📄 [[EA|Electronic Arts Inc]]
 - 📄 [[GOOGL|Alphabet Inc.]]
 - ⏳ [[JOYY|JOYY Inc.]]
-- ⏳ [[PSO|Pearson plc]]
+- 📄 [[PSO|Pearson plc]]
 - 📄 [[ROKU|Roku, Inc.]]
 - 📄 [[TEO|Telecom Argentina S.A.]]
 - 📄 [[VOD|Vodafone Group Public Limited Company]]
@@ -131,6 +131,7 @@ Total: 164 companies tracked
 - 📄 [[MDT|Medtronic plc]]
 - 📄 [[MRK|Merck & Co., Inc.]]
 - 📄 [[NVS|Novartis AG]]
+- 📄 [[PFE|Pfizer Inc.]]
 - 📄 [[TMO|Thermo Fisher Scientific Inc.]]
 - 📄 [[UNH|UnitedHealth Group Incorporated]]
 - 📄 [[VRTX|Vertex Pharmaceuticals Incorporated]]

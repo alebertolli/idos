@@ -1761,3 +1761,106 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T17:39:06.072052'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PBR
+    ticker: PBR
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:46:27.765706'
+- data:
+    classification: Investigación requerida; exposición cíclica a petróleo con evidencia
+      financiera incompleta para una tesis de multibagger.
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 7c3add2cfd6b06de1e803dc393170aee1b021e77f5f21cc661cbdaa7513c31e7
+    opp_id: OPP-MB-PBR
+    original_status: UNDER_RESEARCH
+    score: 56
+    strategy_version: '1.5'
+    ticker: PBR
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:48:11.735869'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-PFE
+    ticker: PFE
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:48:43.766767'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PFE
+    ticker: PFE
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:48:43.926398'
+- data:
+    classification: Investigación requerida; perfil multibaggers no validado por los
+      datos disponibles
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 2089f93b04447301c78bd3dde92bc015c91ecec09bb424555ce4d657517c548a
+    opp_id: OPP-MB-PFE
+    original_status: UNDER_RESEARCH
+    score: 55
+    strategy_version: '1.5'
+    ticker: PFE
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:50:33.935589'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-PSO
+    ticker: PSO
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:51:06.832628'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PSO
+    ticker: PSO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:51:06.995166'
+- data:
+    classification: Investigación requerida; evidencia parcial para evaluar la tesis
+      multibagger.
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 0f744f09e3cf8ad0dfb55afb910019a6445eda8b18c1a0bf738fef2398dbf60d
+    opp_id: OPP-MB-PSO
+    original_status: SCREENED
+    score: 58
+    strategy_version: '1.5'
+    ticker: PSO
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:52:39.756341'
