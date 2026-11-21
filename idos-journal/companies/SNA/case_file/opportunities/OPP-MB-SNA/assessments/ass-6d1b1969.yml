@@ -1,0 +1,31 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; evidencia financiera disponible parcial'
+- 'Market error: No se puede confirmar un error de valoración con la evidencia suministrada;
+  el rango de analistas es una referencia observada, no una valoración intrínseca.'
+- 'Thesis: Snap-on vende herramientas, equipos, diagnóstico e información para usuarios
+  profesionales y opera también servicios financieros (resumen financiero, 2026-11-21).
+  La evidencia disponible muestra marge'
+generated_at: '2026-11-21T18:08:09.408546-03:00'
+id: ass-6d1b1969
+recommendation: REVIEW
+risks:
+- fuente: https://stockanalysis.com/stocks/sna/financials/
+  hecho: El FCF reportado pasó de 1,134 en FY2024 a 1,006 en FY2025 y 1,074 TTM al
+    2026-10-03.
+  implicacion: La generación de caja es positiva, aunque el historial reciente no
+    muestra una trayectoria anual uniforme.
+- fuente: https://stockanalysis.com/stocks/sna/financials/
+  hecho: La historia de ingresos disponible incluye filas duplicadas de TTM y FY2025
+    y no incluye FY2023.
+  implicacion: No puede validarse el CAGR de ingresos a tres años ni atribuirse el
+    crecimiento a penetración, volumen o precio.
+- fuente: https://stockanalysis.com/stocks/SNA/statistics/
+  hecho: El paquete reporta interest coverage de 0 para TTM al 2026-10-03, sin explicación
+    de la métrica.
+  implicacion: Debe verificarse el dato y el gasto por intereses antes de interpretarlo
+    como capacidad de servicio de deuda.
+score: 58
+status: COMPLETED
+version: '3.0'

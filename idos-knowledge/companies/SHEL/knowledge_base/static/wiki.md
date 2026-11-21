@@ -1,130 +1,163 @@
 ## 1. Visión General de la Compañía
 
-Shell plc es una compañía energética integrada con actividades que abarcan exploración y producción de petróleo, gas y líquidos; transporte, comercialización y optimización; procesamiento de gas y refinación; fabricación de productos químicos; y venta de combustibles y otras soluciones energéticas.
+Shell plc es una compañía energética integrada. Sus actividades abarcan exploración y producción de hidrocarburos, procesamiento y comercialización de gas, petróleo y combustibles, y actividades en químicos, renovables y soluciones energéticas. La cadena de valor descrita incluye transporte, tuberías, comercio, licuefacción y procesamiento de gas, y refinación.
 
-Su cadena de valor incluye gas natural, gas natural licuado (GNL), productos gas-to-liquids (GTL), crudo y líquidos de gas natural. Sus clientes abarcan consumidores de combustibles y empresas de transporte, aviación, navegación y agricultura. El paquete describe operaciones en Europa, Asia, Oceanía, África, Estados Unidos y otras partes de América. **Fuente:** descripción existente de la compañía y análisis AOIF; no se aportaron métricas geográficas comparables.
+Entre sus productos se encuentran el gas natural licuado (GNL), gas-to-liquids (GTL), petróleo crudo, gas natural y líquidos de gas natural. Atiende, entre otros, a consumidores y conductores, y a empresas de transporte, aviación y navegación marítima.
 
-Shell compite en una industria intensiva en capital y cíclica. Entre las compañías relacionadas del sector se encuentran [[BP]], [[CVX]], [[EQNR]], [[COP]], [[E]], [[PBR]], [[BKR]], [[HAL]], [[OXY]], [[PSX]] y [[TS]].
+Opera en el sector energético, expuesto a los ciclos de materias primas y a cambios regulatorios vinculados con emisiones y operaciones energéticas. El paquete de investigación caracteriza el negocio como global y diversificado por segmentos y geografías, pero no aporta un desglose verificable por país ni ingresos por segmento.
+
+**Compañías relacionadas:** [[BP]], [[TTE]], [[CVX]], [[COP]], [[E]], [[EQNR]] y [[PBR]] son referencias del sector energético integrado o de hidrocarburos. [[BKR]], [[HAL]] y [[SLB]] están vinculadas a servicios y tecnología para la industria energética; [[PSX]] a refinación y productos; [[OXY]] a petróleo y gas; [[TS]] a tubos y equipos; [[UGP]] a distribución de combustibles.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
 ### Drivers de ingresos
 
-- Precios del petróleo, gas y productos refinados.
-- Volúmenes de producción y ventas.
-- Actividad de procesamiento, refinación, químicos, comercialización y trading.
+Los principales motores descritos en el material son:
 
-### Posición competitiva y moat
+- Volúmenes producidos y comercializados de petróleo y gas.
+- Precios de petróleo, gas y productos refinados.
+- Márgenes de procesamiento, refinación, comercialización y químicos.
+- Actividad de GNL, transporte y comercio de energía.
+- Inversión y retornos de proyectos en los distintos segmentos.
 
-La integración entre producción, transporte, trading, procesamiento y distribución, junto con infraestructura, escala, marcas y relaciones comerciales, **podría** aportar ventajas de coste y resiliencia operativa. AOIF caracteriza la posición competitiva como líder y el moat como amplio. Sin embargo, los materiales no incluyen evidencia cuantitativa de ventajas sostenibles, sinergias, retornos superiores sobre capital o desempeño frente a pares. La calificación de calidad del negocio de DDD es **no concluyente**.
+El paquete no incluye datos desglosados suficientes para cuantificar la contribución de cada driver o segmento a los ingresos y beneficios.
 
-La diversificación entre segmentos puede reducir la dependencia de una sola actividad, pero no elimina la exposición común a los precios de hidrocarburos, la demanda y los márgenes de refinación y químicos. La industria también está condicionada por la transición energética y por cambios regulatorios.
+### Moat y posición competitiva
+
+La evaluación AOIF describe una ventaja competitiva potencial basada en escala global, integración de activos, infraestructura de transporte y procesamiento y capacidad de comercialización. También clasifica la amplitud del moat como “amplio” y la posición competitiva como “líder”. Estas son valoraciones del análisis recibido; el paquete no aporta comparaciones cuantitativas con competidores ni series segmentadas para verificarlas de forma independiente.
+
+La integración puede permitir que actividades de distintas etapas de la cadena de valor respondan de manera diferente a las condiciones de mercado. Sin datos por segmento y período, no se puede determinar cuánto amortigua efectivamente la volatilidad ni qué retornos obtiene cada actividad.
+
+La industria combina demanda persistente de energía con precios volátiles, ciclos de inversión y cambios asociados a la transición energética. Entre los competidores y referencias sectoriales figuran [[BP]], [[CVX]], [[TTE]], [[COP]], [[E]] y [[EQNR]].
 
 ## 3. Perfil Financiero
 
-Las cifras de flujo de caja libre (FCF) se presentan tal como fueron reportadas por StockAnalysis en el paquete de investigación. No se aportaron detalles sobre definiciones, moneda o metodología suficientes para verificar su comparabilidad.
+Las cifras siguientes proceden de los outputs de investigación proporcionados. No se incluyen estados financieros primarios que permitan verificar sus definiciones, períodos o comparabilidad. Algunas métricas aparecen sin fecha o período especificado.
 
-| Métrica | Valor reportado | Periodo / contexto | Fuente y limitaciones |
+| Métrica | Valor reportado | Período / fecha | Observaciones |
 |---|---:|---|---|
-| FCF | 45.814 millones | FY 2022 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/) |
-| FCF | 31.198 millones | FY 2023 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/) |
-| FCF | 35.086 millones | FY 2024 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/) |
-| FCF | 23.916 millones | FY 2025 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/) |
-| FCF | 37.361 millones | TTM al 2026-09-30 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/); comparación con ejercicios anuales no demuestra por sí sola una tendencia estructural |
-| Crecimiento de FCF | 41,49 % | TTM al 2026-09-30 | Reportado por la fuente; los períodos comparativos y la definición no están disponibles en el paquete |
-| Current ratio | 1,38x | Periodo terminado el 2026-09-30 | [StockAnalysis](https://stockanalysis.com/stocks/SHEL/statistics/); supera el umbral de riesgo configurado de 0,5x |
-| Net cash | −39.650 millones | Al 2026-09-30 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/); no se validó net debt/EBITDA por incompatibilidad de unidades monetarias |
-| CAGR de ingresos a 3 años | No disponible | — | Faltan períodos comparables |
-| Dilución interanual | No disponible | — | Falta histórico comparable de acciones diluidas o en circulación |
+| Crecimiento de ingresos | 19,41% | No especificado | AOIF; no se aporta serie comparable ni definición del período. |
+| Margen operativo | 15,25% | No especificado | AOIF; período y metodología no indicados. |
+| ROIC | 13,94% | No especificado | AOIF; no se aportan retornos incrementales ni desglose por segmento. |
+| Crecimiento de FCF | 41,49% | TTM terminado el 2026-09-30 | Reportado por proveedor; comparación exacta y serie TTM comparable no disponibles. |
+| Ratio corriente | 1,38× | 2026-09-30 | Por encima del umbral de alerta configurado de 0,5×. Fuente: [Stock Analysis](https://stockanalysis.com/stocks/SHEL/statistics/). |
+| Cobertura de intereses | 0× | 2026-09-30 | Valor reportado por el proveedor, pendiente de validación. Cruza el umbral configurado de 2×; no debe interpretarse como cobertura confirmada sin revisar definición y componentes. Fuente: [Stock Analysis](https://stockanalysis.com/stocks/SHEL/statistics/). |
+| PER | 8,27× | No especificado | AOIF; faltan fecha de referencia y definición de beneficios. |
+| EV/EBITDA | 4,53× | No especificado | AOIF; faltan fecha, definición y componentes del cálculo. |
+| FCF yield | 0% | No especificado | AOIF; no se aportan inputs ni período comparable. |
 
-AOIF también recoge crecimiento de ingresos de 19,41 %, margen operativo de 15,25 %, ROIC de 13,94 %, PER de 8,26x, EV/EBITDA de 4,53x y FCF yield de 0. **No son métricas verificadas**: el paquete no especifica fuentes, fechas, moneda o metodología. En particular, el FCF yield de 0 requiere aclaración y no debe interpretarse como una medición confirmada.
+### Tendencia y caja
 
-La serie de FCF muestra variación entre ejercicios. El aumento del FCF TTM respecto de FY 2025 debe evaluarse con períodos, moneda y definiciones homogéneos. Tampoco se aportaron datos suficientes para analizar retornos y necesidades de reinversión por segmento.
+AOIF califica la tendencia financiera como “estable”, pero no presenta en el paquete una serie que permita reproducir esa conclusión. El FCF TTM habría aumentado un 41,49% interanual según el proveedor citado por DDD; la comparación exacta no está especificada. DDD advierte que la variabilidad histórica del FCF impide usar una observación TTM aislada como prueba de crecimiento estructural.
+
+No se aportan cifras comparables de flujo de caja operativo, inversión de capital y FCF para evaluar la conversión de beneficios en caja.
+
+### Estructura de capital
+
+DDD indica que una observación de “net cash” es negativa al 2026-09-30, lo que equivale a deuda neta según la definición usada en el análisis. No se incluyen el importe, la definición detallada ni una serie histórica; por tanto, no es posible evaluar aquí el apalancamiento o su evolución.
 
 ## 4. Management y Gobierno Corporativo
 
-AOIF califica la calidad del management como buena y la asignación de capital como neutral; estas apreciaciones no vienen acompañadas de datos específicos sobre resultados de proyectos, adquisiciones, recompras o dividendos. El alineamiento de insiders se califica como débil, pero no se incluyeron cifras de propiedad accionaria ni una metodología para esa evaluación.
+AOIF califica la calidad del management como “buena”, la asignación de capital como “neutral” y la alineación de insiders como “moderada”. El paquete no identifica a los directivos evaluados ni aporta métricas, fuentes, historial de decisiones de capital o datos de propiedad accionaria que permitan comprobar esas calificaciones.
 
-No se proporcionó información sobre composición, independencia, experiencia o estructura del board, ni sobre remuneración e incentivos ejecutivos. Estos aspectos requieren verificación antes de extraer conclusiones sobre gobierno corporativo.
+No hay información disponible sobre composición, independencia, experiencia o estructura de comités del board. Tampoco se proporcionan detalles de remuneración, incentivos de largo plazo, objetivos de desempeño o tenencia accionaria de los ejecutivos. Estas cuestiones requieren investigación documental adicional antes de emitir una conclusión sobre gobierno corporativo.
 
 ## 5. Tesis de Inversión
 
-**Caso alcista sujeto a verificación:**
+### Caso alcista — hipótesis por validar
 
-- La integración de actividades de gas, upstream, marketing, químicos y productos puede diversificar las fuentes de ingresos y ofrecer opciones operativas y de asignación de capital.
-- Shell opera a lo largo de varias etapas de la cadena energética y cuenta, según AOIF, con escala, infraestructura, marcas y relaciones comerciales que podrían respaldar una posición competitiva sólida.
-- El FCF TTM reportado fue de 37.361 millones al 2026-09-30, con crecimiento reportado de 41,49 %. Si una serie futura comparable confirma esa mejora, podría indicar una recuperación sostenida de la generación de caja. **Fuente:** [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/).
-- La generación de efectivo y los retornos de capital por segmento podrían sustentar la tesis si se demuestra que la reinversión produce rendimientos adecuados; los datos disponibles no permiten confirmarlo.
+- **Escala e integración:** Shell participa en distintas etapas de la cadena energética. La integración de activos, infraestructura y comercialización podría contribuir a una posición competitiva sólida. AOIF la describe como líder con un moat amplio, pero el paquete no presenta métricas comparativas para cuantificar esa ventaja.
+- **Diversificación de actividades:** la presencia descrita en gas integrado, upstream, marketing, químicos y renovables y soluciones energéticas podría reducir la dependencia de una sola actividad. No se proporcionan datos segmentados para medir el efecto.
+- **Rentabilidad reportada:** AOIF recoge un ROIC de 13,94% y un margen operativo de 15,25%, sin especificar período o método. Son indicios que requieren verificación antes de usarse como evidencia de retornos sostenibles.
+- **Generación de caja:** el FCF TTM reportado creció 41,49% frente al período comparativo del proveedor al 2026-09-30. Esta observación no demuestra por sí sola una tendencia estructural, dada la volatilidad de la serie anual descrita por DDD.
 
-El paquete no valida crecimiento estructural de ingresos, conversión de FCF, apalancamiento neto en una métrica comparable ni una ventaja competitiva cuantificada. Por tanto, la oportunidad se clasifica como **investigación requerida; oportunidad de crecimiento no validada**.
+### Señal de valoración y límites
+
+La cotización observada fue de USD 108,69 al 2026-10-30 y el consenso medio de precio objetivo fue de USD 110,81 al 2026-11-21, según el material DDD. La cercanía entre ambos valores no prueba que exista un error de valoración. El paquete no proporciona una valoración intrínseca reproducible ni los supuestos necesarios sobre precios de materias primas, volúmenes, márgenes e inversión.
+
+DDD también reporta un aumento de 45,0748% en el precio durante los 12 meses terminados el 2026-10-30, atribuido a yfinance en el material recibido. El rendimiento pasado no establece la trayectoria futura.
+
+La clasificación de oportunidad del intake señala “Investigación fundamental requerida; oportunidad de energía integrada”. El score de descubrimiento de 89,27 y el perfil asignado de “multibaggers” son señales de selección, no evidencia suficiente de crecimiento estructural ni una recomendación de inversión. El score general informado por DDD es 61.
 
 ## 6. Riesgos y Contra-Tesis
 
-### Riesgos principales
+### Caso bajista
 
-- **Ciclicidad y sostenibilidad del flujo de caja:** el FCF reportado varió entre 45.814 millones en FY 2022 y 23.916 millones en FY 2025, antes de la cifra TTM de 37.361 millones al 2026-09-30. La comparación no permite determinar por sí sola si la mejora es duradera. **Fuente:** [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/).
-- **Precios y demanda:** caídas o volatilidad del petróleo y el gas pueden reducir ingresos, márgenes y generación de caja. AOIF clasifica este riesgo como de impacto alto y probabilidad alta.
-- **Regulación y clima:** cambios regulatorios, litigios o restricciones climáticas pueden elevar costes o limitar operaciones y demanda. AOIF clasifica el impacto como alto y la probabilidad como media.
-- **Apalancamiento y cobertura:** se reportó net cash de −39.650 millones al 2026-09-30, pero no se validó net debt/EBITDA por incompatibilidad de unidades. La cobertura financiera no está validada. **Fuente:** [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/) y [StockAnalysis, estadísticas](https://stockanalysis.com/stocks/SHEL/statistics/).
-- **Ventaja competitiva no demostrada:** integración y escala no prueban por sí solas retornos superiores sobre capital ni una ventaja económica persistente.
-- **Asignación de capital:** faltan datos de retornos por proyecto y segmento, así como de necesidades de reinversión.
+- **Ciclicidad y sostenibilidad de caja:** la variabilidad histórica del FCF puede hacer que el crecimiento TTM reportado no se mantenga. El dato de +41,49% carece de una serie TTM comparable y de una descripción precisa del período de comparación.
+- **Exposición a materias primas:** caídas o volatilidad de los precios del petróleo, gas y productos refinados pueden afectar ingresos, márgenes y generación de caja. AOIF califica este riesgo macro como de impacto alto y probabilidad alta.
+- **Apalancamiento y cobertura:** la observación de deuda neta al 2026-09-30 y la cobertura de intereses reportada en 0× requieren validación. Si se confirman, podrían limitar la flexibilidad financiera; los datos disponibles no permiten cuantificar ese efecto.
+- **Regulación y litigios:** cambios regulatorios, impuestos, litigios o restricciones asociados a emisiones y operaciones energéticas podrían afectar costes, activos y proyectos. AOIF los clasifica como de impacto alto y probabilidad media.
+- **Retornos de reinversión:** sin datos por segmento sobre inversión, retornos y proyectos, no se puede confirmar que la reinversión genere crecimiento rentable.
+- **Erosión de ventajas competitivas:** la escala y la integración descritas no garantizan retornos superiores sostenibles frente a pares como [[BP]], [[CVX]] o [[TTE]].
+- **Valoración no demostrada:** ni la proximidad del consenso a la cotización ni los múltiplos reportados bastan para concluir que la acción esté infravalorada; faltan fecha, definiciones y supuestos consistentes.
 
-### Contra-tesis y falsadores
+### Triggers de falsación
 
-La recuperación del FCF podría ser transitoria o reflejar factores no identificados en el paquete, mientras que la exposición a hidrocarburos, la intensidad de capital y los riesgos regulatorios pueden limitar la calidad y previsibilidad de los retornos. La valoración tampoco demuestra una discrepancia frente al valor intrínseco.
+La tesis favorable debería revisarse si se observa cualquiera de los siguientes elementos:
 
-Falsadores a monitorear:
-
-1. FCF futuro comparable que revierta persistentemente frente al TTM de 37.361 millones reportado al 2026-09-30.
-2. Deterioro persistente de ingresos, márgenes o generación de efectivo frente a períodos comparables.
+1. Una serie comparable muestra deterioro persistente del FCF y de los beneficios frente al TTM reportado al 2026-09-30.
+2. Datos por segmento muestran que la reinversión no produce retornos sostenibles o que la ventaja competitiva se erosiona.
+3. La verificación de la deuda neta y la cobertura de intereses revela restricciones financieras más severas de las que sugiere la información actual.
+4. Los datos de márgenes y retornos muestran que la diversificación no amortigua la volatilidad de las actividades de materias primas.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Fecha esperada | Impacto potencial | Qué verificar |
-|---|---|---|---|
-| Próximos resultados financieros comparables | No especificada en el paquete | Podrían confirmar o refutar la mejora observada en el FCF TTM | Ingresos, FCF, balance y definiciones consistentes entre períodos |
-| Información sobre retornos por segmento y proyectos de capital | No especificada en el paquete | Podría aclarar si la reinversión genera valor | Retornos sobre capital, inversión requerida y resultados de proyectos |
+El material recibido no identifica catalizadores corporativos fechados ni eventos futuros concretos con fecha esperada. Por ello, no se asignan fechas de resultados, proyectos o decisiones que no estén incluidas en las fuentes.
 
-No se proporcionaron fechas de publicación ni un calendario corporativo verificable. Estos catalizadores son eventos de seguimiento, no previsiones de resultados.
+| Hito de seguimiento | Fecha esperada | Qué evaluar | Impacto potencial |
+|---|---|---|---|
+| Validación de caja | Próximos períodos de reporte; fecha no especificada | Comparar FCF TTM y anual en períodos homogéneos y comprobar si la generación de caja es persistente. | Confirmaría o debilitaría la hipótesis de crecimiento de caja. |
+| Validación de reinversión | Próxima disponibilidad de datos por segmento; fecha no especificada | Analizar inversión, retornos y proyectos por segmento. | Permitiría evaluar si la cartera convierte reinversión en crecimiento rentable. |
+| Revisión de deuda y cobertura | Próxima actualización financiera; fecha no especificada | Verificar deuda neta, definición de cobertura de intereses y vencimientos relevantes. | Aclararía el riesgo financiero y la flexibilidad de capital. |
+| Seguimiento de materias primas y regulación | Continuo; sin evento fechado en el paquete | Observar precios, márgenes y cambios regulatorios aplicables a operaciones energéticas. | Puede afectar caja, retornos y viabilidad de inversiones; riesgos compartidos con [[BP]], [[CVX]] y [[TTE]]. |
 
 ## 8. Marco de Valoración
 
-No es posible estimar rigurosamente un valor intrínseco con la información disponible. Faltan una serie de flujos de caja normalizados, deuda neta en unidades verificadas, acciones diluidas, fecha de valoración y supuestos fundamentados de crecimiento y descuento.
+### Metodología apropiada
 
-### Enfoque apropiado
+Una valoración robusta debería combinar:
 
-- Valorar los flujos de caja de forma normalizada a través del ciclo, en lugar de extrapolar un único FCF anual o TTM.
-- Contrastar una valoración por flujos de caja con múltiplos empresariales y de capital, usando períodos y definiciones homogéneos.
-- Separar, cuando los datos estén disponibles, los segmentos de negocio y sus necesidades de reinversión y retornos sobre capital.
+1. **Valoración por segmentos:** estimar flujos y retornos de las actividades con perfiles distintos —por ejemplo, upstream, gas integrado, marketing, químicos y renovables— usando supuestos coherentes para volúmenes, precios, márgenes e inversión.
+2. **Flujo de caja descontado:** utilizar flujos normalizados a través del ciclo, no un único dato TTM, y hacer explícitos los supuestos de materias primas, producción, costes, inversión y tasa de descuento.
+3. **Comparación de múltiplos:** contrastar PER y EV/EBITDA con compañías relevantes, como [[BP]], [[CVX]] y [[TTE]], comprobando que las definiciones, fechas y condiciones de mercado sean comparables.
 
-### Datos de mercado aportados
+### Datos y supuestos pendientes
 
-La cotización observada fue de **USD 108,69 al 2026-10-30**. El consenso medio de precio objetivo informado el **2026-11-20** fue **USD 110,81**, con un rango de **USD 100–129**. El consenso está próximo a la cotización observada, pero el paquete no aporta estimaciones operativas detalladas ni una metodología de valoración intrínseca que permita concluir que existe un error de valoración.
+AOIF reporta PER de 8,27×, EV/EBITDA de 4,53× y FCF yield de 0%, pero el paquete no especifica fecha de referencia ni metodología suficiente para reproducirlos. AOIF indica que no es posible determinar con rigor el valor intrínseco con la información disponible: faltan, entre otros elementos, precio y fecha de referencia, acciones diluidas y deuda detallada.
 
-Los múltiplos facilitados —PER de 8,26x y EV/EBITDA de 4,53x— carecen de fecha y fuente verificables. El FCF yield reportado de 0 requiere aclaración. No deben utilizarse como base concluyente para estimar margen de seguridad.
+La valoración requiere además supuestos explícitos sobre precios de materias primas, volúmenes, márgenes, inversión y retornos por segmento. DDD señala que dichos supuestos no están disponibles en el paquete.
 
-### Sensibilidad y supuestos por investigar
+### Escenarios recibidos
 
-La sensibilidad debería centrarse en precios realizados de petróleo y gas, volúmenes, márgenes de refinación y químicos, FCF normalizado, inversión de mantenimiento y crecimiento, coste de capital y deuda neta. El paquete no contiene valores verificables para cuantificar esos escenarios.
+Los escenarios de DDD, con fecha de análisis 2026-11-21 y horizonte 2027-11-21, son anclas tomadas del rango de objetivos de analistas observado; no son estimaciones de valor intrínseco propias.
+
+| Escenario | Precio objetivo | Interpretación indicada |
+|---|---:|---|
+| Bajista | USD 100 | Ancla baja del rango observado de objetivos de analistas. |
+| Alcista | USD 129 | Ancla alta del rango observado de objetivos de analistas. |
+
+La cotización de USD 108,69 al 2026-10-30 y el consenso medio de USD 110,81 al 2026-11-21 son observaciones del paquete, no una demostración de margen de seguridad. La evaluación AOIF clasifica el margen de seguridad como “insuficiente”; la base cuantitativa detallada no está disponible.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuál es el FCF y la utilidad neta en períodos homogéneos, con moneda, unidades y definiciones verificadas?
-2. ¿Cuál es la evolución de ingresos, márgenes y FCF en una serie anual comparable que permita calcular crecimiento a tres años?
-3. ¿Qué retornos sobre capital obtiene cada segmento y cuáles son sus necesidades de reinversión?
-4. ¿Qué parte del cambio en FCF TTM se explica por precios, volúmenes, capital de trabajo, impuestos, desinversiones u otros factores?
-5. ¿Cuál es la deuda neta y la métrica de apalancamiento comparable, y cómo se calcula la cobertura financiera?
-6. ¿Qué datos respaldan los valores de ROIC, margen operativo, PER, EV/EBITDA y FCF yield proporcionados por AOIF?
-7. ¿Cómo se comparan la rentabilidad, el capital empleado y la valoración de Shell con pares como [[BP]], [[CVX]], [[EQNR]], [[COP]] y [[E]]?
-8. ¿Qué evidencia cuantitativa confirma que la integración genera sinergias o ventajas frente a competidores?
-9. ¿Cuál es la propiedad accionaria de insiders y qué incentivos de management y supervisión del board están vigentes?
-10. ¿Qué fechas y resultados concretos se esperan para los próximos reportes financieros y proyectos de capital?
+1. ¿Cuáles son el ROIC y los retornos incrementales por segmento, con períodos y fuentes verificables?
+2. ¿Qué supuestos de materias primas, volúmenes, márgenes e inversión sustentan los objetivos de analistas?
+3. ¿Cuál es la serie anual y TTM comparable de FCF y qué proporción de la variación corresponde a condiciones cíclicas?
+4. ¿Cuáles son el flujo de caja operativo, la inversión de capital y la conversión de beneficios en FCF en períodos homogéneos?
+5. ¿Cuál es la deuda neta al 2026-09-30, cómo se define y cuál es su evolución?
+6. ¿Qué explica la cobertura de intereses reportada como 0×? ¿Es una anomalía de datos, una definición distinta o una señal financiera confirmable?
+7. ¿Qué parte de ingresos, beneficios, inversión y caja corresponde a cada segmento y geografía?
+8. ¿La integración del negocio reduce de forma observable la volatilidad frente a compañías menos diversificadas del sector?
+9. ¿Cómo se calculan y en qué períodos se basan el crecimiento de ingresos de 19,41%, el margen operativo de 15,25%, el ROIC de 13,94% y los múltiplos de valoración reportados?
+10. ¿Qué métricas sustentan las calificaciones de calidad del management, asignación de capital y alineación de insiders? ¿Cuáles son la composición y estructura de gobierno del board?
+11. ¿Qué eventos corporativos fechados podrían actuar como catalizadores y qué indicadores permitirían evaluar su impacto?
+12. ¿Cómo se comparan los supuestos y retornos de Shell con los de [[BP]], [[CVX]], [[TTE]] y otros pares relevantes?
 
-**Estado de decisión:** pendiente de información comparable y de validación de métricas; el paquete no permite establecer un valor intrínseco ni confirmar una oportunidad de crecimiento.
+**Estado de investigación:** pendiente de validar métricas financieras, caja, retornos por segmento, estructura de capital y valoración con fuentes y períodos comparables.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton Company]], [[OXY|Occidental Petroleum Corporation]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]], [[PSX|Phillips 66]], [[TS|Tenaris S.A.]]
-- **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]]
+- **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton Company]], [[OXY|Occidental Petroleum Corporation]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]], [[PSX|Phillips 66]], [[SLB|SLB N.V.]], [[TS|Tenaris S.A.]], [[TTE|TotalEnergies SE]], [[UGP|Ultrapar Participações S.A.]], [[VIST|Vista Energy, S.A.B. de C.V.]], [[XOM|ExxonMobil Holdings Corporation]], [[YPF|YPF Sociedad Anónima]]
+- **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]], [[TTE|TotalEnergies SE]], [[XOM|ExxonMobil Holdings Corporation]], [[YPF|YPF Sociedad Anónima]]

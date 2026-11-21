@@ -1,93 +1,118 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La mejora del FCF TTM frente a FY 2025 no establece por sí sola una tendencia
-    estructural, dada la variación histórica reportada y la falta de desglose causal.
-  - La integración de segmentos podría diversificar operaciones, pero el paquete no
-    prueba una ventaja competitiva ni retornos superiores sobre capital.
-  - StockAnalysis reporta ingresos TTM de 321.300 millones, FCF de 37.361 millones
-    y utilidad neta de 32.707 millones para el período terminado el 2026-09-30; los
-    importes históricos se presentan como importes reportados por la fuente.
-  - StockAnalysis reporta margen bruto de 26,93% TTM al 2026-09-30 y current ratio
-    de 1,38 para el período terminado en esa fecha.
-  - Yfinance reporta momentum de precio a 12 meses de 45,0748% y volatilidad de 90
-    días de 21,8021% hasta el 2026-10-30.
-  - El resumen financiero indica cotización de USD 108,69 al 2026-10-30 y objetivos
-    de analistas entre USD 100 y USD 129 observados el 2026-11-20.
+  - La variabilidad histórica de FCF hace que una tasa TTM aislada no baste para demostrar
+    crecimiento estructural.
+  - La proximidad entre cotización y consenso medio no evidencia por sí sola un error
+    de valoración.
+  - La diversificación descrita podría ofrecer distintas fuentes de actividad, pero
+    no demuestra una ventaja competitiva.
+  - Stockanalysis reporta FCF TTM de 37,361 y crecimiento TTM de 41.49% al 2026-09-30;
+    la serie anual reportada contiene variaciones positivas y negativas.
+  - Stockanalysis reporta ingresos TTM de 321,300 millones y beneficio neto TTM de
+    32,707 millones al 2026-09-30; los importes históricos de la serie financiera
+    no se usan para comparar monedas o unidades no explicitadas.
+  - Yfinance reporta cotización USD 108.69 al 2026-10-30 y momentum de precio de 12
+    meses de 45.0748% hasta esa fecha.
+  - El paquete de mercado registra objetivos de analistas de USD 100–129 y media de
+    USD 110.81 al 2026-11-21.
   preguntas_abiertas:
-  - ¿Cuál es el FCF comparable y la utilidad neta en períodos homogéneos, con moneda
-    y unidades verificadas?
-  - ¿Cuáles son los retornos sobre capital y las necesidades de reinversión por segmento?
-  - ¿Qué hipótesis de precios, volúmenes y márgenes subyacen a las estimaciones de
-    analistas?
-  - ¿Cuál es la evolución de acciones diluidas y el costo efectivo de intereses en
-    períodos comparables?
-catalizadores_previos: &id001 []
+  - ¿Cuáles son los retornos sobre capital y los retornos incrementales por segmento,
+    con períodos y fuentes verificables?
+  - ¿Qué supuestos de materias primas, volúmenes, márgenes e inversión sustentan los
+    objetivos de analistas?
+  - ¿Cuál es la cobertura de intereses correcta y cuál es el historial comparable
+    de EBIT e intereses?
+  - ¿Cuál es el historial de acciones diluidas y la inversión de capital por período?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T19:07:49.012559-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-SHEL
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T19:07:49.012559-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-SHEL
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T19:07:49.012559-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-SHEL
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; oportunidad de crecimiento no validada
-  justificacion: El paquete muestra fuerte momentum de precio y FCF TTM reportado,
-    pero no permite validar los ratios requeridos de crecimiento de ingresos, conversión
-    de FCF, apalancamiento neto ni dilución.
+  categoria: Investigación fundamental requerida; oportunidad de energía integrada
+  justificacion: El intake asigna perfil «multibaggers» y score de descubrimiento
+    89.27, pero esa señal no acredita por sí sola crecimiento compuesto ni retorno
+    sobre capital. La evidencia financiera disponible muestra FCF positivo en TTM,
+    junto con información insuficiente sobre reinversión, retornos incrementales y
+    dilución.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: La integración de actividades de gas, extracción, marketing, químicos
-    y productos puede diversificar fuentes de ingresos, pero la evidencia suministrada
-    no cuantifica sinergias, retornos sobre capital, moat, penetración de mercado
-    ni calidad de asignación de capital. El margen bruto reportado fue 26,93% TTM
-    al 2026-09-30, sin datos suficientes para inferir retornos incrementales sobre
-    reinversión.
+  analisis: El modelo está diversificado por segmentos y geografías según la descripción
+    del negocio, pero el paquete no incluye evidencia verificable de cuota, costes,
+    reservas, ventajas competitivas o retornos sobre capital. El margen bruto TTM
+    reportado es 26.93% al 2026-09-30; por sí solo no establece calidad ni tendencia
+    sostenible.
   rating: No concluyente
 dominio_catalizadores:
-- analisis: La comparación de próximos períodos financieros con el FCF TTM de 37.361
-    millones al 2026-09-30 permitiría evaluar si la recuperación reportada se sostiene.
-  catalizador: Confirmación de flujo de caja
-- analisis: Retornos por segmento y resultados de proyectos de capital podrían aclarar
-    si la reinversión crea valor; esos datos no están incluidos en el paquete.
-  catalizador: Evidencia de reinversión rentable
-- analisis: Los extremos observados de objetivos de analistas son USD 100 y USD 129
-    al 2026-11-20; nuevas estimaciones operativas comparables ayudarían a explicar
-    cambios en el rango.
-  catalizador: Actualización de expectativas de mercado
+- detalle: Comparar futuros períodos TTM y anuales con la serie aportada para comprobar
+    si el FCF positivo se mantiene; el paquete no contiene resultados posteriores
+    al 2026-09-30.
+  hito: Validación de caja
+- detalle: Obtener datos por segmento sobre inversión, retornos y proyectos para evaluar
+    si la cartera convierte reinversión en crecimiento rentable; esos datos no están
+    en el paquete.
+  hito: Validación de reinversión
+- detalle: Aclarar la cobertura de intereses reportada y seguir deuda neta y liquidez
+    en períodos comparables.
+  hito: Validación de estructura financiera
+- detalle: Contrastar futuras previsiones y resultados con el rango de objetivos observado
+    el 2026-11-21; el paquete no desglosa supuestos de analistas.
+  hito: Actualización de expectativas
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- analisis: 'El FCF reportado varía entre ejercicios: 45.814 millones en FY 2022,
-    31.198 millones en FY 2023, 35.086 millones en FY 2024 y 23.916 millones en FY
-    2025. El FCF TTM al 2026-09-30 fue 37.361 millones; el paquete no permite separar
-    ciclo, precios, volúmenes ni capital circulante.'
-  fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/shel/financials/
-  riesgo: Ciclicidad y sostenibilidad del flujo de caja
-- analisis: La serie de net cash reporta -39.650 millones al 2026-09-30; no se valida
-    net debt/EBITDA por incompatibilidad de unidades monetarias entre los campos proporcionados.
-    La cobertura de intereses reportada como 0 requiere verificación antes de interpretarse.
-  fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/shel/financials/
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/SHEL/statistics/
-  riesgo: Apalancamiento y cobertura financiera no validados
-- analisis: El paquete describe segmentos diversos, pero no aporta cuota de mercado,
-    costos unitarios, retornos por segmento, penetración de renovables ni datos comparables
-    de competidores para medir ventaja o erosión.
-  riesgo: Erosión competitiva y transición energética
+- detalle: El FCF TTM reportado creció 41.49% frente al período comparativo del proveedor,
+    mientras que los cambios anuales reportados alternan entre crecimiento y contracción;
+    la serie no demuestra persistencia.
+  riesgo: Ciclicidad y sostenibilidad de la caja
+- detalle: La observación de net cash es negativa al 2026-09-30, lo que equivale a
+    deuda neta según la definición indicada; el indicador de cobertura de intereses
+    reportado como 0 requiere verificación antes de interpretarlo.
+  riesgo: Apalancamiento y cobertura
+- detalle: No hay historial de acciones suficiente para calcular dilución o CAGR de
+    acciones; tampoco hay evidencia aportada sobre retornos de proyectos o disciplina
+    de reinversión.
+  riesgo: Asignación de capital y dilución no verificadas
+- detalle: La evidencia de ingresos incluye dos observaciones TTM para la misma fecha
+    y el proveedor marca puntos históricos omitidos; se evita derivar CAGR con una
+    serie incompatible.
+  riesgo: Calidad incompleta de algunas observaciones
 error_mercado:
-  catalizador_cambio: Resultados financieros posteriores con ingresos, FCF y balance
-    comparables podrían confirmar o refutar la mejora observada en FCF TTM.
-  conclusion_error_valoracion: 'No puede validarse un error de valoración: faltan
-    expectativas operativas detalladas y una valoración fundamental defendible.'
+  catalizador_cambio: La evidencia del paquete no identifica catalizadores corporativos
+    fechados. La confirmación requeriría resultados futuros que permitan evaluar generación
+    de caja y asignación de capital, aún no incluidos.
+  conclusion_error_valoracion: 'No queda demostrado un error de valoración: el consenso
+    medio observado está cerca de la cotización reportada, y el paquete no aporta
+    un método intrínseco ni expectativas detalladas.'
   consenso_actual: La cotización observada fue USD 108.69 al 2026-10-30; el consenso
-    de precio objetivo informado el 2026-11-20 fue USD 110.81.
-  hipotesis_contraria: El rango de objetivos de analistas, USD 100–129, permite resultados
-    observados distintos, pero el paquete no aporta estimaciones operativas para atribuirles
-    causas fundamentales.
-  razonamiento: El consenso medio está cerca de la cotización observada, pero el paquete
-    no proporciona una serie comparable de estimaciones ni un método de valoración
-    intrínseca.
-generated_at: '2026-11-20T19:07:49.012559-03:00'
+    de precio objetivo observado fue USD 110.81 al 2026-11-21, con rango USD 100–129.
+  hipotesis_contraria: El crecimiento del FCF TTM reportado puede no sostenerse; la
+    serie anual muestra variaciones importantes y no permite atribuir la mejora a
+    crecimiento estructural.
+  razonamiento: El precio subió 45.0748% en el período de 12 meses terminado el 2026-10-30
+    (yfinance). Ese desempeño y el consenso observado describen mercado, no prueban
+    infravaloración ni la persistencia de beneficios.
+generated_at: '2026-11-21T18:02:04.647543-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-SHEL
@@ -122,7 +147,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Shell plc
   operating_margin: 15.25
-  pe_ratio: 8.26
+  pe_ratio: 8.27
   products: ''
   revenue: 321300000000.0
   revenue_growth: 19.41
@@ -133,20 +158,21 @@ ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
     revenue_history: null
-  limitations: La serie incluye TTM al 2026-09-30 y FY 2023, pero no un período comparable
-    t-3 ni una serie FY completa que permita calcular CAGR de tres años.
+  limitations: No hay observaciones de ingresos comparables para TTM al 2026-09-30
+    y exactamente tres años antes; la serie ofrece TTM y ejercicios fiscales, además
+    de duplicados TTM.
   metric: revenue_cagr_3y_pct
   period_end: null
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: FCF growth reportado por la fuente para TTM
+- formula: Crecimiento de FCF reportado por el proveedor para TTM; no recalculado.
   inputs:
     fcf_growth_history: 41.49
-  limitations: La fuente reporta crecimiento TTM de 41,49%; no se proporcionan en
-    el paquete los períodos comparativos subyacentes ni una definición que permita
-    verificar independientemente el cálculo.
+  limitations: El paquete no especifica en esta observación el período comparativo
+    exacto ni proporciona una serie TTM comparable para validar independientemente
+    el porcentaje.
   metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
@@ -155,39 +181,35 @@ ratios_investigados:
   status: reported
   unit: percent
   value: 41.49
-- formula: FCF / net_income * 100
-  inputs:
-    fcf_history: 37361.0
-    net_income_history: 32707.0
-  limitations: Los campos están fechados al mismo período, pero sus unidades se reportan
-    como importes de fuente sin moneda explícita verificable; no se puede validar
-    compatibilidad de moneda para el cálculo.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/shel/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash /
-    EBITDA si net_cash = cash - debt
-  inputs:
-    ebitda: 67560000000.0
-    net_cash_history: -39650.0
-  limitations: El net cash se reporta como importe de fuente sin escala monetaria
-    explícita en la serie, mientras EBITDA se informa como 67.560.000.000; unidades
-    y escala no son verificablemente compatibles.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/shel/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SHEL/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    shares_outstanding: 5730000000.0
-    shares_outstanding_history: null
-  limitations: Sólo se proporciona una observación de acciones en circulación al 2026-09-30;
-    falta una observación comparable del período anterior.
+    diluted_shares_history: null
+    shares_outstanding: 5730000000
+  limitations: Sólo se aporta un saldo de acciones en circulación al 2026-09-30; falta
+    el número de acciones diluidas o en circulación del período comparativo y una
+    URL confiable que respalde una serie histórica.
   metric: dilution_yoy_pct
   period_end: null
   sources: []
@@ -225,7 +247,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'Shell plc operates as an energy and petrochemical company in Europe,
     Asia, Oceania, Africa, the United States, and other parts of the Americas. It
     operates through the following segments: Integrated Gas, Upstream, Marketing,
@@ -258,7 +280,328 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.38
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Shell plc es una compañía energética integrada con actividades que abarcan exploración
+    y producción de petróleo, gas y líquidos; transporte, comercialización y optimización;
+    procesamiento de gas y refinación; fabricación de productos químicos; y venta
+    de combustibles y otras soluciones energéticas.
+
+
+    Su cadena de valor incluye gas natural, gas natural licuado (GNL), productos gas-to-liquids
+    (GTL), crudo y líquidos de gas natural. Sus clientes abarcan consumidores de combustibles
+    y empresas de transporte, aviación, navegación y agricultura. El paquete describe
+    operaciones en Europa, Asia, Oceanía, África, Estados Unidos y otras partes de
+    América. **Fuente:** descripción existente de la compañía y análisis AOIF; no
+    se aportaron métricas geográficas comparables.
+
+
+    Shell compite en una industria intensiva en capital y cíclica. Entre las compañías
+    relacionadas del sector se encuentran [[BP]], [[CVX]], [[EQNR]], [[COP]], [[E]],
+    [[PBR]], [[BKR]], [[HAL]], [[OXY]], [[PSX]] y [[TS]].
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    - Precios del petróleo, gas y productos refinados.
+
+    - Volúmenes de producción y ventas.
+
+    - Actividad de procesamiento, refinación, químicos, comercialización y trading.
+
+
+    ### Posición competitiva y moat
+
+
+    La integración entre producción, transporte, trading, procesamiento y distribución,
+    junto con infraestructura, escala, marcas y relaciones comerciales, **podría**
+    aportar ventajas de coste y resiliencia operativa. AOIF caracteriza la posición
+    competitiva como líder y el moat como amplio. Sin embargo, los materiales no incluyen
+    evidencia cuantitativa de ventajas sostenibles, sinergias, retornos superiores
+    sobre capital o desempeño frente a pares. La calificación de calidad del negocio
+    de DDD es **no concluyente**.
+
+
+    La diversificación entre segmentos puede reducir la dependencia de una sola actividad,
+    pero no elimina la exposición común a los precios de hidrocarburos, la demanda
+    y los márgenes de refinación y químicos. La industria también está condicionada
+    por la transición energética y por cambios regulatorios.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras de flujo de caja libre (FCF) se presentan tal como fueron reportadas
+    por StockAnalysis en el paquete de investigación. No se aportaron detalles sobre
+    definiciones, moneda o metodología suficientes para verificar su comparabilidad.
+
+
+    | Métrica | Valor reportado | Periodo / contexto | Fuente y limitaciones |
+
+    |---|---:|---|---|
+
+    | FCF | 45.814 millones | FY 2022 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/)
+    |
+
+    | FCF | 31.198 millones | FY 2023 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/)
+    |
+
+    | FCF | 35.086 millones | FY 2024 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/)
+    |
+
+    | FCF | 23.916 millones | FY 2025 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/)
+    |
+
+    | FCF | 37.361 millones | TTM al 2026-09-30 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/);
+    comparación con ejercicios anuales no demuestra por sí sola una tendencia estructural
+    |
+
+    | Crecimiento de FCF | 41,49 % | TTM al 2026-09-30 | Reportado por la fuente;
+    los períodos comparativos y la definición no están disponibles en el paquete |
+
+    | Current ratio | 1,38x | Periodo terminado el 2026-09-30 | [StockAnalysis](https://stockanalysis.com/stocks/SHEL/statistics/);
+    supera el umbral de riesgo configurado de 0,5x |
+
+    | Net cash | −39.650 millones | Al 2026-09-30 | [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/);
+    no se validó net debt/EBITDA por incompatibilidad de unidades monetarias |
+
+    | CAGR de ingresos a 3 años | No disponible | — | Faltan períodos comparables
+    |
+
+    | Dilución interanual | No disponible | — | Falta histórico comparable de acciones
+    diluidas o en circulación |
+
+
+    AOIF también recoge crecimiento de ingresos de 19,41 %, margen operativo de 15,25
+    %, ROIC de 13,94 %, PER de 8,26x, EV/EBITDA de 4,53x y FCF yield de 0. **No son
+    métricas verificadas**: el paquete no especifica fuentes, fechas, moneda o metodología.
+    En particular, el FCF yield de 0 requiere aclaración y no debe interpretarse como
+    una medición confirmada.
+
+
+    La serie de FCF muestra variación entre ejercicios. El aumento del FCF TTM respecto
+    de FY 2025 debe evaluarse con períodos, moneda y definiciones homogéneos. Tampoco
+    se aportaron datos suficientes para analizar retornos y necesidades de reinversión
+    por segmento.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF califica la calidad del management como buena y la asignación de capital
+    como neutral; estas apreciaciones no vienen acompañadas de datos específicos sobre
+    resultados de proyectos, adquisiciones, recompras o dividendos. El alineamiento
+    de insiders se califica como débil, pero no se incluyeron cifras de propiedad
+    accionaria ni una metodología para esa evaluación.
+
+
+    No se proporcionó información sobre composición, independencia, experiencia o
+    estructura del board, ni sobre remuneración e incentivos ejecutivos. Estos aspectos
+    requieren verificación antes de extraer conclusiones sobre gobierno corporativo.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista sujeto a verificación:**
+
+
+    - La integración de actividades de gas, upstream, marketing, químicos y productos
+    puede diversificar las fuentes de ingresos y ofrecer opciones operativas y de
+    asignación de capital.
+
+    - Shell opera a lo largo de varias etapas de la cadena energética y cuenta, según
+    AOIF, con escala, infraestructura, marcas y relaciones comerciales que podrían
+    respaldar una posición competitiva sólida.
+
+    - El FCF TTM reportado fue de 37.361 millones al 2026-09-30, con crecimiento reportado
+    de 41,49 %. Si una serie futura comparable confirma esa mejora, podría indicar
+    una recuperación sostenida de la generación de caja. **Fuente:** [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/).
+
+    - La generación de efectivo y los retornos de capital por segmento podrían sustentar
+    la tesis si se demuestra que la reinversión produce rendimientos adecuados; los
+    datos disponibles no permiten confirmarlo.
+
+
+    El paquete no valida crecimiento estructural de ingresos, conversión de FCF, apalancamiento
+    neto en una métrica comparable ni una ventaja competitiva cuantificada. Por tanto,
+    la oportunidad se clasifica como **investigación requerida; oportunidad de crecimiento
+    no validada**.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos principales
+
+
+    - **Ciclicidad y sostenibilidad del flujo de caja:** el FCF reportado varió entre
+    45.814 millones en FY 2022 y 23.916 millones en FY 2025, antes de la cifra TTM
+    de 37.361 millones al 2026-09-30. La comparación no permite determinar por sí
+    sola si la mejora es duradera. **Fuente:** [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/).
+
+    - **Precios y demanda:** caídas o volatilidad del petróleo y el gas pueden reducir
+    ingresos, márgenes y generación de caja. AOIF clasifica este riesgo como de impacto
+    alto y probabilidad alta.
+
+    - **Regulación y clima:** cambios regulatorios, litigios o restricciones climáticas
+    pueden elevar costes o limitar operaciones y demanda. AOIF clasifica el impacto
+    como alto y la probabilidad como media.
+
+    - **Apalancamiento y cobertura:** se reportó net cash de −39.650 millones al 2026-09-30,
+    pero no se validó net debt/EBITDA por incompatibilidad de unidades. La cobertura
+    financiera no está validada. **Fuente:** [StockAnalysis](https://stockanalysis.com/stocks/shel/financials/)
+    y [StockAnalysis, estadísticas](https://stockanalysis.com/stocks/SHEL/statistics/).
+
+    - **Ventaja competitiva no demostrada:** integración y escala no prueban por sí
+    solas retornos superiores sobre capital ni una ventaja económica persistente.
+
+    - **Asignación de capital:** faltan datos de retornos por proyecto y segmento,
+    así como de necesidades de reinversión.
+
+
+    ### Contra-tesis y falsadores
+
+
+    La recuperación del FCF podría ser transitoria o reflejar factores no identificados
+    en el paquete, mientras que la exposición a hidrocarburos, la intensidad de capital
+    y los riesgos regulatorios pueden limitar la calidad y previsibilidad de los retornos.
+    La valoración tampoco demuestra una discrepancia frente al valor intrínseco.
+
+
+    Falsadores a monitorear:
+
+
+    1. FCF futuro comparable que revierta persistentemente frente al TTM de 37.361
+    millones reportado al 2026-09-30.
+
+    2. Deterioro persistente de ingresos, márgenes o generación de efectivo frente
+    a períodos comparables.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Fecha esperada | Impacto potencial | Qué verificar |
+
+    |---|---|---|---|
+
+    | Próximos resultados financieros comparables | No especificada en el paquete
+    | Podrían confirmar o refutar la mejora observada en el FCF TTM | Ingresos, FCF,
+    balance y definiciones consistentes entre períodos |
+
+    | Información sobre retornos por segmento y proyectos de capital | No especificada
+    en el paquete | Podría aclarar si la reinversión genera valor | Retornos sobre
+    capital, inversión requerida y resultados de proyectos |
+
+
+    No se proporcionaron fechas de publicación ni un calendario corporativo verificable.
+    Estos catalizadores son eventos de seguimiento, no previsiones de resultados.
+
+
+    ## 8. Marco de Valoración
+
+
+    No es posible estimar rigurosamente un valor intrínseco con la información disponible.
+    Faltan una serie de flujos de caja normalizados, deuda neta en unidades verificadas,
+    acciones diluidas, fecha de valoración y supuestos fundamentados de crecimiento
+    y descuento.
+
+
+    ### Enfoque apropiado
+
+
+    - Valorar los flujos de caja de forma normalizada a través del ciclo, en lugar
+    de extrapolar un único FCF anual o TTM.
+
+    - Contrastar una valoración por flujos de caja con múltiplos empresariales y de
+    capital, usando períodos y definiciones homogéneos.
+
+    - Separar, cuando los datos estén disponibles, los segmentos de negocio y sus
+    necesidades de reinversión y retornos sobre capital.
+
+
+    ### Datos de mercado aportados
+
+
+    La cotización observada fue de **USD 108,69 al 2026-10-30**. El consenso medio
+    de precio objetivo informado el **2026-11-20** fue **USD 110,81**, con un rango
+    de **USD 100–129**. El consenso está próximo a la cotización observada, pero el
+    paquete no aporta estimaciones operativas detalladas ni una metodología de valoración
+    intrínseca que permita concluir que existe un error de valoración.
+
+
+    Los múltiplos facilitados —PER de 8,26x y EV/EBITDA de 4,53x— carecen de fecha
+    y fuente verificables. El FCF yield reportado de 0 requiere aclaración. No deben
+    utilizarse como base concluyente para estimar margen de seguridad.
+
+
+    ### Sensibilidad y supuestos por investigar
+
+
+    La sensibilidad debería centrarse en precios realizados de petróleo y gas, volúmenes,
+    márgenes de refinación y químicos, FCF normalizado, inversión de mantenimiento
+    y crecimiento, coste de capital y deuda neta. El paquete no contiene valores verificables
+    para cuantificar esos escenarios.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es el FCF y la utilidad neta en períodos homogéneos, con moneda, unidades
+    y definiciones verificadas?
+
+    2. ¿Cuál es la evolución de ingresos, márgenes y FCF en una serie anual comparable
+    que permita calcular crecimiento a tres años?
+
+    3. ¿Qué retornos sobre capital obtiene cada segmento y cuáles son sus necesidades
+    de reinversión?
+
+    4. ¿Qué parte del cambio en FCF TTM se explica por precios, volúmenes, capital
+    de trabajo, impuestos, desinversiones u otros factores?
+
+    5. ¿Cuál es la deuda neta y la métrica de apalancamiento comparable, y cómo se
+    calcula la cobertura financiera?
+
+    6. ¿Qué datos respaldan los valores de ROIC, margen operativo, PER, EV/EBITDA
+    y FCF yield proporcionados por AOIF?
+
+    7. ¿Cómo se comparan la rentabilidad, el capital empleado y la valoración de Shell
+    con pares como [[BP]], [[CVX]], [[EQNR]], [[COP]] y [[E]]?
+
+    8. ¿Qué evidencia cuantitativa confirma que la integración genera sinergias o
+    ventajas frente a competidores?
+
+    9. ¿Cuál es la propiedad accionaria de insiders y qué incentivos de management
+    y supervisión del board están vigentes?
+
+    10. ¿Qué fechas y resultados concretos se esperan para los próximos reportes financieros
+    y proyectos de capital?
+
+
+    **Estado de decisión:** pendiente de información comparable y de validación de
+    métricas; el paquete no permite establecer un valor intrínseco ni confirmar una
+    oportunidad de crecimiento.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]],
+    [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton
+    Company]], [[OXY|Occidental Petroleum Corporation]], [[PBR|Petróleo Brasileiro
+    S.A. - Petrobras]], [[PSX|Phillips 66]], [[TS|Tenaris S.A.]]
+
+    - **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]],
+    [[EQNR|Equinor ASA]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -293,7 +636,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T22:07:21.721773+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T21:01:29.874568+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -454,12 +797,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    129.0, "low": 100.0, "mean": 110.81, "median": 110.81, "observed_at": "2026-11-20T19:07:24.674230-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T19:07:24.674230-03:00", "observed_date": "2026-11-20", "target_price":
+    129.0, "low": 100.0, "mean": 110.81, "median": 110.81, "observed_at": "2026-11-21T18:01:32.916319-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T18:01:32.916319-03:00", "observed_date": "2026-11-21", "target_price":
     110.81, "url": "https://stockanalysis.com/stocks/shel/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:07:24.674230-03:00",
-    "observed_date": "2026-11-20", "target_price": 110.80667, "url": "https://finance.yahoo.com/quote/SHEL/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T18:01:32.916319-03:00",
+    "observed_date": "2026-11-21", "target_price": 110.80667, "url": "https://finance.yahoo.com/quote/SHEL/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 108.69000244140625,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/SHEL/"}]}}'
   sector: Energy
@@ -469,57 +812,118 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: db65b277dcf34bcd67b31a8b19eef335804b316e16b4ccbb3bf79655adee5efc
+    sha256: e629b5a7394e9cbf872d6e4b8f27bc99abfd6e7c0eb68061ae55bf4c3bf5f4bc
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T19:07:49.012559-03:00'
+  triggered_at: '2026-11-21T18:02:04.647543-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: 1.38x para el período terminado el 2026-09-30
+- assessment_note: Observación por encima del umbral configurado; no constituye decisión
+    de inversión.
+  metric: current_ratio
+  observed_value: 1.38
+  period_end: '2026-09-30'
   source:
     name: stockanalysis.com
     url: https://stockanalysis.com/stocks/SHEL/statistics/
-  status: no supera el umbral configurado
-  threshold: below 0.5x
-- metric: dilution_yoy_pct
-  observation: No disponible; falta histórico comparable de acciones diluidas o en
-    circulación.
-  status: no evaluable
+  threshold: below 0.5
+  unit: x
+- assessment_note: Valor reportado que cruza el umbral, pero requiere validación;
+    no se sustituye EBIT por EBITDA ni se interpreta como cobertura confirmada.
+  metric: interest_coverage
+  observed_value: 0
+  period_end: '2026-09-30'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SHEL/statistics/
+  threshold: below 2.0
+  unit: x
+- assessment_note: Estimación indicativa bajo una interpretación de escala no explicitada;
+    validar unidades antes de usarla en Assessment.
+  metric: net_debt_ebitda
+  observed_value: 0.59
+  period_end: '2026-09-30'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/shel/financials/
+  threshold: above 4.0
+  unit: x
+- assessment_note: 'No evaluable: falta historial comparable de acciones.'
+  metric: dilution_yoy_pct
+  observed_value: null
+  period_end: null
   threshold: above 10%
-- metric: interest_coverage
-  observation: La fuente reporta 0 para TTM terminado el 2026-09-30.
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/SHEL/statistics/
-  status: observación por verificar; el valor reportado no se sustituye ni interpreta
-    como cobertura validada
-  threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: No aplica al FCF TTM positivo reportado de 37.361 millones al 2026-09-30;
-    no se calcula runway.
-  status: sin señal de runway evaluable en el período
-  threshold: below 12 months cuando FCF es negativo
-- metric: net_debt_ebitda
-  observation: No disponible por incompatibilidad verificable de escala/unidades entre
-    net cash y EBITDA.
-  status: no evaluable
-  threshold: above 4.0x
-- metric: share_count_cagr_3y_pct
-  observation: No disponible; falta una serie de acciones con observaciones fechadas
-    comparables a tres años.
-  status: no evaluable
+  unit: percent
+- assessment_note: No aplica al FCF TTM positivo reportado; no se calcula runway.
+  metric: negative_fcf_runway_months
+  observed_value: null
+  period_end: null
+  threshold: below 12
+  unit: months
+- assessment_note: 'No evaluable: no se aporta una serie de acciones para tres años.'
+  metric: share_count_cagr_3y_pct
+  observed_value: null
+  period_end: null
   threshold: above 5%
-scenario_analysis: null
+  unit: percent
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Resultados posteriores muestran FCF comparable sostenido y evidencia de retornos
+      de reinversión.
+    - Una previsión actualizada y verificable deja de respaldar el extremo bajo del
+      rango.
+    id: BEAR
+    key_assumptions:
+    - El FCF TTM reportado no se mantiene; la serie histórica aportada muestra variabilidad.
+    - El precio objetivo bajo observado representa una ancla de mercado, no una previsión
+      validada por fundamentos.
+    rationale: Ancla baja del rango de objetivos de analistas observado, no valoración
+      intrínseca propia. Es el resultado adverso dentro de las anclas disponibles
+      si la generación de caja no sostiene la mejora TTM y el mercado revalúa a la
+      baja las expectativas.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/shel/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/shel/financials/
+    target_price: 100
+  - falsifiers:
+    - La caja comparable se contrae materialmente o no se sostiene.
+    - Las previsiones verificables posteriores dejan de respaldar el extremo alto
+      del rango.
+    id: BULL
+    key_assumptions:
+    - El FCF positivo y su crecimiento TTM reportado resultan sostenibles en períodos
+      comparables.
+    - La ancla alta observada refleja una expectativa de mercado alcanzable, aunque
+      sus supuestos no están disponibles en el paquete.
+    rationale: Ancla alta del rango de objetivos de analistas observado, no valoración
+      intrínseca propia. Representa el mejor resultado dentro de las anclas disponibles
+      si la generación de caja TTM se sostiene y la diversificación del negocio se
+      traduce en desempeño financiero persistente.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/shel/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/shel/financials/
+    target_price: 129
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 58
+  errors: []
+  status: valid_pending_decision_board
+score_general: 61
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T19:07:24.674230-03:00'
+  calculado_at: '2026-11-21T18:01:32.916319-03:00'
   fuentes:
     stockanalysis: 110.81
     yfinance: 110.80667
@@ -527,25 +931,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 110.81
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T19:07:24.674230-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:01:32.916319-03:00'
+    observed_date: '2026-11-21'
     target_price: 110.81
     url: https://stockanalysis.com/stocks/shel/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T19:07:24.674230-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:01:32.916319-03:00'
+    observed_date: '2026-11-21'
     target_price: 110.80667
     url: https://finance.yahoo.com/quote/SHEL/
   target_high: 129.0
   target_low: 100.0
-tesis_inversion: Shell combina operaciones integradas de gas, upstream, marketing,
-  químicos y productos, y renovables y soluciones energéticas. La evidencia suministrada
-  muestra FCF TTM de 37.361 millones en el período terminado el 2026-09-30 y momentum
-  de precio a 12 meses de 45,0748% hasta el 2026-10-30; no basta para establecer que
-  ese flujo sea sostenible, que la reinversión produzca retornos crecientes o que
-  exista una oportunidad de crecimiento tipo multibagger.
+tesis_inversion: Shell opera en gas integrado, upstream, marketing, químicos y productos,
+  y renovables y soluciones energéticas (resumen financiero, fecha de análisis 2026-11-21).
+  La tesis a investigar es si esa cartera puede mantener generación de caja y convertir
+  reinversión disciplinada en retornos sostenibles; el paquete no ofrece datos suficientes
+  para validar crecimiento de mercado, penetración, ventaja competitiva o retornos
+  incrementales sobre capital.
 ticker: SHEL
 version: '3.0'
