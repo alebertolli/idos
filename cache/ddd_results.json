@@ -1,39 +1,71 @@
 {
-  "total": 3,
+  "total": 4,
   "processed": [
     {
-      "opp_id": "OPP-MB-VOD",
-      "ticker": "VOD",
+      "opp_id": "OPP-MB-ADI",
+      "ticker": "ADI",
       "status": "completed",
-      "score": 58,
+      "score": 81.78,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-VRSN",
-      "ticker": "VRSN",
+      "opp_id": "OPP-MB-ADP",
+      "ticker": "ADP",
       "status": "quality_failed",
-      "score": 67,
+      "score": 50,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "opp_id": "OPP-MB-VRTX",
-      "ticker": "VRTX",
-      "status": "completed",
-      "score": 43,
+      "opp_id": "OPP-MB-AEG",
+      "ticker": "AEG",
+      "status": "hypothesis_validation_failed",
+      "score": null,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": []
+      "errors": [
+        "H1: prediction or trigger references an expired year",
+        "H2: prediction or trigger references an expired year"
+      ]
+    },
+    {
+      "opp_id": "OPP-MB-AMGN",
+      "ticker": "AMGN",
+      "status": "quality_failed",
+      "score": 42,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "VRSN",
-      "opp_id": "OPP-MB-VRSN",
+      "ticker": "ADP",
+      "opp_id": "OPP-MB-ADP",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "ticker": "AEG",
+      "opp_id": "OPP-MB-AEG",
+      "status": "hypothesis_validation_failed",
+      "error": "H1: prediction or trigger references an expired year; H2: prediction or trigger references an expired year",
+      "errors": [
+        "H1: prediction or trigger references an expired year",
+        "H2: prediction or trigger references an expired year"
+      ]
+    },
+    {
+      "ticker": "AMGN",
+      "opp_id": "OPP-MB-AMGN",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -42,7 +74,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 79,
+  "deferred_count": 72,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

@@ -1,0 +1,520 @@
+calidad_evidencia:
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Multibagger
+  justificacion: Fuerte impulso de precio 12m (63.7%) y CAGR de ingresos ~5% respaldan
+    potencial de alta significativa.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Ratio corriente 1.19 y generación de efectivo libre robusta (42,964 M)
+    indican solidez financiera.
+  rating: A
+dominio_catalizadores:
+- description: Aumento sostenido del precio del crudo impulsa ingresos y márgenes.
+  source:
+    as_of_date: '2026-11-20'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/xom/forecast/
+- description: Mejora en la eficiencia operativa reduce costos de producción.
+  source:
+    as_of_date: '2026-09-30'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/XOM/statistics/
+- description: Expansión de la cartera química diversifica flujos de ingresos.
+  source:
+    as_of_date: '2026-09-30'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/XOM/statistics/
+- description: Políticas regulatorias favorables a la energía tradicional.
+  source: null
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- description: Cobertura de intereses cero (ratio 0) indica vulnerabilidad a aumentos
+    de deuda.
+  source:
+    as_of_date: '2026-09-30'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/XOM/statistics/
+- description: Volatilidad 90d del 23.85% muestra sensibilidad a precios de energía.
+  source:
+    as_of_date: '2026-10-30'
+    name: yfinance
+    url: https://finance.yahoo.com/quote/XOM/history/
+- description: Datos de dilución de acciones no disponibles, impidiendo evaluar posible
+    dilución futura.
+  source: null
+- description: Deuda neta positiva (22,097 M) aunque manejable, aumenta riesgo en
+    escenarios de precios bajos.
+  source:
+    as_of_date: '2026-09-30'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/xom/financials/
+error_mercado:
+  catalizador_cambio: Recuperación sostenida del precio del crudo por encima de $70/barril.
+  conclusion_error_valoracion: El precio actual (187.25 USD) supera el promedio del
+    consenso, indicando posible sobrevaloración momentánea.
+  consenso_actual:
+    currency: USD
+    high: 213.0
+    low: 160.0
+    mean: 184.18
+    source:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/xom/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/XOM/
+  hipotesis_contraria: Los fundamentos (FCF crecimiento 80.7%, margen bruto 29.8%)
+    sugieren que el precio podría sostenerse por encima del promedio del consenso.
+  razonamiento: El mercado incorpora expectativas de precios de energía más altos
+    que los actuales indicadores de margen y crecimiento.
+generated_at: '2026-11-20T22:08:24.548493-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-XOM
+prompt_inputs:
+  business_model: ExxonMobil Holdings Corporation engages in the exploration and production
+    of crude oil and natural gas in the United States, Canada, and internationally.
+    The company operates through Upstream, Energy Products, Chemical Products, and
+    Specialty Products segments. Its Upstream segment explores for and produces crude
+    oil and natural gas. The Energy Products segment offers fuels, aromatics, and
+    catalysts, as well as licensing services. Its Chemical Products segment manufactures
+    and sells olefins, polyolefins, and intermediates. The Specialty Products segment
+    offers finished lubricants, basestocks, waxes, synthetics, elastomers, and resins.
+    It is also involved in the manufacture, trade, transport, and sale of crude oil,
+    natural gas, petroleum products, petrochemicals, and other specialty products;
+    and pursuit of lower-emission and business opportunities, including carbon capture
+    and storage, hydrogen, lower-emission fuels, Proxxima resin systems, carbon materials,
+    low-carbon data center, and lithium. In addition, the company offers aviation
+    fuel. It sells its products under the Exxon, Esso, and Mobil brands. The company
+    was formerly known as Exxon Mobil Corporation and changed its name to ExxonMobil
+    Holdings Corporation in July 2026. ExxonMobil Holdings Corporation was founded
+    in 1870 and is headquartered in Spring, Texas.
+  ceo_tenure: 0
+  debt_to_equity: 0.13
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: ExxonMobil Holdings Corporation
+  operating_margin: 12.88
+  pe_ratio: 16.49
+  products: ''
+  revenue: 388230000000.0
+  revenue_growth: 19.48
+  roic: 12.73
+  sector: Energy
+  ticker: XOM
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/XOM/statistics/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/xom/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: as reported
+  inputs:
+    fcf_growth_history: fcf_growth_history_TTM
+  limitations: Ninguna
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/xom/financials/
+  status: reported
+  unit: percent
+  value: 80.71
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/XOM/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/xom/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares_t: diluted_shares_history
+    diluted_shares_t-1: diluted_shares_history
+  limitations: Historial de acciones diluidas no proporcionado en el paquete.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: ExxonMobil Holdings Corporation engages in the exploration and production
+    of crude oil and natural gas in the United States, Canada, and internationally.
+    The company operates through Upstream, Energy Products, Chemical Products, and
+    Specialty Products segments. Its Upstream segment explores for and produces crude
+    oil and natural gas. The Energy Products segment offers fuels, aromatics, and
+    catalysts, as well as licensing services. Its Chemical Products segment manufactures
+    and sells olefins, polyolefins, and intermediates. The Specialty Products segment
+    offers finished lubricants, basestocks, waxes, synthetics, elastomers, and resins.
+    It is also involved in the manufacture, trade, transport, and sale of crude oil,
+    natural gas, petroleum products, petrochemicals, and other specialty products;
+    and pursuit of lower-emission and business opportunities, including carbon capture
+    and storage, hydrogen, lower-emission fuels, Proxxima resin systems, carbon materials,
+    low-carbon data center, and lithium. In addition, the company offers aviation
+    fuel. It sells its products under the Exxon, Esso, and Mobil brands. The company
+    was formerly known as Exxon Mobil Corporation and changed its name to ExxonMobil
+    Holdings Corporation in July 2026. ExxonMobil Holdings Corporation was founded
+    in 1870 and is headquartered in Spring, Texas.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 187.25
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.13
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-21T01:08:06.467437+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: ExxonMobil Holdings Corporation
+  operating_margin: 12.88
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: ExxonMobil Holdings Corporation engages in the exploration and production
+    of crude oil and natural gas in the United States, Canada, and internationally.
+    The company operates through Upstream, Energy Products, Chemical Products, and
+    Specialty Products segments. Its Upstream segment explores for and produces crude
+    oil and natural gas. The Energy Products segment offers fuels, aromatics, and
+    catalysts, as well as licensing services. Its Chemical Products segment manufactures
+    and sells olefins, pol
+  revenue: 388230000000.0
+  revenue_growth: 19.48
+  roic: 12.73
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/xom/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/XOM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/XOM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/XOM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/XOM/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/xom/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/xom/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/xom/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/XOM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/xom/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/XOM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/xom/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/xom/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/xom/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/XOM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/XOM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/xom/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    213.0, "low": 160.0, "mean": 184.18, "median": 184.18, "observed_at": "2026-11-20T22:08:10.330827-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T22:08:10.330827-03:00", "observed_date": "2026-11-20", "target_price":
+    184.18, "url": "https://stockanalysis.com/stocks/xom/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T22:08:10.330827-03:00",
+    "observed_date": "2026-11-20", "target_price": 184.18182, "url": "https://finance.yahoo.com/quote/XOM/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 187.25,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/XOM/"}]}}'
+  sector: Energy
+  ticker: XOM
+research_trigger:
+  discovery_snapshot_hash: 08cd71f6837f4f15b7d6915572aff2de1a8bbb32e0ead81a49355a2a10015173
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 9bbeadb3ccf51ca8f2bb0004ad561d15e50fc7697a1f8619df810bdcfaa1a3af
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T22:08:24.548493-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- interest_coverage_ratio below threshold (value 0)
+scenario_analysis:
+  as_of_date: '2026-11-01'
+  currency: USD
+  horizon_date: '2027-11-01'
+  scenarios:
+  - falsifiers:
+    - Precio del crudo sostenido > $70/barril
+    - Mejora de margen bruto
+    - Crecimiento de FCF positivo
+    id: BEAR
+    key_assumptions:
+    - Precio del crudo <$60/barril
+    - Margen bruto cae a 28%
+    - Crecimiento de FCF negativo
+    - Net debt/EBITDA > 0.5
+    rationale: Entorno de precios del crudo bajo, márgenes comprimidos al 28%, crecimiento
+      de FCF negativo y aumento de deuda neta.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/xom/forecast/
+    target_price: 160.0
+  - falsifiers:
+    - Precio del crudo < $60/barril
+    - Compresión de márgenes
+    - Conversión de FCF < 90%
+    id: BULL
+    key_assumptions:
+    - Precio del crudo > $80/barril
+    - Margen bruto sube a 33%
+    - Conversión de FCF > 110%
+    - Net debt/EBITDA < 0.2
+    rationale: Precios del crudo altos, márgenes mejoran al 33%, FCF crece >100% y
+      deuda neta disminuye.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/xom/forecast/
+    target_price: 213.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors:
+  - as_of_date debe coincidir con la fecha actual del análisis
+  - 'BEAR.sources[0]: la fecha de fuente no puede superar as_of_date'
+  - 'BULL.sources[0]: la fecha de fuente no puede superar as_of_date'
+  status: invalid_pending_revision
+score_general: 88
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T22:08:10.330827-03:00'
+  fuentes:
+    stockanalysis: 184.18
+    yfinance: 184.18182
+  mediana: 184.18
+  n_fuentes: 2
+  promedio: 184.18
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T22:08:10.330827-03:00'
+    observed_date: '2026-11-20'
+    target_price: 184.18
+    url: https://stockanalysis.com/stocks/xom/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T22:08:10.330827-03:00'
+    observed_date: '2026-11-20'
+    target_price: 184.18182
+    url: https://finance.yahoo.com/quote/XOM/
+  target_high: 213.0
+  target_low: 160.0
+tesis_inversion: ExxonMobil muestra capacidad de generación de efectivo robusta y
+  crecimiento de ingresos, pero su valoración está ligeramente inflada respecto al
+  consenso medio.
+ticker: XOM
+version: '3.0'

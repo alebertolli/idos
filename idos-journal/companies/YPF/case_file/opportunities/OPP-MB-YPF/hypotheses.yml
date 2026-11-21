@@ -1,0 +1,161 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción diaria promedio de petróleo shale de los doce meses terminados
+      el 2027-09-30 es inferior al 110% de la correspondiente a los doce meses terminados
+      el 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: YPF no divulga datos comparables que permitan comprobar la variación
+      de producción en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción diaria promedio de petróleo shale de los doce meses terminados el
+    2027-09-30 es inferior al 110% de la correspondiente a los doce meses terminados
+    el 2026-09-30.
+  - YPF no divulga datos comparables que permitan comprobar la variación de producción
+    en la fecha objetivo.
+  horizon: medio
+  id: H1-OPP-MB-YPF
+  opportunity_id: OPP-MB-YPF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 10.0
+    met: null
+    metric: Variación de la producción diaria promedio de petróleo shale frente a
+      los doce meses terminados el 2026-09-30
+    prediction: Al 2027-09-30, la producción diaria promedio de petróleo shale de
+      los últimos doce meses será al menos un 10% superior a la producción diaria
+      promedio de los doce meses terminados el 2026-09-30, usando la misma definición
+      de producción y perímetro divulgados por YPF.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis contempla reinvertir en actividades upstream y reporta una mejora
+    de ingresos y margen, pero la información disponible no desglosa el crecimiento
+    por volumen, precio, mezcla o costos ni aporta datos suficientes de producción,
+    reservas o capex. Por ello, esta es una hipótesis de ejecución que debe verificarse
+    con volúmenes publicados, no asumirse a partir de resultados financieros.
+  review_trigger: Dejar de creerla si una divulgación de YPF anterior o igual al 2027-09-30
+    muestra que la producción diaria promedio de petróleo shale no creció al menos
+    un 5% interanual durante dos trimestres consecutivos, o si al 2027-09-30 no se
+    puede comprobar el crecimiento previsto.
+  secondary_hypotheses: []
+  statement: La reinversión en upstream permitirá que la producción de petróleo shale
+    de YPF crezca durante los próximos doce meses, en lugar de que la mejora reciente
+    de resultados dependa exclusivamente de precios o mezcla.
+  status: ACTIVE
+  ticker: YPF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF de los doce meses terminados el 2027-09-30 es inferior al 90%
+      del FCF comparable de los doce meses terminados el 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF comparable es negativo en los doce meses terminados el 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede realizarse con datos públicos consistentes
+      sobre flujo operativo e inversiones de capital.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF de los doce meses terminados el 2027-09-30 es inferior al 90% del FCF comparable
+    de los doce meses terminados el 2026-09-30.
+  - El FCF comparable es negativo en los doce meses terminados el 2027-09-30.
+  - La comparación no puede realizarse con datos públicos consistentes sobre flujo
+    operativo e inversiones de capital.
+  horizon: medio
+  id: H2-OPP-MB-YPF
+  opportunity_id: OPP-MB-YPF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 90.0
+    met: null
+    metric: FCF de los doce meses terminados el 2027-09-30 como proporción del FCF
+      de los doce meses terminados el 2026-09-30
+    prediction: El FCF acumulado de los doce meses terminados el 2027-09-30 será al
+      menos el 90% del FCF de los doce meses terminados el 2026-09-30, calculado con
+      la misma definición y moneda constante; si YPF no publica FCF, se reconstruirá
+      con flujo operativo menos inversiones de capital divulgadas.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis parte de una mejora de FCF en TTM al 2026-09-30, pero no hay
+    información suficiente para atribuirla a volúmenes, precios, costos, capital de
+    trabajo o menor capex, ni para determinar su sostenibilidad. La deuda neta y la
+    variabilidad histórica de resultados y FCF elevan el riesgo de reversión. La comparación
+    debe usar una definición consistente de FCF y moneda comparable.
+  review_trigger: Dejar de creerla si, en una divulgación publicada antes o en la
+    fecha objetivo, el FCF de los últimos doce meses cae por debajo del 90% de la
+    base comparable de 2026-09-30, o si se vuelve negativo.
+  secondary_hypotheses:
+  - H1-OPP-MB-YPF
+  statement: La mejora reportada en generación de caja podrá sostenerse durante los
+    próximos doce meses, aunque no se presupone que el crecimiento de ingresos o margen
+    bruto se traduzca automáticamente en más flujo de caja libre.
+  status: ACTIVE
+  ticker: YPF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total del ADR de YPF menos la rentabilidad total de
+      XLE entre las fechas definidas es inferior a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa es negativa al cierre de la ventana.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total del ADR de YPF menos la rentabilidad total de XLE entre
+    las fechas definidas es inferior a 10 puntos porcentuales.
+  - La rentabilidad relativa es negativa al cierre de la ventana.
+  horizon: medio
+  id: H3-OPP-MB-YPF
+  opportunity_id: OPP-MB-YPF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total en dólares del ADR de YPF menos rentabilidad total
+      de XLE
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, la rentabilidad
+      total en dólares del ADR de YPF, incluidos dividendos, superará en al menos
+      10 puntos porcentuales la rentabilidad total del ETF Energy Select Sector SPDR
+      Fund (XLE), usando precios de cierre ajustados y la misma ventana temporal.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: La tesis de mercado depende de que el crecimiento y la generación de
+    caja resulten sostenibles y de que los inversores reconozcan esa ejecución. Sin
+    datos suficientes sobre valoración, costo de capital o ventajas competitivas,
+    no se puede justificar un múltiplo objetivo; por ello, la hipótesis se limita
+    a una comparación observable de rentabilidad relativa, no a afirmar que la acción
+    esté infravalorada.
+  review_trigger: Dejar de creerla si al cierre del 2027-11-19 la rentabilidad total
+    del ADR de YPF no supera la de XLE por al menos 10 puntos porcentuales; no prolongar
+    la ventana para reinterpretar el resultado.
+  secondary_hypotheses:
+  - H1-OPP-MB-YPF
+  - H2-OPP-MB-YPF
+  statement: Si YPF demuestra crecimiento operativo y conserva la mayor parte de la
+    mejora de FCF, sus acciones ADR obtendrán una rentabilidad total superior a la
+    del ETF XLE durante los próximos doce meses.
+  status: ACTIVE
+  ticker: YPF
+  version: 1

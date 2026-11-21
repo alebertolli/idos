@@ -1,0 +1,917 @@
+calidad_evidencia:
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas:
+  - ¿Cuál es la tasa de dilución de acciones en los últimos 3 años?
+  - ¿Cómo evolucionará la cobertura de intereses tras posibles inversiones de capital?
+catalizadores_previos: &id001
+- descripcion: Recuperación sostenida de demanda y márgenes, confirmada en reportes
+    futuros con desglose por mercado y evidencia de mejora no explicada únicamente
+    por efectos de base.
+  generated_at: '2026-11-21T06:22:30.117489-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-007
+  probabilidad_anterior: 45
+- descripcion: Adopción y contribución material de nuevos productos de conversión
+    de datos para centros de datos. La familia ADI-AIX de convertidores de 10-Gbit/s
+    mencionada en catalizadores anteriores no está verificada con evidencia primaria
+    en esta entrada.
+  generated_at: '2026-11-21T06:22:30.117489-03:00'
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-007
+  probabilidad_anterior: 25
+- descripcion: Adquisición de una empresa de sensores de potencia para reforzar la
+    oferta automotriz. No se aporta evidencia primaria que confirme que exista una
+    operación anunciada o completada.
+  generated_at: '2026-11-21T06:22:30.117489-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-007
+  probabilidad_anterior: 15
+clasificacion_oportunidad:
+  categoria: Multibagger
+  justificacion: Alta puntuación de descubrimiento (81.78) y fuerte crecimiento de
+    ingresos y flujo de caja libre respaldan potencial de múltiplos superiores.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Modelo de negocio diversificado, margen bruto sólido (65.8%) y generación
+    de efectivo libre positiva.
+  rating: A
+dominio_catalizadores:
+- catalizador: Adopción de IA en edge computing
+  detalle: Incremento de demanda de convertidores de alta precisión.
+- catalizador: Expansión en el sector de energía renovable
+  detalle: Mayor uso de productos de gestión de energía.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- detalle: 'Interest coverage ratio = 0 (fuente: stockanalysis.com) está muy por debajo
+    del umbral de 2.0.'
+  riesgo: Cobertura de intereses insuficiente
+- detalle: Falta información histórica de diluted shares para calcular dilution_yoy_pct.
+  riesgo: Datos de dilución de acciones no disponibles
+- detalle: Dependencia de mercados cíclicos como automotriz y comunicaciones.
+  riesgo: Crecimiento de ingresos podría desacelerarse
+error_mercado:
+  catalizador_cambio: Lanzamiento de nuevos convertidores de alta velocidad y expansión
+    en mercados automotrices podrían cerrar la brecha de valoración.
+  conclusion_error_valoracion: Existe una posible subvaloración del mercado, pero
+    la magnitud depende de la ejecución de la estrategia de crecimiento.
+  consenso_actual:
+    currency: USD
+    high: 675.0
+    low: 365.0
+    mean: 474.47
+  hipotesis_contraria: El precio actual (356.67 USD) está por debajo del rango bajo
+    del consenso, lo que sugiere subvaloración; sin embargo, riesgos de desaceleración
+    de demanda podrían justificar una valoración más baja.
+  razonamiento: El consenso bajo supera el precio actual, indicando expectativa de
+    alza; sin embargo, la evidencia de cobertura de deuda y bajo interés coverage
+    introduce incertidumbre.
+generated_at: '2026-11-21T14:09:41.563454-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-ADI
+prompt_inputs:
+  business_model: Analog Devices, Inc. engages in the design, manufacture, testing,
+    and marketing of integrated circuits (ICs), software, and subsystems products
+    in the United States, rest of North and South America, Europe, Japan, China, and
+    rest of Asia. It provides data converter products, which translate real-world
+    analog signals into digital data, as well as translates digital data into analog
+    signals; power management and reference products for power conversion, driver
+    monitoring, sequencing, and energy management applications in the automotive,
+    communications, industrial, and consumer markets; and power ICs that include performance,
+    integration, and software design simulation tools for accurate power supply designs.
+    The company also offers amplifiers to condition analog signals; and radio frequency
+    and microwave ICs to support cellular infrastructure; and micro-electro-mechanical
+    systems technology solutions, including accelerometers used to sense acceleration,
+    gyroscopes for sense rotation, inertial measurement units to sense multiple degrees
+    of freedom, and broadband switches for radio and instrument systems, as well as
+    isolators. In addition, it provides digital signal processing and system products
+    for numeric calculations. The company serves clients in the industrial, automotive,
+    consumer, instrumentation, aerospace, defense and healthcare, and communications
+    markets through a direct sales force, third-party distributors, and independent
+    sales representatives, as well as online. The company was incorporated in 1965
+    and is headquartered in Wilmington, Massachusetts.
+  ceo_tenure: 0
+  debt_to_equity: 0.27
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Analog Devices, Inc.
+  operating_margin: 35.67
+  pe_ratio: 41.96
+  products: ''
+  revenue: 13880000000.0
+  revenue_growth: 33.65
+  roic: 10.96
+  sector: Technology
+  ticker: ADI
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-08-01'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ADI/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Valor reportado en fcf_growth_history para TTM.
+  inputs:
+    fcf_growth_ttm: 34.23
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2026-08-01'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ADI/statistics/
+  status: reported
+  unit: percent
+  value: 34.23
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-08-01'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ADI/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-08-01'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ADI/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: Falta información histórica de diluted shares en el paquete.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-21'
+  business_model: Analog Devices, Inc. engages in the design, manufacture, testing,
+    and marketing of integrated circuits (ICs), software, and subsystems products
+    in the United States, rest of North and South America, Europe, Japan, China, and
+    rest of Asia. It provides data converter products, which translate real-world
+    analog signals into digital data, as well as translates digital data into analog
+    signals; power management and reference products for power conversion, driver
+    monitoring, sequencing, and energy management applications in the automotive,
+    communications, industrial, and consumer markets; and power ICs that include performance,
+    integration, and software design simulation tools for accurate power supply designs.
+    The company also offers amplifiers to condition analog signals; and radio frequency
+    and microwave ICs to support cellular infrastructure; and micro-electro-mechanical
+    systems technology solutions, including accelerometers used to sense acceleration,
+    gyroscopes for sense rotation, inertial measurement units to sense multiple degrees
+    of freedom, and broadband switches for radio and instrument systems, as well as
+    isolators. In addition, it provides digital signal processing and system products
+    for numeric calculations. The company serves clients in the industrial, automotive,
+    consumer, instrumentation, aerospace, defense and healthcare, and communications
+    markets through a direct sales force, third-party distributors, and independent
+    sales representatives, as well as online. The company was incorporated in 1965
+    and is headquartered in Wilmington, Massachusetts.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 356.6700134277344
+  current_price_as_of_date: '2026-11-20'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.27
+  excess_return_roic_wacc: null
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Analog Devices, Inc. (ADI) diseña, fabrica, prueba y comercializa circuitos integrados,
+    software y subsistemas. Sus productos permiten captar, convertir, acondicionar
+    y gestionar señales y energía. La compañía opera en el sector de semiconductores,
+    con exposición indicada a los mercados industrial, automotriz y de comunicaciones.
+
+
+    Su cadena de valor abarca el desarrollo de tecnología y diseños, la fabricación
+    y prueba de productos y su distribución global. La información disponible no detalla
+    la distribución geográfica de ingresos, la mezcla de fabricación propia y externa
+    ni la concentración de clientes.
+
+
+    Los datos suministrados describen a ADI como un proveedor especializado de productos
+    analógicos, de señal mixta, potencia y sensado. Entre las compañías del sector
+    o de industrias relacionadas incluidas en el contexto están [[ALAB]], [[AMAT]],
+    [[AMD]], [[ARM]], [[ASML]] y [[AVGO]]. Esta lista no implica que todas sean competidores
+    directos.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Productos y aplicaciones señalados:**
+
+
+    - Convertidores de datos analógico-digitales y digital-analógicos.
+
+    - Productos de gestión de energía, referencias y circuitos integrados de potencia.
+
+    - Software y subsistemas asociados al procesamiento de señales y energía.
+
+
+    **Drivers de ingresos identificados:**
+
+
+    - Demanda y ciclos de inventario en los mercados industrial y de comunicaciones.
+
+    - Contenido electrónico por vehículo y adopción de sistemas avanzados en automoción.
+
+    - Demanda de componentes especializados para captar, convertir y acondicionar
+    señales.
+
+
+    La evaluación proporcionada califica la posición competitiva como líder y el moat
+    como amplio. La justificación propuesta es que la especialización, la fiabilidad
+    y el rendimiento de los productos podrían favorecer relaciones de diseño duraderas
+    y costos de cambio. Estas son inferencias analíticas; no se aportaron datos primarios
+    sobre retención de clientes, duración de diseños, participación de mercado o rentabilidad
+    por producto que permitan verificarlas de forma independiente.
+
+
+    La industria es cíclica: los ingresos pueden verse afectados por la actividad
+    de los clientes y la acumulación o corrección de inventarios en los mercados finales.
+    La competencia tecnológica y la presión de precios también pueden limitar la diferenciación.
+    [[AMD]], [[AVGO]] y [[ALAB]] son referencias del sector proporcionadas en el contexto,
+    pero no se estableció el grado de solapamiento competitivo con ADI.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes proceden de los datos de investigación proporcionados. No
+    se especifican en todos los casos la fuente primaria, el periodo exacto ni la
+    base de cálculo. Deben tratarse como observaciones pendientes de validación.
+
+
+    | Métrica | Valor informado | Periodo/base indicada | Nota |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos | 33,65% | TTM al 2026-08-01 | Una fuente seleccionada;
+    periodo y comparabilidad pendientes de confirmar. |
+
+    | Margen operativo | 35,67% | No especificado | Base de cálculo pendiente de validar.
+    |
+
+    | ROIC | 10,96% | No especificado | Base de cálculo y periodo pendientes de validar.
+    |
+
+    | Flujo de caja libre (FCF) | USD 4.940 millones | TTM terminado el 2026-08-01
+    | Atribuido en el contexto a Stock Analysis; no se incluyó un enlace. |
+
+    | PER | 41,96 | No especificado | La fecha y el tipo de beneficio empleado no
+    se detallan. |
+
+    | EV/EBITDA | 27,41 | No especificado | La fecha y la base de EBITDA no se detallan.
+    |
+
+    | FCF yield | 0% | No especificado | El propio análisis advierte que no se proporcionan
+    cifras de flujo operativo, capex ni FCF para recalcularlo; por tanto, la cifra
+    requiere reconciliación. |
+
+
+    La evaluación recibida considera la salud financiera adecuada y la tendencia financiera
+    estable, pero también señala que faltan datos para analizar la conversión de beneficios
+    en efectivo y para estimar valor intrínseco de manera independiente. No se proporcionaron
+    cifras sobre efectivo, deuda, vencimientos, liquidez, obligaciones financieras,
+    capex o estructura de capital; no es posible evaluar aquí el apalancamiento ni
+    la cobertura de deuda.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La información disponible no incluye evidencia primaria suficiente sobre la ejecución
+    del equipo directivo, remuneración, tenencia accionarial de insiders, compras
+    o ventas de acciones, composición del consejo ni historial de asignación de capital.
+
+
+    Las evaluaciones aportadas divergen: una califica la gestión como regular por
+    falta de evidencia suficiente; otra la califica como buena, con asignación de
+    capital creadora de valor y alineamiento moderado de insiders. Estas calificaciones
+    no están respaldadas por métricas o fuentes primarias en el material recibido
+    y no deben considerarse hechos confirmados.
+
+
+    **Conclusión:** la calidad de la gestión y el gobierno corporativo quedan sin
+    verificar. Se requieren informes corporativos y datos de remuneración, participación
+    accionarial y decisiones de capital para emitir una evaluación fundamentada.
+
+
+    ## 5. Tesis de Inversión
+
+
+    La tesis favorable es que ADI podría beneficiarse de su especialización en circuitos
+    analógicos, de señal mixta y de gestión de potencia, componentes que cumplen funciones
+    relevantes en sistemas industriales, automotrices y de comunicaciones. Si sus
+    productos mantienen ventajas de fiabilidad y rendimiento y se integran en diseños
+    de clientes durante periodos prolongados, podrían sostener relaciones comerciales
+    y costos de cambio. Esta última conclusión es una hipótesis, no un hecho demostrado
+    por la evidencia recibida.
+
+
+    Una recuperación amplia de la demanda, junto con la mejora de márgenes y la normalización
+    de inventarios, podría impulsar los resultados. El crecimiento TTM de ingresos
+    reportado —33,65% al 2026-08-01— es una observación potencialmente favorable,
+    pero procede de una sola fuente seleccionada y su periodo y composición deben
+    validarse antes de interpretarlo como una tendencia sostenida.
+
+
+    La cotización disponible es **USD 356,67 al 2026-11-20**. El consenso de objetivos
+    informado es de **USD 474,47**, con referencias entre **USD 365 y USD 675**. La
+    cotización inferior al promedio de objetivos puede reflejar expectativas distintas
+    sobre recuperación o crecimiento, pero no demuestra por sí sola una infravaloración.
+    La dispersión amplia y la falta de una valoración independiente hacen que la conclusión
+    sobre un posible error de valoración sea **incierta**.
+
+
+    La clasificación suministrada es **quality at fair price** (calidad a precio razonable),
+    con opinión de valoración **justa**. Esta clasificación debe leerse como una evaluación
+    del material recibido, no como una conclusión sustentada en un modelo de flujos
+    de caja completo.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    | Riesgo | Impacto / probabilidad indicados | Consideración |
+
+    |---|---|---|
+
+    | Debilidad cíclica, corrección de inventarios o recuperación menor a la esperada
+    en mercados finales | Alto / media | Puede afectar ingresos, utilización y márgenes,
+    especialmente en mercados industriales y de comunicaciones. |
+
+    | Competencia tecnológica y presión de precios | Alto / media | Puede erosionar
+    márgenes o reducir la diferenciación de los productos analógicos, de señal mixta
+    y de potencia. |
+
+    | Pérdida de diseños o participación | Alto / media | Un cliente puede seleccionar
+    productos alternativos o reducir el contenido de ADI en sus sistemas. |
+
+    | Continuidad de suministro y capacidad de fabricación | Riesgo de nivel medio
+    según la evaluación recibida | La exposición es propia de un fabricante y comercializador
+    de semiconductores; no se aportaron datos concretos sobre proveedores, capacidad
+    o interrupciones. |
+
+    | Valoración exigente o expectativas no cumplidas | No cuantificada | Los múltiplos
+    informados son elevados, pero sus fechas y bases no están especificadas. |
+
+
+    **Contra-tesis:** el crecimiento informado podría ser temporal o reflejar una
+    comparación favorable del ciclo, en vez de una recuperación estructural. Si la
+    demanda industrial o automotriz se debilita, los inventarios vuelven a corregirse
+    o la presión competitiva aumenta, el crecimiento y los márgenes podrían no sostenerse.
+    Asimismo, la diferencia entre cotización y objetivos de analistas no constituye
+    evidencia suficiente de un error de valoración.
+
+
+    **Triggers de falsación de la tesis favorable:**
+
+
+    - Reportes futuros que muestren que la recuperación de ingresos no es amplia o
+    sostenida.
+
+    - Deterioro persistente de márgenes, pedidos o inventarios en los mercados relevantes.
+
+    - Evidencia de pérdida de diseños, participación o poder de fijación de precios.
+
+    - Dificultades de suministro o utilización que afecten materialmente la rentabilidad.
+
+    - Confirmación de que el crecimiento TTM informado no es comparable o no representa
+    una tendencia durable.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Horizonte indicado | Impacto potencial | Probabilidad informada
+    | Estado y limitaciones |
+
+    |---|---|---|---:|---|
+
+    | Recuperación sostenida de demanda y márgenes, confirmada por reportes con desglose
+    por mercado | Medio | Alto | 45% | Catalizador por verificar en resultados futuros;
+    confianza baja. |
+
+    | Adopción y contribución material de nuevos productos de conversión de datos
+    para centros de datos, incluida la familia ADI-AIX de 10-Gbit/s | Medio | Medio
+    | 25% | No se aportó evidencia primaria que confirme el lanzamiento, clientes
+    o contribución comercial; confianza baja. |
+
+    | Posible adquisición de una empresa de sensores de potencia para reforzar la
+    oferta automotriz | No especificado | No evaluado | 15% | No se aportó anuncio
+    ni registro de una operación. No puede afirmarse que haya ocurrido ni que esté
+    confirmada. |
+
+
+    El contexto registra menores probabilidades que en una evaluación anterior para
+    las dos iniciativas específicas: ADI-AIX pasó de 45% a 25%, y la posible adquisición
+    de 30% a 15%. Estos cambios reflejan una actualización de la evaluación, no evidencia
+    de que los eventos hayan ocurrido.
+
+
+    No se proporcionaron fechas concretas de resultados, anuncios de productos o transacciones.
+    El principal evento observable es la publicación de reportes futuros que permitan
+    verificar demanda, pedidos, inventarios, márgenes y desempeño por mercado.
+
+
+    ## 8. Marco de Valoración
+
+
+    El valor intrínseco no puede estimarse de manera independiente con la información
+    recibida: faltan proyecciones de flujos de caja, supuestos de crecimiento y márgenes,
+    inversión en capital, coste de capital y detalles de deuda y liquidez.
+
+
+    Los múltiplos proporcionados —PER de 41,96 y EV/EBITDA de 27,41— son referencias
+    incompletas porque no se especifican fecha, bases contables ni ajustes. El FCF
+    yield reportado como 0% tampoco puede verificarse con los datos disponibles y
+    debe reconciliarse con la observación de FCF de USD 4.940 millones para el TTM
+    terminado el 2026-08-01.
+
+
+    **Escenarios de referencia suministrados para el horizonte al 2027-11-21:**
+
+
+    | Escenario | Precio objetivo | Interpretación |
+
+    |---|---:|---|
+
+    | Bajista (BEAR) | USD 365 | Anclado al extremo bajo del rango de objetivos observado;
+    no es una valoración independiente ni un precio objetivo derivado de un modelo
+    propio. |
+
+    | Alcista (BULL) | USD 675 | Anclado al extremo alto del rango observado; no es
+    una previsión propia ni una valoración independiente. |
+
+
+    Frente a la cotización de USD 356,67 al 2026-11-20, los objetivos de escenario
+    son referencias, no estimaciones verificadas de valor razonable. La evaluación
+    AOIF indica que el margen de seguridad es insuficiente y que el valor intrínseco
+    no es estimable de forma independiente. Para realizar sensibilidad sería necesario
+    modelar, como mínimo, crecimiento por mercado, márgenes, conversión a FCF, inversión,
+    coste de capital y múltiplos de salida.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. **Resultados y ciclo:** ¿Qué muestran los reportes primarios más recientes
+    sobre ingresos, pedidos, inventarios, márgenes, guía y desempeño por mercado?
+
+    2. **Calidad del crecimiento:** ¿Cuál es la base de comparación del crecimiento
+    TTM de 33,65% al 2026-08-01 y qué segmentos lo explican?
+
+    3. **Flujo de caja:** ¿Cómo se reconcilian el FCF de USD 4.940 millones y el FCF
+    yield informado de 0%? ¿Cuáles son el flujo operativo y el capex correspondientes?
+
+    4. **Balance y liquidez:** ¿Cuál es el efectivo, la deuda, los vencimientos, la
+    liquidez disponible y el detalle de otras obligaciones financieras?
+
+    5. **Rentabilidad:** ¿A qué periodos y definiciones corresponden el margen operativo
+    de 35,67% y el ROIC de 10,96%?
+
+    6. **Competencia y moat:** ¿Qué evidencia existe sobre participación de mercado,
+    retención de clientes, duración de diseños, precios y pérdida o ganancia de posiciones
+    frente a otros proveedores?
+
+    7. **Productos para centros de datos:** ¿Se ha lanzado la familia ADI-AIX de 10-Gbit/s?
+    ¿Hay clientes, volumen o contribución material a ingresos?
+
+    8. **Adquisición potencial:** ¿Existe evidencia primaria de una operación relacionada
+    con sensores de potencia para automoción?
+
+    9. **Management y gobierno:** ¿Qué muestran los documentos corporativos sobre
+    remuneración, incentivos, participación de insiders, composición del consejo y
+    asignación de capital?
+
+    10. **Valoración:** ¿Cuáles son la fecha y la base de cálculo de los múltiplos,
+    el consenso de objetivos y el FCF yield? ¿Qué supuestos sostienen los extremos
+    del rango de USD 365–675?
+
+
+    **Fuentes y trazabilidad:** esta entrada se basa únicamente en los contextos DDD
+    y AOIF proporcionados. La única atribución de fuente externa explícita dentro
+    de esos contextos es Stock Analysis para el FCF TTM terminado el 2026-08-01, sin
+    enlace suministrado. No se aportaron enlaces a reportes primarios ni evidencia
+    primaria adicional; por ello, las cifras, anuncios y evaluaciones que requieren
+    confirmación se identifican como pendientes de verificación.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]],
+    [[ADP|Automatic Data Processing, Inc.]], [[ALAB|Astera Labs, Inc.]], [[AMAT|Applied
+    Materials, Inc.]], [[AMD|Advanced Micro Devices, Inc.]], [[ARM|Arm Holdings plc]],
+    [[ASML|ASML Holding N.V.]], [[AVGO|Broadcom Inc.]], [[BB|BlackBerry Limited]],
+    [[CLS|Celestica Inc.]], [[CRM|Salesforce, Inc.]], [[CRWD|CrowdStrike Holdings,
+    Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign, Inc.]], [[GRMN|Garmin Ltd.]],
+    [[HPQ|HP Inc.]], [[MSFT|Microsoft Corporation]], [[MSI|Motorola Solutions, Inc.]],
+    [[NVDA|NVIDIA Corporation]], [[PANW|Palo Alto Networks, Inc.]], [[SNOW|Snowflake
+    Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[TWLO|Twilio
+    Inc.]], [[TXN|Texas Instruments Incorporated]], [[VRSN|VeriSign, Inc.]]
+
+    - **Same Industry**: [[ALAB|Astera Labs, Inc.]], [[AMD|Advanced Micro Devices,
+    Inc.]], [[ARM|Arm Holdings plc]], [[AVGO|Broadcom Inc.]], [[NVDA|NVIDIA Corporation]],
+    [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[TXN|Texas Instruments
+    Incorporated]]'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-20T18:54:58.885475+00:00", "period_end_date": "2026-08-01",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-08-01", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ADI/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 4940000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 35.671002}, "observed_at": "2026-11-20T18:54:58.885475+00:00",
+    "period_end_date": "2026-08-01", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-08-01", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ADI/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-08-01", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 35.67}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 39.6}, "observed_at": "2026-11-20T18:54:58.885475+00:00", "period_end_date":
+    "2026-08-01", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-08-01", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/adi/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-08-01", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 33.65}}}, "observed_at": "2026-11-20T18:54:58.885475+00:00",
+    "period_end": "2026-08-01", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Analog Devices, Inc.
+  operating_margin: 35.67
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Analog Devices, Inc. engages in the design, manufacture, testing,
+    and marketing of integrated circuits (ICs), software, and subsystems products
+    in the United States, rest of North and South America, Europe, Japan, China, and
+    rest of Asia. It provides data converter products, which translate real-world
+    analog signals into digital data, as well as translates digital data into analog
+    signals; power management and reference products for power conversion, driver
+    monitoring, sequencing, and energy man
+  revenue: 13880000000.0
+  revenue_growth: 33.65
+  roic: 10.96
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-08-01'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ADI/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    675.0, "low": 365.0, "mean": 474.47, "median": 474.47, "observed_at": "2026-11-21T14:09:30.597708-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T14:09:30.597708-03:00", "observed_date": "2026-11-21", "target_price":
+    474.47, "url": "https://stockanalysis.com/stocks/adi/forecast/"}, {"as_of_date":
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T14:09:30.597708-03:00",
+    "observed_date": "2026-11-21", "target_price": 474.46875, "url": "https://finance.yahoo.com/quote/ADI/"}]},
+    "current_quote": {"as_of_date": "2026-11-20", "currency": "USD", "price": 356.6700134277344,
+    "sources": [{"as_of_date": "2026-11-20", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ADI/"}]}}'
+  sector: Technology
+  ticker: ADI
+research_trigger:
+  discovery_snapshot_hash: 11f0129d084c2dc4d02132c29eacb7a684996101ffa30a131b4a45dad13e8a79
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 3adbe5b97529194b2bb7631512ee7dc45bb755ee217fbdf42f215b30743f52af
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-21T14:09:41.563454-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- Interest coverage ratio 0 below threshold 2.0
+- Dilution YoY data unavailable
+- Share count CAGR data unavailable
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Superación de ingresos del 3% CAGR.
+    - Mejora de la cobertura de intereses por encima de 2.0.
+    id: BEAR
+    key_assumptions:
+    - Ingresos crecen a CAGR <2% en los próximos 12 meses.
+    - FCF growth desacelera a <10%.
+    rationale: Precio objetivo bajo del consenso refleja expectativas de crecimiento
+      limitado y presión de márgenes.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/adi/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ADI/
+    target_price: 365.0
+  - falsifiers:
+    - Caída de ingresos por debajo de 3% CAGR.
+    - Deterioro del margen bruto bajo 60%.
+    id: BASE
+    key_assumptions:
+    - Revenue CAGR 3 años ~4.1%.
+    - FCF conversion ~119%.
+    rationale: Precio medio del consenso asume crecimiento de ingresos del 4% y mantenimiento
+      de márgenes.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/adi/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ADI/
+    target_price: 474.47
+  - falsifiers:
+    - Recesión en sectores clave que reduzca ingresos.
+    - Aumento significativo de deuda neta.
+    id: BULL
+    key_assumptions:
+    - Ingresos crecen >6% CAGR.
+    - FCF growth >40% y margen bruto >68%.
+    rationale: Precio objetivo alto del consenso captura potencial de expansión en
+      mercados de IA y energía.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/adi/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ADI/
+    target_price: 675.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 81.78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-21T14:09:30.597708-03:00'
+  fuentes:
+    stockanalysis: 474.47
+    yfinance: 474.46875
+  mediana: 474.47
+  n_fuentes: 2
+  promedio: 474.47
+  source_references:
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
+    observed_at: '2026-11-21T14:09:30.597708-03:00'
+    observed_date: '2026-11-21'
+    target_price: 474.47
+    url: https://stockanalysis.com/stocks/adi/forecast/
+  - as_of_date: '2026-11-21'
+    name: yfinance
+    observed_at: '2026-11-21T14:09:30.597708-03:00'
+    observed_date: '2026-11-21'
+    target_price: 474.46875
+    url: https://finance.yahoo.com/quote/ADI/
+  target_high: 675.0
+  target_low: 365.0
+tesis_inversion: Analog Devices muestra crecimiento sostenido de ingresos (CAGR 3
+  años ~4.1%) y fuerte generación de flujo de caja libre (34% YoY), aunque enfrenta
+  presión de cobertura de intereses y falta de datos de dilución.
+ticker: ADI
+version: '3.0'

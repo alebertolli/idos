@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 158 companies tracked
+Total: 164 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -36,6 +36,7 @@ Total: 158 companies tracked
 - 📄 [[ROKU|Roku, Inc.]]
 - 📄 [[TEO|Telecom Argentina S.A.]]
 - 📄 [[VOD|Vodafone Group Public Limited Company]]
+- 📄 [[VZ|Verizon Communications Inc.]]
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
@@ -67,6 +68,7 @@ Total: 158 companies tracked
 - 📄 [[PM|Philip Morris International Inc.]]
 - 📄 [[SYY|Sysco Corporation]]
 - 📄 [[TGT|Target Corporation]]
+- 📄 [[WMT|Walmart Inc.]]
 
 ## Energy
 - 📄 [[BKR|Baker Hughes Company]]
@@ -85,6 +87,8 @@ Total: 158 companies tracked
 - 📄 [[TTE|TotalEnergies SE]]
 - ⏳ [[UGP|Ultrapar Participações S.A.]]
 - 📄 [[VIST|Vista Energy, S.A.B. de C.V.]]
+- 📄 [[XOM|ExxonMobil Holdings Corporation]]
+- 📄 [[YPF|YPF Sociedad Anónima]]
 
 ## Financial Services
 - 📄 [[AEG|Aegon Ltd.]]
@@ -108,6 +112,7 @@ Total: 158 companies tracked
 - 📄 [[SPGI|S&P Global Inc.]]
 - 📄 [[USB|U.S. Bancorp]]
 - 📄 [[V|Visa Inc.]]
+- 📄 [[XP|XP Inc.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -151,6 +156,7 @@ Total: 158 companies tracked
 
 ## Other
 - 📄 [[PG|The Procter & Gamble Company]]
+- ⏳ [[XLF|State Street Financial Select Sector SPDR ETF]]
 
 ## Real Estate
 - 📄 [[O|Realty Income Corporation]]

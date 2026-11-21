@@ -1,114 +1,211 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El margen operativo sólido indica capacidad de absorber presión de precios.
-  - La diversificación en cuatro segmentos reduce la volatilidad de ingresos.
-  - El consenso objetivo sugiere que el mercado subestima el potencial de crecimiento
-    de diagnóstico y nutrición.
-  - Free cash flow TTM = 7.82 B USD (stockanalysis.com, observado 2026-11-01)
-  - Operating margin TTM = 16.55% (stockanalysis.com, observado 2026-11-01)
-  - Revenue growth TTM = 10.0% (stockanalysis.com, observado 2026-11-01)
-  - Precio actual = 103.7249984741211 USD (yfinance, observado 2026-11-19)
-  - Precio objetivo medio consenso = 119.25 USD (stockanalysis.com y yfinance, observado
-    2026-11-19)
+  - 'El perfil de compañía describe cuatro segmentos: productos farmacéuticos establecidos,
+    diagnóstico, nutrición y dispositivos médicos.'
+  - La observación financiera reporta flujo de caja libre TTM de 7.820 millones, con
+    periodo terminado el 2026-09-30, seleccionado de stockanalysis.com. La unidad
+    está expresada como moneda financiera del proveedor y no se especifica aquí una
+    escala adicional.
+  - La observación de crecimiento de ingresos reporta 10,0% TTM para el periodo terminado
+    el 2026-09-30, seleccionada de stockanalysis.com; el dato alternativo de yfinance
+    se marca como no comparable en la entrada.
+  - La observación de margen operativo reporta 16,55% TTM para el periodo terminado
+    el 2026-09-30, seleccionada de stockanalysis.com; el dato alternativo de yfinance
+    se marca como no comparable en la entrada.
+  - Cotización y consenso indican una diferencia entre el precio observado y la media
+    de objetivos, pero esta comparación no demuestra infravaloración.
+  - La diversificación de segmentos podría reducir dependencia de una sola línea de
+    negocio, pero no se dispone de datos segmentados para validar su efecto.
   preguntas_abiertas:
-  - ¿Cuál es el nivel actual de deuda neta y ratios de cobertura?
-  - ¿Detalles de la política de recompra de acciones y dividendos recientes?
-  - ¿Impacto exacto de la cadena de suministro de materias primas críticas en los
-    costos?
-catalizadores_previos: &id001 []
-clasificacion_oportunidad:
-  categoria: quality_at_fair_price
-  categorias_descartadas: compounder|compounder_castigado|turnaround|deep_value|ciclica|special_situation|distressed|hype|value_trap
-  justificacion: Abbott Laboratories es una empresa diversificada de salud con cuatro
-    segmentos estables, márgenes operativos sólidos (16.55% TTM) y fuerte generación
-    de flujo de caja libre (7.82 B USD). Posee ventajas competitivas en diagnóstico
-    y nutrición que son difíciles de replicar. La cotización actual (103.72 USD) está
-    por debajo del consenso de precios objetivo (media 119.25 USD), indicando que
-    el mercado no está valorando plenamente su capacidad de crecimiento y rentabilidad,
-    pero la diferencia no es tan amplia como para considerarla una gran ganga, por
-    lo que encaja mejor como un negocio de alta calidad a precio razonable.
-comparativa_catalizadores: []
-dominio_business_quality:
-  analisis: Abbott opera en cuatro segmentos complementarios que reducen la dependencia
-    de cualquier línea de producto. Su liderazgo en diagnóstico y nutrición, respaldado
-    por patentes y relaciones con sistemas de salud, constituye un moat sostenible.
-    La diversificación geográfica y la capacidad de innovación reducen la vulnerabilidad
-    a ciclos de precios.
-  rating: excepcional
-dominio_catalizadores:
+  - ¿Cuáles son los ingresos, márgenes, crecimiento orgánico y contribución al beneficio
+    por segmento y región?
+  - ¿Qué resultados, guía y comunicados primarios recientes sustentan las previsiones
+    de analistas y el descuento de la cotización?
+  - ¿Cuáles son la deuda, caja, vencimientos, liquidez y cobertura de intereses actuales?
+  - ¿Qué múltiplos de valoración están vigentes y qué estimaciones de beneficios los
+    sustentan?
+  - ¿Existe efectivamente una nueva plataforma de diagnóstico de enfermedades infecciosas,
+    cuál es su estado regulatorio y cuándo se lanzaría?
+  - ¿Existe una adquisición de tecnología de monitoreo continuo de glucosa en evaluación
+    o anunciada, y cuál sería su racional y precio?
+  - ¿Qué evidencia actual respalda la durabilidad del moat, la posición competitiva
+    y la calidad de la gestión?
+  - ¿Cuáles son los principales proveedores, dependencias de fabricación y riesgos
+    de calidad, cumplimiento y litigios?
+catalizadores_previos: &id001
 - descripcion: Aprobación y lanzamiento comercial de la nueva plataforma de diagnóstico
     de enfermedades infecciosas
+  generated_at: '2026-11-19T16:57:34.438373-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 45
+  opp_id: OPP-20261023-004
+  probabilidad_anterior: 45
 - descripcion: Adquisición estratégica de una empresa de tecnología de monitoreo continuo
     de glucosa
+  generated_at: '2026-11-19T16:57:34.438373-03:00'
   horizonte: largo
   impacto: medio
   nivel_confianza: bajo
-  probabilidad_pct: 30
+  opp_id: OPP-20261023-004
+  probabilidad_anterior: 30
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: 'Compounder: la información disponible no permite demostrar
+    crecimiento compuesto, rentabilidad y moat duraderos con evidencia suficiente.
+    Compounder castigado: no hay evidencia nueva que pruebe un deterioro temporal
+    ni una infravaloración. Turnaround: no se aportan señales verificables de declive
+    operativo ni un plan de recuperación. Deep Value: no hay métricas suficientes
+    para sostener que los activos o múltiplos sean especialmente baratos. Cíclica:
+    la cartera sanitaria diversificada no permite clasificar el negocio principalmente
+    como cíclico con la evidencia aportada. Special Situation: no se proporciona una
+    transacción o reestructuración verificable. Distressed: no hay evidencia de estrés
+    de solvencia. Hype: no hay base para calificarlo como crecimiento especulativo
+    sin beneficios. Value Trap: tampoco hay evidencia suficiente de destrucción estructural
+    de valor.'
+  justificacion: Abbott es un negocio sanitario diversificado, con exposición a diagnóstico,
+    nutrición, productos farmacéuticos establecidos y dispositivos médicos, según
+    el perfil aportado. La cotización disponible es 104,09 USD y el consenso de analistas
+    observado tiene una media de 119,60 USD y un rango de 100 a 130 USD, pero esas
+    referencias no constituyen una valoración independiente ni bastan para demostrar
+    infravaloración. La clasificación expresa calidad potencial a precio razonable,
+    con confianza limitada por la falta de evidencia operativa y financiera amplia.
+comparativa_catalizadores:
+- delta_pct: 0
+  descripcion: Aprobación y lanzamiento comercial de la nueva plataforma de diagnóstico
+    de enfermedades infecciosas
+  estado: vigente
+  nota_comparacion: Se conserva la probabilidad anterior por falta de evidencia nueva.
+    No se ha verificado aprobación, lanzamiento ni cumplimiento; vigente significa
+    que no hay evidencia suficiente para marcarlo como cumplido o desestimado, no
+    que el evento esté confirmado. El identificador OPP aparece duplicado en los datos
+    históricos.
+  probabilidad_actual: 45
+  probabilidad_anterior: 45
+- delta_pct: -10
+  descripcion: Adquisición estratégica de una empresa de tecnología de monitoreo continuo
+    de glucosa
+  estado: vigente
+  nota_comparacion: Se reduce la estimación analítica por falta de evidencia sobre
+    una transacción o proceso anunciado; no se interpreta como desestimación de una
+    operación concreta. No puede confirmarse cumplimiento ni avance. El identificador
+    OPP aparece duplicado en los datos históricos.
+  probabilidad_actual: 20
+  probabilidad_anterior: 30
+dominio_business_quality:
+  analisis: 'El perfil aportado describe cuatro segmentos sanitarios: productos farmacéuticos
+    establecidos, diagnóstico, nutrición y dispositivos médicos. La diversificación
+    puede contribuir a resiliencia, pero no prueba por sí sola un moat. No se aportan
+    cuotas de mercado, crecimiento o rentabilidad por segmento, evidencia de costes
+    de cambio, patentes, diferenciación de producto ni concentración de clientes.
+    La calificación es provisional y de confianza limitada.'
+  rating: buena
+dominio_catalizadores:
+- descripcion: Resultados y guía verificables que confirmen crecimiento rentable y
+    conversión de caja. Es una hipótesis de catalizador; no se aportó una fecha de
+    publicación ni evidencia de que el evento ya haya ocurrido.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+- descripcion: Aprobación y lanzamiento comercial de una nueva plataforma de diagnóstico
+    de enfermedades infecciosas. Hipótesis heredada; no se proporcionó evidencia primaria
+    que confirme la plataforma, su aprobación o su lanzamiento.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Adquisición estratégica de una empresa de tecnología de monitoreo continuo
+    de glucosa. Hipótesis heredada; no se aportó evidencia de conversaciones, anuncio
+    o transacción.
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 20
 dominio_esg_supply_chain:
-  analisis: Abbott reporta políticas ESG alineadas con estándares de la industria
-    y mantiene una cadena de suministro diversificada. No se identifican concentraciones
-    críticas de proveedores en la evidencia disponible.
-  rating: bajo_riesgo
+  analisis: No se suministran datos de emisiones, seguridad de producto, litigios,
+    auditorías de proveedores, trazabilidad, concentración de proveedores ni continuidad
+    operativa. En una compañía sanitaria global, calidad, cumplimiento regulatorio
+    y continuidad de suministro son áreas materialmente relevantes, pero su exposición
+    concreta no se puede cuantificar con la evidencia recibida.
+  rating: medio_riesgo
 dominio_financial_health:
-  analisis: Free cash flow TTM de 7.82 B USD, margen operativo de 16.55% y crecimiento
-    de ingresos del 10% TTM indican generación de caja robusta. No se dispone de datos
-    de deuda en la evidencia, pero la solidez de flujo sugiere capacidad para cubrir
-    obligaciones y financiar inversiones sin presión de liquidez.
-  rating: fuerte
+  analisis: La única observación financiera cuantitativa directa proporcionada es
+    un flujo de caja libre TTM reportado de 7.820 millones en moneda financiera del
+    proveedor, con periodo terminado el 2026-09-30 y fuente stockanalysis.com. La
+    evidencia no aporta datos suficientes de deuda, vencimientos, caja, liquidez o
+    cobertura de intereses para juzgar el balance. No se califica ese flujo como ajustado.
+  rating: adecuada
 dominio_growth:
-  analisis: Crecimiento orgánico impulsado por la demanda de pruebas diagnósticas
-    y productos nutricionales, complementado por adquisiciones selectivas. La proyección
-    de ingresos del 10% TTM y la pipeline de dispositivos aprobados por la FDA respaldan
-    una visión de crecimiento sostenido.
-  rating: fuerte
+  analisis: El perfil de cuatro segmentos ofrece varias fuentes potenciales de crecimiento,
+    pero no se aportan resultados por segmento ni guías corporativas. La observación
+    de crecimiento de ingresos TTM es 10,0% para el periodo terminado el 2026-09-30,
+    seleccionada de stockanalysis.com; la misma entrada señala que el valor de yfinance
+    no es comparable por falta de periodo, unidad o corte equivalente. Un dato aislado
+    no permite extrapolar la tendencia ni atribuirla a crecimiento orgánico.
+  rating: moderado
 dominio_management:
-  analisis: El equipo directivo ha demostrado disciplina en asignación de capital,
-    con historial de reinversión en I+D y adquisiciones estratégicas que fortalecen
-    el portafolio. La alineación de intereses parece adecuada, aunque no se dispone
-    de datos de compensación ejecutiva en la evidencia.
-  rating: bueno
+  analisis: No se proporcionan datos verificables sobre asignación de capital, remuneración,
+    compras o ventas de acciones, adquisiciones, retorno sobre inversiones ni cumplimiento
+    de guías. La calificación refleja falta de evidencia para una evaluación favorable
+    o desfavorable, no una conclusión de bajo desempeño.
+  rating: regular
 dominio_riesgos:
+- impacto: medio
+  probabilidad: media
+  riesgo: Riesgo de que el consenso de analistas sobreestime crecimiento o beneficios
+    futuros; no hay estimaciones detalladas para contrastarlo.
 - impacto: alto
   probabilidad: media
-  riesgo: Regulatorio - retrasos o rechazos de aprobaciones FDA
+  riesgo: Riesgo regulatorio, de calidad o de seguridad de producto en actividades
+    sanitarias; no se aportan eventos ni indicadores actuales que permitan evaluar
+    su nivel específico.
 - impacto: medio
   probabilidad: media
-  riesgo: Presión de precios en dispositivos médicos
-- impacto: medio
+  riesgo: Riesgo de interrupciones o dependencias de proveedores y fabricación; concentración
+    y redundancia no están documentadas.
+- impacto: alto
   probabilidad: baja
-  riesgo: Competencia en genéricos y pérdida de cuota de mercado
+  riesgo: Riesgo de deterioro permanente de competitividad en uno o más segmentos;
+    no hay evidencia aportada para confirmar ni descartar una erosión del moat.
 error_mercado:
   catalizador_cambio:
-    descripcion: Aprobación regulatoria de la nueva plataforma de diagnóstico de enfermedades
-      infecciosas y lanzamiento comercial exitoso en EE.UU.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 45
-  conclusion_error_valoracion: SI
-  consenso_actual: Los analistas promedian un precio objetivo de 119.25 USD, lo que
-    implica un descuento del ~15% respecto al precio actual de 103.72 USD. El mercado
-    parece descontar riesgos regulatorios, posible desaceleración del crecimiento
-    de los productos genéricos y presión de precios en dispositivos médicos.
-  hipotesis_contraria: El consenso subestima la resiliencia del negocio de diagnóstico,
-    la expansión de la línea de nutrición infantil y la capacidad de Abbott para lanzar
-    nuevos dispositivos aprobados por la FDA. Además, la tendencia de crecimiento
-    de ingresos del 10% TTM y el fuerte flujo de caja libre sugieren que la empresa
-    puede reinvertir y generar retornos superiores a los esperados.
-  razonamiento: La diferencia entre el precio actual y el consenso objetivo, junto
-    con fundamentos financieros sólidos y un catalizador plausible, indica que el
-    mercado está subvalorando a Abbott. La probabilidad de que el catalizador ocurra
-    es suficiente para considerar la oportunidad como un error de valoración aprovechable.
-generated_at: '2026-11-19T16:57:34.438373-03:00'
+    descripcion: Una actualización verificable de resultados y guía que demuestre
+      crecimiento rentable y conversión de caja suficientes para reducir la brecha
+      entre la cotización y las expectativas de consenso. No se aportan resultados
+      ni una fecha de evento que permitan confirmar este catalizador.
+    horizonte: corto
+    impacto: medio
+    probabilidad_pct: 35
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: 'La cotización observada es 104,09 USD al 2026-11-20. El consenso
+    observado al 2026-11-21 es 119,60 USD, con rango de 100 a 130 USD. La diferencia
+    entre cotización y media de consenso puede sugerir cautela del mercado o potencial
+    de revalorización, pero no demuestra por sí sola que exista un error: no se aportan
+    fecha de publicación de las previsiones, dispersión de estimaciones ni supuestos
+    de beneficios. No se pueden inferir múltiplos actuales porque no se facilitaron
+    sus valores.'
+  hipotesis_contraria: El consenso podría estar equivocado si los analistas subestiman
+    la persistencia de la demanda y el valor de la diversificación, o si sobreestiman
+    el crecimiento futuro, la recuperación de líneas de negocio o el rendimiento de
+    los dispositivos. Sin datos segmentados, resultados recientes, guías corporativas
+    o múltiplos observados, estas son hipótesis, no hechos. El pensamiento de segundo
+    nivel exige considerar que el descuento de la cotización frente al consenso puede
+    reflejar riesgos que las estimaciones no capturan, y no necesariamente una oportunidad.
+  razonamiento: La cotización está por debajo de la media del consenso, pero dentro
+    del rango observado. El rango de objetivos es una referencia de analistas, no
+    una valoración independiente; además, faltan múltiplos, estimaciones detalladas,
+    estados financieros completos y evidencia primaria reciente. Por tanto, la diferencia
+    de precio es una posible discrepancia, no un error de mercado demostrado.
+generated_at: '2026-11-21T06:20:09.460875-03:00'
 integridad_tesis:
   flags: []
-  reason: ''
+  reason: No se aportó evidencia que demuestre la vulneración de alguna de las nueve
+    categorías de integridad. La ausencia de información suficiente no equivale a
+    evidencia de integridad operativa o financiera.
   thesis_active: true
-opinion_valoracion: infravalorado
+opinion_valoracion: justo
 opp_id: OPP-20261023-004
 prompt_inputs:
   business_model: 'Abbott Laboratories, together with its subsidiaries, discovers,
@@ -142,7 +239,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Abbott Laboratories
   operating_margin: 15.65
-  pe_ratio: 38.65
+  pe_ratio: 38.91
   products: ''
   revenue: 48230000000.0
   revenue_growth: 10.0
@@ -151,7 +248,7 @@ prompt_inputs:
   ticker: ABT
 ratios_investigados: []
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-19'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'Abbott Laboratories, together with its subsidiaries, discovers,
     develops, manufactures, and sells health care products worldwide. It operates
     in four segments: Established Pharmaceutical Products, Diagnostic Products, Nutritional
@@ -179,13 +276,300 @@ research_input_snapshot:
     based in Abbott Park, Illinois.'
   capital_allocation: N/A
   ceo_tenure: 0
-  current_price: 103.7249984741211
-  current_price_as_of_date: '2026-11-19'
+  current_price: 104.08999633789062
+  current_price_as_of_date: '2026-11-20'
   current_price_source: yfinance
   debt_maturity_profile: N/A
   debt_to_equity: 0.61
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Abbott Laboratories (ABT) es una compañía global de atención sanitaria que desarrolla,
+    fabrica y comercializa productos en las áreas de diagnóstico, nutrición, dispositivos
+    médicos y productos farmacéuticos. La información de investigación describe un
+    modelo diversificado en cuatro segmentos, aunque no proporciona el desglose de
+    ingresos por segmento ni por geografía. [[ABBV]] figura en la lista disponible
+    de compañías del mismo sector; los datos aportados no permiten precisar su grado
+    de competencia directa con Abbott.
+
+
+    La cadena de valor descrita comprende I+D, fabricación, cumplimiento regulatorio,
+    comercialización mediante ventas directas, distribuidores y alianzas, y soporte
+    posventa (AOIF, paso 1). Esta entrada distingue entre métricas reportadas por
+    los inputs y valoraciones analíticas de esos mismos inputs; no se han añadido
+    fuentes externas.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Fuentes de ingresos y factores impulsores.** Abbott vende productos de diagnóstico,
+    nutrición, dispositivos médicos y productos farmacéuticos a clientes como hospitales,
+    sistemas de salud y laboratorios clínicos o de investigación. Los inputs atribuyen
+    el crecimiento a la demanda de productos diagnósticos y nutricionales, además
+    de adquisiciones selectivas (DDD, dominio de crecimiento). La ficha AOIF enumera
+    fármacos genéricos y de marca y vacunas contra la influenza, pero no aporta datos
+    para evaluar su contribución a los ingresos.
+
+
+    **Ventajas competitivas.** AOIF caracteriza el moat como amplio y la posición
+    competitiva como líder. Atribuye estas ventajas a la diversidad del portafolio,
+    marcas reconocidas, patentes, distribución global y barreras regulatorias. Estas
+    son evaluaciones de la investigación aportada; no se incluyen datos comparativos
+    ni evidencia desglosada para verificar la magnitud de cada ventaja.
+
+
+    **Dinámica competitiva.** La investigación describe una industria con crecimiento
+    sostenido del gasto sanitario, presión de precios en dispositivos médicos, innovación
+    tecnológica rápida y consolidación mediante fusiones y adquisiciones (AOIF, paso
+    3). La diversificación podría reducir la dependencia de una sola línea de productos,
+    pero no se dispone del desglose por segmento necesario para cuantificar ese efecto.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las métricas siguientes provienen de los inputs y no están acompañadas por estados
+    financieros, definiciones detalladas ni referencias a documentos primarios. Se
+    conservan las diferencias entre cifras incompatibles en vez de tratarlas como
+    reconciliadas.
+
+
+    | Métrica | Valor informado | Fuente / observación |
+
+    |---|---:|---|
+
+    | Crecimiento de ingresos TTM | 10% | DDD; AOIF, paso 2 |
+
+    | Margen operativo TTM | 16,55% | DDD |
+
+    | Margen operativo | 15,65% | AOIF, paso 2; difiere del dato DDD |
+
+    | Flujo de caja libre TTM | USD 7,82 mil millones | DDD |
+
+    | Conversión de FCF | 0,55 | AOIF, paso 2; definición no especificada |
+
+    | ROIC | 6,86% | AOIF, paso 2 |
+
+    | FCF yield | 4% | AOIF, paso 6 |
+
+    | PER | 38,65 | AOIF, paso 6 |
+
+    | EV/EBITDA | 18,19 | AOIF, paso 6 |
+
+    | Deuda neta y cobertura | No disponible | Pregunta abierta en DDD |
+
+
+    **Lectura financiera:** los inputs califican la salud financiera como fuerte y
+    destacan la generación de FCF. Sin datos de deuda, vencimientos, caja o cobertura
+    de intereses, no es posible evaluar la estructura de capital ni la resiliencia
+    financiera de forma completa. La diferencia entre los márgenes operativos de DDD
+    y AOIF requiere aclaración antes de usar una única cifra como referencia.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación aportada califica la calidad de la dirección como buena y la asignación
+    de capital como creadora de valor. DDD destaca reinversión en I+D y adquisiciones
+    estratégicas; AOIF califica la alineación de insiders como moderada.
+
+
+    No se proporcionan nombres de ejecutivos o consejeros, datos de propiedad accionarial
+    de insiders, remuneración, composición del board ni resultados de votaciones de
+    accionistas. Por tanto, estas valoraciones cualitativas no permiten verificar
+    la alineación de incentivos ni la eficacia de la supervisión corporativa.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista — hipótesis sustentada en los inputs disponibles:**
+
+
+    - La combinación de cuatro áreas de negocio podría aportar diversificación frente
+    a la debilidad de un producto o segmento. DDD considera que esta estructura reduce
+    la volatilidad de ingresos, pero no aporta datos segmentados para medirlo.
+
+    - Los inputs reportan crecimiento de ingresos TTM del 10% y FCF TTM de USD 7,82
+    mil millones (DDD; AOIF, paso 2). Si estas cifras son comparables y sostenibles,
+    respaldarían la capacidad de financiar inversión, desarrollo de productos y retornos
+    de capital.
+
+    - El moat atribuido a patentes, marcas, distribución y barreras regulatorias podría
+    dificultar la entrada de nuevos competidores (AOIF, paso 3). La investigación
+    califica el negocio como de calidad excepcional, aunque no incluye comparaciones
+    cuantitativas con pares.
+
+    - La aprobación y comercialización de una nueva plataforma de diagnóstico de enfermedades
+    infecciosas se plantea como catalizador potencial, con probabilidad estimada del
+    45% e impacto alto (DDD). Es una estimación de la investigación, no una aprobación
+    confirmada.
+
+    - DDD considera que el mercado podría estar subvalorando la resiliencia del diagnóstico,
+    la expansión de nutrición infantil y la capacidad de lanzar productos aprobados.
+    Esta interpretación depende de que se confirmen el precio y las estimaciones de
+    consenso citados en los inputs.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    **Caso bajista y riesgos principales:**
+
+
+    - **Regulatorio:** retrasos o rechazos de aprobaciones de la FDA para nuevos dispositivos
+    o plataformas de diagnóstico. DDD y AOIF califican el impacto como alto y la probabilidad
+    como media.
+
+    - **Precios y márgenes:** presión sobre precios en dispositivos médicos y productos
+    farmacéuticos. AOIF la clasifica como un riesgo macro de impacto medio y probabilidad
+    alta; una compresión de márgenes reduciría el crecimiento de beneficios y caja.
+
+    - **Desaceleración:** el escenario bajista de DDD asume que el crecimiento de
+    ingresos baja al 5% y el margen operativo al 13%. Son supuestos de escenario,
+    no previsiones confirmadas.
+
+    - **Ejecución comercial:** incluso con aprobación regulatoria, la adopción y las
+    ventas de la nueva plataforma podrían quedar por debajo de lo esperado.
+
+    - **Riesgo de valoración:** AOIF informa PER de 38,65 y EV/EBITDA de 18,19. Sin
+    metodología, fecha de cálculo ni comparables, no se puede concluir de forma independiente
+    si estos múltiplos son exigentes o atractivos.
+
+    - **Riesgo financiero no resuelto:** no hay datos de deuda neta ni de ratios de
+    cobertura.
+
+
+    **Falsadores y señales de revisión.** Los escenarios aportados asocian el caso
+    alcista con una aprobación de la plataforma y crecimiento de ingresos del 12%,
+    y el bajista con menor crecimiento y caída del margen. DDD incluye entre sus falsadores
+    del escenario bajista resultados con crecimiento superior al 8% y margen superior
+    al 15%, además de la aprobación de la plataforma. La definición exacta de esos
+    criterios y su período de medición requiere confirmación.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    Las fechas específicas no están disponibles, salvo el horizonte de escenarios
+    indicado abajo.
+
+
+    | Catalizador | Horizonte esperado | Impacto / probabilidad informados | Estado
+    de evidencia |
+
+    |---|---|---|---|
+
+    | Aprobación y lanzamiento comercial de una nueva plataforma de diagnóstico de
+    enfermedades infecciosas | Medio plazo; sin fecha concreta | Impacto alto; probabilidad
+    45% (DDD) | Potencial; no se confirma aprobación ni calendario |
+
+    | Adquisición estratégica de una empresa de tecnología de monitoreo continuo de
+    glucosa | Largo plazo; sin fecha concreta | Impacto medio; probabilidad 30% (DDD)
+    | Hipótesis de catalizador; no se identifica empresa ni transacción |
+
+    | Evolución trimestral de ingresos y margen operativo | Seguimiento continuo |
+    Sin estimación | Punto de monitoreo indicado por AOIF |
+
+    | Aprobación FDA de la plataforma de diagnóstico | Sin fecha concreta | Impacto
+    alto en la tesis (DDD) | Evento regulatorio pendiente según la hipótesis aportada
+    |
+
+
+    Los porcentajes de probabilidad son estimaciones de DDD y no están respaldados
+    por fuentes citadas. No deben interpretarse como probabilidades verificadas.
+
+
+    ## 8. Marco de Valoración
+
+
+    AOIF informa un valor intrínseco estimado de USD 115, un PER de 38,65, un EV/EBITDA
+    de 18,19 y un FCF yield del 4%, además de calificar el margen de seguridad como
+    adecuado. No se incluye el método de valoración, las proyecciones, el coste de
+    capital ni la fecha de los múltiplos, por lo que la estimación no puede reproducirse
+    con la evidencia disponible.
+
+
+    DDD informa un precio actual de USD 103,72 y un precio objetivo medio de analistas
+    de USD 119,25, equivalente a un descuento aproximado del 15% frente a ese objetivo.
+    La fecha de esa observación no está especificada. AOIF y DDD no aportan referencias
+    que permitan comprobar esas cifras.
+
+
+    **Escenarios suministrados por DDD** (fecha de análisis: 19 de noviembre de 2026;
+    horizonte: 31 de diciembre de 2027):
+
+
+    | Escenario | Precio objetivo | Supuestos principales |
+
+    |---|---:|---|
+
+    | Bajista | USD 100 | Crecimiento de ingresos baja al 5%; margen operativo cae
+    al 13%; retraso regulatorio y presión sobre márgenes |
+
+    | Alcista | USD 130 | Aprobación FDA en los próximos 12 meses; crecimiento de
+    ingresos del 12%; ventas de la plataforma por encima de expectativas |
+
+
+    Estos objetivos son resultados de escenarios, no precios garantizados. No se proporciona
+    un caso base cuantificado ni sensibilidades sobre múltiplos, márgenes, crecimiento,
+    tipos de descuento o deuda. La conclusión de “infravalorado” y “quality at fair
+    price” refleja la valoración de DDD; debe tratarse como opinión analítica hasta
+    validar datos, fechas y metodología.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es la deuda neta actual, su calendario de vencimientos y los ratios de
+    cobertura de intereses?
+
+    2. ¿Cuál es el desglose de ingresos, márgenes y crecimiento por segmento y geografía?
+
+    3. ¿Por qué difieren los márgenes operativos reportados —16,55% en DDD frente
+    a 15,65% en AOIF— y qué períodos y definiciones usa cada cifra?
+
+    4. ¿Cómo se calcula la conversión de FCF de 0,55 y a qué período corresponde?
+
+    5. ¿Cuál es la política reciente de dividendos y recompras, y qué importes se
+    han ejecutado?
+
+    6. ¿Cuál es el estado regulatorio, calendario esperado y evidencia de demanda
+    comercial de la nueva plataforma de diagnóstico?
+
+    7. ¿Existe un plan concreto de adquisición relacionado con tecnología de monitoreo
+    continuo de glucosa, o es solo una hipótesis de catalizador?
+
+    8. ¿Qué supuestos sustentan el valor intrínseco de USD 115 y los objetivos de
+    escenarios de USD 100 y USD 130?
+
+    9. ¿Cómo se estimaron el precio actual de USD 103,72 y el consenso de USD 119,25,
+    y a qué fecha corresponden?
+
+    10. ¿Qué datos de remuneración, propiedad de insiders y composición del board
+    permiten evaluar la alineación y la supervisión corporativa?
+
+    11. ¿Qué evidencia cuantitativa respalda las afirmaciones de liderazgo, moat amplio
+    y baja concentración de proveedores?
+
+    12. ¿Qué aprobación, resultado comercial o deterioro financiero activaría una
+    revisión formal de la tesis?
+
+
+    Los inputs no incluyen enlaces ni documentos primarios que permitan responder
+    estas preguntas; la agenda de investigación requiere contrastar las métricas y
+    afirmaciones con evidencia verificable antes de actualizar la tesis.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ABBV|AbbVie Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
     {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
@@ -255,7 +639,7 @@ research_input_snapshot:
     "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
     "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
     "unit": "percentage_points", "values": {"stockanalysis.com": 10.0}}}, "observed_at":
-    "2026-11-19T19:15:17.436435+00:00", "period_end": "2026-09-30", "sources_used":
+    "2026-11-20T18:54:53.801506+00:00", "period_end": "2026-09-30", "sources_used":
     ["stockanalysis.com", "yfinance"]}'
   geography: ''
   insider_ownership: 0
@@ -277,14 +661,14 @@ research_input_snapshot:
   revenue_growth: 10.0
   roic: 6.86
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    130.0, "low": 100.0, "mean": 119.25, "median": 119.25, "observed_at": "2026-11-19T16:57:25.221915-03:00",
-    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
-    "2026-11-19T16:57:25.221915-03:00", "observed_date": "2026-11-19", "target_price":
+    130.0, "low": 100.0, "mean": 119.6, "median": 119.6, "observed_at": "2026-11-21T06:19:32.297764-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T06:19:32.297764-03:00", "observed_date": "2026-11-21", "target_price":
     119.6, "url": "https://stockanalysis.com/stocks/abt/forecast/"}, {"as_of_date":
-    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T16:57:25.221915-03:00",
-    "observed_date": "2026-11-19", "target_price": 118.90731, "url": "https://finance.yahoo.com/quote/ABT/"}]},
-    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 103.7249984741211,
-    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ABT/"}]}}'
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T06:19:32.297764-03:00",
+    "observed_date": "2026-11-21", "target_price": 119.59962, "url": "https://finance.yahoo.com/quote/ABT/"}]},
+    "current_quote": {"as_of_date": "2026-11-20", "currency": "USD", "price": 104.08999633789062,
+    "sources": [{"as_of_date": "2026-11-20", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ABT/"}]}}'
   sector: Healthcare
   ticker: ABT
 research_trigger:
@@ -292,100 +676,112 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: e43d2949fbf52c5f79a3ffbf468f9c1dc745dfec871927f5c998838a4fb36403
+    sha256: b75bbe47af819d6801ef7b37a9f150c5a6480a36f1aac88d51bb00af33c4b86d
   strategy_id: COMPOUNDER
   strategy_version: positive_fundamentals_v1
   trigger_type: monthly
-  triggered_at: '2026-11-19T16:57:34.438373-03:00'
-resumen_ejecutivo: Abbott Laboratories combina un modelo de negocio diversificado,
-  márgenes operativos robustos (16.55% TTM) y crecimiento de ingresos del 10% TTM,
-  respaldado por un flujo de caja libre de 7.82 B USD. El precio de la acción cotiza
-  15% por debajo del promedio de los objetivos de los analistas, lo que sugiere un
-  error de mercado. El principal catalizador es la aprobación de una nueva plataforma
-  de diagnóstico, con probabilidad media y alto impacto. La valoración actual parece
-  infravalorada, ofreciendo una oportunidad de inversión de calidad a precio razonable.
+  triggered_at: '2026-11-21T06:20:09.460875-03:00'
+resumen_ejecutivo: Abbott presenta un perfil de compañía sanitaria diversificada según
+  el contexto proporcionado, pero la evidencia disponible para esta revisión es demasiado
+  limitada para confirmar la calidad actual de cada segmento, la fortaleza del balance
+  o el crecimiento. La cotización observada de 104,09 USD está por debajo del consenso
+  medio observado de 119,60 USD, aunque permanece dentro del rango de 100 a 130 USD.
+  La tesis es plausible pero no está suficientemente verificada; la oportunidad de
+  valoración se clasifica como incierta. No se deben tratar como hechos las hipótesis
+  de catalizadores heredadas sin confirmación primaria.
 risk_flags: []
 scenario_analysis:
-  as_of_date: '2026-11-19'
+  as_of_date: '2026-11-21'
   currency: USD
-  horizon_date: '2027-12-31'
+  horizon_date: '2027-11-21'
   scenarios:
   - falsifiers:
-    - Publicación de resultados con crecimiento de ingresos >8% y margen >15%
-    - Aprobación de la nueva plataforma de diagnóstico
+    - Resultados y guía corporativa verificables que superen de forma sostenida las
+      expectativas de consenso.
+    - Revisiones observables al alza de estimaciones u objetivos que muestren que
+      el ancla de 100 USD dejó de representar el caso bajista del rango disponible.
     id: BEAR
     key_assumptions:
-    - Crecimiento de ingresos TTM se reduce al 5%
-    - Margen operativo cae a 13%
-    - FCF disminuye 15% respecto al nivel actual
-    rationale: El precio cae al límite inferior del consenso si la aprobación regulatoria
-      se retrasa y la presión de precios en dispositivos médicos reduce los márgenes,
-      manteniendo el crecimiento de ingresos en torno al 5% y una generación de caja
-      libre ligeramente menor.
+    - El precio objetivo bajo observado de 100 USD sigue siendo una referencia pertinente
+      para el horizonte planteado.
+    - No se materializa una mejora verificable de expectativas suficiente para llevar
+      la cotización hacia la media del consenso.
+    - No se presupone que el objetivo de analistas sea un precio garantizado ni que
+      refleje información posterior a su fecha de observación.
+    rationale: Ancla bajista en el extremo inferior del rango de objetivos observado,
+      no una valoración independiente. Representa el caso en que la cautela del mercado
+      persiste y las expectativas de analistas no se materializan. La evidencia facilitada
+      no permite justificar un precio inferior al mínimo observado sin introducir
+      supuestos adicionales.
     sources:
-    - as_of_date: '2026-11-01'
-      name: stockanalysis.com
-      url: https://stockanalysis.com/stocks/ABT/statistics/
-    - as_of_date: '2026-11-19'
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abt/forecast/
+    - as_of_date: '2026-11-20'
       name: yfinance
       url: https://finance.yahoo.com/quote/ABT/
-    target_price: 100.0
+    target_price: 100
   - falsifiers:
-    - Rechazo regulatorio de la plataforma de diagnóstico
-    - Caída del crecimiento de ingresos por debajo del 6%
+    - Resultados, guía o revisiones de consenso verificables que indiquen deterioro
+      sostenido frente a las expectativas.
+    - Evidencia de riesgos operativos o regulatorios materiales que invalide la continuidad
+      de las expectativas de analistas utilizadas como ancla.
     id: BULL
     key_assumptions:
-    - Aprobación FDA de la plataforma de diagnóstico en los próximos 12 meses
-    - Crecimiento de ingresos TTM del 12%
-    - Margen operativo mejora a 18%
-    - FCF aumenta 20% respecto al nivel actual
-    rationale: El precio alcanza el límite superior del consenso si la nueva plataforma
-      de diagnóstico es aprobada y supera expectativas de ventas, impulsando un crecimiento
-      de ingresos del 12% y manteniendo márgenes operativos en 18%, lo que eleva el
-      flujo de caja libre y permite mayor recompra de acciones.
+    - El precio objetivo alto observado de 130 USD sigue siendo una referencia pertinente
+      para el horizonte planteado.
+    - La compañía entrega resultados y guía compatibles con las expectativas que podrían
+      respaldar el extremo superior del consenso.
+    - No se interpreta la media o el extremo alto del consenso como una previsión
+      garantizada.
+    rationale: Ancla alcista en el extremo superior del rango de objetivos observado,
+      no una valoración independiente. Requiere que las expectativas implícitas en
+      ese objetivo se sostengan y que el mercado reconozca una mejora suficiente frente
+      a la cotización observada. No se extrapola más allá del máximo del rango porque
+      la evidencia no incluye una fuente independiente que respalde un objetivo superior.
     sources:
-    - as_of_date: '2026-11-01'
-      name: stockanalysis.com
-      url: https://stockanalysis.com/stocks/ABT/statistics/
-    - as_of_date: '2026-11-19'
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abt/forecast/
+    - as_of_date: '2026-11-20'
       name: yfinance
       url: https://finance.yahoo.com/quote/ABT/
-    target_price: 130.0
+    target_price: 130
   schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - 'BEAR.sources[0]: URL no está respaldada por evidencia de entrada verificable'
-  - 'BULL.sources[0]: URL no está respaldada por evidencia de entrada verificable'
-  status: invalid_pending_revision
-score_general: 82
+  errors: []
+  status: valid_pending_decision_board
+score_general: 54
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-19T16:57:25.221915-03:00'
+  calculado_at: '2026-11-21T06:19:32.297764-03:00'
   fuentes:
     stockanalysis: 119.6
-    yfinance: 118.90731
-  mediana: 119.25
+    yfinance: 119.59962
+  mediana: 119.6
   n_fuentes: 2
-  promedio: 119.25
+  promedio: 119.6
   source_references:
-  - as_of_date: '2026-11-19'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-19T16:57:25.221915-03:00'
-    observed_date: '2026-11-19'
+    observed_at: '2026-11-21T06:19:32.297764-03:00'
+    observed_date: '2026-11-21'
     target_price: 119.6
     url: https://stockanalysis.com/stocks/abt/forecast/
-  - as_of_date: '2026-11-19'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-19T16:57:25.221915-03:00'
-    observed_date: '2026-11-19'
-    target_price: 118.90731
+    observed_at: '2026-11-21T06:19:32.297764-03:00'
+    observed_date: '2026-11-21'
+    target_price: 119.59962
     url: https://finance.yahoo.com/quote/ABT/
   target_high: 130.0
   target_low: 100.0
-tesis_inversion: Abbott combina un negocio de alta calidad con generación de caja
-  libre robusta y oportunidades de crecimiento tanto orgánico como inorgánico. El
-  precio actual refleja un descuento excesivo frente a los fundamentos y al consenso
-  de analistas, creando una ventana de inversión atractiva mientras se vigilan los
-  riesgos regulatorios.
+tesis_inversion: 'La tesis potencial se apoya en la diversificación de Abbott en varios
+  mercados sanitarios y en la posibilidad de que el mercado esté aplicando expectativas
+  más cautelosas que las reflejadas por el consenso de analistas. Sin embargo, la
+  información disponible no demuestra un descuento intrínseco: la cotización está
+  dentro del rango de objetivos observado y faltan múltiplos, datos segmentados, guía
+  corporativa y evidencia primaria sobre los catalizadores. La tesis permanece activa,
+  pero su convicción es baja hasta completar esas verificaciones.'
 ticker: ABT
 version: '3.0'

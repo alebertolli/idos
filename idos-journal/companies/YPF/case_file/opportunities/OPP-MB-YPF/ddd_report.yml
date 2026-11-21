@@ -1,0 +1,587 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La variabilidad histórica de beneficio neto y FCF hace insuficiente tratar el
+    dato TTM como evidencia de una mejora estructural.
+  - La integración por segmentos descrita no permite inferir por sí sola una ventaja
+    competitiva o retornos incrementales atractivos.
+  - La fuente reporta ingresos de 32,736,313 y margen bruto de 38.74% para TTM terminado
+    el 2026-09-30; la unidad de los valores monetarios de la serie financiera se expresa
+    como source_reported_amount.
+  - La fuente reporta FCF de 5,372,752 y beneficio neto de 3,194,759 para TTM terminado
+    el 2026-09-30, ambos en source_reported_amount.
+  - La cotización fue USD 47.00 al 2026-10-30; el rango de objetivos de analistas
+    reportado fue USD 48.70–84.00 al 2026-11-20.
+  preguntas_abiertas:
+  - ¿Qué parte del crecimiento de ingresos y FCF responde a volumen, precios, mezcla,
+    tipo de cambio u otros factores, y qué parte es repetible?
+  - ¿Cuáles son capex de mantenimiento y crecimiento, producción, reservas, costos
+    unitarios y retornos sobre capital por segmento?
+  - ¿Qué explican las diferencias entre revenue_ttm de statistics y revenue_history
+    TTM, y entre los campos FCF de statistics y financials?
+  - ¿Cuál es la moneda y escala exactas de los importes reportados, y cómo se reconcilian
+    deuda, caja, intereses y EBITDA?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: RESEARCH_REQUIRED
+  justificacion: El paquete identifica YPF con perfil MULTIBAGGERS y discovery_score
+    de 68.65, pero no aporta evidencia suficiente para validar retornos sobre capital,
+    ventaja competitiva duradera ni expansión del mercado direccionable.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe actividades integradas de petróleo y gas en upstream,
+    midstream, downstream, LNG e integrated gas, además de nuevas energías; no aporta
+    datos para medir cuota, costos relativos, poder de precios, retornos sobre capital
+    o duración de una ventaja competitiva. El margen bruto reportado para TTM al 2026-09-30
+    fue 38.74%, pero por sí solo no demuestra calidad o persistencia económica.
+  rating: No determinado
+dominio_catalizadores:
+- fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ypf/financials/
+  observacion: Una serie posterior que confirme ingresos, margen bruto y FCF TTM al
+    alza sería evidencia relevante para evaluar la persistencia de la mejora reportada
+    al 2026-09-30.
+- fuentes: []
+  observacion: La ejecución y rentabilidad de inversiones en los segmentos descritos
+    podría respaldar el mecanismo de crecimiento, pero el paquete no identifica proyectos,
+    montos ni fechas de hitos.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ypf/financials/
+  observacion: 'La deuda neta reportada fue negativa en la métrica net_cash: -11,136,224
+    en la unidad reportada por la fuente al 2026-09-30; no se valida net debt/EBITDA
+    por falta de unidad y compatibilidad monetaria entre inputs.'
+- fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ypf/financials/
+  observacion: El beneficio neto reportado alternó entre valores positivos y negativos
+    en FY 2022–FY 2025; el FCF reportado también fue muy variable entre esos ejercicios,
+    lo que limita extrapolar el dato TTM.
+- fuentes:
+  - name: Yahoo Finance
+    url: https://finance.yahoo.com/quote/YPF/history/
+  observacion: La volatilidad a 90 días fue 33.90% para el período informado al 2026-10-30;
+    la métrica proviene del historial de precios, no de estados financieros.
+- fuentes: []
+  observacion: El paquete no aporta datos de reservas, declinación de activos, capex
+    de mantenimiento y crecimiento, exposición a precios o regulación, ni retornos
+    sobre capital invertido.
+error_mercado:
+  catalizador_cambio: La confirmación en períodos posteriores de crecimiento rentable
+    y generación de FCF, junto con evidencia de ejecución de inversiones, podría cambiar
+    la lectura; el paquete no proporciona hitos operativos fechados.
+  conclusion_error_valoracion: Hay una diferencia entre la cotización y el consenso
+    medio observado, pero no evidencia suficiente para concluir que el mercado esté
+    equivocado ni para estimar valor intrínseco.
+  consenso_actual: 'La cotización observada fue USD 47.00 al 2026-10-30; el consenso
+    de precio objetivo reportado al 2026-11-20 fue USD 61.55, con rango USD 48.70–84.00.
+    Fuentes: Yahoo Finance, https://finance.yahoo.com/quote/YPF/; Stock Analysis,
+    https://stockanalysis.com/stocks/ypf/forecast/.'
+  hipotesis_contraria: La mejora de ingresos, margen bruto y FCF reportada para TTM
+    al 2026-09-30 podría no ser sostenible; la información suministrada no separa
+    cuánto corresponde a volumen, precio, mezcla, costos o condiciones de mercado.
+  razonamiento: El precio avanzó 29.01% en los 12 meses terminados el 2026-10-30 y
+    el drawdown informado fue 18.42% en ese período. Las cifras fundamentales TTM
+    muestran mejora frente a algunos ejercicios previos, aunque existen diferencias
+    entre campos del resumen financiero que requieren conciliación.
+generated_at: '2026-11-20T22:12:36.413785-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-YPF
+prompt_inputs:
+  business_model: YPF Sociedad Anónima, an energy company, engages in the oil and
+    gas upstream and downstream activities in South America and Argentina. The company
+    operates through the Upstream, Midstream and Downstream, LNG and Integrated Gas,
+    and New Energies segments. It is involved in the exploration and exploitation
+    of hydrocarbon fields and production of crude oil and natural gas; the refining,
+    transportation and commercialization of refined products; the production, transportation,
+    and commercialization of petrochemical products; the transportation and commercialization
+    of crude oil; and the commercialization of specialties for the agribusiness industry,
+    and of grains and their by-products. The company also offers fertilizers and crop
+    protection products; flours, oils, and grains; asphalts; naphtha; and petroleum
+    coke. In addition, it engages in the natural gas transportation and commercialization
+    to third parties and to the Midstream and Downstream segments; the separation
+    of natural gas liquids and their fractionation, and storage and transportation
+    to produce ethane, propane, butane, and gasoline, as well as its commercialization;
+    the development of liquefied natural gas liquefaction capacity; and power generation
+    activities. The company was incorporated in 1977 and is based in Buenos Aires,
+    Argentina.
+  ceo_tenure: 0
+  debt_to_equity: 0.79
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: YPF Sociedad Anónima
+  operating_margin: 22.39
+  pe_ratio: 6.26
+  products: ''
+  revenue: 21470000000.0
+  revenue_growth: 52.51
+  roic: 10.89
+  sector: Energy
+  ticker: YPF
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ypf/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Valor de fcf_growth_history reportado para FY 2025; no recalculado.
+  inputs:
+    fcf_growth_history:
+      period: FY 2025
+      value: -80.37
+  limitations: El paquete reporta la variación porcentual, pero no permite validar
+    aquí la comparabilidad de la definición del FCF subyacente entre períodos.
+  metric: fcf_growth_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ypf/financials/
+  status: reported
+  unit: percent
+  value: -80.37
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ypf/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    ebitda: 7590000000.0
+    net_cash_history:
+      Current: -11136224.0
+  limitations: El paquete no ofrece una URL confiable de trusted_source_urls que respalde
+    conjuntamente los inputs; además, net_cash_history está en source_reported_amount
+    y EBITDA no tiene unidad monetaria explícita compatible. No se calcula el ratio.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 3930000000.0
+  limitations: Sólo se proporciona un dato puntual de shares_outstanding; falta una
+    observación comparable del período anterior y no hay historia de diluted_shares.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/YPF/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: YPF Sociedad Anónima, an energy company, engages in the oil and
+    gas upstream and downstream activities in South America and Argentina. The company
+    operates through the Upstream, Midstream and Downstream, LNG and Integrated Gas,
+    and New Energies segments. It is involved in the exploration and exploitation
+    of hydrocarbon fields and production of crude oil and natural gas; the refining,
+    transportation and commercialization of refined products; the production, transportation,
+    and commercialization of petrochemical products; the transportation and commercialization
+    of crude oil; and the commercialization of specialties for the agribusiness industry,
+    and of grains and their by-products. The company also offers fertilizers and crop
+    protection products; flours, oils, and grains; asphalts; naphtha; and petroleum
+    coke. In addition, it engages in the natural gas transportation and commercialization
+    to third parties and to the Midstream and Downstream segments; the separation
+    of natural gas liquids and their fractionation, and storage and transportation
+    to produce ethane, propane, butane, and gasoline, as well as its commercialization;
+    the development of liquefied natural gas liquefaction capacity; and power generation
+    activities. The company was incorporated in 1977 and is based in Buenos Aires,
+    Argentina.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 47.0
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.79
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-21T01:12:00.305542+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: YPF Sociedad Anónima
+  operating_margin: 22.39
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: YPF Sociedad Anónima, an energy company, engages in the oil and gas
+    upstream and downstream activities in South America and Argentina. The company
+    operates through the Upstream, Midstream and Downstream, LNG and Integrated Gas,
+    and New Energies segments. It is involved in the exploration and exploitation
+    of hydrocarbon fields and production of crude oil and natural gas; the refining,
+    transportation and commercialization of refined products; the production, transportation,
+    and commercialization o
+  revenue: 21470000000.0
+  revenue_growth: 52.51
+  roic: 10.89
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ypf/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/YPF/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/YPF/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/YPF/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/YPF/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ypf/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ypf/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ypf/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/YPF/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ypf/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/YPF/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ypf/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ypf/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ypf/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/YPF/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/YPF/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ypf/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    84.0, "low": 48.7, "mean": 61.55, "median": 61.55, "observed_at": "2026-11-20T22:12:03.681738-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T22:12:03.681738-03:00", "observed_date": "2026-11-20", "target_price":
+    61.55, "url": "https://stockanalysis.com/stocks/ypf/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T22:12:03.681738-03:00",
+    "observed_date": "2026-11-20", "target_price": 61.55385, "url": "https://finance.yahoo.com/quote/YPF/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 47.0,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/YPF/"}]}}'
+  sector: Energy
+  ticker: YPF
+research_trigger:
+  discovery_snapshot_hash: 0a61e69a1e6000ab0732faf0d2a0678568543b80fa11e1fe67e4c0a9e92520a3
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 28468e34823c6e92b3b583e318bb5bfe647623ce3e2971f25478b47174ca46fb
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T22:12:36.413785-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.24 al 2026-09-30; no está por debajo del umbral configurado.
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/YPF/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta el número de acciones diluidas del período comparable
+    anterior.'
+  sources: []
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 para TTM al 2026-09-30; requiere validación de
+    EBIT e interest expense y no se interpreta como cobertura confirmada.
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/YPF/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica al FCF TTM reportado positivo al 2026-09-30; no se calcula
+    runway de quema de caja.
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/YPF/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No evaluable con compatibilidad y fuente verificable para el ratio;
+    ver ratios_investigados.
+  sources: []
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: no se proporciona historia de acciones para períodos
+    comparables de tres años.'
+  sources: []
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados posteriores que sostengan crecimiento de ingresos y FCF comparable.
+    - Evidencia fechada de retornos atractivos sobre inversiones y reducción de riesgos
+      de ejecución.
+    id: BEAR
+    key_assumptions:
+    - Los datos TTM al 2026-09-30 no se interpretan como una tendencia confirmada
+      por falta de períodos posteriores comparables.
+    - El extremo inferior del consenso reportado al 2026-11-20 sirve como ancla de
+      escenario y no como precio garantizado.
+    rationale: Ancla inferior del rango de consenso observado, no valoración intrínseca
+      propia. Es compatible con una tesis en la que la mejora TTM no se sostiene y
+      la volatilidad de resultados y FCF documentada en los ejercicios previos vuelve
+      a pesar.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis
+      url: https://stockanalysis.com/stocks/ypf/forecast/
+    - as_of_date: '2026-09-30'
+      name: Stock Analysis
+      url: https://stockanalysis.com/stocks/ypf/financials/
+    target_price: 48.7
+  - falsifiers:
+    - Reversión de la mejora TTM en ingresos, margen o FCF.
+    - Evidencia de que la inversión requerida no genera retornos suficientes o de
+      que el crecimiento no es sostenible.
+    id: BULL
+    key_assumptions:
+    - La mejora reportada de ingresos, margen bruto y FCF TTM continúa en períodos
+      posteriores comparables.
+    - El extremo superior del consenso reportado al 2026-11-20 se utiliza únicamente
+      como ancla observada.
+    rationale: Ancla superior del rango de consenso observado, no valoración intrínseca
+      propia. Es compatible con una tesis en la que el crecimiento y la mejora de
+      FCF reportados para TTM al 2026-09-30 persisten, aunque el paquete no contiene
+      datos suficientes para validar esa continuidad ni sus impulsores.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis
+      url: https://stockanalysis.com/stocks/ypf/forecast/
+    - as_of_date: '2026-09-30'
+      name: Stock Analysis
+      url: https://stockanalysis.com/stocks/ypf/financials/
+    target_price: 84.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 55
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T22:12:03.681738-03:00'
+  fuentes:
+    stockanalysis: 61.55
+    yfinance: 61.55385
+  mediana: 61.55
+  n_fuentes: 2
+  promedio: 61.55
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T22:12:03.681738-03:00'
+    observed_date: '2026-11-20'
+    target_price: 61.55
+    url: https://stockanalysis.com/stocks/ypf/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T22:12:03.681738-03:00'
+    observed_date: '2026-11-20'
+    target_price: 61.55385
+    url: https://finance.yahoo.com/quote/YPF/
+  target_high: 84.0
+  target_low: 48.7
+tesis_inversion: La tesis por investigar es si el crecimiento y la mejora de generación
+  de caja reportados para TTM al 2026-09-30 pueden sostenerse mediante reinversión
+  rentable en las actividades upstream, midstream, downstream, LNG e integrated gas
+  descritas en el paquete. No hay datos suficientes sobre producción, reservas, capex,
+  retornos incrementales, costos de capital, penetración del mercado o ventajas competitivas
+  para validar ese mecanismo; la deuda neta reportada y la variabilidad histórica
+  de resultados y FCF son riesgos de la tesis.
+ticker: YPF
+version: '3.0'

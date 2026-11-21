@@ -1,0 +1,152 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de los doce meses terminados el 2027-09-30 crecen menos
+      de 10% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación interanual no es verificable con información financiera
+      publicada y conciliable para ambos períodos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de los doce meses terminados el 2027-09-30 crecen menos de 10% interanual.
+  - La comparación interanual no es verificable con información financiera publicada
+    y conciliable para ambos períodos.
+  horizon: medio
+  id: H1-OPP-MB-XP
+  opportunity_id: OPP-MB-XP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual de ingresos en doce meses
+    prediction: En los doce meses terminados el 2027-09-30, los ingresos aumentarán
+      al menos 10% frente a los doce meses terminados el 2026-09-30, usando la misma
+      definición contable y moneda en ambos períodos.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Los datos disponibles muestran crecimiento de ingresos en los períodos
+    reportados. Una mayor actividad de clientes y una oferta más amplia de productos
+    pueden elevar los ingresos recurrentes y las comisiones; sin embargo, el contexto
+    no aporta estimaciones operativas que permitan verificar cuánto crecimiento está
+    ya incorporado en las expectativas.
+  review_trigger: Dejar de creerla si un informe publicado antes del 2027-11-20 muestra
+    crecimiento interanual de ingresos inferior al 10% para un período móvil de doce
+    meses terminado el 2027-06-30 o después.
+  secondary_hypotheses: []
+  statement: XP mantendrá crecimiento de ingresos de doble dígito durante los próximos
+    doce meses, apoyado por la expansión y monetización de su plataforma financiera.
+  status: ACTIVE
+  ticker: XP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM reportado al 2027-06-30 es igual o inferior a cero.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: XP modifica la definición de FCF y no proporciona una conciliación
+      que permita compararla con la definición usada como referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM reportado al 2027-06-30 es igual o inferior a cero.
+  - XP modifica la definición de FCF y no proporciona una conciliación que permita
+    compararla con la definición usada como referencia.
+  horizon: medio
+  id: H2-OPP-MB-XP
+  opportunity_id: OPP-MB-XP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-31'
+    expected: 0.0
+    met: null
+    metric: FCF TTM reportado
+    prediction: El FCF TTM publicado para el período terminado el 2027-06-30 será
+      mayor que cero, calculado con la misma definición de FCF utilizada en los datos
+      de referencia.
+    unit: BRL millones, estrictamente mayor que 0
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM disponible es negativo, mientras que los ingresos y el ingreso
+    neto han aumentado. La hipótesis es que la generación de resultados y la normalización
+    de necesidades de capital de trabajo superarán las inversiones y salidas de caja;
+    los datos disponibles no permiten confirmar la conversión de beneficios en caja
+    ni el apalancamiento sobre EBITDA.
+  review_trigger: Dejar de creerla si un informe publicado antes del 2027-08-31 informa
+    FCF TTM igual o inferior a cero para un período terminado el 2027-03-31 o después,
+    sin una conciliación que demuestre que la cifra es temporal o no comparable.
+  secondary_hypotheses:
+  - H1-OPP-MB-XP
+  statement: El flujo de caja libre (FCF) reportado de XP pasará a terreno positivo
+    en términos de últimos doce meses, señal de que el crecimiento puede traducirse
+    en generación de caja.
+  status: ACTIVE
+  ticker: XP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Si XP no cumple H1 o H2 al 2027-11-20, su rendimiento total en USD
+      no queda al menos 5 puntos porcentuales por debajo del Ibovespa convertido a
+      USD durante el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: XP cumple H1 y H2, pero igualmente queda al menos 5 puntos porcentuales
+      por debajo del Ibovespa convertido a USD; esto falsaría el mecanismo condicional
+      planteado para la caída por incumplimiento operativo o financiero.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Si XP no cumple H1 o H2 al 2027-11-20, su rendimiento total en USD no queda al
+    menos 5 puntos porcentuales por debajo del Ibovespa convertido a USD durante el
+    período.
+  - XP cumple H1 y H2, pero igualmente queda al menos 5 puntos porcentuales por debajo
+    del Ibovespa convertido a USD; esto falsaría el mecanismo condicional planteado
+    para la caída por incumplimiento operativo o financiero.
+  horizon: medio
+  id: H3-OPP-MB-XP
+  opportunity_id: OPP-MB-XP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total de XP menos rendimiento total del Ibovespa convertido
+      a USD, si no se cumple H1 o H2
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de XP, incluidos
+      dividendos y medido en USD, quedará al menos 5 puntos porcentuales por debajo
+      del rendimiento total del Ibovespa convertido a USD si al cierre XP no cumple
+      H1 o H2.
+    unit: puntos porcentuales o menos
+  priority: important
+  probability: 0.5
+  rationale: La cotización está por encima del rango observado de objetivos, pero
+    el material disponible no contiene estimaciones operativas verificables que justifiquen
+    esa prima. Si el crecimiento y la conversión de caja no satisfacen las expectativas,
+    una revisión a la baja de la valoración podría pesar sobre la acción. La comparación
+    de rendimiento pone a prueba esta hipótesis de mercado, pero no supone que el
+    rango de objetivos sea por sí solo una valoración intrínseca.
+  review_trigger: Abandonar la hipótesis antes del 2027-11-20 si XP cumple H1 y H2
+    en la información publicada y el rendimiento total acumulado de la acción supera
+    al del Ibovespa convertido a USD en 5 puntos porcentuales o más. Evaluación definitiva
+    el 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-XP
+  - H2-OPP-MB-XP
+  statement: Si XP no demuestra crecimiento de ingresos de al menos 10% y FCF TTM
+    positivo, su acción tendrá un rendimiento total inferior al del mercado brasileño
+    durante los doce meses siguientes al corte.
+  status: ACTIVE
+  ticker: XP
+  version: 1

@@ -1,0 +1,185 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado del ejercicio fiscal 2027 es igual
+      o inferior a cero.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa flujo de caja libre acumulado inferior a 10.000
+      millones de dólares para el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado del ejercicio fiscal 2027 es igual o inferior
+    a cero.
+  - La compañía informa flujo de caja libre acumulado inferior a 10.000 millones de
+    dólares para el ejercicio fiscal 2027.
+  horizon: medio
+  id: H1-OPP-MB-VZ
+  opportunity_id: OPP-MB-VZ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 10000.0
+    met: null
+    metric: Flujo de caja libre del ejercicio fiscal 2027
+    prediction: El flujo de caja libre acumulado del ejercicio fiscal 2027 será superior
+      a cero y alcanzará al menos 10.000 millones de dólares.
+    unit: millones de dólares, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis de partida indica que la compañía ya genera flujo de caja libre
+    positivo. Si los ingresos y márgenes operativos no sufren un deterioro marcado,
+    esa generación puede persistir; los pagos de intereses y las inversiones de capital
+    son los principales riesgos para el resultado.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2028-02-15
+    muestra que el flujo de caja libre acumulado de 2027 es negativo y la compañía
+    no identifica una causa puntual que revierta antes del cierre del ejercicio.
+  secondary_hypotheses:
+  - H2-OPP-MB-VZ
+  statement: Verizon mantendrá flujo de caja libre positivo durante el ejercicio fiscal
+    2027, aunque la presión de deuda limite el ritmo de reinversión.
+  status: ACTIVE
+  ticker: VZ
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón EBIT/gasto por intereses de los últimos doce meses alcanza
+      o supera 2,5 veces en los resultados del ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía reduce el gasto por intereses lo suficiente para mantener
+      una cobertura de al menos 2,5 veces durante dos trimestres consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón EBIT/gasto por intereses de los últimos doce meses alcanza o supera 2,5
+    veces en los resultados del ejercicio fiscal 2027.
+  - La compañía reduce el gasto por intereses lo suficiente para mantener una cobertura
+    de al menos 2,5 veces durante dos trimestres consecutivos de 2027.
+  horizon: medio
+  id: H2-OPP-MB-VZ
+  opportunity_id: OPP-MB-VZ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 2.5
+    met: null
+    metric: Cobertura de intereses, EBIT/gasto por intereses
+    prediction: La razón EBIT/gasto por intereses de los últimos doce meses será inferior
+      a 2,5 veces en los resultados del ejercicio fiscal 2027.
+    unit: veces, por debajo de
+  priority: critical
+  probability: 0.5
+  rationale: La tesis señala cobertura de intereses insuficiente y presión de deuda.
+    Si el gasto por intereses permanece elevado respecto del resultado operativo,
+    la compañía tendrá menos margen para financiar inversiones, reducir deuda o absorber
+    una caída de ingresos.
+  review_trigger: Dejar de creerla si los resultados publicados de dos trimestres
+    consecutivos de 2027 muestran una cobertura EBIT/intereses igual o superior a
+    2,5 veces.
+  secondary_hypotheses:
+  - H1-OPP-MB-VZ
+  statement: La cobertura de intereses de Verizon seguirá siendo débil durante 2027
+    y restringirá su flexibilidad financiera.
+  status: ACTIVE
+  ticker: VZ
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto de 2027 cae más de 0,5 puntos porcentuales frente a
+      2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa dos trimestres consecutivos de 2027 con una caída
+      interanual del margen bruto superior a 0,5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto de 2027 cae más de 0,5 puntos porcentuales frente a 2026.
+  - La compañía informa dos trimestres consecutivos de 2027 con una caída interanual
+    del margen bruto superior a 0,5 puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-MB-VZ
+  opportunity_id: OPP-MB-VZ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: -0.5
+    met: null
+    metric: Variación interanual del margen bruto
+    prediction: El margen bruto del ejercicio fiscal 2027, calculado como ingresos
+      menos costo de ingresos dividido por ingresos, será como máximo 0,5 puntos porcentuales
+      inferior al del ejercicio fiscal 2026.
+    unit: puntos porcentuales, límite inferior
+  priority: important
+  probability: 0.5
+  rationale: La tesis de partida describe un margen bruto estable. La escala del negocio
+    y la recurrencia de los servicios pueden amortiguar variaciones de costos, aunque
+    la competencia, los costos de red y la mezcla de ingresos podrían presionarlo.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos de 2027
+    muestran una contracción interanual del margen bruto superior a 0,5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-VZ
+  statement: El margen bruto de Verizon se mantendrá estable en 2027, sin una contracción
+    anual superior a 0,5 puntos porcentuales.
+  status: ACTIVE
+  ticker: VZ
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de VZ no queda al menos 5 puntos porcentuales
+      por debajo de la del S&P 500 al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: VZ supera la rentabilidad total del S&P 500 en cualquier medición acumulada
+      de doce meses que termine entre el 2027-05-20 y el 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de VZ no queda al menos 5 puntos porcentuales por debajo
+    de la del S&P 500 al 2027-11-20.
+  - VZ supera la rentabilidad total del S&P 500 en cualquier medición acumulada de
+    doce meses que termine entre el 2027-05-20 y el 2027-11-20.
+  horizon: medio
+  id: H4-OPP-MB-VZ
+  opportunity_id: OPP-MB-VZ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total relativo de VZ frente al S&P 500
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de VZ,
+      incluidos dividendos reinvertidos, será al menos 5 puntos porcentuales inferior
+      a la rentabilidad total del S&P 500.
+    unit: puntos porcentuales, como mínimo de rezago
+  priority: important
+  probability: 0.5
+  rationale: Una cobertura de intereses débil puede limitar la reinversión y aumentar
+    la sensibilidad de la valoración a tasas de interés y refinanciación. Si esos
+    riesgos dominan sobre el atractivo de los ingresos por dividendos, la acción podría
+    ofrecer un rendimiento total inferior al mercado.
+  review_trigger: Dejar de creerla si, al 2027-11-20, la rentabilidad total de VZ
+    iguala o supera la del S&P 500, o si la cobertura de intereses alcanza al menos
+    2,5 veces y se mantiene en ese nivel durante dos trimestres consecutivos.
+  secondary_hypotheses:
+  - H2-OPP-MB-VZ
+  statement: La preocupación por deuda y cobertura de intereses hará que la rentabilidad
+    total de la acción de Verizon quede rezagada frente al S&P 500 durante los próximos
+    doce meses.
+  status: ACTIVE
+  ticker: VZ
+  version: 1

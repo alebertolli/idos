@@ -1,0 +1,148 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción neta del tercer trimestre de 2027 es inferior o igual
+      a la del tercer trimestre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La producción neta del tercer trimestre de 2027 es menos de un 3% superior
+      a la del tercer trimestre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción neta del tercer trimestre de 2027 es inferior o igual a la del tercer
+    trimestre de 2026.
+  - La producción neta del tercer trimestre de 2027 es menos de un 3% superior a la
+    del tercer trimestre de 2026.
+  horizon: medio
+  id: H1-OPP-MB-XOM
+  opportunity_id: OPP-MB-XOM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Cambio interanual de la producción neta media del tercer trimestre
+    prediction: La producción neta media del tercer trimestre de 2027 será al menos
+      un 3% superior a la del tercer trimestre de 2026, medida en millones de barriles
+      equivalentes de petróleo por día y usando la misma definición de producción
+      en ambos periodos.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis de crecimiento de ingresos y la expansión de activos de la compañía
+    sugieren que el crecimiento operativo puede sostenerse. La producción neta reportada
+    permite comprobar si ese crecimiento se materializa, aunque los precios de las
+    materias primas pueden afectar los ingresos sin reflejar cambios de volumen.
+  review_trigger: Dejar de creerla si el informe del tercer trimestre de 2027, o una
+    actualización oficial anterior, muestra que la producción neta interanual no crece
+    al menos un 3%.
+  secondary_hypotheses: []
+  statement: La producción neta de ExxonMobil crecerá interanualmente hasta el tercer
+    trimestre de 2027, respaldando el crecimiento operativo.
+  status: ACTIVE
+  ticker: XOM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado de los primeros nueve meses de 2027
+      es igual o inferior a cero.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre acumulado de los primeros nueve meses de 2027
+      no supera en al menos un 5% el del periodo comparable de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado de los primeros nueve meses de 2027 es igual
+    o inferior a cero.
+  - El flujo de caja libre acumulado de los primeros nueve meses de 2027 no supera
+    en al menos un 5% el del periodo comparable de 2026.
+  horizon: medio
+  id: H2-OPP-MB-XOM
+  opportunity_id: OPP-MB-XOM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual del FCF acumulado de nueve meses
+    prediction: El flujo de caja libre acumulado de los primeros nueve meses de 2027
+      será positivo y al menos un 5% mayor que el de los primeros nueve meses de 2026.
+      Se calculará como flujo de caja operativo menos inversiones de capital, usando
+      cifras reportadas comparables.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El crecimiento de FCF del 80,7% indicado en la tesis y el margen bruto
+    del 29,8% apuntan a una capacidad de generación de efectivo sólida. La predicción
+    comprueba si esa fortaleza persiste en un periodo futuro comparable, sin asumir
+    que el crecimiento excepcional informado se repetirá.
+  review_trigger: Dejar de creerla si los resultados del tercer trimestre de 2027
+    muestran que el FCF acumulado de nueve meses es negativo o que el crecimiento
+    interanual es inferior al 5%.
+  secondary_hypotheses:
+  - H1-OPP-MB-XOM
+  statement: ExxonMobil mantendrá un flujo de caja libre positivo y superior al del
+    periodo comparable de 2026 durante los primeros nueve meses de 2027.
+  status: ACTIVE
+  ticker: XOM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de XOM menos el rendimiento total de XLE es inferior
+      a 3 puntos porcentuales en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: XOM registra un rendimiento total negativo durante el periodo, aunque
+      supere a XLE.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de XOM menos el rendimiento total de XLE es inferior a 3
+    puntos porcentuales en el periodo definido.
+  - XOM registra un rendimiento total negativo durante el periodo, aunque supere a
+    XLE.
+  horizon: medio
+  id: H3-OPP-MB-XOM
+  opportunity_id: OPP-MB-XOM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Rendimiento total relativo de XOM frente a XLE
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 19 de
+      noviembre de 2027, el rendimiento total de XOM, con dividendos reinvertidos,
+      superará al rendimiento total de XLE en al menos 3 puntos porcentuales.
+    unit: puntos porcentuales de exceso de rendimiento
+  priority: important
+  probability: 0.5
+  rationale: La generación de efectivo y los márgenes señalados pueden sostener las
+    expectativas de beneficios y compensar parcialmente una valoración exigente. Comparar
+    el rendimiento total con XLE permite evaluar si esos fundamentos se traducen en
+    desempeño relativo, incluyendo dividendos y evitando depender de un precio objetivo
+    de consenso no especificado.
+  review_trigger: Dejar de creerla al cierre del 19 de noviembre de 2027 si la diferencia
+    de rendimiento total entre XOM y XLE es inferior a 3 puntos porcentuales; también
+    revisarla antes si una reducción material de la guía de flujo de caja o producción
+    invalida H1 o H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-XOM
+  - H2-OPP-MB-XOM
+  statement: La acción de ExxonMobil ofrecerá un rendimiento total superior al del
+    ETF Energy Select Sector SPDR (XLE) durante los doce meses posteriores a la fecha
+    de corte, pese a la valoración ligeramente superior al consenso medio descrita
+    en la tesis.
+  status: ACTIVE
+  ticker: XOM
+  version: 1

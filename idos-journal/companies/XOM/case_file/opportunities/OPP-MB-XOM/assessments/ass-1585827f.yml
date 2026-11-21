@@ -1,0 +1,35 @@
+confidence: HIGH
+engine: ResearchWorker
+findings:
+- 'Classification: Multibagger'
+- 'Market error: El precio actual (187.25 USD) supera el promedio del consenso, indicando
+  posible sobrevaloración momentánea.'
+- 'Thesis: ExxonMobil muestra capacidad de generación de efectivo robusta y crecimiento
+  de ingresos, pero su valoración está ligeramente inflada respecto al consenso medio.'
+generated_at: '2026-11-20T22:09:57.648524-03:00'
+id: ass-1585827f
+recommendation: REVIEW
+risks:
+- description: Cobertura de intereses cero (ratio 0) indica vulnerabilidad a aumentos
+    de deuda.
+  source:
+    as_of_date: '2026-09-30'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/XOM/statistics/
+- description: Volatilidad 90d del 23.85% muestra sensibilidad a precios de energía.
+  source:
+    as_of_date: '2026-10-30'
+    name: yfinance
+    url: https://finance.yahoo.com/quote/XOM/history/
+- description: Datos de dilución de acciones no disponibles, impidiendo evaluar posible
+    dilución futura.
+  source: null
+- description: Deuda neta positiva (22,097 M) aunque manejable, aumenta riesgo en
+    escenarios de precios bajos.
+  source:
+    as_of_date: '2026-09-30'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/xom/financials/
+score: 88
+status: COMPLETED
+version: '3.0'

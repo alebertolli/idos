@@ -1,0 +1,30 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida'
+- 'Market error: No se valida un error de valoración: el consenso medio observado
+  es ligeramente inferior a la cotización reportada, pero el paquete no ofrece un
+  método de valoración ni inputs suficientes para estimar valor intrínseco.'
+- 'Thesis: ADP ofrece plataformas de nómina, HCM y externalización de RR. HH. en los
+  segmentos Employer Services y PEO, según la descripción del modelo de negocio del
+  resumen financiero. Los ingresos y el FCF re'
+generated_at: '2026-11-21T14:13:04.934091-03:00'
+id: ass-acb094ce
+recommendation: REVIEW
+risks:
+- evidencia: Las observaciones financieras incluyen esos campos, pero trusted_source_urls
+    está vacío.
+  riesgo: No se puede validar con las URL autorizadas la trayectoria de crecimiento
+    de ingresos, crecimiento de FCF, conversión de FCF, apalancamiento neto ni dilución.
+- evidencia: El resumen describe productos y segmentos, pero no ofrece métricas de
+    mercado o competitividad.
+  riesgo: La evidencia aportada no cuantifica mercado direccionable, penetración,
+    retención de clientes ni presión competitiva; no permite medir erosión de ventaja
+    competitiva.
+- evidencia: El valor proviene de una observación agregada sin desglose de EBIT y
+    gasto por intereses.
+  riesgo: La cobertura de intereses reportada como 0 no puede interpretarse como capacidad
+    de pago sin verificar definición e insumos subyacentes.
+score: 50
+status: COMPLETED
+version: '3.0'
