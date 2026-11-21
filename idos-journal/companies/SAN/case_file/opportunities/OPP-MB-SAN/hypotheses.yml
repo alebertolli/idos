@@ -1,196 +1,214 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos totales reportados para 2027 crecen un 5% o más interanual.
+  - condition: La ratio de eficiencia acumulada de 2027 no mejora frente al mismo
+      periodo de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El beneficio atribuido reportado para 2027 crece un 10% o más interanual.
+  - condition: La ratio empeora en 1,0 punto porcentual o más.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La mejora depende principalmente de partidas extraordinarias y no de
+      ingresos recurrentes o control de costes.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos totales reportados para 2027 crecen un 5% o más interanual.
-  - El beneficio atribuido reportado para 2027 crece un 10% o más interanual.
+  - La ratio de eficiencia acumulada de 2027 no mejora frente al mismo periodo de
+    2026.
+  - La ratio empeora en 1,0 punto porcentual o más.
+  - La mejora depende principalmente de partidas extraordinarias y no de ingresos
+    recurrentes o control de costes.
   horizon: medio
   id: H1-OPP-MB-SAN
   opportunity_id: OPP-MB-SAN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-04-30'
-    expected: 5.0
+    deadline: '2028-02-29'
+    expected: -1.0
     met: null
-    metric: Crecimiento interanual de ingresos totales y beneficio atribuido en 2027
-    prediction: En los resultados del ejercicio 2027, los ingresos totales crecerán
-      menos del 5% interanual y el beneficio atribuido crecerá menos del 10% interanual,
-      ambos en euros y sobre cifras reportadas comparables.
-    unit: porcentaje máximo para ingresos; el beneficio atribuido crecerá menos del
-      10%
-  priority: critical
+    metric: Variación interanual de la ratio de eficiencia
+    prediction: En los resultados acumulados publicados para el ejercicio 2027, la
+      ratio de eficiencia será al menos 1,0 punto porcentual inferior a la del mismo
+      periodo de 2026.
+    unit: puntos porcentuales como mínimo
+  priority: important
   probability: 0.5
-  rationale: La tesis plantea dudas sobre la sostenibilidad del crecimiento y el paquete
-    disponible no aporta evidencia que permita identificar sus motores, la evolución
-    de volúmenes y márgenes ni la contribución de partidas extraordinarias. Por ello,
-    la moderación es una hipótesis de trabajo que debe contrastarse con resultados
-    publicados, no un hecho establecido.
-  review_trigger: Dejar de creer esta hipótesis si la publicación de resultados anuales
-    de 2027 muestra crecimiento de ingresos de al menos el 5% y crecimiento del beneficio
-    atribuido de al menos el 10%; revisarla también si Santander modifica de forma
-    material la definición o presentación de esas métricas.
+  rationale: Una mejora de ingresos recurrentes sin un crecimiento equivalente de
+    los gastos reduce la ratio de eficiencia y puede respaldar la rentabilidad. La
+    tesis requiere comprobar esta mejora frente a los últimos resultados publicados
+    disponibles al 2026-11-21; no se presupone un dato base no proporcionado.
+  review_trigger: Dejar de creerla si, en los resultados del primer semestre de 2027,
+    la ratio de eficiencia acumulada empeora al menos 1,0 punto porcentual interanual
+    y la dirección no identifica medidas cuantificadas que reviertan esa tendencia
+    antes del cierre de 2027.
   secondary_hypotheses: []
-  statement: El crecimiento de ingresos de Banco Santander se moderará durante 2027
-    y no se traducirá en crecimiento de doble dígito del beneficio atribuido.
+  statement: Santander mejorará su eficiencia operativa si mantiene el crecimiento
+    de ingresos y contiene el aumento de costes.
   status: ACTIVE
   ticker: SAN
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El RoTE reportado para 2027 alcanza o supera el 16%.
+  - condition: Los depósitos de clientes al cierre de 2027 crecen menos del 3,0% frente
+      al cierre de 2026 o disminuyen.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El RoTE de 2027 supera en más de 50 puntos básicos el de 2026, calculados
-      con una definición comparable.
+  - condition: El LCR informado cae por debajo del 100%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento de depósitos se obtiene a costa de un aumento tal del
+      coste de financiación que la entidad informa de un deterioro material de su
+      margen de intereses.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El RoTE reportado para 2027 alcanza o supera el 16%.
-  - El RoTE de 2027 supera en más de 50 puntos básicos el de 2026, calculados con
-    una definición comparable.
+  - Los depósitos de clientes al cierre de 2027 crecen menos del 3,0% frente al cierre
+    de 2026 o disminuyen.
+  - El LCR informado cae por debajo del 100%.
+  - El crecimiento de depósitos se obtiene a costa de un aumento tal del coste de
+    financiación que la entidad informa de un deterioro material de su margen de intereses.
   horizon: medio
   id: H2-OPP-MB-SAN
   opportunity_id: OPP-MB-SAN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-04-30'
-    expected: 16.0
+    deadline: '2028-02-29'
+    expected: 3.0
     met: null
-    metric: RoTE anual reportado en 2027
-    prediction: El RoTE reportado para el ejercicio 2027 será inferior al 16% y no
-      superará en más de 50 puntos básicos el RoTE reportado para 2026, usando la
-      misma definición en ambos ejercicios.
-    unit: porcentaje máximo; aumento frente a 2026 no superior a 0,5 puntos porcentuales
+    metric: Crecimiento interanual de depósitos de clientes al cierre de 2027
+    prediction: En los resultados del ejercicio 2027, los depósitos de clientes serán
+      al menos un 3,0% superiores a los del ejercicio 2026 y el LCR informado será
+      igual o superior al 100%.
+    unit: porcentaje como mínimo; LCR igual o superior al 100%
   priority: critical
   probability: 0.5
-  rationale: El crecimiento del beneficio no demuestra por sí solo una mejora en la
-    rentabilidad del capital empleado. El contexto disponible no aporta una serie
-    de RoTE, ni evidencia suficiente sobre márgenes, costes, pérdidas crediticias
-    o asignación de capital que permita validar una mejora duradera.
-  review_trigger: Dejar de creer esta hipótesis cuando los resultados anuales de 2027
-    demuestren que se cumple cualquiera de los dos criterios de falsación con datos
-    comparables; reevaluarla antes si el banco cambia la definición de RoTE de forma
-    que impida una comparación fiable.
-  secondary_hypotheses:
-  - H1-OPP-MB-SAN
-  statement: La rentabilidad sobre el capital tangible de Santander no mejorará de
-    forma sostenida en 2027, aunque el beneficio reportado aumente.
+  rationale: Para un banco, la evolución de depósitos y los indicadores regulatorios
+    de liquidez son medidas más observables que el flujo de caja corporativo convencional.
+    Una base de depósitos creciente y un LCR holgadamente superior al mínimo reducirían
+    la percepción de riesgo de financiación, aunque no eliminarían los riesgos de
+    volatilidad.
+  review_trigger: Dejar de creerla si una publicación oficial informa un LCR inferior
+    al 100%, o si los depósitos de clientes registran una caída interanual en dos
+    publicaciones trimestrales consecutivas de 2027.
+  secondary_hypotheses: []
+  statement: La posición de liquidez de Santander se mantendrá por encima del mínimo
+    regulatorio mientras su base de depósitos de clientes crece.
   status: ACTIVE
   ticker: SAN
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El ratio CET1 fully loaded al cierre de 2027 aumenta en 50 puntos básicos
-      o más frente al cierre de 2026.
+  - condition: La rentabilidad total de SAN iguala o queda por debajo de la del EURO
+      STOXX Banks durante el periodo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La comparación entre ambos cierres no puede reconstruirse por cambios
-      de definición o de perímetro y el banco no publica una conciliación suficiente.
+  - condition: La rentabilidad relativa de SAN es inferior en 8 puntos porcentuales
+      o más.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La supuesta mejora de valoración coincide con un deterioro material
+      de la liquidez o de la calidad crediticia.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El ratio CET1 fully loaded al cierre de 2027 aumenta en 50 puntos básicos o más
-    frente al cierre de 2026.
-  - La comparación entre ambos cierres no puede reconstruirse por cambios de definición
-    o de perímetro y el banco no publica una conciliación suficiente.
+  - La rentabilidad total de SAN iguala o queda por debajo de la del EURO STOXX Banks
+    durante el periodo.
+  - La rentabilidad relativa de SAN es inferior en 8 puntos porcentuales o más.
+  - La supuesta mejora de valoración coincide con un deterioro material de la liquidez
+    o de la calidad crediticia.
   horizon: medio
   id: H3-OPP-MB-SAN
   opportunity_id: OPP-MB-SAN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-04-30'
-    expected: 50.0
+    deadline: '2027-11-21'
+    expected: 8.0
     met: null
-    metric: Variación del ratio CET1 fully loaded entre cierre de 2026 y cierre de
-      2027
-    prediction: El ratio CET1 fully loaded al cierre de 2027 aumentará menos de 50
-      puntos básicos frente al cierre de 2026, según la definición y las cifras publicadas
-      por el banco.
-    unit: puntos básicos como límite superior
+    metric: Rentabilidad total relativa de SAN frente al EURO STOXX Banks
+    prediction: Entre el 2026-11-21 y el 2027-11-21, la rentabilidad total de SAN,
+      incluidos dividendos, superará en al menos 8 puntos porcentuales la rentabilidad
+      total del índice EURO STOXX Banks.
+    unit: puntos porcentuales de exceso de rentabilidad
   priority: important
   probability: 0.5
-  rationale: El contexto no aporta datos sobre generación orgánica de capital, distribuciones,
-    evolución de activos ponderados por riesgo o colchones de capital. Por tanto,
-    no puede darse por demostrado que el crecimiento de beneficios se convierta en
-    capacidad de financiación duradera; la variación del CET1 permite someter esa
-    parte de la tesis a una prueba observable.
-  review_trigger: Dejar de creer esta hipótesis si los resultados anuales de 2027
-    muestran un aumento del CET1 fully loaded de al menos 50 puntos básicos frente
-    a 2026, con perímetro y definición comparables.
+  rationale: Si los resultados confirman una mejora de eficiencia y se mantiene la
+    liquidez, los inversores podrían reducir el descuento asociado a la volatilidad
+    y al riesgo de financiación. Esta hipótesis se evalúa mediante rentabilidad relativa,
+    no mediante una afirmación no verificable sobre el valor intrínseco.
+  review_trigger: Dejar de creerla si, al 2027-06-30, SAN acumula una rentabilidad
+    total inferior a la del EURO STOXX Banks en al menos 8 puntos porcentuales y los
+    resultados publicados no muestran mejora en la ratio de eficiencia ni estabilidad
+    de depósitos.
   secondary_hypotheses:
   - H1-OPP-MB-SAN
   - H2-OPP-MB-SAN
-  statement: El capital CET1 de Santander no aumentará de forma significativa durante
-    2027, limitando la evidencia de que el crecimiento del beneficio se convierte
-    en una mayor capacidad financiera retenida.
+  statement: La cotización de Santander superará a la de los bancos europeos si los
+    avances operativos y de liquidez reducen la prima de riesgo que el mercado asigna
+    a la entidad.
   status: ACTIVE
   ticker: SAN
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de SAN supera la del EURO STOXX Banks en menos
-      de 3 puntos porcentuales negativos; es decir, la diferencia SAN menos índice
-      es igual o superior a -3 puntos porcentuales.
+  - condition: La ratio CET1 fully loaded al cierre de 2027 es inferior a la del cierre
+      de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No se dispone de precios de cierre y dividendos ajustados verificables
-      para ambas series en las fechas de comparación.
+  - condition: El aumento es inferior a 20 puntos básicos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La ratio cae por debajo del requerimiento regulatorio aplicable comunicado
+      por la entidad o el supervisor.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de SAN supera la del EURO STOXX Banks en menos de 3 puntos
-    porcentuales negativos; es decir, la diferencia SAN menos índice es igual o superior
-    a -3 puntos porcentuales.
-  - No se dispone de precios de cierre y dividendos ajustados verificables para ambas
-    series en las fechas de comparación.
+  - La ratio CET1 fully loaded al cierre de 2027 es inferior a la del cierre de 2026.
+  - El aumento es inferior a 20 puntos básicos.
+  - La ratio cae por debajo del requerimiento regulatorio aplicable comunicado por
+    la entidad o el supervisor.
   horizon: medio
   id: H4-OPP-MB-SAN
   opportunity_id: OPP-MB-SAN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: -3.0
+    deadline: '2028-02-29'
+    expected: 20.0
     met: null
-    metric: Rentabilidad total de SAN menos rentabilidad total del EURO STOXX Banks
-    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
-      noviembre de 2027, la rentabilidad total de SAN, incluidos dividendos reinvertidos,
-      será al menos 3 puntos porcentuales inferior a la del EURO STOXX Banks, en euros.
-    unit: puntos porcentuales o menos
+    metric: Variación de CET1 fully loaded entre cierre de 2026 y cierre de 2027
+    prediction: La ratio CET1 fully loaded al cierre de 2027 será al menos 20 puntos
+      básicos superior a la del cierre de 2026.
+    unit: puntos básicos como mínimo
   priority: important
   probability: 0.5
-  rationale: El contexto indica que los objetivos de analistas disponibles no bastan
-    para demostrar infravaloración y que pueden omitir riesgos del negocio. Sin precios,
-    objetivos, composición de consenso ni datos de valoración en el paquete, no es
-    posible afirmar que exista potencial alcista; esta hipótesis contrasta directamente
-    esa incertidumbre frente a un referente sectorial observable.
-  review_trigger: Dejar de creer esta hipótesis al cierre del 20 de noviembre de 2027
-    si la diferencia entre la rentabilidad total de SAN y la del EURO STOXX Banks
-    es igual o superior a -3 puntos porcentuales.
+  rationale: La generación orgánica de capital y una gestión disciplinada de activos
+    y distribuciones pueden aumentar el colchón de solvencia. La hipótesis se contrasta
+    con la ratio CET1 fully loaded, usando como referencia el último dato publicado
+    disponible al 2026-11-21.
+  review_trigger: Dejar de creerla si una publicación oficial de 2027 informa una
+    caída interanual de al menos 20 puntos básicos en CET1 fully loaded y la entidad
+    atribuye el descenso a pérdidas, deterioro crediticio o consumo de capital no
+    compensado.
   secondary_hypotheses:
-  - H1-OPP-MB-SAN
   - H2-OPP-MB-SAN
-  - H3-OPP-MB-SAN
-  statement: La acción de Santander no obtendrá una rentabilidad total superior a
-    la de un índice amplio de bancos de la eurozona durante los 12 meses posteriores
-    al corte.
+  statement: Santander preservará su solvencia y aumentará moderadamente su ratio
+    CET1, reduciendo el riesgo de que las presiones de liquidez se traduzcan en una
+    necesidad de reforzar capital.
   status: ACTIVE
   ticker: SAN
   version: 1

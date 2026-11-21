@@ -1,0 +1,32 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No validado con la evidencia disponible.'
+- 'Thesis: Siemens combina negocios de automatización, digitalización, infraestructura,
+  movilidad, salud y servicios financieros. La evidencia disponible muestra crecimiento
+  moderado de ingresos y FCF, pero no p'
+generated_at: '2026-11-21T18:05:57.380091-03:00'
+id: ass-8621cbe5
+recommendation: REVIEW
+risks:
+- evidencia: No se proporcionan métricas de ROIC, inversión por segmento, tamaño de
+    mercado ni cuota de mercado.
+  riesgo: 'Cobertura fundamental incompleta: el paquete no contiene evidencia suficiente
+    para analizar rendimientos sobre capital, cuota de mercado, penetración, ventajas
+    competitivas o retornos de reinversión.'
+- evidencia: La historia financiera presenta importes fuente reportados, mientras
+    que EBITDA en estadísticas está expresado como valor absoluto; no hay una conciliación
+    verificable.
+  riesgo: La deuda neta reportada no puede compararse de forma fiable con EBITDA por
+    incompatibilidad aparente de escala entre las series disponibles.
+- evidencia: StockAnalysis, período terminado 2026-09-30.
+  riesgo: El dato de cobertura de intereses reportado es 0 y requiere validación antes
+    de interpretarse como capacidad de servicio de deuda.
+- evidencia: Momentum 12 meses 4.4181%, volatilidad 90 días 30.3019% y drawdown 11.6980%,
+    período 2025-10-31 a 2026-10-30.
+  riesgo: El precio tuvo impulso positivo limitado en 12 meses y volatilidad elevada
+    según el snapshot disponible.
+score: 45
+status: COMPLETED
+version: '3.0'

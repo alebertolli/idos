@@ -1,148 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento comparable de las ventas industriales en el ejercicio
-      fiscal 2027 es inferior al 4%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Los resultados publicados no permiten separar el crecimiento orgánico
-      de los efectos de divisa y cartera.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El crecimiento comparable de las ventas industriales en el ejercicio fiscal 2027
-    es inferior al 4%.
-  - Los resultados publicados no permiten separar el crecimiento orgánico de los efectos
-    de divisa y cartera.
-  horizon: medio
-  id: H1-OPP-MULTIBAGGERS-SIEGY-0001
-  opportunity_id: OPP-MULTIBAGGERS-SIEGY-0001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-11-30'
-    expected: 4.0
-    met: null
-    metric: Crecimiento comparable de ventas de los negocios industriales en el ejercicio
-      fiscal 2027
-    prediction: En los resultados del ejercicio fiscal terminado el 2027-09-30, las
-      ventas comparables de los negocios industriales —excluyendo efectos de divisa
-      y cambios de cartera, según la definición de Siemens— crecerán entre 4% y 7%
-      interanual.
-    unit: '% interanual como límite inferior del intervalo esperado de 4%-7%'
-  priority: important
-  probability: 0.5
-  rationale: La exposición a varios mercados industriales y de infraestructura puede
-    sostener la demanda, pero los datos disponibles no demuestran que esa demanda
-    se traduzca en crecimiento futuro. Esta hipótesis pone a prueba esa relación sin
-    asumir que la evidencia histórica baste para confirmarla.
-  review_trigger: Dejar de creerla si Siemens informa, antes del 2027-09-30, que reduce
-    su previsión de crecimiento comparable industrial para el ejercicio fiscal 2027
-    por debajo del 4%, o si los resultados anuales publicados muestran un crecimiento
-    inferior a ese umbral.
-  secondary_hypotheses: []
-  statement: Siemens mantendrá crecimiento orgánico en sus negocios industriales durante
-    el ejercicio fiscal 2027, respaldado por la demanda de automatización, digitalización
-    e infraestructura inteligente.
-  status: ACTIVE
-  ticker: SIEGY
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: La razón entre flujo de caja libre reportado y beneficio neto atribuible
-      es inferior a 0,90.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El flujo de caja libre del ejercicio fiscal 2027 es negativo mientras
-      el beneficio neto atribuible es positivo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - La razón entre flujo de caja libre reportado y beneficio neto atribuible es inferior
-    a 0,90.
-  - El flujo de caja libre del ejercicio fiscal 2027 es negativo mientras el beneficio
-    neto atribuible es positivo.
-  horizon: medio
-  id: H2-OPP-MULTIBAGGERS-SIEGY-0001
-  opportunity_id: OPP-MULTIBAGGERS-SIEGY-0001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-11-30'
-    expected: 0.9
-    met: null
-    metric: Flujo de caja libre reportado dividido por beneficio neto atribuible en
-      FY 2027
-    prediction: Para el ejercicio fiscal terminado el 2027-09-30, el flujo de caja
-      libre reportado por Siemens dividido por el beneficio neto atribuible a los
-      accionistas será igual o superior a 0,90.
-    unit: veces, mínimo
-  priority: important
-  probability: 0.5
-  rationale: El contexto disponible indica que el flujo de caja libre aumentó entre
-    FY 2025 y FY 2026, pero no aporta cifras de conversión, calidad del capital circulante
-    ni una serie suficiente para establecer persistencia. La hipótesis comprueba si
-    el avance de caja se mantiene respecto del beneficio.
-  review_trigger: Dejar de creerla si una actualización de Siemens reduce sustancialmente
-    su previsión de flujo de caja libre para FY 2027, o si los resultados anuales
-    publicados muestran una conversión inferior a 0,90.
-  secondary_hypotheses:
-  - H1-OPP-MULTIBAGGERS-SIEGY-0001
-  statement: Siemens convertirá sus beneficios en flujo de caja libre con una conversión
-    elevada durante el ejercicio fiscal 2027.
-  status: ACTIVE
-  ticker: SIEGY
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: El margen bruto TTM reportado al 2027-09-30 es igual o inferior a 39,57%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: No existe información financiera publicada suficiente para calcular
-      el margen bruto con una definición comparable.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El margen bruto TTM reportado al 2027-09-30 es igual o inferior a 39,57%.
-  - No existe información financiera publicada suficiente para calcular el margen
-    bruto con una definición comparable.
-  horizon: medio
-  id: H3-OPP-MULTIBAGGERS-SIEGY-0001
-  opportunity_id: OPP-MULTIBAGGERS-SIEGY-0001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-11-30'
-    expected: 39.58
-    met: null
-    metric: Margen bruto TTM al 2027-09-30
-    prediction: El margen bruto TTM calculado con los últimos cuatro trimestres reportados
-      será superior a 39,57% al 2027-09-30.
-    unit: '%; debe superar el 39,57% de referencia'
-  priority: informational
-  probability: 0.5
-  rationale: El margen bruto TTM disponible es 39,57%, pero por sí solo no demuestra
-    una mejora estructural, poder de fijación de precios ni una ventaja competitiva
-    sostenible. Una medición posterior permite comprobar si la rentabilidad bruta
-    avanza o se deteriora.
-  review_trigger: Dejar de creerla si dos trimestres consecutivos publicados muestran
-    un margen bruto por debajo de 39,57%, o si los resultados anuales de FY 2027 confirman
-    que el margen TTM no superó ese nivel.
-  secondary_hypotheses:
-  - H1-OPP-MULTIBAGGERS-SIEGY-0001
-  statement: El margen bruto TTM de Siemens superará el nivel observado el 2026-09-30,
-    señal de que el crecimiento no dependerá exclusivamente de ventas adicionales.
-  status: ACTIVE
-  ticker: SIEGY
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: La rentabilidad total de SIEGY menos la rentabilidad total de XLI durante
       el periodo es inferior a 5 puntos porcentuales.
     metric: ''
@@ -187,6 +45,149 @@ hypotheses:
   - H3-OPP-MULTIBAGGERS-SIEGY-0001
   statement: Durante los 12 meses posteriores a la fecha de corte, SIEGY ofrecerá
     una rentabilidad total superior a la del ETF SPDR S&P 500 Industrials (XLI).
+  status: ACTIVE
+  ticker: SIEGY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior
+      a 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica una reconciliación que permita distinguir crecimiento
+      orgánico de efectos de divisas y cambios de cartera.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior a 5%.
+  - La compañía no publica una reconciliación que permita distinguir crecimiento orgánico
+    de efectos de divisas y cambios de cartera.
+  horizon: medio
+  id: H1-OPP-MULTIBAGGERS-SIEGY-0001
+  opportunity_id: OPP-MULTIBAGGERS-SIEGY-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: 5.0
+    met: null
+    metric: crecimiento orgánico de ingresos consolidados en el ejercicio fiscal 2027
+    prediction: En los resultados del ejercicio fiscal 2027, finalizado el 2027-09-30,
+      Siemens reportará crecimiento orgánico de ingresos de al menos 5% frente al
+      ejercicio fiscal 2026, excluyendo efectos de divisas y cartera, según la definición
+      de la compañía.
+    unit: '% mínimo interanual'
+  priority: critical
+  probability: 0.5
+  rationale: La compañía opera en varios mercados industriales y de infraestructura,
+    lo que podría diversificar la demanda; sin embargo, la información disponible
+    no permite confirmar el tamaño de mercado, la penetración ni la ventaja competitiva.
+    La hipótesis plantea una prueba de crecimiento, no da por demostrados esos factores.
+  review_trigger: Dejar de creerla si la publicación de resultados del ejercicio fiscal
+    2027 muestra crecimiento orgánico inferior a 5%, o si Siemens retira la métrica
+    sin ofrecer una medida comparable.
+  secondary_hypotheses: []
+  statement: Siemens acelerará el crecimiento orgánico de ingresos en el ejercicio
+    fiscal 2027, señal de que la demanda de automatización, digitalización, infraestructura
+    y movilidad puede sostener crecimiento de negocio.
+  status: ACTIVE
+  ticker: SIEGY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior
+      a 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cifra depende de partidas extraordinarias que Siemens identifica
+      como no recurrentes y que, excluidas, reducen el margen por debajo de 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior a 8%.
+  - La cifra depende de partidas extraordinarias que Siemens identifica como no recurrentes
+    y que, excluidas, reducen el margen por debajo de 8%.
+  horizon: medio
+  id: H2-OPP-MULTIBAGGERS-SIEGY-0001
+  opportunity_id: OPP-MULTIBAGGERS-SIEGY-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: 8.0
+    met: null
+    metric: flujo de caja libre consolidado dividido por ingresos consolidados
+    prediction: En el ejercicio fiscal 2027, el flujo de caja libre consolidado será
+      al menos 8% de los ingresos consolidados, usando las definiciones reportadas
+      por Siemens y aplicando la misma base de cálculo a ambas métricas.
+    unit: '% mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible señala crecimiento moderado del flujo de caja
+    libre, pero no permite evaluar su conversión, calidad o sostenibilidad. La relación
+    entre flujo de caja libre e ingresos ofrece una prueba financiera cuantificable
+    de esa conversión.
+  review_trigger: Dejar de creerla cuando los resultados del ejercicio fiscal 2027
+    muestren un margen de flujo de caja libre inferior a 8%, o si no puede calcularse
+    con datos publicados comparables.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-SIEGY-0001
+  statement: Siemens convertirá el crecimiento de sus negocios en generación de caja
+    libre proporcional, sin que el crecimiento de ingresos quede absorbido por capital
+    circulante o inversión.
+  status: ACTIVE
+  ticker: SIEGY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total relativa de Siemens frente al índice es inferior
+      a 8 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción obtiene una rentabilidad total inferior a la del índice durante
+      el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total relativa de Siemens frente al índice es inferior a 8 puntos
+    porcentuales.
+  - La acción obtiene una rentabilidad total inferior a la del índice durante el período.
+  horizon: medio
+  id: H3-OPP-MULTIBAGGERS-SIEGY-0001
+  opportunity_id: OPP-MULTIBAGGERS-SIEGY-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 8.0
+    met: null
+    metric: rentabilidad total relativa de Siemens frente al STOXX Europe 600 Industrials
+    prediction: Entre el cierre del 2026-11-21 y el cierre del 2027-11-21, la rentabilidad
+      total de la acción ordinaria Siemens cotizada en Xetra, en euros y con dividendos
+      reinvertidos, superará en al menos 8 puntos porcentuales la rentabilidad total
+      del STOXX Europe 600 Industrials, también en euros.
+    unit: puntos porcentuales mínimo
+  priority: important
+  probability: 0.5
+  rationale: La información disponible no aporta valoración intrínseca ni expectativas
+    operativas de consenso y, por tanto, no permite concluir que exista un error de
+    valoración. Esta hipótesis comprueba directamente si la acción ofrece rentabilidad
+    relativa, sin presuponer que esté infravalorada.
+  review_trigger: Dejar de creerla al cierre del 2027-11-21 si la rentabilidad total
+    relativa acumulada es inferior a 8 puntos porcentuales; no se atribuirá el resultado
+    a infravaloración o sobrevaloración sin un análisis de múltiplos y expectativas.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-SIEGY-0001
+  - H2-OPP-MULTIBAGGERS-SIEGY-0001
+  statement: La acción ordinaria de Siemens superará al índice STOXX Europe 600 Industrials
+    en rentabilidad total durante los próximos doce meses, si el mercado valora favorablemente
+    la ejecución operativa y la generación de caja.
   status: ACTIVE
   ticker: SIEGY
   version: 1

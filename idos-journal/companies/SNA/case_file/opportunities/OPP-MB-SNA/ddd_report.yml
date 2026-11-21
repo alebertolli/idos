@@ -1,90 +1,107 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La estabilidad del margen bruto observado es compatible con resiliencia operativa,
-    pero no demuestra ventaja competitiva causal ni su persistencia.
-  - El FCF TTM positivo permite evaluar conversión de caja en el período, pero no
-    basta para inferir el retorno sobre capital o la tasa de reinversión.
-  - StockAnalysis reporta ingresos TTM de 5,270 millones en unidades del proveedor,
-    FCF TTM de 1,074.0 y margen bruto TTM de 51.87%, con período terminado el 2026-10-03.
-  - StockAnalysis reporta efectivo e inversiones de 1,670.0 y deuda total de 1,308.0,
-    ambos al 2026-10-03; las unidades reportadas no están explicitadas en el paquete.
-  - Yfinance reporta momentum de precio a 12 meses de 5.9932%, drawdown de 15.1797%
-    y volatilidad a 90 días de 16.7027%, al 2026-10-30.
-  - El resumen financiero reporta cotización de USD 355.66 al 2026-10-30 y consenso
-    de objetivos de USD 340 a USD 485 al 2026-11-20.
+  - La combinación de margen bruto alto y FCF positivo es compatible con una operación
+    generadora de caja, pero por sí sola no establece ventaja competitiva ni retornos
+    sobre capital.
+  - Al 2026-10-03, se reportaron ingresos TTM de 5,270 millones, margen bruto de 51.87%,
+    FCF de 1,070 millones en estadísticas y FCF de 1,074 millones en la historia financiera;
+    la diferencia de FCF entre vistas debe reconciliarse.
+  - Al 2026-10-03, se reportaron efectivo e inversiones de 1,670 millones, deuda total
+    de 1,308 millones y caja neta de 361.2 millones.
   preguntas_abiertas:
-  - ¿Cuáles son ingresos comparables y márgenes por segmento, y cuál es la evolución
-    de la cuota y penetración del mercado?
-  - ¿Cuál es el ROIC y el retorno incremental del capital, con una metodología y períodos
-    verificables?
-  - ¿Qué supuestos, horizonte y metodología sustentan los objetivos de analistas?
-  - ¿Qué gasto por intereses y definición originan la cobertura de intereses reportada
-    como cero?
-catalizadores_previos: &id001 []
+  - ¿Cuál es el crecimiento de ingresos por segmento, mercado y tipo de producto,
+    y qué evidencia cuantifica el mercado direccionable y su penetración?
+  - ¿Cuál es el retorno sobre capital invertido y cómo se distribuye la reinversión
+    entre capacidad, producto, adquisiciones y retornos a accionistas?
+  - ¿Qué explica el valor reportado de interest coverage igual a cero y cuáles son
+    las series comparables de acciones diluidas?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T19:20:16.015190-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-SNA
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T19:20:16.015190-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-SNA
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T19:20:16.015190-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-SNA
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación fundamental requerida; evidencia insuficiente para validar
-    una tesis de multibagger.
-  justificacion: El paquete documenta generación de flujo de caja libre y márgenes
-    brutos estables, pero no aporta evidencia suficiente sobre crecimiento del mercado,
-    retornos sobre capital, penetración, ventaja competitiva o expectativas financieras
-    para sustentar una valoración intrínseca.
+  categoria: Research requerido; evidencia financiera disponible parcial
+  justificacion: El paquete muestra generación positiva de FCF y margen bruto estable,
+    pero no aporta historia de ingresos completa ni datos de acciones diluidas para
+    validar varias métricas de crecimiento.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: Snap-on opera en herramientas y soluciones para usuarios profesionales.
-    El margen bruto reportado de 51.87% TTM y FCF positivo son señales operativas
-    favorables, pero la evidencia proporcionada no basta para atribuirlas a un moat,
-    medir la rentabilidad del capital o determinar la capacidad de reinversión.
-  rating: Calidad operativa parcialmente respaldada; durabilidad y retornos sobre
-    capital no validados
+  analisis: El negocio atiende usuarios profesionales mediante herramientas, equipos,
+    diagnóstico e información, con cuatro grupos operativos descritos en el resumen
+    financiero. El margen bruto TTM de 51.87% y la conversión de FCF calculada son
+    favorables en los datos observados, pero no hay evidencia suficiente en el paquete
+    sobre retornos sobre capital, penetración de mercado, tamaño del mercado direccionable,
+    erosión competitiva o resultados por segmento.
+  rating: Calidad operativa aparente, validación incompleta
 dominio_catalizadores:
-- analisis: La serie reportada muestra FCF de 1,074.0 TTM al 2026-10-03 frente a 1,006.0
-    en FY 2025; los períodos no son equivalentes y no prueban aceleración sostenida.
-  catalizador: Validación de la trayectoria de FCF
-- analisis: Los próximos períodos financieros podrían aclarar crecimiento y resiliencia
-    del margen bruto; no se proporcionan fechas de publicación ni previsiones.
-  catalizador: Validación de ingresos y márgenes
-- analisis: Datos segmentales y de mercado permitirían evaluar crecimiento potencial,
-    pero no están incluidos en el paquete.
-  catalizador: Evidencia de penetración y expansión de mercado
+- fuentes:
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/sna/forecast/
+  hecho: El consenso observado presenta un rango de objetivos de USD 340–485 al 2026-11-21.
+  hito: Actualizaciones de analistas podrían aportar nuevos supuestos, aunque no sustituyen
+    evidencia financiera primaria.
+- fuentes:
+  - as_of_date: '2026-10-03'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/sna/financials/
+  hecho: El FCF TTM reportado fue 1,074 al 2026-10-03.
+  hito: La publicación de nuevos períodos permitiría comprobar si la caja se mantiene
+    y cómo se asigna entre inversión, deuda y accionistas.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- analisis: La historia de ingresos incluida es incompleta y contiene observaciones
-    duplicadas e inconsistentes; tampoco hay datos de tamaño de mercado, penetración
-    o cuota.
-  riesgo: Crecimiento y mercado direccionable no verificables
-- analisis: El margen bruto se mantuvo entre 50.53% y 51.97% en los períodos anuales
-    incluidos y TTM, pero esa evidencia aislada no identifica la fuente de la ventaja
-    ni su durabilidad.
-  riesgo: Ventaja competitiva y erosión no demostradas
-- analisis: El paquete no aporta medidas de ROIC, retornos incrementales, adquisiciones,
-    recompras o dividendos suficientes para evaluar la asignación de capital.
-  riesgo: Asignación de capital y retornos sobre capital
-- analisis: StockAnalysis informa interest_coverage_ratio de 0 al 2026-10-03; el valor
-    requiere aclaración, pues el paquete no incluye el gasto por intereses usado para
-    verificarlo.
-  riesgo: Cobertura de intereses reportada como cero
+- fuente: https://stockanalysis.com/stocks/sna/financials/
+  hecho: El FCF reportado pasó de 1,134 en FY2024 a 1,006 en FY2025 y 1,074 TTM al
+    2026-10-03.
+  implicacion: La generación de caja es positiva, aunque el historial reciente no
+    muestra una trayectoria anual uniforme.
+- fuente: https://stockanalysis.com/stocks/sna/financials/
+  hecho: La historia de ingresos disponible incluye filas duplicadas de TTM y FY2025
+    y no incluye FY2023.
+  implicacion: No puede validarse el CAGR de ingresos a tres años ni atribuirse el
+    crecimiento a penetración, volumen o precio.
+- fuente: https://stockanalysis.com/stocks/SNA/statistics/
+  hecho: El paquete reporta interest coverage de 0 para TTM al 2026-10-03, sin explicación
+    de la métrica.
+  implicacion: Debe verificarse el dato y el gasto por intereses antes de interpretarlo
+    como capacidad de servicio de deuda.
 error_mercado:
-  catalizador_cambio: Resultados financieros posteriores que permitan comprobar la
-    trayectoria de ingresos, márgenes y FCF; el paquete no incluye un calendario de
-    eventos.
-  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
-    disponible. Los objetivos de analistas son anclas observadas, no una valoración
-    intrínseca ni una tesis comprobada.
-  consenso_actual: El precio de cierre reportado es USD 355.66 al 2026-10-30. El consenso
-    de precio objetivo es USD 404.11, con rango observado de USD 340 a USD 485 al
-    2026-11-20.
-  hipotesis_contraria: El rango de analistas podría no captar una desaceleración del
-    negocio o una erosión de márgenes; el paquete no proporciona estimaciones de ingresos,
-    beneficios ni supuestos de analistas para comprobarlo.
-  razonamiento: El precio y los objetivos están expresados en USD, pero no se proporciona
-    horizonte para los objetivos ni método de valoración con inputs suficientes. El
-    momentum de precio a 12 meses reportado es 5.9932% al 2026-10-30, dato de mercado
-    que no valida por sí mismo expectativas fundamentales.
-generated_at: '2026-11-20T19:20:16.015190-03:00'
+  catalizador_cambio: Resultados financieros posteriores que aclaren la trayectoria
+    de ingresos, FCF y rentabilidad por segmento podrían cambiar la lectura.
+  conclusion_error_valoracion: No se puede confirmar un error de valoración con la
+    evidencia suministrada; el rango de analistas es una referencia observada, no
+    una valoración intrínseca.
+  consenso_actual: La cotización observada fue USD 355.66 al 2026-10-30; el consenso
+    de precio objetivo observado el 2026-11-21 fue USD 404.11, con rango USD 340–485.
+  hipotesis_contraria: La cotización podría no reflejar la resiliencia de márgenes
+    y FCF; en sentido contrario, los datos disponibles no demuestran que el crecimiento
+    justifique los objetivos más altos.
+  razonamiento: El precio está por encima del extremo bajo y por debajo del extremo
+    alto del rango observado. No hay múltiplos de valoración ni pronósticos empresariales
+    suficientes para explicar la dispersión.
+generated_at: '2026-11-21T18:06:29.343443-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-SNA
@@ -120,7 +137,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Snap-on Incorporated
   operating_margin: 25.07
-  pe_ratio: 18.28
+  pe_ratio: 18.12
   products: ''
   revenue: 5270000000.0
   revenue_growth: 2.93
@@ -130,27 +147,22 @@ prompt_inputs:
 ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
-    revenue_history: Incluye filas TTM y FY 2025 duplicadas con valores distintos
-      y FY 2024; no contiene una fila fechada FY 2023 utilizable.
-  limitations: Falta una serie anual comparable con ingresos de t y t-3; el historial
-    incluido no permite identificar ambos extremos de período sin inventar o reconciliar
-    datos.
+    revenue_history: La historia disponible no contiene una fila FY2023 verificable.
+  limitations: 'Falta un ingreso comparable de hace tres años: la serie suministrada
+    omite puntos y no incluye FY2023.'
   metric: revenue_cagr_3y_pct
-  period_end: null
+  period_end: '2026-10-03'
   sources:
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/sna/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: Crecimiento de FCF reportado por el proveedor; no se recalcula por incompatibilidad
-    entre la fila TTM y el FY anterior.
+- formula: Crecimiento FCF TTM reportado por la fuente
   inputs:
-    fcf_growth_history:
-      TTM: 4.58
-  limitations: El paquete reporta el crecimiento TTM como 4.58%, pero no detalla el
-    período base exacto ni permite verificar comparabilidad con una serie explícita
-    de FCF para los dos períodos de cálculo.
+    fcf_growth_history: 'TTM: 4.58%'
+  limitations: Se conserva el crecimiento TTM reportado; la fuente disponible no especifica
+    en el paquete el período base exacto de comparación.
   metric: fcf_growth_pct
   period_end: '2026-10-03'
   sources:
@@ -169,15 +181,8 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; alternativamente, -net_cash
-    / EBITDA
-  inputs:
-    ebitda: 1410000000.0
-    net_cash_history:
-      Current: 361.2
-  limitations: 'No se puede confirmar compatibilidad de escala monetaria: net cash
-    está en unidades reportadas no especificadas y EBITDA en provider_financial_currency.
-    Sin unidades comparables no se deriva el ratio.'
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-10-03'
   sources:
@@ -190,9 +195,9 @@ ratios_investigados:
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    shares_outstanding: 51580000.0
-  limitations: El paquete aporta acciones en circulación para un solo período, pero
-    no una observación comparable del período anterior ni una serie de acciones diluidas.
+    shares_outstanding: 51,580,000 al 2026-10-03; no se proporciona historia comparable
+  limitations: Falta un conteo de acciones comparable del período anterior y no se
+    proporciona una serie de acciones diluidas o en circulación.
   metric: dilution_yoy_pct
   period_end: '2026-10-03'
   sources:
@@ -232,7 +237,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Snap-on Incorporated manufactures and markets tools, equipment,
     diagnostics, and repair information and systems solutions for professional users
     worldwide. It operates through Commercial & Industrial Group, Snap-on Tools Group,
@@ -266,7 +271,382 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.21
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    **Snap-on Incorporated (SNA)** diseña, fabrica, comercializa y da soporte a herramientas
+    profesionales, equipos de diagnóstico y reparación, información técnica y sistemas
+    para talleres. Atiende principalmente a técnicos profesionales, talleres independientes
+    de reparación de vehículos y concesionarios o redes de servicio de fabricantes
+    de automóviles.
+
+
+    Su oferta comprende herramientas manuales, eléctricas y de torque; carros, gabinetes
+    y soluciones de almacenamiento y control de herramientas; equipos de diagnóstico;
+    software e información técnica; y sistemas para talleres. El modelo combina ventas
+    mediante franquiciados de camionetas, ventas directas, distribuidores y otros
+    canales. La cadena de valor abarca desarrollo de productos, software e información
+    técnica, fabricación y abastecimiento, distribución y soporte.
+
+
+    La compañía opera en el sector de herramientas y soluciones para usuarios profesionales.
+    La información disponible describe actividad internacional, pero no aporta un
+    desglose geográfico verificable de ingresos o activos. Entre las compañías listadas
+    en la misma industria o sector de referencia están [[CAT]], [[DE]], [[JCI]] y
+    [[MMM]]; esta clasificación amplia no implica que sean competidores directos de
+    Snap-on.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    - Demanda de herramientas, equipos y soluciones para reparación y mantenimiento.
+
+    - Tamaño y utilización de la base instalada de vehículos.
+
+    - Gasto de talleres, concesionarios y otros clientes profesionales.
+
+    - Venta de productos y soluciones de diagnóstico, software e información técnica.
+
+    - Alcance y eficacia de los canales de distribución, incluidos los franquiciados
+    de camionetas.
+
+    - Servicios y soporte asociados a los productos.
+
+
+    No se proporcionan ingresos comparables por segmento, geografía o canal, ni datos
+    de cuota de mercado o penetración.
+
+
+    ### Posición competitiva y moat
+
+
+    La investigación describe a Snap-on como un líder competitivo y señala ventajas
+    potenciales derivadas de su reputación entre profesionales, amplitud de catálogo,
+    distribución mediante camionetas y relaciones con talleres. La combinación de
+    herramientas, diagnóstico, información técnica y soluciones para talleres puede
+    favorecer la conveniencia para el cliente y la integración de productos.
+
+
+    La amplitud del moat se clasifica como **estrecha** en el análisis AOIF. Esa valoración
+    es una apreciación, no una medición independiente de cuota, retención o poder
+    de precios. La evidencia disponible de margen bruto estable es compatible con
+    resiliencia operativa, pero no demuestra que exista una ventaja competitiva causal
+    ni que vaya a persistir.
+
+
+    ### Dinámica competitiva
+
+
+    La compañía compite con fabricantes de herramientas y proveedores de diagnóstico,
+    software e información técnica. La evolución tecnológica de los vehículos puede
+    exigir inversión continua en productos, software y capacitación. Entre las compañías
+    del listado sectorial, [[DE]] y [[CAT]] pueden compartir exposiciones generales
+    a clientes profesionales e industriales, pero la información disponible no establece
+    que sean competidores directos de Snap-on.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras y períodos siguientes proceden de los datos de investigación. Las fechas
+    y definiciones deben verificarse antes de compararlas o utilizarlas en una valoración.
+
+
+    | Métrica | Valor reportado | Período o fecha | Observaciones |
+
+    |---|---:|---|---|
+
+    | Margen bruto | 51,87% | TTM al 2026-10-03 | La serie anual incluida oscila entre
+    50,53% y 51,97%; no identifica la causa ni la durabilidad de la estabilidad. |
+
+    | Flujo de caja libre (FCF) | 1.074,0 | TTM al 2026-10-03 | Unidad no especificada
+    en el paquete. |
+
+    | FCF | 1.006,0 | FY 2025 | No es un período comparable directamente con TTM.
+    |
+
+    | Crecimiento de FCF | 4,58% | Reportado al 2026-10-03 | El período base y la
+    comparabilidad no están detallados. |
+
+    | Crecimiento de ingresos | 2,93 | Sin período ni fuente especificados en AOIF
+    | La unidad o definición no está indicada; no debe interpretarse como una tasa
+    histórica validada. |
+
+    | Margen operativo | 25,07% | Sin período especificado en AOIF | Requiere confirmar
+    fuente, definición y período. |
+
+    | ROIC | 17,99% | Sin período ni metodología especificados en AOIF | No se dispone
+    de una serie ni de retorno incremental verificable. |
+
+    | Current ratio | 3,54x | Al 2026-10-03 | No cruza el umbral de alerta configurado
+    de 0,5x. |
+
+    | Cobertura de intereses | 0x | Al 2026-10-03 | El dato del proveedor está por
+    debajo del umbral configurado de 2,0x; requiere validar definición y gasto por
+    intereses. |
+
+
+    **Fuentes de métricas citadas en la investigación:**
+
+
+    - [StockAnalysis — estados financieros de SNA](https://stockanalysis.com/stocks/sna/financials/)
+    (datos referidos al 2026-10-03).
+
+    - [StockAnalysis — estadísticas de SNA](https://stockanalysis.com/stocks/SNA/statistics/)
+    (datos referidos al 2026-10-03).
+
+
+    El historial de ingresos disponible contiene filas TTM y FY 2025 duplicadas con
+    valores distintos, además de una fila FY 2024, y no incluye una fila FY 2023 utilizable.
+    Por ello, no puede calcularse un CAGR de ingresos a tres años sin reconciliar
+    o inventar datos. Tampoco se proporcionan flujo de caja operativo, capex y beneficios
+    con definiciones comparables para verificar la conversión de ganancias en FCF.
+
+
+    **Estructura de capital:** no hay datos suficientes sobre deuda, caja, vencimientos,
+    acciones en circulación o costo de financiación para caracterizarla de forma completa.
+    La cobertura de intereses de 0x reportada merece validación antes de extraer conclusiones
+    sobre solvencia.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación AOIF califica la calidad del equipo directivo como **buena**, la
+    asignación de capital como **neutral** y el alineamiento de insiders como **débil**.
+    Estas son calificaciones del análisis recibido; el paquete no incluye evidencia
+    específica sobre trayectoria, compensación, propiedad de insiders, recompras,
+    dividendos, adquisiciones o rendimiento de inversiones anteriores.
+
+
+    No se proporcionan datos sobre la composición, independencia, experiencia o comités
+    del consejo de administración. Por tanto, no es posible evaluar de manera verificable
+    la supervisión del board ni los incentivos de largo plazo.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista — hipótesis por validar
+
+
+    - **Modelo orientado a usuarios profesionales:** Snap-on combina herramientas,
+    equipos, diagnóstico, información técnica y soluciones para talleres, con canales
+    de distribución y soporte orientados a clientes profesionales. La amplitud de
+    oferta podría favorecer relaciones comerciales recurrentes; los datos disponibles
+    no cuantifican retención o ingresos recurrentes.
+
+    - **Señales de rentabilidad operativa:** el margen bruto reportado fue de 51,87%
+    TTM al 2026-10-03 y se mantuvo en una banda de 50,53% a 51,97% en los períodos
+    incluidos. Esto es compatible con resiliencia operativa, aunque no demuestra por
+    sí solo una ventaja competitiva duradera.
+
+    - **Generación de caja positiva:** el FCF reportado fue de 1.074,0 TTM al 2026-10-03,
+    frente a 1.006,0 en FY 2025. La diferencia entre períodos impide concluir que
+    exista una aceleración sostenida, pero ofrece una base para seguir la conversión
+    de caja.
+
+    - **Rentabilidad potencialmente sólida:** AOIF reporta un ROIC de 17,99% y un
+    margen operativo de 25,07%. Sin período, metodología ni serie histórica, estas
+    cifras son indicativas y necesitan verificación antes de fundamentar una tesis
+    de retornos altos y persistentes.
+
+
+    La investigación clasifica la oportunidad como **investigación fundamental requerida**
+    y considera insuficiente la evidencia para validar una tesis de multibagger.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Caso bajista
+
+
+    - **Crecimiento no verificado:** el historial de ingresos es incompleto e inconsistente,
+    y faltan datos de mercado, cuota y penetración. No puede confirmarse la trayectoria
+    de crecimiento ni su sostenibilidad.
+
+    - **Erosión de la posición competitiva:** la estabilidad del margen bruto no prueba
+    una ventaja causal. La competencia de fabricantes de herramientas y proveedores
+    de diagnóstico, software e información técnica puede presionar precios y retención.
+
+    - **Riesgo tecnológico:** cambios en sistemas electrónicos y arquitecturas de
+    vehículos pueden exigir inversión continua en diagnóstico, software y capacitación.
+
+    - **Conversión de caja y retornos no demostrados:** el FCF positivo en los períodos
+    reportados no basta para inferir retorno sobre capital, retorno incremental o
+    tasa de reinversión.
+
+    - **Calidad de los datos financieros:** inconsistencias en ingresos, falta de
+    comparabilidad entre TTM y ejercicios fiscales y ausencia de definiciones para
+    algunas métricas podrían distorsionar conclusiones.
+
+    - **Riesgo de valoración:** los objetivos de analistas no constituyen una valoración
+    intrínseca y carecen de horizonte especificado en los datos recibidos.
+
+
+    ### Triggers de falsación
+
+
+    - Una caída sostenida del margen bruto por debajo de la banda observada de 50,53%–51,97%
+    debilitaría la hipótesis de resiliencia operativa.
+
+    - Un FCF persistentemente inferior a los niveles reportados de 1.006,0 en FY 2025
+    y 1.074,0 TTM al 2026-10-03 debilitaría la tesis de generación de caja; la comparación
+    deberá hacerse con períodos homogéneos.
+
+    - Evidencia de deterioro persistente en ingresos, márgenes o retornos sobre capital
+    debilitaría el caso de calidad.
+
+    - Señales verificables de pérdida de clientes, presión de precios o sustitución
+    tecnológica reducirían la confianza en las ventajas potenciales de distribución,
+    reputación y amplitud de catálogo.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Fecha esperada | Impacto potencial | Evidencia o limitación |
+
+    |---|---|---|---|
+
+    | Próximos resultados financieros | No especificada | Podrían aclarar crecimiento
+    de ingresos, márgenes y trayectoria de FCF. | El paquete no incluye calendario
+    de publicación ni previsiones. |
+
+    | Seguimiento del FCF | Próximo período financiero; fecha no especificada | Confirmaría
+    si la generación de caja se mantiene o se debilita. | El dato TTM al 2026-10-03
+    no es directamente comparable con FY 2025. |
+
+    | Validación de ingresos y márgenes | Próximos períodos reportados; fecha no especificada
+    | Permitiría evaluar la estabilidad operativa y la calidad del crecimiento. |
+    No hay serie homogénea por segmento ni datos de cuota o penetración. |
+
+
+    Los eventos anteriores son puntos de seguimiento, no catalizadores confirmados
+    con fecha o impacto cuantificado.
+
+
+    ## 8. Marco de Valoración
+
+
+    ### Datos de mercado reportados
+
+
+    | Indicador | Valor | Fecha |
+
+    |---|---:|---|
+
+    | Precio de cierre | USD 355,66 | 2026-10-30 |
+
+    | Consenso de precio objetivo | USD 404,11 | Al 2026-11-20 |
+
+    | Rango observado de objetivos | USD 340–485 | Al 2026-11-20 |
+
+    | PER | 18,28x | Período no especificado |
+
+    | EV/EBITDA | 12,88x | Período no especificado |
+
+    | FCF yield | 0% | Período y metodología no especificados |
+
+
+    El precio objetivo de consenso no incluye horizonte temporal ni supuestos de valoración
+    en la información recibida. No debe tratarse como estimación de valor intrínseco.
+    El FCF yield de 0% también requiere aclarar numerador, denominador y fecha.
+
+
+    ### Metodología apropiada
+
+
+    Para una valoración fundamental sería conveniente triangular:
+
+
+    1. **Flujo de caja descontado:** con FCF normalizado, crecimiento explícito, márgenes,
+    reinversión, costo de capital y valor terminal.
+
+    2. **Múltiplos de valoración:** PER y EV/EBITDA comparados con pares apropiados
+    y con la propia historia, usando períodos y definiciones homogéneos.
+
+    3. **Retornos sobre capital:** ROIC y retorno incremental, verificando metodología
+    y relación con crecimiento y reinversión.
+
+
+    No se puede estimar de forma responsable un valor intrínseco con los datos disponibles.
+    Faltan, entre otros, deuda neta, acciones en circulación con fecha de referencia,
+    FCF normalizado y supuestos verificables de crecimiento, márgenes y costo de capital.
+
+
+    ### Sensibilidad y margen de seguridad
+
+
+    La valoración dependería especialmente del crecimiento de ingresos, la sostenibilidad
+    de los márgenes, la conversión de beneficios en caja y los retornos incrementales
+    del capital. El paquete no ofrece rangos cuantitativos fiables para construir
+    escenarios o una tabla de sensibilidad. La evaluación recibida considera **insuficiente**
+    el margen de seguridad y no valida un error de valoración.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es una serie reconciliada y comparable de ingresos por ejercicio fiscal,
+    trimestre, segmento y geografía?
+
+    2. ¿Qué explican las filas duplicadas e inconsistentes de ingresos, y cuál es
+    la base correcta para calcular crecimiento?
+
+    3. ¿Cuáles son la cuota, penetración y tamaño de mercado de las categorías relevantes,
+    y cómo han evolucionado?
+
+    4. ¿Cómo se comparan los márgenes y el crecimiento entre segmentos y canales?
+
+    5. ¿Qué ROIC resulta de una metodología explícita y cómo ha evolucionado? ¿Cuál
+    es el retorno incremental sobre el capital reinvertido?
+
+    6. ¿Cómo se relacionan beneficio operativo, flujo de caja operativo, capex y FCF
+    en períodos comparables?
+
+    7. ¿Cuál es la trayectoria histórica de FCF en ejercicios fiscales homogéneos,
+    y cuál es el período base del crecimiento de 4,58% reportado?
+
+    8. ¿Qué deuda, caja, vencimientos y gasto por intereses sustentan la cobertura
+    de intereses de 0x reportada al 2026-10-03?
+
+    9. ¿Qué factores sostienen los márgenes brutos observados y qué evidencia existe
+    sobre poder de precios, retención y costos de cambio?
+
+    10. ¿Cómo están evolucionando las necesidades de inversión en diagnóstico, software
+    e información técnica ante los cambios tecnológicos de los vehículos?
+
+    11. ¿Qué evidencia documenta la trayectoria del equipo directivo, la asignación
+    de capital, la propiedad de insiders, la compensación y la composición del consejo?
+
+    12. ¿Cuál es la fecha de referencia y metodología de los múltiplos reportados,
+    del FCF yield y de los objetivos de analistas?
+
+
+    **Estado de la tesis:** investigación fundamental pendiente. La evidencia disponible
+    respalda generación de caja y márgenes brutos estables en los períodos reportados,
+    pero no valida por sí sola crecimiento sostenible, durabilidad del moat, retornos
+    sobre capital ni valor intrínseco.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]],
+    [[CAAP|Corporación América Airports S.A.]], [[CAR|Avis Budget Group, Inc.]], [[CAT|Caterpillar
+    Inc.]], [[DAL|Delta Air Lines, Inc.]], [[DE|Deere & Company]], [[EFX|Equifax Inc.]],
+    [[FDX|FedEx Corporation]], [[JCI|Johnson Controls International plc]], [[LMT|Lockheed
+    Martin Corporation]], [[MMM|3M Company]], [[PAM|Pampa Energía S.A.]], [[PBI|Pitney
+    Bowes Inc.]], [[RTX|RTX Corporation]], [[SIEGY|Siemens Aktiengesellschaft]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -301,7 +681,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T22:19:48.198515+00:00", "period_end": "2026-10-03",
+    "observed_at": "2026-11-21T21:05:58.867483+00:00", "period_end": "2026-10-03",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -462,12 +842,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    485.0, "low": 340.0, "mean": 404.11, "median": 404.11, "observed_at": "2026-11-20T19:19:51.274622-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T19:19:51.274622-03:00", "observed_date": "2026-11-20", "target_price":
+    485.0, "low": 340.0, "mean": 404.11, "median": 404.11, "observed_at": "2026-11-21T18:06:01.993392-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T18:06:01.993392-03:00", "observed_date": "2026-11-21", "target_price":
     404.11, "url": "https://stockanalysis.com/stocks/sna/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:19:51.274622-03:00",
-    "observed_date": "2026-11-20", "target_price": 404.1111, "url": "https://finance.yahoo.com/quote/SNA/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T18:06:01.993392-03:00",
+    "observed_date": "2026-11-21", "target_price": 404.1111, "url": "https://finance.yahoo.com/quote/SNA/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 355.6600036621094,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/SNA/"}]}}'
   sector: Industrials
@@ -477,55 +857,79 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 3c462f77a2371428492d55acd789f6c4f6f66c93da3b3ecfe58987c5f0c7861e
+    sha256: 05a2fb18bca02a9e69cee582630adc23331f725474a7902e08adb8618ad16bf1
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T19:20:16.015190-03:00'
+  triggered_at: '2026-11-21T18:06:29.343443-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: 3.54x al 2026-10-03; no cruza el umbral configurado.
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/SNA/statistics/
-  threshold: below 0.5x
-- metric: interest_coverage
-  observation: El proveedor reporta 0x al 2026-10-03, por debajo del umbral; requiere
-    validar la definición y el gasto por intereses.
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/SNA/statistics/
-  threshold: below 2.0x
 - metric: net_debt_ebitda
-  observation: 'No evaluable: las unidades de net cash y EBITDA no se pueden reconciliar
-    con la evidencia disponible.'
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/SNA/financials/
-  threshold: above 4.0x
+  observation: No se valida un valor comparable por la diferencia de escala reportada
+    entre caja neta y EBITDA.
+  threshold: net_debt_ebitda > 4.0x
 - metric: dilution_yoy_pct
-  observation: 'No evaluable: falta el número de acciones comparable del período anterior.'
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/SNA/statistics/
-  threshold: above 10%
+  observation: 'No evaluable: falta la serie comparable de acciones.'
+  threshold: dilution_yoy_pct > 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 para TTM al 2026-10-03; requiere verificación y
+    no se interpreta aquí como cobertura EBIT validada.
+  threshold: interest_coverage < 2.0x
+- metric: fcf_runway_months
+  observation: 'No aplicable a los datos reportados: el FCF TTM es positivo.'
+  threshold: negative_fcf_runway_months < 12
+- metric: current_ratio
+  observation: El valor reportado fue 3.54x al 2026-10-03, por encima del umbral.
+  threshold: current_ratio < 0.5x
 - metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: no se proporciona una serie de acciones fechada para
-    tres años comparables.'
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/SNA/statistics/
-  threshold: above 5%
-scenario_analysis: null
+  observation: 'No evaluable: falta una serie de acciones fechada y comparable a tres
+    años.'
+  threshold: share_count_cagr_3y_pct > 5%
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Ingresos y FCF posteriores muestran crecimiento sostenido y verificable.
+    id: BEAR
+    key_assumptions:
+    - Se utiliza el objetivo bajo observado, USD 340, como ancla del escenario.
+    - La evidencia disponible no confirma crecimiento sostenido de ingresos; el supuesto
+      adverso es que esa falta de confirmación persista.
+    rationale: Ancla en el extremo bajo del rango de objetivos observado, no una valoración
+      intrínseca. Representa el resultado adverso plausible si la caja y el crecimiento
+      no sostienen las expectativas reflejadas en los objetivos más altos.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/sna/forecast/
+    target_price: 340
+  - falsifiers:
+    - La publicación de nuevos períodos muestra deterioro persistente de márgenes
+      o FCF.
+    id: BULL
+    key_assumptions:
+    - Se utiliza el objetivo alto observado, USD 485, como ancla del escenario.
+    - Los márgenes y el FCF observados se mantienen, y nuevos datos confirman una
+      trayectoria de ingresos favorable.
+    rationale: Ancla en el extremo alto del rango de objetivos observado, no una valoración
+      intrínseca. Representa el resultado favorable plausible si se sostienen el margen
+      bruto y la generación de FCF y se confirma crecimiento que la historia incompleta
+      actual no permite verificar.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/sna/forecast/
+    target_price: 485
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 56
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T19:19:51.274622-03:00'
+  calculado_at: '2026-11-21T18:06:01.993392-03:00'
   fuentes:
     stockanalysis: 404.11
     yfinance: 404.1111
@@ -533,25 +937,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 404.11
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T19:19:51.274622-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:06:01.993392-03:00'
+    observed_date: '2026-11-21'
     target_price: 404.11
     url: https://stockanalysis.com/stocks/sna/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T19:19:51.274622-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:06:01.993392-03:00'
+    observed_date: '2026-11-21'
     target_price: 404.1111
     url: https://finance.yahoo.com/quote/SNA/
   target_high: 485.0
   target_low: 340.0
-tesis_inversion: Snap-on fabrica y comercializa herramientas, equipos, diagnóstico
-  e información y soluciones para reparación para usuarios profesionales. La evidencia
-  disponible muestra margen bruto TTM de 51.87% y FCF TTM reportado de 1,074.0 en
-  unidades del proveedor al 2026-10-03, pero no permite establecer crecimiento de
-  ingresos a tres años, retornos sobre capital, reinversión incremental ni tamaño
-  y penetración del mercado; la tesis de crecimiento compuesto permanece sin validar.
+tesis_inversion: Snap-on vende herramientas, equipos, diagnóstico e información para
+  usuarios profesionales y opera también servicios financieros (resumen financiero,
+  2026-11-21). La evidencia disponible muestra margen bruto TTM de 51.87% y FCF TTM
+  de 1,074, pero la serie de ingresos está incompleta y no permite verificar el crecimiento
+  compuesto de tres años; la tesis depende de que la demanda profesional y la conversión
+  de caja se sostengan, aspectos que requieren validación adicional.
 ticker: SNA
 version: '3.0'
