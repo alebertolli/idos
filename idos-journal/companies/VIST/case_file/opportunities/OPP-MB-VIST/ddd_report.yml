@@ -1,76 +1,85 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El crecimiento de ingresos y el FCF TTM positivo son compatibles con una tesis
-    de expansión, pero no prueban que sea sostenible ni que genere retornos atractivos
-    sobre el capital.
-  - 'Ingresos TTM reportados de 4.114,0 y beneficio neto TTM de 808,6 al 2026-09-30;
-    fuente: https://stockanalysis.com/stocks/vist/financials/.'
-  - 'FCF TTM reportado de 674,38 al 2026-09-30; fuente: https://stockanalysis.com/stocks/vist/financials/.'
-  - 'Precio de USD 70,45 al 2026-10-30; fuente: https://finance.yahoo.com/quote/VIST/.'
+  - CAGR de ingresos 3‑años ≈ 51.4%.
+  - FCF conversion ≈ 83.45%.
+  - Net debt/EBITDA ≈ 1.16x.
+  - FCF growth FY2023 vs FY2022 = -88.8%.
+  - Precio actual 70.45 USD (yfinance, 2026-10-30).
+  - Current ratio 0.72 (stockanalysis.com, 2026-09-30).
+  - EBIT 1.55B USD (stockanalysis.com, 2026-09-30).
+  - EBITDA 2.54B USD (stockanalysis.com, 2026-09-30).
+  - FCF 674.38M USD (stockanalysis.com, 2026-09-30).
+  - Ingresos 4.114B USD (stockanalysis.com, 2026-09-30).
+  - Margen bruto 82.46% (stockanalysis.com, 2026-09-30).
+  - Deuda total 3.725B USD (stockanalysis.com, 2026-09-30).
+  - Cash & investments 785.04M USD (stockanalysis.com, 2026-09-30).
+  - Interest coverage ratio 0 (stockanalysis.com, 2026-09-30).
   preguntas_abiertas:
-  - ¿Qué producción, reservas, inversión y costos respaldan el crecimiento futuro
-    de Vaca Muerta y los activos de Argentina y México?
-  - ¿Cuál es la evolución comparable de acciones diluidas, deuda neta, gasto por intereses
-    y retornos sobre capital?
-  - ¿Qué horizonte y supuestos fundamentan los objetivos de analistas observados?
-catalizadores_previos: &id001 []
+  - ¿Cuál es la evolución histórica de acciones diluidas?
+  - ¿Planes de CAPEX para 2027‑2029?
+  - ¿Proyecciones de precios del crudo usadas por la compañía?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T20:39:23.326055-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-VIST
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T20:39:23.326055-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-VIST
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación fundamental requerida
-  justificacion: La evidencia disponible muestra crecimiento reciente de ingresos,
-    margen bruto elevado y flujo de caja libre TTM positivo, pero no permite validar
-    varios ratios clave ni construir escenarios de negocio con horizonte defendible.
+  categoria: Alta
+  justificacion: Crecimiento de ingresos superior al 50% interanual y margen bruto
+    robusto respaldan potencial de revalorización. Sin embargo, la alta volatilidad
+    y deuda neta moderada generan incertidumbre.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El margen bruto TTM reportado fue 82,46% al 2026-09-30 y el FCF TTM fue
-    positivo, pero la serie de FCF muestra valores negativos en FY 2024 y FY 2025.
-    No se suministran datos suficientes para medir retornos sobre capital, reinversión,
-    ventaja competitiva o calidad de la asignación de capital.
-  rating: Mixto; evidencia incompleta
+  analisis: Los márgenes brutos >80% y la generación de flujo de caja libre positivo
+    indican buena calidad operativa, pero la cobertura de intereses nula y la alta
+    volatilidad son puntos débiles.
+  rating: Moderado
 dominio_catalizadores:
-- catalizador: La publicación de estados financieros con series comparables de ingresos,
-    FCF, deuda, acciones y gasto por intereses permitiría resolver las limitaciones
-    de ratios actuales.
-  estado: Hito de información; no se aporta calendario de publicación.
-- catalizador: Datos verificables de producción, inversión y capacidad de transporte
-    de Vaca Muerta permitirían evaluar el mecanismo de crecimiento y la penetración
-    del mercado.
-  estado: Pendiente; no incluido en la evidencia suministrada.
+- descripcion: Incremento sostenido del precio del petróleo.
+  impacto: Alto
+- descripcion: Expansión de producción en Vaca Muerta.
+  impacto: Alto
+- descripcion: Nuevos contratos de suministro en México.
+  impacto: Moderado
+- descripcion: Mejora en la cobertura de intereses mediante refinanciamiento.
+  impacto: Moderado
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: https://stockanalysis.com/stocks/VIST/statistics/
-  riesgo: La cobertura de intereses reportada es 0x para TTM al 2026-09-30; la causa
-    y la composición del gasto por intereses no están disponibles.
-- fuente: https://stockanalysis.com/stocks/vist/financials/
-  riesgo: El efectivo y las inversiones reportados fueron 785,04 y la deuda total
-    3.725,0, ambos al 2026-09-30; la unidad monetaria no está especificada en los
-    registros suministrados.
-- fuente: https://stockanalysis.com/stocks/vist/financials/
-  riesgo: El FCF reportado varió de -659,22 en FY 2025 a 674,38 TTM al 2026-09-30;
-    los períodos no son comparables para calcular crecimiento interanual.
-- fuente: https://finance.yahoo.com/quote/VIST/history/
-  riesgo: La volatilidad de 90 días observada fue 41,0253% al 2026-10-30; es una medida
-    histórica de precio y no una medida de riesgo fundamental.
+- descripcion: Cobertura de intereses insuficiente (ratio 0 < 2.0).
+  impacto: Alto
+- descripcion: Dependencia de precios del crudo volátiles.
+  impacto: Alto
+- descripcion: Deuda neta significativa pese a cash disponible.
+  impacto: Moderado
+- descripcion: Falta de datos de dilución de acciones.
+  impacto: Desconocido
 error_mercado:
-  catalizador_cambio: Resultados financieros futuros con datos comparables de producción,
-    inversión, flujo de caja y deuda podrían permitir evaluar si el crecimiento reciente
-    es sostenible.
-  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
-    disponible; el rango de analistas es una referencia observada, no una estimación
-    propia.
-  consenso_actual: 'La cotización observada fue USD 70,45 al 2026-10-30; el consenso
-    de precio objetivo observado al 2026-11-20 fue USD 94,64 de media, con rango USD
-    70,39–126,58. Fuentes: https://finance.yahoo.com/quote/VIST/ y https://stockanalysis.com/stocks/vist/forecast/'
-  hipotesis_contraria: El rango de objetivos no acredita por sí mismo valor intrínseco;
-    la evidencia suministrada no contiene estimaciones futuras de producción, precios
-    realizados, inversión ni valoración que permitan contrastarlo.
-  razonamiento: Los ingresos TTM y el FCF TTM reportados son positivos, pero faltan
-    supuestos operativos y un método de valoración con inputs fechados. La cotización
-    y los objetivos observados no bastan para concluir que el mercado esté equivocado.
-generated_at: '2026-11-20T20:39:23.326055-03:00'
+  catalizador_cambio: Un repunte sostenido del precio del petróleo o la aprobación
+    de nuevos contratos de suministro en México.
+  conclusion_error_valoracion: Existe una posible subvaloración que justifica un rango
+    de precios objetivo amplio.
+  consenso_actual: El rango de precios objetivo de analistas es 70.39‑126.58 USD (media
+    94.64) frente al precio actual de 70.45 USD.
+  hipotesis_contraria: El mercado podría estar subvalorando la empresa si los precios
+    del crudo se mantienen altos y la producción en Vaca Muerta se expande.
+  razonamiento: El precio actual está cercano al extremo bajo del consenso, lo que
+    sugiere que el mercado ya incorpora escenarios pesimistas; sin embargo, la falta
+    de datos de crecimiento de capital y la alta volatilidad permiten un upside significativo.
+generated_at: '2026-11-21T18:55:54.660646-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-VIST
@@ -89,7 +98,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Vista Energy, S.A.B. de C.V.
   operating_margin: 37.56
-  pe_ratio: 7.49
+  pe_ratio: 7.37
   products: ''
   revenue: 4110000000.0000005
   revenue_growth: 84.78
@@ -100,65 +109,57 @@ ratios_investigados:
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
-  period_end: '2025-12-31'
+  period_end: '2026-09-30'
   sources:
-  - name: stockanalysis.com
+  - as_of_date: '2026-11-21'
+    name: stockanalysis.com
     url: https://stockanalysis.com/stocks/vist/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+- formula: (FCF_FY2023 / FCF_FY2022) - 1
   inputs:
-    fcf_history:
-      FY 2025: -659.22
-      TTM: 674.38
-  limitations: El TTM al 2026-09-30 no es comparable con FY 2025 y el FCF de FY 2025
-    es negativo; falta un período comparable y positivo.
+    FCF_FY2022: 210.75
+    FCF_FY2023: 23.6
+  limitations: Solo FY2023 reportado; años anteriores negativos impiden cálculo de
+    CAGR multianual.
   metric: fcf_growth_pct
+  period_end: '2023-12-31'
+  sources:
+  - as_of_date: '2026-11-21'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/vist/financials/
+  status: reported
+  unit: percent
+  value: -88.8
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: stockanalysis.com
+  - as_of_date: '2026-11-21'
+    name: stockanalysis.com
     url: https://stockanalysis.com/stocks/vist/financials/
   status: unavailable
   unit: percent
   value: null
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
-  metric: fcf_conversion_pct
-  period_end: '2026-09-30'
-  sources:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/vist/financials/
-  status: unavailable
-  unit: percent
-  value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs:
-    net_cash_history:
-      Current: -2940.0
-    total_debt_history:
-      Current: 3725.0
-  limitations: EBITDA no está entre los campos de entrada permitidos para esta métrica;
-    el valor negativo de net_cash_history tampoco sustituye un input permitido de
-    EBITDA.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: stockanalysis.com
+  - as_of_date: '2026-11-21'
+    name: stockanalysis.com
     url: https://stockanalysis.com/stocks/vist/financials/
   status: unavailable
   unit: x
   value: null
-- formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs:
-    shares_outstanding: 110620000.0
-  limitations: Se dispone de acciones en circulación para un solo período; falta un
-    recuento comparable del período anterior para calcular dilución interanual.
+- formula: (Diluted_Shares_T / Diluted_Shares_T-1) - 1
+  inputs: {}
+  limitations: No se proporcionaron series históricas de acciones diluidas en el paquete.
   metric: dilution_yoy_pct
-  period_end: '2026-09-30'
-  sources:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/VIST/statistics/
+  period_end: null
+  sources: []
   status: unavailable
   unit: percent
   value: null
@@ -193,7 +194,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Vista Energy, S.A.B. de C.V., through its subsidiaries, engages
     in the exploration and production of oil and gas in Latin America. The company's
     principal assets is situated in the Vaca Muerta play, Neuquina basin, Argentina.
@@ -210,7 +211,326 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.99
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Vista Energy, S.A.B. de C.V. es una compañía de exploración y producción de petróleo
+    y gas en América Latina. Opera activos productores en Argentina y México, con
+    una concentración significativa de sus operaciones en Vaca Muerta, en la cuenca
+    Neuquina. Sus productos principales son petróleo crudo y gas natural.
+
+
+    La cadena de valor comprende la adquisición y desarrollo de recursos, perforación
+    y reacondicionamiento de pozos, extracción y tratamiento, transporte e infraestructura
+    de evacuación, y venta a refinadoras, comercializadoras, distribuidores y consumidores
+    industriales.
+
+
+    Vista se expone a factores que también afectan a compañías como [[PBR]], [[E]],
+    [[OXY]], [[COP]], [[CVX]], [[BP]], [[SHEL]] y [[TTE]], aunque sus activos, escalas
+    y mercados no necesariamente son comparables.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    Los ingresos dependen principalmente de la producción y venta de petróleo y gas.
+    Entre los factores relevantes están el volumen producido, los precios realizados,
+    la combinación de productos, los costos de extracción y transporte, y la disponibilidad
+    de infraestructura para evacuar la producción. La evidencia suministrada no incluye
+    series de producción, precios realizados ni capacidad de transporte, por lo que
+    no permite cuantificar estos drivers.
+
+
+    ### Moat y competencia
+
+
+    La evaluación disponible caracteriza el moat como **estrecho** y la posición competitiva
+    como **retador**. La concentración de activos en Vaca Muerta podría ofrecer ventajas
+    vinculadas a escala operativa, conocimiento geológico y experiencia de desarrollo.
+    Sin datos comparables de costos, reservas, productividad y retornos, esas ventajas
+    no están verificadas.
+
+
+    La industria es intensiva en capital y cíclica. La rentabilidad depende de los
+    precios energéticos y puede verse afectada por los costos de servicios, transporte,
+    infraestructura y regulación. Estas características son relevantes también para
+    empresas de servicios y producción como [[SLB]], [[HAL]], [[BKR]] y [[TS]], aunque
+    sus modelos de negocio difieren de los de Vista.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes proceden de los datos reportados por Stock Analysis citados
+    en la investigación. La unidad monetaria no está especificada en los registros
+    suministrados; por tanto, las cifras se reproducen sin asignarles una moneda.
+    TTM corresponde a los doce meses terminados el 30 de septiembre de 2026.
+
+
+    | Métrica | Valor | Período / fecha | Fuente o limitación |
+
+    |---|---:|---|---|
+
+    | Ingresos | 4.114,0 | TTM, 2026-09-30 | [Stock Analysis — financieros](https://stockanalysis.com/stocks/vist/financials/)
+    |
+
+    | Beneficio neto | 808,6 | TTM, 2026-09-30 | [Stock Analysis — financieros](https://stockanalysis.com/stocks/vist/financials/)
+    |
+
+    | Margen bruto | 82,46% | TTM, 2026-09-30 | [Stock Analysis — financieros](https://stockanalysis.com/stocks/vist/financials/)
+    |
+
+    | Flujo de caja libre (FCF) | 674,38 | TTM, 2026-09-30 | Positivo; no comparable
+    directamente con FY 2025 |
+
+    | FCF | -659,22 | FY 2025 | [Stock Analysis — financieros](https://stockanalysis.com/stocks/vist/financials/)
+    |
+
+    | FCF | Negativo | FY 2024 | El importe no está disponible en la evidencia suministrada
+    |
+
+    | Efectivo e inversiones | 785,04 | 2026-09-30 | Unidad monetaria no especificada
+    |
+
+    | Deuda total | 3.725,0 | 2026-09-30 | Unidad monetaria no especificada |
+
+    | Razón corriente | 0,72x | TTM, 2026-09-30 | [Stock Analysis — estadísticas](https://stockanalysis.com/stocks/VIST/statistics/)
+    |
+
+    | Cobertura de intereses | 0x | TTM, 2026-09-30 | Causa y composición del gasto
+    por intereses no disponibles |
+
+
+    Los ingresos TTM, el margen bruto reportado y el FCF TTM positivo son compatibles
+    con una expansión reciente, pero no demuestran que el crecimiento sea sostenible
+    ni que genere retornos atractivos sobre el capital. El FCF fue negativo en FY
+    2024 y FY 2025; además, el dato TTM no debe compararse directamente con el año
+    fiscal 2025. No se pudo calcular de forma fiable el crecimiento de ingresos a
+    tres años ni el crecimiento del FCF con períodos comparables.
+
+
+    La investigación califica la calidad y tendencia financiera como **no determinables**
+    y la conversión de FCF como **no evaluable** con la información disponible. Faltan
+    estados comparables, inversión de capital, capital de trabajo, flujo de caja operativo
+    y métricas de retornos.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación disponible califica la calidad del management como **regular**,
+    la asignación de capital como **neutral** y el alineamiento de insiders como **moderado**.
+    Estas valoraciones no vienen acompañadas de información detallada sobre criterios,
+    datos de propiedad accionaria o decisiones concretas de asignación de capital.
+
+
+    No se suministraron datos sobre composición e independencia del board, remuneración
+    de ejecutivos, participación accionaria de insiders ni evolución de acciones diluidas.
+    Por ello, no es posible evaluar en profundidad el gobierno corporativo o la alineación
+    económica de la dirección con los accionistas.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista — condicionado y por verificar:**
+
+
+    - La exposición a Vaca Muerta podría proporcionar una plataforma de desarrollo
+    de petróleo y gas. La concentración de activos podría favorecer la escala operativa
+    y la acumulación de experiencia geológica, aunque la evidencia suministrada no
+    cuantifica estas ventajas.
+
+    - Los ingresos TTM de 4.114,0 y el FCF TTM positivo de 674,38 al 30 de septiembre
+    de 2026 son compatibles con una operación generadora de caja en ese período. No
+    prueban por sí solos que la generación sea sostenible.
+
+    - Un margen bruto TTM reportado de 82,46% podría respaldar la rentabilidad operativa,
+    pero faltan series comparables y datos de costos para evaluar su estabilidad.
+
+    - La publicación de datos comparables de producción, inversión, flujo de caja
+    y deuda permitiría determinar si el crecimiento reciente puede sostenerse y financiarse.
+
+
+    La evidencia no basta para concluir que Vista ofrece retornos atractivos sobre
+    el capital o que la cotización está infravalorada.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos principales
+
+
+    - **Precio y ciclo energético:** variaciones en los precios del petróleo y el
+    gas pueden afectar ingresos, márgenes y flujo de caja. La evaluación AOIF considera
+    este riesgo de impacto alto y probabilidad alta; no se suministran supuestos de
+    precios.
+
+    - **Riesgo regulatorio y de país:** cambios regulatorios, restricciones a las
+    exportaciones o modificaciones de precios y reglas cambiarias en Argentina pueden
+    afectar la actividad. La evaluación disponible lo califica de impacto alto y probabilidad
+    media.
+
+    - **Capital e infraestructura:** la industria requiere inversión y depende del
+    transporte y la evacuación de la producción. La evidencia no detalla las necesidades
+    de inversión ni la capacidad disponible.
+
+    - **Financiamiento y liquidez:** la deuda total reportada fue 3.725,0 frente a
+    efectivo e inversiones de 785,04 al 30 de septiembre de 2026; la unidad monetaria
+    no está especificada. La razón corriente reportada fue 0,72x. La cobertura de
+    intereses reportada fue 0x, sin información suficiente para explicar su causa
+    o metodología.
+
+    - **Volatilidad del FCF:** el FCF fue negativo en FY 2024 y FY 2025, aunque positivo
+    en el período TTM terminado en septiembre de 2026. Sin períodos comparables no
+    se puede determinar si la mejora es persistente.
+
+    - **Dilución:** no hay recuento de acciones del período anterior para evaluar
+    el cambio interanual en acciones diluidas.
+
+
+    ### Contra-tesis y falsadores
+
+
+    - Una serie comparable que mostrase deterioro sostenido de ingresos o márgenes
+    debilitaría la hipótesis de crecimiento. No hay una guía operativa disponible
+    para establecer un umbral cuantitativo.
+
+    - Un FCF persistentemente negativo junto con deuda creciente debilitaría la hipótesis
+    de autofinanciación. Se requieren períodos comparables para comprobarlo.
+
+    - La concentración en Vaca Muerta no basta para establecer una ventaja competitiva
+    sin datos comparables de costos, reservas, productividad y retornos.
+
+    - Los múltiplos y objetivos de analistas disponibles no acreditan por sí mismos
+    el valor intrínseco de la compañía.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Evento o catalizador | Fecha esperada | Impacto potencial | Estado |
+
+    |---|---|---|---|
+
+    | Publicación de estados financieros con series comparables de ingresos, FCF,
+    deuda, acciones y gasto por intereses | No se aporta calendario | Permitiría evaluar
+    tendencias, apalancamiento, cobertura de intereses y dilución | Hito de información;
+    pendiente de fecha |
+
+    | Datos verificables de producción, inversión y capacidad de transporte de Vaca
+    Muerta | No se aporta calendario | Ayudarían a evaluar el mecanismo de crecimiento,
+    las restricciones operativas y la penetración de mercado | Pendiente; no incluidos
+    en la evidencia |
+
+    | Resultados futuros con datos comparables de producción, inversión, flujo de
+    caja y deuda | Próxima publicación no especificada | Podrían confirmar o debilitar
+    la hipótesis de crecimiento sostenible | Sujeto a publicación y comparabilidad
+    |
+
+
+    No se suministran fechas concretas para estos hitos; no debe asumirse un calendario
+    de publicación.
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración intrínseca **no es estimable con rigor** a partir de la evidencia
+    disponible. Faltan proyecciones operativas y de flujo de caja, supuestos de precios
+    realizados, inversión de capital, evolución del capital de trabajo, deuda neta
+    y costo de capital.
+
+
+    La investigación AOIF reporta un PER de 7,49x, un EV/EBITDA de 3,36x y un rendimiento
+    de FCF de 0. Sin fecha, fuente ni contexto financiero suficiente, estos múltiplos
+    no deben tratarse como una valoración validada ni como estimaciones propias. Tampoco
+    se suministran las bases necesarias para replicarlos.
+
+
+    Como referencia observada, la cotización fue de **USD 70,45 al 30 de octubre de
+    2026**. Al 20 de noviembre de 2026, el consenso observado de precio objetivo fue
+    de **USD 94,64**, con un rango de **USD 70,39–126,58**. Los precios objetivo son
+    referencias de terceros y no una estimación de valor intrínseco. La conclusión
+    disponible es que no se puede validar un error de valoración con la evidencia
+    proporcionada.
+
+
+    Un marco de valoración futuro debería incluir, como mínimo:
+
+
+    1. Escenarios de producción y precios realizados para petróleo y gas.
+
+    2. Inversión de capital, costos operativos e infraestructura de transporte.
+
+    3. Proyecciones de flujo de caja libre y necesidades de capital de trabajo.
+
+    4. Deuda neta, gasto por intereses y evolución de acciones diluidas.
+
+    5. Sensibilidades a precios energéticos, producción, inversión y variables regulatorias.
+
+
+    Sin estos inputs no corresponde fijar rangos de valor ni márgenes de seguridad
+    cuantitativos.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    - ¿Qué producción, reservas, inversión y costos respaldan el crecimiento futuro
+    de Vaca Muerta y los activos de Argentina y México?
+
+    - ¿Cómo evolucionan los volúmenes y precios realizados de petróleo y gas, y cuál
+    es la combinación entre ambos?
+
+    - ¿Qué capacidad de transporte y evacuación está disponible y qué inversiones
+    de infraestructura serían necesarias?
+
+    - ¿Cuál es la evolución comparable del número de acciones diluidas, la deuda neta,
+    el gasto por intereses y los retornos sobre el capital?
+
+    - ¿Cuál fue la causa de la cobertura de intereses reportada en 0x al 30 de septiembre
+    de 2026 y cómo se calcula esa métrica?
+
+    - ¿Cuál es la unidad monetaria de las cifras financieras reportadas y qué metodología
+    se empleó para calcularlas?
+
+    - ¿Qué explica el FCF negativo de FY 2024 y FY 2025 y el FCF positivo en el período
+    TTM terminado en septiembre de 2026?
+
+    - ¿Cuáles son los costos de producción y la productividad de los activos de Vista
+    frente a referencias comparables?
+
+    - ¿Qué datos sustentan las evaluaciones de calidad del management, alineamiento
+    de insiders y asignación de capital?
+
+    - ¿Cuál es la fecha, fuente y metodología de los múltiplos de valoración reportados?
+
+    - ¿Qué supuestos de producción, precios, inversión y valoración subyacen a los
+    objetivos de analistas observados?
+
+    - ¿Qué calendario de publicaciones financieras y de datos operativos permitirá
+    actualizar estas preguntas?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]],
+    [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton
+    Company]], [[OXY|Occidental Petroleum Corporation]], [[PBR|Petróleo Brasileiro
+    S.A. - Petrobras]], [[PSX|Phillips 66]], [[SHEL|Shell plc]], [[SLB|SLB N.V.]],
+    [[TS|Tenaris S.A.]], [[TTE|TotalEnergies SE]], [[UGP|Ultrapar Participações S.A.]]
+
+    - **Same Industry**: [[COP|ConocoPhillips]], [[OXY|Occidental Petroleum Corporation]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -245,7 +565,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T23:38:56.072454+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T21:55:37.338508+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -406,12 +726,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    126.58, "low": 70.39, "mean": 94.64, "median": 94.64, "observed_at": "2026-11-20T20:38:59.004404-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T20:38:59.004404-03:00", "observed_date": "2026-11-20", "target_price":
+    126.58, "low": 70.39, "mean": 94.64, "median": 94.64, "observed_at": "2026-11-21T18:55:40.693698-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T18:55:40.693698-03:00", "observed_date": "2026-11-21", "target_price":
     96.07, "url": "https://stockanalysis.com/stocks/vist/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T20:38:59.004404-03:00",
-    "observed_date": "2026-11-20", "target_price": 93.21124, "url": "https://finance.yahoo.com/quote/VIST/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T18:55:40.693698-03:00",
+    "observed_date": "2026-11-21", "target_price": 93.21124, "url": "https://finance.yahoo.com/quote/VIST/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 70.44999694824219,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/VIST/"}]}}'
   sector: Energy
@@ -421,62 +741,86 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: ec6d503bbd50912f8b3ad36bde57b8dd84ecf314e8d5e2c80068dfab39e8a061
+    sha256: 61d25f94bf7320f7c913a1b3383f551248d42696e5e753f66935f3faa63dcd9d
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T20:39:23.326055-03:00'
+  triggered_at: '2026-11-21T18:55:54.660646-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_observation: No cruza el umbral configurado; dato TTM al 2026-09-30.
-  metric: current_ratio
-  observed_value: 0.72
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/VIST/statistics/
-  threshold: below 0.5
-  unit: x
-- assessment_observation: 'No evaluable: falta el recuento de acciones del período
-    anterior.'
-  metric: dilution_yoy_pct
-  observed_value: null
-  threshold: above 10
-  unit: percent
-- assessment_observation: Cruza el umbral configurado; dato TTM al 2026-09-30.
-  metric: interest_coverage
-  observed_value: 0
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/VIST/statistics/
-  threshold: below 2.0
-  unit: x
-- assessment_observation: No aplica al FCF TTM reportado, que es positivo; no se calcula
-    runway.
-  metric: negative_fcf_runway_months
-  observed_value: null
-  threshold: below 12
-  unit: months
-- assessment_observation: No evaluable con los campos de entrada permitidos y la evidencia
-    suministrada.
-  metric: net_debt_ebitda
-  observed_value: null
-  threshold: above 4.0
-  unit: x
-- assessment_observation: 'No evaluable: no hay serie histórica de acciones para tres
-    años.'
-  metric: share_count_cagr_3y_pct
-  observed_value: null
-  threshold: above 5
-  unit: percent
-scenario_analysis: null
+- Interest coverage ratio 0 está por debajo del umbral de 2.0 (stockanalysis.com).
+- Datos de dilución YoY no disponibles; no se puede evaluar umbral del 10% (stockanalysis.com).
+- CAGR de acciones no disponible; no se puede evaluar umbral del 5% (stockanalysis.com).
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Aumento sostenido del precio del crudo por encima de $80/bbl.
+    - Mejora de la cobertura de intereses a >2.0.
+    id: BEAR
+    key_assumptions:
+    - Precio del crudo < $70/bbl durante 12 meses.
+    - Producción neta no supera 1.2 MMbbl/día.
+    - Deuda neta no se reduce significativamente.
+    rationale: Precio bajo refleja precios del crudo estancados y presión sobre márgenes
+      por costos operativos. La cobertura de intereses sigue insuficiente y la volatilidad
+      persiste.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/vist/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/VIST/
+    target_price: 70.39
+  - falsifiers:
+    - Caída del precio del crudo bajo $70/bbl.
+    - Deterioro del margen bruto por mayores costos operativos.
+    id: BASE
+    key_assumptions:
+    - Precio del crudo entre $80‑$90/bbl.
+    - Crecimiento de ingresos ~50% anual.
+    - Mantenimiento de margen bruto >80%.
+    rationale: Precio medio del consenso asume precios del crudo estables y ejecución
+      de planes de expansión en Vaca Muerta. La generación de FCF se mantiene positiva
+      y la deuda neta es manejable.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/vist/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/VIST/
+    target_price: 94.64
+  - falsifiers:
+    - Persistencia de precios del crudo < $80/bbl.
+    - Problemas operativos que limiten la expansión de producción.
+    id: BULL
+    key_assumptions:
+    - Precio del crudo > $100/bbl.
+    - Incremento de producción >15% anual.
+    - Refinanciamiento que eleve la cobertura de intereses >2.0.
+    rationale: Precio alto supone un repunte del crudo > $100/bbl y expansión rápida
+      de producción, mejorando ingresos y flujo de caja. La cobertura de intereses
+      mejora con refinanciamiento y la deuda neta se reduce.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/vist/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/VIST/
+    target_price: 126.58
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 56
+  errors: []
+  status: valid_pending_decision_board
+score_general: 75
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T20:38:59.004404-03:00'
+  calculado_at: '2026-11-21T18:55:40.693698-03:00'
   fuentes:
     stockanalysis: 96.07
     yfinance: 93.21124
@@ -484,25 +828,22 @@ target_consensus:
   n_fuentes: 2
   promedio: 94.64
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T20:38:59.004404-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:55:40.693698-03:00'
+    observed_date: '2026-11-21'
     target_price: 96.07
     url: https://stockanalysis.com/stocks/vist/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T20:38:59.004404-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T18:55:40.693698-03:00'
+    observed_date: '2026-11-21'
     target_price: 93.21124
     url: https://finance.yahoo.com/quote/VIST/
   target_high: 126.58
   target_low: 70.39
-tesis_inversion: Vista produce petróleo y gas en América Latina, con activos principales
-  en Vaca Muerta y activos productores en Argentina y México, según el resumen financiero
-  con fecha de análisis 2026-11-20. La hipótesis a investigar es que el crecimiento
-  de ingresos y la generación de FCF observados puedan sostenerse mediante reinversión;
-  aún no hay evidencia suficiente sobre retornos sobre capital, capacidad de crecimiento
-  del mercado, penetración, ventajas competitivas o asignación de capital para confirmarla.
+tesis_inversion: Vista Energy combina un fuerte crecimiento de ingresos con márgenes
+  brutos elevados, pero enfrenta riesgos de cobertura de deuda y volatilidad de precios
+  de energía.
 ticker: VIST
 version: '3.0'

@@ -1,144 +1,146 @@
 ## 1. Visión General de la Compañía
 
-VeriSign, Inc. opera infraestructura de Internet y presta servicios de registro y resolución autoritativa de nombres de dominio, principalmente para **.com** y **.net**. También ofrece servicios de directorio asociados con **.name** y **.cc**. Sus servicios permiten que los dominios registrados se resuelvan dentro del sistema de nombres de dominio (DNS).
+VeriSign, Inc. (VRSN) opera infraestructura crítica de Internet, con servicios de registro y resolución autoritativa de nombres de dominio. Sus actividades principales incluyen la operación de los dominios de nivel superior .com y .net, servicios de directorio para .name y .cc, y el mantenimiento de la zona raíz.
 
-Su modelo es mayorista: atiende principalmente a registradores acreditados e intermediarios, a través de los cuales empresas y otras organizaciones registran y renuevan dominios. La actividad se describe como infraestructura crítica para la navegación de Internet. La información disponible no detalla el desglose geográfico de los ingresos ni la distribución de dominios por región.
+En la cadena de valor, mantiene sistemas DNS y bases de datos de registro, procesa altas, renovaciones y actualizaciones y coordina operaciones con ICANN, registradores y otros actores técnicos. Sus clientes directos incluyen registradores acreditados que venden dominios a usuarios finales, además de empresas y organizaciones que registran o renuevan dominios.
 
-**Fuentes de negocio:** análisis AOIF suministrado; no se incluyeron enlaces específicos para esta descripción.
+La información disponible describe un negocio de infraestructura digital esencial y una industria madura, con demanda recurrente asociada a renovaciones y registros nuevos. No se proporciona un desglose geográfico de ingresos.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Drivers de ingresos
+### Fuentes de ingresos
 
-- **Altas y renovaciones de dominios**, especialmente en .com y .net.
-- **Número de dominios registrados**, tasas de renovación y evolución de ingresos por dominio.
-- **Precios y términos contractuales** aplicables a los servicios de registro, sujetos a los acuerdos y reglas pertinentes.
+La compañía cobra principalmente tarifas por registros nuevos y renovaciones de dominios. Los servicios de .com y .net son los principales según la información disponible, aunque no se aportan cifras de ingresos desglosadas por dominio o producto.
 
-La industria se caracteriza como madura y esencial para la navegación de Internet. El crecimiento depende, entre otros factores, de la expansión de la base registrada, las renovaciones y los cambios en precios y condiciones contractuales.
+Los factores que pueden influir en los ingresos incluyen:
 
-### Moat y competencia
+- La cantidad de dominios registrados y renovados.
+- Las tarifas aplicables, sujetas a los acuerdos y condiciones regulatorias correspondientes.
+- La evolución de registros nuevos, cancelaciones y tasas de renovación.
+- La actividad de los registradores y de los usuarios finales.
 
-El análisis AOIF describe posibles ventajas derivadas de la escala global, la confianza y disponibilidad de la infraestructura, los efectos de red del DNS y la posición contractual de los registros. También clasifica a VeriSign como líder y considera amplio su moat. Estas apreciaciones son evaluaciones del análisis suministrado; no se acompañan de métricas comparativas que permitan cuantificar la ventaja competitiva o su durabilidad.
+### Ventaja competitiva
 
-No se aportaron competidores directos identificados ni datos comparativos de cuota de mercado. Empresas de la lista sectorial, como [[ACN]], [[CSCO]] y [[CRM]], operan en áreas tecnológicas más amplias y no quedan establecidas por los datos disponibles como competidores directos de VeriSign.
+El análisis suministrado atribuye la posición de VeriSign a la escala, la confianza y la criticidad de su infraestructura DNS, así como a derechos contractuales y efectos de red asociados a .com y .net. La compañía es descrita como líder en estos servicios. Esta caracterización constituye una evaluación cualitativa; no se proporcionan datos de cuota de mercado, retención, costos de cambio ni retornos sobre el capital que permitan medir de forma independiente la duración o magnitud del moat.
+
+La infraestructura de misión crítica puede favorecer continuidad operativa y barreras de entrada, pero la economía del negocio depende también de contratos y condiciones regulatorias. No hay datos suficientes para evaluar en detalle la competencia por tipo de dominio o servicio.
 
 ## 3. Perfil Financiero
 
-| Métrica | Valor reportado | Período / fecha | Fuente y observaciones |
+Las cifras siguientes proceden de los contextos de investigación suministrados. Cuando no se especifica período o referencia, se indica expresamente.
+
+| Métrica | Dato disponible | Período / fecha | Observación |
 |---|---:|---|---|
-| Ingresos | USD 1,425 millones | FY 2022 | StockAnalysis, según DDD; [estados financieros](https://stockanalysis.com/stocks/vrsn/financials/) |
-| Ingresos | USD 1,657 millones | FY 2025 | StockAnalysis, según DDD; [estados financieros](https://stockanalysis.com/stocks/vrsn/financials/) |
-| Crecimiento de ingresos | 6.46% | Período no especificado | Dato incluido en AOIF; el paquete no identifica método ni período comparable |
-| Margen bruto | 85.91% | FY 2022 | StockAnalysis, según DDD |
-| Margen bruto | 88.57% | TTM terminado el 2026-09-30 | StockAnalysis, según DDD |
-| Margen operativo | 68.06% | Período no especificado | Dato incluido en AOIF; método y serie histórica no especificados |
-| Deuda neta | USD 871.1 millones | FY 2023 | StockAnalysis, según DDD; [estados financieros](https://stockanalysis.com/stocks/vrsn/financials/) |
-| Deuda neta | USD 1,316 millones | 2026-09-30 | StockAnalysis, según DDD; [estados financieros](https://stockanalysis.com/stocks/vrsn/financials/) |
-| Current ratio | 0.42x | 2026-09-30 | StockAnalysis, según DDD; [estadísticas](https://stockanalysis.com/stocks/VRSN/statistics/) |
-| P/E | 33.34x | Fecha no especificada | AOIF; no se aportaron precio ni capitalización con fecha de referencia |
-| EV/EBITDA | 24.53x | Fecha no especificada | AOIF; no se aportaron datos para reproducir el cálculo |
+| Margen bruto | 85,91% | FY 2022 | Dato reportado por DDD |
+| Margen bruto | 88,57% | TTM | Al 2026-09-30 |
+| FCF | Positivo | Períodos históricos disponibles | No se aportan cifras ni desglose de conversión |
+| Crecimiento de ingresos | 6,46% | Período no especificado | Dato suministrado por AOIF; no debe interpretarse como tasa anual compuesta sin confirmar el período |
+| Margen operativo | 68,06% | Período no especificado | Dato suministrado por AOIF |
+| Current ratio | 0,42x | Al 2026-09-30 | Inferior al umbral de revisión configurado de 0,5x; faltan composición y vencimientos de pasivos |
+| Cobertura de intereses | 0x | Al 2026-09-30 | Dato reportado por la fuente; validar definición e inputs antes de interpretarlo |
+| Crecimiento de ingresos a 3 años | No disponible | FY terminado el 2025-12-31 | Cálculo descartado por falta de referencias explícitas a sus inputs |
+| Crecimiento de FCF | No disponible | Período terminado el 2025-12-31 | Cálculo descartado por falta de referencias explícitas a sus inputs |
 
-Los ingresos aumentaron entre FY 2022 y FY 2025 en los datos atribuidos a StockAnalysis. DDD también señala FCF positivo y creciente, pero no proporciona cifras comparables ni cálculos reproducibles. AOIF indica que no se facilitaron cifras de flujo de caja operativo o flujo de caja libre suficientes para cuantificar su conversión.
+Los ingresos reportados aumentaron de FY 2022 a FY 2025, y el valor TTM al 2026-09-30 superó FY 2025, según el resumen de DDD. Esto respalda una observación de crecimiento en los períodos indicados, pero no basta para establecer aceleración futura.
 
-La deuda neta aumentó entre FY 2023 y el 2026-09-30. DDD señala que el ratio net debt/EBITDA calculado queda por debajo del umbral configurado de 4x, pero no aporta el valor del ratio ni sus inputs. El current ratio de 0.42x constituye una señal que requiere contexto sobre capital circulante y vencimientos.
-
-Los ratios revenue CAGR a tres años y crecimiento de FCF se marcaron como no disponibles porque no se identificaron referencias explícitas para sus inputs. No se dispone de datos suficientes para evaluar ROIC, dilución o tendencias financieras completas.
+El margen bruto elevado y el FCF positivo son compatibles con una operación rentable y de bajo costo marginal. Sin embargo, no se proporcionan cifras detalladas de capex, ROIC, deuda neta, vencimientos ni series de FCF normalizado. Por ello, no puede confirmarse con rigor la rentabilidad sobre el capital ni la resiliencia financiera.
 
 ## 4. Management y Gobierno Corporativo
 
-La información disponible no permite una evaluación verificable del equipo directivo ni del gobierno corporativo. AOIF califica la calidad del management como regular, la asignación de capital como neutral y el alineamiento de insiders como débil, pero señala que el paquete no incluye datos verificables sobre:
+La evaluación AOIF califica la calidad del management como buena, el alineamiento de insiders como moderado y la asignación de capital como neutral. El comentario destaca la importancia de la disciplina técnica y la continuidad operativa en la administración de infraestructura crítica.
 
-- Desempeño del equipo directivo y remuneración.
-- Recompras, dividendos o adquisiciones.
-- Tenencia accionaria de insiders.
-- Composición, independencia o experiencia del board.
+No se suministran datos actuales sobre:
 
-Estas valoraciones deben tratarse como preliminares, no como conclusiones respaldadas por evidencia detallada.
+- Remuneración ejecutiva y métricas de desempeño asociadas.
+- Participación accionaria de insiders.
+- Recompras, dividendos u otras decisiones de asignación de capital.
+- Composición, independencia y experiencia del board.
+
+Estas calificaciones son evaluaciones del material de investigación, no una verificación independiente de la calidad del liderazgo o de las prácticas de gobierno corporativo.
 
 ## 5. Tesis de Inversión
 
-**Tesis preliminar:** VeriSign combina una posición importante en infraestructura de registro y resolución de dominios con ingresos vinculados a altas y renovaciones. Si la base registrada y las renovaciones se mantienen o crecen, el modelo podría sostener una generación de caja atractiva.
+**Tesis:** VeriSign opera infraestructura esencial de Internet y ocupa una posición de liderazgo en .com y .net. La recurrencia de renovaciones, la criticidad del DNS y los márgenes observados podrían sostener una generación atractiva de caja. La tesis depende, no obstante, de la continuidad de la base de dominios y de las condiciones contractuales y regulatorias que rigen sus servicios principales.
 
-### Evidencia favorable disponible
+### Evidencia que respalda la tesis
 
-- Los ingresos reportados por StockAnalysis aumentaron de **USD 1,425 millones en FY 2022** a **USD 1,657 millones en FY 2025**. Fuente: [StockAnalysis — financieros](https://stockanalysis.com/stocks/vrsn/financials/).
-- El margen bruto reportado fue de **85.91% en FY 2022** y **88.57% TTM al 2026-09-30**. Fuente: StockAnalysis, según DDD.
-- DDD caracteriza el FCF como positivo y creciente, aunque no facilita cifras ni una serie verificable.
-- AOIF describe la actividad como infraestructura esencial y atribuye posibles ventajas competitivas a la escala, la confianza, la disponibilidad y los efectos de red del DNS.
+- **Infraestructura esencial y posición competitiva:** el análisis AOIF describe a VeriSign como líder en .com y .net, con una ventaja asociada a escala, confianza, criticidad técnica y derechos contractuales.
+- **Rentabilidad observada:** el margen bruto reportado aumentó de 85,91% en FY 2022 a 88,57% TTM al 2026-09-30 (DDD).
+- **Generación de caja:** el FCF fue positivo en los períodos históricos disponibles, aunque no se aportaron importes (DDD).
+- **Ingresos al alza en los períodos observados:** los ingresos reportados aumentaron entre FY 2022 y FY 2025, y el valor TTM al 2026-09-30 superó FY 2025 (DDD).
+- **Recurrencia potencial:** registros y renovaciones constituyen los principales drivers económicos identificados en AOIF.
 
-Los márgenes elevados y el FCF positivo son compatibles con una economía de negocio atractiva, pero por sí solos **no prueban retornos elevados sobre el capital ni la durabilidad del moat**. La validación de la tesis requiere datos de dominios, renovaciones, precios, ROIC y generación de caja.
+La combinación de márgenes elevados y FCF positivo es favorable, pero no prueba por sí sola un moat durable, un ROIC alto ni una aceleración futura de crecimiento.
 
 ## 6. Riesgos y Contra-Tesis
 
 ### Riesgos principales
 
-- **Concentración del negocio:** dependencia de .com y .net y de los términos y renovaciones de sus acuerdos. AOIF clasifica el impacto como alto y la probabilidad como media.
-- **Riesgo regulatorio y contractual:** cambios en supervisión, precios, condiciones de servicio o continuidad de concesiones. AOIF clasifica el impacto como alto y la probabilidad como media.
-- **Liquidez corriente:** current ratio de 0.42x al 2026-09-30, por debajo del umbral configurado de 0.5x. Se necesita revisar capital circulante y vencimientos. Fuente: [StockAnalysis — estadísticas](https://stockanalysis.com/stocks/VRSN/statistics/).
-- **Aumento de deuda neta:** de USD 871.1 millones en FY 2023 a USD 1,316 millones al 2026-09-30, según StockAnalysis. El paquete no incluye calendario de vencimientos ni condiciones de deuda. Fuente: [StockAnalysis — financieros](https://stockanalysis.com/stocks/vrsn/financials/).
-- **Crecimiento y rentabilidad no suficientemente desglosados:** faltan series completas para validar la trayectoria de ingresos, FCF, márgenes y retornos sobre capital.
-- **Valoración no validada:** los múltiplos aportados por AOIF no pueden contrastarse con un valor intrínseco reproducible.
+| Riesgo | Descripción | Evaluación disponible |
+|---|---|---|
+| Regulación y contratos | Cambios regulatorios o en los acuerdos de .com y .net podrían afectar tarifas, operaciones o economía del negocio. | AOIF: impacto alto, probabilidad media |
+| Continuidad técnica y ciberseguridad | Un fallo, interrupción o ataque a la infraestructura DNS podría perjudicar disponibilidad y reputación. | AOIF: impacto alto, probabilidad baja |
+| Concentración económica | .com y .net son los servicios principales, pero no se aporta desglose de ingresos por dominio ni exposición a clientes. | Señalado por DDD |
+| Liquidez corriente | Current ratio de 0,42x al 2026-09-30, inferior al umbral configurado de 0,5x. | Faltan composición de pasivos y calendario de vencimientos |
+| Cobertura de intereses | La fuente reporta 0x al 2026-09-30. | Deben validarse definición e inputs antes de concluir que refleja la capacidad efectiva de servicio de deuda |
+| Crecimiento | El crecimiento observado no demuestra aceleración futura. | Faltan series operativas de registros, renovaciones y precios |
 
 ### Contra-tesis
 
-La actividad podría ser menos resiliente de lo que sugieren sus márgenes si disminuyen los registros o renovaciones, si las condiciones contractuales limitan el crecimiento de ingresos o si cambios regulatorios afectan precios o continuidad del negocio. La concentración en .com y .net amplifica la exposición a estos factores.
+Una valoración que dependa de aceleración de ingresos o FCF podría sobrestimar la oportunidad: la evidencia disponible no demuestra que esas tasas vayan a acelerarse. Además, la economía del negocio podría verse afectada por cambios en las condiciones de renovación o precios permitidos para sus dominios principales.
 
 ### Triggers de falsación
 
-- Los ingresos o el FCF dejan de crecer o se contraen persistentemente en períodos comparables.
-- El margen bruto cae de forma sostenida frente al 88.57% TTM terminado el 2026-09-30 reportado por StockAnalysis.
-- Los datos de dominios o renovaciones muestran deterioro que no pueda compensarse con precios u otros factores.
-- Cambios regulatorios o contractuales reducen materialmente la flexibilidad económica del registro.
+- Descenso sostenido de ingresos o FCF en períodos comparables posteriores.
+- Deterioro material de renovaciones, registros o precios que afecte la economía de .com y .net.
+- Evidencia de que las condiciones regulatorias o contractuales reducen de forma sustancial la rentabilidad del negocio.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
+| Catalizador o evento | Fecha esperada | Impacto potencial | Qué observar |
 |---|---|---|---|
-| Evolución de ingresos y FCF en nuevos períodos reportados | Próximas publicaciones financieras; fecha no proporcionada | Confirmaría o debilitaría la tendencia de crecimiento y generación de caja | DDD propone estos datos como elemento para reevaluar la tesis; no se aporta calendario |
-| Datos sobre dominios .com y .net, renovaciones e ingresos por dominio | Sin fecha especificada | Permitirían estimar los drivers orgánicos de ingresos y la resiliencia de la base registrada | AOIF los identifica como puntos clave de monitoreo |
-| Información sobre precios, renovaciones y términos contractuales | Sin fecha especificada | Ayudaría a evaluar crecimiento potencial, límites contractuales y exposición regulatoria | Pregunta abierta en DDD |
-| Evolución de márgenes y deuda neta | Próximos períodos comparables; fecha no proporcionada | Permitiría comprobar la sostenibilidad de los márgenes y la trayectoria del apalancamiento | DDD y AOIF señalan que faltan series y contexto suficientes |
+| Próximos resultados financieros comparables | No especificada | Podrían confirmar o refutar la continuidad del crecimiento de ingresos y FCF | Ingresos, márgenes, FCF, capex y deuda |
+| Evolución de registros y renovaciones | No especificada | Determinaría la solidez de la demanda recurrente | Volumen de dominios, renovaciones y cancelaciones |
+| Revisiones de tarifas y condiciones contractuales o regulatorias de .com y .net | Fechas no especificadas | Podrían modificar ingresos, precios permitidos y economía de los servicios principales | Términos vigentes, fechas de revisión y decisiones regulatorias |
+| Continuidad operativa y resiliencia técnica | Continua; no se aporta fecha de evento | La ausencia de incidentes respaldaría la confianza en la infraestructura; una interrupción material podría dañarla | Disponibilidad, incidentes y respuesta operativa |
 
-No se proporcionaron fechas de eventos corporativos concretos. Por ello, no se asignan fechas estimadas ni impactos cuantitativos.
+El material disponible no identifica eventos fechados concretos. Los catalizadores anteriores son áreas de seguimiento, no anuncios de eventos programados.
 
 ## 8. Marco de Valoración
 
-La valoración no puede determinarse rigurosamente con la información disponible. AOIF reporta **P/E de 33.34x** y **EV/EBITDA de 24.53x**, pero no especifica la fecha de referencia ni aporta los datos necesarios para reproducir esos múltiplos. Tampoco proporciona una estimación cuantitativa de valor intrínseco; califica provisionalmente el margen de seguridad como insuficiente.
+No hay información suficiente para estimar el valor intrínseco con rigor. AOIF señala que faltan precio y fecha de referencia, FCF normalizado, deuda neta, acciones diluidas y supuestos de crecimiento y descuento. También califica el margen de seguridad como insuficiente.
 
-### Metodología apropiada para una evaluación posterior
+Como referencias suministradas, AOIF reporta un PER de 33,04x y un EV/EBITDA de 23,93x, pero advierte que no se especifica una fecha que permita verificar si corresponden a la cotización actual. Deben tratarse como datos no verificados temporalmente, no como una valoración actual.
 
-Un marco basado en flujo de caja libre descontado podría ser adecuado una vez recopilados:
+DDD registra una cotización de **USD 307,21 al 2026-10-30** y un consenso de precio objetivo de **USD 339,60**, con rango de **USD 290–380**, observado al **2026-11-21**. Esas cifras describen precio y expectativas de analistas; no constituyen una estimación del valor intrínseco.
 
-1. FCF histórico y normalizado, además de conciliación con flujo de caja operativo.
-2. Proyecciones de registros, renovaciones e ingresos por dominio.
-3. Supuestos explícitos sobre precios y términos contractuales.
-4. Inversión necesaria para mantener la infraestructura.
-5. Deuda neta, vencimientos y coste de financiación.
-6. Una tasa de descuento y supuestos de crecimiento terminal justificados.
+### Enfoque adecuado y supuestos por validar
 
-Como contraste, se podrían utilizar múltiplos de caja y beneficios con períodos y definiciones comparables. No deben inferirse valores objetivo a partir del consenso de analistas sin un modelo propio.
+Una valoración basada en flujo de caja descontado podría ser apropiada para un negocio con renovaciones recurrentes, pero debería construirse con datos consistentes y verificables. Para ello se necesitan:
 
-### Sensibilidad y referencias de mercado disponibles
+- FCF normalizado y su conversión desde beneficios.
+- Deuda neta, vencimientos y acciones diluidas.
+- Evolución de registros, renovaciones, precios y cancelaciones.
+- Supuestos explícitos de crecimiento, márgenes, capex y tasa de descuento.
+- Sensibilidad a cambios en crecimiento de dominios, renovaciones y tarifas permitidas.
 
-DDD informa que el precio observado fue **USD 307.21 al 2026-10-30**, que la cotización había subido **28.11%** en los 12 meses terminados en esa fecha y que el consenso recopilado al **2026-11-20** era **USD 339.60**, con rango de **USD 290–380**. Estos datos son referencias observadas, no una valoración intrínseca. Sin supuestos operativos y financieros completos, no es posible realizar un análisis de sensibilidad cuantitativo ni validar un error de valoración.
+Sin esos inputs no es posible presentar un rango de valor ni un análisis de sensibilidad cuantitativo responsable.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuántos dominios están registrados en .com y .net, y cómo han evolucionado por período y geografía?
-2. ¿Cuál es la penetración de mercado y qué parte del crecimiento proviene de nuevas altas, renovaciones o cambios de precio?
-3. ¿Cuáles son las tasas de renovación y cómo han variado?
-4. ¿Qué reglas, contratos y calendarios rigen precios, renovaciones y servicios de registro?
-5. ¿Cuál es la concentración de ingresos y beneficios por extensión de dominio y por geografía?
-6. ¿Cuál ha sido la trayectoria histórica de FCF, flujo operativo y conversión de beneficios en caja?
-7. ¿Cuál es el ROIC y cómo se compara con el coste de capital?
-8. ¿Cuáles son los vencimientos, tipos de interés y demás condiciones de la deuda? ¿Qué explica el aumento de la deuda neta?
-9. ¿Qué explica el current ratio de 0.42x y cómo se relaciona con el ciclo de cobros, pagos y vencimientos?
-10. ¿Cómo han evolucionado el número de acciones y la compensación basada en acciones?
-11. ¿Qué datos verificables respaldan las evaluaciones de AOIF sobre liderazgo, asignación de capital, alineamiento de insiders y calidad del board?
-12. ¿Qué supuestos y fecha de referencia sustentan los múltiplos de 33.34x P/E y 24.53x EV/EBITDA?
-13. ¿Qué cambios regulatorios o contractuales podrían afectar precios, condiciones de servicio o continuidad de las concesiones?
+1. ¿Cómo evolucionan los registros nuevos, las renovaciones, las cancelaciones y la participación por dominio?
+2. ¿Qué proporción de los ingresos y del FCF corresponde a .com, .net y los otros servicios?
+3. ¿Cuáles son los términos contractuales y regulatorios vigentes para .com y .net, y cuándo se revisan?
+4. ¿Qué cambios de tarifas están permitidos y bajo qué condiciones?
+5. ¿Cuál es la serie comparable de ingresos, márgenes, FCF y capex, con períodos y fuentes claramente identificados?
+6. ¿Cuál es el ROIC y cómo se relaciona con la rentabilidad reportada?
+7. ¿Cuál es la composición de la deuda y de los pasivos corrientes, y cuándo vencen?
+8. ¿Cómo se define la cobertura de intereses reportada como 0x y cuáles son sus inputs?
+9. ¿Qué proporción del FCF se destina a inversión, reducción de deuda, recompras o dividendos?
+10. ¿Qué datos actuales sobre remuneración, ownership de insiders y composición del board sustentan las evaluaciones de management?
+11. ¿Qué supuestos de crecimiento y valoración incorporan las expectativas del mercado y cómo se comparan con la trayectoria operativa posterior?
 
-**Agenda prioritaria:** obtener series financieras comparables; validar FCF, ROIC y deuda; recopilar datos de dominios, renovaciones e ingresos por dominio; y revisar los acuerdos y reglas que determinan precios y condiciones de servicio.
+**Referencias del material suministrado:** DDD y AOIF. Entre las fuentes citadas por DDD para métricas financieras figura [StockAnalysis — VRSN Financials](https://stockanalysis.com/stocks/vrsn/financials/); los cálculos de crecimiento a tres años de ingresos y de crecimiento de FCF fueron marcados como no disponibles por falta de referencias explícitas a sus inputs.
 
 ---
 

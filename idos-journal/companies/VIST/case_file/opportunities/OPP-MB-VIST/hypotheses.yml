@@ -1,162 +1,195 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La producción promedio diaria de 2027 aumenta menos del 15% frente
-      a 2026.
+  - condition: La producción media de los cuatro trimestres terminados el 2027-09-30
+      aumenta menos del 15% frente al período base.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía no publica datos comparables que permitan calcular la variación
-      de producción.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La producción promedio diaria de 2027 es igual o inferior a la de 2026.
+  - condition: La empresa informa una reducción interanual de producción durante dos
+      trimestres consecutivos antes del 2027-09-30.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La producción promedio diaria de 2027 aumenta menos del 15% frente a 2026.
-  - La compañía no publica datos comparables que permitan calcular la variación de
-    producción.
-  - La producción promedio diaria de 2027 es igual o inferior a la de 2026.
+  - La producción media de los cuatro trimestres terminados el 2027-09-30 aumenta
+    menos del 15% frente al período base.
+  - La empresa informa una reducción interanual de producción durante dos trimestres
+    consecutivos antes del 2027-09-30.
   horizon: medio
   id: H1-OPP-MB-VIST
   opportunity_id: OPP-MB-VIST
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
+    deadline: '2027-11-21'
     expected: 15.0
     met: null
-    metric: Crecimiento interanual de la producción promedio diaria de hidrocarburos
-    prediction: En los resultados anuales de 2027, la producción promedio diaria de
-      hidrocarburos será al menos un 15% mayor que el promedio anual de 2026, medida
-      en boe/d y con la misma metodología de reporte.
-    unit: '%'
+    metric: Crecimiento de la producción media diaria de hidrocarburos
+    prediction: La producción media diaria de hidrocarburos en los cuatro trimestres
+      que terminen el 2027-09-30 será al menos un 15% superior a la media de los cuatro
+      trimestres más recientes disponibles al 2026-11-21.
+    unit: porcentaje frente a la media de los cuatro trimestres más recientes disponibles
+      al 2026-11-21
   priority: critical
   probability: 0.5
-  rationale: La tesis de inversión plantea que la reinversión puede sostener el crecimiento
-    de la producción y los ingresos. Sin embargo, la información suministrada no incluye
-    cifras de producción, planes de inversión ni capacidad disponible; por ello, esta
-    hipótesis requiere verificación con datos futuros.
-  review_trigger: Dejar de creerla si los datos publicados para los primeros tres
-    trimestres de 2027 muestran que la producción acumulada promedio crece menos del
-    10% frente al mismo período de 2026, salvo que la compañía documente una interrupción
-    temporal y cuantifique su reversión antes del cierre de 2027.
+  rationale: La inversión en desarrollo de activos no convencionales puede aumentar
+    la capacidad productiva y compensar la declinación natural de los pozos existentes.
+    La tesis depende de que la empresa ejecute sus planes de perforación y conexión
+    sin interrupciones operativas relevantes.
+  review_trigger: Dejar de creerla si, antes del 2027-06-30, Vista reduce formalmente
+    su objetivo de producción o comunica una demora de más de seis meses en proyectos
+    necesarios para alcanzarlo.
   secondary_hypotheses: []
-  statement: Vista aumentará su producción promedio anual de hidrocarburos en 2027
-    frente a 2026, apoyada por la reinversión en sus activos de Vaca Muerta.
+  statement: La expansión de Vista Energy en Vaca Muerta elevará su producción media
+    de hidrocarburos durante los próximos doce meses.
   status: ACTIVE
   ticker: VIST
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El flujo de caja libre acumulado de 2027 es cero o negativo según la
-      definición indicada.
+  - condition: El flujo de caja libre acumulado en los cuatro trimestres terminados
+      el 2027-09-30 es inferior a 100 millones de dólares.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía no publica flujo de caja operativo e inversiones de capital
-      que permitan calcular esa métrica.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El resultado positivo depende de excluir pagos de inversión que la
-      compañía clasifica como capex en otros períodos o segmentos.
+  - condition: La suma de flujo de caja operativo menos inversiones de capital es
+      negativa en dos trimestres consecutivos antes del 2027-09-30.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El flujo de caja libre acumulado de 2027 es cero o negativo según la definición
-    indicada.
-  - La compañía no publica flujo de caja operativo e inversiones de capital que permitan
-    calcular esa métrica.
-  - El resultado positivo depende de excluir pagos de inversión que la compañía clasifica
-    como capex en otros períodos o segmentos.
+  - El flujo de caja libre acumulado en los cuatro trimestres terminados el 2027-09-30
+    es inferior a 100 millones de dólares.
+  - La suma de flujo de caja operativo menos inversiones de capital es negativa en
+    dos trimestres consecutivos antes del 2027-09-30.
   horizon: medio
   id: H2-OPP-MB-VIST
   opportunity_id: OPP-MB-VIST
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 0.0
+    deadline: '2027-11-21'
+    expected: 100.0
     met: null
-    metric: Flujo de caja libre acumulado en 2027
-    prediction: El flujo de caja libre acumulado de los cuatro trimestres de 2027
-      será positivo, calculado como flujo de caja operativo menos inversiones de capital,
-      en la moneda de reporte de la compañía.
-    unit: mayor que cero, en moneda de reporte
+    metric: Flujo de caja libre acumulado en cuatro trimestres
+    prediction: El flujo de caja libre acumulado —flujo de caja operativo menos inversiones
+      de capital— será de al menos 100 millones de dólares en los cuatro trimestres
+      terminados el 2027-09-30.
+    unit: millones de dólares
   priority: critical
   probability: 0.5
-  rationale: La tesis señala que se ha observado generación de FCF y propone que puede
-    sostenerse mediante reinversión. La evidencia suministrada no proporciona importes,
-    definición de FCF, precios realizados ni capex futuros; la continuidad de la generación
-    de caja es, por tanto, una hipótesis por contrastar, no un hecho confirmado.
-  review_trigger: Dejar de creerla si los estados financieros de los primeros nueve
-    meses de 2027 muestran FCF acumulado negativo y la compañía no presenta una explicación
-    cuantificada que permita esperar FCF anual positivo.
+  rationale: Una producción creciente y márgenes operativos elevados pueden sostener
+    la generación de caja, aunque el resultado dependerá de los precios realizados
+    del crudo, los costos y el ritmo de inversión. La hipótesis evalúa si el crecimiento
+    puede financiarse sin consumir caja de forma persistente.
+  review_trigger: Dejar de creerla si Vista comunica antes del 2027-06-30 que su inversión
+    prevista superará de forma sustancial la caja operativa esperada y que no prevé
+    financiar la diferencia con deuda o capital adicional.
   secondary_hypotheses:
   - H1-OPP-MB-VIST
-  statement: Vista mantendrá generación positiva de flujo de caja libre durante 2027,
-    incluso mientras financia su programa de inversión.
+  statement: Vista mantendrá generación positiva de flujo de caja libre después de
+    inversiones durante el próximo período de doce meses.
   status: ACTIVE
   ticker: VIST
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de VIST supera al de XOP en menos de 5 puntos
-      porcentuales durante el período definido.
+  - condition: El cociente de deuda neta sobre EBITDA ajustado supera 1,5 veces en
+      la información más reciente disponible al 2027-11-21.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: VIST obtiene un rendimiento total igual o inferior al de XOP.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: No es posible calcular rendimientos comparables por falta de datos
-      de precios o distribuciones.
+  - condition: El cociente aumenta respecto del dato más reciente disponible al 2026-11-21
+      en dos reportes trimestrales consecutivos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de VIST supera al de XOP en menos de 5 puntos porcentuales
-    durante el período definido.
-  - VIST obtiene un rendimiento total igual o inferior al de XOP.
-  - No es posible calcular rendimientos comparables por falta de datos de precios
-    o distribuciones.
+  - El cociente de deuda neta sobre EBITDA ajustado supera 1,5 veces en la información
+    más reciente disponible al 2027-11-21.
+  - El cociente aumenta respecto del dato más reciente disponible al 2026-11-21 en
+    dos reportes trimestrales consecutivos.
   horizon: medio
   id: H3-OPP-MB-VIST
   opportunity_id: OPP-MB-VIST
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-19'
-    expected: 5.0
+    deadline: '2027-11-21'
+    expected: 1.5
     met: null
-    metric: Rendimiento total de VIST menos rendimiento total de XOP
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, el rendimiento
-      total de VIST, incluidos dividendos, superará en al menos 5 puntos porcentuales
-      al rendimiento total del ETF SPDR S&P Oil & Gas Exploration & Production (XOP),
-      calculado en dólares estadounidenses.
-    unit: puntos porcentuales
+    metric: Deuda neta / EBITDA ajustado de los últimos doce meses
+    prediction: La deuda neta dividida por el EBITDA ajustado de los últimos doce
+      meses, según las definiciones divulgadas por Vista, será igual o inferior a
+      1,5 veces en la información más reciente disponible al 2027-11-21.
+    unit: veces o menos
   priority: important
   probability: 0.5
-  rationale: Si el crecimiento operativo y la generación de FCF se sostienen, podrían
-    favorecer la percepción del mercado sobre la capacidad de crecimiento de Vista.
-    No se suministran una valoración actual, estimaciones futuras ni evidencia suficiente
-    para afirmar que la acción esté infravalorada; por eso, esta hipótesis evalúa
-    un resultado relativo de mercado y no presupone un valor intrínseco.
-  review_trigger: Dejar de creerla si, al cierre del 2027-06-30, VIST acumula un rendimiento
-    total inferior al de XOP por 10 puntos porcentuales o más y los reportes disponibles
-    no muestran una mejora verificable en producción o FCF.
+  rationale: Si la producción y la caja crecen mientras la empresa disciplina sus
+    inversiones, el EBITDA puede aumentar más rápido que la deuda neta. La tesis es
+    sensible a precios de energía, gastos de capital, adquisiciones y movimientos
+    cambiarios.
+  review_trigger: Dejar de creerla si la empresa anuncia una adquisición financiada
+    principalmente con deuda o un aumento material de endeudamiento antes del 2027-06-30
+    que haga improbable alcanzar 1,5 veces.
   secondary_hypotheses:
   - H1-OPP-MB-VIST
   - H2-OPP-MB-VIST
-  statement: La acción de Vista Energy tendrá un rendimiento total superior al de
-    un referente del sector de exploración y producción de petróleo y gas durante
-    los próximos doce meses.
+  statement: Vista reducirá su apalancamiento neto reportado durante los próximos
+    doce meses, limitando el riesgo de que la deuda absorba una parte creciente de
+    la caja generada.
+  status: ACTIVE
+  ticker: VIST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El Brent promedia más de 65 dólares por barril en el período definido,
+      pero VIST no supera al S&P 500 por al menos 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de VIST es inferior al del S&P 500 durante el
+      período, aunque el Brent cumpla la condición de precio.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El Brent promedia más de 65 dólares por barril en el período definido, pero VIST
+    no supera al S&P 500 por al menos 10 puntos porcentuales.
+  - El rendimiento total de VIST es inferior al del S&P 500 durante el período, aunque
+    el Brent cumpla la condición de precio.
+  horizon: medio
+  id: H4-OPP-MB-VIST
+  opportunity_id: OPP-MB-VIST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total de VIST menos rendimiento total del S&P 500, condicionado
+      a Brent promedio superior a 65 dólares por barril
+    prediction: Si el Brent promedia más de 65 dólares por barril entre el 2026-11-21
+      y el 2027-11-21, el rendimiento total de VIST en dólares, incluidos dividendos,
+      superará en al menos 10 puntos porcentuales el rendimiento total del S&P 500
+      en el mismo período.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Una combinación de producción creciente y precios de crudo sostenidos
+    puede elevar los ingresos y la caja de Vista, favoreciendo una revisión al alza
+    de las expectativas y de la valoración. El desempeño relativo también dependerá
+    del riesgo país, el tipo de cambio, la percepción de riesgo y la valoración inicial.
+  review_trigger: Dejar de creerla si, antes del 2027-06-30, Vista reduce su objetivo
+    de producción, registra una interrupción operativa material o comunica un deterioro
+    de caja que no pueda atribuirse únicamente a una caída temporal del Brent.
+  secondary_hypotheses:
+  - H1-OPP-MB-VIST
+  - H2-OPP-MB-VIST
+  statement: Si el precio promedio del Brent se mantiene por encima de 65 dólares
+    por barril, las acciones de Vista superarán al índice S&P 500 durante los doce
+    meses posteriores al corte.
   status: ACTIVE
   ticker: VIST
   version: 1
