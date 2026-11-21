@@ -1,39 +1,31 @@
 {
-  "total": 3,
+  "total": 2,
   "processed": [
     {
-      "opp_id": "OPP-MB-TXN",
-      "ticker": "TXN",
+      "opp_id": "OPP-MB-VIST",
+      "ticker": "VIST",
       "status": "completed",
-      "score": 56,
+      "score": 75,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-UGP",
-      "ticker": "UGP",
+      "opp_id": "OPP-MB-VRSN",
+      "ticker": "VRSN",
       "status": "quality_failed",
-      "score": 58,
+      "score": 72,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
-    },
-    {
-      "opp_id": "OPP-MB-UNP",
-      "ticker": "UNP",
-      "status": "completed",
-      "score": 58,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "UGP",
-      "opp_id": "OPP-MB-UGP",
+      "ticker": "VRSN",
+      "opp_id": "OPP-MB-VRSN",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -42,7 +34,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 32,
+  "deferred_count": 31,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",
