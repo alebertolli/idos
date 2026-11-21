@@ -1,0 +1,31 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; la evidencia disponible no permite validar
+  una tesis de crecimiento multibagger.'
+- 'Market error: No validable con la evidencia disponible.'
+- 'Thesis: Merck presenta crecimiento de ingresos entre FY 2022 y FY 2025 y FCF positivo
+  reportado en TTM a 2026-09-30; sin embargo, la evidencia disponible no establece
+  la sostenibilidad de ese crecimiento, la '
+generated_at: '2026-11-21T16:54:35.780438-03:00'
+id: ass-7bcb4b2a
+recommendation: REVIEW
+risks:
+- detalle: La deuda total reportada alcanza 53.903 en unidades del proveedor al 2026-09-30;
+    el dato de cobertura de intereses aparece como 0 y no permite validar una cobertura
+    EBIT/intereses.
+  riesgo: Carga financiera y costo de intereses
+- detalle: El ingreso neto TTM reportado es 2.453 al 2026-09-30 frente a 18.254 en
+    FY 2025; se requiere reconciliar períodos y partidas antes de atribuir causa o
+    persistencia.
+  riesgo: Variabilidad del beneficio
+- detalle: El paquete no aporta datos de ventas por producto, exclusividad, competencia,
+    precios o cuota de mercado; la exposición y erosión no pueden cuantificarse.
+  riesgo: Erosión competitiva y concentración
+- detalle: Las observaciones financieras proceden de StockAnalysis y varias series
+    combinan TTM y años fiscales; algunas unidades del proveedor no están especificadas
+    de forma comparable.
+  riesgo: Calidad y compatibilidad de datos
+score: 55
+status: COMPLETED
+version: '3.0'

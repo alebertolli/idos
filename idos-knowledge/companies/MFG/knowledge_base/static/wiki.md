@@ -1,118 +1,119 @@
 ## 1. Visión General de la Compañía
 
-Mizuho Financial Group, Inc. (MFG) es un grupo financiero japonés diversificado. Sus actividades incluyen banca, banca fiduciaria, valores y otros servicios financieros. Atiende principalmente a empresas, grandes corporaciones, instituciones financieras e inversores institucionales.
+Mizuho Financial Group, Inc. (MFG) es un grupo financiero universal japonés. Sus actividades abarcan banca, banca fiduciaria, valores y otros servicios financieros en Japón y mercados internacionales. Atiende a empresas japonesas e internacionales —incluidas grandes corporaciones y clientes de financiación especializada—, así como a gobiernos y entidades públicas.
 
-Su modelo combina intermediación bancaria con servicios de mercados de capitales, gestión de activos, banca fiduciaria y servicios institucionales. La información disponible describe una franquicia relevante en Japón y actividades que también comprenden financiación y asesoría para mercados de deuda, préstamos y capital.
+El grupo obtiene ingresos principalmente mediante intermediación bancaria, comisiones y asesoramiento, y servicios relacionados con los mercados financieros. La información disponible describe el negocio y sus principales actividades, pero no incluye datos suficientes para evaluar de forma integral su rentabilidad, capitalización o valoración.
 
-Entre las compañías del mismo sector o con actividades financieras relacionadas figuran [[C]], [[HSBC]], [[JPM]], [[ING]] y [[IBN]].
+La compañía pertenece al sector financiero y comparte exposiciones a tipos de interés, riesgo de crédito y regulación con entidades como [[C]], [[HSBC]], [[JPM]], [[ING]] y [[KB]]. La lista de compañías del mismo sector de la wiki existente incluye también [[AEG]], [[AIG]], [[AXP]], [[BSBR]], [[BX]], [[IBN]], [[ITUB]], [[LYG]] y [[MA]]; la relevancia competitiva de cada una frente a Mizuho no está establecida por la evidencia disponible.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-**Fuentes de ingresos y cadena de valor:** Mizuho obtiene depósitos y financiación en los mercados, evalúa riesgos y asigna capital a préstamos e inversiones; también ofrece financiación, cobertura, asesoría y servicios de ejecución. Entre los productos identificados están los préstamos corporativos, sindicados, de adquisición, inmobiliarios, de proyectos y de financiación estructurada.
+Mizuho obtiene depósitos y otras fuentes de financiación y asigna capital a préstamos, inversiones y operaciones. Sus productos incluyen préstamos corporativos, sindicados, de adquisición, inmobiliarios, de proyectos y financiación estructurada, además de financiación y asesoramiento para mercados de deuda, préstamos y capital. [[AOIF]]
 
-**Posición competitiva:** el análisis disponible clasifica su posición como líder, pero no aporta métricas comparables que permitan verificar esa clasificación. La franquicia bancaria en Japón, las relaciones de largo plazo con empresas y la amplitud de productos podrían favorecer la escala, la confianza y la distribución. El mismo análisis califica el moat como estrecho: esas ventajas no bastan, por sí solas, para demostrar una ventaja competitiva duradera.
+**Principales drivers de ingresos identificados:**
 
-**Dinámica de la industria:** la banca japonesa está expuesta a los tipos de interés y las curvas de rendimiento, la demanda de crédito, la competencia de bancos nacionales y extranjeros, la digitalización y los requisitos regulatorios. Estos factores también son relevantes para bancos globales como [[HSBC]], [[JPM]] y [[C]].
+- Volumen de préstamos y depósitos.
+- Diferencial entre el rendimiento de los activos y el coste de financiación.
+- Tipos de interés en Japón y en los mercados internacionales.
+- Comisiones y asesoramiento vinculados a la actividad bancaria y de mercados.
+
+**Posición competitiva y moat:** el análisis de investigación clasifica a Mizuho como líder, con un moat estrecho. Las ventajas potenciales señaladas son su escala en Japón y las relaciones corporativas de larga duración. No se proporcionan métricas de cuota de mercado, rentabilidad ajustada al riesgo ni evidencia comparativa que permita verificar estas valoraciones. [[AOIF]]
+
+La banca está expuesta a cambios de tipos de interés, demanda de crédito, regulación prudencial y competencia de otros bancos. Entre los riesgos comparables para instituciones financieras se encuentran los que afrontan [[C]], [[HSBC]], [[JPM]], [[ING]] y [[LYG]], aunque la magnitud relativa de cada exposición no está documentada aquí.
 
 ## 3. Perfil Financiero
 
-La información proporcionada no incluye cifras completas ni series comparables de ingresos, beneficios, capital regulatorio o rentabilidad. Por ello, no es posible calcular tendencias o ratios adicionales con fiabilidad.
+La evidencia suministrada no permite establecer una serie financiera plenamente comparable: faltan unidades monetarias explícitas para varias cifras y referencias verificables para algunos cálculos. El paquete DDD indica que ingresos y beneficio neto reportados aumentan entre FY 2023 y FY 2026, pero no proporciona en este contexto los valores ni las unidades correspondientes. Por ello, no se calcula crecimiento compuesto ni se presentan importes no verificables. [[DDD]]
 
-| Métrica o tema | Dato disponible | Lectura y limitaciones |
-|---|---:|---|
-| Ingresos y beneficio neto | Se reporta crecimiento histórico, sin importes ni períodos comparables detallados | Justifica investigar su persistencia, pero no demuestra una ventaja competitiva ni retornos atractivos sobre capital. |
-| Flujo de caja libre (FCF) | Negativo en FY 2025 y FY 2026 | Reportado por [StockAnalysis](https://stockanalysis.com/stocks/mfg/financials/). No se dispone de una explicación de sus componentes ni de comparabilidad con el dato TTM. En una entidad bancaria, el FCF convencional es menos informativo que en una empresa industrial. |
-| Crecimiento del FCF | No disponible | No calculado: ambos valores reportados son negativos y la fórmula configurada requiere valores positivos y comparables. |
-| PER | 12,17x | Valor incluido en el análisis AOIF; no se proporcionan fecha ni fuente para verificarlo. |
-| Capital regulatorio, calidad de activos y provisiones | Sin datos en los inputs | Impide evaluar solvencia, pérdidas potenciales y capacidad de absorción de riesgos. |
-| Current ratio | El proveedor reporta 0 al 2026-09-30 | Dato no validado como ratio utilizable; no se aportan activos y pasivos corrientes para comprobarlo. Fuente: [StockAnalysis](https://stockanalysis.com/stocks/MFG/statistics/). |
-| Dilución | No evaluable | Falta una serie de acciones diluidas o en circulación que permita comparar períodos. |
+| Métrica o aspecto | Evidencia disponible | Limitación |
+|---|---|---|
+| Ingresos | Se informa de una tendencia ascendente entre FY 2023 y FY 2026. | No se incluyen valores, unidades ni desglose por segmento. |
+| Beneficio neto | Se informa de una tendencia ascendente entre FY 2023 y FY 2026. | No se incluyen valores, unidades ni datos de beneficio normalizado. |
+| Flujo de caja libre (FCF) | Se reporta positivo en FY 2023 y negativo en FY 2025 y FY 2026. | No se proporcionan importes ni explicación de las diferencias; la interpretación del FCF requiere cautela para una entidad bancaria. |
+| FCF TTM | Se plantea una discrepancia entre cifras históricas y TTM. | No se especifican los valores comparables ni la causa de la diferencia. |
+| Tendencia de ingresos y beneficio | El paquete sugiere crecimiento entre FY 2023 y FY 2026. | No se pudo calcular el CAGR de ingresos por falta de referencias explícitas a los datos de entrada. |
+| Crecimiento del FCF | No disponible. | Los períodos recientes reportados son negativos y no cumplen la condición de cálculo indicada. |
+| Current ratio | Reportado como 0 para TTM terminado el 2026-09-30. | No se valida si esta métrica es interpretable para un banco; no debe tratarse como indicador concluyente de liquidez. |
+| Dilución interanual | No disponible. | Falta una serie comparable de acciones diluidas o acciones en circulación. |
+| Capital y estructura financiera | No hay datos suficientes. | No se aportan métricas de capital regulatorio, apalancamiento o financiación. |
+| Márgenes y retornos | No evaluables con la información suministrada. | Faltan métricas como margen de intereses, ROE, ROA y sus series históricas. |
 
-No se puede concluir que el FCF negativo refleje deterioro operativo: podría responder a factores propios de la actividad financiera u otras causas, pero estas explicaciones no están verificadas en la información disponible.
+**Lectura financiera:** la combinación reportada de beneficio neto positivo con FCF negativo en períodos recientes requiere investigación, pero no permite por sí sola concluir que exista deterioro económico: en una entidad financiera, la definición y utilidad del FCF pueden diferir de las de una empresa no financiera. [[DDD]] [[AOIF]]
 
 ## 4. Management y Gobierno Corporativo
 
-El análisis AOIF califica la calidad del management como **buena**, la asignación de capital como **neutral** y el alineamiento de insiders como **débil**. No se incluyen nombres, criterios, datos de propiedad accionarial, incentivos, composición del consejo ni información sobre su independencia.
+La evaluación disponible califica la calidad de la gestión como regular, la asignación de capital como neutral y el alineamiento de insiders como débil. Estas valoraciones se consideran preliminares: el material no incluye resultados de gestión, objetivos de rentabilidad, detalles de remuneración, operaciones de insiders ni evidencia suficiente para verificar la asignación de capital. [[AOIF]]
 
-Estas valoraciones deben tratarse como evaluaciones del análisis recibido, no como hechos comprobados mediante fuentes primarias. No hay información suficiente para analizar la estructura del board o la evolución de la remuneración ejecutiva.
+No se proporcionan datos sobre composición, independencia, experiencia o diversidad del consejo de administración. Tampoco hay información que permita evaluar la estructura de incentivos, el historial de cumplimiento de objetivos o la propiedad accionarial de directivos e insiders.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista — hipótesis por validar
+**Caso alcista provisional:** Mizuho combina banca, banca fiduciaria, valores y otros servicios financieros en varios mercados. La amplitud de productos y su base de clientes corporativos e institucionales podrían respaldar diversas fuentes de ingresos, mientras que las relaciones corporativas de larga duración y la escala en Japón son ventajas potenciales. [[AOIF]]
 
-- Mizuho ofrece una combinación de banca corporativa, mercados, servicios fiduciarios y gestión de activos, con una franquicia relevante en Japón.
-- El paquete de investigación señala crecimiento histórico de ingresos y beneficio neto, aunque no presenta importes ni períodos comparables. Si ese crecimiento persiste, podría respaldar la tesis de expansión del negocio.
-- Las relaciones de largo plazo con empresas y la amplitud de productos podrían contribuir a la distribución y retención de clientes. La magnitud y durabilidad de esa ventaja no están demostradas.
+El paquete DDD reporta crecimiento de ingresos y beneficio neto entre FY 2023 y FY 2026. Si esa tendencia se confirma con estados financieros comparables y se acompaña de rentabilidad sostenible, capital adecuado y calidad crediticia estable, podría respaldar la continuidad del crecimiento. La evidencia disponible, sin embargo, no permite verificar la composición del crecimiento, sus márgenes ni su impacto sobre los retornos. [[DDD]]
 
-### Evidencia de mercado disponible
-
-La cotización observada fue de **USD 9,66 al 2026-10-30**. El 2026-11-20 se informó un precio objetivo medio de analistas de **USD 11,64**, con un rango de **USD 10,20–13,07**. Estos valores son referencias observadas, no una estimación de valor intrínseco ni prueba de infravaloración. El análisis DDD reporta un avance del precio de **43,5364 %** entre 2025-10-31 y 2026-10-30.
-
-La conclusión disponible es que **no hay evidencia suficiente para afirmar que exista un error de valoración**.
+**Estado de la tesis:** investigación fundamental pendiente. La puntuación general de 43 incluida en DDD no viene acompañada de una metodología verificable en el material suministrado y no se interpreta como recomendación de inversión. La decisión se mantiene pendiente de evaluación adicional. [[DDD]] [[AOIF]]
 
 ## 6. Riesgos y Contra-Tesis
 
-### Caso bajista
+**Riesgos identificados:**
 
-El crecimiento histórico reportado podría no persistir, y la información disponible no permite establecer si el negocio genera retornos atractivos sobre el capital. El FCF negativo en FY 2025 y FY 2026 constituye una señal para investigar, aunque su interpretación en un grupo bancario requiere analizar sus componentes y métricas más apropiadas.
+- **Tipos de interés:** cambios en los tipos pueden afectar el margen de intermediación, el valor de activos y pasivos y el comportamiento de clientes. El análisis asigna impacto alto y probabilidad media a este riesgo. [[AOIF]]
+- **Calidad crediticia:** un deterioro en carteras corporativas, inmobiliarias o de financiación estructurada podría afectar los resultados. El análisis asigna impacto alto y probabilidad media. [[AOIF]]
+- **Calidad y comparabilidad de datos:** faltan unidades monetarias explícitas para varias series y datos suficientes para validar tendencias, márgenes, retornos y estructura de capital. [[DDD]]
+- **FCF negativo reportado:** el FCF pasa de positivo en FY 2023 a negativo en FY 2025 y FY 2026. Se necesita conocer la definición utilizada y las causas; para un banco, la lectura de esta métrica requiere cautela. [[DDD]] [[AOIF]]
+- **Competencia y regulación:** la banca está expuesta a competencia de otros bancos y a requisitos prudenciales. El material no cuantifica la posición de Mizuho frente a sus pares. [[AOIF]]
+- **Valoración no establecida:** no se proporcionan los datos necesarios para calcular una estimación intrínseca o un margen de seguridad. [[AOIF]]
 
-### Riesgos identificados
+**Contra-tesis:** el crecimiento reportado puede no traducirse en mejoras sostenibles de rentabilidad o creación de valor. Además, las referencias a objetivos de analistas no validan un error de valoración: no se indica el horizonte de esos objetivos ni se ofrece una estimación intrínseca. El paquete cita una cotización de USD 9,66 al 2026-10-30 y un objetivo medio observado de USD 11,64, con rango no detallado aquí; son referencias observadas, no una conclusión de valor razonable. [[DDD]]
 
-| Riesgo | Evaluación disponible |
-|---|---|
-| Calidad crediticia | Riesgo financiero de impacto alto y probabilidad media: un deterioro podría elevar las pérdidas en préstamos corporativos o internacionales. |
-| Tipos de interés y valoración de activos | Riesgo macroeconómico de impacto alto y probabilidad media: cambios bruscos en los tipos o las curvas de rendimiento podrían afectar los resultados y las valoraciones. |
-| FCF negativo | No se conoce su causa ni si los períodos reportados son comparables con la cifra TTM. |
-| Capital y métricas incompletas | No se pueden validar deuda neta/EBITDA, cobertura de intereses, dilución ni capital regulatorio con los datos aportados. |
-| Calidad de activos y provisiones | Faltan series de préstamos morosos, provisiones, concentraciones crediticias y exposición internacional. |
+**Falsadores propuestos:**
 
-### Triggers de falsación de la tesis
-
-- Los ingresos o el beneficio neto dejan de crecer frente a períodos comparables.
-- El FCF continúa siendo negativo en períodos comparables sin evidencia de mejora.
-- La revisión de calidad de activos y provisiones muestra un deterioro que contradice la hipótesis de crecimiento sostenible.
+- La tesis de crecimiento se debilitaría si futuras series comparables mostraran una reversión sostenida de ingresos o beneficios.
+- La tesis de reinversión y creación de valor se debilitaría si el FCF siguiera siendo negativo sin una explicación específica y verificable. [[DDD]]
 
 ## 7. Catalizadores y Timeline
 
-No se aportan fechas anunciadas para próximos eventos específicos. Los catalizadores identificados son datos o tendencias que habrá que observar cuando se publiquen.
+| Catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
+|---|---|---|---|
+| Confirmación de la continuidad del crecimiento de ingresos | Sin fecha indicada | Podría respaldar la tesis si se confirma junto con composición, márgenes y rentabilidad. | Hipótesis a validar; basada en la tendencia reportada entre FY 2023 y FY 2026. [[DDD]] |
+| Divulgación comparable de rentabilidad, capital y flujos de caja | Sin fecha indicada | Permitiría evaluar mejor la capacidad de reinversión y la calidad del crecimiento. | Necesidad de investigación; no se identifica un evento o fecha concreta. [[DDD]] |
+| Publicación de estados financieros y métricas bancarias detalladas | Sin fecha indicada | Permitiría analizar margen de intereses, ROE, ROA, capital y calidad crediticia. | Agenda de investigación derivada de la ausencia de datos. [[AOIF]] |
 
-| Catalizador | Fecha esperada | Impacto potencial |
-|---|---|---|
-| Próxima actualización de resultados | No especificada en los inputs | Permitirá comprobar si persiste el crecimiento reportado de ingresos y beneficio neto y evaluar mejor la rentabilidad. |
-| Evolución del FCF | Próximos períodos comparables; fecha no especificada | Permitirá determinar si el FCF negativo de FY 2025 y FY 2026 se revierte o continúa. |
-| Actualizaciones sobre calidad de activos y capital | No especificada | Datos de préstamos morosos, provisiones, concentración crediticia y capital regulatorio ayudarían a evaluar los riesgos financieros. |
+No se proporcionan fechas de resultados, anuncios corporativos ni otros eventos específicos confirmados. Por tanto, los elementos anteriores son necesidades de seguimiento, no catalizadores fechados.
 
 ## 8. Marco de Valoración
 
-El valor intrínseco **no es estimable con la información disponible**: faltan estados financieros recientes, capital regulatorio, estimaciones de beneficios, una fecha y una fuente verificables para las métricas de valoración, y supuestos de valoración explícitos.
+La valoración no puede establecerse con la información disponible. Faltan precio de mercado con fecha de referencia verificable para el análisis, beneficio por acción, patrimonio tangible, beneficio normalizado, métricas de capital y datos financieros suficientes para aplicar una metodología con supuestos fundamentados. [[AOIF]]
 
-Para una entidad bancaria, el análisis debería priorizar métricas y supuestos relacionados con beneficios, rentabilidad sobre el capital y solvencia, junto con la calidad de los activos y las provisiones. El FCF convencional no debe interpretarse aisladamente como si Mizuho fuera una empresa industrial.
+Para una entidad bancaria como Mizuho, el análisis debería priorizar métricas y métodos compatibles con el sector, por ejemplo:
 
-**Referencias observadas, no valoraciones intrínsecas:**
+- **Precio sobre valor contable tangible (P/TBV)** y comparación con pares, sujeto a disponer de patrimonio tangible por acción y datos comparables.
+- **Precio sobre beneficios (P/E)** sobre beneficios normalizados, una vez aclaradas las unidades, la evolución de beneficios y los posibles efectos no recurrentes.
+- **Valoración basada en rentabilidad sobre capital:** contraste entre ROE sostenible, coste del capital y valor contable.
+- **Análisis de escenarios:** sensibilidad a tipos de interés, coste de financiación, calidad crediticia, pérdidas por préstamos y niveles de capital.
 
-- Cotización: **USD 9,66** al 2026-10-30.
-- Precio objetivo medio informado: **USD 11,64** al 2026-11-20; rango **USD 10,20–13,07**.
-- PER informado: **12,17x**, sin fecha ni fuente especificadas en el análisis AOIF.
-
-El análisis AOIF califica el margen de seguridad como **insuficiente**. No se dispone de los supuestos necesarios para construir un análisis de sensibilidad cuantitativo; los resultados futuros, la calidad crediticia, el capital regulatorio y los tipos de interés serían variables relevantes.
+No se calculan múltiplos, valor intrínseco ni margen de seguridad. El precio observado de USD 9,66 al 2026-10-30 y el objetivo medio de analistas de USD 11,64 son referencias de mercado incluidas en DDD; sin horizonte definido y sin una valoración fundamental independiente, no bastan para concluir que la acción esté infravalorada. [[DDD]]
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cómo evolucionan el capital regulatorio, la calidad de activos, las provisiones y los retornos sobre capital en períodos comparables?
-2. ¿Qué explica el FCF negativo en FY 2025 y FY 2026? ¿Cuál es la definición, moneda y comparabilidad de las magnitudes financieras reportadas?
-3. ¿Continúan creciendo los ingresos y el beneficio neto en resultados comparables?
-4. ¿Qué muestran las series de préstamos morosos, pérdidas crediticias, concentración por sector y exposición internacional?
-5. ¿Cuál es la trayectoria de márgenes, rentabilidad sobre capital y solvencia?
-6. ¿Qué datos sustentan la evaluación de calidad del management, alineamiento de insiders y asignación de capital? ¿Cómo se compone el consejo y cuáles son los incentivos de los ejecutivos?
-7. ¿Cuál es la serie de acciones en circulación y diluidas, necesaria para evaluar la dilución?
-8. ¿Qué fecha y fuente corresponden al PER de 12,17x, y qué supuestos sustentan la evaluación de margen de seguridad?
-9. ¿Cómo se compara Mizuho con bancos del sector como [[JPM]], [[C]], [[HSBC]] e [[ING]] en rentabilidad, solvencia y calidad de activos?
-
-**Estado de la oportunidad:** candidato a investigación; la tesis de crecimiento no está validada. La decisión permanece pendiente de información financiera comparable y de la revisión de capital, riesgo crediticio y valoración.
+1. ¿Cuál es la moneda y cuáles son las unidades de cada serie financiera, y son comparables entre campos y períodos?
+2. ¿Qué explica la evolución del FCF reportado y la diferencia entre las cifras históricas y TTM? ¿Qué definición de FCF se utiliza para una entidad financiera?
+3. ¿Qué segmentos y productos impulsaron el crecimiento reportado de ingresos y beneficio entre FY 2023 y FY 2026?
+4. ¿Cómo evolucionaron el margen de intereses, las comisiones, el ROE, el ROA y los beneficios normalizados?
+5. ¿Cuáles son los niveles y tendencias de capital regulatorio, liquidez y financiación?
+6. ¿Cómo se compara la calidad crediticia de las carteras corporativas, inmobiliarias y de financiación estructurada con períodos anteriores?
+7. ¿Cuál es la exposición del balance a cambios de tipos de interés y qué sensibilidad tienen los ingresos y el valor económico de activos y pasivos?
+8. ¿Qué métricas verificables respaldan la caracterización de Mizuho como líder con un moat estrecho en Japón?
+9. ¿Qué objetivos de rentabilidad, remuneración e incentivos existen para la dirección? ¿Cómo se comparan con los resultados observados?
+10. ¿Cuál es la composición del consejo y qué información hay sobre independencia, experiencia e propiedad accionarial de insiders?
+11. ¿Qué series comparables de acciones en circulación permitirían evaluar la dilución?
+12. ¿Qué horizonte y metodología respaldan los objetivos de analistas citados en DDD, y cómo se comparan con una valoración basada en datos financieros verificables?
+13. ¿Qué estados financieros recientes y fuentes primarias pueden utilizarse para validar los datos reportados por Stock Analysis y completar la evaluación? [[DDD]] [[AOIF]]
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]], [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase & Co.]], [[KB|KB Financial Group Inc.]], [[LYG|Lloyds Banking Group plc]], [[MA|Mastercard Incorporated]]
-- **Same Industry**: [[BSBR|Banco Santander (Brasil) S.A.]], [[IBN|ICICI Bank Limited]], [[ITUB|Itaú Unibanco Holding S.A.]], [[KB|KB Financial Group Inc.]], [[LYG|Lloyds Banking Group plc]]
+- **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]], [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase & Co.]], [[KB|KB Financial Group Inc.]], [[LYG|Lloyds Banking Group plc]], [[MA|Mastercard Incorporated]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[XP|XP Inc.]]
+- **Same Industry**: [[BSBR|Banco Santander (Brasil) S.A.]], [[IBN|ICICI Bank Limited]], [[ITUB|Itaú Unibanco Holding S.A.]], [[KB|KB Financial Group Inc.]], [[LYG|Lloyds Banking Group plc]], [[USB|U.S. Bancorp]]

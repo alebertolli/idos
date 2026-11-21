@@ -63,7 +63,7 @@ Total: 164 companies tracked
 - 📄 [[DEO|Diageo plc]]
 - 📄 [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]]
 - 📄 [[KO|The Coca-Cola Company]]
-- ⏳ [[MDLZ|Mondelez International, Inc.]]
+- 📄 [[MDLZ|Mondelez International, Inc.]]
 - 📄 [[MO|Altria Group, Inc.]]
 - 📄 [[PM|Philip Morris International Inc.]]
 - 📄 [[SYY|Sysco Corporation]]

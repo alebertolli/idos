@@ -1,0 +1,37 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; calidad de evidencia financiera parcial'
+- 'Market error: No se valida un error de valoración: el precio objetivo de consenso
+  está por encima de la cotización observada, pero no se aportan un método intrínseco
+  ni expectativas operativas detalladas.'
+- 'Thesis: MDLZ opera marcas de snacks y bebidas en varias regiones y el paquete muestra
+  ingresos TTM de USD 39.898 mil millones y FCF TTM de USD 3.658 mil millones al 2026-09-30.
+  La tesis depende de que esa esc'
+generated_at: '2026-11-21T16:50:04.244442-03:00'
+id: ass-049b1234
+recommendation: REVIEW
+risks:
+- evidencia: Stockanalysis, TTM al 2026-09-30; estadística de cobertura de intereses
+    reportada como 0.
+  implicacion: La capacidad de servicio de deuda no puede evaluarse con confianza
+    a partir de esta observación.
+  riesgo: La cobertura de intereses figura como 0 en la fuente, pero no se proporciona
+    el gasto por intereses para comprobar el dato ni interpretarlo.
+- evidencia: Stockanalysis, financials, período actual al 2026-09-30.
+  implicacion: No se usa esta serie para derivar apalancamiento relativo a EBITDA.
+  riesgo: El efectivo e inversiones reportados son 1.628 y la deuda total 22.334 para
+    el período actual al 2026-09-30; las unidades monetarias de esas series no están
+    explicitadas en el paquete.
+- evidencia: Stockanalysis, ejercicios terminados el 2025-12-31 y 2024-12-31.
+  implicacion: El paquete no desglosa los factores que explican la variación ni permite
+    evaluar su persistencia.
+  riesgo: El margen bruto reportado varía entre 28,38% en FY 2025 y 39,12% en FY 2024.
+- evidencia: Stockanalysis reporta acciones en circulación para el período TTM al
+    2026-09-30, pero no una serie histórica utilizable.
+  implicacion: No puede verificarse la evolución del número de acciones.
+  riesgo: No hay en el paquete historia de acciones diluidas u ordinarias que permita
+    medir dilución.
+score: 58
+status: COMPLETED
+version: '3.0'
