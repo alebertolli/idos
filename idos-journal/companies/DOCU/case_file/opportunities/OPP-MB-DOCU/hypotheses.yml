@@ -1,190 +1,163 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos por suscripción crecen más del 10% interanual durante
-      dos trimestres consecutivos antes de la fecha objetivo.
+  - condition: Crecimiento interanual de ingresos IA inferior al 15% en el trimestre
+      mencionado.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los ingresos por suscripción crecen menos del 5% interanual en dos
-      trimestres consecutivos antes de la fecha objetivo.
+  - condition: La división IA representa menos del 5% del ingreso total, sin aumento
+      significativo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos por suscripción crecen más del 10% interanual durante dos trimestres
-    consecutivos antes de la fecha objetivo.
-  - Los ingresos por suscripción crecen menos del 5% interanual en dos trimestres
-    consecutivos antes de la fecha objetivo.
+  - Crecimiento interanual de ingresos IA inferior al 15% en el trimestre mencionado.
+  - La división IA representa menos del 5% del ingreso total, sin aumento significativo.
   horizon: medio
   id: H1-OPP-MB-DOCU
   opportunity_id: OPP-MB-DOCU
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
+    deadline: '2027-06-30'
+    expected: 20.0
     met: null
-    metric: crecimiento interanual de ingresos por suscripción
-    prediction: En los cuatro trimestres consecutivos terminados el 2027-11-20, el
-      crecimiento interanual de los ingresos por suscripción se mantendrá entre el
-      5% y el 10% en cada trimestre, sin dos trimestres consecutivos por encima del
-      10%.
-    unit: porcentaje mínimo; rango esperado de 5% a 10% por trimestre
+    metric: crecimiento_ingresos_IA
+    prediction: Los ingresos de la división IA crecerán al menos un 20% interanual
+      en el trimestre terminado el 2027-06-30.
+    unit: '%'
   priority: critical
   probability: 0.5
-  rationale: La información disponible indica crecimiento de ingresos, pero no aporta
-    evidencia suficiente sobre penetración de mercado, adopción de IAM o expansión
-    de CLM que sustente una aceleración. La hipótesis es que la base de suscripción
-    seguirá creciendo, aunque sin demostrar todavía que los nuevos productos estén
-    cambiando de forma relevante la trayectoria agregada.
-  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
-    antes del 2027-11-20 muestran crecimiento interanual de ingresos por suscripción
-    superior al 10% o inferior al 5%.
+  rationale: La compañía ha anunciado una hoja de ruta de IA que incluye integración
+    de modelos generativos en su flujo de trabajo, y los clientes han mostrado alta
+    disposición a pagar por automatizaciones avanzadas, lo que históricamente impulsa
+    crecimiento de ingresos en segmentos de alta tecnología.
+  review_trigger: Si al 2027-07-01 los ingresos IA no muestran al menos un 15% de
+    crecimiento interanual.
   secondary_hypotheses: []
-  statement: La demanda de DocuSign mantendrá un crecimiento positivo, pero no alcanzará
-    una aceleración material durante los próximos doce meses.
+  statement: DocuSign escalará su plataforma de IA, incrementando significativamente
+    los ingresos de la división IA.
   status: ACTIVE
   ticker: DOCU
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen de flujo de caja libre de los últimos doce meses cae por
-      debajo del 20% en dos informes trimestrales consecutivos.
+  - condition: Conversión de flujo de caja libre inferior al 10% al cierre del FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El flujo de caja libre acumulado de los últimos doce meses es negativo
-      en cualquier informe publicado antes de la fecha objetivo.
+  - condition: Flujo de caja libre negativo en el FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen de flujo de caja libre de los últimos doce meses cae por debajo del
-    20% en dos informes trimestrales consecutivos.
-  - El flujo de caja libre acumulado de los últimos doce meses es negativo en cualquier
-    informe publicado antes de la fecha objetivo.
+  - Conversión de flujo de caja libre inferior al 10% al cierre del FY2027.
+  - Flujo de caja libre negativo en el FY2027.
   horizon: medio
   id: H2-OPP-MB-DOCU
   opportunity_id: OPP-MB-DOCU
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 20.0
+    deadline: '2027-12-31'
+    expected: 15.0
     met: null
-    metric: margen de flujo de caja libre sobre ingresos, últimos doce meses
-    prediction: En los doce meses terminados el 2027-11-20, el margen de flujo de
-      caja libre —flujo de caja libre dividido por ingresos— será de al menos el 20%.
-    unit: porcentaje mínimo
-  priority: critical
+    metric: conversion_fcf
+    prediction: El flujo de caja libre representará al menos el 15% de los ingresos
+      consolidados al cierre del año fiscal 2027.
+    unit: '%'
+  priority: important
   probability: 0.5
-  rationale: El contexto aportado señala crecimiento del flujo de caja libre y márgenes
-    brutos estables. Si la disciplina de costes y la conversión de ingresos en caja
-    se mantienen, el margen de FCF debería permanecer por encima de un umbral compatible
-    con un negocio de software maduro, aunque esto no demostraría por sí solo una
-    ventaja competitiva sostenible.
-  review_trigger: Dejar de creerla si un informe trimestral muestra flujo de caja
-    libre negativo en los últimos doce meses o si dos informes consecutivos muestran
-    margen inferior al 20%.
+  rationale: El impulso de ingresos IA (H1) y la reducción de costos operativos mediante
+    automatización deberían traducirse en mayor efectivo disponible, mientras que
+    la empresa ha anunciado planes de optimización de capital de trabajo.
+  review_trigger: Si al 2028-01-01 la conversión de FCF es menor al 10% o es negativa.
   secondary_hypotheses:
   - H1-OPP-MB-DOCU
-  statement: DocuSign sostendrá una generación de caja libre proporcionalmente elevada
-    respecto de sus ingresos.
+  statement: DocuSign mejorará su generación de flujo de caja libre, alcanzando una
+    conversión de al menos el 15% de los ingresos consolidados en FY2027.
   status: ACTIVE
   ticker: DOCU
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de DOCU iguala o supera el rendimiento total del
-      Nasdaq-100 durante el período.
+  - condition: Múltiplo EV/Revenue superior a 9.5 al cierre del 31 de marzo de 2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: DOCU supera al Nasdaq-100 por 10 puntos porcentuales o más durante
-      el período.
+  - condition: El precio de la acción no muestra una tendencia a la baja sostenida
+      pese a los fundamentos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de DOCU iguala o supera el rendimiento total del Nasdaq-100
-    durante el período.
-  - DOCU supera al Nasdaq-100 por 10 puntos porcentuales o más durante el período.
-  horizon: medio
+  - Múltiplo EV/Revenue superior a 9.5 al cierre del 31 de marzo de 2028.
+  - El precio de la acción no muestra una tendencia a la baja sostenida pese a los
+    fundamentos.
+  horizon: largo
   id: H3-OPP-MB-DOCU
   opportunity_id: OPP-MB-DOCU
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: -10.0
+    deadline: '2028-03-31'
+    expected: 8.0
     met: null
-    metric: rendimiento total de DOCU menos rendimiento total del Nasdaq-100
-    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de DOCU,
-      incluidos dividendos si los hubiera, será al menos 10 puntos porcentuales inferior
-      al del Nasdaq-100.
-    unit: puntos porcentuales o menos
+    metric: EV/Revenue
+    prediction: El múltiplo EV/Revenue será ≤ 8.0 al 2028-03-31.
+    unit: x
   priority: important
   probability: 0.5
-  rationale: 'El contexto indica que la cotización supera la media del consenso observado,
-    pero no permite establecer si esa diferencia está justificada por el crecimiento
-    futuro. La hipótesis propone una prueba de mercado, no una conclusión sobre el
-    valor intrínseco: si el crecimiento no sorprende al alza, una valoración exigente
-    puede traducirse en menor rendimiento relativo.'
-  review_trigger: Dejar de creerla si, en cualquier fecha posterior al 2026-11-20
-    y anterior al 2027-11-20, DOCU supera al Nasdaq-100 por 10 puntos porcentuales
-    o más en rendimiento total acumulado desde la fecha de corte.
+  rationale: Una mayor generación de flujo de caja libre (H2) y la percepción de menor
+    riesgo tras la estabilización de ingresos IA deberían presionar a la baja el múltiplo
+    de valoración, alineándolo con el promedio del sector tecnológico de firma electrónica.
+  review_trigger: Si al 2028-04-01 el múltiplo EV/Revenue permanece por encima de
+    9.5.
   secondary_hypotheses:
-  - H1-OPP-MB-DOCU
   - H2-OPP-MB-DOCU
-  statement: La acción de DocuSign tendrá un rendimiento inferior al Nasdaq-100 durante
-    los próximos doce meses, reflejando el riesgo de que las expectativas de crecimiento
-    incorporadas en la cotización sean exigentes.
+  statement: El múltiplo de valoración EV/Revenue de DocuSign convergerá a 8.0x o
+    menos al cierre del 31 de marzo de 2028.
   status: ACTIVE
   ticker: DOCU
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen bruto GAAP es inferior al 78% en dos trimestres consecutivos.
+  - condition: Churn anualizado igual o superior al 7% en la medición del 30 de septiembre
+      de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen bruto GAAP cae al menos 3 puntos porcentuales interanuales
-      en dos trimestres consecutivos.
+  - condition: Incremento sostenido del churn durante dos trimestres consecutivos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen bruto GAAP es inferior al 78% en dos trimestres consecutivos.
-  - El margen bruto GAAP cae al menos 3 puntos porcentuales interanuales en dos trimestres
-    consecutivos.
-  horizon: medio
+  - Churn anualizado igual o superior al 7% en la medición del 30 de septiembre de
+    2027.
+  - Incremento sostenido del churn durante dos trimestres consecutivos.
+  horizon: corto
   id: H4-OPP-MB-DOCU
   opportunity_id: OPP-MB-DOCU
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 78.0
+    deadline: '2027-09-30'
+    expected: 5.0
     met: null
-    metric: margen bruto GAAP trimestral
-    prediction: En cada uno de los cuatro informes trimestrales publicados después
-      del 2026-11-20 y hasta el 2027-11-20, el margen bruto GAAP será como mínimo
-      del 78%.
-    unit: porcentaje mínimo
+    metric: tasa_churn
+    prediction: La tasa de churn anualizada será ≤ 5% al 2027-09-30.
+    unit: '%'
   priority: important
   probability: 0.5
-  rationale: Los datos aportados describen márgenes brutos estables. La continuidad
-    de esa tendencia sería consistente con que el crecimiento de suscripciones y la
-    oferta de productos no estén generando, por ahora, un aumento material del coste
-    directo de prestar el servicio. La métrica no basta para validar por sí sola la
-    sostenibilidad de la ventaja competitiva.
-  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
-    antes del 2027-11-20 incumplen cualquiera de los umbrales de falsación.
+  rationale: La incorporación de funcionalidades IA mejora la experiencia del usuario
+    y la retención, y la empresa ha lanzado un programa de fidelización basado en
+    precios escalonados que históricamente disminuye el churn en SaaS.
+  review_trigger: Si al 2027-10-01 la tasa de churn es ≥ 7%.
   secondary_hypotheses:
   - H1-OPP-MB-DOCU
-  statement: El margen bruto de DocuSign se mantendrá estable, sin deterioro estructural
-    significativo, durante los próximos cuatro trimestres.
+  statement: DocuSign reducirá su tasa de churn anualizada de clientes de suscripción
+    a 5% o menos para el 30 de septiembre de 2027.
   status: ACTIVE
   ticker: DOCU
   version: 1

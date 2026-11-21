@@ -1,156 +1,228 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El GMV acumulado de los cuatro trimestres terminados el 2027-09-30
-      crece menos de 3% interanual.
+  - condition: El crecimiento interanual del GMV en los cuatro trimestres comparables
+      es inferior al 4%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa no reporta datos comparables que permitan verificar la predicción
-      antes de la fecha objetivo.
+  - condition: El GMV disminuye interanualmente durante dos trimestres consecutivos
+      dentro del periodo de evaluación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La dirección atribuye el crecimiento reportado principalmente a cambios
+      de moneda o de perímetro que impiden sostener que hubo expansión comparable
+      del marketplace.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El GMV acumulado de los cuatro trimestres terminados el 2027-09-30 crece menos
-    de 3% interanual.
-  - La empresa no reporta datos comparables que permitan verificar la predicción antes
-    de la fecha objetivo.
+  - El crecimiento interanual del GMV en los cuatro trimestres comparables es inferior
+    al 4%.
+  - El GMV disminuye interanualmente durante dos trimestres consecutivos dentro del
+    periodo de evaluación.
+  - La dirección atribuye el crecimiento reportado principalmente a cambios de moneda
+    o de perímetro que impiden sostener que hubo expansión comparable del marketplace.
   horizon: medio
   id: H1-OPP-MB-EBAY
   opportunity_id: OPP-MB-EBAY
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 3.0
+    deadline: '2027-11-21'
+    expected: 4.0
     met: null
-    metric: Crecimiento interanual del GMV acumulado en cuatro trimestres
-    prediction: El GMV acumulado de los cuatro trimestres terminados el 2027-09-30
-      será al menos un 3% superior al de los cuatro trimestres terminados el 2026-09-30,
-      calculado con cifras reportadas comparables.
-    unit: '%'
+    metric: Crecimiento interanual del GMV global comparable
+    prediction: El GMV global de los cuatro trimestres terminados a más tardar el
+      2027-11-21 será al menos un 4% superior al GMV de los cuatro trimestres comparables
+      más recientes disponibles al 2026-11-21, medido en dólares y sobre una base
+      comparable.
+    unit: porcentaje mínimo
   priority: critical
   probability: 0.5
-  rationale: El paquete informa crecimiento de ingresos y flujo de caja libre en el
-    TTM terminado el 2026-09-30, pero no valida su durabilidad ni aporta una medida
-    de GMV. El crecimiento del GMV permitiría comprobar si aumenta la actividad subyacente
-    del marketplace y no solo los ingresos por cada transacción.
-  review_trigger: Dejar de creerla si el GMV interanual cae en dos trimestres consecutivos
-    antes del 2027-09-30, o si el acumulado de cuatro trimestres no alcanza 3% de
-    crecimiento en la fecha objetivo.
+  rationale: La especialización de la plataforma puede atraer compradores y vendedores
+    con necesidades específicas, mientras que las mejoras en búsqueda, descubrimiento
+    y experiencia de compra pueden elevar la frecuencia de transacción. La evidencia
+    de márgenes brutos elevados y FCF positivo es compatible con un modelo de plataforma
+    escalable, pero no demuestra por sí sola que el marketplace conserve impulso.
+  review_trigger: Dejar de creerla si, al publicarse los resultados del trimestre
+    terminado más cerca del 2027-11-21, el crecimiento interanual comparable del GMV
+    es inferior al 4% y la empresa no presenta evidencia verificable de una recuperación
+    próxima.
   secondary_hypotheses: []
-  statement: eBay mantendrá crecimiento positivo del volumen bruto de mercancías (GMV)
-    durante los próximos cuatro trimestres, señal de que el crecimiento reciente del
-    negocio no depende únicamente de cambios de monetización.
+  statement: eBay mantendrá crecimiento del volumen de transacciones en su marketplace
+    durante los próximos doce meses, apoyado en la especialización de categorías y
+    mejoras de producto.
   status: ACTIVE
   ticker: EBAY
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La diferencia entre el crecimiento interanual del flujo de caja libre
-      TTM y el de los ingresos TTM es inferior a 2 puntos porcentuales.
+  - condition: El crecimiento interanual comparable de ingresos es inferior al 5%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El flujo de caja libre TTM cae interanualmente al 2027-09-30.
+  - condition: El crecimiento de ingresos no supera al crecimiento del GMV en al menos
+      1 punto porcentual.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Un cambio de definición contable impide una comparación homogénea y
-      la empresa no ofrece una conciliación suficiente.
+  - condition: La mejora de monetización coincide con una caída interanual del GMV
+      durante dos trimestres consecutivos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La diferencia entre el crecimiento interanual del flujo de caja libre TTM y el
-    de los ingresos TTM es inferior a 2 puntos porcentuales.
-  - El flujo de caja libre TTM cae interanualmente al 2027-09-30.
-  - Un cambio de definición contable impide una comparación homogénea y la empresa
-    no ofrece una conciliación suficiente.
+  - El crecimiento interanual comparable de ingresos es inferior al 5%.
+  - El crecimiento de ingresos no supera al crecimiento del GMV en al menos 1 punto
+    porcentual.
+  - La mejora de monetización coincide con una caída interanual del GMV durante dos
+    trimestres consecutivos.
   horizon: medio
   id: H2-OPP-MB-EBAY
   opportunity_id: OPP-MB-EBAY
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 2.0
+    deadline: '2027-11-21'
+    expected: 5.0
     met: null
-    metric: Ventaja de crecimiento interanual del flujo de caja libre TTM frente a
-      ingresos TTM
-    prediction: Al 2027-09-30, el crecimiento interanual del flujo de caja libre TTM
-      superará en al menos 2 puntos porcentuales al crecimiento interanual de los
-      ingresos TTM, usando períodos comparables y la definición de flujo de caja libre
-      divulgada por la empresa.
-    unit: puntos porcentuales
+    metric: Crecimiento interanual de ingresos y diferencia frente al crecimiento
+      del GMV
+    prediction: Los ingresos reportados de los cuatro trimestres terminados a más
+      tardar el 2027-11-21 crecerán al menos un 5% frente a los cuatro trimestres
+      comparables más recientes disponibles al 2026-11-21, y el crecimiento de ingresos
+      superará al del GMV en al menos 1 punto porcentual.
+    unit: porcentaje mínimo de crecimiento de ingresos; brecha mínima de 1 punto porcentual
+      frente al GMV
   priority: critical
   probability: 0.5
-  rationale: El paquete señala que tanto los ingresos como el flujo de caja libre
-    del TTM terminado el 2026-09-30 superaron los del FY 2025, pero no proporciona
-    ratios validados ni demuestra que la mejora sea sostenible. Comparar las tasas
-    de crecimiento de ambas métricas permite comprobar si el crecimiento de caja acompaña
-    o supera al de ingresos.
-  review_trigger: Dejar de creerla si la diferencia entre ambas tasas resulta inferior
-    a 2 puntos porcentuales cuando se publiquen los resultados del trimestre terminado
-    el 2027-09-30, o si el flujo de caja libre TTM cae interanualmente.
+  rationale: La publicidad, los pagos y otros servicios pueden aumentar los ingresos
+    por transacción si aportan valor medible a compradores y vendedores. La hipótesis
+    requiere comprobar que la monetización no erosiona la actividad del marketplace
+    ni se explica solo por cambios contables, de moneda o de perímetro.
+  review_trigger: Dejar de creerla si los resultados de los cuatro trimestres comparables
+    disponibles al 2027-11-21 incumplen cualquiera de los dos umbrales principales,
+    o si la monetización adicional coincide con deterioro sostenido del GMV.
   secondary_hypotheses:
   - H1-OPP-MB-EBAY
-  statement: El flujo de caja libre de eBay crecerá más rápido que sus ingresos durante
-    los próximos cuatro trimestres, reflejando conversión de ingresos en caja al menos
-    estable.
+  statement: Los ingresos de eBay crecerán más rápido que el GMV, gracias a una monetización
+    incremental que no dependa exclusivamente de elevar tarifas a vendedores.
   status: ACTIVE
   ticker: EBAY
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de EBAY supera al del S&P 500 en 5 puntos porcentuales
-      o más durante el período.
+  - condition: El FCF comparable crece menos del 8% o disminuye interanualmente.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La cotización ajustada por dividendos o el índice de referencia no
-      puede reconstruirse con datos públicos consistentes para las dos fechas.
+  - condition: El crecimiento del FCF se debe principalmente a una reducción de inversión
+      en inmovilizado o gasto operativo que la dirección identifique como temporal.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF cae durante dos periodos consecutivos de doce meses comparables
+      mientras los ingresos crecen.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de EBAY supera al del S&P 500 en 5 puntos porcentuales o
-    más durante el período.
-  - La cotización ajustada por dividendos o el índice de referencia no puede reconstruirse
-    con datos públicos consistentes para las dos fechas.
+  - El FCF comparable crece menos del 8% o disminuye interanualmente.
+  - El crecimiento del FCF se debe principalmente a una reducción de inversión en
+    inmovilizado o gasto operativo que la dirección identifique como temporal.
+  - El FCF cae durante dos periodos consecutivos de doce meses comparables mientras
+    los ingresos crecen.
   horizon: medio
   id: H3-OPP-MB-EBAY
   opportunity_id: OPP-MB-EBAY
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: -5.0
+    deadline: '2027-11-21'
+    expected: 8.0
     met: null
-    metric: Rendimiento total de EBAY menos rendimiento total del S&P 500
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
-      total de EBAY, incluidos dividendos, quedará al menos 5 puntos porcentuales
-      por debajo del rendimiento total del S&P 500.
-    unit: puntos porcentuales
-  priority: important
+    metric: Crecimiento interanual del FCF acumulado de doce meses
+    prediction: El flujo de caja libre acumulado de los cuatro trimestres terminados
+      a más tardar el 2027-11-21 será al menos un 8% superior al de los cuatro trimestres
+      comparables más recientes disponibles al 2026-11-21. El FCF se calculará como
+      flujo de caja operativo menos compras de inmovilizado.
+    unit: porcentaje mínimo
+  priority: critical
   probability: 0.5
-  rationale: El paquete indica que el amplio rango de objetivos de analistas no demuestra
-    por sí solo que el mercado esté equivocado y que no se han validado ratios clave
-    ni las expectativas incorporadas en la cotización. Sin evidencia de una brecha
-    entre expectativas y resultados, no hay base para afirmar una revaloración positiva;
-    la hipótesis es que la acción no generará rendimiento relativo superior mientras
-    esa brecha no quede demostrada.
-  review_trigger: Dejar de creerla si, antes del 2027-11-20, EBAY supera al S&P 500
-    en 5 puntos porcentuales o más sobre una ventana móvil de doce meses, o si los
-    resultados publicados acreditan crecimiento sostenido de GMV y flujo de caja libre
-    según H1 y H2.
+  rationale: Un marketplace puede generar caja con necesidades de capital relativamente
+    contenidas, pero el FCF positivo observado no demuestra que su crecimiento sea
+    sostenible ni que la reinversión produzca retornos atractivos. La prueba es que
+    el FCF avance junto con los ingresos y que la empresa mantenga inversión operativa
+    suficiente.
+  review_trigger: Dejar de creerla si, en los resultados disponibles al 2027-11-21,
+    el FCF comparable no alcanza el crecimiento mínimo del 8% o si la mejora depende
+    de recortes de inversión que debiliten el crecimiento del GMV.
   secondary_hypotheses:
   - H1-OPP-MB-EBAY
   - H2-OPP-MB-EBAY
-  statement: La acción de eBay no superará al S&P 500 en rendimiento total durante
-    los próximos doce meses, salvo que los resultados demuestren crecimiento operativo
-    y financiero duradero.
+  statement: eBay convertirá el crecimiento del marketplace en mayor FCF sin sacrificar
+    de forma persistente la inversión necesaria para sostener el negocio.
+  status: ACTIVE
+  ticker: EBAY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de eBay no supera a la de XLY en al menos 10
+      puntos porcentuales al cierre del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción de eBay obtiene una rentabilidad total inferior a la de XLY
+      durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El desempeño relativo positivo depende de una expansión de múltiplo
+      sin crecimiento verificable de ingresos o FCF.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de eBay no supera a la de XLY en al menos 10 puntos porcentuales
+    al cierre del periodo.
+  - La acción de eBay obtiene una rentabilidad total inferior a la de XLY durante
+    el periodo.
+  - El desempeño relativo positivo depende de una expansión de múltiplo sin crecimiento
+    verificable de ingresos o FCF.
+  horizon: largo
+  id: H4-OPP-MB-EBAY
+  opportunity_id: OPP-MB-EBAY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-21'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total relativa de EBAY frente a XLY
+    prediction: La rentabilidad total de la acción de eBay, incluidos dividendos y
+      reinversión, superará en al menos 10 puntos porcentuales la rentabilidad total
+      de XLY entre el cierre del 2026-11-21 y el cierre del 2028-11-21.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de ingresos y caja puede mejorar la percepción de durabilidad
+    del negocio y respaldar una valoración más favorable. Sin embargo, la cotización
+    y el consenso actuales no prueban que el mercado infravalore eBay; por ello, esta
+    hipótesis se juzga por rendimiento relativo observable, no por una afirmación
+    de infravaloración.
+  review_trigger: Dejar de creerla antes de la fecha objetivo si, al 2027-11-21, eBay
+    ha quedado al menos 10 puntos porcentuales por detrás de XLY y los datos financieros
+    disponibles también incumplen las hipótesis de crecimiento de ingresos o FCF;
+    la evaluación final se hará el 2028-11-21.
+  secondary_hypotheses:
+  - H1-OPP-MB-EBAY
+  - H2-OPP-MB-EBAY
+  - H3-OPP-MB-EBAY
+  statement: Si eBay sostiene crecimiento del marketplace y de su FCF, su acción ofrecerá
+    una rentabilidad total superior a la del ETF de consumo discrecional de Estados
+    Unidos durante los próximos dos años.
   status: ACTIVE
   ticker: EBAY
   version: 1
