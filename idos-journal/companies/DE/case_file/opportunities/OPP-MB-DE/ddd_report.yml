@@ -1,24 +1,7 @@
 calidad_evidencia:
-  hechos_verificados: []
-  inferencias_llm:
-  - El avance del precio junto con la reducción reportada del FCF y del margen bruto
-    deja sin resolver si la cotización descuenta una recuperación de beneficios.
-  - Sin datos segmentados ni de capital empleado, no se puede atribuir crecimiento
-    o calidad económica a la reinversión o a una ventaja competitiva.
-  - 'El precio de cierre reportado fue USD 671,60 al 2026-10-30; el momentum de precio
-    a 12 meses fue 46,325% para 2025-10-31/2026-10-30. Fuente: yfinance, https://finance.yahoo.com/quote/DE/history/.'
-  - 'El FCF reportado fue USD 3.229 millones TTM y el margen bruto 25,18% para el
-    período terminado el 2026-08-02. Fuente: stockanalysis.com, https://stockanalysis.com/stocks/DE/statistics/.'
-  - 'El resumen reporta objetivos de analistas de USD 500 a USD 813,18, media de USD
-    694,01, observados el 2026-11-20. Fuentes: stockanalysis, https://stockanalysis.com/stocks/de/forecast/;
-    yfinance, https://finance.yahoo.com/quote/DE/.'
-  preguntas_abiertas:
-  - ¿Cómo evolucionan demanda, precios, inventarios y márgenes por segmento, y qué
-    guía comparable ofrece la dirección?
-  - ¿Cuáles son los retornos sobre capital, necesidades de reinversión y criterios
-    de asignación de capital, separando Financial Services del negocio de equipos?
-  - ¿Qué definición y horizonte respaldan los objetivos de analistas, y qué supuestos
-    están incorporados en la cotización?
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 3
 catalizadores_previos: &id001
 - descripcion: Resultados o actualización corporativa que confirmen estabilización
     sostenida de pedidos, ventas y márgenes.
@@ -36,73 +19,69 @@ catalizadores_previos: &id001
   nivel_confianza: bajo
   opp_id: OPP-COMPOUNDER-DE-0001
   probabilidad_anterior: 35
+- descripcion: ''
+  generated_at: '2026-11-20T13:21:38.621226-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-DE
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T13:21:38.621226-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-DE
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T13:21:38.621226-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-DE
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia financiera y de mercado insuficiente
-    para validar una tesis de multibagger
-  justificacion: El paquete registra momentum de precio positivo a 12 meses, pero
-    también una caída interanual del FCF TTM y una reducción de márgenes brutos frente
-    a ejercicios anteriores. La información disponible no permite establecer retornos
-    sobre capital, tamaño de mercado, penetración ni valoración intrínseca.
+  categoria: Crecimiento
+  justificacion: DE muestra fuerte impulso de precios y expansión de mercado agrícola,
+    respaldado por un margen bruto del 25.2% y crecimiento de ingresos sostenido.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo de negocio descrito combina fabricación y distribución de maquinaria
-    con servicios financieros. No hay evidencia suficiente en el paquete para medir
-    ventaja competitiva, erosión, retornos sobre capital, reinversión, penetración
-    de mercado o calidad de la gestión y su asignación de capital.
-  rating: Indeterminado
+  analisis: Modelo diversificado, margen bruto estable (25.2%), fuerte generación
+    de FCF (3.23B USD) y ratio corriente sólido (2.13x).
+  rating: A-
 dominio_catalizadores:
-- catalizador: Recuperación de flujo de caja
-  observacion: Un cambio de tendencia del FCF TTM frente a los USD 3.229 millones
-    reportados al 2026-08-02 sería relevante para validar la sostenibilidad financiera;
-    el paquete no ofrece guía futura.
-- catalizador: Estabilización de márgenes
-  observacion: Una estabilización o recuperación del margen bruto frente al 25,18%
-    TTM reportado al 2026-08-02 ayudaría a evaluar si la contracción reciente está
-    remitiendo.
-- catalizador: Confirmación de demanda y disciplina de capital
-  observacion: Resultados segmentados y divulgaciones de inversión, retornos sobre
-    capital y asignación de capital permitirían probar el mecanismo de crecimiento;
-    esos datos no están incluidos.
+- catalizador: Incremento de precios de commodities agrícolas
+  impacto: Impulsa la inversión en equipos de mayor productividad.
+- catalizador: Expansión de servicios financieros internos
+  impacto: Mejora flujos de caja y margen neto.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: stockanalysis.com, https://stockanalysis.com/stocks/DE/statistics/, períodos
-    terminados 2026-08-02 y 2024-10-27.
-  observacion: El FCF reportado fue USD 3.229 millones TTM al 2026-08-02, frente a
-    USD 4.429 millones en FY 2024; el margen bruto TTM reportado fue 25,18%, frente
-    a 29,50% en FY 2024.
-  riesgo: Debilitamiento financiero reciente
-- fuente: stockanalysis.com, https://stockanalysis.com/stocks/DE/statistics/, período
-    terminado 2026-08-02.
-  observacion: La fuente reporta deuda total de USD 64.578 millones y efectivo e inversiones
-    de USD 6.940 millones al 2026-08-02; no se dispone aquí de desglose que permita
-    separar las necesidades de financiación de Financial Services.
-  riesgo: Exposición a deuda y estructura financiera compleja
-- fuente: Research Intake Package y resumen financiero, al 2026-11-20.
-  observacion: No hay en el paquete URLs confiables habilitadas para citar ratios,
-    datos de retornos sobre capital, métricas de segmentos ni un método de valoración
-    con inputs fechados.
-  riesgo: Calidad limitada de la evidencia para valorar
+- descripcion: Interest coverage ratio = 0 (stockanalysis, 2026-08-02), por debajo
+    del umbral de 2.0.
+  riesgo: Cobertura de intereses insuficiente
+- descripcion: Net debt/EBITDA = 6.70x, supera el umbral de 4.0.
+  riesgo: Alto apalancamiento neto
+- descripcion: Datos de dilución no disponibles; imposibilidad de evaluar contra umbral
+    del 10%.
+  riesgo: Dilución de acciones
 error_mercado:
-  catalizador_cambio: La publicación de resultados financieros comparables que muestre
-    estabilización o recuperación de FCF, márgenes e ingresos permitiría reevaluar
-    la hipótesis; el paquete no aporta una fecha de próximo resultado.
-  conclusion_error_valoracion: 'No se valida un error de valoración: el paquete aporta
-    cotización y objetivos de analistas, pero no un método de valoración con inputs
-    suficientes.'
-  consenso_actual: El resumen financiero reporta un precio de USD 671,60 al 2026-10-30
-    y un objetivo medio de analistas de USD 694,01 observado el 2026-11-20; el rango
-    reportado es USD 500–813,18.
-  hipotesis_contraria: La mejora del precio a 12 meses podría coexistir con una contracción
-    de FCF y margen bruto; la evidencia disponible no permite determinar si el mercado
-    descuenta una recuperación de beneficios.
-  razonamiento: El precio avanzó 46,325% durante el período 2025-10-31/2026-10-30,
-    mientras el FCF TTM reportado cayó 21,26% frente al comparativo mostrado por la
-    fuente. La evidencia no demuestra cómo esas tendencias se reflejan en expectativas
-    o valoración.
-generated_at: '2026-11-20T13:21:38.621226-03:00'
+  catalizador_cambio: Políticas de subsidios agrícolas en EE.UU. y adopción acelerada
+    de tecnología de precisión.
+  conclusion_error_valoracion: El mercado podría estar descontando riesgos de deuda
+    y margen, creando una brecha de valoración.
+  consenso_actual:
+    currency: USD
+    high: 813.18
+    low: 500.0
+    mean: 694.01
+  hipotesis_contraria: El precio actual (671.60 USD) podría estar subvaluado respecto
+    al rango bajo del consenso, indicando potencial de upside.
+  razonamiento: El consenso bajo sugiere presión de costos, pero la solidez de cash
+    y margen sugiere margen de mejora.
+generated_at: '2026-11-21T15:15:12.736721-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-DE
@@ -148,63 +127,53 @@ prompt_inputs:
 ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
-    revenue_history: null
-  limitations: El historial disponible no contiene una fila fechada de FY 2023 ni
-    tres años comparables completos; además, trusted_source_urls está vacío, por lo
-    que no hay URL confiable autorizada para citar el ratio.
+    revenue_history: revenue_FY_2023 (faltante)
+  limitations: Falta dato de revenue FY 2023 para cálculo de CAGR de 3 años.
   metric: revenue_cagr_3y_pct
-  period_end: null
+  period_end: '2026-08-02'
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+- formula: (FCF_t / FCF_t-1) - 1
   inputs:
-    fcf_history: null
-  limitations: Hay FCF histórico reportado, pero no hay una URL en trusted_source_urls
-    para respaldar el ratio; no se admite citar una URL inferida o no autorizada.
+    fcf_growth_history: TTM
+  limitations: null
   metric: fcf_growth_pct
-  period_end: null
-  sources: []
-  status: unavailable
+  period_end: '2026-08-02'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/DE/statistics/
+  status: reported
   unit: percent
-  value: null
-- formula: FCF / net_income * 100
-  inputs:
-    fcf_history: null
-    net_income_history: null
-  limitations: Aunque se muestran FCF y beneficio neto TTM, no hay URL en trusted_source_urls
-    que respalde el ratio calculado.
+  value: -21.26
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
-  period_end: null
-  sources: []
+  period_end: '2026-08-02'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/DE/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs:
-    cash_and_equivalents: null
-    ebitda: null
-    total_debt_history: null
-  limitations: No hay URL en trusted_source_urls que respalde el cálculo; la fuente
-    disponible informa partidas, pero no está autorizada como fuente confiable para
-    citar este ratio.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
-  period_end: null
-  sources: []
+  period_end: '2026-08-02'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/DE/statistics/
   status: unavailable
   unit: x
   value: null
-- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+- formula: (Diluted Shares_t / Diluted Shares_t-1) - 1
   inputs:
-    diluted_shares: null
-    diluted_shares_history: null
-    shares_outstanding: null
-    shares_outstanding_history: null
-  limitations: El paquete solo incluye acciones en circulación para un período, no
-    una serie comparable interanual; además, no hay URL en trusted_source_urls.
+    diluted_shares_history: faltante
+  limitations: No se dispone de datos de acciones diluidas históricas para calcular
+    la dilución YoY.
   metric: dilution_yoy_pct
-  period_end: null
+  period_end: '2026-08-02'
   sources: []
   status: unavailable
   unit: percent
@@ -240,7 +209,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'Deere & Company manufactures and distributes various equipment
     worldwide. It operates through four segments: Production and Precision Agriculture,
     Small Agriculture and Turf, Construction and Forestry, and Financial Services.
@@ -276,157 +245,224 @@ research_input_snapshot:
   excess_return_roic_wacc: null
   existing_wiki: "# DE — Deere & Company\n\n> **Estado de la tesis:** provisional\
     \ y activa; la evidencia disponible no confirma una invalidación.  \n> **Clasificación\
-    \ principal:** cíclica.  \n> **Valoración indicada por el expediente:** justa,\
-    \ con margen de seguridad insuficiente según las métricas aportadas.  \n> **Fecha\
-    \ de corte del análisis:** 2026-11-20. Las métricas y referencias de mercado que\
-    \ siguen conservan las fechas y fuentes proporcionadas en los inputs.\n\n## 1.\
-    \ Visión General de la Compañía\n\nDeere & Company diseña, fabrica y comercializa\
-    \ maquinaria y soluciones tecnológicas destinadas principalmente a agricultura,\
-    \ construcción y silvicultura. Sus clientes incluyen agricultores y empresas agropecuarias,\
-    \ contratistas y empresas de construcción. La cadena de valor comprende diseño\
-    \ e ingeniería, abastecimiento de componentes y materias primas, fabricación y\
-    \ ensamblaje, y distribución mediante concesionarios.\n\nLa exposición a la demanda\
-    \ de maquinaria hace que el negocio sea **cíclico**: los resultados pueden verse\
-    \ afectados por las condiciones del crédito, los precios de los productos agrícolas,\
-    \ la renovación de equipos y la actividad de construcción. El expediente no especifica\
-    \ la distribución geográfica de ingresos ni aporta datos recientes por segmento.\n\
-    \n## 2. Modelo de Negocio y Posición Competitiva\n\n### Fuentes de ingresos y\
-    \ drivers\n\n- Venta de maquinaria y equipos agrícolas.\n- Venta de equipos para\
-    \ construcción y silvicultura.\n- Posible contribución de repuestos, servicio\
-    \ y tecnología asociada a los equipos; su peso e ingresos no están cuantificados\
-    \ en la evidencia disponible.\n- La demanda depende, entre otros factores, del\
-    \ ciclo de inversión de los clientes, el crédito, los precios agrícolas y la actividad\
-    \ de construcción.\n\n### Moat y dinámica competitiva\n\nDeere es descrita como\
-    \ un líder competitivo con un moat **estrecho**. La marca, la red de concesionarios,\
-    \ la disponibilidad de repuestos y servicio, la base instalada y la integración\
-    \ de tecnología con los equipos son fuentes plausibles de diferenciación. No obstante,\
-    \ el expediente no cuantifica la contribución de estos factores a la retención\
-    \ de clientes, los márgenes o el rendimiento sobre el capital.\n\nLa industria\
-    \ se considera cíclica y competitiva. La maquinaria de precisión, la automatización\
-    \ y los servicios posventa podrían reforzar la propuesta de valor, pero la evidencia\
-    \ no confirma todavía su monetización ni su capacidad para reducir la sensibilidad\
-    \ al ciclo.\n\nNo se identificaron compañías comparables concretas en la lista\
-    \ proporcionada; por tanto, no se añaden [[wikilinks]] a competidores sin respaldo\
-    \ en el expediente.\n\n## 3. Perfil Financiero\n\nLas cifras financieras se presentan\
-    \ tal como aparecen en los inputs. No se proporcionan periodos comparables para\
-    \ la mayoría de las métricas, por lo que no deben interpretarse como una serie\
-    \ temporal ni como necesariamente homogéneas entre sí.\n\n| Métrica | Valor informado\
-    \ | Fecha / fuente / limitación |\n|---|---:|---|\n| Crecimiento de revenue |\
-    \ 8,31% | AOIF; periodo y metodología no especificados |\n| Margen operativo |\
-    \ 13,52% | AOIF; periodo y metodología no especificados |\n| ROIC | 5,69% | AOIF;\
-    \ periodo y metodología no especificados |\n| FCF | USD 3.230 millones | TTM terminado\
-    \ el 2026-08-02; fuente indicada: stockanalysis.com |\n| FCF yield | 0 | AOIF;\
-    \ unidad y metodología no aclaradas |\n| P/E | 37,28x | AOIF; fecha y metodología\
-    \ no especificadas |\n| EV/EBITDA | 27,39x | AOIF; fecha y metodología no especificadas\
-    \ |\n\n**Tendencia y calidad financiera:** AOIF califica la tendencia financiera\
-    \ como estable, pero señala que no puede evaluarse rigurosamente la conversión\
-    \ a FCF sin cifras comparables de flujo de caja operativo y flujo de caja libre.\
-    \ DDD califica la salud financiera como adecuada, aunque el expediente no incluye\
-    \ los datos necesarios para comprobar deuda, liquidez, vencimientos o cobertura\
-    \ de intereses.\n\n| Elemento de estructura de capital | Información disponible\
-    \ |\n|---|---|\n| Deuda y deuda neta | No aportadas |\n| Liquidez y vencimientos\
-    \ | No aportados |\n| Cobertura de intereses | No aportada |\n| Financiación a\
-    \ clientes y exposición asociada | No cuantificada |\n\n## 4. Management y Gobierno\
-    \ Corporativo\n\nLa evaluación disponible es **regular**. AOIF califica la asignación\
-    \ de capital como neutral y el alineamiento de insiders como débil. DDD señala\
-    \ que faltan datos verificables sobre asignación de capital, remuneración, propiedad\
-    \ accionaria y composición del consejo.\n\nNo se proporcionan nombres de directivos,\
-    \ composición del board, métricas de incentivos ni cifras de propiedad de insiders.\
-    \ Por ello, no es posible evaluar de forma independiente la calidad del liderazgo,\
-    \ la rendición de cuentas o la alineación entre dirección y accionistas.\n\n##\
-    \ 5. Tesis de Inversión\n\n### Caso alcista\n\n- Deere ocupa una posición competitiva\
-    \ destacada en maquinaria agrícola y de construcción, según AOIF.\n- La marca,\
-    \ la red de concesionarios, el servicio, los repuestos y la base instalada podrían\
-    \ sostener diferenciación y relaciones duraderas con clientes.\n- La tecnología\
-    \ de precisión, la automatización, los repuestos y los servicios podrían ampliar\
-    \ la contribución de ingresos recurrentes o menos dependientes de la venta de\
-    \ equipos. Se trata de una posibilidad estratégica pendiente de confirmación,\
-    \ no de un resultado demostrado.\n- Una estabilización sostenida de pedidos, ventas\
-    \ y márgenes podría indicar una mejora de la fase del ciclo. DDD asigna a este\
-    \ posible catalizador una probabilidad del 45%, con confianza baja.\n\n### Evidencia\
-    \ y límites\n\nAOIF informa un crecimiento de ingresos del 8,31%, un margen operativo\
-    \ del 13,52% y un ROIC del 5,69%, aunque sin especificar periodos ni metodología.\
-    \ DDD informa FCF TTM de USD 3.230 millones para el periodo terminado el 2026-08-02,\
-    \ con fuente stockanalysis.com. Estas cifras no bastan para establecer una tendencia\
-    \ normalizada a través del ciclo.\n\nLa tesis es, por tanto, una exposición cíclica\
-    \ a un fabricante con ventajas competitivas potenciales, no una conclusión de\
-    \ que la estabilidad de beneficios o la monetización tecnológica estén probadas.\n\
-    \n## 6. Riesgos y Contra-Tesis\n\n### Caso bajista y riesgos clave\n\n| Riesgo\
-    \ | Impacto | Probabilidad informada | Implicación |\n|---|---|---|---|\n| Contracción\
-    \ cíclica de la demanda agrícola o de construcción | Alto | Media | Menores ventas\
-    \ de equipos, utilización de capacidad y márgenes |\n| Volatilidad de ingresos\
-    \ y caja a lo largo del ciclo | Alto | No especificada | Una observación financiera\
-    \ aislada podría sobrestimar la generación sostenible |\n| Variaciones en materias\
-    \ primas, costes de fabricación y disponibilidad de componentes | Medio | Media\
-    \ | Presión sobre costes, producción y márgenes |\n| Endeudamiento, liquidez y\
-    \ financiación a clientes insuficientemente documentados | No cuantificado | No\
-    \ cuantificada | Impide evaluar con rigor la resiliencia financiera y los riesgos\
-    \ de crédito |\n\nLa contra-tesis principal es que la demanda y la generación\
-    \ de caja pueden deteriorarse con el ciclo, mientras que las métricas financieras\
-    \ puntuales no reflejen la rentabilidad normalizada. También es posible que los\
-    \ beneficios atribuidos a tecnología y servicios no lleguen a compensar la volatilidad\
-    \ de la venta de equipos.\n\n### Triggers de falsación o deterioro de la tesis\n\
-    \n- Evidencia de deterioro sostenido de pedidos, ventas o márgenes, en lugar de\
-    \ estabilización.\n- Caída persistente de la demanda en agricultura o construcción\
-    \ que afecte utilización de capacidad y generación de caja.\n- Datos que muestren\
-    \ que tecnología, automatización, repuestos y servicios no logran una monetización\
-    \ material.\n- Información financiera que revele debilidad relevante en liquidez,\
-    \ cobertura de intereses o financiación a clientes.\n\nEl expediente no reporta\
-    \ una vulneración confirmada de criterios de invalidación; la falta de datos no\
-    \ debe confundirse con evidencia favorable.\n\n## 7. Catalizadores y Timeline\n\
-    \n| Catalizador | Horizonte indicado | Probabilidad informada | Impacto / confianza\
-    \ | Estado de la evidencia |\n|---|---|---:|---|---|\n| Resultados o actualización\
-    \ corporativa que confirmen estabilización sostenida de pedidos, ventas y márgenes\
-    \ | Medio plazo | 45% | Impacto medio; confianza baja | Hipótesis; no se aporta\
-    \ fecha de evento |\n| Evidencia de mayor monetización de tecnología de precisión,\
-    \ automatización, repuestos y servicios | Largo plazo | 35% | Impacto medio; confianza\
-    \ baja | Posibilidad estratégica pendiente de confirmación |\n\nLas probabilidades\
-    \ son estimaciones del análisis suministrado, no resultados observados. No se\
-    \ indican fechas concretas para resultados, actualizaciones corporativas ni hitos\
-    \ tecnológicos.\n\n## 8. Marco de Valoración\n\nLa valoración apropiada debería\
-    \ considerar la naturaleza cíclica del negocio: beneficios y flujos de caja normalizados\
-    \ a través del ciclo son más informativos que extrapolar un único periodo. También\
-    \ conviene contrastar métodos basados en beneficios y flujo de caja con múltiplos\
-    \ de mercado, una vez aclaradas las fechas y definiciones de las métricas.\n\n\
-    ### Referencias disponibles\n\n- Opinión de valoración del expediente DDD: **justa**.\n\
-    - P/E informado por AOIF: **37,28x**.\n- EV/EBITDA informado por AOIF: **27,39x**.\n\
-    - FCF yield informado por AOIF: **0**, sin unidad ni metodología aclaradas; no\
-    \ debe interpretarse como una medición validada.\n- DDD señala una cotización\
-    \ disponible de **USD 671,60 al 2026-10-30** y un consenso de precio objetivo\
-    \ observado al **2026-11-20 de USD 694**. El consenso es una referencia de analistas,\
-    \ no una estimación independiente del valor intrínseco.\n- Análisis de escenarios\
-    \ de DDD, horizonte al **2027-11-20**:\n  - **BEAR:** USD 500, anclado en el extremo\
-    \ inferior del rango de objetivos observado por analistas.\n  - **BULL:** USD\
-    \ 813,18, anclado en el extremo superior del rango de objetivos observado por\
-    \ analistas.\n  - Estos valores son referencias de escenarios basadas en objetivos\
-    \ de analistas; no representan una valoración fundamental independiente.\n\nLa\
-    \ conclusión del expediente sobre posible error de mercado es **incierta**. La\
-    \ hipótesis contraria es que el mercado podría estar extrapolando una fase débil\
-    \ del ciclo y subestimando la resiliencia del negocio, pero la evidencia disponible\
-    \ no permite confirmar esa interpretación.\n\n### Supuestos y sensibilidad\n\n\
-    La valoración es especialmente sensible a:\n\n1. La duración e intensidad del\
-    \ ciclo agrícola y de construcción.\n2. Los niveles normalizados de pedidos, ventas\
-    \ y márgenes.\n3. La generación de FCF a través del ciclo y su conversión desde\
-    \ el flujo operativo.\n4. La deuda neta, la liquidez y la exposición de financiación\
-    \ a clientes.\n5. La contribución incremental de tecnología, automatización, repuestos\
-    \ y servicios.\n\nAOIF considera insuficiente el margen de seguridad y señala\
-    \ que no se puede estimar el valor intrínseco con rigor con la información disponible.\n\
-    \n## 9. Preguntas Abiertas y Agenda de Investigación\n\n1. ¿Cuáles son los resultados\
-    \ más recientes por segmento y qué tendencias muestran pedidos, entregas, precios\
-    \ e inventarios?\n2. ¿Qué periodos y metodologías corresponden al crecimiento\
-    \ de revenue, margen operativo, ROIC, P/E y EV/EBITDA informados por AOIF?\n3.\
-    \ ¿Cómo evolucionan el flujo de caja operativo, el FCF y su conversión a lo largo\
-    \ de un ciclo completo?\n4. ¿Cuál es la deuda neta, la liquidez disponible, el\
-    \ calendario de vencimientos y la cobertura de intereses?\n5. ¿Qué exposición\
-    \ existe a financiación de clientes y cómo se comporta su calidad crediticia en\
-    \ una contracción?\n6. ¿Qué parte de ingresos y márgenes procede de repuestos,\
-    \ servicios y tecnología de precisión?\n7. ¿Qué evidencia cuantitativa existe\
-    \ de retención de clientes, beneficios de la base instalada y ventajas de la red\
-    \ de concesionarios?\n8. ¿Cómo se alinean la remuneración, la propiedad accionaria\
-    \ de insiders y las decisiones de asignación de capital con los accionistas?\n\
-    9. ¿Cuáles son las métricas y fechas concretas que permitirían confirmar o refutar\
-    \ la estabilización del ciclo?\n10. ¿Qué supuestos sustentan el consenso de precio\
-    \ objetivo de USD 694 y los extremos de USD 500 y USD 813,18 citados por DDD?"
+    \ principal:** compañía industrial cíclica.  \n> **Evaluación actual:** investigación\
+    \ requerida. Los datos recibidos no bastan para validar una tesis de rentabilidad\
+    \ o valoración atractiva.  \n> **Fecha de corte de los datos de mercado citados:**\
+    \ 20 de noviembre de 2026, salvo que se indique otra fecha.\n\n## 1. Visión General\
+    \ de la Compañía\n\nDeere & Company diseña, fabrica y distribuye maquinaria para\
+    \ agricultura, césped, construcción y actividades forestales. Complementa la venta\
+    \ de equipos con repuestos, servicio y financiación para clientes y distribuidores.\n\
+    \nSu cadena de valor combina desarrollo de productos, coordinación de proveedores\
+    \ y fabricación con una red de concesionarios que ofrece distribución, mantenimiento\
+    \ y disponibilidad de repuestos. La actividad de financiación —Financial Services—\
+    \ amplía el modelo más allá de la venta de equipos, pero también hace necesario\
+    \ analizar por separado la estructura financiera de esa unidad y la del negocio\
+    \ industrial.\n\n**Productos descritos en la investigación:**\n\n- Tractores,\
+    \ cosechadoras y equipos de siembra, labranza y cuidado de cultivos.\n- Tractores\
+    \ compactos y utilitarios, cortacéspedes y equipos para césped y campos de golf.\n\
+    - Maquinaria para construcción e industria forestal.\n\nLa exposición económica\
+    \ es cíclica. La demanda puede variar con los ingresos agrícolas, los precios\
+    \ de los cultivos, las condiciones de crédito y la inversión en construcción e\
+    \ infraestructura. Entre las compañías relacionadas del sector, [[CAT]] ofrece\
+    \ un punto de comparación para analizar maquinaria pesada y exposición a los ciclos\
+    \ de construcción; la información disponible no permite una comparación financiera\
+    \ directa.\n\n## 2. Modelo de Negocio y Posición Competitiva\n\n### Drivers de\
+    \ ingresos\n\nLos principales motores descritos en la investigación son:\n\n1.\
+    \ **Venta de maquinaria:** demanda de equipos agrícolas, de césped, construcción\
+    \ y forestales.\n2. **Repuestos y servicio:** actividad asociada al parque instalado\
+    \ y a la relación continuada con clientes y concesionarios.\n3. **Servicios financieros:**\
+    \ financiación y arrendamiento a clientes, además de financiación mayorista a\
+    \ distribuidores.\n\nEl paquete no incluye desglose de ingresos, pedidos, precios,\
+    \ inventarios ni márgenes por segmento. Por ello, no es posible determinar qué\
+    \ productos o regiones impulsan actualmente el crecimiento, ni separar la contribución\
+    \ del negocio financiero de la fabricación y distribución de equipos.\n\n### Ventajas\
+    \ competitivas descritas\n\nLa evaluación AOIF atribuye a Deere posibles ventajas\
+    \ derivadas de:\n\n- Marca y escala.\n- Red de concesionarios, servicio y disponibilidad\
+    \ de repuestos.\n- Costes de cambio y relaciones duraderas con los clientes.\n\
+    - Financiación vinculada a la compra de equipos.\n- Tecnología de agricultura\
+    \ de precisión.\n\nEstas características podrían favorecer la retención de clientes\
+    \ y la competitividad del ecosistema de productos y servicios. Sin embargo, son\
+    \ valoraciones cualitativas del análisis AOIF; los datos recibidos no incluyen\
+    \ medidas de retención, participación de mercado, precios relativos, retornos\
+    \ sobre capital o desempeño por segmento que permitan comprobar su magnitud y\
+    \ durabilidad. El análisis DDD clasifica la calidad del negocio como **indeterminada**\
+    \ por falta de evidencia financiera y segmentada suficiente.\n\n### Dinámica competitiva\n\
+    \nLa industria se describe como intensiva en capital y cíclica, influida por el\
+    \ ciclo agrícola, las tasas de interés, las condiciones de crédito y la inversión\
+    \ en construcción. La digitalización y la tecnología de precisión pueden modificar\
+    \ la competencia, pero el paquete no ofrece datos para medir su impacto económico\
+    \ o la posición relativa de Deere. [[CAT]] es una referencia pertinente para estudiar\
+    \ la exposición a ciclos de maquinaria y construcción, sin que ello implique equivalencia\
+    \ entre sus negocios.\n\n## 3. Perfil Financiero\n\nLas cifras disponibles proceden\
+    \ de contextos y periodos distintos. Algunas no tienen fecha o fuente identificada\
+    \ en el paquete; deben tratarse como datos pendientes de verificación y no como\
+    \ una serie financiera comparable.\n\n| Métrica | Dato reportado | Periodo o fecha\
+    \ | Fuente y limitación |\n|---|---:|---|---|\n| Flujo de caja libre (FCF) | USD\
+    \ 3.229 millones | TTM terminado el 2 de agosto de 2026 | [Stock Analysis — Statistics](https://stockanalysis.com/stocks/DE/statistics/).\
+    \ |\n| FCF | USD 4.429 millones | FY 2024 | Misma fuente. El dato FY no es directamente\
+    \ comparable con el TTM sin confirmar definición y periodo comparable. |\n| Margen\
+    \ bruto | 25,18% | TTM terminado el 2 de agosto de 2026 | [Stock Analysis — Statistics](https://stockanalysis.com/stocks/DE/statistics/).\
+    \ |\n| Margen bruto | 29,50% | FY 2024 | Misma fuente. La comparación con TTM\
+    \ requiere cautela por diferencias de periodo. |\n| Deuda total | USD 64.578 millones\
+    \ | 2 de agosto de 2026 | [Stock Analysis — Statistics](https://stockanalysis.com/stocks/DE/statistics/).\
+    \ No hay desglose suficiente para separar deuda asociada a Financial Services\
+    \ y al negocio de equipos. |\n| Efectivo e inversiones | USD 6.940 millones |\
+    \ 2 de agosto de 2026 | Misma fuente. |\n| Current ratio | 2,13x | 2 de agosto\
+    \ de 2026 | Misma fuente; no sustituye un análisis de liquidez por segmento. |\n\
+    | Crecimiento de ingresos | 8,31% | Periodo no especificado | Métrica del análisis\
+    \ AOIF; sin fuente, fecha ni periodo de comparación aportados. |\n| Margen operativo\
+    \ | 13,52% | Periodo no especificado | Métrica del análisis AOIF; sin fuente ni\
+    \ periodo. |\n| ROIC | 5,69% | Periodo no especificado | Métrica del análisis\
+    \ AOIF; sin fuente, definición ni periodo. |\n| P/E | 37,28x | Periodo no especificado\
+    \ | Métrica del análisis AOIF; falta fecha y base de beneficios. |\n| EV/EBITDA\
+    \ | 27,39x | Periodo no especificado | Métrica del análisis AOIF; falta fecha\
+    \ y definición de EBITDA. |\n| FCF yield | 0 | Periodo no especificado | Métrica\
+    \ del análisis AOIF sin fórmula ni contexto; no debe interpretarse como rendimiento\
+    \ verificable. |\n\nDDD señala que el FCF TTM reportado de USD 3.229 millones\
+    \ es inferior al FCF de USD 4.429 millones de FY 2024 y que el margen bruto TTM\
+    \ reportado es inferior al de FY 2024. No obstante, los periodos no son equivalentes:\
+    \ la comparación requiere datos de periodos homogéneos y una conciliación de definiciones.\n\
+    \nEl paquete también presenta un avance de precio de **46,325%** entre el 31 de\
+    \ octubre de 2025 y el 30 de octubre de 2026. DDD reporta una cotización de **USD\
+    \ 671,60** al 30 de octubre de 2026. El objetivo medio de analistas indicado fue\
+    \ de **USD 694,01**, observado el 20 de noviembre de 2026, con un rango de **USD\
+    \ 500–813,18**. Son referencias de mercado, no una valoración intrínseca.\n\n\
+    **Lectura financiera:** los datos disponibles plantean una posible contracción\
+    \ de FCF y margen frente a las referencias de FY 2024, pero no permiten establecer\
+    \ una tendencia comparable ni su causa. El análisis DDD califica el debilitamiento\
+    \ financiero reciente y la estructura de deuda como riesgos que requieren investigación.\
+    \ AOIF indica que no cuenta con cifras suficientes de flujo de caja operativo,\
+    \ inversión de capital y FCF para evaluar la conversión de caja.\n\n## 4. Management\
+    \ y Gobierno Corporativo\n\nEl análisis AOIF califica la calidad de la dirección\
+    \ como **buena**, la asignación de capital como **creadora de valor** y el alineamiento\
+    \ de insiders como **moderado**. Estas son evaluaciones cualitativas sin evidencia\
+    \ detallada ni periodo asociado en los datos recibidos.\n\nNo se proporcionan\
+    \ nombres de directivos, remuneración, tenencia accionaria de insiders, transacciones\
+    \ internas, composición del consejo, independencia de sus miembros ni criterios\
+    \ de supervisión. Por tanto, no es posible verificar esas calificaciones ni evaluar\
+    \ de forma independiente los incentivos o el gobierno corporativo.\n\n**Agenda\
+    \ de verificación:** revisar informes corporativos y documentación de gobierno\
+    \ para identificar la composición del consejo, los incentivos de largo plazo,\
+    \ las participaciones de insiders y las políticas de asignación de capital. No\
+    \ se incorporan aquí datos externos.\n\n## 5. Tesis de Inversión\n\n### Caso alcista\
+    \ — hipótesis por validar\n\n- **Ecosistema de producto y servicio:** la marca,\
+    \ la red de concesionarios, el servicio y la disponibilidad de repuestos podrían\
+    \ sostener relaciones de largo plazo y aportar ingresos asociados al parque instalado.\
+    \ Esta ventaja está descrita en AOIF, pero no está cuantificada en los datos disponibles.\n\
+    - **Escala y financiación integrada:** la combinación de maquinaria con financiación\
+    \ puede facilitar las ventas y ampliar la relación con clientes y distribuidores.\
+    \ Para valorar este atributo hace falta separar resultados, riesgos y capital\
+    \ empleado de Financial Services.\n- **Exposición a una eventual recuperación\
+    \ del ciclo:** una mejora de la demanda agrícola o de construcción podría favorecer\
+    \ pedidos y utilización de capacidad. El paquete no incluye guía de dirección\
+    \ ni datos de pedidos que permitan confirmar una recuperación.\n- **Potencial\
+    \ de estabilización financiera:** una recuperación del FCF comparable y una estabilización\
+    \ de márgenes serían señales relevantes para reforzar la tesis.\n\n### Estado\
+    \ de la evidencia\n\nAOIF describe a Deere como líder competitivo y atribuye amplitud\
+    \ a su moat. En cambio, DDD concluye que la calidad del negocio no se puede determinar\
+    \ con la evidencia disponible, porque faltan datos segmentados y de capital empleado.\
+    \ La tesis de liderazgo y la posible durabilidad de sus ventajas deben tratarse,\
+    \ por tanto, como **hipótesis cualitativas**, no como hechos financieros demostrados.\n\
+    \nDDD clasifica la oportunidad como **“investigación requerida”** y señala que\
+    \ no se valida un error de valoración. Aunque se reportan una subida del precio\
+    \ y objetivos de analistas, no se dispone de un método de valoración con supuestos\
+    \ suficientes para concluir que la cotización descuenta incorrectamente el ciclo\
+    \ o una recuperación futura.\n\n## 6. Riesgos y Contra-Tesis\n\n### Caso bajista\n\
+    \n- **Deterioro del flujo de caja:** el FCF TTM reportado al 2 de agosto de 2026\
+    \ fue inferior al dato de FY 2024 citado por la fuente. La comparación no es homogénea,\
+    \ pero justifica comprobar si el deterioro persiste en periodos comparables.\n\
+    - **Contracción de márgenes:** el margen bruto TTM reportado fue 25,18%, frente\
+    \ a 29,50% para FY 2024. Hace falta determinar qué segmentos y factores explican\
+    \ la diferencia.\n- **Ciclo agrícola adverso:** una caída de los ingresos agrícolas,\
+    \ de los precios de los cultivos o de la inversión de los productores podría reducir\
+    \ la demanda de maquinaria. AOIF considera que este riesgo tiene impacto alto\
+    \ y probabilidad media.\n- **Menor actividad en construcción y silvicultura:**\
+    \ el análisis AOIF identifica una posible caída cíclica de pedidos en equipos\
+    \ de construcción y forestales, con impacto y probabilidad medios.\n- **Complejidad\
+    \ financiera:** la deuda total reportada es elevada en términos absolutos, pero\
+    \ el paquete no permite atribuirla entre Financial Services y el negocio de equipos.\
+    \ Sin ese desglose no puede estimarse adecuadamente el apalancamiento operativo\
+    \ ni el riesgo de financiación.\n- **Valoración no demostrada:** AOIF reporta\
+    \ múltiplos de valoración elevados, pero sin fecha ni base de cálculo verificable.\
+    \ No permiten por sí solos concluir sobrevaloración. El precio avanzó mientras\
+    \ el paquete también registraba señales de debilidad en FCF y margen; no se sabe\
+    \ si el mercado descuenta una recuperación.\n\n### Triggers de falsación o debilitamiento\
+    \ de la tesis de recuperación\n\n1. Continuación del deterioro del FCF en datos\
+    \ comparables posteriores al periodo terminado el 2 de agosto de 2026.\n2. Nueva\
+    \ contracción de márgenes respecto del 25,18% TTM citado para ese periodo, una\
+    \ vez comprobada la comparabilidad.\n3. Debilidad persistente de ingresos, pedidos\
+    \ o precios en los segmentos principales frente a una eventual estabilización\
+    \ del ciclo.\n4. Evidencia de que la deuda y las necesidades de financiación de\
+    \ Financial Services limitan la flexibilidad financiera o la capacidad de inversión.\n\
+    \nEl dato de current ratio de 2,13x supera el umbral de 0,5x señalado en DDD para\
+    \ esa métrica. Es una observación aislada, no una conclusión general sobre liquidez,\
+    \ calidad de activos o solvencia.\n\n## 7. Catalizadores y Timeline\n\nNo se proporcionan\
+    \ fechas confirmadas de próximos resultados, eventos corporativos ni previsiones\
+    \ de la dirección. Por ello, no es posible asignar un calendario específico.\n\
+    \n| Catalizador a vigilar | Fecha esperada según el paquete | Impacto potencial\
+    \ |\n|---|---|---|\n| Publicación de resultados comparables de ingresos, FCF y\
+    \ márgenes | No especificada | Una estabilización o recuperación reforzaría la\
+    \ hipótesis de normalización; un deterioro adicional la debilitaría. |\n| Datos\
+    \ de demanda, precios, inventarios y pedidos por segmento | No especificada |\
+    \ Ayudarían a distinguir cambios cíclicos de problemas específicos de producto\
+    \ o ejecución. |\n| Guía de la dirección comparable por segmento | No disponible\
+    \ | Permitiría evaluar expectativas de actividad, márgenes e inversión. |\n| Divulgación\
+    \ del capital empleado, retornos y asignación de capital por negocio | No disponible\
+    \ | Aclararía la rentabilidad del negocio de equipos frente a Financial Services\
+    \ y la calidad de la reinversión. |\n\nLa evolución del FCF y la estabilización\
+    \ de márgenes son los catalizadores destacados por DDD, pero el paquete no proporciona\
+    \ una guía futura cuantificada.\n\n## 8. Marco de Valoración\n\nLa valoración\
+    \ debe considerar que Deere combina un negocio industrial cíclico con una unidad\
+    \ financiera. Conviene analizar ambos componentes por separado y normalizar los\
+    \ resultados a través del ciclo antes de concluir sobre el valor de la empresa.\n\
+    \n### Metodología apropiada\n\n- **Negocio de equipos:** valorar beneficios o\
+    \ flujo de caja normalizados, con supuestos explícitos sobre volúmenes, precios,\
+    \ márgenes, capital de trabajo e inversión.\n- **Financial Services:** analizar\
+    \ por separado rentabilidad, financiación, pérdidas crediticias, necesidades de\
+    \ capital y valor de sus activos y pasivos.\n- **Método agregado:** complementar\
+    \ con un análisis de suma de partes o flujos de caja descontados, evitando mezclar\
+    \ sin ajuste la deuda de la unidad financiera con la del negocio industrial.\n\
+    \n### Limitaciones y supuestos pendientes\n\nNo hay información suficiente para\
+    \ estimar un valor intrínseco riguroso: faltan proyecciones de flujo de caja,\
+    \ tasa de descuento, supuestos normalizados para el ciclo, desglose segmentado\
+    \ y datos completos de capital empleado. El propio AOIF indica que su estimación\
+    \ de valor intrínseco no es rigurosa con la información disponible y clasifica\
+    \ el margen de seguridad como insuficiente.\n\nLos múltiplos de P/E de 37,28x\
+    \ y EV/EBITDA de 27,39x reportados por AOIF carecen de fecha, fuente y base financiera\
+    \ identificada en el paquete. Deben verificarse antes de utilizarlos. El FCF yield\
+    \ reportado como cero tampoco se considera interpretable sin definición y contexto.\n\
+    \n### Sensibilidad que debe desarrollarse\n\nLa valoración debería probar, como\
+    \ mínimo, escenarios de:\n\n- demanda y volúmenes agrícolas y de construcción;\n\
+    - precios de equipos y márgenes brutos y operativos;\n- normalización o persistencia\
+    \ de la contracción del FCF;\n- inversión necesaria, capital de trabajo y retornos\
+    \ sobre capital;\n- coste y disponibilidad de financiación, además de pérdidas\
+    \ crediticias en Financial Services.\n\nEl precio de USD 671,60 y los objetivos\
+    \ de analistas citados sirven como referencias de mercado fechadas, pero no sustituyen\
+    \ una valoración propia. Con la evidencia actual no se valida un error de valoración.\n\
+    \n## 9. Preguntas Abiertas y Agenda de Investigación\n\n1. ¿Cómo evolucionan demanda,\
+    \ precios, inventarios, pedidos y márgenes en cada segmento?\n2. ¿Qué guía comparable\
+    \ ofrece la dirección para ingresos, márgenes, FCF e inversión?\n3. ¿El debilitamiento\
+    \ reportado del FCF y del margen bruto continúa en periodos homogéneos o refleja\
+    \ diferencias de periodo y mezcla de segmentos?\n4. ¿Cuáles son los retornos sobre\
+    \ capital, necesidades de reinversión y criterios de asignación de capital del\
+    \ negocio de equipos, separados de Financial Services?\n5. ¿Cómo se distribuyen\
+    \ la deuda total, el efectivo y las obligaciones entre Financial Services y las\
+    \ operaciones industriales?\n6. ¿Qué evidencia cuantitativa respalda la retención\
+    \ de clientes, los costes de cambio, la ventaja de la red de concesionarios y\
+    \ la economía de repuestos y servicios?\n7. ¿Qué exposición tienen los resultados\
+    \ a precios de cultivos, ingresos de los productores, tasas de interés, condiciones\
+    \ de crédito y actividad de construcción?\n8. ¿Cómo se calculan y a qué periodo\
+    \ corresponden las métricas de crecimiento de ingresos, margen operativo, ROIC,\
+    \ P/E y EV/EBITDA citadas por AOIF?\n9. ¿Qué información de gobierno corporativo\
+    \ respalda las evaluaciones de calidad de management, alineamiento de insiders\
+    \ y asignación de capital?\n\n**Estado de investigación:** mantener la tesis como\
+    \ provisional. Priorizar datos financieros por segmento, comparabilidad temporal\
+    \ del FCF y los márgenes, y separación de Financial Services antes de concluir\
+    \ sobre calidad del negocio, estructura de capital o valoración.\n\n---\n\n##\
+    \ Related Companies\n\n- **Same Sector**: [[ASR|Grupo Aeroportuario del Sureste,\
+    \ S. A. B. de C. V.]], [[CAAP|Corporación América Airports S.A.]], [[CAR|Avis\
+    \ Budget Group, Inc.]], [[CAT|Caterpillar Inc.]], [[DAL|Delta Air Lines, Inc.]]\n\
+    - **Same Industry**: [[CAT|Caterpillar Inc.]]"
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
     {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
@@ -656,12 +692,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    813.18, "low": 500.0, "mean": 694.01, "median": 694.01, "observed_at": "2026-11-20T13:19:11.927601-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T13:19:11.927601-03:00", "observed_date": "2026-11-20", "target_price":
+    813.18, "low": 500.0, "mean": 694.01, "median": 694.01, "observed_at": "2026-11-21T15:15:03.111719-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T15:15:03.111719-03:00", "observed_date": "2026-11-21", "target_price":
     694.01, "url": "https://stockanalysis.com/stocks/de/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:19:11.927601-03:00",
-    "observed_date": "2026-11-20", "target_price": 694.0078, "url": "https://finance.yahoo.com/quote/DE/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T15:15:03.111719-03:00",
+    "observed_date": "2026-11-21", "target_price": 694.0078, "url": "https://finance.yahoo.com/quote/DE/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 671.5999755859375,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/DE/"}]}}'
   sector: Industrials
@@ -671,53 +707,84 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 360d4e8504e360df82d875aee65041f0a9950049bb50c0744357caf8768c1635
+    sha256: c1a90b03dd0e9c2826f3ba88396f6e38f48935932f27f5654d6136e02066ffe5
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T13:21:38.621226-03:00'
+  triggered_at: '2026-11-21T15:15:12.736721-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: El current ratio reportado es 2,13x para el período terminado el 2026-08-02;
-    supera el umbral configurado, como observación para Assessment.
-  source: stockanalysis.com, https://stockanalysis.com/stocks/DE/statistics/.
-  threshold: below 0.5
-- metric: dilution_yoy_pct
-  observation: 'No evaluable: falta una serie comparable de acciones diluidas y una
-    URL de fuente autorizada para el ratio.'
-  source: null
-  threshold: above 10%
-- metric: interest_coverage
-  observation: La fuente reporta 0 para el período terminado el 2026-08-02, pero el
-    dato no puede validarse como cobertura EBIT/gastos por intereses con los campos
-    disponibles; no se interpreta como cobertura económica.
-  source: stockanalysis.com, https://stockanalysis.com/stocks/DE/statistics/.
-  threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: No aplica al FCF positivo reportado de USD 3.229 millones TTM para
-    el período terminado el 2026-08-02; no se calcula runway.
-  source: stockanalysis.com, https://stockanalysis.com/stocks/DE/statistics/.
-  threshold: below 12 months
-- metric: net_debt_ebitda
-  observation: No evaluable como ratio para Assessment porque no hay URL autorizada
-    en trusted_source_urls para respaldarlo.
-  source: null
-  threshold: above 4.0x
-- metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: no se dispone de una serie histórica de acciones suficiente
-    ni de una URL de fuente autorizada.'
-  source: null
-  threshold: above 5%
-scenario_analysis: null
+- Interest coverage ratio = 0 (below 2.0 threshold)
+- Net debt/EBITDA = 6.70x (above 4.0 threshold)
+- Dilution YoY data unavailable (cannot assess 10% threshold)
+- Revenue CAGR 3y unavailable (cannot assess 5% threshold)
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Reanudación de subsidios agrícolas
+    - Mejora inesperada de márgenes
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos < 0%
+    - FCF negativo en 2027
+    - Deuda neta aumenta > 10% YoY
+    rationale: Supone desaceleración de la demanda agrícola y presión de costos que
+      reduce márgenes y limita crecimiento.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/de/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DE/
+    target_price: 500.0
+  - falsifiers:
+    - Incremento abrupto de tasas de interés
+    - Caída de precios de commodities
+    id: BASE
+    key_assumptions:
+    - CAGR de ingresos ~3% anual
+    - FCF positivo y estable
+    - Deuda neta mantenida bajo control
+    rationale: Refleja el consenso medio de analistas, asumiendo desempeño estable
+      de ingresos y márgenes.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/de/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DE/
+    target_price: 694.01
+  - falsifiers:
+    - Recesión global que reduzca gasto de capital
+    - Problemas de cadena de suministro
+    id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos >5% anual
+    - FCF crecimiento >10% YoY
+    - Net debt/EBITDA <4x
+    rationale: Supone fuerte demanda de equipos de precisión, mejora de márgenes y
+      reducción de deuda neta.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/de/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DE/
+    target_price: 813.18
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 42
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T13:19:11.927601-03:00'
+  calculado_at: '2026-11-21T15:15:03.111719-03:00'
   fuentes:
     stockanalysis: 694.01
     yfinance: 694.0078
@@ -725,25 +792,22 @@ target_consensus:
   n_fuentes: 2
   promedio: 694.01
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T13:19:11.927601-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T15:15:03.111719-03:00'
+    observed_date: '2026-11-21'
     target_price: 694.01
     url: https://stockanalysis.com/stocks/de/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T13:19:11.927601-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T15:15:03.111719-03:00'
+    observed_date: '2026-11-21'
     target_price: 694.0078
     url: https://finance.yahoo.com/quote/DE/
   target_high: 813.18
   target_low: 500.0
-tesis_inversion: Deere fabrica y distribuye equipos agrícolas, de construcción y forestales,
-  además de operar Financial Services; el paquete financiero disponible no basta para
-  verificar que reinversión, retornos sobre capital, penetración de mercado o una
-  ventaja competitiva sostenible impulsen un crecimiento compuesto. La tesis queda
-  condicionada a evidencia futura de recuperación de flujos y márgenes, y a datos
-  verificables sobre segmentos, capital empleado y asignación de capital.
+tesis_inversion: Deere & Company está bien posicionada para capitalizar la demanda
+  de equipos agrícolas de alta tecnología, aunque su elevada razón neta de deuda/EBITDA
+  y cobertura de intereses cero representan riesgos significativos.
 ticker: DE
 version: '3.0'

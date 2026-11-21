@@ -1,25 +1,24 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La generación de FCF y el margen bruto observados son compatibles con una operación
-    de escala, pero no bastan para establecer retornos atractivos sobre capital o
-    una ventaja competitiva sostenible.
-  - El aumento de deuda reportado merece seguimiento, pero el paquete no permite atribuir
-    su causa ni medir plenamente su impacto.
-  - 'La cotización fue USD 232.05999755859375 al 2026-10-30, según yfinance: https://finance.yahoo.com/quote/DHR/.'
-  - 'El consenso reportado fue USD 259.9, con rango USD 220–310, observado al 2026-11-20;
-    fuentes: https://stockanalysis.com/stocks/dhr/forecast/ y https://finance.yahoo.com/quote/DHR/.'
-  - 'Al 2026-09-25, se reportaron ingresos TTM de USD 25,608 millones, FCF TTM de
-    USD 5,727 millones y margen bruto TTM de 59.36%; fuente: https://stockanalysis.com/stocks/DHR/statistics/.'
+  - El FCF TTM reportado supera el dato FY 2025, pero la diferencia de período impide
+    tratarlo como una comparación anual homogénea.
+  - La información suministrada no permite establecer si el consenso de analistas
+    refleja supuestos de negocio alcanzables.
+  - 'Ingresos reportados de USD 25.608 millones y FCF de USD 5.727 millones para TTM
+    terminado el 2026-09-25; fuente: https://stockanalysis.com/stocks/DHR/statistics/.'
+  - 'Margen bruto reportado de 59,36% para TTM terminado el 2026-09-25; fuente: https://stockanalysis.com/stocks/DHR/statistics/.'
+  - 'Precio de USD 232,06 al 2026-10-30 y momentum de 12 meses de 7,82% hasta esa
+    fecha; fuente: https://finance.yahoo.com/quote/DHR/.'
   preguntas_abiertas:
-  - ¿Cuál es el crecimiento orgánico por segmento y la evolución de demanda, precios
-    y volúmenes?
-  - ¿Qué retornos sobre capital obtiene la compañía y cuánto reinvierte para sostener
-    el crecimiento?
-  - ¿Qué evidencia reciente respalda la durabilidad del moat, la penetración de mercado
-    y la calidad de la asignación de capital?
-  - ¿Cuál es el interés pagado y cómo se reconcilia con el valor reportado de cobertura
-    de intereses igual a cero?
+  - ¿Cuál es el crecimiento orgánico por segmento, su mercado direccionable y la penetración
+    actual?
+  - ¿Qué retornos sobre capital producen las inversiones y adquisiciones, y cómo se
+    comparan con el costo de capital?
+  - ¿Cuáles son los vencimientos, tasas y condiciones de la deuda, y qué explica el
+    aumento reportado al 2026-09-25?
+  - ¿Qué guía corporativa, hitos fechados y datos de acciones diluidas permiten evaluar
+    crecimiento y dilución?
 catalizadores_previos: &id001
 - descripcion: Confirmación mediante resultados y comentarios corporativos de una
     mejora sostenida de demanda y crecimiento orgánico en los segmentos relevantes.
@@ -46,65 +45,72 @@ catalizadores_previos: &id001
   nivel_confianza: bajo
   opp_id: OPP-COMPOUNDER-DHR-0001
   probabilidad_anterior: 40
+- descripcion: ''
+  generated_at: '2026-11-20T13:43:28.386077-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-DHR
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T13:43:28.386077-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-DHR
+  probabilidad_anterior: null
 clasificacion_oportunidad:
   categoria: Investigación requerida
-  justificacion: El paquete asigna a DHR el perfil MULTIBAGGERS y un discovery_score
-    de 69.09, pero la evidencia disponible no basta para validar los ratios configurados
-    ni para sustentar escenarios de valoración con horizonte definido.
+  justificacion: El paquete muestra un perfil de investigación multibaggers y una
+    puntuación de confirmación de mercado de 69,09; los datos financieros disponibles
+    no bastan para validar los ratios solicitados ni para establecer una valoración
+    fundamental.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo de negocio descrito abarca biotecnología, ciencias de la vida
-    y diagnóstico. El margen bruto reportado fue 59.36% TTM al 2026-09-25, pero faltan
-    datos verificables sobre retornos sobre capital, reinversión, moat, penetración,
-    management y asignación de capital.
-  rating: Evidencia incompleta
+  analisis: La amplitud de segmentos y el margen bruto reportado de 59,36% al 2026-09-25
+    son datos observables, pero no prueban por sí solos una ventaja durable. Faltan
+    evidencia de retornos sobre capital, penetración, reinversión y erosión competitiva.
+  rating: Indeterminado
 dominio_catalizadores:
-- catalizador: La serie reportada muestra FCF de USD 5,260 millones en FY 2025 y USD
-    5,727 millones TTM al 2026-09-25; confirmar si la mejora se mantiene en períodos
-    comparables.
-  fuente: https://stockanalysis.com/stocks/DHR/statistics/
-  periodo: FY 2025 y TTM al 2026-09-25
-- catalizador: La actualización de ingresos y flujo de caja de períodos posteriores
-    permitiría comprobar si la recuperación observada en el dato TTM se convierte
-    en crecimiento sostenido.
-  fuente: https://stockanalysis.com/stocks/DHR/statistics/
-  periodo: TTM al 2026-09-25
+- catalizador: Comprobar en períodos comparables si el crecimiento de FCF reportado
+    para TTM al 2026-09-25 se mantiene y se acompaña de crecimiento de ingresos.
+- catalizador: Obtener información corporativa verificable sobre crecimiento orgánico,
+    innovación, adquisiciones, integración y retornos sobre capital; el paquete no
+    identifica hitos fechados.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
 - fuente: https://stockanalysis.com/stocks/DHR/statistics/
-  periodo: FY 2022 y FY 2025
-  riesgo: La serie de ingresos reportados muestra USD 26,643 millones en FY 2022 frente
-    a USD 24,568 millones en FY 2025; los datos disponibles no establecen la causa
-    ni la trayectoria futura.
+  riesgo: El FCF reportado fue USD 5.727 millones en TTM al 2026-09-25, frente a USD
+    5.260 millones en FY 2025, pero el TTM y los ejercicios anuales no son períodos
+    equivalentes para concluir una tendencia estructural.
 - fuente: https://stockanalysis.com/stocks/DHR/statistics/
-  periodo: FY 2025 y Current al 2026-09-25
-  riesgo: La deuda total reportada aumentó de USD 19,696 millones en FY 2025 a USD
-    27,782 millones en Current, con período terminado el 2026-09-25.
-- fuente: Research Intake Package y resumen financiero proporcionados
-  periodo: Al 2026-11-20
-  riesgo: El paquete no incluye información suficiente para evaluar penetración de
-    mercado, competencia, erosión del moat, gestión o asignación de capital.
+  riesgo: La deuda total reportada aumentó de USD 19.696 millones en FY 2025 a USD
+    27.782 millones al 2026-09-25; el paquete no aporta contexto de vencimientos ni
+    condiciones.
+- riesgo: No se aportan datos verificables de tamaño de mercado, penetración, cuota,
+    ROIC, reinversión o concentración de clientes para evaluar crecimiento y ventaja
+    competitiva.
 error_mercado:
-  catalizador_cambio: El paquete no identifica catalizadores corporativos fechados;
-    una mejora sostenida de ingresos y flujo de caja libre sería evidencia relevante
-    para revisar la hipótesis, pero no se presenta como hecho futuro.
-  conclusion_error_valoracion: 'No se puede validar un error de valoración con la
-    evidencia suministrada: el consenso es una referencia observada, no una estimación
-    de valor intrínseco.'
-  consenso_actual: 'La cotización observada fue USD 232.06 al 2026-10-30; el consenso
-    de precio objetivo reportado fue USD 259.90, con rango USD 220–310 al 2026-11-20.
-    Fuentes: yfinance, https://finance.yahoo.com/quote/DHR/; stockanalysis, https://stockanalysis.com/stocks/dhr/forecast/.'
-  hipotesis_contraria: 'La cotización puede no reflejar una recuperación sostenida
-    del negocio: los ingresos anuales reportados bajaron de USD 26,643 millones en
-    FY 2022 a USD 23,890 millones en FY 2023 y fueron USD 24,568 millones en FY 2025.
-    Fuente: https://stockanalysis.com/stocks/DHR/statistics/.'
-  razonamiento: 'La cotización mostró momentum de 12 meses de 7.8234% y volatilidad
-    de 90 días de 35.0433% al 2026-10-30; esas métricas de mercado no determinan por
-    sí solas el valor fundamental. Fuente: https://finance.yahoo.com/quote/DHR/history/.'
-generated_at: '2026-11-20T13:43:28.386077-03:00'
+  catalizador_cambio: Una trayectoria posterior verificable de crecimiento de FCF
+    y recuperación de ingresos permitiría evaluar si la mejora TTM es sostenible;
+    el paquete no ofrece guía ni fechas de catalizadores corporativos.
+  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
+    disponible; el rango de analistas es una referencia observada, no una valoración
+    propia.
+  consenso_actual: El consenso de precio objetivo reportado es USD 259,86, con rango
+    de USD 220 a USD 310, frente a una cotización de USD 232,06 al 2026-10-30. Son
+    observaciones de mercado, no estimaciones de valor intrínseco.
+  hipotesis_contraria: El crecimiento de FCF reportado para TTM hasta 2026-09-25 contrasta
+    con descensos reportados en FY 2023 y FY 2024; no hay evidencia suficiente para
+    concluir que la mejora sea persistente.
+  razonamiento: El precio subió 7,82% en los 12 meses terminados el 2026-10-30, mientras
+    que la volatilidad a 90 días fue 35,04% y el retroceso reportado fue 4,06%. Estos
+    datos de mercado no sustituyen evidencia de crecimiento, retornos sobre capital
+    o valoración.
+generated_at: '2026-11-21T15:19:46.630489-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-DHR
@@ -148,52 +154,64 @@ prompt_inputs:
   ticker: DHR
 ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
-  inputs: {}
-  limitations: Aunque hay observaciones históricas de ingresos, trusted_source_urls
-    está vacío; no hay URL autorizada para citar y validar el cálculo del ratio.
+  inputs:
+    revenue_history: Hay observaciones fechadas FY 2022 a FY 2025 y TTM, pero no se
+      calcula el ratio.
+  limitations: La lista trusted_source_urls está vacía; no hay URL autorizada para
+    respaldar la fila del ratio según el requisito de citación. Además, TTM no es
+    un ejercicio fiscal comparable con FY 2023.
   metric: revenue_cagr_3y_pct
-  period_end: null
+  period_end: '2026-09-25'
   sources: []
   status: unavailable
   unit: percent
   value: null
 - formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
-  inputs: {}
-  limitations: Hay observaciones de FCF en períodos distintos, pero trusted_source_urls
-    está vacío; no se puede citar una URL autorizada para validar el cálculo.
+  inputs:
+    fcf_history: Observaciones reportadas para TTM al 2026-09-25 y FY 2022–FY 2025.
+  limitations: La lista trusted_source_urls está vacía y no permite citar el ratio
+    con una URL autorizada. Los datos muestran períodos TTM y FY distintos; no se
+    deriva un crecimiento comparable.
   metric: fcf_growth_pct
-  period_end: null
+  period_end: '2026-09-25'
   sources: []
   status: unavailable
   unit: percent
   value: null
 - formula: FCF / net_income * 100
-  inputs: {}
-  limitations: Se reportan FCF e ingreso neto TTM, pero trusted_source_urls está vacío;
-    falta una URL autorizada para validar el cálculo del ratio.
+  inputs:
+    fcf: 5727.0, TTM
+    net_income_history: 4331.0, TTM
+  limitations: La lista trusted_source_urls está vacía y no hay URL autorizada para
+    citar el ratio calculado, aunque ambos inputs TTM están reportados para el mismo
+    período.
   metric: fcf_conversion_pct
-  period_end: null
+  period_end: '2026-09-25'
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs: {}
-  limitations: Las observaciones disponibles no acreditan que deuda, efectivo y EBITDA
-    correspondan al mismo período y trusted_source_urls está vacío; no se puede validar
-    ni citar el cálculo.
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
+    cuando net_cash = cash - debt
+  inputs:
+    ebitda: 8260000000.0, TTM
+    net_cash_history: -22100.0, Current
+  limitations: La lista trusted_source_urls está vacía y no permite citar el ratio.
+    El paquete aporta net_cash y EBITDA, pero no aporta una URL autorizada para respaldar
+    el cálculo.
   metric: net_debt_ebitda
-  period_end: null
+  period_end: '2026-09-25'
   sources: []
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs: {}
-  limitations: No se proporciona una serie histórica de acciones diluidas y trusted_source_urls
-    está vacío; falta el insumo comparable y una URL autorizada.
+  inputs:
+    shares_outstanding: 703530000.0, reportado al 2026-09-25
+  limitations: Falta una serie de acciones diluidas o acciones en circulación para
+    dos períodos comparables; la lista trusted_source_urls también está vacía.
   metric: dilution_yoy_pct
-  period_end: null
+  period_end: '2026-09-25'
   sources: []
   status: unavailable
   unit: percent
@@ -229,7 +247,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Danaher Corporation designs, manufactures, and markets professional,
     medical, research, and industrial products and services in the United States,
     China, and internationally. The company operates through Biotechnology, Life Sciences,
@@ -265,365 +283,372 @@ research_input_snapshot:
   existing_wiki: '## 1. Visión General de la Compañía
 
 
-    Danaher Corporation (DHR) diseña, fabrica y comercializa instrumentos, consumibles,
-    reactivos, software y servicios para biotecnología, ciencias de la vida, diagnóstico
-    y otros mercados profesionales, médicos e industriales. Su oferta incluye soluciones
-    para el desarrollo y la fabricación de terapias biológicas, como medios de cultivo
-    celular, buffers, resinas de cromatografía, filtración y llenado aséptico. [[AOIF:
-    entendimiento del negocio]]
+    Danaher Corporation (DHR) desarrolla, fabrica y comercializa instrumentos, consumibles,
+    reactivos, software y servicios para biotecnología, ciencias de la vida y diagnóstico
+    clínico. Su oferta incluye soluciones para desarrollar y fabricar terapias, analizar
+    muestras y automatizar flujos de trabajo de laboratorio.
 
 
-    Sus clientes incluyen empresas biofarmacéuticas y fabricantes de terapias, además
-    de laboratorios académicos, públicos y privados. La cadena de valor abarca diseño
-    y desarrollo, fabricación y control de calidad, y distribución global. La información
-    de investigación disponible no detalla el reparto geográfico de ingresos ni una
-    lista completa de segmentos reportables. [[AOIF: entendimiento del negocio]]
+    La compañía vende a empresas biofarmacéuticas y biotecnológicas, laboratorios
+    académicos, gubernamentales y comerciales. Según la descripción disponible, distribuye
+    globalmente y complementa la venta de equipos con consumibles, mantenimiento,
+    soporte y servicios técnicos. No se aportan datos para cuantificar la distribución
+    geográfica de ingresos.
 
 
-    La compañía participa en sectores relacionados con diagnóstico, investigación
-    y fabricación biofarmacéutica. Entre las empresas relacionadas de la wiki figuran
-    [[ABT]], [[AMGN]], [[AZN]], [[BIIB]] y [[BMY]]; la relación es sectorial y no
-    implica que todas sean competidores directos.
-
-
-    **Calidad de evidencia:** la descripción del negocio está resumida en el análisis
-    AOIF, pero los datos de actividad, ingresos por segmento y distribución geográfica
-    no vienen acompañados de referencias primarias en los materiales recibidos.
+    Las actividades se sitúan en los sectores de herramientas de ciencias de la vida,
+    tecnología médica y diagnóstico. Entre las compañías relacionadas por sector o
+    exposición a tendencias sanitarias se encuentran [[ABT]], [[ABBV]], [[AMGN]],
+    [[AZN]], [[BIIB]], [[BMY]], [[CAH]] y [[CVS]]; no todas son competidoras directas
+    de Danaher.
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    ### Fuentes potenciales de ingresos
+    ### Fuentes de ingresos y propuesta de valor
 
 
-    El modelo combina instrumentos y equipos con consumibles, reactivos, software
-    y servicios. La oferta descrita para bioprocesamiento incluye productos utilizados
-    en distintas etapas de desarrollo y fabricación de terapias biológicas. La investigación
-    plantea que esta combinación podría fomentar recurrencia e integración en los
-    flujos de trabajo, pero no aporta un desglose de ingresos recurrentes ni una cuantificación
-    de la contribución de cada categoría. [[AOIF: entendimiento del negocio]] [[DDD:
-    inferencias]]
+    Danaher combina la venta de instrumentos y equipos con consumibles recurrentes,
+    reactivos, software y servicios. La base instalada de instrumentos puede favorecer
+    compras posteriores de consumibles y soporte, aunque la información disponible
+    no cuantifica la proporción recurrente ni la retención de clientes.
 
 
-    ### Posición competitiva y moat
+    Los productos descritos incluyen soluciones de cultivo, filtración, purificación
+    y llenado aséptico para la fabricación de terapias, así como instrumentos y consumibles
+    para espectrometría de masas, citometría de flujo, genómica, automatización de
+    laboratorio y análisis bioquímico.
 
 
-    El análisis AOIF caracteriza la posición de Danaher como líder y el moat como
-    amplio, atribuyéndolo a marcas reconocidas, base instalada, costes de cambio y
-    demanda recurrente de consumibles y servicios. Estas son evaluaciones analíticas
-    de los materiales recibidos; no se acompañan de métricas comparativas de cuota
-    de mercado, retención de clientes o rentabilidad por producto. [[AOIF: análisis
-    competitivo]]
+    ### Ventajas competitivas potenciales
 
 
-    La demanda de diagnóstico, bioprocesamiento e instrumentos de investigación puede
-    beneficiarse de necesidades sanitarias y de la actividad de investigación y fabricación.
-    A la vez, la exposición a laboratorios y biotecnología puede hacer que pedidos
-    y presupuestos dependan de los ciclos de financiación y del gasto de los clientes.
-    [[AOIF: análisis competitivo]] [[DDD: inferencias]]
+    El análisis AOIF caracteriza la posición competitiva como líder y la amplitud
+    potencial del moat como amplia. Identifica como fuentes posibles de ventaja:
 
 
-    **Competencia y comparables sectoriales:** la información suministrada no identifica
-    competidores directos por producto. Para el contexto sectorial pueden consultarse
-    [[ABT]], [[AMGN]], [[AZN]], [[BIIB]] y [[BMY]], sin asumir equivalencia de modelos
-    de negocio.
+    - Marcas y reputación.
+
+    - Base instalada de instrumentos.
+
+    - Consumibles vinculados a los equipos y costes de cambio asociados a flujos de
+    trabajo.
+
+    - Relaciones de largo plazo con clientes.
+
+    - Amplitud de productos, servicios y capacidades de soporte.
+
+
+    Estas características son hipótesis cualitativas del análisis disponible, no una
+    demostración cuantificada de poder de precios, retención, retornos sobre capital
+    o ventaja sostenible.
+
+
+    ### Dinámica competitiva e industrial
+
+
+    La demanda puede beneficiarse de la investigación biomédica, el desarrollo y fabricación
+    de terapias, las necesidades clínicas y la automatización de laboratorios. También
+    puede ser cíclica: una reducción del gasto de clientes biotecnológicos o de la
+    financiación para investigación podría afectar pedidos de instrumentos, consumibles
+    y servicios. La sustitución tecnológica y la presión competitiva son riesgos relevantes.
 
 
     ## 3. Perfil Financiero
 
 
-    Las cifras siguientes proceden de los análisis DDD y AOIF. Los materiales no especifican
-    de forma suficiente el período, la metodología o la fuente primaria de varias
-    métricas; deben verificarse antes de utilizarlas en una valoración.
+    Las cifras siguientes son las reportadas en los materiales de investigación. Las
+    observaciones TTM y “Current” se refieren al **25 de septiembre de 2026** según
+    el paquete DDD; no se proporcionan definiciones completas ni reconciliaciones
+    de todas las métricas.
 
 
-    | Métrica | Valor comunicado | Período / limitación |
+    | Métrica | Valor reportado | Periodo / referencia | Observaciones |
 
-    |---|---:|---|
+    |---|---:|---|---|
 
-    | Crecimiento de ingresos | 5,52% | AOIF; período y metodología no especificados
+    | Ingresos | USD 26.643 mil millones | FY 2022 | Serie citada en el paquete DDD
     |
 
-    | Margen operativo | 21,97% | AOIF; período y metodología no especificados |
+    | Ingresos | USD 23.890 mil millones | FY 2023 | La causa de la disminución no
+    está establecida |
 
-    | ROIC | 6,6% | AOIF; período y metodología no especificados |
+    | Ingresos | USD 24.568 mil millones | FY 2025 | Por debajo del dato reportado
+    para FY 2022 |
 
-    | FCF | USD 5.730 millones | DDD lo describe como TTM en USD; falta confirmar
-    la fecha exacta de cierre en el material recibido |
+    | Margen bruto | 59,36% | TTM al 25-09-2026 | Fuente: [Stock Analysis, estadísticas
+    de DHR](https://stockanalysis.com/stocks/DHR/statistics/) |
 
-    | Conversión de FCF | No disponible | AOIF indica que faltan cifras de flujo de
-    caja operativo y FCF comparables para calcularla |
+    | Flujo de caja libre (FCF) | USD 5.260 millones | FY 2025 | Fuente: [Stock Analysis,
+    estadísticas de DHR](https://stockanalysis.com/stocks/DHR/statistics/) |
 
-    | PER | 38,09x | AOIF; fecha y base de cálculo no especificadas |
+    | Flujo de caja libre (FCF) | USD 5.727 millones | TTM al 25-09-2026 | La comparación
+    de períodos requiere validar que sean bases comparables |
 
-    | EV/EBITDA | 22,72x | AOIF; fecha y base de cálculo no especificadas |
+    | Deuda total | USD 19.696 millones | FY 2025 | Fuente: [Stock Analysis, estadísticas
+    de DHR](https://stockanalysis.com/stocks/DHR/statistics/) |
 
-    | FCF yield | 0% comunicado | AOIF; no se aporta cálculo ni datos subyacentes
-    |
+    | Deuda total | USD 27.782 millones | Current al 25-09-2026 | Aumento respecto
+    a FY 2025; no se identifica su causa |
 
-    | Precio de la acción | USD 232,06 | DDD, observación del 30 de octubre de 2026
-    |
+    | Current ratio | 1,63 | Al 25-09-2026 | El paquete indica que supera el umbral
+    configurado de 0,5 |
 
-    | Objetivos de analistas | Rango de USD 220–310 | DDD; observado el 20 de noviembre
-    de 2026. Se indica que el precio estaba por debajo de la media y dentro del rango,
-    pero no se dan los valores exactos de media y mediana |
-
-
-    DDD califica la salud financiera como adecuada y señala generación de FCF, pero
-    deja abiertas preguntas sobre deuda, caja, vencimientos, cobertura de intereses
-    y liquidez. AOIF califica la tendencia financiera como estable, aunque advierte
-    que los períodos y la metodología de las cifras no están especificados. Estas
-    evaluaciones no sustituyen una revisión de estados financieros y deuda. [[DDD:
-    perfil financiero y preguntas abiertas]] [[AOIF: análisis financiero]]
+    | Cobertura de intereses | 0 | Al 25-09-2026 | Dato reportado sin reconciliación;
+    debe verificarse antes de interpretarlo |
 
 
-    **Estructura de capital:** no hay datos suficientes para describir deuda neta,
-    vencimientos, liquidez, cobertura de intereses o apalancamiento.
+    El análisis AOIF también proporciona crecimiento de ingresos de **5,52%**, margen
+    operativo de **21,97%** y ROIC de **6,6%**, pero no indica período, definición
+    ni fuente para esas cifras. Por ello no deben tratarse como una serie financiera
+    validada ni compararse directamente con las métricas anteriores.
+
+
+    No se pudieron validar los ratios de CAGR de ingresos a tres años ni de crecimiento
+    de FCF: el paquete DDD indica que no había URLs autorizadas disponibles para respaldar
+    esos cálculos. Tampoco se aportan cifras de flujo de caja operativo para evaluar
+    la conversión de beneficios en efectivo.
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    La información recibida no incluye nombres de ejecutivos, historial de liderazgo,
-    composición del consejo, políticas de remuneración, propiedad accionaria de insiders
-    ni datos verificables de transacciones de insiders.
+    El análisis AOIF califica cualitativamente la calidad del management como buena,
+    la asignación de capital como creadora de valor y la alineación de insiders como
+    moderada. La justificación se basa en la diversificación y en una estrategia de
+    adquisiciones y mejora operativa asociada a Danaher, pero no incluye datos actuales
+    que permitan comprobar esas valoraciones.
 
 
-    Las evaluaciones sobre la gestión son distintas entre los análisis: AOIF califica
-    la calidad como buena, el alineamiento de insiders como moderado y la asignación
-    de capital como creadora de valor. DDD, en cambio, considera regular la evaluación
-    de management porque faltan datos verificables sobre asignación de capital, retornos
-    de adquisiciones y remuneración. Estas valoraciones deben tratarse como opiniones
-    de los análisis, no como hechos confirmados. [[AOIF: evaluación del management]]
-    [[DDD: evaluación del management]]
-
-
-    **Conclusión provisional:** no hay evidencia suficiente en los materiales para
-    evaluar de forma independiente la calidad del consejo, los incentivos o el rendimiento
-    de adquisiciones.
+    No se proporcionan nombres o trayectorias del equipo directivo, compensación e
+    incentivos, participación accionaria de insiders, composición del consejo, independencia
+    de sus miembros ni métricas detalladas de asignación de capital. Estas conclusiones
+    deben considerarse evaluaciones preliminares, no hechos verificados.
 
 
     ## 5. Tesis de Inversión
 
 
-    ### Caso alcista
+    ### Caso alcista — hipótesis por validar
 
 
-    - La combinación de instrumentos, consumibles, reactivos, software y servicios
-    podría integrar a Danaher en procesos de trabajo de clientes y sostener compras
-    recurrentes. El carácter recurrente y el grado de integración son hipótesis cualitativas
-    en los materiales, no métricas demostradas. [[AOIF: modelo de negocio]] [[DDD:
-    inferencias]]
+    - Danaher opera en áreas vinculadas con investigación biomédica, diagnóstico y
+    fabricación de terapias; esos usos pueden sostener la demanda de instrumentos,
+    consumibles y servicios.
 
-    - La exposición a biotecnología, ciencias de la vida, diagnóstico y fabricación
-    de terapias ofrece varias fuentes potenciales de demanda. AOIF describe una posición
-    competitiva fuerte y un moat amplio, aunque no aporta datos comparativos para
-    cuantificarlo. [[AOIF: análisis competitivo]]
+    - La combinación de equipos con consumibles y soporte podría generar ingresos
+    recurrentes asociados a la base instalada. La información disponible describe
+    esta dinámica, pero no cuantifica su contribución.
 
-    - El FCF comunicado por DDD, de USD 5.730 millones TTM, puede ser una señal favorable
-    de capacidad de generación de caja si se confirma el período, la cifra y su sostenibilidad.
-    No se proporcionan series históricas para evaluar su trayectoria. [[DDD: perfil
-    financiero]]
+    - El margen bruto reportado de **59,36% TTM** y el FCF de **USD 5.727 millones
+    TTM** al 25-09-2026 son compatibles con una operación de escala y una generación
+    de caja significativa. Por sí solos no prueban retornos atractivos sobre el capital
+    ni una ventaja competitiva sostenible.
 
-    - Un posible catalizador sería una secuencia de resultados que confirme una recuperación
-    sostenida del crecimiento orgánico y la generación de caja. DDD asigna a esta
-    posibilidad una probabilidad analítica del 50%, con confianza baja; no es una
-    probabilidad calibrada. [[DDD: catalizadores]]
+    - El análisis AOIF señala marcas, relaciones con clientes, costes de cambio y
+    amplitud de oferta como posibles fuentes de moat. Esas ventajas requieren validación
+    con datos de retención, crecimiento orgánico, precios, volúmenes y retornos sobre
+    capital.
+
+    - La mejora del FCF reportado frente al FY 2025 podría ser una señal favorable
+    si se mantiene en períodos comparables. La serie no basta para establecer una
+    tendencia sostenida.
 
 
-    **Clasificación de oportunidad en DDD:** *quality at fair price*. DDD considera
-    que los datos disponibles no bastan para justificar una clasificación más exigente
-    de *compounder*. La valoración se calificó como “justa”, pero la conclusión sobre
-    un posible error de valoración fue “incierta”. [[DDD: clasificación y valoración]]
+    **Evaluación general:** la información disponible justifica investigación adicional,
+    no una conclusión de inversión. El paquete DDD asigna un score general de **46**
+    y clasifica la oportunidad como “Investigación requerida”; también señala que
+    no puede validar un error de valoración ni los ratios configurados con la evidencia
+    suministrada.
 
 
     ## 6. Riesgos y Contra-Tesis
 
 
-    ### Caso bajista y riesgos principales
+    - **Ingresos débiles o recuperación no sostenida:** los ingresos reportados bajaron
+    de USD 26.643 millones en FY 2022 a USD 23.890 millones en FY 2023 y fueron USD
+    24.568 millones en FY 2025. La serie no establece por sí sola la causa ni la trayectoria
+    futura.
+
+    - **Deuda:** la deuda total reportada aumentó de USD 19.696 millones en FY 2025
+    a USD 27.782 millones en la observación “Current” al 25-09-2026. No se proporciona
+    una explicación del cambio ni su impacto completo en liquidez o capacidad de inversión.
+
+    - **Ciclicidad de clientes:** menor gasto de compañías biotecnológicas o menor
+    financiación de investigación podría reducir pedidos de equipos, consumibles y
+    servicios.
+
+    - **Competencia y sustitución tecnológica:** presión competitiva o pérdida de
+    relevancia de plataformas y productos podría erosionar crecimiento y márgenes.
+
+    - **Calidad de datos financieros:** la cobertura de intereses reportada como cero
+    carece de reconciliación. Debe verificarse EBIT e intereses; no corresponde sustituir
+    EBIT por EBITDA para interpretar la cobertura.
+
+    - **Retornos sobre capital no demostrados:** el margen bruto y el FCF disponibles
+    no bastan para evaluar el rendimiento del capital invertido ni el capital requerido
+    para sostener el crecimiento.
+
+    - **Valoración no establecida:** el consenso de precio objetivo no equivale a
+    valor intrínseco; los datos aportados no permiten concluir que el mercado esté
+    equivocado.
 
 
-    1. **Demanda cíclica o recuperación lenta.** La investigación, la biotecnología
-    y el bioprocesamiento pueden ser sensibles a la financiación, los presupuestos
-    de laboratorio y el calendario de inversión de los clientes. AOIF califica como
-    de impacto alto y probabilidad media el riesgo de recuperación más lenta de lo
-    esperado. [[AOIF: riesgos]]
-
-    2. **Expectativas de crecimiento y compresión de múltiplos.** DDD señala que la
-    cotización podría sufrir si no se cumplen las expectativas de crecimiento o márgenes.
-    AOIF comunica múltiplos de PER 38,09x y EV/EBITDA 22,72x, aunque sin fecha ni
-    metodología verificables; por ello, la sensibilidad de la cotización a las expectativas
-    debe evaluarse con datos actualizados. [[DDD: riesgos]] [[AOIF: valoración]]
-
-    3. **Presión competitiva y obsolescencia tecnológica.** Cambios tecnológicos o
-    competencia en instrumentos, diagnóstico y consumibles especializados podrían
-    afectar la posición competitiva. AOIF lo clasifica como riesgo de impacto y probabilidad
-    medios. [[AOIF: riesgos]]
-
-    4. **Incertidumbre financiera y de valoración.** No se dispone de información
-    suficiente sobre deuda, liquidez, conversión de FCF ni evolución histórica por
-    segmento para comprobar la resiliencia del balance o la valoración. [[DDD: preguntas
-    abiertas]] [[AOIF: análisis financiero]]
+    ### Falsadores de la hipótesis de recuperación
 
 
-    ### Contra-tesis
+    - Ingresos futuros que no confirmen crecimiento frente a bases comparables.
 
+    - Deterioro sostenido del FCF respecto a los datos FY 2025 y TTM reportados.
 
-    El mercado podría estar valorando adecuadamente la incertidumbre de la recuperación
-    de demanda y la ausencia de evidencia verificable sobre crecimiento orgánico por
-    segmento. DDD plantea como hipótesis contraria que se subestime la capacidad de
-    recuperación, pero no aporta evidencia concluyente que permita resolver esa discrepancia.
-    [[DDD: error de mercado]]
+    - Evidencia de que la demanda, los precios o los volúmenes no sostienen una mejora
+    orgánica.
 
-
-    ### Triggers de falsación a vigilar
-
-
-    - Resultados que muestren debilidad persistente del crecimiento orgánico o de
-    los pedidos en segmentos relevantes.
-
-    - Evidencia de que la generación de FCF se deteriora mientras se intenta recuperar
-    el crecimiento.
-
-    - Deterioro de márgenes o pérdida de posición competitiva frente a alternativas.
-
-    - Datos de deuda y liquidez que revelen menos flexibilidad financiera de la que
-    sugiere el perfil de caja.
-
-
-    Los materiales no establecen umbrales cuantitativos para estos triggers; deben
-    definirse tras revisar series históricas y reportes corporativos.
+    - Confirmación de que la deuda crece sin que la generación de caja o la rentabilidad
+    de las inversiones compensen ese incremento.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    | Catalizador | Horizonte indicado | Impacto potencial | Probabilidad comunicada
-    | Estado y límites |
+    | Catalizador / evento | Fecha esperada | Impacto potencial | Evidencia disponible
+    |
 
-    |---|---|---|---:|---|
+    |---|---|---|---|
 
-    | Confirmación de mejora sostenida de demanda y crecimiento orgánico | Medio plazo
-    | Medio | 50% | Nuevo en DDD; confianza baja. Requiere confirmación en resultados
-    y comentarios corporativos |
+    | Nuevas observaciones comparables de FCF | Próxima actualización financiera;
+    fecha no aportada | Permitirían comprobar si la mejora reportada frente a FY 2025
+    se mantiene | FCF de USD 5.260 millones en FY 2025 y USD 5.727 millones TTM al
+    25-09-2026. [Stock Analysis](https://stockanalysis.com/stocks/DHR/statistics/)
+    |
 
-    | Mantenimiento de una generación sólida de caja durante la recuperación | Medio
-    plazo | Medio | 45% | Nuevo en DDD; estimación analítica no calibrada y confianza
-    baja |
+    | Actualización de ingresos y demanda | Próxima actualización financiera; fecha
+    no aportada | Aclararía si existe recuperación sostenida y cómo evolucionan demanda,
+    precios y volúmenes | Ingresos históricos reportados en el paquete DDD; no se
+    identifica un catalizador corporativo fechado |
 
-    | Secuencia de resultados que confirme crecimiento orgánico y generación de caja
-    | Medio plazo | Medio | 50% | Catalizador de cambio descrito por DDD; no hay fecha
-    concreta ni calendario de eventos |
+    | Evolución de deuda y liquidez | Próxima actualización financiera; fecha no aportada
+    | Ayudaría a determinar la causa del aumento de deuda y su efecto financiero |
+    Deuda total reportada de USD 19.696 millones en FY 2025 y USD 27.782 millones
+    al 25-09-2026. [Stock Analysis](https://stockanalysis.com/stocks/DHR/statistics/)
+    |
 
 
-    No se suministraron fechas de resultados, lanzamientos, decisiones regulatorias
-    u otros eventos específicos. Por tanto, el horizonte “medio” no debe interpretarse
-    como una fecha de calendario. Las probabilidades anteriores son estimaciones de
-    DDD, no frecuencias históricas ni consenso cuantificado. [[DDD: catalizadores
-    y error de mercado]]
+    No se aportan anuncios corporativos fechados ni un calendario de eventos. Los
+    catalizadores de la tabla son puntos de comprobación de la tesis, no eventos confirmados.
+
+
+    Como referencia de mercado, el paquete DDD reporta una cotización de **USD 232,06
+    al 30-10-2026** y un consenso de precio objetivo de **USD 259,90**, con rango
+    de **USD 220–310 al 20-11-2026**. Se atribuye la cotización a yfinance y se cita
+    como fuente del consenso [Finan…], pero el enlace aparece truncado en el material
+    suministrado. Estas referencias no constituyen estimaciones de valor intrínseco.
 
 
     ## 8. Marco de Valoración
 
 
-    ### Metodología adecuada
+    ### Metodología apropiada
 
 
-    Para una compañía con ventas de instrumentos y una posible base recurrente de
-    consumibles y servicios, conviene contrastar:
+    Una valoración basada en flujos de caja descontados requeriría proyecciones verificables
+    de crecimiento orgánico, márgenes, impuestos, inversión de capital, capital de
+    trabajo y FCF, además de una tasa de descuento y un valor terminal. La falta de
+    esos datos impide estimar de forma fiable el valor intrínseco.
 
 
-    - **DCF sobre flujo de caja libre**, con hipótesis explícitas de crecimiento orgánico,
-    márgenes, reinversión y conversión de caja.
-
-    - **Múltiplos de valor empresarial**, como EV/EBITDA, comparados con compañías
-    y períodos apropiados.
-
-    - **Valoración por segmentos**, si se obtienen datos suficientes para separar
-    las dinámicas de diagnóstico, ciencias de la vida y bioprocesamiento.
-
-    - **Prueba de sensibilidad** a la recuperación de demanda, márgenes y tasa de
-    descuento.
+    Como contraste podrían emplearse múltiplos de compañías comparables, ajustados
+    por mezcla de negocio, crecimiento, márgenes, deuda y generación de caja. Las
+    compañías relacionadas por exposición sectorial —por ejemplo, [[ABT]]— no deben
+    asumirse como comparables directas sin verificar semejanza de segmentos y modelos
+    de negocio.
 
 
-    La información disponible no permite construir una valoración intrínseca robusta.
-    AOIF señala expresamente que faltan datos de FCF, precio y fecha de referencia
-    verificables para estimarla de forma fiable. [[AOIF: análisis de valoración]]
+    ### Datos de valoración disponibles y limitaciones
 
 
-    ### Referencias y escenarios disponibles
-
-
-    DDD utiliza el rango de objetivos de analistas observado el 20 de noviembre de
-    2026 como ancla de escenarios, no como valoración independiente:
-
-
-    | Escenario | Precio objetivo | Interpretación comunicada |
+    | Dato | Valor reportado | Limitación |
 
     |---|---:|---|
 
-    | Bajista | USD 220 | Extremo inferior del rango observado; no equivale a una
-    valoración intrínseca |
+    | PER | 38,09 | AOIF no aporta fecha de referencia ni base comparable |
 
-    | Alcista | USD 310 | Extremo superior del rango observado; supone recuperación
-    de demanda y crecimiento |
+    | EV/EBITDA | 22,72 | AOIF no aporta fecha de referencia ni definiciones |
+
+    | FCF yield | 0 | AOIF no especifica período ni metodología |
+
+    | Margen de seguridad | Insuficiente | Conclusión AOIF; no se aporta cálculo verificable
+    |
+
+    | Valor intrínseco | No estimable de forma fiable | Faltan, entre otros datos,
+    fecha y precio de mercado para el análisis, acciones diluidas, deuda neta y proyecciones
+    de FCF |
 
 
-    El precio de USD 232,06 corresponde a una observación del 30 de octubre de 2026,
-    mientras que los escenarios están fechados el 20 de noviembre de 2026 y tienen
-    horizonte al 20 de noviembre de 2027. Estas fechas no son simultáneas y deben
-    mantenerse separadas al comparar precios. El rango de objetivos de analistas no
-    valida por sí mismo el valor fundamental. [[DDD: escenarios y consenso]]
+    El precio objetivo de consenso reportado al 20-11-2026 es una referencia observada
+    del mercado, no una medida de valor intrínseco. El paquete DDD concluye que no
+    hay evidencia suficiente para validar un error de valoración.
 
 
-    **Lectura de valoración:** DDD califica la valoración como justa y el posible
-    error de valoración como incierto. AOIF señala margen de seguridad insuficiente.
-    Dado que los múltiplos y sus bases temporales no están verificadas, la conclusión
-    es provisional, no una recomendación de compra o venta. [[DDD: valoración]] [[AOIF:
-    valoración]]
+    ### Sensibilidad pendiente
+
+
+    La valoración sería particularmente sensible a:
+
+
+    - Crecimiento orgánico por segmento y duración de la recuperación.
+
+    - Precios y volúmenes de instrumentos, consumibles y servicios.
+
+    - Conversión de resultados en FCF.
+
+    - Márgenes operativos y reinversión necesaria.
+
+    - Evolución de la deuda y coste de financiación.
+
+    - Retornos sobre capital y supuestos de crecimiento terminal.
+
+
+    No es posible cuantificar escenarios de sensibilidad con los datos suministrados.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    1. ¿Cuál es el crecimiento orgánico por segmento, y cómo se separa de adquisiciones
-    y divisas?
+    1. ¿Cuál es el crecimiento orgánico por segmento y cómo evolucionan demanda, precios
+    y volúmenes?
 
-    2. ¿Cómo evolucionan pedidos, cartera de pedidos y demanda final en ciencias de
-    la vida, bioprocesamiento y diagnóstico?
+    2. ¿Qué parte de los ingresos procede de consumibles y servicios asociados a la
+    base instalada? ¿Cómo varían retención y recurrencia?
 
-    3. ¿Qué proporción de ingresos y márgenes procede de instrumentos, consumibles,
-    servicios, reactivos y software?
+    3. ¿Qué retornos sobre capital obtiene Danaher y cuánto reinvierte para sostener
+    el crecimiento?
 
-    4. ¿Cuál es la deuda total, caja, deuda neta, calendario de vencimientos, cobertura
-    de intereses y liquidez del período más reciente?
+    4. ¿Cómo se reconcilian el crecimiento de ingresos de 5,52%, el margen operativo
+    de 21,97% y el ROIC de 6,6% reportados por AOIF? ¿A qué períodos y definiciones
+    corresponden?
 
-    5. ¿Cuál es la conversión de flujo de caja operativo a FCF y cómo ha evolucionado
-    en varios años?
+    5. ¿La mejora del FCF desde FY 2025 hasta TTM al 25-09-2026 se mantiene usando
+    períodos comparables?
 
-    6. ¿A qué período, moneda y metodología corresponden exactamente las cifras de
-    crecimiento, margen operativo, ROIC, PER, EV/EBITDA y FCF yield proporcionadas
-    por AOIF?
+    6. ¿Cuál fue la causa del aumento de deuda reportado y cómo cambia la deuda neta,
+    el coste de financiación y la cobertura de intereses?
 
-    7. ¿Qué retornos han generado las adquisiciones, y cómo se mide la creación de
-    valor tras su integración?
+    7. ¿Es correcto el dato de cobertura de intereses igual a cero? Se necesitan EBIT
+    e intereses con definiciones y reconciliación.
 
-    8. ¿Qué datos verificables sustentan el moat, la posición de liderazgo, los costes
-    de cambio y la recurrencia de consumibles?
+    8. ¿Qué resultados concretos respaldan las evaluaciones cualitativas de management,
+    asignación de capital y alineación de insiders?
 
-    9. ¿Qué estructura de incentivos, propiedad de insiders y composición del consejo
-    tiene la compañía?
+    9. ¿Cuáles son la composición y la independencia del consejo, los incentivos ejecutivos
+    y la propiedad de insiders?
 
-    10. ¿Qué métricas verificables existen sobre emisiones, agua, seguridad, cumplimiento,
-    controversias y auditorías de proveedores? DDD no recibió datos suficientes para
-    evaluar estos factores. [[DDD: ESG y cadena de suministro]]
+    10. ¿Cuáles son las proyecciones de FCF, el número de acciones diluidas y los
+    supuestos necesarios para una valoración verificable?
 
-
-    **Fuentes de esta entrada:** análisis DDD y análisis AOIF proporcionados en los
-    materiales de investigación. Las fechas citadas corresponden únicamente a las
-    observaciones expresamente indicadas en DDD; AOIF no especifica fechas ni metodología
-    para varias métricas financieras.
+    11. ¿Qué fuentes autorizadas y comparables permiten validar CAGR de ingresos,
+    crecimiento de FCF y métricas históricas?
 
 
     ---
@@ -864,12 +889,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    310.0, "low": 220.0, "mean": 259.9, "median": 259.9, "observed_at": "2026-11-20T13:43:04.401598-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T13:43:04.401598-03:00", "observed_date": "2026-11-20", "target_price":
-    259.9, "url": "https://stockanalysis.com/stocks/dhr/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:43:04.401598-03:00",
-    "observed_date": "2026-11-20", "target_price": 259.90475, "url": "https://finance.yahoo.com/quote/DHR/"}]},
+    310.0, "low": 220.0, "mean": 259.86, "median": 259.86, "observed_at": "2026-11-21T15:19:22.118242-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T15:19:22.118242-03:00", "observed_date": "2026-11-21", "target_price":
+    259.86, "url": "https://stockanalysis.com/stocks/dhr/forecast/"}, {"as_of_date":
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T15:19:22.118242-03:00",
+    "observed_date": "2026-11-21", "target_price": 259.85715, "url": "https://finance.yahoo.com/quote/DHR/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 232.05999755859375,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/DHR/"}]}}'
   sector: Healthcare
@@ -879,80 +904,93 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 1ae10ebcf3103e8296bac94afd49892b597dfe9dfa1b20824b64781148ee17a4
+    sha256: e33bbcb0234d3c2afadacd078b9dcd0849e40d95ce319f5ee03d620053f4d341
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T13:43:28.386077-03:00'
+  triggered_at: '2026-11-21T15:19:46.630489-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_note: Observación para Assessment; no es una decisión de inversión.
+- assessment_note: Observación para Assessment, no decisión de compra.
   metric: current_ratio
-  observation: El valor reportado es 1.63 al 2026-09-25, por encima del umbral configurado.
-  source: https://stockanalysis.com/stocks/DHR/statistics/
+  observation: 1.63 al 2026-09-25, reportado; no se activa el umbral.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/DHR/statistics/
   threshold: below 0.5
-- assessment_note: Verificar EBIT e interés antes de interpretar; no sustituir EBIT
-    por EBITDA.
-  metric: interest_coverage
-  observation: El valor reportado es 0 al 2026-09-25, por debajo del umbral configurado;
-    el paquete no aporta reconciliación del dato.
-  source: https://stockanalysis.com/stocks/DHR/statistics/
-  threshold: below 2.0
-- assessment_note: El umbral es una observación para Assessment, no una decisión de
-    inversión.
-  metric: net_debt_ebitda
-  observation: 'No evaluable: no se validó un ratio comparable con URL autorizada.'
-  threshold: above 4.0
-- assessment_note: El umbral es una observación para Assessment, no una decisión de
-    inversión.
+- assessment_note: No puede evaluarse el umbral.
   metric: dilution_yoy_pct
-  observation: 'No evaluable: falta una serie verificable de acciones diluidas.'
-  threshold: above 10%
-- assessment_note: No se calcula runway cuando no hay FCF negativo.
-  metric: fcf_runway_months
-  observation: No aplica al FCF TTM reportado como positivo al 2026-09-25.
-  threshold: below 12 months when FCF is negative
-- assessment_note: El umbral es una observación para Assessment, no una decisión de
-    inversión.
+  observation: 'No disponible: falta una serie comparable de acciones diluidas o en
+    circulación.'
+  source: null
+  threshold: above 10 percent
+- assessment_note: Requiere EBIT e interés verificables y compatibles.
+  metric: interest_coverage
+  observation: El campo reporta 0 al 2026-09-25, pero no hay gasto por intereses ni
+    aclaración de si el cero significa falta de dato; no se considera una cobertura
+    validada.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/DHR/statistics/
+  threshold: below 2.0x
+- assessment_note: El umbral está diseñado para FCF negativo.
+  metric: negative_fcf_runway_months
+  observation: No aplica con FCF reportado positivo de USD 5.727 millones para TTM
+    terminado el 2026-09-25.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/DHR/statistics/
+  threshold: below 12 months
+- assessment_note: El net_cash reportado es -USD 22.100 millones y EBITDA reportado
+    USD 8.260 millones, ambos al 2026-09-25.
+  metric: net_debt_ebitda
+  observation: 'No calculado como ratio validado: falta URL autorizada en trusted_source_urls
+    para citar el cálculo.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/DHR/statistics/
+  threshold: above 4.0x
+- assessment_note: No puede evaluarse el umbral.
   metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: no se proporciona una serie histórica verificable de
-    acciones.'
-  threshold: above 5%
+  observation: 'No disponible: no se aporta historia de acciones para tres años y
+    períodos comparables.'
+  source: null
+  threshold: above 5 percent
 scenario_analysis: null
 scenario_validation:
   errors:
   - scenario_analysis ausente
   status: invalid_pending_revision
-score_general: 46
+score_general: 43
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T13:43:04.401598-03:00'
+  calculado_at: '2026-11-21T15:19:22.118242-03:00'
   fuentes:
-    stockanalysis: 259.9
-    yfinance: 259.90475
-  mediana: 259.9
+    stockanalysis: 259.86
+    yfinance: 259.85715
+  mediana: 259.86
   n_fuentes: 2
-  promedio: 259.9
+  promedio: 259.86
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T13:43:04.401598-03:00'
-    observed_date: '2026-11-20'
-    target_price: 259.9
+    observed_at: '2026-11-21T15:19:22.118242-03:00'
+    observed_date: '2026-11-21'
+    target_price: 259.86
     url: https://stockanalysis.com/stocks/dhr/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T13:43:04.401598-03:00'
-    observed_date: '2026-11-20'
-    target_price: 259.90475
+    observed_at: '2026-11-21T15:19:22.118242-03:00'
+    observed_date: '2026-11-21'
+    target_price: 259.85715
     url: https://finance.yahoo.com/quote/DHR/
   target_high: 310.0
   target_low: 220.0
-tesis_inversion: Danaher reúne actividades de biotecnología, ciencias de la vida y
-  diagnóstico, y reporta margen bruto TTM de 59.36% y FCF TTM de USD 5,727 millones
-  al 2026-09-25. La evidencia disponible no permite confirmar crecimiento estructural,
-  retornos sobre capital, ventaja competitiva duradera ni una valoración intrínseca;
-  la tesis depende de verificar recuperación y crecimiento rentable sin deterioro
-  financiero.
+tesis_inversion: Danaher opera en biotecnología, ciencias de la vida y diagnóstico,
+  con ingresos TTM reportados de USD 25.608 millones y margen bruto de 59,36% al 2026-09-25.
+  La evidencia disponible no permite validar el mecanismo de reinversión, retornos
+  sobre capital, penetración de mercado, ventaja competitiva, asignación de capital
+  ni la sostenibilidad del FCF; la tesis depende de resolver esas carencias, no de
+  asumirlas.
 ticker: DHR
 version: '3.0'
