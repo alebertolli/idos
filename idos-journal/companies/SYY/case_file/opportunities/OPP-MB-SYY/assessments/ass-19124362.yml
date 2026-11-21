@@ -1,0 +1,34 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida; evidencia insuficiente para
+  clasificarla como oportunidad multibagger'
+- 'Market error: No se puede validar un error de valoración: el consenso y la cotización
+  son referencias observadas, no una valoración intrínseca.'
+- 'Thesis: Sysco distribuye alimentos y productos relacionados a clientes de foodservice
+  y registra crecimiento de ingresos entre FY 2023 y FY 2026, con FCF positivo en
+  los períodos informados. La tesis depende '
+generated_at: '2026-11-21T18:21:27.346762-03:00'
+id: ass-19124362
+recommendation: REVIEW
+risks:
+- evidencia: Stockanalysis.com, financials, FCF FY 2025 USD 1,604 millones y FY 2026
+    USD 1,938 millones; URL https://stockanalysis.com/stocks/syy/financials/.
+  riesgo: 'El FCF informado fluctúa: baja en FY 2025 y repunta en FY 2026; no se debe
+    extrapolar automáticamente el crecimiento TTM.'
+- evidencia: 'Stockanalysis.com, financials, net_cash Current al 2026-09-26: -12,293
+    millones; URL https://stockanalysis.com/stocks/syy/financials/.'
+  riesgo: El historial de deuda reporta deuda neta negativa en la métrica net_cash,
+    aunque la razón deuda neta/EBITDA calculable no cruza el umbral configurado de
+    4x.
+- evidencia: No se proporcionan métricas de mercado, clientes ni ROIC en la evidencia
+    financiera suministrada.
+  riesgo: No hay evidencia suficiente en el paquete para evaluar cuota de mercado,
+    concentración de clientes, erosión competitiva o retornos sobre capital.
+- evidencia: Stockanalysis.com, statistics, TTM al 2026-09-26; URL https://stockanalysis.com/stocks/SYY/statistics/.
+  riesgo: La cobertura de intereses reportada como 0x en la fuente requiere validación
+    antes de interpretarse; el paquete no incluye el gasto por intereses que permita
+    recalcularla.
+score: 55
+status: COMPLETED
+version: '3.0'

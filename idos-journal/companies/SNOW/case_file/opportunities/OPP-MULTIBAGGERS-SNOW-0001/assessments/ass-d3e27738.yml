@@ -1,0 +1,32 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida: crecimiento de plataforma con rentabilidad
+  GAAP negativa'
+- 'Market error: No se puede validar un error de valoración con la evidencia disponible:
+  faltan método de valoración e inputs suficientes para estimar valor intrínseco.'
+- 'Thesis: Snowflake presenta crecimiento de ingresos y FCF positivo en los períodos
+  reportados, junto con margen bruto relativamente estable; la tesis depende de que
+  esa expansión se traduzca en rentabilidad op'
+generated_at: '2026-11-21T18:17:04.232308-03:00'
+id: ass-d3e27738
+recommendation: REVIEW
+risks:
+- implicacion: Limita la lectura de conversión del FCF en beneficio y hace que múltiplos
+    basados en EBITDA no sean interpretables de forma convencional.
+  observacion: EBIT, EBITDA y beneficio neto fueron negativos en el TTM terminado
+    el 2026-07-31.
+  tema: Rentabilidad
+- implicacion: El paquete no aporta composición ni vencimientos suficientes para evaluar
+    plenamente liquidez y obligaciones.
+  observacion: El current ratio reportado fue 0.94 y el efectivo e inversiones, USD
+    4,337 millones al 2026-07-31.
+  tema: Liquidez y balance
+- implicacion: No es posible validar la durabilidad del crecimiento ni el riesgo de
+    erosión competitiva.
+  observacion: No se incluyen datos sobre retención, concentración de clientes, competencia,
+    penetración o retornos sobre capital.
+  tema: Ejecución y ventaja competitiva
+score: 65.2
+status: COMPLETED
+version: '3.0'

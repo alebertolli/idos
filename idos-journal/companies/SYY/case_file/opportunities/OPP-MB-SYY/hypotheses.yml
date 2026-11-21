@@ -1,19 +1,18 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Las ventas netas del ejercicio fiscal 2027 crecen menos de 3% frente
-      al ejercicio fiscal 2026.
+  - condition: Las ventas netas consolidadas de FY2027 crecen menos del 3% frente
+      a FY2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen bruto del ejercicio fiscal 2027 es inferior a 18,2%.
+  - condition: La compañía informa una contracción de ventas para FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Las ventas netas del ejercicio fiscal 2027 crecen menos de 3% frente al ejercicio
-    fiscal 2026.
-  - El margen bruto del ejercicio fiscal 2027 es inferior a 18,2%.
+  - Las ventas netas consolidadas de FY2027 crecen menos del 3% frente a FY2026.
+  - La compañía informa una contracción de ventas para FY2027.
   horizon: medio
   id: H1-OPP-MB-SYY
   opportunity_id: OPP-MB-SYY
@@ -23,41 +22,43 @@ hypotheses:
     deadline: '2027-09-30'
     expected: 3.0
     met: null
-    metric: Crecimiento interanual de ventas netas del ejercicio fiscal 2027
-    prediction: En el ejercicio fiscal terminado el 2027-06-30, las ventas netas aumentarán
-      al menos 3% frente al ejercicio fiscal terminado el 2026-06-30 y el margen bruto
-      anual será de al menos 18,2%.
-    unit: '%'
-  priority: critical
+    metric: Crecimiento interanual de ventas netas consolidadas de FY2027
+    prediction: Las ventas netas consolidadas de FY2027 serán al menos un 3% superiores
+      a las de FY2026, comparando ejercicios fiscales completos según los informes
+      anuales de Sysco.
+    unit: porcentaje mínimo
+  priority: important
   probability: 0.5
-  rationale: La compañía opera a gran escala en distribución de alimentos para foodservice
-    y la evidencia disponible muestra márgenes brutos históricamente estables, con
-    un margen bruto TTM de 18,54%. Sin datos que acrediten crecimiento estructural
-    del mercado o ganancias de cuota, una hipótesis prudente es que las ventas crezcan
-    de forma moderada y que el margen se sostenga aproximadamente en su nivel reciente.
-  review_trigger: Dejar de creerla si un informe trimestral presentado antes del 2027-09-30
-    muestra que las ventas acumuladas del ejercicio fiscal 2027 están creciendo menos
-    de 1% interanual o que el margen bruto acumulado es inferior a 18,0%.
+  rationale: Los ingresos crecieron entre FY2023 y FY2026 según el contexto disponible.
+    La distribución de alimentos a clientes de foodservice puede sostener ventas recurrentes,
+    aunque la información disponible no permite concluir que exista una ventaja competitiva
+    duradera ni separar el crecimiento orgánico del efecto de precios, adquisiciones
+    o divisas.
+  review_trigger: Dejar de creerla si el informe anual de FY2027 muestra crecimiento
+    de ventas inferior al 3%, o si antes de su publicación Sysco comunica una revisión
+    que implique contracción de ventas para ese ejercicio.
   secondary_hypotheses: []
-  statement: Sysco mantendrá un crecimiento moderado de ventas sin que la expansión
-    de ingresos dependa de un deterioro material del margen bruto.
+  statement: Sysco mantendrá el crecimiento de ventas en el ejercicio fiscal 2027,
+    apoyado por la demanda recurrente de sus clientes de foodservice y la continuidad
+    de su actividad de distribución.
   status: ACTIVE
   ticker: SYY
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF de los doce meses terminados el 2027-06-30 es cero o negativo.
+  - condition: El flujo de caja libre de FY2027, calculado con la definición indicada,
+      es igual o inferior a 0 dólares.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen de FCF para ese período es inferior a 1,5% de las ventas
-      netas.
+  - condition: La compañía informa flujo operativo negativo para FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF de los doce meses terminados el 2027-06-30 es cero o negativo.
-  - El margen de FCF para ese período es inferior a 1,5% de las ventas netas.
+  - El flujo de caja libre de FY2027, calculado con la definición indicada, es igual
+    o inferior a 0 dólares.
+  - La compañía informa flujo operativo negativo para FY2027.
   horizon: medio
   id: H2-OPP-MB-SYY
   opportunity_id: OPP-MB-SYY
@@ -65,70 +66,77 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-09-30'
-    expected: 1.5
+    expected: 0.0
     met: null
-    metric: Margen de FCF en los doce meses terminados el 2027-06-30
-    prediction: En los doce meses terminados el 2027-06-30, Sysco reportará FCF positivo
-      y un margen de FCF de al menos 1,5% de las ventas netas.
-    unit: '% de ventas netas'
+    metric: Flujo de caja libre de FY2027
+    prediction: El flujo de caja libre acumulado de FY2027 será superior a 0 dólares,
+      calculado como flujo de efectivo de operaciones menos compras de propiedad y
+      equipo, según el informe anual.
+    unit: dólares; estrictamente mayor que 0
   priority: critical
   probability: 0.5
-  rationale: La información disponible indica FCF positivo y una conversión de FCF
-    elevada, aunque no aporta suficiente detalle para validar retornos incrementales
-    sobre el capital ni una trayectoria de crecimiento multianual. Por ello, la hipótesis
-    se limita a que la generación de caja se mantenga positiva y material respecto
-    a las ventas.
-  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-09-30
-    muestra FCF negativo en los doce meses móviles y no lo atribuye principalmente
-    a una variación temporal identificable del capital de trabajo.
+  rationale: El contexto indica que Sysco tuvo FCF positivo en los períodos informados
+    y crecimiento de ingresos entre FY2023 y FY2026. Esto respalda, pero no garantiza,
+    la continuidad de la generación de efectivo; el FCF también depende de inversiones,
+    capital de trabajo y otras partidas de caja.
+  review_trigger: Dejar de creerla cuando el informe anual de FY2027 muestre FCF igual
+    o inferior a cero; también si Sysco comunica antes del cierre del ejercicio una
+    previsión de FCF anual no positivo.
   secondary_hypotheses:
   - H1-OPP-MB-SYY
-  statement: Sysco seguirá convirtiendo sus operaciones en flujo de caja libre positivo,
-    sin que el margen de FCF se deteriore por debajo de un umbral compatible con la
-    continuidad de la generación de caja.
+  statement: Sysco generará flujo de caja libre positivo en FY2027, sin que el crecimiento
+    de ventas requiera una inversión de capital y circulante que consuma todo el efectivo
+    operativo.
   status: ACTIVE
   ticker: SYY
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de SYY supera la del S&P 500 en más de 5 puntos
-      porcentuales entre las fechas indicadas.
+  - condition: La rentabilidad total de SYY menos la de XLP es inferior a 5 puntos
+      porcentuales al cierre del período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de SYY es inferior a la de XLP al cierre del
+      período.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de SYY supera la del S&P 500 en más de 5 puntos porcentuales
-    entre las fechas indicadas.
+  - La rentabilidad total de SYY menos la de XLP es inferior a 5 puntos porcentuales
+    al cierre del período.
+  - La rentabilidad total de SYY es inferior a la de XLP al cierre del período.
   horizon: medio
   id: H3-OPP-MB-SYY
   opportunity_id: OPP-MB-SYY
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
+    deadline: '2027-11-21'
     expected: 5.0
     met: null
-    metric: Rentabilidad total de SYY menos rentabilidad total del S&P 500
-    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de SYY,
-      incluidos dividendos, será como máximo 5 puntos porcentuales superior a la rentabilidad
-      total del S&P 500.
-    unit: puntos porcentuales como máximo
-  priority: important
+    metric: Rentabilidad total relativa de SYY frente a XLP
+    prediction: Entre el cierre del 2026-11-21 y el cierre del 2027-11-21, la rentabilidad
+      total de SYY, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      la rentabilidad total de XLP en el mismo intervalo.
+    unit: puntos porcentuales mínimos en doce meses
+  priority: informational
   probability: 0.5
-  rationale: El contexto disponible respalda escala, FCF positivo y estabilidad histórica
-    del margen bruto, pero no demuestra ventaja competitiva duradera, tamaño de mercado
-    direccionable, penetración, retornos incrementales ni crecimiento multibagger.
-    Sin esos catalizadores demostrados, no hay base suficiente para esperar una revalorización
-    relativa sostenida.
-  review_trigger: Dejar de creerla si, antes del 2027-11-20, SYY supera al S&P 500
-    en más de 5 puntos porcentuales sobre una ventana móvil de doce meses y los resultados
-    publicados muestran crecimiento de ventas y margen bruto compatibles con H1.
+  rationale: El crecimiento de ingresos observado hasta FY2026 y el FCF positivo en
+    los períodos informados podrían respaldar la valoración. Sin embargo, el paquete
+    no permite verificar retornos sobre el capital, ventaja competitiva ni asignación
+    de capital, por lo que la hipótesis de rendimiento superior es una prueba de mercado
+    y no una conclusión sobre la calidad del negocio.
+  review_trigger: Dejar de creerla si, al cierre del 2027-11-21, el rendimiento total
+    relativo de SYY frente a XLP es inferior a 5 puntos porcentuales; antes de esa
+    fecha, una reducción o suspensión del dividendo invalidaría la tesis específica
+    de rendimiento total tal como está formulada.
   secondary_hypotheses:
   - H1-OPP-MB-SYY
   - H2-OPP-MB-SYY
-  statement: Sin evidencia verificable de crecimiento estructural, ganancias de cuota
-    o mayores retornos sobre capital, la acción no superará al mercado amplio durante
-    el próximo año por un margen significativo.
+  statement: Durante los próximos doce meses, la rentabilidad total para el accionista
+    de Sysco superará la del ETF Consumer Staples Select Sector SPDR (XLP), reflejando
+    que el mercado valorará favorablemente la continuidad del crecimiento y del FCF.
   status: ACTIVE
   ticker: SYY
   version: 1
