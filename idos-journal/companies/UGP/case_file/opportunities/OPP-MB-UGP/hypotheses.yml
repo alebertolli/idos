@@ -1,0 +1,198 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El volumen comparable del primer semestre de 2027 crece menos de 3%
+      interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no divulga datos de volumen comparables que permitan verificar
+      la predicción antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El volumen comparable del primer semestre de 2027 crece menos de 3% interanual.
+  - La empresa no divulga datos de volumen comparables que permitan verificar la predicción
+    antes de la fecha objetivo.
+  horizon: corto
+  id: H1-OPP-MB-UGP
+  opportunity_id: OPP-MB-UGP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual del volumen distribuido en el primer semestre de
+      2027
+    prediction: El volumen total de combustibles distribuido durante el primer semestre
+      de 2027 será al menos 3% superior al del primer semestre de 2026, según las
+      definiciones comparables que publique la compañía.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La escala de distribución puede favorecer cobertura y disponibilidad,
+    pero la información disponible no atribuye el crecimiento de ingresos a volúmenes
+    ni demuestra ganancias de participación. Esta hipótesis lo somete a prueba mediante
+    los volúmenes reportados.
+  review_trigger: Dejar de creerla si los resultados del segundo trimestre de 2027
+    muestran crecimiento interanual de volumen inferior a 3% para el semestre, o si
+    la compañía informa un cambio de perímetro que impida establecer una comparación
+    fiable.
+  secondary_hypotheses: []
+  statement: El negocio de distribución de combustibles de Ultrapar aumentará el volumen
+    vendido, señal de que el crecimiento puede provenir también de actividad y no
+    solo de precios o mezcla.
+  status: ACTIVE
+  ticker: UGP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EBITDA ajustado por unidad de volumen de 2027 aumenta menos de 5%
+      frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El aumento depende principalmente de cambios de perímetro o de partidas
+      no recurrentes, y no se sostiene al excluirlos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EBITDA ajustado por unidad de volumen de 2027 aumenta menos de 5% frente a
+    2026.
+  - El aumento depende principalmente de cambios de perímetro o de partidas no recurrentes,
+    y no se sostiene al excluirlos.
+  horizon: medio
+  id: H2-OPP-MB-UGP
+  opportunity_id: OPP-MB-UGP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento del EBITDA ajustado por unidad de volumen en 2027 frente a
+      2026
+    prediction: El EBITDA ajustado por unidad de volumen de combustibles en el ejercicio
+      2027 será al menos 5% superior al de 2026, usando definiciones y perímetros
+      comparables.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: Una red de distribución de mayor escala podría mejorar utilización de
+    activos y eficiencia logística; sin embargo, el crecimiento de ingresos por sí
+    solo no demuestra una mejora de rentabilidad. Comparar EBITDA ajustado por volumen
+    permite contrastar ese mecanismo con una métrica operativa y financiera.
+  review_trigger: Dejar de creerla cuando los resultados anuales de 2027 indiquen
+    un aumento inferior a 5% en la métrica comparable, o cuando la compañía no permita
+    separar de manera verificable los efectos de perímetro y partidas no recurrentes.
+  secondary_hypotheses:
+  - H1-OPP-MB-UGP
+  statement: La mejora de escala y eficiencia permitirá que el EBITDA ajustado por
+    unidad de volumen de distribución de combustibles aumente en 2027.
+  status: ACTIVE
+  ticker: UGP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón entre flujo de caja operativo y EBITDA ajustado consolidado
+      de 2027 es inferior a 0,60.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La razón supera 0,60 solo por reclasificaciones o cambios en la definición
+      que no sean comparables con la divulgación financiera habitual de la empresa.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón entre flujo de caja operativo y EBITDA ajustado consolidado de 2027 es
+    inferior a 0,60.
+  - La razón supera 0,60 solo por reclasificaciones o cambios en la definición que
+    no sean comparables con la divulgación financiera habitual de la empresa.
+  horizon: medio
+  id: H3-OPP-MB-UGP
+  opportunity_id: OPP-MB-UGP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.6
+    met: null
+    metric: Flujo de caja operativo de 2027 dividido por EBITDA ajustado consolidado
+      de 2027
+    prediction: El flujo de caja operativo acumulado de 2027, antes de inversiones
+      y financiación, será al menos 60% del EBITDA ajustado consolidado de 2027, sobre
+      una base de cálculo consistente.
+    unit: veces
+  priority: critical
+  probability: 0.5
+  rationale: La tesis incluye conversión de caja, pero el crecimiento agregado de
+    ingresos no basta para demostrarla. El flujo de caja operativo en relación con
+    EBITDA permite observar conjuntamente generación operativa y necesidades de capital
+    de trabajo, aunque debe interpretarse considerando su volatilidad.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran una
+    razón inferior a 0,60 o si no se puede reconciliar el flujo de caja operativo
+    con los estados financieros publicados.
+  secondary_hypotheses:
+  - H2-OPP-MB-UGP
+  statement: Ultrapar convertirá una proporción material de su EBITDA en flujo de
+    caja operativo durante 2027, sin depender exclusivamente del crecimiento contable
+    de ingresos.
+  status: ACTIVE
+  ticker: UGP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de UGP en dólares supera la del Ibovespa en menos
+      de 10 puntos porcentuales durante el período indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se dispone de precios ajustados por dividendos y tipo de cambio
+      que permitan calcular una comparación homogénea.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de UGP en dólares supera la del Ibovespa en menos de 10
+    puntos porcentuales durante el período indicado.
+  - No se dispone de precios ajustados por dividendos y tipo de cambio que permitan
+    calcular una comparación homogénea.
+  horizon: medio
+  id: H4-OPP-MB-UGP
+  opportunity_id: OPP-MB-UGP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 10.0
+    met: null
+    metric: Exceso de rentabilidad total de UGP frente al Ibovespa, en dólares estadounidenses
+    prediction: La rentabilidad total de UGP, incluyendo dividendos y medida en dólares
+      estadounidenses, superará en al menos 10 puntos porcentuales la rentabilidad
+      total del Ibovespa, medida en reales, entre el cierre del 2026-11-20 y el cierre
+      de la sesión bursátil más próxima al 2027-11-21. La comparación se expresará
+      en dólares para ambas series.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: La escala y los resultados operativos podrían reducir la incertidumbre
+    sobre la calidad del crecimiento y favorecer una mejor valoración. No hay evidencia
+    suficiente para afirmar que UGP esté infravalorada; por ello, esta hipótesis prueba
+    el resultado de mercado frente a un índice de referencia, sin asumir un múltiplo
+    objetivo.
+  review_trigger: Dejar de creerla al cierre de la sesión bursátil más próxima al
+    2027-11-21 si la ventaja acumulada de UGP es inferior a 10 puntos porcentuales;
+    reevaluarla antes si los resultados de 2027 contradicen simultáneamente H2 y H3.
+  secondary_hypotheses:
+  - H2-OPP-MB-UGP
+  - H3-OPP-MB-UGP
+  statement: Si Ultrapar demuestra crecimiento operativo rentable y conversión de
+    caja, sus acciones obtendrán una rentabilidad total superior a la del Ibovespa
+    durante los doce meses posteriores al corte.
+  status: ACTIVE
+  ticker: UGP
+  version: 1

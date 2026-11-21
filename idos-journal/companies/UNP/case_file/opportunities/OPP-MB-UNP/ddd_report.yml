@@ -1,0 +1,531 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El FCF TTM positivo permite revisar conversión de caja, pero no demuestra sostenibilidad
+    ni retornos sobre capital.
+  - Los objetivos de analistas pueden funcionar como anclas de escenarios de mercado,
+    no como valoración intrínseca.
+  - Ingresos TTM de 26.363 millones y FCF TTM de 6.694 millones al 2026-09-30, según
+    StockAnalysis.
+  - FCF reportado de 5.499 millones en FY 2025 y 5.742 millones en FY 2022, según
+    StockAnalysis.
+  - Precio de USD 304,00 al 2026-10-30 y rango de objetivos de analistas de USD 245–375
+    observado el 2026-11-21.
+  preguntas_abiertas:
+  - ¿Qué volumen, precios y mezcla de mercancías explican el crecimiento y qué tamaño
+    tiene el mercado direccionable?
+  - ¿Cuáles son los retornos incrementales sobre capital y las necesidades de reinversión?
+  - ¿Qué evidencia operativa respalda la durabilidad de la ventaja competitiva y la
+    asignación de capital?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia financiera parcial
+  justificacion: El paquete aporta métricas financieras históricas y evidencia de
+    mercado, pero no documenta suficientemente reinversión, retornos sobre capital,
+    penetración del mercado, ventaja competitiva ni asignación de capital para validar
+    una tesis de multibagger.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo descrito presta transporte ferroviario de diversas mercancías
+    en Estados Unidos. El margen bruto TTM reportado fue 55,77% al 2026-09-30, pero
+    no hay evidencia suficiente sobre ventaja competitiva, retorno sobre capital,
+    reinversión, penetración de mercado o erosión del moat.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: La confirmación de crecimiento de ingresos y FCF en períodos futuros
+    permitiría evaluar si el avance TTM continúa.
+  hito: Comparar futuros resultados reportados con TTM al 2026-09-30.
+- catalizador: Datos operativos sobre volumen, rendimiento, eficiencia y necesidades
+    de inversión ayudarían a comprobar el mecanismo de crecimiento.
+  hito: No se proporcionan metas ni fechas en el paquete.
+- catalizador: El consenso de analistas observado ofrece una referencia de mercado,
+    no un catalizador corporativo ni una valoración propia.
+  hito: Objetivos observados el 2026-11-21.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: StockAnalysis, estados financieros, período finalizado 2026-09-30.
+  riesgo: La deuda neta reportada fue 28.026 millones en valor de fuente al 2026-09-30;
+    no puede calcularse deuda neta/EBITDA con unidades verificablemente compatibles.
+- fuente: StockAnalysis, estadísticas, período finalizado 2026-09-30.
+  riesgo: No hay serie de acciones diluidas ni de acciones en circulación histórica
+    suficiente para medir dilución interanual.
+- fuente: Evidencia no disponible en el paquete.
+  riesgo: El paquete no aporta datos para evaluar concentración de clientes, sensibilidad
+    por mercancía, necesidades de capital, seguridad ferroviaria o exposición regulatoria.
+- fuente: StockAnalysis, estados financieros, períodos indicados en cada ratio.
+  riesgo: La información financiera y de mercado es insuficiente para evaluar retornos
+    incrementales sobre capital o determinar si el crecimiento de FCF es sostenible.
+error_mercado:
+  catalizador_cambio: Resultados futuros que acrediten crecimiento sostenido de ingresos
+    y FCF, junto con mejoras operativas cuantificables, podrían cambiar la evaluación;
+    el paquete no proporciona previsiones corporativas ni hitos fechados.
+  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
+    disponible; los objetivos de analistas son referencias observadas, no valor intrínseco.
+  consenso_actual: UNP cerró a USD 304,00 el 2026-10-30; el consenso de precio objetivo
+    observado el 2026-11-21 fue USD 329,96, con rango USD 245–375.
+  hipotesis_contraria: El rango amplio de objetivos y el crecimiento de FCF TTM no
+    demuestran por sí solos una infravaloración; falta evidencia del crecimiento estructural,
+    retornos incrementales sobre capital y valoración basada en fundamentales.
+  razonamiento: El precio y los objetivos están expresados en USD, pero el paquete
+    no contiene un método de valoración ni previsiones operativas que permitan evaluar
+    la brecha frente al consenso.
+generated_at: '2026-11-21T18:47:02.580289-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-UNP
+prompt_inputs:
+  business_model: Union Pacific Corporation, through its subsidiary, Union Pacific
+    Railroad Company, operates in the railroad business in the United States. It offers
+    transportation services for grain and grain products, fertilizers, food and refrigerated
+    products, and coal and renewables to grain processors, animal feeders, and ethanol
+    and renewable biofuel producers; and construction products, industrial chemicals,
+    plastics, forest products, specialized products, metals and ores, petroleum, liquid
+    petroleum gases, soda ash, and sand, as well as finished automobiles, automotive
+    parts, and merchandise in intermodal containers. The company was founded in 1862
+    and is headquartered in Omaha, Nebraska.
+  ceo_tenure: 0
+  debt_to_equity: 0.0141
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Union Pacific Corporation
+  operating_margin: 40.75
+  pe_ratio: 22.41
+  products: ''
+  revenue: 26360000000.0
+  revenue_growth: 7.4
+  roic: 16.54
+  sector: Industrials
+  ticker: UNP
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/unp/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Crecimiento de FCF TTM reportado por la fuente; la definición detallada
+    del proveedor no está incluida.
+  inputs:
+    fcf_growth_history_TTM: 11.33
+  limitations: Se reproduce el crecimiento TTM reportado; el paquete no detalla el
+    período comparativo ni permite verificar la metodología del proveedor.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/unp/financials/
+  status: reported
+  unit: percent
+  value: 11.33
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/unp/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history_Current: 3086.0
+    ebitda: 13280000000.0
+    total_debt_history_Current: 31112.0
+  limitations: 'No se puede validar la compatibilidad de unidades: deuda y efectivo
+    están expresados como importes reportados sin escala explícita en el paquete,
+    mientras EBITDA está expresado en moneda del proveedor.'
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/unp/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/UNP/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 594250000.0
+  limitations: Falta una observación comparable de acciones diluidas o acciones en
+    circulación para el período interanual anterior.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/UNP/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-21'
+  business_model: Union Pacific Corporation, through its subsidiary, Union Pacific
+    Railroad Company, operates in the railroad business in the United States. It offers
+    transportation services for grain and grain products, fertilizers, food and refrigerated
+    products, and coal and renewables to grain processors, animal feeders, and ethanol
+    and renewable biofuel producers; and construction products, industrial chemicals,
+    plastics, forest products, specialized products, metals and ores, petroleum, liquid
+    petroleum gases, soda ash, and sand, as well as finished automobiles, automotive
+    parts, and merchandise in intermodal containers. The company was founded in 1862
+    and is headquartered in Omaha, Nebraska.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 304.0
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0141
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-21T21:46:31.549854+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Union Pacific Corporation
+  operating_margin: 40.75
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Union Pacific Corporation, through its subsidiary, Union Pacific
+    Railroad Company, operates in the railroad business in the United States. It offers
+    transportation services for grain and grain products, fertilizers, food and refrigerated
+    products, and coal and renewables to grain processors, animal feeders, and ethanol
+    and renewable biofuel producers; and construction products, industrial chemicals,
+    plastics, forest products, specialized products, metals and ores, petroleum, liquid
+    petroleum gas
+  revenue: 26360000000.0
+  revenue_growth: 7.4
+  roic: 16.54
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unp/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNP/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unp/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unp/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unp/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unp/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unp/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unp/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unp/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unp/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    375.0, "low": 245.0, "mean": 329.96, "median": 329.96, "observed_at": "2026-11-21T18:46:34.632361-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T18:46:34.632361-03:00", "observed_date": "2026-11-21", "target_price":
+    329.96, "url": "https://stockanalysis.com/stocks/unp/forecast/"}, {"as_of_date":
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T18:46:34.632361-03:00",
+    "observed_date": "2026-11-21", "target_price": 329.95834, "url": "https://finance.yahoo.com/quote/UNP/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 304.0,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/UNP/"}]}}'
+  sector: Industrials
+  ticker: UNP
+research_trigger:
+  discovery_snapshot_hash: 9e10353ca6b8b815473dd0e6deadacde54cc367b4e8fa91f05cee76539cec61f
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 31e07a491fdbb2068c7fe47de7f8f66057d792d54e355cfee2eaee0311793938
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-21T18:47:02.580289-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.16x al 2026-09-30; no cruza el umbral.
+  source: StockAnalysis, estadísticas, período finalizado 2026-09-30.
+  threshold: below 0.5x
+- metric: dilution_yoy_pct
+  observation: No disponible; falta dato histórico comparable.
+  source: StockAnalysis, estadísticas; período actual 2026-09-30.
+  threshold: above 10%
+- metric: interest_coverage
+  observation: El paquete reporta 0, pero no permite validar su significado; no se
+    interpreta como cobertura confirmada.
+  source: StockAnalysis, estadísticas, período TTM finalizado 2026-09-30.
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplicable: FCF TTM reportado positivo al 2026-09-30.'
+  source: StockAnalysis, estadísticas, período TTM finalizado 2026-09-30.
+  threshold: below 12 meses
+- metric: net_debt_ebitda
+  observation: No disponible por incompatibilidad verificable de unidades entre los
+    inputs.
+  source: StockAnalysis, estados financieros y estadísticas, período finalizado 2026-09-30.
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: No disponible; falta serie histórica de acciones.
+  source: La evidencia histórica de acciones no está disponible en el paquete.
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Resultados operativos futuros que acrediten crecimiento sostenido de ingresos
+      y FCF podrían debilitar la lectura adversa.
+    id: BEAR
+    key_assumptions:
+    - El objetivo bajo observado sigue siendo una referencia pertinente para el horizonte
+      indicado; el paquete no ofrece previsiones que justifiquen una cifra alternativa.
+    rationale: 'Ancla de consenso observada: extremo inferior del rango de objetivos.
+      Se usa como escenario adverso de mercado, no como valoración intrínseca; el
+      paquete no aporta evidencia para atribuirlo a un resultado operativo específico.'
+    sources:
+    - as_of_date: '2026-11-21'
+      name: StockAnalysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/unp/forecast/
+    target_price: 245.0
+  - falsifiers:
+    - Deterioro futuro de ingresos o FCF frente a la evidencia TTM al 2026-09-30 podría
+      debilitar la lectura favorable.
+    id: BULL
+    key_assumptions:
+    - El objetivo alto observado sigue siendo una referencia pertinente para el horizonte
+      indicado; no se dispone de previsiones corporativas para validar sus supuestos.
+    rationale: 'Ancla de consenso observada: extremo superior del rango de objetivos.
+      Se usa como escenario favorable de mercado, no como valoración intrínseca; el
+      paquete no aporta supuestos operativos que demuestren ese resultado.'
+    sources:
+    - as_of_date: '2026-11-21'
+      name: StockAnalysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/unp/forecast/
+    target_price: 375.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-21T18:46:34.632361-03:00'
+  fuentes:
+    stockanalysis: 329.96
+    yfinance: 329.95834
+  mediana: 329.96
+  n_fuentes: 2
+  promedio: 329.96
+  source_references:
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
+    observed_at: '2026-11-21T18:46:34.632361-03:00'
+    observed_date: '2026-11-21'
+    target_price: 329.96
+    url: https://stockanalysis.com/stocks/unp/forecast/
+  - as_of_date: '2026-11-21'
+    name: yfinance
+    observed_at: '2026-11-21T18:46:34.632361-03:00'
+    observed_date: '2026-11-21'
+    target_price: 329.95834
+    url: https://finance.yahoo.com/quote/UNP/
+  target_high: 375.0
+  target_low: 245.0
+tesis_inversion: UNP opera servicios ferroviarios de mercancías en Estados Unidos
+  y presenta FCF TTM positivo y margen bruto reportado superior al 55% al 2026-09-30.
+  La evidencia disponible no basta para establecer el tamaño del mercado direccionable,
+  penetración, retornos sobre el capital reinvertido, resiliencia de la ventaja competitiva
+  o potencial de crecimiento de largo plazo.
+ticker: UNP
+version: '3.0'
