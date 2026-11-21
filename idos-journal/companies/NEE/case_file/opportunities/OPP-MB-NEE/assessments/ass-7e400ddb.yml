@@ -1,0 +1,36 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia incompleta para validar una
+  tesis de crecimiento compuesto'
+- 'Market error: No validado. El consenso de analistas es una referencia observada,
+  no una valoración intrínseca ni evidencia de infravaloración.'
+- 'Thesis: La tesis condicional es que la plataforma de generación, almacenamiento,
+  transmisión y distribución de NEE pueda convertir inversión de capital en crecimiento
+  rentable; el caso contrario es que el FCF'
+generated_at: '2026-11-21T17:08:33.701689-03:00'
+id: ass-7e400ddb
+recommendation: REVIEW
+risks:
+- fuente: https://stockanalysis.com/stocks/nee/financials/
+  hecho: FCF TTM reportado de -18.011 millones al 2026-09-30; los valores históricos
+    aportados también son negativos.
+  implicacion: La financiación de inversiones y la conversión de beneficios en caja
+    requieren análisis adicional.
+- fuente: https://stockanalysis.com/stocks/nee/financials/
+  hecho: Net cash reportado de -108.353 millones y deuda total reportada de 113.932
+    millones, ambos al 2026-09-30 en la unidad de origen.
+  implicacion: El apalancamiento es un foco material; no se puede validar el umbral
+    deuda neta/EBITDA solicitado porque los campos permitidos para ese ratio no incluyen
+    EBITDA.
+- fuente: https://stockanalysis.com/stocks/NEE/statistics/
+  hecho: El current ratio reportado fue 0.53x al 2026-09-30.
+  implicacion: Está próximo, pero por encima, del umbral configurado de 0.5x; no constituye
+    por sí solo una conclusión de liquidez.
+- hecho: El paquete no contiene historial de acciones diluidas ni acciones en circulación
+    por períodos comparables.
+  implicacion: No se puede evaluar la dilución interanual ni la tendencia de acciones
+    a tres años.
+score: 62
+status: COMPLETED
+version: '3.0'

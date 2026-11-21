@@ -1,0 +1,26 @@
+confidence: HIGH
+engine: ResearchWorker
+findings:
+- 'Classification: Growth'
+- 'Market error: Existe una posible subvaloración respecto al consenso medio, pero
+  la alta volatilidad y riesgos de liquidez atenúan la certeza.'
+- 'Thesis: MUFG muestra fuerte crecimiento de ingresos y potencial de mejora operativa,
+  pero enfrenta riesgos de liquidez y cobertura de intereses que podrían limitar su
+  desempeño.'
+generated_at: '2026-11-21T17:06:03.002530-03:00'
+id: ass-79102eb0
+recommendation: REVIEW
+risks:
+- detail: Current ratio reportado es 0, indicando falta de activos corrientes frente
+    a pasivos.
+  type: Liquidity
+- detail: Interest coverage ratio reportado es 0, por debajo del umbral de 2.0.
+  type: Interest Coverage
+- detail: Free cash flow negativo (-23.14B) genera incertidumbre sobre la generación
+    de efectivo.
+  type: FCF Negativity
+- detail: Posibles cambios regulatorios en Japón y EE.UU. pueden afectar márgenes.
+  type: Regulatory
+score: 78
+status: COMPLETED
+version: '3.0'

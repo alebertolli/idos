@@ -1443,3 +1443,112 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T16:57:01.990157'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-MUFG
+    ticker: MUFG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:04:14.579852'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-MUFG
+    ticker: MUFG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:04:14.669511'
+- data:
+    classification: Growth
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 47052369d6eb5f4911e05de65ccc1ac9f75f93ffaf0674d448c44770c5aba1aa
+    opp_id: OPP-MB-MUFG
+    original_status: UNDER_RESEARCH
+    score: 78
+    strategy_version: '1.5'
+    ticker: MUFG
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:06:03.134847'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-NEE
+    ticker: NEE
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:06:42.369126'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-NEE
+    ticker: NEE
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:06:42.461250'
+- data:
+    classification: Investigación requerida; evidencia incompleta para validar una
+      tesis de crecimiento compuesto
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: c6dc2d97b6ad1e0d5ac6116307a800283c2577526807054897a7b290a6b5007a
+    opp_id: OPP-MB-NEE
+    original_status: UNDER_RESEARCH
+    score: 62
+    strategy_version: '1.5'
+    ticker: NEE
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:08:33.822317'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MULTIBAGGERS-NEM-0001
+    ticker: NEM
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:09:06.334784'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-NEM-0001
+    ticker: NEM
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:09:06.428762'
+- data:
+    classification: Investigación requerida; exposición a productor de oro con fuerte
+      mejora financiera reciente
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 0b95c30f1ab31d11664fce83047f34dcf73f3c6735c9b1c111766f200efb1368
+    opp_id: OPP-MULTIBAGGERS-NEM-0001
+    original_status: UNDER_RESEARCH
+    score: 58
+    strategy_version: '1.5'
+    ticker: NEM
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:10:51.457496'
