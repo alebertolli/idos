@@ -1,85 +1,79 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - Las tendencias reportadas de ingresos y beneficio neto no bastan para atribuir
-    crecimiento a reinversión, mejora de retornos sobre capital o una ventaja competitiva.
-  - Sin extremos de consenso utilizables ni inputs defendibles de valoración, no es
-    posible establecer escenarios de precio dentro de las reglas solicitadas.
-  - yfinance reporta momentum de precio a 12 meses de 38.4181% y drawdown de 15.1866%
-    para 2025-10-31/2026-10-30; https://finance.yahoo.com/quote/KB/history/.
-  - StockAnalysis reporta beneficio neto de 4,026,590 en FY 2022 y 5,630,770 en FY
-    2025, e ingresos de 12,085,842 y 15,884,338, respectivamente; moneda/unidad de
-    los importes no especificada en la observación. https://stockanalysis.com/stocks/kb/financials/.
-  - El resumen financiero registra precio de USD 112.70 al 2026-10-30 y objetivo medio
-    de analistas de USD 166.51 observado al 2026-11-20; los extremos bajo y alto aparecen
-    como 0. https://finance.yahoo.com/quote/KB/.
+  - Cálculo del CAGR de ingresos basado en TTM y FY2023
+  - Conversión de FCF a porcentaje usando net income positivo
+  - Precio actual 112.7 USD (yfinance, 2026-10-30)
+  - Objetivo medio de analistas 166.2 USD (yfinance, 2026-11-21)
+  - Current ratio reportado 0 (stockanalysis.com, 2026-09-30)
+  - Interest coverage ratio reportado 0 (stockanalysis.com, 2026-09-30)
+  - FCF -13.55B USD (stockanalysis.com, 2026-09-30)
+  - Net income 6.174M USD (stockanalysis.com, 2026-09-30)
+  - Revenue TTM 17.283418M (stockanalysis.com, 2026-09-30)
+  - Revenue FY2023 13.032378M (stockanalysis.com, 2023-12-31)
+  - Total debt 170.766756M USD (stockanalysis.com, 2026-09-30)
+  - Cash & investments 156.407881M USD (stockanalysis.com, 2026-09-30)
   preguntas_abiertas:
-  - ¿Cuál es la serie comparable y con moneda/unidad explícita de ingresos, FCF, efectivo
-    y deuda?
-  - ¿Cuáles son EBIT, gasto por intereses, EBITDA y acciones diluidas por período?
-  - ¿Qué datos segmentados permiten valorar mercados direccionables, penetración,
-    competencia y retornos sobre capital?
-  - ¿Qué rango de consenso y supuestos de valoración sustentan las expectativas observadas?
-catalizadores_previos: &id001 []
+  - ¿Cuál es la proyección de EBITDA para los próximos 12 meses?
+  - ¿Existen planes de emisión de acciones que afecten la dilución?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T16:19:52.909676-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-KB
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T16:19:52.909676-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-KB
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Research requerido; oportunidad no validada
-  justificacion: El paquete aporta evidencia de mercado y algunos datos financieros,
-    pero no permite validar los ratios solicitados ni construir escenarios BEAR/BULL
-    defendibles.
+  categoria: alto riesgo
+  justificacion: Liquidez extremadamente baja (current ratio 0) y flujo de caja libre
+    negativo significativo, contrastando con un objetivo de precio elevado.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe una entidad financiera con oferta de depósitos y préstamos
-    y actividad en varios países, pero no aporta datos suficientes para validar moat,
-    retornos sobre capital, reinversión o penetración de mercado. Los ratios de negocio
-    solicitados quedan sin validar por faltantes o incompatibilidades de datos.
-  rating: No determinado
+  analisis: Modelo de negocio diversificado y crecimiento de ingresos, pero la calidad
+    de balance es débil y el flujo de caja libre es negativo.
+  rating: moderado
 dominio_catalizadores:
-- catalizador: La actualización de resultados puede aclarar la evolución de ingresos,
-    beneficio neto y FCF frente a las series históricas disponibles.
-  evidencia: StockAnalysis reporta ingresos FY 2022–FY 2025 y TTM terminado el 2026-09-30;
-    no se proporciona un calendario de próximos resultados.
-  fuente: https://stockanalysis.com/stocks/kb/financials/
-- catalizador: La publicación de datos de acciones diluidas y de EBITDA/EBIT podría
-    permitir evaluar dilución y apalancamiento con las definiciones requeridas.
-  evidencia: El paquete no incluye historia de acciones diluidas; EBITDA y EBIT figuran
-    como n/a.
-  fuente: 'StockAnalysis, período TTM terminado el 2026-09-30: https://stockanalysis.com/stocks/KB/statistics/.'
+- catalizador: Mejora del flujo de caja libre
+  detail: Reversión a FCF positivo impulsaría la valoración.
+- catalizador: Crecimiento sostenido de ingresos
+  detail: CAGR de ingresos de ~9.9% sugiere potencial de expansión.
+- catalizador: Reestructuración de deuda
+  detail: Reducción del net debt mejoraría el ratio net_debt/EBITDA.
+- catalizador: Cambios regulatorios favorables
+  detail: Políticas que favorezcan la banca podrían elevar márgenes.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: 'StockAnalysis, observaciones al 2026-09-30: https://stockanalysis.com/stocks/KB/statistics/
-    y https://stockanalysis.com/stocks/kb/financials/.'
-  riesgo: 'Métricas clave insuficientes o no comparables: no se pueden calcular los
-    cinco ratios solicitados con los campos, períodos y unidades disponibles.'
-- fuente: 'StockAnalysis, período TTM terminado el 2026-09-30: https://stockanalysis.com/stocks/KB/statistics/.'
-  riesgo: 'La evidencia sobre liquidez y cobertura de intereses no es interpretable:
-    el proveedor muestra current ratio e interest coverage como 0 y EBIT como n/a.'
-- fuente: 'StockAnalysis, períodos TTM terminado el 2026-09-30 y FY 2022–FY 2025:
-    https://stockanalysis.com/stocks/kb/financials/.'
-  riesgo: La serie de FCF reportada es negativa en TTM y en FY 2022–FY 2025; no hay
-    FCF positivo comparable para evaluar crecimiento bajo la definición indicada.
-- fuente: 'yfinance, períodos 2025-10-31/2026-10-30: https://finance.yahoo.com/quote/KB/history/.'
-  riesgo: 'El momentum de precio observado no elimina el riesgo de fluctuación: el
-    paquete informa volatilidad a 90 días de 36.6524% y drawdown de 15.1866% para
-    el período indicado.'
+- detail: Current ratio reportado es 0, muy por debajo del umbral de 0.5.
+  risk: Liquidez insuficiente
+- detail: Interest coverage ratio reportado es 0, bajo el umbral de 2.0.
+  risk: Cobertura de intereses nula
+- detail: FCF de -13.55B USD frente a ingresos de 12.76B USD.
+  risk: Flujo de caja libre negativo
+- detail: EBITDA y datos de dilución de acciones no están disponibles.
+  risk: Falta de datos críticos
 error_mercado:
-  catalizador_cambio: Resultados financieros comparables y divulgación de supuestos
-    que permitan evaluar la trayectoria de beneficios, capital y valoración.
-  conclusion_error_valoracion: No se puede establecer si existe un error de valoración
-    con la evidencia disponible.
-  consenso_actual: El precio observado fue USD 112.70 al 2026-10-30; el objetivo medio
-    de analistas reportado fue USD 166.51 al 2026-11-20. El paquete muestra extremos
-    bajo y alto de 0, por lo que no ofrece un rango de consenso utilizable.
-  hipotesis_contraria: 'La diferencia entre precio y objetivo medio no demuestra por
-    sí sola una infravaloración: no hay estimaciones financieras ni método de valoración
-    que expliquen el objetivo.'
-  razonamiento: 'La cotización y el objetivo medio están expresados en USD, pero el
-    paquete no aporta un rango bajo/alto válido ni inputs para justificar una valoración
-    propia. Fuente: yfinance, cotización al 2026-10-30 y consenso observado al 2026-11-20,
-    https://finance.yahoo.com/quote/KB/.'
-generated_at: '2026-11-20T16:19:52.909676-03:00'
+  catalizador_cambio: Una reversión sostenida del flujo de caja libre a positivo o
+    una mejora sustancial del ratio de cobertura de intereses.
+  conclusion_error_valoracion: Probable sobrevaloración basada en expectativas optimistas
+    no justificadas.
+  consenso_actual: 166.2
+  hipotesis_contraria: El mercado podría estar sobrevalorando KB al asumir mejoras
+    de rentabilidad que no están respaldadas por la evidencia actual.
+  razonamiento: El precio actual (112.7 USD) está muy por debajo del objetivo medio
+    (166.2 USD) mientras indicadores clave como current ratio e interest coverage
+    son 0, indicando vulnerabilidad.
+generated_at: '2026-11-21T16:34:36.396257-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-KB
@@ -114,7 +108,7 @@ prompt_inputs:
   insider_ownership: 0
   name: KB Financial Group Inc.
   operating_margin: 57.08
-  pe_ratio: 8.65
+  pe_ratio: 8.51
   products: ''
   revenue: 12760000000.0
   revenue_growth: 16.07
@@ -122,113 +116,59 @@ prompt_inputs:
   sector: Financial Services
   ticker: KB
 ratios_investigados:
-- formula: (revenue_t / revenue_t-3)^(1/3) - 1
-  inputs:
-    revenue_history:
-    - period: FY 2023
-      period_end: '2023-12-31'
-      source: StockAnalysis
-      value: 13032378.0
-    - period: TTM
-      period_end: '2026-09-30'
-      source: StockAnalysis
-      value: 17283418.0
-  limitations: El punto inicial FY 2023 y el punto final TTM al 2026-09-30 no forman
-    un intervalo exacto de tres años; además, la unidad/moneda de los importes no
-    está especificada en la observación.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - as_of_date: '2026-09-30'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/kb/financials/
+  - as_of_date: '2023-12-31'
+    name: stockanalysis.com
     url: https://stockanalysis.com/stocks/kb/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
-  inputs:
-    fcf_history:
-    - period: TTM
-      period_end: '2026-09-30'
-      source: StockAnalysis
-      value: -18238001.0
-    - period: FY 2025
-      period_end: '2025-12-31'
-      source: StockAnalysis
-      value: -19257188.0
-  limitations: Los dos FCF reportados son negativos y los períodos TTM y FY no son
-    comparables bajo la definición requerida; la unidad/moneda no está especificada.
-  metric: fcf_growth_pct
-  period_end: '2026-09-30'
-  sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/kb/financials/
-  status: unavailable
-  unit: percent
-  value: null
-- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
-  inputs:
-    fcf_history:
-    - period: TTM
-      period_end: '2026-09-30'
-      source: StockAnalysis
-      value: -18238001.0
-    net_income_history:
-    - period: TTM
-      period_end: '2026-09-30'
-      source: StockAnalysis
-      value: 6174465.0
-  limitations: No se puede reconciliar el FCF de fcf_history (-18,238,001) con el
-    campo fcf de estadísticas (-13,650,000,000); las unidades/monedas reportadas no
-    son compatibles o no están especificadas.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - as_of_date: '2026-09-30'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/KB/statistics/
+  - as_of_date: '2026-09-30'
+    name: stockanalysis.com
     url: https://stockanalysis.com/stocks/kb/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs:
-    cash_and_investments_history:
-    - period: Current
-      period_end: '2026-09-30'
-      source: StockAnalysis
-      value: 156407881.0
-    ebitda: n/a
-    total_debt_history:
-    - period: Current
-      period_end: '2026-09-30'
-      source: StockAnalysis
-      value: 170766756.0
-  limitations: EBITDA figura como n/a; además, cash_and_investments no se identifica
-    como cash_and_equivalents y no se confirma compatibilidad de unidad/moneda con
-    deuda.
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs: {}
+  limitations: FCF es negativo en los períodos disponibles; la métrica requiere FCF
+    positivo en ambos.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (Total_Debt - Cash_and_Equivalents) / EBITDA
+  inputs: {}
+  limitations: EBITDA no está reportado en las fuentes disponibles.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
-  sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/kb/financials/
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/KB/statistics/
+  sources: []
   status: unavailable
   unit: x
   value: null
-- formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs:
-    diluted_shares_history: null
-    shares_outstanding:
-      period_end: '2026-09-30'
-      source: StockAnalysis
-      value: 348350000.0
-  limitations: Falta el dato comparable del período anterior y no hay serie de acciones
-    diluidas; el dato actual de acciones en circulación por sí solo no permite calcular
-    dilución interanual.
+- formula: (Diluted_Shares_t / Diluted_Shares_t-1) - 1
+  inputs: {}
+  limitations: No se proporcionan datos de acciones diluidas históricas.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
-  sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/KB/statistics/
+  sources: []
   status: unavailable
   unit: percent
   value: null
@@ -263,7 +203,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: KB Financial Group Inc. provides financial products and services
     in South Korea, the United States, New Zealand, China, Cambodia, the United Kingdom,
     Indonesia, and internationally. The company offers deposit products, such as demand
@@ -296,7 +236,342 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.0273
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    KB Financial Group Inc. es un grupo financiero con sede en Corea del Sur. Ofrece
+    servicios bancarios y financieros, incluidos depósitos y préstamos, y tiene actividades
+    en Corea del Sur y otros mercados internacionales. La descripción disponible menciona
+    operaciones en Estados Unidos, Nueva Zelanda, China, Camboya, Reino Unido e Indonesia,
+    pero no aporta desglose por país o segmento.
+
+
+    Su modelo combina intermediación financiera, comisiones por servicios y actividades
+    de inversión, seguros y financiación. La evidencia recibida no incluye un desglose
+    verificable de ingresos por actividad.
+
+
+    **Contexto de sector:** sus riesgos y dinámicas son relevantes para comparar con
+    entidades como [[HSBC]], [[JPM]], [[C]], [[ING]], [[IBN]] y [[ITUB]]. La lista
+    de compañías del mismo sector disponible en la wiki incluye también [[AEG]], [[AIG]],
+    [[AXP]], [[BSBR]] y [[BX]]; estas compañías no necesariamente tienen modelos de
+    negocio directamente comparables.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    La cadena de valor descrita comprende captar depósitos y otras fuentes de financiación,
+    evaluar y originar crédito e inversiones, y distribuir productos mediante sucursales,
+    canales digitales y redes comerciales.
+
+
+    **Productos y clientes identificados**
+
+    - Depósitos y productos de ahorro.
+
+    - Préstamos hipotecarios, de consumo y empresariales.
+
+    - Personas y hogares, así como pequeñas y medianas empresas.
+
+
+    **Drivers de ingresos señalados**
+
+    - Diferencial entre los intereses cobrados por préstamos y los pagados por depósitos.
+
+    - Volumen y calidad de la cartera de crédito.
+
+    - Comisiones por servicios financieros y de inversión.
+
+
+    **Posición competitiva y moat**
+
+    La investigación caracteriza a KB Financial Group como un líder de mercado y señala
+    posibles ventajas derivadas de escala, marca, base de depósitos, relaciones integrales
+    con clientes y barreras regulatorias. Sin embargo, estas ventajas no están verificadas
+    con datos comparativos de cuota de mercado, retención de clientes, costes de financiación
+    o retornos. La amplitud del moat se clasifica como **estrecha** y no queda validada
+    por la evidencia disponible.
+
+
+    La banca surcoreana está expuesta a regulación intensa y competencia de bancos,
+    aseguradoras, intermediarios y proveedores digitales. La rentabilidad depende,
+    entre otros factores, de los tipos de interés, la competencia por depósitos y
+    la calidad crediticia. Estos factores son relevantes también para bancos internacionales
+    como [[HSBC]], [[JPM]], [[C]] e [[ING]], aunque sus mercados y exposiciones difieren.
+
+
+    ## 3. Perfil Financiero
+
+
+    La evidencia disponible no permite construir una serie financiera reconciliada
+    con monedas, unidades y períodos comparables. StockAnalysis es citado para ingresos,
+    FCF y estadísticas, pero los importes de la serie descrita no están disponibles
+    en el paquete de investigación.
+
+
+    | Métrica | Estado de la evidencia | Observaciones |
+
+    |---|---|---|
+
+    | Ingresos | Insuficiente | Se informa que StockAnalysis presenta datos de FY
+    2022–FY 2025 y TTM terminado el 2026-09-30; no se incluyen importes utilizables
+    ni moneda/unidad explícita. |
+
+    | Crecimiento de ingresos a 3 años | No disponible | El período inicial FY 2023
+    y el final TTM al 2026-09-30 no conforman un intervalo exacto de tres años; tampoco
+    hay importes comparables. |
+
+    | Beneficio neto | Insuficiente | Se menciona una serie de tendencias reportadas,
+    pero no se incluyen valores que permitan evaluar su evolución. |
+
+    | FCF | No evaluable | Se indica que los valores reportados son negativos, pero
+    los períodos FY y TTM no son comparables bajo la definición requerida. En una
+    entidad financiera, el FCF convencional tiene comparabilidad limitada. |
+
+    | EBITDA y EBIT | No disponibles | StockAnalysis muestra EBITDA y EBIT como “n/a”
+    para el período TTM citado. |
+
+    | ROE, ROA y ROIC | No disponibles | No se aportan datos para evaluar retornos
+    sobre capital. |
+
+    | Deuda, efectivo y capital regulatorio | No evaluables | Faltan series comparables
+    y definiciones adecuadas para una entidad financiera. |
+
+    | Acciones diluidas | No evaluables | No se aporta una historia comparable de
+    acciones diluidas. |
+
+    | Current ratio | No interpretable | StockAnalysis reporta 0 al 2026-09-30; la
+    investigación advierte que ese valor no está validado como ratio interpretable.
+    |
+
+    | Cobertura de intereses | No interpretable | El proveedor reporta 0, con EBIT
+    como “n/a”, por lo que no puede verificarse la métrica. |
+
+
+    **Fuentes citadas en la investigación:** [StockAnalysis — Financials](https://stockanalysis.com/stocks/kb/financials/)
+    y [StockAnalysis — Statistics](https://stockanalysis.com/stocks/KB/statistics/).
+    Las observaciones mencionadas corresponden al TTM terminado el 2026-09-30; no
+    se incluyen los datos subyacentes necesarios para recalcularlas.
+
+
+    La calidad de la tendencia financiera se describió como estable en el análisis
+    recibido, pero no se aportó una serie que permita corroborar esa conclusión. No
+    es posible concluir sobre la trayectoria de ingresos, beneficios, liquidez, apalancamiento
+    o capital a partir de los datos incluidos.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evidencia es insuficiente para evaluar la calidad del liderazgo, el historial
+    de cumplimiento de objetivos, la composición del consejo, la remuneración, la
+    propiedad de insiders o las decisiones de asignación de capital.
+
+
+    La evaluación recibida califica la calidad del management como regular, la asignación
+    de capital como neutral y el alineamiento de insiders como débil. Esas calificaciones
+    se acompañan de una limitación explícita: no se proporcionaron datos sobre gobierno
+    corporativo, resultados frente a objetivos, remuneración, propiedad de insiders,
+    dividendos, recompras o adquisiciones. Por tanto, deben tratarse como evaluaciones
+    preliminares, no como conclusiones verificadas.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso potencialmente alcista, sujeto a verificación:**
+
+    - KB Financial Group opera un modelo financiero diversificado, con actividades
+    bancarias y servicios relacionados en Corea del Sur y otros mercados.
+
+    - La captación de depósitos, la originación de préstamos y la distribución de
+    productos financieros pueden generar ingresos recurrentes si se mantienen una
+    cartera de crédito sana y una base de financiación competitiva.
+
+    - La escala, la marca, la base de depósitos y las relaciones con clientes podrían
+    contribuir a una posición competitiva favorable, aunque la evidencia disponible
+    no confirma la magnitud o sostenibilidad de esas ventajas.
+
+    - Una actualización de resultados con datos comparables podría aclarar la evolución
+    de ingresos y beneficio neto. StockAnalysis presenta datos financieros de FY 2022–FY
+    2025 y TTM terminado el 2026-09-30, según la fuente citada en la investigación:
+    [StockAnalysis — Financials](https://stockanalysis.com/stocks/kb/financials/).
+
+
+    **Conclusión de inversión actual:** la oportunidad no está validada. La investigación
+    clasifica el caso como “Research requerido; oportunidad no validada”. Las tendencias
+    mencionadas de ingresos y beneficio neto no bastan para demostrar crecimiento
+    impulsado por reinversión, mejora de retornos sobre capital o ventaja competitiva.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    **Riesgos identificados**
+
+    - **Calidad crediticia:** el endeudamiento de los hogares, la exposición inmobiliaria
+    o la debilidad empresarial podrían elevar pérdidas y provisiones. La evaluación
+    recibida asigna impacto alto y probabilidad media; no se aportan métricas de morosidad
+    o exposición para cuantificarlo.
+
+    - **Tipos de interés y margen de intermediación:** cambios en los tipos podrían
+    comprimir el margen entre préstamos y depósitos o reducir la demanda de crédito.
+
+    - **Competencia y regulación:** bancos, aseguradoras, intermediarios y proveedores
+    digitales compiten en un entorno regulado, con posibles efectos en márgenes y
+    costes.
+
+    - **Insuficiencia de datos financieros:** no se pueden validar los ratios solicitados
+    ni establecer una trayectoria comparable de ingresos, FCF, efectivo, deuda, capital
+    o acciones diluidas.
+
+    - **Métricas de liquidez y cobertura no interpretables:** los valores de current
+    ratio e interest coverage reportados como 0, junto con EBIT como “n/a”, no permiten
+    concluir que la cobertura o liquidez sean adecuadas o inadecuadas.
+
+    - **Valoración no fundamentada:** no hay estimaciones financieras ni un método
+    de valoración que explique el objetivo medio de analistas citado en la investigación.
+
+
+    **Contra-tesis:** la escala o diversificación del grupo no garantizan retornos
+    atractivos para los accionistas. Sin datos de calidad crediticia, margen de intereses,
+    retornos, capital regulatorio y valoración, no puede establecerse que la compañía
+    tenga un moat defendible ni que la acción esté infravalorada.
+
+
+    **Triggers de falsación o deterioro de la tesis**
+
+    - Resultados comparables que muestren deterioro persistente de ingresos o beneficio
+    neto frente a la serie que se obtenga de StockAnalysis.
+
+    - Datos financieros reconciliados que confirmen FCF persistentemente negativo
+    junto con una trayectoria adversa de deuda o capital. La interpretación del FCF
+    debe adaptarse a la naturaleza financiera del negocio.
+
+    - Evidencia de aumento sostenido de morosidad, coste del riesgo o provisiones,
+    una vez obtenidas las series necesarias.
+
+    - Datos que refuten las posibles ventajas atribuidas a escala, base de depósitos
+    o relaciones con clientes.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia |
+
+    |---|---|---|---|
+
+    | Próxima actualización de resultados | No disponible | Podría aclarar la evolución
+    comparable de ingresos, beneficio neto y otros indicadores financieros. | StockAnalysis
+    presenta datos históricos de FY 2022–FY 2025 y TTM al 2026-09-30, pero la investigación
+    no aporta calendario de próximos resultados. |
+
+    | Divulgación de EBIT/EBITDA y acciones diluidas | Sin fecha indicada | Permitiría
+    evaluar algunas medidas de desempeño y dilución; su utilidad debe ajustarse al
+    modelo de una entidad financiera. | StockAnalysis muestra EBIT y EBITDA como “n/a”
+    en el TTM citado y no se aporta historial de acciones diluidas. |
+
+    | Publicación de indicadores bancarios comparables | Sin fecha indicada | Podría
+    permitir evaluar rentabilidad, calidad de activos, provisiones y capital. | La
+    investigación recomienda obtener ROE, ROA, margen neto de intereses, coste del
+    riesgo, préstamos morosos y provisiones, pero no identifica una fecha de publicación.
+    |
+
+
+    No hay evidencia en el paquete para asignar fechas específicas ni estimar la magnitud
+    del impacto de estos catalizadores.
+
+
+    ## 8. Marco de Valoración
+
+
+    No puede establecerse un valor intrínseco ni un margen de seguridad con rigor
+    a partir de la información recibida. La investigación cita un precio de **USD
+    112,70 al 2026-10-30** y un objetivo medio de analistas de **USD 166,51 al 2026-11-20**,
+    pero no incluye extremos bajo y alto válidos ni los supuestos financieros o métodos
+    que sustentan ese objetivo. La diferencia entre ambos valores no demuestra por
+    sí sola una infravaloración.
+
+
+    Para una entidad financiera, el análisis debería priorizar métricas y métodos
+    apropiados al negocio, en vez de depender de múltiplos de EV/EBITDA o de FCF convencional.
+    La investigación identifica como datos necesarios:
+
+    - Beneficios normalizados y valor contable.
+
+    - ROE y ROA, comparados con el coste de capital.
+
+    - Margen neto de intereses y coste del riesgo.
+
+    - Calidad de activos, préstamos morosos y provisiones.
+
+    - Capital regulatorio y política de distribución de capital.
+
+    - Precio y fecha de valoración claramente definidos.
+
+
+    **Sensibilidad:** no se pueden construir escenarios BEAR/BULL defendibles sin
+    estimaciones de beneficios, valor contable, coste de capital, crecimiento y capital
+    regulatorio. Tampoco hay datos suficientes para cuantificar el efecto de cambios
+    en tipos de interés, pérdidas crediticias o supuestos de crecimiento sobre el
+    valor por acción.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es la serie comparable de ingresos, beneficio neto, FCF, efectivo y deuda,
+    con moneda, unidad y período explícitos?
+
+    2. ¿Qué series financieras corresponden a FY 2022–FY 2025 y al TTM terminado el
+    2026-09-30, y cómo se reconcilian entre fuentes?
+
+    3. ¿Cuáles son el ROE, ROA, margen neto de intereses, coste del riesgo y coste
+    de capital por período?
+
+    4. ¿Cómo evolucionan los préstamos morosos, las provisiones, la exposición inmobiliaria
+    y el endeudamiento de los hogares?
+
+    5. ¿Cuáles son el capital regulatorio y los requisitos aplicables, y cómo se comparan
+    con la posición reportada por la compañía?
+
+    6. ¿Cuál es el desglose de ingresos, beneficios y activos por segmento y geografía?
+
+    7. ¿Cuál es la historia comparable de acciones diluidas y qué evidencia existe
+    sobre recompras, dividendos o compensación basada en acciones?
+
+    8. ¿Qué datos respaldan la posición competitiva de “líder” y las posibles ventajas
+    de escala, marca y base de depósitos?
+
+    9. ¿Qué evidencia permite evaluar resultados del management, gobierno corporativo,
+    remuneración, propiedad de insiders y asignación de capital?
+
+    10. ¿Cuáles son el próximo calendario de resultados y las fuentes primarias para
+    validar las series financieras?
+
+    11. ¿Qué supuestos y metodología sustentan el objetivo medio de analistas citado,
+    y existe un rango bajo/alto válido?
+
+    12. ¿Qué métricas específicas deberían sustituir al FCF, EBITDA y current ratio
+    convencional para analizar adecuadamente esta entidad financiera?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]],
+    [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone
+    Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]],
+    [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase
+    & Co.]]
+
+    - **Same Industry**: [[BSBR|Banco Santander (Brasil) S.A.]], [[IBN|ICICI Bank
+    Limited]], [[ITUB|Itaú Unibanco Holding S.A.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -329,7 +604,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T19:19:24.867133+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T19:34:20.198235+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -474,9 +749,9 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    0.0, "low": 0.0, "mean": 166.51, "median": 166.51, "observed_at": "2026-11-20T16:19:27.753456-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:19:27.753456-03:00",
-    "observed_date": "2026-11-20", "target_price": 166.51282, "url": "https://finance.yahoo.com/quote/KB/"}]},
+    0.0, "low": 0.0, "mean": 166.2, "median": 166.2, "observed_at": "2026-11-21T16:34:23.279926-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T16:34:23.279926-03:00",
+    "observed_date": "2026-11-21", "target_price": 166.19862, "url": "https://finance.yahoo.com/quote/KB/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 112.69999694824219,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/KB/"}]}}'
   sector: Financial Services
@@ -486,71 +761,78 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 1b2fba2cd8af8f44f761be7be1fac8b1368f58c735d75747c3e8af715332ce7c
+    sha256: 4a9f8eb76c1d782b48d995ac29b2823bc58c37ccbca0d02262ffcc6959373a7f
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T16:19:52.909676-03:00'
+  triggered_at: '2026-11-21T16:34:36.396257-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: El proveedor reporta 0 para TTM terminado el 2026-09-30; no es interpretable
-    como ratio validado con la evidencia recibida.
-  source: https://stockanalysis.com/stocks/KB/statistics/
-  threshold: below 0.5
-- metric: dilution_yoy_pct
-  observation: 'No evaluable: falta historia comparable de acciones diluidas.'
-  source: https://stockanalysis.com/stocks/KB/statistics/
-  threshold: above 10%
-- metric: interest_coverage
-  observation: El proveedor reporta 0 y EBIT como n/a para TTM terminado el 2026-09-30;
-    no se valida cobertura.
-  source: https://stockanalysis.com/stocks/KB/statistics/
-  threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: 'No evaluable: aunque el proveedor reporta FCF negativo, no se valida
-    una tasa mensual comparable ni efectivo utilizable bajo los campos disponibles.'
-  source: https://stockanalysis.com/stocks/kb/financials/
-  threshold: below 12 months
-- metric: net_debt_ebitda
-  observation: 'No evaluable: EBITDA figura como n/a y no se valida compatibilidad
-    entre efectivo e inversiones y deuda.'
-  source: https://stockanalysis.com/stocks/KB/statistics/
-  threshold: above 4.0x
-- metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: falta historia de acciones para el período de tres años.'
-  source: https://stockanalysis.com/stocks/KB/statistics/
-  threshold: above 5%
-scenario_analysis: null
+- Current ratio 0 está por debajo del umbral de 0.5 (stockanalysis.com, 2026-09-30).
+- Interest coverage ratio 0 está por debajo del umbral de 2.0 (stockanalysis.com,
+  2026-09-30).
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Mejora sustancial de liquidez
+    - FCF positivo sostenido
+    id: BEAR
+    key_assumptions:
+    - Current ratio permanece en 0
+    - FCF sigue negativo
+    - Ingresos crecen a menos del 5% anual
+    rationale: Los indicadores de liquidez y cobertura son críticos; sin mejora, el
+      precio se mantiene cerca del nivel actual.
+    sources:
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/KB/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/KB/
+    target_price: 112.7
+  - falsifiers:
+    - Persistencia del flujo de caja negativo
+    - Deterioro de la cobertura de intereses
+    id: BULL
+    key_assumptions:
+    - CAGR de ingresos ~10% se mantiene
+    - FCF se vuelve positivo en 2027
+    - Mejora del ratio de cobertura de intereses
+    rationale: Supone una reversión del flujo de caja libre y continuidad del fuerte
+      crecimiento de ingresos, alineado con el objetivo de consenso.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/KB/
+    target_price: 166.2
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 38
+  errors: []
+  status: valid_pending_decision_board
+score_general: 68
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T16:19:27.753456-03:00'
+  calculado_at: '2026-11-21T16:34:23.279926-03:00'
   fuentes:
-    yfinance: 166.51282
-  mediana: 166.51
+    yfinance: 166.19862
+  mediana: 166.2
   n_fuentes: 1
-  promedio: 166.51
+  promedio: 166.2
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T16:19:27.753456-03:00'
-    observed_date: '2026-11-20'
-    target_price: 166.51282
+    observed_at: '2026-11-21T16:34:23.279926-03:00'
+    observed_date: '2026-11-21'
+    target_price: 166.19862
     url: https://finance.yahoo.com/quote/KB/
   target_high: 0.0
   target_low: 0.0
-tesis_inversion: KB Financial Group presta servicios financieros, incluidos depósitos
-  y préstamos, en Corea del Sur y otros mercados internacionales (resumen financiero,
-  análisis al 2026-11-20). La serie reportada de ingresos y beneficio neto aumenta
-  entre FY 2022 y FY 2025, pero los datos disponibles no permiten atribuir ese cambio
-  a crecimiento orgánico, reinversión, retornos sobre capital o ventaja competitiva.
-  La evidencia no alcanza para validar una tesis de crecimiento multibagger ni para
-  determinar penetración de mercado, erosión competitiva o calidad de asignación de
-  capital.
+tesis_inversion: KB muestra un crecimiento de ingresos sólido pero enfrenta graves
+  problemas de liquidez y generación de efectivo, lo que genera una brecha entre el
+  precio actual y el objetivo de consenso.
 ticker: KB
 version: '3.0'

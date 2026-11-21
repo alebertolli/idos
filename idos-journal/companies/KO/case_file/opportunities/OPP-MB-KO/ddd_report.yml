@@ -1,89 +1,108 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La amplitud de categorías descrita podría favorecer oportunidades de crecimiento,
-    pero el paquete no cuantifica su contribución.
-  - La combinación de margen bruto elevado y FCF positivo sugiere capacidad de generación
-    de caja en el período reportado, sin demostrar su persistencia.
-  - 'Ingresos: USD 47.941 millones en FY 2025 y USD 43.004 millones en FY 2022; fuente
-    stockanalysis.com, período FY terminado el 2025-12-31 y 2022-12-31.'
-  - 'FCF: USD 14.282 millones TTM al 2026-10-02; ingreso neto: USD 14.629 millones
-    TTM al 2026-10-02; fuente stockanalysis.com.'
-  - 'Cotización: USD 94,08 al 2026-10-30; fuente yfinance.'
-  - 'Momentum de precio a 12 meses: 36,5457% para 2025-10-31/2026-10-30; fuente yfinance.'
+  - El crecimiento de ingresos y la expansión del margen bruto son compatibles con
+    mejora de escala o mezcla, pero los datos no identifican la causa.
+  - La variabilidad del FCF entre ejercicios hace necesario comprobar comparabilidad
+    antes de interpretar el dato TTM como tendencia.
+  - 'Ingresos: 43.004 en FY 2022 y 47.941 en FY 2025; margen bruto: 58,14% y 61,63%,
+    respectivamente. Fuente: stockanalysis.com, estados financieros, períodos FY 2022
+    y FY 2025.'
+  - 'FCF reportado: 5.296 en FY 2025 y 14.282 para TTM terminado el 2026-10-02; la
+    fuente presenta importes reportados sin especificar aquí moneda o escala. Fuente:
+    stockanalysis.com, estados financieros, períodos indicados.'
+  - 'Cotización observada de USD 94,08 al 2026-10-30; objetivo medio de USD 99,64
+    y rango USD 88–112 observados al 2026-11-21. Fuentes: yfinance y stockanalysis,
+    respectivamente.'
   preguntas_abiertas:
-  - ¿Qué crecimiento orgánico, precios, volumen y mezcla explican los ingresos y qué
-    expectativas están incorporadas en la cotización?
-  - ¿Cuáles son los retornos sobre capital invertido e incrementales y cuánto capital
-    exige el crecimiento?
-  - ¿Qué evidencia de participación, penetración y competencia permite medir la durabilidad
-    de la ventaja?
-  - ¿Cuál es el horizonte y el método detrás del rango de objetivos de analistas?
-catalizadores_previos: &id001 []
+  - ¿Qué crecimiento, precios, volúmenes y márgenes espera el mercado, y cuánto está
+    incorporado en la cotización?
+  - ¿Cuáles son los retornos incrementales sobre capital y el destino de la reinversión
+    y del flujo de caja?
+  - ¿Qué tamaño y penetración tienen los mercados relevantes, y qué evidencia mide
+    la ventaja competitiva o su erosión?
+  - ¿Cuál es la serie de acciones diluidas y el gasto por intereses verificable para
+    medir dilución y cobertura?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T16:21:47.749319-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-KO
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T16:21:47.749319-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-KO
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Empresa de consumo defensivo madura; investigación requerida
-  justificacion: El paquete documenta momentum de precio y datos financieros históricos,
-    pero no aporta evidencia suficiente sobre penetración, retornos incrementales
-    del capital ni reinversión para sustentar una tesis multibagger.
+  categoria: Empresa de bebidas madura; oportunidad de crecimiento por validar
+  justificacion: El paquete muestra crecimiento de ingresos moderado y márgenes brutos
+    crecientes, pero no aporta evidencia suficiente sobre mercado direccionable, penetración,
+    retornos sobre capital o reinversión para validar una tesis de multibagger.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: La descripción del paquete presenta una cartera amplia de bebidas y canales
-    de venta. El margen bruto TTM reportado de 62,32% y el FCF TTM positivo son hechos
-    favorables, pero no bastan para cuantificar la durabilidad de la ventaja competitiva,
-    el retorno incremental sobre capital o la calidad de la reinversión.
-  rating: Calidad operativa aparentemente sólida, evaluación incompleta
+  analisis: Los ingresos reportados subieron de 43.004 en FY 2022 a 47.941 en FY 2025
+    y el margen bruto pasó de 58,14% a 61,63%; la fuente no especifica en estos campos
+    la moneda o escala de los importes. El modelo descrito abarca bebidas no alcohólicas,
+    concentrados y jarabes; faltan datos de cuota, penetración, retornos sobre capital,
+    reinversión y ventajas competitivas para evaluar su calidad económica.
+  rating: Evidencia parcial
 dominio_catalizadores:
-- catalizador: La actualización de ingresos, margen bruto y FCF en períodos futuros
-    permitiría comprobar si el crecimiento reciente y la generación de caja se sostienen.
+- catalizador: La evolución de ingresos y margen bruto puede aportar evidencia sobre
+    la continuidad del crecimiento y la rentabilidad del negocio.
   fuentes:
-  - as_of_date: '2026-10-02'
-    name: stockanalysis.com
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ko/financials/
-  hito: Publicación de un nuevo período financiero comparable con FY o TTM.
-- catalizador: La cotización y los objetivos de analistas pueden actualizarse y permitir
-    comparar expectativas observadas en fechas homogéneas.
+  hito: Revisar próximos períodos financieros disponibles; el paquete no especifica
+    fechas futuras.
+- catalizador: La continuidad del FCF reportado permitiría comprobar si el dato TTM
+    se sostiene frente a ejercicios anuales comparables.
   fuentes:
-  - as_of_date: '2026-10-30'
-    name: yfinance
-    url: https://finance.yahoo.com/quote/KO/
-  - as_of_date: '2026-11-20'
-    name: stockanalysis
-    url: https://stockanalysis.com/stocks/ko/forecast/
-  hito: Nueva cotización y rango de objetivos con fecha y horizonte explícitos.
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ko/financials/
+  hito: Comparar períodos financieros homogéneos cuando estén disponibles.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- implicacion: No se puede validar cuánto crecimiento futuro provendría de expansión
-    de consumo, mezcla, precios o nuevos mercados.
-  riesgo: La evidencia aportada no mide participación de mercado, penetración por
-    categoría o geografía, ni tamaño de mercado direccionable.
-- implicacion: La conversión de beneficios puede calcularse para TTM, pero una tendencia
-    de crecimiento comparable requiere períodos equivalentes.
-  riesgo: El FCF reportado varía sustancialmente entre los años fiscales y el TTM;
-    la comparación TTM frente a FY no es homogénea para medir crecimiento.
-- implicacion: No es posible evaluar productividad de reinversión o sensibilidad financiera
-    con suficiente detalle.
-  riesgo: El paquete no incluye datos sobre retornos sobre capital, inversión incremental,
-    deuda por vencimiento ni términos de financiación.
-- implicacion: La conclusión sobre valoración queda abierta sin método de valoración
-    y supuestos verificables.
-  riesgo: El momentum de precio observado no valida por sí solo expectativas de beneficios
-    ni ventaja competitiva.
+- fuentes: []
+  implicacion: No permite validar la sostenibilidad ni el potencial de crecimiento
+    de la tesis.
+  riesgo: Evidencia incompleta para evaluar reinversión, retornos sobre capital, ventaja
+    competitiva y asignación de capital.
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ko/financials/
+  implicacion: El crecimiento reciente de FCF requiere comprobar comparabilidad y
+    sostenibilidad.
+  riesgo: El FCF histórico reportado varía materialmente entre ejercicios.
+- fuentes: []
+  implicacion: No se pueden evaluar dilución ni cobertura de intereses con los datos
+    proporcionados.
+  riesgo: El paquete no incluye serie histórica de acciones diluidas ni gasto por
+    intereses verificable.
 error_mercado:
-  catalizador_cambio: Resultados financieros futuros que permitan verificar crecimiento
-    de ingresos y conversión de beneficios en flujo de caja libre.
-  conclusion_error_valoracion: No se valida un error de valoración con la evidencia
-    disponible.
-  consenso_actual: La cotización observada fue USD 94.08 al 2026-10-30; el consenso
-    de precio objetivo reportado fue USD 99.64 al 2026-11-20, con rango USD 88–112.
-  hipotesis_contraria: El rango de objetivos no demuestra por sí mismo que el mercado
-    esté valorando mal el crecimiento o la calidad del negocio.
-  razonamiento: El precio objetivo medio reportado supera la cotización observada,
-    pero son observaciones de fechas distintas y no se proporcionan método, horizonte
-    ni supuestos de los analistas. El momentum de 12 meses no establece valor intrínseco.
-generated_at: '2026-11-20T16:21:47.749319-03:00'
+  catalizador_cambio: La evidencia disponible no identifica catalizadores fechados;
+    cambios futuros en ingresos, márgenes y FCF serían datos relevantes para evaluar
+    la tesis.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el paquete ofrece
+    cotización y rango de objetivos de analistas, pero no una valoración intrínseca
+    ni expectativas operativas de consenso.'
+  consenso_actual: La cotización observada fue USD 94,08 al 2026-10-30; el consenso
+    de analistas reportado al 2026-11-21 fue USD 99,64, con rango de USD 88 a USD
+    112.
+  hipotesis_contraria: La expansión de margen bruto y el crecimiento del FCF reportado
+    podrían sostener resultados mejores que los implícitos en el extremo bajo del
+    rango de analistas, aunque el paquete no aporta previsiones operativas para comprobarlo.
+  razonamiento: El rendimiento de precio a 12 meses y el drawdown son datos históricos,
+    no evidencia de infravaloración. Los escenarios usan únicamente extremos observados
+    del rango de analistas.
+generated_at: '2026-11-21T16:36:50.162064-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-KO
@@ -111,7 +130,7 @@ prompt_inputs:
   insider_ownership: 0
   name: The Coca-Cola Company
   operating_margin: 32.17
-  pe_ratio: 28.66
+  pe_ratio: 28.61
   products: ''
   revenue: 51050000000.0
   revenue_growth: 7.12
@@ -129,15 +148,10 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
-  inputs:
-    fcf_history:
-      FY 2025: 5296
-      TTM: 14282
-  limitations: No calculado porque TTM al 2026-10-02 y FY 2025 terminado el 2025-12-31
-    no son períodos comparables; falta una observación de FCF de igual duración.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_growth_pct
-  period_end: '2026-10-02'
+  period_end: '2025-12-31'
   sources:
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ko/financials/
@@ -154,24 +168,25 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
-    a sus inputs de evidencia.
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history: 16595
+    total_debt_history: 42478
+  limitations: Los campos de input permitidos para esta métrica no incluyen EBITDA;
+    no se calcula el ratio aunque el paquete informe EBITDA en otra observación.
   metric: net_debt_ebitda
   period_end: '2026-10-02'
   sources:
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ko/financials/
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/KO/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
     shares_outstanding: 4300000000
-  limitations: Falta una serie de acciones diluidas o acciones en circulación para
-    el período comparable anterior; un único dato actual no permite calcular dilución
-    interanual.
+  limitations: Sólo se proporciona shares_outstanding actual; falta una observación
+    histórica comparable para calcular la variación interanual.
   metric: dilution_yoy_pct
   period_end: '2026-10-02'
   sources:
@@ -211,7 +226,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: The Coca-Cola Company, a beverage company, manufactures and sells
     various nonalcoholic beverages in the United States and internationally. The company
     provides Trademark Coca-Cola, sparkling soft drinks and flavors; water, sports,
@@ -237,7 +252,376 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.010700000000000001
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    **The Coca-Cola Company (KO)** es una compañía global de bebidas no alcohólicas.
+    Su negocio abarca la gestión de marcas, fórmulas, innovación y marketing, así
+    como la producción de concentrados y jarabes. En algunas operaciones también vende
+    bebidas terminadas. Su red comercial incluye embotelladores independientes y operadores
+    de embotellado, además de restaurantes y establecimientos de servicio de alimentos.
+
+
+    El material describe bebidas gaseosas y con sabores, y agua y agua con valor añadido.
+    No ofrece un desglose suficiente para documentar de forma precisa los ingresos
+    por geografía, categoría o canal.
+
+
+    KO opera en una industria madura y competitiva. Entre las compañías del mismo
+    sector identificadas en la wiki se encuentran [[ABEV]], [[CL]], [[COST]], [[DEO]]
+    y [[FMX]].
+
+
+    **Clasificación:** empresa de consumo defensivo madura; se requiere investigación
+    adicional antes de formular una conclusión de inversión.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Modelo y fuentes de ingresos
+
+
+    KO monetiza sus marcas y productos mediante concentrados, jarabes y bebidas terminadas.
+    La cadena de valor descrita combina desarrollo y gestión de marcas con marketing,
+    innovación y distribución a través de embotelladores y otros socios.
+
+
+    Los principales impulsores potenciales de ingresos son:
+
+
+    - Precios y mezcla de productos.
+
+    - Volúmenes y evolución de la demanda por categoría.
+
+    - Expansión internacional y en nuevos mercados.
+
+    - Innovación y adaptación a preferencias de consumo.
+
+
+    Los datos disponibles no cuantifican cuánto aportó cada factor al crecimiento
+    reportado ni permiten evaluar la penetración o la participación de mercado por
+    categoría o geografía.
+
+
+    ### Posición competitiva y moat
+
+
+    El análisis AOIF califica la posición competitiva como **líder** y la amplitud
+    del moat como **amplia**. Atribuye esa ventaja a:
+
+
+    - Marcas globales reconocidas.
+
+    - Escala de marketing.
+
+    - Relaciones con embotelladores.
+
+    - Una extensa red de distribución.
+
+
+    Estas características pueden respaldar el alcance comercial y la continuidad de
+    la presencia de marca. Sin embargo, la información suministrada no incluye métricas
+    para comprobar la evolución de la cuota de mercado, la fortaleza de marca frente
+    a competidores o el poder de fijación de precios.
+
+
+    La dinámica competitiva también incluye cambios en preferencias hacia bebidas
+    con menos azúcar y alternativas. Los competidores y empresas del sector listados
+    para seguimiento son [[ABEV]], [[CL]], [[COST]], [[DEO]] y [[FMX]].
+
+
+    ## 3. Perfil Financiero
+
+
+    Las métricas proceden de los outputs de investigación. Salvo cuando se indica
+    una fecha, el paquete no aporta el período, la definición detallada ni una fuente
+    verificable para cada cifra; deben confirmarse antes de utilizarlas en una valoración.
+
+
+    | Métrica | Dato reportado | Período / fecha | Observaciones |
+
+    |---|---:|---|---|
+
+    | Ingresos | USD 51.054 millones | TTM; fecha asociada: 2026-10-02 | El paquete
+    no especifica aquí la metodología ni el desglose. |
+
+    | Margen bruto | 62,32% | TTM al 2026-10-02 | Dato utilizado como referencia de
+    falsación; validar fuente y comparabilidad. |
+
+    | Crecimiento de ingresos | 7,12% | Período no especificado | AOIF; no se identifica
+    una serie comparable ni la base de cálculo. |
+
+    | Margen operativo | 32,17% | Período no especificado | AOIF; requiere verificación
+    de período y definición. |
+
+    | ROIC | 20,62% | Período no especificado | AOIF; faltan definición, inputs y
+    comparación histórica. |
+
+    | Current ratio | 1,38 | 2026-10-02 | Fuente reportada: [Stock Analysis](https://stockanalysis.com/stocks/KO/statistics/).
+    No cruza el umbral de alerta indicado (<0,5). |
+
+    | Crecimiento del FCF | No disponible | TTM al 2026-10-02 frente a FY 2025 | No
+    calculado: períodos no comparables y falta una observación homogénea. |
+
+    | Conversión a FCF | No disponible | — | No se proporcionaron cifras suficientes
+    de flujo operativo y capex para calcularla. |
+
+    | CAGR de ingresos a 3 años | No disponible | Hasta 2025-12-31 | No calculado
+    por falta de referencias explícitas para los datos de entrada. |
+
+    | Dilución interanual | No disponible | — | Falta una serie interanual de acciones.
+    |
+
+
+    El paquete señala FCF positivo en el período reportado, pero no proporciona una
+    serie comparable para evaluar tendencia o conversión de beneficios. DDD también
+    advierte que el FCF varía entre ejercicios fiscales y el período TTM, por lo que
+    no es apropiado inferir una tasa de crecimiento comparando esos períodos directamente.
+
+
+    No se incluyen datos suficientes sobre deuda neta, vencimientos, caja, recompras
+    o evolución del número de acciones para caracterizar de forma completa la estructura
+    de capital.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF califica la calidad del management como **buena** y la asignación de capital
+    como **creadora de valor**. También califica el alineamiento de insiders como
+    **débil**.
+
+
+    Estas valoraciones no vienen acompañadas de evidencia detallada sobre resultados
+    de asignación de capital, incentivos, propiedad accionaria de insiders o desempeño
+    de largo plazo. El material no aporta información sobre la composición, independencia,
+    experiencia o estructura del board. Por ello, estas evaluaciones deben tratarse
+    como valoraciones del análisis AOIF, no como conclusiones verificadas de forma
+    independiente.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista — respaldado parcialmente por los datos suministrados
+
+
+    - **Marcas y distribución:** AOIF identifica marcas globales, escala de marketing,
+    relaciones con embotelladores y una red de distribución extensa como fuentes de
+    ventaja competitiva.
+
+    - **Rentabilidad reportada:** el paquete comunica un margen bruto TTM de 62,32%
+    y, en AOIF, un margen operativo de 32,17% y un ROIC de 20,62%. Las fechas y definiciones
+    de varias métricas requieren confirmación.
+
+    - **Escala comercial:** la compañía opera en categorías de bebidas no alcohólicas
+    y vende a través de embotelladores, operadores y establecimientos de servicio
+    de alimentos.
+
+    - **Posible resiliencia de caja:** DDD describe FCF positivo en el período reportado.
+    Sin cifras comparables de flujo operativo y capex, no se puede determinar la estabilidad
+    de esa generación.
+
+    - **Posibles vías de crecimiento:** precios, mezcla, innovación y expansión geográfica
+    son drivers plausibles señalados en los materiales, pero su contribución cuantitativa
+    no está establecida.
+
+
+    La tesis no queda validada por una estimación independiente de valor intrínseco
+    ni por evidencia suficiente sobre crecimiento orgánico, cuota de mercado o retornos
+    incrementales sobre el capital.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos identificados
+
+
+    | Riesgo | Evaluación del material | Implicación |
+
+    |---|---|---|
+
+    | Cambio en preferencias de consumo | Impacto medio; probabilidad alta, según
+    AOIF | Una transición hacia bebidas con menos azúcar o alternativas podría afectar
+    los volúmenes y la mezcla de productos. |
+
+    | Dependencia de embotelladores y socios de distribución | Impacto alto; probabilidad
+    media, según AOIF | La ejecución comercial, la disponibilidad y la producción
+    dependen parcialmente de terceros. |
+
+    | Crecimiento no demostrado por drivers | DDD: evidencia insuficiente sobre precios,
+    volumen, mezcla y nuevos mercados | No se puede establecer cuánto del crecimiento
+    reportado es sostenible ni de dónde proviene. |
+
+    | Tendencia de FCF no comparable | DDD: TTM y FY 2025 no son períodos homogéneos
+    | El FCF positivo de un período no demuestra una tendencia sostenida. |
+
+    | Riesgo de expectativas y valoración | DDD: no se valida un error de valoración
+    | Un precio objetivo superior a una cotización observada en otra fecha no prueba
+    infravaloración. |
+
+    | Datos financieros incompletos | DDD y AOIF | Métricas sin período o fuente claramente
+    identificados limitan la comparación y la valoración. |
+
+
+    ### Contra-tesis
+
+
+    La amplitud de marcas y la rentabilidad reportada podrían no traducirse en crecimiento
+    rentable sostenido. Si los volúmenes se debilitan, la mezcla se deteriora o los
+    costos asociados a la transición de preferencias reducen los márgenes, la calidad
+    aparente del negocio no bastaría para respaldar las expectativas implícitas en
+    la cotización. Además, la información disponible no permite determinar cuánto
+    capital exige el crecimiento ni si los retornos incrementales justifican ese capital.
+
+
+    ### Triggers de falsación
+
+
+    - Ingresos comparables que se estanquen o disminuyan frente a los períodos fiscales
+    reportados.
+
+    - Deterioro persistente del margen bruto frente al 62,32% TTM reportado al 2026-10-02,
+    una vez confirmada la fuente y la comparabilidad.
+
+    - Evidencia de deterioro sostenido en volúmenes o mezcla que no sea compensado
+    por precios.
+
+    - Caída persistente de la generación de FCF cuando se mida con períodos homogéneos.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Evento / catalizador | Fecha esperada | Impacto potencial | Estado de evidencia
+    |
+
+    |---|---|---|---|
+
+    | Publicación de un nuevo período financiero comparable con FY o TTM | Próxima
+    publicación financiera; fecha no especificada | Permitirá comprobar ingresos,
+    margen bruto y conversión a FCF en períodos comparables. | Catalizador identificado
+    por DDD; no se suministra calendario ni fuente. |
+
+    | Actualización de cotización y objetivos de analistas con fecha y horizonte explícitos
+    | Próxima actualización; fecha no especificada | Permitirá comparar expectativas
+    de mercado de manera temporalmente consistente. | DDD advierte que los datos existentes
+    corresponden a fechas distintas. |
+
+
+    **Observaciones de mercado recogidas en DDD, no comparables por fecha:** cotización
+    de USD 94,08 al 2026-10-30 y consenso de precio objetivo reportado de USD 99,64
+    al 2026-11-02. El material no aporta un horizonte explícito para ese consenso.
+
+
+    Los escenarios de DDD usan USD 88 como ancla bajista y USD 112 como ancla alcista,
+    al 2026-11-20. Son extremos de un rango de objetivos de analistas, no estimaciones
+    propias de valor intrínseco.
+
+
+    ## 8. Marco de Valoración
+
+
+    La información disponible no permite estimar rigurosamente el valor intrínseco.
+    AOIF informa un P/E de **28,66** y un EV/EBITDA de **25,18**, pero no especifica
+    la fecha de referencia ni los datos subyacentes. El rendimiento de FCF figura
+    como **0**, sin detalle suficiente para determinar si representa un cálculo válido
+    o la falta de datos. AOIF califica el margen de seguridad como insuficiente.
+
+
+    DDD no valida un error de valoración: el precio objetivo medio reportado supera
+    una cotización observada en una fecha distinta, y el propio análisis señala que
+    esa comparación no demuestra una valoración incorrecta.
+
+
+    ### Metodología apropiada para investigación adicional
+
+
+    Una valoración debería combinar:
+
+
+    1. **Flujo de caja descontado**, con ingresos orgánicos, márgenes, impuestos,
+    capex, capital de trabajo y conversión a FCF explicitados.
+
+    2. **Valoración relativa**, contrastando múltiplos comparables y normalizados
+    con los de compañías del sector, incluidas [[ABEV]], [[FMX]] y otras referencias
+    pertinentes.
+
+    3. **Análisis de escenarios**, basado en supuestos propios y períodos consistentes,
+    en lugar de interpretar objetivos de analistas como valor intrínseco.
+
+
+    ### Sensibilidades principales
+
+
+    - Crecimiento orgánico de ingresos: precios frente a volumen y mezcla.
+
+    - Evolución del margen bruto y operativo.
+
+    - Conversión de beneficios en FCF y necesidades de capital.
+
+    - Retorno sobre capital invertido e incremental.
+
+    - Múltiplos de valoración y horizonte de proyección.
+
+
+    No se incluyen estimaciones cuantitativas de sensibilidad porque faltan flujos
+    de caja, deuda neta, precio de referencia fechado y supuestos operativos comparables.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué crecimiento orgánico, precios, volumen y mezcla explican los ingresos
+    reportados, y qué expectativas de crecimiento están incorporadas en la cotización?
+
+    2. ¿Cómo varían los ingresos y márgenes por categoría, región y canal?
+
+    3. ¿Cuál es la evolución de la cuota de mercado y la penetración por categoría
+    y geografía?
+
+    4. ¿Qué retornos sobre capital invertido e incrementales obtiene KO, y cuánto
+    capital requiere el crecimiento?
+
+    5. ¿Cuál es la serie comparable de flujo operativo, capex y FCF por ejercicio
+    y TTM?
+
+    6. ¿Qué parte de la generación de ingresos y de la ejecución comercial depende
+    de los embotelladores, y cómo se distribuyen los riesgos entre KO y sus socios?
+
+    7. ¿Cómo están evolucionando los volúmenes y la mezcla ante los cambios en preferencias
+    hacia bebidas con menos azúcar y alternativas?
+
+    8. ¿Cuál es la deuda neta, el calendario de vencimientos y la evolución de acciones
+    diluidas?
+
+    9. ¿Qué evidencia respalda las calificaciones AOIF de calidad del management,
+    asignación de capital y alineamiento de insiders?
+
+    10. ¿Cuál es la fecha, el horizonte y la fuente de las métricas de valoración
+    y de los objetivos de analistas reportados?
+
+    11. ¿Qué supuestos de crecimiento, márgenes y retornos justifican una valoración
+    superior o inferior a la observada?
+
+
+    **Conclusión de investigación:** los materiales describen un negocio de bebidas
+    con marcas y distribución extensas y reportan métricas de rentabilidad elevadas.
+    La evidencia disponible es insuficiente para validar la sostenibilidad del crecimiento,
+    la calidad de la conversión a caja o un margen de seguridad de valoración.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ABEV|Ambev S.A.]], [[CL|Colgate-Palmolive Company]], [[COST|Costco
+    Wholesale Corporation]], [[DEO|Diageo plc]], [[FMX|Fomento Económico Mexicano,
+    S.A.B. de C.V.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -272,7 +656,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T19:21:18.570427+00:00", "period_end": "2026-10-02",
+    "observed_at": "2026-11-21T19:36:18.986780+00:00", "period_end": "2026-10-02",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -433,14 +817,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    112.0, "low": 88.0, "mean": 99.64, "median": 99.64, "observed_at": "2026-11-20T16:21:21.987567-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T16:21:21.987567-03:00", "observed_date": "2026-11-20", "target_price":
-    99.64, "url": "https://stockanalysis.com/stocks/ko/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:21:21.987567-03:00",
-    "observed_date": "2026-11-20", "target_price": 99.64, "url": "https://finance.yahoo.com/quote/KO/"}]},
-    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 94.08000183105469,
-    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/KO/"}]}}'
+    112.0, "low": 88.0, "mean": 99.64, "median": 99.64, "observed_at": "2026-11-21T16:36:22.236237-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T16:36:22.236237-03:00", "observed_date": "2026-11-21", "target_price":
+    99.64, "url": "https://stockanalysis.com/stocks/ko/forecast/"}]}, "current_quote":
+    {"as_of_date": "2026-10-30", "currency": "USD", "price": 94.08000183105469, "sources":
+    [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/KO/"}]}}'
   sector: Consumer Defensive
   ticker: KO
 research_trigger:
@@ -448,108 +830,107 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 043dacbf3368d2b1a78ac85b7a44ea0e32bf209c4a8a0aaea21927d1209d7634
+    sha256: 401416c8495467914bdac3207971e8cc831efce42f8a8a1177afe490d40c4890
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T16:21:47.749319-03:00'
+  triggered_at: '2026-11-21T16:36:50.162064-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: 1.38 al 2026-10-02; no cruza el umbral configurado.
-  source:
-    name: stockanalysis.com
+  observation: 1.38x al 2026-10-02; por encima del umbral configurado.
+  sources:
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/KO/statistics/
-  threshold: below 0.5
+  threshold: below 0.5x
 - metric: dilution_yoy_pct
-  observation: No disponible; falta serie interanual de acciones.
+  observation: 'No evaluable: falta historial comparable de acciones diluidas.'
   threshold: above 10%
 - metric: interest_coverage
-  observation: La fuente reporta 0 al 2026-10-02, pero no se proporciona EBIT e interés
-    de manera que permita validar ese valor; no se infiere cobertura económica.
+  observation: El valor reportado es 0, pero faltan inputs verificables de EBIT y
+    gasto por intereses para validarlo; no se interpreta como cobertura económica.
   threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: 'No aplicable a la observación TTM: el FCF reportado fue positivo,
-    USD 14.282 millones al 2026-10-02.'
-  threshold: below 12 months
 - metric: net_debt_ebitda
-  observation: 1.48x calculado al 2026-10-02; no cruza el umbral.
+  observation: No evaluable bajo los campos de input permitidos para este ratio, que
+    no incluyen EBITDA.
   threshold: above 4.0x
+- metric: fcf_runway_months
+  observation: No aplica a la observación de FCF positiva reportada para TTM terminado
+    el 2026-10-02.
+  threshold: below 12 months cuando FCF es negativo
 - metric: share_count_cagr_3y_pct
-  observation: No evaluable; faltan observaciones de acciones para un período de tres
-    años.
+  observation: 'No evaluable: no se proporciona una serie histórica de acciones.'
   threshold: above 5%
 scenario_analysis:
-  as_of_date: '2026-11-20'
+  as_of_date: '2026-11-21'
   currency: USD
-  horizon_date: '2026-11-20'
+  horizon_date: '2027-11-21'
   scenarios:
   - falsifiers:
-    - Un objetivo actualizado y comparable que deje de respaldar USD 88 como extremo
-      observado.
+    - Resultados futuros verificables que sostengan crecimiento de ingresos y margen
+      bruto.
+    - Evidencia de FCF comparable que confirme la fortaleza del período TTM.
     id: BEAR
     key_assumptions:
-    - Se usa el objetivo bajo reportado de USD 88 como ancla observable.
-    - No se supone que dicho objetivo sea una cotización garantizada ni se conoce
-      su horizonte.
-    rationale: Ancla inferior del rango de objetivos de analistas observado, no valoración
-      intrínseca propia. Representa el extremo adverso del rango reportado; la evidencia
-      financiera disponible no permite atribuirlo a una causa empresarial específica.
+    - El objetivo bajo reportado es una referencia de mercado, no una valoración intrínseca.
+    - La evidencia disponible no permite atribuir una causa operativa específica al
+      extremo bajo.
+    rationale: 'Ancla observada: extremo bajo del rango de objetivos de analistas.
+      Es un escenario adverso plausible si los datos favorables de margen y FCF no
+      se sostienen; el paquete no aporta previsiones que permitan cuantificar ese
+      deterioro.'
     sources:
-    - as_of_date: '2026-11-20'
+    - as_of_date: '2026-11-21'
       name: stockanalysis
       url: https://stockanalysis.com/stocks/ko/forecast/
     target_price: 88
   - falsifiers:
-    - Un objetivo actualizado y comparable que deje de respaldar USD 112 como extremo
-      observado.
+    - Períodos posteriores que muestren desaceleración de ingresos o contracción del
+      margen bruto.
+    - FCF posterior que no confirme generación comparable a la reportada para TTM.
     id: BULL
     key_assumptions:
-    - Se usa el objetivo alto reportado de USD 112 como ancla observable.
-    - No se supone que dicho objetivo sea una cotización garantizada ni se conoce
-      su horizonte.
-    rationale: Ancla superior del rango de objetivos de analistas observado, no valoración
-      intrínseca propia. Representa el extremo favorable del rango reportado; la evidencia
-      no permite afirmar qué supuestos de negocio lo justifican.
+    - El objetivo alto reportado es una referencia de mercado, no una valoración intrínseca.
+    - La continuidad de tendencias financieras históricas es una hipótesis, no un
+      hecho futuro.
+    rationale: 'Ancla observada: extremo alto del rango de objetivos de analistas.
+      Es el mejor resultado plausible dentro del rango reportado si el crecimiento
+      de ingresos y la expansión del margen bruto continúan; el paquete no prueba
+      que esos resultados estén incorporados en el objetivo.'
     sources:
-    - as_of_date: '2026-11-20'
+    - as_of_date: '2026-11-21'
       name: stockanalysis
       url: https://stockanalysis.com/stocks/ko/forecast/
+    - as_of_date: '2026-10-02'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ko/financials/
     target_price: 112
   schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - horizon_date debe ser posterior a la fecha actual
-  status: invalid_pending_revision
-score_general: 58
+  errors: []
+  status: valid_pending_decision_board
+score_general: 61
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T16:21:21.987567-03:00'
+  calculado_at: '2026-11-21T16:36:22.236237-03:00'
   fuentes:
     stockanalysis: 99.64
-    yfinance: 99.64
   mediana: 99.64
-  n_fuentes: 2
+  n_fuentes: 1
   promedio: 99.64
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T16:21:21.987567-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:36:22.236237-03:00'
+    observed_date: '2026-11-21'
     target_price: 99.64
     url: https://stockanalysis.com/stocks/ko/forecast/
-  - as_of_date: '2026-11-20'
-    name: yfinance
-    observed_at: '2026-11-20T16:21:21.987567-03:00'
-    observed_date: '2026-11-20'
-    target_price: 99.64
-    url: https://finance.yahoo.com/quote/KO/
   target_high: 112.0
   target_low: 88.0
-tesis_inversion: KO opera un negocio de bebidas no alcohólicas con ingresos TTM reportados
-  de 51.054 millones y margen bruto TTM de 62,32% al 2026-10-02. El crecimiento de
-  ingresos FY 2022–FY 2025 fue moderado según el cálculo incluido; la evidencia no
-  permite concluir si la reinversión genera retornos incrementales atractivos ni validar
-  una tesis de crecimiento excepcional.
+tesis_inversion: La tesis a evaluar es si el crecimiento de ingresos acompañado de
+  expansión de margen bruto y generación positiva de FCF puede sostener resultados
+  favorables. Los datos disponibles no bastan para concluir que el crecimiento, la
+  reinversión y los retornos sobre capital justifiquen una valoración determinada;
+  tampoco cuantifican mercado direccionable, penetración o erosión competitiva.
 ticker: KO
 version: '3.0'

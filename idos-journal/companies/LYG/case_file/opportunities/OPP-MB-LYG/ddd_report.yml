@@ -1,93 +1,86 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La variación calculada de ingresos entre FY2022 y FY2025 es positiva, pero no
-    basta para inferir crecimiento orgánico, calidad de ingresos ni retornos sobre
-    capital.
-  - Los objetivos de analistas y la cotización son referencias observadas; sin previsiones
-    empresariales y método de valoración no permiten establecer un error de valoración.
-  - 'El resumen describe operaciones en Reino Unido en tres segmentos: Retail; Commercial
-    Banking; e Insurance, Pensions and Investments. Fuente: resumen financiero, sin
-    URL aportada; período: no especificado.'
-  - 'Stockanalysis reporta ingresos de 18.627 para FY2025 y 14.530 para FY2022, y
-    beneficio neto de 4.196 para FY2025; período terminado el 2025-12-31. Fuente:
-    https://stockanalysis.com/stocks/lyg/financials/.'
-  - 'Stockanalysis reporta FCF de -12.852 para FY2025 y -20.085 para FY2024; período
-    terminado el 2025-12-31 y 2024-12-31, respectivamente. Fuente: https://stockanalysis.com/stocks/lyg/financials/.'
-  - 'Yfinance reporta momentum de precio a 12 meses de 15,2128%, volatilidad a 90
-    días de 26,4849% y drawdown de 13,7739%, observados al 2026-10-26. Fuente: https://finance.yahoo.com/quote/LYG/history/.'
+  - La volatilidad y signo negativo de las cifras de FCF suministradas impiden tratar
+    la generación de caja como una fuente demostrada de crecimiento autofinanciado.
+  - El consenso observado no demuestra por sí mismo una infravaloración.
+  - 'La serie reportada de ingresos incluye FY2022 de 14.530, FY2023 de 18.326 y FY2025
+    de 18.627, en unidades reportadas por la fuente; fuente: Stock Analysis, período
+    FY2022–FY2025, https://stockanalysis.com/stocks/lyg/financials/.'
+  - 'El FCF reportado fue -12.852 en FY2025 y -20.085 en FY2024, en unidades reportadas
+    por la fuente; fuente: Stock Analysis, períodos FY2024 y FY2025, https://stockanalysis.com/stocks/lyg/financials/.'
+  - 'La cotización reportada fue USD 5,415 al 2026-10-26; fuente: yfinance, https://finance.yahoo.com/quote/LYG/.'
   preguntas_abiertas:
-  - ¿Cuáles son el capital regulatorio, la rentabilidad sobre capital, el coste de
-    riesgo, la morosidad y la sensibilidad de márgenes a tasas en períodos comparables?
-  - ¿Cuál es la definición, unidad monetaria y composición del FCF reportado para
-    un banco, y cómo se reconcilia con flujo de caja operativo y capital regulatorio?
-  - ¿Qué serie de acciones diluidas, datos de competencia y penetración de mercado,
-    y política de asignación de capital respaldan la tesis?
-catalizadores_previos: &id001 []
+  - ¿Cuáles son las unidades y conciliaciones comparables de las series financieras,
+    y cómo se relacionan con los estados publicados?
+  - ¿Qué datos verificables existen sobre retornos sobre capital, reinversión, cuota
+    de mercado, competencia, dirección y asignación de capital?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T16:34:46.722821-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-LYG
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T16:34:46.722821-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-LYG
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: RESEARCH_REQUIRED
-  justificacion: El paquete la clasifica como RESEARCH_REQUIRED y aporta evidencia
-    de mercado y datos financieros parciales; varias métricas necesarias para evaluar
-    crecimiento, reinversión y apalancamiento no están disponibles o no son comparables.
+  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
+    de crecimiento compuesto
+  justificacion: El paquete identifica momentum de mercado positivo, pero la información
+    disponible no permite validar varios ratios de crecimiento, conversión de caja
+    y apalancamiento relevantes para el perfil multibaggers.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo de negocio descrito cubre banca minorista, comercial y seguros,
-    pensiones e inversiones para clientes del Reino Unido. No hay datos suficientes
-    sobre retornos sobre capital, costes, participación de mercado, persistencia de
-    clientes o ventaja competitiva para valorar calidad o erosión.
-  rating: Evidencia insuficiente
+  analisis: El resumen describe actividades en Retail, Commercial Banking e Insurance,
+    Pensions and Investments. No aporta datos verificables sobre cuota de mercado,
+    penetración, moat, retornos sobre capital, reinversión o asignación de capital;
+    por ello no se puede calificar la durabilidad de una ventaja competitiva.
+  rating: No concluyente
 dominio_catalizadores:
-- catalizador: La publicación de resultados comparables posteriores a 2026-09-30 permitiría
-    contrastar ingresos, beneficio y balance con las series históricas disponibles.
-  fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/lyg/financials/
-- catalizador: La revisión de las estimaciones de analistas puede aportar una referencia
-    de mercado actualizada; el paquete solo contiene objetivos observados al 2026-11-20.
-  fuentes:
-  - name: stockanalysis
-    url: https://stockanalysis.com/stocks/lyg/forecast/
+- catalizador: Publicación de estados financieros con unidades, períodos y definiciones
+    comparables para ingresos, FCF, deuda, caja y EBITDA.
+  hito: Permitiría recalcular ratios centrales y evaluar tendencias financieras sin
+    mezclar medidas de proveedores.
+- catalizador: Divulgación de una serie fechada de acciones diluidas o en circulación.
+  hito: Permitiría evaluar dilución interanual y crecimiento de acciones a tres años.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/lyg/financials/
-  riesgo: Los datos de FCF son negativos en FY2024 y FY2025, y el FCF TTM reportado
-    también es negativo; para una entidad bancaria su interpretación requiere contexto
-    y definiciones adicionales.
-- fuentes:
-  - name: Research Intake Package
-    url: https://finance.yahoo.com/quote/LYG/history/
-  riesgo: La evidencia no incluye series de acciones diluidas, capital regulatorio,
-    calidad de activos, provisiones ni sensibilidad de ingresos a tasas; limita la
-    evaluación de dilución y riesgos bancarios.
-- fuentes:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/LYG/statistics/
-  riesgo: El ratio current_ratio figura como 0 en estadísticas del proveedor, pero
-    no se valida como medida útil de liquidez para un banco ni se aportan sus componentes.
+- implicacion: La información no permite inferir crecimiento financiado por caja ni
+    una conversión estable de beneficios.
+  riesgo: La serie de FCF reportada es volátil y negativa en FY2024 y FY2025; el FCF
+    TTM también figura negativo.
+- implicacion: La calidad de beneficios y la capacidad de autofinanciar reinversión
+    quedan sin validar.
+  riesgo: No se puede calcular una conversión de FCF comparable con el ingreso neto
+    TTM por incompatibilidad de unidades reportadas.
+- implicacion: Apalancamiento y evolución de la participación por acción requieren
+    verificación adicional.
+  riesgo: No hay datos suficientes para calcular deuda neta/EBITDA ni dilución interanual.
 error_mercado:
-  catalizador_cambio: Resultados financieros fechados que permitan verificar la evolución
-    de ingresos, beneficio, FCF y balance podrían modificar la lectura; no se aportan
-    previsiones empresariales ni fechas de próximos hitos.
-  conclusion_error_valoracion: No se valida un error de valoración con la evidencia
-    disponible; el rango de analistas es una referencia observada, no una valoración
-    intrínseca.
-  consenso_actual: 'La cotización reportada es USD 5,415 al 2026-10-26; el consenso
-    objetivo reportado es USD 6,28 al 2026-11-20, con rango de USD 5,95–6,96. Fuentes:
-    https://finance.yahoo.com/quote/LYG/ y https://stockanalysis.com/stocks/lyg/forecast/'
-  hipotesis_contraria: 'El precio y el consenso no demuestran por sí solos que el
-    mercado esté subestimando o sobrestimando la capacidad de generar retornos: el
-    paquete no incluye expectativas de beneficios, márgenes bancarios, crédito ni
-    capital regulatorio.'
-  razonamiento: El precio avanzó 15,2128% en los 12 meses terminados el 2026-10-26
-    y el drawdown informado fue 13,7739% en ese período. La evidencia disponible no
-    permite conectar esos movimientos con expectativas fundamentales ni cuantificar
-    su brecha.
-generated_at: '2026-11-20T16:34:46.722821-03:00'
+  catalizador_cambio: Resultados financieros comparables que aclaren crecimiento de
+    ingresos, generación de caja y evolución de acciones en circulación podrían modificar
+    la evaluación.
+  conclusion_error_valoracion: 'No se valida un error de valoración: los objetivos
+    de analistas son referencias de mercado, no una valoración intrínseca independiente.'
+  consenso_actual: El consenso de analistas reportado es de USD 6,28, con rango de
+    USD 5,95–6,96; la cotización reportada fue USD 5,415 el 2026-10-26.
+  hipotesis_contraria: El rango de objetivos ofrece anclas observables, pero la evidencia
+    suministrada no permite determinar si el mercado está subestimando o sobrestimando
+    la capacidad de crecimiento y generación de caja.
+  razonamiento: La cotización y los objetivos están expresados en USD, pero no hay
+    en el paquete una valoración propia con método e inputs suficientes para establecer
+    una brecha fundamental.
+generated_at: '2026-11-21T16:39:00.981256-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-LYG
@@ -115,7 +108,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Lloyds Banking Group plc
   operating_margin: 42.94
-  pe_ratio: 9.58
+  pe_ratio: 9.57
   products: ''
   revenue: 26750000000.0
   revenue_growth: 11.96
@@ -135,15 +128,10 @@ ratios_investigados:
   value: null
 - formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
   inputs:
-    fcf_history:
-    - period: FY 2025
-      period_end: '2025-12-31'
-      value: -12852
-    - period: FY 2024
-      period_end: '2024-12-31'
-      value: -20085
-  limitations: 'No se cumplen las condiciones de la definición: ambos FCF históricos
-    son negativos. No corresponde calcular crecimiento bajo la fórmula configurada.'
+    fcf_history_FY_2024: -20085.0
+    fcf_history_FY_2025: -12852.0
+  limitations: Ambos períodos reportan FCF negativo; la definición configurada exige
+    FCF positivo y comparable en ambos.
   metric: fcf_growth_pct
   period_end: '2025-12-31'
   sources:
@@ -152,11 +140,17 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
-    a sus inputs de evidencia.
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf: -3850000000.0
+    net_income_history_TTM: 5736.0
+  limitations: El FCF está expresado en provider_financial_currency y el ingreso neto
+    en source_reported_amount; no hay conversión de unidades/moneda verificable.
   metric: fcf_conversion_pct
-  period_end: '2025-12-31'
+  period_end: '2026-09-30'
   sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/lyg/financials/
   status: unavailable
@@ -165,13 +159,10 @@ ratios_investigados:
 - formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
     ebitda: n/a
-    net_cash_history:
-    - period: Current
-      period_end: '2026-09-30'
-      value: 166429
-  limitations: EBITDA figura como n/a para el período terminado el 2026-09-30; no
-    se puede calcular el ratio. El proveedor reporta net_cash, pero falta un denominador
-    utilizable.
+    net_cash_history_Current: 166429.0
+    total_debt_history_Current: 168199.0
+  limitations: EBITDA figura como n/a; además, el paquete no establece unidades comparables
+    para los valores de deuda y caja.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
@@ -184,10 +175,9 @@ ratios_investigados:
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    shares_outstanding: 57410000000
-  limitations: Solo se aporta una observación de acciones en circulación; faltan acciones
-    diluidas y una observación comparable del período anterior para calcular dilución
-    interanual.
+    shares_outstanding: 57410000000.0
+  limitations: Sólo se proporciona un valor puntual de acciones en circulación; falta
+    un dato comparable del período anterior y no hay serie de acciones diluidas.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
@@ -227,7 +217,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'Lloyds Banking Group plc, together with its subsidiaries, provides
     a range of banking and financial products and services for retail and commercial
     customers in the United Kingdom. It operates in three segments: Retail; Commercial
@@ -253,7 +243,329 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.0366
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    **Lloyds Banking Group plc (LYG)** es un grupo bancario diversificado centrado
+    en el Reino Unido. Ofrece servicios financieros a clientes particulares y empresas,
+    con actividades que abarcan banca minorista y comercial, seguros, pensiones e
+    inversiones. Entre sus productos se incluyen cuentas corrientes y de ahorro e
+    hipotecas.
+
+
+    El grupo capta depósitos y financiación mayorista, evalúa y gestiona riesgos crediticios
+    y distribuye préstamos, cuentas, seguros y productos de inversión mediante sus
+    marcas y canales de servicio. Su desempeño está expuesto a las condiciones económicas
+    y financieras del Reino Unido.
+
+
+    La información disponible no permite cuantificar la contribución de cada segmento
+    ni identificar con precisión las marcas y canales de distribución relevantes.
+
+
+    **Compañías del sector incluidas en la wiki:** [[HSBC]], [[ING]], [[JPM]], [[C]],
+    [[IBN]], [[ITUB]], [[KB]], [[BSBR]], [[AIG]], [[AXP]], [[AEG]] y [[BX]]. La lista
+    de entrada contenía duplicados de algunas compañías.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    - Ingresos derivados de depósitos, préstamos y otros servicios bancarios.
+
+    - Banca minorista para hogares y clientes particulares, incluida la actividad
+    hipotecaria.
+
+    - Servicios bancarios para empresas, incluidas pequeñas y medianas empresas.
+
+    - Actividades de seguros, pensiones e inversiones.
+
+
+    No se proporcionan datos que permitan desglosar ingresos por producto, segmento
+    o fuente, ni evaluar su sensibilidad a los tipos de interés.
+
+
+    ### Moat y posición competitiva
+
+
+    La evaluación de investigación describe ventajas potenciales basadas en una amplia
+    base de clientes, marcas reconocidas, escala, relaciones de depósitos y distribución
+    multicanal. La evaluación clasifica la amplitud del moat como **estrecha** y la
+    posición competitiva como **líder**; ambas son valoraciones cualitativas del paquete
+    de investigación, no mediciones verificadas con datos comparativos.
+
+
+    La banca británica se caracteriza como madura, competitiva y fuertemente regulada.
+    La digitalización puede afectar la distribución y la competencia. El desempeño
+    del grupo también depende de los tipos de interés, el empleo, los precios inmobiliarios
+    y la morosidad. No se aporta evidencia comparativa suficiente para medir ventajas
+    de costes, cuota de mercado o retención de clientes frente a [[HSBC]], [[ING]]
+    u otros pares.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras de esta sección proceden de inputs de investigación y no incluyen,
+    en todos los casos, fecha, definición o serie histórica. No deben interpretarse
+    como métricas comparables o validadas sin revisar sus fuentes y metodología.
+
+
+    | Métrica | Valor reportado | Período / limitación |
+
+    |---|---:|---|
+
+    | Crecimiento de ingresos | 11,96% | Se facilitó sin período ni definición |
+
+    | Margen operativo | 42,94% | Se facilitó sin período ni definición |
+
+    | ROIC | 13,21% | Se facilitó sin período ni definición |
+
+    | PER | 9,58 | Sin fecha ni definición; no permite concluir que haya descuento
+    |
+
+    | EV/EBITDA | 0 | Valor facilitado; utilidad y definición no aclaradas |
+
+    | FCF yield | 0 | Valor facilitado; metodología no aclarada |
+
+    | FCF | Negativo en FY2024, FY2025 y TTM | Reporte de Stock Analysis; la definición
+    y composición no se aportan |
+
+    | Current ratio | 0 al 2026-09-30 | Reporte de Stock Analysis sin componentes;
+    no se asume que sea una medida adecuada para un banco |
+
+    | Precio de la acción | USD 5,415 al 2026-10-26 | Dato reportado por el paquete;
+    convención y fuente deben verificarse |
+
+
+    La evaluación AOIF califica la tendencia financiera como **estable**, pero señala
+    que faltan período, definición y serie histórica para contextualizar las cifras
+    de crecimiento, margen y ROIC. La evaluación DDD no calcula el CAGR de ingresos
+    por falta de referencias explícitas a los inputs utilizados. Tampoco calcula crecimiento
+    del FCF: los valores históricos necesarios no se proporcionaron y la fórmula configurada
+    requiere FCF comparable y positivo en ambos períodos.
+
+
+    **Capital y estructura financiera:** no se aportan datos de capital regulatorio,
+    acciones diluidas, endeudamiento comparable, valor contable tangible ni calidad
+    de activos. El FCF convencional requiere especial cautela en un banco porque depósitos,
+    préstamos y otros flujos financieros no son directamente comparables con los de
+    una empresa industrial.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación AOIF califica la calidad del management como **regular**, la asignación
+    de capital como **neutral** y el alineamiento de insiders como **débil**. Estas
+    valoraciones se presentan sin datos verificables sobre resultados frente a objetivos,
+    remuneración, participación accionarial de directivos o decisiones recientes de
+    capital.
+
+
+    No se aportan nombres ni composición del board, historial de gobierno corporativo,
+    política de incentivos o datos de propiedad de insiders. Por tanto, estas dimensiones
+    no pueden evaluarse independientemente con la evidencia disponible.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista a investigar
+
+
+    La tesis de investigación es si la franquicia bancaria minorista y comercial de
+    Lloyds, junto con sus actividades de seguros, pensiones e inversiones en Reino
+    Unido, puede sostener crecimiento rentable. La escala, la base de clientes, las
+    relaciones de depósitos y la distribución multicanal podrían apoyar la competitividad,
+    según la evaluación cualitativa de AOIF.
+
+
+    Como referencias incompletas, AOIF reporta crecimiento de ingresos de 11,96%,
+    margen operativo de 42,94% y ROIC de 13,21%, pero no especifica períodos ni definiciones.
+    Por ello, no prueban por sí solos crecimiento orgánico, calidad de ingresos ni
+    retornos sostenibles sobre el capital.
+
+
+    El precio reportado avanzó 15,2128% en los 12 meses terminados el 2026-10-26,
+    con un drawdown informado de 13,7739% en el período. Estas observaciones describen
+    el comportamiento pasado de la acción y no establecen una relación con el valor
+    intrínseco ni la rentabilidad futura.
+
+
+    **Estado de la tesis:** requiere investigación adicional. El paquete clasifica
+    la oportunidad como `RESEARCH_REQUIRED`; la recomendación AOIF queda como `PENDIENTE_DECISION_BOARD`.
+    El score general DDD es 55 y no debe interpretarse como una decisión de inversión.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos principales
+
+
+    - **Riesgo macroeconómico y crediticio:** un deterioro del empleo, la economía
+    o la capacidad de pago de hogares y empresas podría aumentar los impagos y las
+    pérdidas crediticias. AOIF lo califica de impacto alto y probabilidad media.
+
+    - **Exposición inmobiliaria:** la actividad hipotecaria y la financiación vinculada
+    a bienes raíces exponen al grupo a cambios en los precios inmobiliarios y el desempeño
+    de prestatarios. AOIF califica este riesgo como de impacto alto y probabilidad
+    media.
+
+    - **Sensibilidad a tasas y entorno competitivo:** la banca británica se describe
+    como sensible a los tipos de interés, la actividad económica y la morosidad, y
+    expuesta a competencia y digitalización.
+
+    - **Interpretación de flujos de caja:** Stock Analysis reporta FCF negativo en
+    FY2024, FY2025 y TTM. Sin definiciones ni conciliación con flujos bancarios y
+    capital regulatorio, no se puede concluir qué implica para la capacidad económica
+    del grupo.
+
+    - **Datos insuficientes de capital y activos:** no se aportan capital regulatorio,
+    morosidad, provisiones, coste de riesgo ni series de acciones diluidas. Esto impide
+    evaluar adecuadamente solvencia, calidad de activos y dilución.
+
+    - **Riesgo de valoración:** el consenso de analistas y el precio observado no
+    prueban que el mercado esté subestimando o sobrestimando la capacidad de generar
+    retornos.
+
+
+    ### Contra-tesis y falsadores
+
+
+    La tesis de crecimiento rentable se debilitaría si una serie financiera comparable
+    mostrara deterioro sostenido de ingresos o beneficio frente a las cifras históricas
+    reportadas. También la debilitaría evidencia verificable de erosión competitiva,
+    deterioro de calidad de activos o insuficiencia de capital. El paquete no aporta
+    esos datos y, por tanto, ninguno de esos resultados puede confirmarse o descartarse.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Evento | Fecha esperada | Impacto potencial | Evidencia / limitación |
+
+    |---|---|---|---|
+
+    | Publicación de resultados comparables posteriores al 2026-09-30 | Sin fecha
+    especificada | Permitiría contrastar ingresos, beneficio y balance con las series
+    históricas disponibles | Catalizador señalado por DDD; no se aporta calendario
+    empresarial |
+
+    | Revisión de estimaciones y objetivos de analistas | Sin fecha especificada;
+    referencia observada al 2026-11-20 | Actualizaría una referencia de mercado, sin
+    establecer por sí sola el valor intrínseco | Stock Analysis: https://stockanalysis.com/stocks/lyg/forecast/
+    |
+
+    | Seguimiento de morosidad, provisiones y exposición hipotecaria | Continuo; sin
+    fecha de evento | Podría aportar evidencia sobre calidad de activos y riesgo crediticio
+    | Punto de monitoreo de AOIF; no se incluyen series |
+
+
+    El paquete reporta un precio de USD 5,415 al 2026-10-26 y un objetivo de consenso
+    de USD 6,28 al 2026-11-20, con rango de USD 5,95–6,96. Son referencias observadas
+    en fechas distintas; no constituyen una valoración intrínseca ni permiten confirmar
+    un error de valoración.
+
+
+    ## 8. Marco de Valoración
+
+
+    No es posible estimar el valor intrínseco con rigor a partir de la información
+    disponible. El PER reportado de 9,58 carece de fecha y definición, y no basta
+    por sí solo para concluir que la acción esté infravalorada. El rango de objetivos
+    de analistas es una referencia de mercado, no una estimación independiente del
+    valor.
+
+
+    Para un banco, el análisis debería priorizar métricas y métodos compatibles con
+    su estructura financiera, entre ellos:
+
+
+    - Rentabilidad sobre patrimonio (ROE) y, si se dispone de una definición comparable,
+    ROIC.
+
+    - Valor contable tangible y múltiplos frente a pares y al historial de la compañía.
+
+    - Beneficio normalizado, coste del capital y capacidad sostenible de distribución
+    a accionistas.
+
+    - Capital regulatorio, calidad de activos, provisiones y coste de riesgo.
+
+    - Sensibilidad de ingresos y márgenes a distintos escenarios de tipos de interés.
+
+
+    No se presentan supuestos cuantitativos ni análisis de sensibilidad porque faltan
+    series de beneficio y capital, previsiones, métricas regulatorias y una fecha
+    de valoración consistente. El margen de seguridad se considera **insuficiente**
+    en la evaluación AOIF, que señala que el valor intrínseco no es estimable con
+    los datos aportados.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuáles son el capital regulatorio y su evolución, la rentabilidad sobre el
+    capital, el coste de riesgo, la morosidad y las provisiones en períodos comparables?
+
+    2. ¿Cómo han evolucionado los ingresos, el margen de intereses, el beneficio y
+    el balance con definiciones consistentes?
+
+    3. ¿Cuál es la sensibilidad de ingresos y márgenes a cambios en los tipos de interés?
+
+    4. ¿Cómo se distribuyen los ingresos y beneficios entre banca minorista, comercial,
+    seguros, pensiones e inversiones?
+
+    5. ¿Cuál es la exposición hipotecaria y cómo se comportan los prestatarios vulnerables
+    ante cambios en empleo, ingresos y precios inmobiliarios?
+
+    6. ¿Qué definición, unidad monetaria y composición utiliza la fuente para el FCF
+    bancario, y cómo se reconcilia con flujos operativos y capital regulatorio?
+
+    7. ¿Cuál es la serie comparable de acciones diluidas y existe evidencia de dilución
+    relevante?
+
+    8. ¿Cómo se comparan cuota de mercado, coste de financiación, escala, retención
+    de clientes y distribución con bancos pares como [[HSBC]], [[ING]] y [[JPM]]?
+
+    9. ¿Qué datos verificables respaldan las valoraciones de calidad del management,
+    alineamiento de insiders y asignación de capital?
+
+    10. ¿Cuál es una base consistente para valorar la compañía —incluidos fecha de
+    precio, beneficio normalizado, valor contable tangible, coste del capital y previsiones—
+    y qué escenarios de tipos y pérdidas crediticias deberían utilizarse?
+
+
+    **Fuentes citadas en los inputs**
+
+
+    - Datos financieros y catalizador de resultados: Stock Analysis, https://stockanalysis.com/stocks/lyg/financials/
+
+    - Estimaciones y objetivos de analistas: Stock Analysis, https://stockanalysis.com/stocks/lyg/forecast/
+
+    - Estadísticas: Stock Analysis, https://stockanalysis.com/stocks/LYG/statistics/
+
+    - Historial de cotización indicado en el paquete: Yahoo Finance, https://finance.yahoo.com/quote/LYG/history/
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]],
+    [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone
+    Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]],
+    [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase
+    & Co.]], [[KB|KB Financial Group Inc.]]
+
+    - **Same Industry**: [[BSBR|Banco Santander (Brasil) S.A.]], [[IBN|ICICI Bank
+    Limited]], [[ITUB|Itaú Unibanco Holding S.A.]], [[KB|KB Financial Group Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -286,7 +598,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T19:34:20.236293+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T19:38:27.457091+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -431,12 +743,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    6.96, "low": 5.95, "mean": 6.28, "median": 6.28, "observed_at": "2026-11-20T16:34:23.299773-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T16:34:23.299773-03:00", "observed_date": "2026-11-20", "target_price":
+    6.96, "low": 5.95, "mean": 6.28, "median": 6.28, "observed_at": "2026-11-21T16:38:30.883370-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T16:38:30.883370-03:00", "observed_date": "2026-11-21", "target_price":
     6.28, "url": "https://stockanalysis.com/stocks/lyg/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:34:23.299773-03:00",
-    "observed_date": "2026-11-20", "target_price": 6.2775, "url": "https://finance.yahoo.com/quote/LYG/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T16:38:30.883370-03:00",
+    "observed_date": "2026-11-21", "target_price": 6.2775, "url": "https://finance.yahoo.com/quote/LYG/"}]},
     "current_quote": {"as_of_date": "2026-10-26", "currency": "USD", "price": 5.414999961853027,
     "sources": [{"as_of_date": "2026-10-26", "name": "yfinance", "url": "https://finance.yahoo.com/quote/LYG/"}]}}'
   sector: Financial Services
@@ -446,72 +758,95 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 2b9081aac7a87586c5982b5b1767ce8b4c23b6403406b8f2ee1b922ab60fbf09
+    sha256: ba3b4e6fa987c95aecbaa469ee40182890dfdcbc83dcbd0d2bdb8cbe2d362ea1
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T16:34:46.722821-03:00'
+  triggered_at: '2026-11-21T16:39:00.981256-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment: Observación para revisión; no constituye una decisión de compra.
-  metric: current_ratio
-  observation: Stockanalysis reporta current_ratio 0 para el período terminado el
-    2026-09-30; no hay componentes disponibles para validarlo ni se asume que sea
-    una medida adecuada para un banco.
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/LYG/statistics/
+- metric: current_ratio
+  observation: La fuente reporta 0 para 2026-09-30; no se interpreta como umbral confirmado
+    porque el paquete no aporta los activos y pasivos corrientes subyacentes ni valida
+    la medida para un banco.
   threshold: below 0.5
-- assessment: No se puede determinar si se cruza el umbral.
-  metric: dilution_yoy_pct
-  observation: 'No evaluable: falta una serie de acciones diluidas comparable.'
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/LYG/statistics/
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta una serie comparable de acciones para calcular
+    la dilución interanual.'
   threshold: above 10 percent
-- assessment: No interpretable con la evidencia disponible; no se sustituye EBIT por
-    EBITDA.
-  metric: interest_coverage
-  observation: El proveedor reporta 0 y EBIT como n/a para el período terminado el
-    2026-09-30; no se valida un cálculo compatible.
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/LYG/statistics/
+- metric: interest_coverage
+  observation: La fuente reporta 0 para 2026-09-30, pero EBIT figura como n/a; no
+    se valida un ratio calculado.
   threshold: below 2.0x
-- assessment: Umbral no evaluable con los datos disponibles.
-  metric: negative_fcf_runway_months
-  observation: El FCF TTM reportado es -3.860.000.000 para el período terminado el
-    2026-09-30; no se calcula runway porque no se aportan inputs de flujo mensual
-    compatibles y verificables.
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/LYG/statistics/
+- metric: negative_fcf_runway_months
+  observation: 'No evaluable: faltan una medida mensual de consumo de FCF comparable
+    y los inputs necesarios para calcular runway.'
   threshold: below 12 months
-- assessment: No se puede comparar con el umbral configurado.
-  metric: net_debt_ebitda
-  observation: 'No evaluable: EBITDA figura como n/a para el período terminado el
-    2026-09-30.'
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/LYG/statistics/
+- metric: net_debt_ebitda
+  observation: 'No evaluable: EBITDA figura como n/a y las unidades de deuda/caja
+    no están validadas.'
   threshold: above 4.0x
-- assessment: No se puede comparar con el umbral configurado.
-  metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: falta una serie histórica comparable de acciones en
-    circulación o diluidas.'
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/LYG/statistics/
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: no se proporcionó una serie de acciones fechada a tres
+    años.'
   threshold: above 5 percent
-scenario_analysis: null
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Datos posteriores comparables que demuestren generación de FCF positiva y sostenida.
+    - Una valoración independiente, respaldada por inputs fechados, que invalide el
+      rango observado como ancla.
+    id: BEAR
+    key_assumptions:
+    - El extremo bajo del rango de analistas sigue siendo una referencia de mercado
+      pertinente para el horizonte de escenario.
+    - La información disponible sobre FCF negativo no basta para demostrar una mejora
+      sostenible.
+    rationale: Ancla el resultado adverso en el extremo bajo del rango de objetivos
+      de analistas observado, no en una valoración intrínseca propia. Es coherente
+      con que la evidencia disponible no valide la conversión de caja ni el crecimiento
+      sostenible.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/lyg/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/lyg/financials/
+    target_price: 5.95
+  - falsifiers:
+    - Datos comparables que muestren deterioro sostenido de ingresos o beneficios.
+    - Una valoración independiente, respaldada por inputs fechados, que invalide el
+      rango observado como ancla.
+    id: BULL
+    key_assumptions:
+    - El extremo alto del rango de analistas sigue siendo una referencia de mercado
+      pertinente para el horizonte de escenario.
+    - La actividad diversificada descrita puede sostener el desempeño, aunque el paquete
+      no aporta evidencia suficiente para confirmar esa hipótesis.
+    rationale: Ancla el resultado favorable en el extremo alto del rango de objetivos
+      de analistas observado, no en una valoración intrínseca propia. Requeriría que
+      el negocio descrito sostenga ingresos y que se resuelvan las limitaciones actuales
+      de evidencia sobre generación de caja.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/lyg/forecast/
+    - as_of_date: '2026-10-26'
+      name: Resumen financiero de contexto
+      url: https://finance.yahoo.com/quote/LYG/
+    target_price: 6.96
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 55
+  errors: []
+  status: valid_pending_decision_board
+score_general: 53
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T16:34:23.299773-03:00'
+  calculado_at: '2026-11-21T16:38:30.883370-03:00'
   fuentes:
     stockanalysis: 6.28
     yfinance: 6.2775
@@ -519,24 +854,24 @@ target_consensus:
   n_fuentes: 2
   promedio: 6.28
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T16:34:23.299773-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:38:30.883370-03:00'
+    observed_date: '2026-11-21'
     target_price: 6.28
     url: https://stockanalysis.com/stocks/lyg/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T16:34:23.299773-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:38:30.883370-03:00'
+    observed_date: '2026-11-21'
     target_price: 6.2775
     url: https://finance.yahoo.com/quote/LYG/
   target_high: 6.96
   target_low: 5.95
-tesis_inversion: La tesis a investigar es si la franquicia bancaria minorista y comercial
-  y las actividades de seguros, pensiones e inversiones en Reino Unido pueden sostener
-  crecimiento rentable y retornos adecuados. El paquete confirma esos segmentos, ingresos
-  y beneficio reportados, pero no aporta datos suficientes para validar reinversión,
-  retornos sobre capital, ventaja competitiva o penetración de mercado.
+tesis_inversion: Lloyds opera en banca minorista y comercial, seguros, pensiones e
+  inversiones en el Reino Unido. La hipótesis favorable depende de que los ingresos
+  y retornos puedan sostenerse y convertirse en caja; con los datos proporcionados
+  no es posible verificar esa conversión ni medir de forma fiable reinversión, retornos
+  sobre capital, penetración del mercado o ventaja competitiva.
 ticker: LYG
 version: '3.0'

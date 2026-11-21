@@ -1,130 +1,142 @@
 ## 1. Visión General de la Compañía
 
-**Lloyds Banking Group plc (LYG)** es un grupo bancario diversificado centrado en el Reino Unido. Ofrece servicios financieros a clientes particulares y empresas, con actividades que abarcan banca minorista y comercial, seguros, pensiones e inversiones. Entre sus productos se incluyen cuentas corrientes y de ahorro e hipotecas.
+**Lloyds Banking Group plc (LYG)** es un grupo bancario diversificado con actividades descritas en banca minorista, banca comercial, seguros, pensiones e inversiones. Su foco geográfico indicado en la información disponible es el Reino Unido.
 
-El grupo capta depósitos y financiación mayorista, evalúa y gestiona riesgos crediticios y distribuye préstamos, cuentas, seguros y productos de inversión mediante sus marcas y canales de servicio. Su desempeño está expuesto a las condiciones económicas y financieras del Reino Unido.
+El modelo de negocio consiste principalmente en captar depósitos y otras formas de financiación, originar crédito y obtener ingresos por intereses, comisiones y servicios bancarios. Entre los productos mencionados figuran cuentas corrientes y de ahorro e hipotecas. Sus clientes incluyen hogares, clientes minoristas y pequeñas y medianas empresas.
 
-La información disponible no permite cuantificar la contribución de cada segmento ni identificar con precisión las marcas y canales de distribución relevantes.
-
-**Compañías del sector incluidas en la wiki:** [[HSBC]], [[ING]], [[JPM]], [[C]], [[IBN]], [[ITUB]], [[KB]], [[BSBR]], [[AIG]], [[AXP]], [[AEG]] y [[BX]]. La lista de entrada contenía duplicados de algunas compañías.
+La información de investigación disponible describe el negocio y sus fuentes de ingresos, pero no incluye documentos primarios ni referencias verificables para validar el alcance de cada segmento o la distribución geográfica de los ingresos. La comparación sectorial puede considerar compañías vinculadas como [[HSBC]], [[JPM]] e [[ING]], sin asumir que tengan modelos o mercados idénticos.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
 ### Drivers de ingresos
 
-- Ingresos derivados de depósitos, préstamos y otros servicios bancarios.
-- Banca minorista para hogares y clientes particulares, incluida la actividad hipotecaria.
-- Servicios bancarios para empresas, incluidas pequeñas y medianas empresas.
-- Actividades de seguros, pensiones e inversiones.
+Los principales factores de ingresos señalados por la investigación son:
 
-No se proporcionan datos que permitan desglosar ingresos por producto, segmento o fuente, ni evaluar su sensibilidad a los tipos de interés.
+- Volumen, composición y calidad de los préstamos, especialmente hipotecas y crédito al consumo.
+- Margen de intereses neto y evolución de los tipos de interés.
+- Coste y composición de los depósitos.
+- Comisiones y servicios bancarios.
 
-### Moat y posición competitiva
+La cadena de valor descrita comprende captación de depósitos y financiación, evaluación y originación de crédito, y distribución de productos mediante canales físicos y digitales. La amplitud y relevancia de estos canales no están cuantificadas en los materiales disponibles.
 
-La evaluación de investigación describe ventajas potenciales basadas en una amplia base de clientes, marcas reconocidas, escala, relaciones de depósitos y distribución multicanal. La evaluación clasifica la amplitud del moat como **estrecha** y la posición competitiva como **líder**; ambas son valoraciones cualitativas del paquete de investigación, no mediciones verificadas con datos comparativos.
+### Ventajas competitivas y competencia
 
-La banca británica se caracteriza como madura, competitiva y fuertemente regulada. La digitalización puede afectar la distribución y la competencia. El desempeño del grupo también depende de los tipos de interés, el empleo, los precios inmobiliarios y la morosidad. No se aporta evidencia comparativa suficiente para medir ventajas de costes, cuota de mercado o retención de clientes frente a [[HSBC]], [[ING]] u otros pares.
+La investigación identifica como ventajas potenciales una marca reconocida, una base amplia de clientes y depósitos y relaciones de largo plazo. También caracteriza la posición competitiva como la de un líder y el moat como estrecho. Estas caracterizaciones son evaluaciones del análisis aportado, no conclusiones respaldadas aquí por datos comparativos de cuota de mercado, retención, coste de financiación o rentabilidad.
+
+La banca minorista británica se describe como madura y competitiva, con presión de bancos tradicionales y proveedores digitales. Compañías del sector financiero como [[HSBC]], [[JPM]], [[ING]] y [[C]] pueden servir como referencias para estudiar competencia y riesgos comunes, aunque la evidencia suministrada no ofrece comparaciones directas entre ellas y LYG.
 
 ## 3. Perfil Financiero
 
-Las cifras de esta sección proceden de inputs de investigación y no incluyen, en todos los casos, fecha, definición o serie histórica. No deben interpretarse como métricas comparables o validadas sin revisar sus fuentes y metodología.
+Las cifras siguientes se reproducen como datos proporcionados por la investigación. No se aportaron fuentes, fechas o definiciones comparables para varias métricas; por ello, no deben interpretarse como estados financieros verificados.
 
-| Métrica | Valor reportado | Período / limitación |
-|---|---:|---|
-| Crecimiento de ingresos | 11,96% | Se facilitó sin período ni definición |
-| Margen operativo | 42,94% | Se facilitó sin período ni definición |
-| ROIC | 13,21% | Se facilitó sin período ni definición |
-| PER | 9,58 | Sin fecha ni definición; no permite concluir que haya descuento |
-| EV/EBITDA | 0 | Valor facilitado; utilidad y definición no aclaradas |
-| FCF yield | 0 | Valor facilitado; metodología no aclarada |
-| FCF | Negativo en FY2024, FY2025 y TTM | Reporte de Stock Analysis; la definición y composición no se aportan |
-| Current ratio | 0 al 2026-09-30 | Reporte de Stock Analysis sin componentes; no se asume que sea una medida adecuada para un banco |
-| Precio de la acción | USD 5,415 al 2026-10-26 | Dato reportado por el paquete; convención y fuente deben verificarse |
+| Métrica | Dato proporcionado | Periodo / unidad | Estado y limitaciones |
+|---|---:|---|---|
+| Crecimiento de ingresos | 11,96 | No especificado | Reproducido en AOIF; faltan fuente, periodo y unidad. |
+| Margen operativo | 42,94 | No especificado | Reproducido en AOIF; definición y comparabilidad no verificadas. |
+| ROIC | 13,21 | No especificado | Reproducido en AOIF; metodología y periodo no disponibles. |
+| PER | 9,57 | No especificado | Reproducido en AOIF; faltan fecha, precio de referencia y fuente. |
+| FCF FY2024 | -20.085 | Unidad no indicada | Serie suministrada; definición y conciliación no disponibles. |
+| FCF FY2025 | -12.852 | Unidad no indicada | Serie suministrada; definición y conciliación no disponibles. |
+| FCF TTM | Negativo | Periodo TTM | Se informa como negativo; no se aportan cifras comparables ni conciliación. |
+| Consenso de analistas | USD 6,28; rango USD 5,95–6,96 | Fecha asociada a la observación: no especificada | Referencia de mercado reportada, no valoración intrínseca. |
+| Cotización reportada | USD 5,415 | Fecha asociada a la observación: no especificada | Referencia de mercado reportada; no se proporciona fuente. |
+| Current ratio | 0 para 2026-09-30 | Ratio | No interpretable como umbral confirmado: faltan los componentes y su fuente. |
 
-La evaluación AOIF califica la tendencia financiera como **estable**, pero señala que faltan período, definición y serie histórica para contextualizar las cifras de crecimiento, margen y ROIC. La evaluación DDD no calcula el CAGR de ingresos por falta de referencias explícitas a los inputs utilizados. Tampoco calcula crecimiento del FCF: los valores históricos necesarios no se proporcionaron y la fórmula configurada requiere FCF comparable y positivo en ambos períodos.
+La investigación clasifica la tendencia financiera como «estable», pero no aporta series ni metodología que permitan comprobarlo. El cálculo de CAGR de ingresos a tres años figura como no disponible. El crecimiento del FCF tampoco se calcula: ambos valores FY2024 y FY2025 son negativos y no se ha validado que sean comparables.
 
-**Capital y estructura financiera:** no se aportan datos de capital regulatorio, acciones diluidas, endeudamiento comparable, valor contable tangible ni calidad de activos. El FCF convencional requiere especial cautela en un banco porque depósitos, préstamos y otros flujos financieros no son directamente comparables con los de una empresa industrial.
+En una entidad bancaria, el FCF convencional puede no ser una medida directamente comparable con la de una empresa industrial. La investigación no ofrece una definición alternativa conciliada con los estados financieros. Por tanto, no se puede inferir a partir de estos datos una conversión estable de beneficios en caja ni la capacidad de autofinanciar reinversión.
+
+**Estructura de capital:** la información disponible no incluye datos suficientes sobre deuda, capital regulatorio, liquidez o vencimientos para evaluar la estructura de capital bancaria.
 
 ## 4. Management y Gobierno Corporativo
 
-La evaluación AOIF califica la calidad del management como **regular**, la asignación de capital como **neutral** y el alineamiento de insiders como **débil**. Estas valoraciones se presentan sin datos verificables sobre resultados frente a objetivos, remuneración, participación accionarial de directivos o decisiones recientes de capital.
+La investigación califica la calidad de la dirección como «buena», la asignación de capital como «neutral» y el alineamiento de insiders como «débil». Sin embargo, señala que no dispone de información suficiente sobre remuneración, participación accionarial de directivos ni historial de asignación de capital. Estas calificaciones deben considerarse preliminares y no verificadas.
 
-No se aportan nombres ni composición del board, historial de gobierno corporativo, política de incentivos o datos de propiedad de insiders. Por tanto, estas dimensiones no pueden evaluarse independientemente con la evidencia disponible.
+No se proporcionan datos sobre la composición, independencia, experiencia o diversidad del consejo de administración, ni sobre comités, sucesión o estructura de incentivos. No es posible extraer una conclusión firme sobre gobierno corporativo con la evidencia disponible.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista a investigar
+### Caso alcista — hipótesis por verificar
 
-La tesis de investigación es si la franquicia bancaria minorista y comercial de Lloyds, junto con sus actividades de seguros, pensiones e inversiones en Reino Unido, puede sostener crecimiento rentable. La escala, la base de clientes, las relaciones de depósitos y la distribución multicanal podrían apoyar la competitividad, según la evaluación cualitativa de AOIF.
+- LYG opera en banca minorista y comercial, con actividades adicionales descritas en seguros, pensiones e inversiones; esta diversificación podría ampliar sus fuentes de ingresos.
+- Una base de clientes y depósitos amplia, una marca reconocida y relaciones de largo plazo podrían respaldar la franquicia. La investigación los identifica como ventajas potenciales, pero no aporta métricas que cuantifiquen su efecto.
+- El volumen y la calidad de los préstamos, el margen de intereses neto y los ingresos por comisiones son drivers identificables para seguir la evolución del negocio.
+- La investigación reporta cifras de crecimiento de ingresos, ROIC y margen operativo, pero faltan referencias verificables, unidades y periodos comparables. No constituyen por sí solas evidencia suficiente para validar una tesis de crecimiento compuesto.
 
-Como referencias incompletas, AOIF reporta crecimiento de ingresos de 11,96%, margen operativo de 42,94% y ROIC de 13,21%, pero no especifica períodos ni definiciones. Por ello, no prueban por sí solos crecimiento orgánico, calidad de ingresos ni retornos sostenibles sobre el capital.
-
-El precio reportado avanzó 15,2128% en los 12 meses terminados el 2026-10-26, con un drawdown informado de 13,7739% en el período. Estas observaciones describen el comportamiento pasado de la acción y no establecen una relación con el valor intrínseco ni la rentabilidad futura.
-
-**Estado de la tesis:** requiere investigación adicional. El paquete clasifica la oportunidad como `RESEARCH_REQUIRED`; la recomendación AOIF queda como `PENDIENTE_DECISION_BOARD`. El score general DDD es 55 y no debe interpretarse como una decisión de inversión.
+La valoración como posible oportunidad de inversión sigue **pendiente de validación**. El consenso de analistas observado no demuestra infravaloración, y no se presenta una valoración intrínseca propia con método e inputs verificables.
 
 ## 6. Riesgos y Contra-Tesis
 
 ### Riesgos principales
 
-- **Riesgo macroeconómico y crediticio:** un deterioro del empleo, la economía o la capacidad de pago de hogares y empresas podría aumentar los impagos y las pérdidas crediticias. AOIF lo califica de impacto alto y probabilidad media.
-- **Exposición inmobiliaria:** la actividad hipotecaria y la financiación vinculada a bienes raíces exponen al grupo a cambios en los precios inmobiliarios y el desempeño de prestatarios. AOIF califica este riesgo como de impacto alto y probabilidad media.
-- **Sensibilidad a tasas y entorno competitivo:** la banca británica se describe como sensible a los tipos de interés, la actividad económica y la morosidad, y expuesta a competencia y digitalización.
-- **Interpretación de flujos de caja:** Stock Analysis reporta FCF negativo en FY2024, FY2025 y TTM. Sin definiciones ni conciliación con flujos bancarios y capital regulatorio, no se puede concluir qué implica para la capacidad económica del grupo.
-- **Datos insuficientes de capital y activos:** no se aportan capital regulatorio, morosidad, provisiones, coste de riesgo ni series de acciones diluidas. Esto impide evaluar adecuadamente solvencia, calidad de activos y dilución.
-- **Riesgo de valoración:** el consenso de analistas y el precio observado no prueban que el mercado esté subestimando o sobrestimando la capacidad de generar retornos.
+| Riesgo | Posible impacto | Estado de evidencia |
+|---|---|---|
+| Deterioro de la economía británica | Más impagos, atrasos hipotecarios y pérdidas en préstamos a empresas y consumidores. | Identificado en AOIF como riesgo de impacto alto y probabilidad media; no se aportan tasas de morosidad ni pruebas cuantitativas. |
+| Cambios en tipos de interés y coste de depósitos | Compresión del margen de intereses y menor rentabilidad. | Identificado en AOIF como riesgo de impacto alto y probabilidad media; no se proporciona una sensibilidad cuantificada. |
+| FCF reportado como negativo | No permite inferir generación de caja estable ni autofinanciación. | FCF FY2024, FY2025 y TTM reportados como negativos; faltan unidades y conciliaciones comparables. |
+| Competencia y madurez del mercado | Presión sobre márgenes, precios y retención de clientes. | Descripción cualitativa de la banca minorista británica; sin datos de cuota o precios. |
+| Calidad de los datos financieros | Puede distorsionar ratios y conclusiones de tendencia. | Faltan fuentes, periodos, unidades y metodologías para varias métricas. |
 
 ### Contra-tesis y falsadores
 
-La tesis de crecimiento rentable se debilitaría si una serie financiera comparable mostrara deterioro sostenido de ingresos o beneficio frente a las cifras históricas reportadas. También la debilitaría evidencia verificable de erosión competitiva, deterioro de calidad de activos o insuficiencia de capital. El paquete no aporta esos datos y, por tanto, ninguno de esos resultados puede confirmarse o descartarse.
+La hipótesis favorable se debilitaría si:
+
+- Estados financieros comparables contradijeran la tendencia de ingresos reportada o mostrasen deterioro sostenido.
+- El FCF negativo persistiera o empeorara sin explicación y conciliación de periodos y unidades.
+- Los datos de morosidad, provisiones, coste de riesgo o coste de depósitos evidenciaran un deterioro material de la rentabilidad.
+- La información verificable sobre cuota, captación de depósitos o retención no respaldara las ventajas competitivas potenciales.
 
 ## 7. Catalizadores y Timeline
 
-| Evento | Fecha esperada | Impacto potencial | Evidencia / limitación |
-|---|---|---|---|
-| Publicación de resultados comparables posteriores al 2026-09-30 | Sin fecha especificada | Permitiría contrastar ingresos, beneficio y balance con las series históricas disponibles | Catalizador señalado por DDD; no se aporta calendario empresarial |
-| Revisión de estimaciones y objetivos de analistas | Sin fecha especificada; referencia observada al 2026-11-20 | Actualizaría una referencia de mercado, sin establecer por sí sola el valor intrínseco | Stock Analysis: https://stockanalysis.com/stocks/lyg/forecast/ |
-| Seguimiento de morosidad, provisiones y exposición hipotecaria | Continuo; sin fecha de evento | Podría aportar evidencia sobre calidad de activos y riesgo crediticio | Punto de monitoreo de AOIF; no se incluyen series |
+No se proporcionan fechas confirmadas para resultados, anuncios corporativos u otros eventos específicos. Los catalizadores identificados son hitos de divulgación, no eventos con calendario conocido.
 
-El paquete reporta un precio de USD 5,415 al 2026-10-26 y un objetivo de consenso de USD 6,28 al 2026-11-20, con rango de USD 5,95–6,96. Son referencias observadas en fechas distintas; no constituyen una valoración intrínseca ni permiten confirmar un error de valoración.
+| Catalizador o hito | Fecha esperada | Impacto potencial |
+|---|---|---|
+| Publicación de estados financieros con unidades, periodos y definiciones comparables para ingresos, FCF, deuda, caja y capital | No especificada | Permitiría recalcular ratios y evaluar tendencias sin mezclar medidas de proveedores. |
+| Divulgación de una serie fechada de acciones diluidas o en circulación | No especificada | Permitiría evaluar la dilución interanual y el crecimiento de acciones a tres años. |
+| Datos sobre margen de intereses neto, coste de depósitos, morosidad, provisiones y coste de riesgo | No especificada | Ayudarían a evaluar la rentabilidad bancaria y los riesgos macroeconómicos. |
+
+La fecha de horizonte de los escenarios suministrados es **2027-11-21**; no representa una fecha confirmada para un catalizador corporativo.
 
 ## 8. Marco de Valoración
 
-No es posible estimar el valor intrínseco con rigor a partir de la información disponible. El PER reportado de 9,58 carece de fecha y definición, y no basta por sí solo para concluir que la acción esté infravalorada. El rango de objetivos de analistas es una referencia de mercado, no una estimación independiente del valor.
+No es posible estimar con rigor un valor intrínseco con la información disponible. El material de investigación indica expresamente que faltan un precio y una fecha de referencia verificables, beneficios normalizados, capital y supuestos de valoración.
 
-Para un banco, el análisis debería priorizar métricas y métodos compatibles con su estructura financiera, entre ellos:
+Para un banco, el análisis debería priorizar métricas y métodos compatibles con su estructura, como valor contable tangible y rentabilidad sobre capital, junto con beneficios normalizados, capital regulatorio y coste del capital. El uso de EV/EBITDA y FCF yield no se considera apropiado en la información aportada; AOIF los registra como cero, no como resultados analíticos válidos.
 
-- Rentabilidad sobre patrimonio (ROE) y, si se dispone de una definición comparable, ROIC.
-- Valor contable tangible y múltiplos frente a pares y al historial de la compañía.
-- Beneficio normalizado, coste del capital y capacidad sostenible de distribución a accionistas.
-- Capital regulatorio, calidad de activos, provisiones y coste de riesgo.
-- Sensibilidad de ingresos y márgenes a distintos escenarios de tipos de interés.
+### Referencias de mercado y escenarios suministrados
 
-No se presentan supuestos cuantitativos ni análisis de sensibilidad porque faltan series de beneficio y capital, previsiones, métricas regulatorias y una fecha de valoración consistente. El margen de seguridad se considera **insuficiente** en la evaluación AOIF, que señala que el valor intrínseco no es estimable con los datos aportados.
+El escenario de análisis está fechado el **2026-11-21**, denominado en USD y con horizonte **2027-11-21**. Los valores son anclas derivadas del rango de objetivos de analistas, no precios objetivo basados en una valoración intrínseca:
+
+| Escenario | Precio de referencia | Interpretación |
+|---|---:|---|
+| Bajista | USD 5,95 | Extremo bajo del rango de objetivos de analistas reportado. |
+| Alcista | USD 6,96 | Extremo alto del rango de objetivos de analistas reportado. |
+
+El consenso reportado es USD 6,28 y la cotización reportada es USD 5,415, pero no se indica la fecha de observación ni se aporta una fuente verificable. Estos datos no bastan para demostrar un error de valoración.
+
+### Sensibilidad pendiente
+
+No se puede cuantificar una sensibilidad fiable sin supuestos verificados para margen de intereses, coste de depósitos, pérdidas crediticias, rentabilidad sobre capital, crecimiento, capital y coste del capital. La evaluación de margen de seguridad queda, por tanto, **insuficiente**.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuáles son el capital regulatorio y su evolución, la rentabilidad sobre el capital, el coste de riesgo, la morosidad y las provisiones en períodos comparables?
-2. ¿Cómo han evolucionado los ingresos, el margen de intereses, el beneficio y el balance con definiciones consistentes?
-3. ¿Cuál es la sensibilidad de ingresos y márgenes a cambios en los tipos de interés?
-4. ¿Cómo se distribuyen los ingresos y beneficios entre banca minorista, comercial, seguros, pensiones e inversiones?
-5. ¿Cuál es la exposición hipotecaria y cómo se comportan los prestatarios vulnerables ante cambios en empleo, ingresos y precios inmobiliarios?
-6. ¿Qué definición, unidad monetaria y composición utiliza la fuente para el FCF bancario, y cómo se reconcilia con flujos operativos y capital regulatorio?
-7. ¿Cuál es la serie comparable de acciones diluidas y existe evidencia de dilución relevante?
-8. ¿Cómo se comparan cuota de mercado, coste de financiación, escala, retención de clientes y distribución con bancos pares como [[HSBC]], [[ING]] y [[JPM]]?
-9. ¿Qué datos verificables respaldan las valoraciones de calidad del management, alineamiento de insiders y asignación de capital?
-10. ¿Cuál es una base consistente para valorar la compañía —incluidos fecha de precio, beneficio normalizado, valor contable tangible, coste del capital y previsiones— y qué escenarios de tipos y pérdidas crediticias deberían utilizarse?
+1. ¿Cuáles son las fuentes primarias, unidades, periodos y definiciones de las cifras de ingresos, FCF, PER, ROIC y margen operativo?
+2. ¿Cómo se concilian las cifras de FCF suministradas con los estados financieros y qué medida de generación de caja resulta apropiada para evaluar el banco?
+3. ¿Cuál ha sido la evolución comparable del margen de intereses neto, el coste de los depósitos, los volúmenes de préstamos y las comisiones?
+4. ¿Qué muestran las series de morosidad, atrasos hipotecarios, provisiones, pérdidas crediticias y coste de riesgo?
+5. ¿Cuáles son la posición de capital, liquidez, financiación y estructura de vencimientos de LYG?
+6. ¿Cómo han evolucionado la cuota de mercado, la base de depósitos, la retención de clientes y los costes de adquisición frente a competidores como [[HSBC]], [[JPM]] e [[ING]]?
+7. ¿Qué datos verificables existen sobre remuneración, participación accionarial de directivos, resultados de asignación de capital y composición del consejo?
+8. ¿Cuál es la serie fechada de acciones diluidas o en circulación, y qué dilución interanual implica?
+9. ¿Qué fecha corresponde a la cotización y al consenso de analistas reportados, y qué metodología respalda esos objetivos?
+10. ¿Qué beneficios normalizados, capital tangible y coste del capital deberían usarse para construir una valoración intrínseca y una sensibilidad por escenarios?
 
-**Fuentes citadas en los inputs**
-
-- Datos financieros y catalizador de resultados: Stock Analysis, https://stockanalysis.com/stocks/lyg/financials/
-- Estimaciones y objetivos de analistas: Stock Analysis, https://stockanalysis.com/stocks/lyg/forecast/
-- Estadísticas: Stock Analysis, https://stockanalysis.com/stocks/LYG/statistics/
-- Historial de cotización indicado en el paquete: Yahoo Finance, https://finance.yahoo.com/quote/LYG/history/
+**Estado de la tesis:** investigación requerida. La información disponible permite describir el modelo de negocio y señalar riesgos y drivers relevantes, pero no valida todavía una tesis de crecimiento compuesto ni una infravaloración.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]], [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase & Co.]], [[KB|KB Financial Group Inc.]]
-- **Same Industry**: [[BSBR|Banco Santander (Brasil) S.A.]], [[IBN|ICICI Bank Limited]], [[ITUB|Itaú Unibanco Holding S.A.]], [[KB|KB Financial Group Inc.]]
+- **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]], [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase & Co.]], [[KB|KB Financial Group Inc.]], [[MA|Mastercard Incorporated]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[XP|XP Inc.]]
+- **Same Industry**: [[BSBR|Banco Santander (Brasil) S.A.]], [[IBN|ICICI Bank Limited]], [[ITUB|Itaú Unibanco Holding S.A.]], [[KB|KB Financial Group Inc.]], [[MFG|Mizuho Financial Group, Inc.]], [[USB|U.S. Bancorp]]

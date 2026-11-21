@@ -1,137 +1,193 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento orgánico de ingresos FY 2027 será inferior a 3%.
+  - condition: El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior
+      a 4,0%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El crecimiento orgánico de ingresos FY 2027 será superior a 7%, lo
-      que refutaría la predicción de crecimiento moderado.
+  - condition: El crecimiento orgánico de ingresos es negativo durante dos trimestres
+      consecutivos de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento orgánico de ingresos FY 2027 será inferior a 3%.
-  - El crecimiento orgánico de ingresos FY 2027 será superior a 7%, lo que refutaría
-    la predicción de crecimiento moderado.
+  - El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior a 4,0%.
+  - El crecimiento orgánico de ingresos es negativo durante dos trimestres consecutivos
+    de 2027.
   horizon: medio
   id: H1-OPP-MB-KO
   opportunity_id: OPP-MB-KO
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-15'
-    expected: 5.0
+    deadline: '2027-12-31'
+    expected: 4.0
     met: null
-    metric: Crecimiento orgánico de ingresos FY 2027
-    prediction: En el ejercicio FY 2027, KO reportará crecimiento orgánico de ingresos
-      de entre 4% y 6% frente a FY 2026, según la métrica comparable que publique
-      la compañía.
-    unit: '% interanual; intervalo previsto de 4% a 6%'
+    metric: Crecimiento orgánico de ingresos en el ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal terminado el 2027-12-31, el crecimiento orgánico
+      de ingresos de KO será de al menos 4,0% interanual.
+    unit: '% interanual, mínimo'
   priority: important
   probability: 0.5
-  rationale: El crecimiento de ingresos FY 2022–FY 2025 se describe como moderado.
-    La amplitud de marcas y mercados puede sostener aumentos de precios y mezcla,
-    pero el contexto no demuestra que la reinversión esté generando retornos incrementales
-    atractivos.
-  review_trigger: Dejar de creerla si KO comunica crecimiento orgánico inferior a
-    3% durante dos trimestres consecutivos de FY 2027, o si publica los resultados
-    anuales FY 2027 fuera del rango previsto.
+  rationale: La tesis plantea que el crecimiento de ingresos puede sostener resultados
+    favorables. Los datos disponibles no cuantifican el mercado direccionable ni la
+    penetración, por lo que esta hipótesis pone a prueba el crecimiento observado
+    sin asumir que la expansión del mercado sea suficiente.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-12-31
+    muestra crecimiento orgánico negativo durante dos trimestres consecutivos, o si
+    el resultado anual de 2027 queda por debajo de 4,0%.
   secondary_hypotheses: []
-  statement: 'KO mantendrá un crecimiento orgánico positivo pero moderado: la expansión
-    de precios y mezcla compensará parcialmente un crecimiento más lento de volumen,
-    sin que la evidencia disponible permita anticipar una aceleración excepcional.'
+  statement: KO mantendrá crecimiento orgánico de ingresos durante el ejercicio fiscal
+    2027, apoyado por precios, mezcla de productos y demanda de bebidas.
   status: ACTIVE
   ticker: KO
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen bruto TTM cae por debajo de 61,5% al 2027-10-02.
+  - condition: La expansión del margen bruto entre 2026 y 2027 es inferior a 0,5 puntos
+      porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen bruto TTM supera 63,5% al 2027-10-02, lo que refutaría la
-      previsión de estabilidad y señalaría expansión mayor a la anticipada.
+  - condition: El margen bruto del ejercicio fiscal 2027 es igual o inferior al de
+      2026.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen bruto TTM cae por debajo de 61,5% al 2027-10-02.
-  - El margen bruto TTM supera 63,5% al 2027-10-02, lo que refutaría la previsión
-    de estabilidad y señalaría expansión mayor a la anticipada.
+  - La expansión del margen bruto entre 2026 y 2027 es inferior a 0,5 puntos porcentuales.
+  - El margen bruto del ejercicio fiscal 2027 es igual o inferior al de 2026.
   horizon: medio
   id: H2-OPP-MB-KO
   opportunity_id: OPP-MB-KO
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-10-02'
-    expected: 62.3
+    deadline: '2027-12-31'
+    expected: 0.5
     met: null
-    metric: Margen bruto TTM
-    prediction: Al 2027-10-02, el margen bruto TTM reportado por KO será de al menos
-      61,5% y no superará 63,5%.
-    unit: '%; intervalo previsto de 61,5% a 63,5%'
-  priority: important
+    metric: Variación del margen bruto entre los ejercicios fiscales 2026 y 2027
+    prediction: El margen bruto del ejercicio fiscal 2027 superará en al menos 0,5
+      puntos porcentuales el margen bruto del ejercicio fiscal 2026.
+    unit: puntos porcentuales, mínimo
+  priority: critical
   probability: 0.5
-  rationale: El margen bruto TTM de 62,32% ofrece una referencia elevada, pero el
-    contexto no aporta evidencia sobre la evolución futura de costes, precios o retornos
-    de reinversión que permita justificar una expansión sostenida.
-  review_trigger: Dejar de creerla cuando un informe trimestral publicado antes del
-    2027-10-02 muestre margen bruto TTM inferior a 61,5% o superior a 63,5%, y la
-    compañía no atribuya la desviación a un efecto puntual claramente cuantificado.
+  rationale: La expansión del margen bruto es uno de los motores señalados para sostener
+    mejores resultados. La hipótesis exige que el crecimiento de ingresos se convierta
+    en una mejora cuantificable de rentabilidad bruta, en lugar de limitarse a aumentar
+    ventas.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos de 2027
+    muestran una reducción interanual del margen bruto, o si el resultado anual de
+    2027 no alcanza una expansión de 0,5 puntos porcentuales frente a 2026.
   secondary_hypotheses:
   - H1-OPP-MB-KO
-  statement: El margen bruto de KO se mantendrá aproximadamente estable, sin una expansión
-    estructural demostrada frente al nivel TTM reportado al 2026-10-02.
+  statement: La mejora de precios y mezcla, junto con la gestión de costos, permitirá
+    a KO expandir su margen bruto en el ejercicio fiscal 2027 frente al ejercicio
+    fiscal 2026.
   status: ACTIVE
   ticker: KO
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de KO iguala o supera al de XLP durante el periodo.
+  - condition: El flujo de caja libre de 2027 es inferior al de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: KO queda por debajo de XLP, pero la diferencia es menor a 3 puntos
-      porcentuales.
+  - condition: El crecimiento interanual del flujo de caja libre de 2027 es inferior
+      a 5,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre de 2027 es negativo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de KO iguala o supera al de XLP durante el periodo.
-  - KO queda por debajo de XLP, pero la diferencia es menor a 3 puntos porcentuales.
+  - El flujo de caja libre de 2027 es inferior al de 2026.
+  - El crecimiento interanual del flujo de caja libre de 2027 es inferior a 5,0%.
+  - El flujo de caja libre de 2027 es negativo.
   horizon: medio
   id: H3-OPP-MB-KO
   opportunity_id: OPP-MB-KO
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: -3.0
+    deadline: '2027-12-31'
+    expected: 5.0
     met: null
-    metric: Rendimiento total relativo de KO frente a XLP
-    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de KO, incluidos
-      dividendos, será al menos 3 puntos porcentuales inferior al del ETF Consumer
-      Staples Select Sector SPDR (XLP), medido en dólares y con dividendos reinvertidos.
-    unit: puntos porcentuales como mínimo; KO menos XLP
-  priority: informational
+    metric: Crecimiento del flujo de caja libre reportado en el ejercicio fiscal 2027
+      frente a 2026
+    prediction: El flujo de caja libre reportado para el ejercicio fiscal 2027, definido
+      como flujo de efectivo de operaciones menos inversiones de capital, será al
+      menos 5,0% superior al de 2026.
+    unit: '% interanual, mínimo'
+  priority: critical
   probability: 0.5
-  rationale: El contexto confirma ingresos y margen bruto sólidos, pero no demuestra
-    crecimiento excepcional ni retornos incrementales atractivos de la reinversión.
-    Sin datos de valoración actuales no puede afirmarse que KO esté sobrevalorada;
-    esta hipótesis somete a prueba si la calidad del negocio se traduce en rendimiento
-    relativo superior.
-  review_trigger: Dejar de creerla si, al cierre de cualquier trimestre del periodo,
-    KO supera a XLP en rendimiento total acumulado por 5 puntos porcentuales o más;
-    evaluar definitivamente el 2027-11-20.
+  rationale: La generación positiva de FCF es parte central de la tesis, pero el contexto
+    no ofrece una previsión operativa que demuestre su sostenibilidad. Esta hipótesis
+    comprueba si el crecimiento se traduce en mayor caja después de inversiones de
+    capital.
+  review_trigger: Dejar de creerla si un informe anual de 2027 confirma crecimiento
+    del flujo de caja libre inferior a 5,0% frente a 2026, o si un informe trimestral
+    muestra flujo de caja libre acumulado negativo y la compañía no lo revierte en
+    el siguiente informe trimestral.
   secondary_hypotheses:
   - H1-OPP-MB-KO
   - H2-OPP-MB-KO
-  statement: Durante los 12 meses posteriores a la fecha de corte, KO tendrá un rendimiento
-    total inferior al de un referente diversificado del sector de consumo básico,
-    porque el crecimiento moderado conocido no basta por sí solo para justificar una
-    prima de valoración.
+  statement: KO aumentará su flujo de caja libre reportado en el ejercicio fiscal
+    2027, apoyada por el crecimiento de ingresos y la expansión del margen bruto.
+  status: ACTIVE
+  ticker: KO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de KO durante el período es igual o inferior
+      a la del S&P 500.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de KO supera a la del S&P 500 en menos de 3 puntos
+      porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de KO durante el período es igual o inferior a la del S&P
+    500.
+  - La rentabilidad total de KO supera a la del S&P 500 en menos de 3 puntos porcentuales.
+  horizon: medio
+  id: H4-OPP-MB-KO
+  opportunity_id: OPP-MB-KO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 3.0
+    met: null
+    metric: Rentabilidad total de KO menos rentabilidad total del S&P 500 entre 2026-11-21
+      y 2027-11-21
+    prediction: Entre el 2026-11-21 y el 2027-11-21, la rentabilidad total de KO,
+      incluidos dividendos, superará la del S&P 500 en al menos 3 puntos porcentuales.
+    unit: puntos porcentuales, mínimo
+  priority: informational
+  probability: 0.5
+  rationale: 'Si las mejoras operativas se traducen en resultados y caja, podrían
+    respaldar la rentabilidad de la acción. Sin datos suficientes sobre valoración,
+    expectativas implícitas o prima de riesgo, esta hipótesis no presupone que KO
+    esté barata: contrasta directamente su rendimiento de mercado con un índice de
+    referencia.'
+  review_trigger: Dejar de creerla al 2027-11-21 si la rentabilidad total de KO, incluidos
+    dividendos, no supera en al menos 3 puntos porcentuales la rentabilidad total
+    del S&P 500; no abandonarla antes por movimientos de corto plazo sin una reevaluación
+    de la tesis operativa.
+  secondary_hypotheses:
+  - H1-OPP-MB-KO
+  - H2-OPP-MB-KO
+  - H3-OPP-MB-KO
+  statement: La combinación de crecimiento de ingresos, expansión del margen bruto
+    y crecimiento del flujo de caja libre permitirá que KO supere al S&P 500 en rentabilidad
+    total durante los 12 meses posteriores a la fecha de corte.
   status: ACTIVE
   ticker: KO
   version: 1

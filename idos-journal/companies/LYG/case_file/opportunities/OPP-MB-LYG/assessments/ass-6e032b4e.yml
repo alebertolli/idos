@@ -1,0 +1,28 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de crecimiento compuesto'
+- 'Market error: No se valida un error de valoración: los objetivos de analistas son
+  referencias de mercado, no una valoración intrínseca independiente.'
+- 'Thesis: Lloyds opera en banca minorista y comercial, seguros, pensiones e inversiones
+  en el Reino Unido. La hipótesis favorable depende de que los ingresos y retornos
+  puedan sostenerse y convertirse en caja; '
+generated_at: '2026-11-21T16:40:47.631715-03:00'
+id: ass-6e032b4e
+recommendation: REVIEW
+risks:
+- implicacion: La información no permite inferir crecimiento financiado por caja ni
+    una conversión estable de beneficios.
+  riesgo: La serie de FCF reportada es volátil y negativa en FY2024 y FY2025; el FCF
+    TTM también figura negativo.
+- implicacion: La calidad de beneficios y la capacidad de autofinanciar reinversión
+    quedan sin validar.
+  riesgo: No se puede calcular una conversión de FCF comparable con el ingreso neto
+    TTM por incompatibilidad de unidades reportadas.
+- implicacion: Apalancamiento y evolución de la participación por acción requieren
+    verificación adicional.
+  riesgo: No hay datos suficientes para calcular deuda neta/EBITDA ni dilución interanual.
+score: 53
+status: COMPLETED
+version: '3.0'

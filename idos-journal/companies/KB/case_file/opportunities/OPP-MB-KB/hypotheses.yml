@@ -1,65 +1,65 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos netos por intereses de FY2027 crecen menos del 3% frente
-      a FY2026.
+  - condition: El NIM consolidado del segundo trimestre de 2027 es igual o superior
+      a 1,80%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía no publica una cifra comparable para ambos ejercicios antes
-      de la fecha objetivo.
+  - condition: El informe del segundo trimestre muestra que el NIM aumentó al menos
+      15 puntos básicos frente al segundo trimestre de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos netos por intereses de FY2027 crecen menos del 3% frente a FY2026.
-  - La compañía no publica una cifra comparable para ambos ejercicios antes de la
-    fecha objetivo.
+  - El NIM consolidado del segundo trimestre de 2027 es igual o superior a 1,80%.
+  - El informe del segundo trimestre muestra que el NIM aumentó al menos 15 puntos
+    básicos frente al segundo trimestre de 2026.
   horizon: medio
   id: H1-OPP-MB-KB
   opportunity_id: OPP-MB-KB
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 3.0
+    deadline: '2027-08-15'
+    expected: 1.8
     met: null
-    metric: Crecimiento interanual de los ingresos netos por intereses en FY2027
-    prediction: Los ingresos netos por intereses de FY2027 serán al menos un 3% superiores
-      a los de FY2026, según los resultados anuales publicados.
-    unit: porcentaje mínimo
+    metric: NIM consolidado del segundo trimestre de 2027
+    prediction: El NIM consolidado informado para el trimestre terminado el 2027-06-30
+      será inferior a 1,80%.
+    unit: '%; umbral máximo previsto'
   priority: important
   probability: 0.5
-  rationale: La actividad de depósitos y préstamos puede sostener los ingresos netos
-    por intereses si el crecimiento de los saldos y la gestión de márgenes compensan
-    el coste de financiación. El contexto disponible no permite verificar esos factores,
-    por lo que esta es una hipótesis que debe contrastarse con los estados financieros.
-  review_trigger: Dejar de creerla si los resultados anuales de FY2027 muestran crecimiento
-    interanual inferior al 3%; si no se publican datos comparables antes del 2028-03-31,
-    clasificarla como no confirmada.
+  rationale: La tesis plantea que el crecimiento de ingresos convive con presión sobre
+    la rentabilidad. En un banco, el NIM permite comprobar si el crecimiento de activos
+    generadores de intereses compensa el coste de depósitos y financiación. No se
+    proporcionaron cifras recientes verificadas, por lo que el umbral es una predicción
+    a contrastar, no una descripción del resultado actual.
+  review_trigger: Dejar de creerla si el informe de resultados del segundo trimestre
+    de 2027, o una publicación oficial anterior con la misma métrica, informa un NIM
+    consolidado igual o superior a 1,80%.
   secondary_hypotheses: []
-  statement: KB Financial Group aumentará sus ingresos netos por intereses en el ejercicio
-    fiscal 2027 frente al ejercicio fiscal 2026.
+  statement: 'El crecimiento de los ingresos de KB no se traducirá en una aceleración
+    suficiente del margen de intermediación: el NIM consolidado permanecerá por debajo
+    de 1,80% en el segundo trimestre de 2027.'
   status: ACTIVE
   ticker: KB
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El beneficio neto atribuible a los accionistas de FY2027 es inferior
-      a 1,03 veces el de FY2026.
+  - condition: KB informa un ROE consolidado de 9,5% o superior para 2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La comparación interanual no es posible por falta de cifras publicadas
-      o por cambios de perímetro no reconciliados.
+  - condition: KB informa un ROE de al menos 9,5% durante dos trimestres consecutivos
+      de 2027 y confirma una previsión anual igual o superior a ese nivel.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El beneficio neto atribuible a los accionistas de FY2027 es inferior a 1,03 veces
-    el de FY2026.
-  - La comparación interanual no es posible por falta de cifras publicadas o por cambios
-    de perímetro no reconciliados.
+  - KB informa un ROE consolidado de 9,5% o superior para 2027.
+  - KB informa un ROE de al menos 9,5% durante dos trimestres consecutivos de 2027
+    y confirma una previsión anual igual o superior a ese nivel.
   horizon: medio
   id: H2-OPP-MB-KB
   opportunity_id: OPP-MB-KB
@@ -67,73 +67,74 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-03-31'
-    expected: 3.0
+    expected: 9.5
     met: null
-    metric: Crecimiento interanual del beneficio neto atribuible a accionistas en
-      FY2027
-    prediction: El beneficio neto atribuible a los accionistas de FY2027 será al menos
-      un 3% superior al de FY2026.
-    unit: porcentaje mínimo
-  priority: important
+    metric: ROE consolidado del ejercicio 2027
+    prediction: El ROE consolidado correspondiente al ejercicio 2027, según la definición
+      divulgada por KB, será inferior a 9,5%.
+    unit: '%; umbral máximo previsto'
+  priority: critical
   probability: 0.5
-  rationale: La serie disponible señala un aumento de ingresos y beneficio neto entre
-    FY2022 y FY2025, pero no identifica sus causas ni prueba que la tendencia continúe.
-    La hipótesis plantea una continuación moderada que deberá validarse con resultados
-    comparables y no presupone que el crecimiento histórico sea orgánico o recurrente.
-  review_trigger: Dejar de creerla cuando se publiquen resultados comparables de FY2027
-    que muestren crecimiento inferior al 3%; si no hay datos comparables al 2028-03-31,
-    no considerar la hipótesis confirmada.
+  rationale: La hipótesis central es que el mercado podría estar anticipando mejoras
+    de rentabilidad sin respaldo suficiente. Si el crecimiento de ingresos no se convierte
+    en beneficios y rendimiento del capital, el ROE anual debería seguir por debajo
+    del umbral fijado. La predicción se evaluará con la cifra anual publicada por
+    la compañía, no con flujo de caja operativo, que puede ser poco representativo
+    para una entidad bancaria.
+  review_trigger: Dejar de creerla cuando KB publique sus resultados anuales de 2027
+    y el ROE consolidado sea igual o superior a 9,5%, o antes si confirma oficialmente
+    ese nivel como resultado anual.
   secondary_hypotheses:
   - H1-OPP-MB-KB
-  statement: El beneficio neto atribuible a los accionistas de KB Financial Group
-    crecerá en FY2027 respecto a FY2026.
+  statement: 'La rentabilidad de KB no alcanzará un nivel que justifique una mejora
+    material de las expectativas: el ROE consolidado de 2027 será inferior a 9,5%.'
   status: ACTIVE
   ticker: KB
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de KB Financial Group menos la del KOSPI es inferior
-      a 5 puntos porcentuales en el periodo especificado.
+  - condition: El rendimiento total de KB menos el rendimiento total del KOSPI en
+      el periodo es superior a -8 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No se dispone de precios de cierre ajustados por dividendos para calcular
-      la rentabilidad de ambas inversiones en fechas comparables.
+  - condition: KB supera al KOSPI en rendimiento total durante el periodo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de KB Financial Group menos la del KOSPI es inferior a 5
-    puntos porcentuales en el periodo especificado.
-  - No se dispone de precios de cierre ajustados por dividendos para calcular la rentabilidad
-    de ambas inversiones en fechas comparables.
+  - El rendimiento total de KB menos el rendimiento total del KOSPI en el periodo
+    es superior a -8 puntos porcentuales.
+  - KB supera al KOSPI en rendimiento total durante el periodo.
   horizon: medio
   id: H3-OPP-MB-KB
   opportunity_id: OPP-MB-KB
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
+    deadline: '2027-11-21'
+    expected: -8.0
     met: null
-    metric: Rentabilidad total relativa frente al KOSPI en 12 meses
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
-      total de KB Financial Group, incluidos dividendos, superará en al menos 5 puntos
-      porcentuales la rentabilidad total del KOSPI.
-    unit: puntos porcentuales de exceso de rentabilidad
-  priority: informational
+    metric: Rendimiento total de KB menos rendimiento total del KOSPI
+    prediction: Entre 2026-11-21 y 2027-11-21, el rendimiento total de KB, medido
+      en la cotización primaria en Seúl y en moneda local, será al menos 8 puntos
+      porcentuales inferior al rendimiento total del KOSPI.
+    unit: puntos porcentuales o menos
+  priority: important
   probability: 0.5
-  rationale: El aumento reportado de ingresos y beneficio neto entre FY2022 y FY2025
-    podría respaldar el desempeño bursátil si se mantiene, pero no basta para demostrar
-    infravaloración. Esta hipótesis prueba el resultado de mercado directamente, sin
-    atribuirlo a un múltiplo objetivo no fundamentado.
-  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la rentabilidad total
-    relativa es inferior a 5 puntos porcentuales; antes de esa fecha, no considerarla
-    confirmada.
+  rationale: Si las expectativas de mejora no se confirman en los indicadores operativos
+    y financieros, el precio puede quedar rezagado frente al mercado general. Esta
+    hipótesis no presupone un precio objetivo de consenso, ya que no se proporcionó
+    uno verificable; utiliza un índice de referencia observable y rendimientos totales,
+    incluidos dividendos.
+  review_trigger: Dejar de creerla el 2027-11-21 si la diferencia de rendimiento total
+    de KB frente al KOSPI es superior a -8 puntos porcentuales; también revisar antes
+    si KB publica una mejora sostenida del ROE que invalide el mecanismo de la hipótesis.
   secondary_hypotheses:
   - H2-OPP-MB-KB
-  statement: La rentabilidad total de KB Financial Group superará a la del índice
-    KOSPI durante los 12 meses posteriores a la fecha de corte.
+  statement: La valoración de mercado de KB reflejará la falta de una mejora comprobable
+    de rentabilidad y la acción tendrá un rendimiento total inferior al del KOSPI
+    durante los 12 meses posteriores a la fecha de corte.
   status: ACTIVE
   ticker: KB
   version: 1
