@@ -1,148 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento interanual de ingresos de FY2027 es inferior al 10%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La compañía no publica ingresos comparables de FY2026 y FY2027 que
-      permitan verificar la variación.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El crecimiento interanual de ingresos de FY2027 es inferior al 10%.
-  - La compañía no publica ingresos comparables de FY2026 y FY2027 que permitan verificar
-    la variación.
-  horizon: medio
-  id: H1-OPP-MB-MSFT
-  opportunity_id: OPP-MB-MSFT
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-08-15'
-    expected: 10.0
-    met: null
-    metric: crecimiento interanual de ingresos totales en FY2027
-    prediction: En los resultados de FY2027, Microsoft reportará ingresos totales
-      al menos un 10% superiores a los de FY2026, medidos en dólares estadounidenses
-      según sus estados financieros.
-    unit: porcentaje mínimo
-  priority: critical
-  probability: 0.5
-  rationale: La tesis aporta crecimiento de ingresos en FY2023–FY2026 y una cartera
-    de negocios diversificada, pero no contiene datos que permitan atribuir ese crecimiento
-    a segmentos concretos ni validar su sostenibilidad. El crecimiento interanual
-    de ingresos reportado para FY2027 permitirá comprobar directamente si continúa.
-  review_trigger: Dejar de creerla cuando se publiquen los resultados anuales de FY2027
-    si el crecimiento de ingresos es inferior al 10%; como límite, el 2027-08-15.
-  secondary_hypotheses: []
-  statement: Microsoft mantendrá crecimiento de ingresos en FY2027, mostrando que
-    la expansión del negocio no depende únicamente de períodos históricos.
-  status: ACTIVE
-  ticker: MSFT
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: El FCF TTM al 2027-09-30 aumenta menos del 10% frente al nivel al 2026-09-30.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El margen bruto TTM al 2027-09-30 cae más de 1 punto porcentual frente
-      al nivel al 2026-09-30.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: No se publican cifras comparables suficientes para calcular ambas métricas.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El FCF TTM al 2027-09-30 aumenta menos del 10% frente al nivel al 2026-09-30.
-  - El margen bruto TTM al 2027-09-30 cae más de 1 punto porcentual frente al nivel
-    al 2026-09-30.
-  - No se publican cifras comparables suficientes para calcular ambas métricas.
-  horizon: medio
-  id: H2-OPP-MB-MSFT
-  opportunity_id: OPP-MB-MSFT
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-11-15'
-    expected: 10.0
-    met: null
-    metric: variación del FCF TTM y del margen bruto TTM respecto al 2026-09-30
-    prediction: En los estados financieros correspondientes al 2027-09-30, el FCF
-      TTM será al menos un 10% superior al FCF TTM reportado al 2026-09-30, y el margen
-      bruto TTM no habrá caído más de 1 punto porcentual respecto de su nivel al 2026-09-30.
-    unit: porcentaje mínimo de aumento del FCF; caída máxima del margen bruto de 1
-      punto porcentual
-  priority: critical
-  probability: 0.5
-  rationale: La tesis indica que el FCF TTM al 2026-09-30 cayó frente al período comparable
-    reportado y que el margen bruto TTM fue inferior al de FY2023. Una recuperación
-    del FCF acompañada de estabilización del margen bruto sería evidencia observable
-    de que el crecimiento puede traducirse en caja sin deterioro persistente de la
-    rentabilidad bruta.
-  review_trigger: Dejar de creerla al publicarse los resultados correspondientes al
-    2027-09-30 si no se cumple cualquiera de los dos umbrales; como límite, el 2027-11-15.
-  secondary_hypotheses:
-  - H1-OPP-MB-MSFT
-  statement: La generación de caja se recuperará sin que el margen bruto TTM siga
-    deteriorándose de forma significativa.
-  status: ACTIVE
-  ticker: MSFT
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: El crecimiento de Azure en moneda constante es inferior al 20% en cualquiera
-      de los dos últimos trimestres de FY2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Microsoft deja de divulgar una métrica comparable de crecimiento de
-      Azure, impidiendo verificar la predicción.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El crecimiento de Azure en moneda constante es inferior al 20% en cualquiera de
-    los dos últimos trimestres de FY2027.
-  - Microsoft deja de divulgar una métrica comparable de crecimiento de Azure, impidiendo
-    verificar la predicción.
-  horizon: medio
-  id: H3-OPP-MB-MSFT
-  opportunity_id: OPP-MB-MSFT
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-08-15'
-    expected: 20.0
-    met: null
-    metric: crecimiento interanual trimestral de ingresos de Azure en moneda constante
-    prediction: Microsoft divulgará crecimiento interanual de ingresos de Azure, en
-      moneda constante, de al menos 20% en cada uno de los dos últimos trimestres
-      de FY2027.
-    unit: porcentaje mínimo en cada uno de dos trimestres
-  priority: important
-  probability: 0.5
-  rationale: La cartera diversificada puede sostener el crecimiento, pero el paquete
-    no proporciona datos de crecimiento por segmento ni permite comprobar la demanda
-    de nube. La tasa de crecimiento de Azure divulgada por Microsoft ofrece una medida
-    observable, aunque no demuestra por sí sola el tamaño del mercado ni la rentabilidad
-    incremental.
-  review_trigger: Dejar de creerla cuando se publiquen los resultados de FY2027 si
-    uno de los dos trimestres no alcanza el 20% o si la métrica deja de ser comparable;
-    como límite, el 2027-08-15.
-  secondary_hypotheses:
-  - H1-OPP-MB-MSFT
-  statement: El negocio de nube seguirá creciendo a un ritmo elevado durante FY2027,
-    aportando evidencia de continuidad operativa en un área central del negocio.
-  status: ACTIVE
-  ticker: MSFT
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: La rentabilidad total de MSFT menos la del Nasdaq-100 durante el período
       es inferior a 5 puntos porcentuales.
     metric: ''
@@ -187,6 +45,152 @@ hypotheses:
   statement: La acción de Microsoft superará moderadamente al Nasdaq-100 en rentabilidad
     total durante los próximos doce meses, aunque esta predicción no implica que la
     acción esté infravalorada.
+  status: ACTIVE
+  ticker: MSFT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual en moneda constante es inferior al 25% en
+      dos o más de esos tres trimestres.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Microsoft deja de divulgar una métrica comparable de crecimiento de
+      Azure y otros servicios en la nube, impidiendo verificar la predicción.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual en moneda constante es inferior al 25% en dos o más
+    de esos tres trimestres.
+  - Microsoft deja de divulgar una métrica comparable de crecimiento de Azure y otros
+    servicios en la nube, impidiendo verificar la predicción.
+  horizon: medio
+  id: H1-OPP-MB-MSFT
+  opportunity_id: OPP-MB-MSFT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-31'
+    expected: 2.0
+    met: null
+    metric: Trimestres con crecimiento interanual de ingresos de Azure y otros servicios
+      en la nube en moneda constante igual o superior al 25%
+    prediction: En al menos dos de los tres trimestres fiscales de Microsoft que terminen
+      entre 2026-12-31 y 2027-06-30, el crecimiento interanual de los ingresos de
+      Azure y otros servicios en la nube, en moneda constante y según la métrica divulgada
+      por Microsoft, será de al menos 25%.
+    unit: trimestres de 3
+  priority: critical
+  probability: 0.5
+  rationale: La escala y rentabilidad bruta de Microsoft pueden facilitar la expansión
+    de sus servicios en la nube, pero la evidencia disponible no permite confirmar
+    la demanda, la penetración ni la durabilidad de esa expansión. Esta hipótesis
+    pone a prueba directamente la continuidad del crecimiento del negocio.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados del trimestre
+    terminado el 2027-06-30 si el umbral del 25% no se alcanzó en al menos dos de
+    los tres trimestres evaluados.
+  secondary_hypotheses: []
+  statement: Microsoft mantendrá un crecimiento elevado en Azure y otros servicios
+    en la nube durante los próximos tres trimestres reportados.
+  status: ACTIVE
+  ticker: MSFT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF del ejercicio fiscal 2027 crece menos del 10% frente al del
+      ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF del ejercicio fiscal 2027 es igual o inferior al del ejercicio
+      fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF del ejercicio fiscal 2027 crece menos del 10% frente al del ejercicio fiscal
+    2026.
+  - El FCF del ejercicio fiscal 2027 es igual o inferior al del ejercicio fiscal 2026.
+  horizon: medio
+  id: H2-OPP-MB-MSFT
+  opportunity_id: OPP-MB-MSFT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual del flujo de caja libre del ejercicio fiscal 2027
+    prediction: El flujo de caja libre del ejercicio fiscal 2027, definido como flujo
+      de caja operativo menos adiciones a propiedades y equipo, será al menos un 10%
+      superior al del ejercicio fiscal 2026, según los estados financieros anuales
+      publicados por Microsoft.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis requiere que la generación de caja cubra las necesidades de
+    reinversión; sin embargo, la evidencia disponible no identifica las causas de
+    la contracción reciente del FCF ni permite atribuirla a una inversión concreta.
+    Comparar el FCF anual con el ejercicio fiscal anterior permitirá comprobar si
+    la conversión de resultados en caja mejora, sin presuponer qué explica el cambio.
+  review_trigger: Dejar de creerla cuando Microsoft publique sus resultados anuales
+    del ejercicio fiscal 2027 si el crecimiento interanual del FCF es inferior al
+    10%.
+  secondary_hypotheses:
+  - H1-OPP-MB-MSFT
+  statement: Microsoft convertirá el crecimiento de sus ingresos y beneficios en una
+    recuperación del flujo de caja libre durante el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: MSFT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de MSFT menos la del Nasdaq-100 es inferior a
+      5 puntos porcentuales en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de MSFT es inferior o igual a la del Nasdaq-100
+      durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de MSFT menos la del Nasdaq-100 es inferior a 5 puntos porcentuales
+    en el periodo.
+  - La rentabilidad total de MSFT es inferior o igual a la del Nasdaq-100 durante
+    el periodo.
+  horizon: medio
+  id: H3-OPP-MB-MSFT
+  opportunity_id: OPP-MB-MSFT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de MSFT frente al Nasdaq-100
+    prediction: Entre el cierre del mercado del 2026-11-21 y el cierre del 2027-11-21,
+      la rentabilidad total de MSFT, incluidos dividendos, superará la rentabilidad
+      total del Nasdaq-100 en al menos 5 puntos porcentuales. Si alguna fecha no es
+      día hábil, se utilizará el cierre del día hábil inmediatamente anterior.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Si Microsoft sostiene el crecimiento de su negocio y convierte una mayor
+    proporción de sus resultados en caja, esos avances pueden respaldar el desempeño
+    relativo de la acción. La evidencia disponible no permite determinar la valoración
+    actual ni anticipar cuánto de esas expectativas está reflejado en el precio; por
+    eso la predicción se limita a un resultado de mercado verificable.
+  review_trigger: Dejar de creerla al cierre del 2027-11-21 si la rentabilidad total
+    relativa de MSFT frente al Nasdaq-100 es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-MSFT
+  - H2-OPP-MB-MSFT
+  statement: La rentabilidad total de la acción de Microsoft superará la del Nasdaq-100
+    durante los próximos doce meses, lo que será compatible con que el mercado siga
+    reconociendo valor en su capacidad de crecimiento y generación de caja.
   status: ACTIVE
   ticker: MSFT
   version: 1

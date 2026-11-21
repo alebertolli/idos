@@ -1,0 +1,31 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental pendiente'
+- 'Market error: No se valida un error de valoración: los objetivos de analistas son
+  referencias observadas, no una estimación intrínseca respaldada por un método y
+  sus inputs.'
+- 'Thesis: Mizuho combina banca, banca fiduciaria, valores y otros servicios financieros
+  en varios mercados, y el paquete muestra crecimiento de ingresos y beneficio neto
+  entre FY 2023 y FY 2026. La tesis de cre'
+generated_at: '2026-11-21T16:52:11.696660-03:00'
+id: ass-b5805f49
+recommendation: REVIEW
+risks:
+- fuente: Evidencia financiera por campo del paquete, stockanalysis.com.
+  riesgo: 'Calidad y comparabilidad de datos: faltan unidades monetarias explícitas
+    en varias series y los campos disponibles no permiten calcular varios ratios requeridos.'
+- fuente: Evidencia financiera por campo del paquete, stockanalysis.com.
+  riesgo: El FCF histórico reportado pasa de positivo en FY 2023 a negativo en FY
+    2025 y FY 2026; para una entidad financiera, la interpretación requiere contexto
+    de flujo de caja y regulación que no aporta el paquete.
+- fuente: Resumen financiero y evidencia financiera por campo del paquete.
+  riesgo: Los datos disponibles no permiten valorar adecuadamente retornos sobre capital,
+    capital regulatorio, calidad crediticia ni sensibilidad a tipos de interés.
+- fuente: Research Intake Package, yfinance, período 2025-10-31/2026-10-30.
+  riesgo: La trayectoria de precio observada incluye volatilidad a 90 días de 32,7688%
+    y drawdown de 15,6332% en el período indicado; son métricas de mercado, no medidas
+    de riesgo fundamental.
+score: 43
+status: COMPLETED
+version: '3.0'

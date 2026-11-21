@@ -1,138 +1,139 @@
 ## 1. Visión General de la Compañía
 
-Microsoft Corporation ([[MSFT]]) es una compañía tecnológica que desarrolla y comercializa software, servicios en la nube, dispositivos, videojuegos y publicidad digital. Atiende a consumidores y organizaciones, incluidos clientes empresariales, administraciones públicas y entidades educativas.
+Microsoft Corporation ([[MSFT]]) es una empresa tecnológica global que combina software con licencia, servicios en la nube, suscripciones, publicidad, videojuegos y dispositivos. Su cadena de valor incluye investigación y desarrollo, inversión en infraestructura de centros de datos y distribución de plataformas, software y servicios digitales.
 
-Su modelo combina productos de software y suscripciones con servicios de nube y otros ingresos asociados al uso. La cadena de valor descrita comprende inversión en investigación, desarrollo e infraestructura de centros de datos; creación de sistemas operativos, aplicaciones, plataformas y servicios; y distribución directa y mediante socios. La información disponible se refiere a una compañía con actividad global, pero no incluye desglose geográfico de ingresos.
+Su cartera incluye Microsoft 365 y aplicaciones de productividad, Azure y otros servicios de nube e inteligencia artificial. Atiende a empresas pequeñas, medianas y grandes, así como a organismos públicos y entidades educativas. La información disponible no desglosa ingresos por geografía, productos o segmentos.
 
-**Fuentes y alcance:** resumen de negocio del paquete AOIF, sin fecha de observación indicada; el material de DDD cita datos financieros de Stock Analysis y observaciones de mercado fechadas más abajo.
+La categoría de inversión preliminar es **empresa de alta calidad con señales mixtas de crecimiento y generación de caja**. Los datos apuntan a crecimiento de ingresos y beneficio neto en los ejercicios reportados, pero la evolución reciente del flujo de caja libre (FCF) requiere aclaración. La evaluación de calidad se considera alta, aunque la validación es incompleta.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Drivers de ingresos
+Los principales drivers de ingresos identificados son:
 
-- Productividad y colaboración, incluidos Microsoft 365 y servicios relacionados.
-- Azure y otros servicios de nube, soluciones empresariales y servicios vinculados con IA.
-- Software, dispositivos, videojuegos y publicidad digital.
-- Suscripciones y consumo de servicios, que aportan componentes recurrentes o ligados al uso.
+- Consumo y suscripciones de Azure y otros servicios de nube.
+- Suscripciones comerciales y de consumo de Microsoft 365.
 
-El paquete de investigación no proporciona ingresos por segmento ni una descomposición cuantitativa de estos drivers.
+El modelo combina ingresos por licencias con servicios y suscripciones. El paquete de investigación atribuye ventajas competitivas a los costos de cambio del software empresarial, el ecosistema integrado, la escala de distribución y las relaciones con clientes corporativos. La posición competitiva se describe como líder y el moat como amplio; son evaluaciones cualitativas, no medidas de mercado aportadas por los datos.
 
-### Moat y posición competitiva
-
-AOIF caracteriza la posición de Microsoft como líder y el moat como amplio. Las ventajas propuestas incluyen ecosistemas integrados, costes de cambio empresariales, relaciones duraderas con clientes, distribución global, marcas consolidadas y economías de escala. Estas caracterizaciones son evaluaciones del paquete de investigación; no se aportan métricas de cuota de mercado, retención, precios o retornos incrementales para verificarlas de forma independiente.
-
-La industria está impulsada por la migración a la nube, la adopción de IA, la ciberseguridad y la transformación digital. También exige inversión elevada en infraestructura, lo que puede beneficiar a operadores con escala, pero constituye una carga de capital. Entre los competidores y compañías del mismo sector citados se encuentran [[AAPL]], [[ACN]], [[ADBE]], [[CRM]], [[CSCO]], [[GOOGL]], [[AMZN]] y [[ORCL]]; la lista disponible del universo sectorial también incluye [[AMD]], [[AVGO]], [[CRWD]] y [[ADP]].
+La industria evoluciona rápidamente hacia la nube, la inteligencia artificial y los servicios por suscripción. La competencia en nube e inteligencia artificial podría presionar el crecimiento, los precios o la rentabilidad. Entre las compañías relacionadas del sector se encuentran [[AAPL]], [[ACN]], [[ADBE]], [[ADI]], [[ADP]], [[ALAB]], [[AMAT]], [[AMD]], [[ARM]], [[ASML]], [[AVGO]], [[BB]] y [[CLS]].
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes se reproducen según los periodos, unidades y fuentes indicados en el paquete. No se añaden ajustes ni se asume que métricas con periodos distintos sean directamente comparables.
+Las cifras siguientes se reproducen en las unidades reportadas por la fuente, salvo que se indique otra cosa. El material no proporciona una tabla de periodos comparables completa ni referencias explícitas para todos los indicadores.
 
-| Métrica | Valor | Periodo / fecha | Fuente o limitación |
+| Métrica | Dato reportado | Periodo / fecha | Observación |
 |---|---:|---|---|
-| Ingresos | 331.839 millones | FY2026 | [Stock Analysis — financials](https://stockanalysis.com/stocks/msft/financials/); unidad monetaria según la presentación de la fuente |
-| Ingresos | 281.724 millones | FY2025 | [Stock Analysis — financials](https://stockanalysis.com/stocks/msft/financials/) |
-| Ingresos TTM | 346.445 millones | TTM terminado el 2026-09-30 | [Stock Analysis — financials](https://stockanalysis.com/stocks/msft/financials/) |
-| Flujo de caja libre (FCF) | 66.987 millones | FY2026 | [Stock Analysis — financials](https://stockanalysis.com/stocks/msft/financials/) |
-| FCF TTM | 59.957 millones | TTM al 2026-09-30 | [Stock Analysis — financials](https://stockanalysis.com/stocks/msft/financials/) |
-| Crecimiento informado del FCF | -23,15% | TTM al 2026-09-30 | Reportado por la fuente; el paquete no proporciona en esa fila el valor absoluto del periodo TTM comparativo |
-| Crecimiento de ingresos | 17,91% | Periodo no especificado en AOIF | No se proporcionan fecha, fórmula ni periodo de referencia; no debe interpretarse como tasa anual confirmada |
-| Margen operativo | 47,1% | Periodo no especificado en AOIF | Faltan fecha y periodo de referencia |
-| ROIC | 25,35% | Periodo no especificado en AOIF | Faltan fecha y periodo de referencia |
-| Current ratio | 1,22x | TTM al 2026-09-30 | [Stock Analysis — statistics](https://stockanalysis.com/stocks/MSFT/statistics/); el paquete señala que no alcanza su umbral configurado |
-| Acciones diluidas / dilución interanual | No disponible | Sin periodo comparable | No evaluable con los datos aportados |
+| Ingresos | 211.915 | FY 2023 | Unidad reportada por el proveedor |
+| Ingresos | 331.839 | FY 2026 | Unidad reportada por el proveedor |
+| Beneficio neto | 72.361 | FY 2023 | Unidad reportada por el proveedor |
+| Beneficio neto | 133.749 | FY 2026 | Unidad reportada por el proveedor |
+| Margen bruto | 67,66% | TTM; fecha no especificada en el dato | Reportado en DDD |
+| Crecimiento de ingresos | 17,91% | Periodo no especificado | Indicador AOIF; no se aportan periodos comparables |
+| Margen operativo | 47,1% | Periodo no especificado | Indicador AOIF |
+| ROIC | 25,35% | Periodo no especificado | Indicador AOIF |
+| FCF | 66.987 | FY 2026, al 30-06-2026 | Unidad reportada por el proveedor |
+| FCF | 59.957 | TTM, al 30-09-2026 | Unidad reportada por el proveedor |
+| Crecimiento del FCF | −23,15% | TTM, al 30-09-2026 | Tasa reportada; el paquete no especifica los valores comparativos usados |
+| Efectivo e inversiones | 64.509 | Al 30-09-2026 | Unidad reportada por el proveedor |
+| Deuda total | 133.931 | Al 30-09-2026 | Unidad reportada por el proveedor |
+| Current ratio | 1,22x | Al 30-09-2026 | No cruza el umbral de alerta de 0,5x |
 
-AOIF clasifica la tendencia financiera como estable, pero no aporta referencias temporales completas para todas sus métricas. DDD señala que los ingresos y el beneficio neto crecieron entre FY2023 y FY2026, sin incluir la serie completa en el material recibido. La contracción del FCF TTM frente al crecimiento observado en algunos periodos de ingresos hace relevante investigar la conversión en caja, pero por sí sola no establece su causa.
+La tendencia de ingresos y beneficio neto entre FY 2023 y FY 2026 es creciente en las cifras reportadas. Esto no demuestra que el crecimiento vaya a continuar. El FCF TTM al 30-09-2026 es inferior al FCF de FY 2026, aunque los periodos no son directamente equivalentes; el proveedor también reporta crecimiento TTM negativo. No se aportan flujo de caja operativo, capex ni una serie suficiente para evaluar la conversión de beneficios en efectivo.
 
-**Estructura de capital:** el paquete no incluye deuda neta, vencimientos, liquidez detallada ni una serie comparable de acciones diluidas. AOIF indica que no pudo cuantificar la conversión de FCF por falta de flujo de caja operativo, capex y periodo de referencia.
+AOIF proporciona múltiplos de P/E de 25,3x y EV/EBITDA de 17,83x, pero advierte que no constituyen una cotización verificada a la fecha del análisis. El FCF yield aparece como 0; no se especifica si refleja una medición válida, un valor faltante o una convención del proveedor, por lo que no debe interpretarse como una rentabilidad confirmada.
+
+La relación entre efectivo e inversiones y deuda no se resume aquí como caja neta: el paquete señala que las cifras reportadas se movieron en direcciones desfavorables frente a FY 2026, pero no aporta el desglose y la comparación completos necesarios para atribuir causas.
 
 ## 4. Management y Gobierno Corporativo
 
-AOIF califica la calidad del management como buena, la asignación de capital como creadora de valor y el alineamiento de insiders como moderado. No se suministran evidencia detallada, métricas de rentabilidad por inversión, estructura de remuneración, participación accionaria de insiders, identidad o evaluación de ejecutivos, composición del board ni historial de decisiones de capital.
+La evaluación AOIF califica la calidad del management como buena, la asignación de capital como creadora de valor y el alineamiento de insiders como moderado. El comentario vincula estas valoraciones cualitativas con la amplitud de la cartera y la capacidad de sostener una posición competitiva, pero no aporta métricas de desempeño de capital ni evidencia detallada sobre decisiones específicas.
 
-Por ello, estas calificaciones deben tratarse como evaluaciones preliminares del paquete AOIF, no como conclusiones verificadas con información de gobierno corporativo. La agenda de investigación debería contrastarlas con datos primarios sobre incentivos, propiedad, supervisión y asignación de capital.
+No se proporcionan nombres o cargos de los integrantes del equipo directivo, datos de remuneración, estructura de incentivos, porcentajes de propiedad de insiders ni composición del board. Tampoco hay información suficiente para evaluar independencia, diversidad de experiencia o cambios recientes en la gobernanza.
 
 ## 5. Tesis de Inversión
 
-**Caso alcista preliminar — sujeto a validación:**
+### Caso alcista
 
-- Microsoft combina productividad, software empresarial, nube, IA, publicidad y videojuegos, lo que diversifica sus fuentes potenciales de ingresos.
-- El paquete describe una base de suscripciones y consumo de servicios, junto con relaciones duraderas y costes de cambio empresariales. Si estas características se sostienen, podrían apoyar recurrencia y resiliencia de ingresos.
-- Los ingresos reportados aumentaron de 281.724 millones en FY2025 a 331.839 millones en FY2026, según [Stock Analysis — financials](https://stockanalysis.com/stocks/msft/financials/).
-- AOIF aporta como indicadores financieros un margen operativo de 47,1% y ROIC de 25,35%, aunque faltan fechas y periodos de referencia, por lo que deben verificarse antes de utilizarlos para inferir calidad o rentabilidad sostenida.
-- La migración a la nube y la adopción de IA son posibles motores de demanda; el paquete no cuantifica su contribución actual ni los retornos de capital asociados.
+- Los ingresos reportados aumentaron de 211.915 en FY 2023 a 331.839 en FY 2026, mientras que el beneficio neto pasó de 72.361 a 133.749, en unidades reportadas por el proveedor. Esto respalda investigar la continuidad del crecimiento, pero no la prueba.
+- El margen bruto TTM reportado de 67,66%, junto con los indicadores AOIF de margen operativo de 47,1% y ROIC de 25,35%, es compatible con un perfil de rentabilidad elevado. Los periodos de estos indicadores no están especificados de forma suficiente para confirmar comparabilidad.
+- El modelo combina software empresarial, suscripciones y nube. Los costos de cambio, el ecosistema integrado y la distribución a clientes corporativos pueden contribuir a la retención y a la posición competitiva, según la evaluación cualitativa de AOIF.
+- La escala y la presencia en nube e inteligencia artificial ofrecen áreas para seguir investigando el crecimiento de ingresos recurrentes y la utilización de infraestructura.
+- La valoración de calidad permanece condicionada a demostrar que el crecimiento y los márgenes se sostienen y se convierten en efectivo.
 
-**Conclusión de inversión:** la información respalda una investigación adicional sobre una compañía diversificada y con crecimiento histórico de ingresos, pero no permite confirmar una ventaja competitiva durable, los retornos sobre capital incremental ni una infravaloración. DDD asigna la clasificación «Investigación requerida; perfil multibaggers» y un discovery score de 66,24 en el Research Intake Package con corte al 2026-11-01. Ese score es una clasificación del paquete, no evidencia independiente de rendimiento futuro.
+**Evidencia citada:** Stock Analysis, datos financieros de MSFT, https://stockanalysis.com/stocks/msft/financials/; Stock Analysis, estadísticas de MSFT, https://stockanalysis.com/stocks/MSFT/statistics/. Las fechas y cifras indicadas arriba corresponden a los datos incluidos en el paquete de investigación; no se añadieron fuentes externas.
 
 ## 6. Riesgos y Contra-Tesis
 
-- **Conversión de crecimiento en caja:** el FCF TTM fue 59.957 millones al 2026-09-30 y la fuente informa una variación de -23,15%. Si la debilidad persiste mientras crecen los ingresos, podría indicar menor conversión en caja o mayores necesidades de inversión; los datos disponibles no identifican la causa. Fuente: [Stock Analysis — financials](https://stockanalysis.com/stocks/msft/financials/).
-- **Inversión e intensidad de capital:** AOIF señala necesidades elevadas de inversión en centros de datos, chips y capacidad energética para nube e IA. No se aportan capex, rendimiento de esas inversiones ni necesidades futuras cuantificadas.
-- **Competencia:** la presión competitiva en nube, productividad, IA y videojuegos podría limitar precios, márgenes o retención. Se citan competidores sectoriales como [[AMZN]], [[GOOGL]], [[AAPL]], [[CRM]] y [[ORCL]], sin comparaciones cuantitativas de posición.
-- **Retornos incrementales no demostrados:** faltan métricas desglosadas por segmento, mercado direccionable, cuota o penetración. No se puede establecer cuánto capital exige sostener el crecimiento ni el retorno de dicho capital.
-- **Valoración no validada:** el paquete no aporta una valoración intrínseca reproducible ni estimaciones detalladas de crecimiento esperado, múltiplos comparables o flujos normalizados.
-- **Datos financieros incompletos:** varias métricas de AOIF carecen de fecha o periodo; el crecimiento TTM del FCF no incluye en la fila el valor absoluto del periodo de comparación.
+### Caso bajista y riesgos clave
 
-**Falsadores identificados en DDD:**
+- **Presión en FCF:** el FCF TTM reportado fue de 59.957 al 30-09-2026, frente a 66.987 en FY 2026 al 30-06-2026, y el proveedor reporta crecimiento TTM de −23,15%. La diferencia de periodo limita la comparación directa y el paquete no explica la variación.
+- **Inversión en infraestructura:** el gasto elevado en centros de datos e infraestructura puede no traducirse oportunamente en ingresos o FCF. No se aportan cifras de capex para cuantificar este riesgo.
+- **Competencia:** la intensidad competitiva en nube e inteligencia artificial podría afectar crecimiento, precios o rentabilidad. Empresas del sector como [[AMZN]], [[GOOGL]] y [[ORCL]] son referencias potenciales para investigación competitiva, aunque no se aportan comparaciones directas en este paquete.
+- **Balance y liquidez:** al 30-09-2026 se reportan efectivo e inversiones de 64.509 y deuda total de 133.931, en unidades del proveedor. También se reporta un current ratio de 1,22x, por encima del umbral de alerta de 0,5x. Falta contexto detallado sobre vencimientos, composición y comparabilidad de las cifras.
+- **Riesgo de ejecución:** la inversión en IA y nube puede crecer más rápido que los ingresos asociados o reducir temporalmente la rentabilidad.
+- **Valoración no validada:** no se aportan supuestos de consenso, una valoración intrínseca ni una trayectoria financiera suficientemente detallada para concluir si el precio refleja correctamente los riesgos.
 
-1. Que la serie de ingresos deje de mostrar crecimiento en periodos comparables posteriores.
-2. Que el FCF permanezca en contracción o que su evolución no acompañe la de los ingresos.
+### Triggers de falsación
 
-Estos falsadores requieren seguimiento con datos comparables y no implican por sí mismos una conclusión automática sobre el valor de la acción.
+- Resultados futuros que muestren contracción sostenida de ingresos o beneficio neto frente a la trayectoria histórica reportada.
+- FCF persistentemente decreciente, sin evidencia de recuperación en periodos comparables.
+- Evidencia de que las inversiones en centros de datos e infraestructura no generan retornos suficientes o presionan de forma sostenida los márgenes.
+- Deterioro de la posición competitiva en nube o inteligencia artificial que se traduzca en menor crecimiento, presión sobre precios o pérdida de rentabilidad.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador o hito | Fecha esperada | Impacto potencial | Evidencia disponible |
+| Evento o catalizador | Fecha esperada / referencia | Impacto potencial | Qué comprobar |
 |---|---|---|---|
-| Sostener el crecimiento de ingresos | Sin fecha de evento identificada; revisar en próximos informes comparables | Podría respaldar la continuidad de la tesis de crecimiento; una desaceleración sería un falsador | Ingresos FY2026 de 331.839 millones frente a 281.724 millones en FY2025. [Stock Analysis — financials](https://stockanalysis.com/stocks/msft/financials/) |
-| Recuperar o estabilizar el crecimiento del FCF | Sin fecha de evento identificada; revisar en próximos informes comparables | Podría reducir la preocupación sobre conversión en caja; una contracción persistente aumentaría el riesgo de la tesis | FCF FY2026 de 66.987 millones; FCF TTM de 59.957 millones al 2026-09-30 y crecimiento informado de -23,15%. [Stock Analysis — financials](https://stockanalysis.com/stocks/msft/financials/) |
-| Verificar crecimiento y márgenes por segmento, en especial nube, productividad e IA | No especificada | Permitiría atribuir crecimiento y rentabilidad a los motores del negocio | AOIF lo incluye como punto de monitoreo; el paquete no aporta desglose por segmento |
-| Evaluar guía de la compañía y supuestos de analistas | No especificada | Podría cambiar las expectativas de crecimiento, márgenes y valoración | DDD identifica la falta de guía y supuestos detallados como limitación |
+| Próxima publicación de resultados posterior a la información disponible | Posterior al 30-09-2026; fecha exacta no proporcionada | Puede confirmar o cuestionar la continuidad del crecimiento y la conversión en caja | Ingresos, beneficio neto, márgenes, FCF y explicación de capex |
+| Nuevos datos de FCF | Próximos periodos reportados; sin fecha exacta proporcionada | Permitirán evaluar si la caída TTM persiste o se revierte | Comparaciones entre periodos equivalentes y conciliación de flujo de caja |
+| Resultados de Azure y otros servicios de nube | Próxima publicación de resultados; fecha no proporcionada | Podrían aclarar el ritmo de crecimiento de uno de los drivers identificados | Crecimiento, contribución a ingresos y relación con el gasto en infraestructura |
+| Evolución de las inversiones en centros de datos e IA | Seguimiento durante próximos resultados | Puede afectar márgenes y FCF, positiva o negativamente según el retorno de la inversión | Capex, utilización y evidencia de monetización; estos datos no están incluidos en el paquete |
+| Precio y objetivos de analistas observados | Referencias de mercado incluidas en DDD; el paquete presenta fechas distintas | Contexto de expectativas, no valoración intrínseca | Supuestos, dispersión y actualización de las estimaciones |
 
-No se han proporcionado fechas concretas para próximos resultados, lanzamientos, contratos u otros eventos. Por tanto, los catalizadores anteriores son hitos de seguimiento, no eventos con calendario confirmado.
+DDD reporta un precio de USD 521,91 al 30-10-2026 y un consenso medio de precio objetivo de USD 636,12, con un rango cuyo detalle no queda completo en el material. En el análisis de escenarios al 21-11-2026 se usan objetivos de USD 440 (bajista) y USD 870 (alcista), tomados de extremos observados de objetivos de analistas, no de una valoración intrínseca propia. No se proporciona fecha de publicación para el próximo resultado.
 
 ## 8. Marco de Valoración
 
-### Datos observados y limitaciones
+La valoración intrínseca no es estimable con rigor a partir de la información suministrada. AOIF indica que faltan un precio y una fecha de referencia verificables, además de datos suficientes para proyectar flujos. DDD concluye que no puede validarse un error de valoración con la evidencia disponible: faltan múltiplos consistentes, valoración intrínseca y trayectoria financiera.
 
-El paquete informa los siguientes datos de mercado:
+### Enfoques apropiados para investigar
 
-- Cotización observada: **USD 521,91** al **2026-10-30**, fuente indicada: yfinance.
-- Consenso de precio objetivo: **USD 636,12**, con rango de **USD 440–870**, observado el **2026-11-20**. El paquete atribuye el dato a una fuente de consenso, pero el material recibido no incluye un enlace verificable.
-- AOIF informa **P/E de 25,36x**, **EV/EBITDA de 17,92x**, **FCF yield de 0%** y margen de seguridad «insuficiente». No se incluyen fecha de valoración ni bases y periodos de cálculo, así que estos múltiplos no deben tratarse como plenamente comparables o auditados.
-- La conclusión DDD es que el error de valoración no está validado. Una diferencia entre cotización y objetivos de analistas es una observación de mercado, no prueba de infravaloración.
-
-### Metodología apropiada para la investigación
-
-Una valoración posterior debería contrastar:
-
-1. **Flujo de caja descontado (DCF):** construir FCF normalizado con flujo operativo, capex y capital de trabajo; proyectar ingresos, márgenes, inversión y conversión en caja.
-2. **Valoración relativa:** comparar múltiplos como P/E y EV/EBITDA con compañías pertinentes, por ejemplo [[AMZN]], [[GOOGL]], [[ORCL]] y [[CRM]], ajustando por crecimiento, márgenes y estructura de capital.
-3. **Análisis por segmentos:** valorar por separado nube, productividad y otros negocios cuando haya datos suficientes.
+1. **Flujo de caja descontado (DCF):** requiere proyecciones de ingresos por segmentos, márgenes, impuestos, capex, capital de trabajo y una tasa de descuento. La inversión en centros de datos debe reflejarse explícitamente en capex y en los flujos futuros.
+2. **Valoración relativa:** comparar P/E y EV/EBITDA con empresas tecnológicas relevantes, cuidando diferencias de crecimiento, márgenes, mezcla de negocio y periodos contables.
+3. **Análisis por segmentos o suma de partes:** puede ser útil si se obtienen datos verificables de nube, productividad, publicidad, videojuegos y otras actividades.
 
 ### Supuestos y sensibilidad pendientes
 
-No es posible calcular un valor intrínseco riguroso ni una tabla numérica de sensibilidad con la evidencia disponible. Faltan FCF normalizado, deuda neta, acciones diluidas, expectativas de crecimiento y márgenes, coste de capital y supuestos de valor terminal. El análisis debería mostrar sensibilidad, como mínimo, a crecimiento de ingresos, margen operativo, capex y tasa de descuento. Hasta contar con esos datos, no se valida ni la infravaloración ni un margen de seguridad suficiente.
+Los principales factores de sensibilidad serían:
+
+- Crecimiento de ingresos de Azure y Microsoft 365.
+- Ritmo de crecimiento y nivel de márgenes operativos.
+- Capex de centros de datos y retorno de la inversión en infraestructura.
+- Conversión de beneficios en FCF y duración de cualquier presión sobre caja.
+- Tasa de descuento y crecimiento terminal.
+
+El material incluye P/E de 25,3x y EV/EBITDA de 17,83x, pero no permite confirmar fecha, precio o metodología subyacente. El FCF yield de 0 no es interpretable sin aclaración. Los escenarios de USD 440 y USD 870 son anclas de objetivos de analistas, no estimaciones propias de valor razonable. Por tanto, no se puede calcular un margen de seguridad verificable; AOIF lo califica como insuficiente.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué crecimiento y márgenes espera el mercado y qué supuestos sustentan las estimaciones y objetivos de analistas?
-2. ¿Cuáles son el crecimiento, los márgenes, el capital empleado y los retornos sobre capital por segmento?
-3. ¿Qué inversión en centros de datos, chips y energía se requiere para sostener el crecimiento de nube e IA, y qué retornos genera?
-4. ¿Cuál es la causa de la variación negativa del FCF TTM reportada al 2026-09-30? ¿Se explica por inversión, capital de trabajo, márgenes u otros factores?
-5. ¿Cómo evolucionan el flujo de caja operativo, el capex y la conversión de beneficio en caja en periodos comparables?
-6. ¿Qué evidencia cuantitativa respalda los costes de cambio, la retención y el poder de precios atribuidos al moat?
-7. ¿Cómo se compara la posición de Microsoft con [[AMZN]], [[GOOGL]], [[AAPL]], [[CRM]] y [[ORCL]] en nube, productividad e IA?
-8. ¿Qué deuda neta, vencimientos y número de acciones diluidas deben utilizarse en la valoración?
-9. ¿Qué respaldan las calificaciones de AOIF sobre calidad del management, asignación de capital y alineamiento de insiders? ¿Cuáles son los incentivos y la propiedad de insiders?
-10. ¿Cuál es la fecha, fórmula y periodo de referencia de las métricas de crecimiento de ingresos, margen operativo, ROIC y múltiplos indicados por AOIF?
-11. ¿Qué guía de la compañía y próximos hitos permiten evaluar crecimiento, márgenes e inversión? El paquete no incluye fechas de eventos concretos.
-12. ¿Puede construirse una valoración reproducible con escenarios y sensibilidad que determine si el precio incorpora supuestos razonables?
+- ¿Qué segmentos, productos y mercados explican el crecimiento de ingresos y beneficio, y cuál es el mercado direccionable y la penetración de cada uno?
+- ¿Qué parte del crecimiento corresponde a Azure, otros servicios de nube, Microsoft 365, publicidad, videojuegos y otras actividades?
+- ¿Qué periodos y definiciones sustentan los indicadores AOIF de crecimiento de ingresos, margen operativo y ROIC?
+- ¿Cómo se reconcilia el FCF TTM de 59.957 al 30-09-2026 con los 66.987 de FY 2026 al 30-06-2026? ¿Qué efecto tuvieron capex, capital de trabajo y otros componentes?
+- ¿La caída del FCF TTM es transitoria o persistente? ¿Qué muestran periodos comparables posteriores?
+- ¿Cuál es el nivel de inversión en centros de datos y qué retorno sobre capital se espera y se observa?
+- ¿Qué métricas públicas permiten medir crecimiento, márgenes y monetización en nube e inteligencia artificial frente a competidores?
+- ¿Cuál es la composición de efectivo, inversiones y deuda, y cómo se distribuyen los vencimientos?
+- ¿Qué explica las diferencias entre el precio observado al 30-10-2026 y las referencias de objetivos de analistas al 21-11-2026? ¿Qué supuestos justifican el rango?
+- ¿Cuáles son la remuneración, los incentivos, la propiedad de insiders y la composición del board?
+- ¿Existe dilución de acciones? No es evaluable con el paquete disponible porque falta una serie fechada de acciones.
+- ¿Qué resultados posteriores confirmarían o falsarían la tesis de crecimiento rentable?
 
-**Estado de investigación:** pendiente de decisión. La evidencia disponible justifica continuar la investigación, pero no permite validar la valoración, los retornos incrementales sobre capital ni la tesis de ventaja competitiva de manera cuantitativa.
+**Estado de decisión:** pendiente de validación adicional. La evidencia apoya investigar una compañía con escala, rentabilidad reportada y una posición competitiva cualitativamente sólida, pero no basta para confirmar continuidad del crecimiento, recuperación del FCF ni valoración atractiva.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]], [[ADI|Analog Devices, Inc.]], [[ADP|Automatic Data Processing, Inc.]], [[ALAB|Astera Labs, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|Advanced Micro Devices, Inc.]], [[ARM|Arm Holdings plc]], [[ASML|ASML Holding N.V.]], [[AVGO|Broadcom Inc.]], [[BB|BlackBerry Limited]], [[CLS|Celestica Inc.]], [[CRM|Salesforce, Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign, Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[NVDA|NVIDIA Corporation]]
-- **Same Industry**: [[BB|BlackBerry Limited]], [[CRWD|CrowdStrike Holdings, Inc.]]
+- **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]], [[ADI|Analog Devices, Inc.]], [[ADP|Automatic Data Processing, Inc.]], [[ALAB|Astera Labs, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|Advanced Micro Devices, Inc.]], [[ARM|Arm Holdings plc]], [[ASML|ASML Holding N.V.]], [[AVGO|Broadcom Inc.]], [[BB|BlackBerry Limited]], [[CLS|Celestica Inc.]], [[CRM|Salesforce, Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign, Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[MSI|Motorola Solutions, Inc.]], [[NVDA|NVIDIA Corporation]], [[PANW|Palo Alto Networks, Inc.]], [[SNOW|Snowflake Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[TWLO|Twilio Inc.]], [[TXN|Texas Instruments Incorporated]], [[VRSN|VeriSign, Inc.]]
+- **Same Industry**: [[BB|BlackBerry Limited]], [[CRWD|CrowdStrike Holdings, Inc.]], [[PANW|Palo Alto Networks, Inc.]], [[TWLO|Twilio Inc.]], [[VRSN|VeriSign, Inc.]]

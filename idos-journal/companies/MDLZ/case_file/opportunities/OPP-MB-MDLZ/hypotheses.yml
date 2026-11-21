@@ -1,0 +1,143 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Crecimiento orgánico acumulado inferior a 1% interanual en los nueve
+      primeros meses de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Crecimiento orgánico negativo en dos trimestres consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Crecimiento orgánico acumulado inferior a 1% interanual en los nueve primeros
+    meses de 2027.
+  - Crecimiento orgánico negativo en dos trimestres consecutivos de 2027.
+  horizon: medio
+  id: H1-OPP-MB-MDLZ
+  opportunity_id: OPP-MB-MDLZ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 3.0
+    met: null
+    metric: Crecimiento orgánico acumulado de ingresos en los nueve primeros meses
+      de 2027
+    prediction: En los nueve primeros meses de 2027, el crecimiento orgánico acumulado
+      de ingresos será de al menos 3% interanual, según la definición reportada por
+      la compañía.
+    unit: '% interanual, mínimo'
+  priority: important
+  probability: 0.5
+  rationale: La escala global y la cartera diversificada de marcas pueden amortiguar
+    debilidad en mercados o categorías concretos. El paquete informa ingresos TTM
+    de USD 39.898 mil millones, pero no aporta datos de crecimiento orgánico, penetración
+    ni desempeño frente a competidores; por ello, esta hipótesis requiere validación
+    con resultados publicados.
+  review_trigger: Dejar de creerla si los resultados de los nueve primeros meses de
+    2027 muestran crecimiento orgánico inferior a 1%, o antes si dos informes trimestrales
+    consecutivos reportan crecimiento orgánico negativo.
+  secondary_hypotheses: []
+  statement: 'MDLZ mantendrá crecimiento orgánico positivo: la resiliencia de sus
+    marcas y su distribución sostendrá el crecimiento de ingresos subyacentes pese
+    a presiones competitivas y de precios.'
+  status: ACTIVE
+  ticker: MDLZ
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF TTM inferior a USD 3.2 mil millones al 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: FCF TTM inferior a USD 3.5 mil millones en dos informes trimestrales
+      consecutivos disponibles antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF TTM inferior a USD 3.2 mil millones al 2027-09-30.
+  - FCF TTM inferior a USD 3.5 mil millones en dos informes trimestrales consecutivos
+    disponibles antes de la fecha objetivo.
+  horizon: medio
+  id: H2-OPP-MB-MDLZ
+  opportunity_id: OPP-MB-MDLZ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 3.5
+    met: null
+    metric: FCF TTM al 2027-09-30
+    prediction: El FCF de los doce meses terminados el 2027-09-30 será de al menos
+      USD 3.5 mil millones, usando la definición de flujo de caja libre de la compañía.
+    unit: USD mil millones, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El paquete reporta FCF TTM de USD 3.658 mil millones al 2026-09-30. La
+    escala del negocio podría sostener la conversión de ingresos en caja, pero no
+    se proporcionan previsiones de consenso, desglose de capital de trabajo ni expectativas
+    de inversión; la continuidad debe comprobarse con datos futuros.
+  review_trigger: Dejar de creerla si un informe publicado antes de la fecha objetivo
+    muestra FCF TTM inferior a USD 3.2 mil millones, o si dos informes consecutivos
+    lo sitúan por debajo de USD 3.5 mil millones.
+  secondary_hypotheses:
+  - H1-OPP-MB-MDLZ
+  statement: MDLZ conservará una generación de flujo de caja libre cercana a su nivel
+    TTM de referencia, aun si los costos o las necesidades de capital de trabajo fluctúan.
+  status: ACTIVE
+  ticker: MDLZ
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de MDLZ menos el rendimiento total de XLP es inferior
+      a 0 puntos porcentuales durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento relativo de MDLZ es inferior a -5 puntos porcentuales
+      durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de MDLZ menos el rendimiento total de XLP es inferior a 0
+    puntos porcentuales durante el periodo.
+  - El rendimiento relativo de MDLZ es inferior a -5 puntos porcentuales durante el
+    periodo.
+  horizon: medio
+  id: H3-OPP-MB-MDLZ
+  opportunity_id: OPP-MB-MDLZ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de MDLZ menos rendimiento total de XLP
+    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-19, el
+      rendimiento total de MDLZ, incluidos dividendos reinvertidos, superará en al
+      menos 5 puntos porcentuales al rendimiento total del Consumer Staples Select
+      Sector SPDR Fund (XLP).
+    unit: puntos porcentuales, mínimo
+  priority: informational
+  probability: 0.5
+  rationale: La estabilidad de ingresos y caja podría favorecer la percepción de menor
+    riesgo y respaldar el rendimiento relativo. Sin embargo, el paquete no aporta
+    precio, valoración, dividend yield ni estimaciones de consenso; esta hipótesis
+    de mercado es deliberadamente relativa y se evaluará con rendimientos observables,
+    no con un múltiplo supuesto.
+  review_trigger: Dejar de creerla si, al cierre del 2027-11-19, MDLZ ha quedado rezagada
+    frente a XLP en al menos 5 puntos porcentuales; si el rezago supera 10 puntos
+    porcentuales antes de esa fecha, revisar la hipótesis de inmediato.
+  secondary_hypotheses:
+  - H1-OPP-MB-MDLZ
+  - H2-OPP-MB-MDLZ
+  statement: La acción de MDLZ tendrá un rendimiento total superior al de un fondo
+    diversificado de consumo defensivo durante el próximo año, si el crecimiento orgánico
+    y el FCF se mantienen dentro de los umbrales planteados.
+  status: ACTIVE
+  ticker: MDLZ
+  version: 1

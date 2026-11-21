@@ -1,91 +1,102 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El avance del precio y los datos financieros aportados no bastan para demostrar
-    crecimiento sostenible, ventaja competitiva o subvaloración.
-  - La diferencia entre FCF y utilidad neta justifica investigar composición y recurrencia;
-    el paquete no permite atribuir causas.
-  - 'Ventas TTM de 67,378 millones, FCF TTM de 14,746 millones y utilidad neta TTM
-    de 2,453 millones, con período terminado el 2026-09-30. Fuente: https://stockanalysis.com/stocks/mrk/financials/'
-  - 'Margen bruto TTM de 75.2% y current ratio de 1.35 al 2026-09-30. Fuente: https://stockanalysis.com/stocks/MRK/statistics/'
-  - 'Precio de USD 149.52 al 2026-10-30 y rango de objetivos de analistas USD 105–186
-    observado el 2026-11-20. Fuentes: https://finance.yahoo.com/quote/MRK/ y https://stockanalysis.com/stocks/mrk/forecast/'
+  - El crecimiento de ingresos y el FCF positivo son compatibles con capacidad de
+    autofinanciación, pero no prueban retornos incrementales atractivos.
+  - La fuerte diferencia entre beneficio neto TTM y FY 2025 exige investigar comparabilidad
+    y componentes antes de proyectar.
+  - Cotización USD 149,52 al 2026-10-30; momentum 12 meses 73,9009% y drawdown 4,4295%
+    para 2025-10-31/2026-10-30, según Yahoo Finance.
+  - Ingresos de 65.011 y FCF de 14.746 para TTM terminado el 2026-09-30, según StockAnalysis.
+  - 'Consenso de objetivos: mínimo USD 105, máximo USD 186 y media USD 161,53, observado
+    el 2026-11-21, según StockAnalysis y Yahoo Finance.'
   preguntas_abiertas:
-  - ¿Cuáles son las ventas, crecimiento, márgenes y penetración por producto y mercado?
-  - ¿Qué calendario de patentes, competencia y factores de erosión aplica a las marcas
-    enumeradas?
-  - ¿Qué explica la diferencia entre FCF e ingreso neto y cómo se compara el FCF con
-    períodos homogéneos?
-  - ¿Cuáles son los retornos sobre capital, vencimientos de deuda y criterios de asignación
-    de capital?
-catalizadores_previos: &id001 []
+  - ¿Qué parte del crecimiento y del FCF corresponde a cada producto, geografía y
+    negocio?
+  - ¿Cuáles son los vencimientos de exclusividad, la exposición a competencia y el
+    pipeline con fechas e hitos verificables?
+  - ¿Qué inversión de I+D y capital produjo los retornos observados y qué retornos
+    incrementales son sostenibles?
+  - ¿Cuál es la cobertura EBIT/intereses calculada con EBIT e intereses comparables
+    y en qué moneda/unidad están expresados?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T17:00:29.997721-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-MRK
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T17:00:29.997721-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-MRK
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T17:00:29.997721-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-MRK
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
-    de multibagger
-  justificacion: El paquete registra momentum de precio a 12 meses de 73.9009% hasta
-    2026-10-30, pero no aporta evidencia suficiente sobre mercado direccionable, penetración,
-    retornos sobre capital o trayectoria de productos para sustentar una tesis de
-    crecimiento de largo plazo. (yfinance, https://finance.yahoo.com/quote/MRK/history/,
-    período 2025-10-31/2026-10-30)
+  categoria: Investigación requerida; la evidencia disponible no permite validar una
+    tesis de crecimiento multibagger.
+  justificacion: El paquete aporta indicadores bursátiles recientes y datos financieros,
+    pero no evidencia sobre mercado direccionable, penetración, productos en desarrollo,
+    patentes o retornos incrementales sobre capital.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe actividades farmacéuticas humanas y veterinarias y
-    enumera marcas, pero no aporta ventas por segmento, cuota, precios, retornos sobre
-    capital ni evidencia comparable de ventaja competitiva. El margen bruto TTM informado
-    fue 75.2% al 2026-09-30; por sí solo no establece calidad económica o durabilidad.
-    (stockanalysis, https://stockanalysis.com/stocks/mrk/financials/)
+  analisis: El margen bruto reportado es 75,2% para TTM terminado el 2026-09-30, pero
+    el paquete no proporciona evidencia suficiente para evaluar moat, productividad
+    de I+D, retornos sobre capital o asignación de capital. El resumen describe operaciones
+    farmacéuticas humanas y veterinarias, pero no aporta desglose económico por negocio.
   rating: Inconcluso
 dominio_catalizadores:
-- catalizador: Actualizaciones financieras que aclaren el crecimiento de ventas y
-    la evolución del FCF.
-  hito: Comparar períodos financieros consecutivos y validar la conversión de beneficios
-    en caja.
-- catalizador: Evidencia verificable sobre productos, lanzamientos y penetración en
-    sus mercados.
-  hito: Obtener ventas por producto, mercado direccionable y métricas de adopción;
-    no están en el paquete.
-- catalizador: Mayor detalle de deuda, caja y asignación de capital.
-  hito: Revisar vencimientos, adquisiciones, inversión en I+D y evolución de acciones;
-    el paquete no incluye esos detalles.
+- catalizador: Crecimiento de ingresos reportado
+  detalle: Los ingresos pasan de 59.283 en FY 2022 a 65.011 en FY 2025, según StockAnalysis;
+    la evidencia no desglosa motores ni crecimiento orgánico.
+- catalizador: FCF TTM positivo
+  detalle: FCF reportado de 14.746 para TTM terminado el 2026-09-30; no se dispone
+    aquí de un desglose que permita atribuirlo a productos o inversión.
+- catalizador: Consenso de analistas
+  detalle: El objetivo medio observado es USD 161,53 al 2026-11-21; es una referencia
+    de mercado, no un catalizador corporativo ni una valoración propia.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- evidencia: No se proporcionan ventas por producto, calendario de patentes ni impacto
-    financiero.
-  riesgo: Concentración o dependencia de productos y exposición a expiraciones de
-    patentes no cuantificadas en el paquete.
-- evidencia: Los datos corresponden al TTM terminado el 2026-09-30; el paquete no
-    explica los factores de la diferencia. (stockanalysis, https://stockanalysis.com/stocks/mrk/financials/)
-  riesgo: La utilidad neta TTM informada es USD 2,453 millones frente a FCF TTM de
-    USD 14,746 millones.
-- evidencia: El paquete no aporta conciliación de deuda, vencimientos ni costo de
-    financiación. (stockanalysis, https://stockanalysis.com/stocks/mrk/financials/)
-  riesgo: La deuda total reportada al 2026-09-30 fue 53,903 millones en unidad reportada
-    por la fuente, y el net cash reportado fue negativo en 44,253 millones.
-- evidencia: El momentum de 12 meses fue 73.9009% y la volatilidad de 90 días 34.4334%,
-    al 2026-10-30. (yfinance, https://finance.yahoo.com/quote/MRK/history/)
-  riesgo: El momentum de precio observado no demuestra por sí mismo mejora fundamental
-    ni persistencia.
+- detalle: La deuda total reportada alcanza 53.903 en unidades del proveedor al 2026-09-30;
+    el dato de cobertura de intereses aparece como 0 y no permite validar una cobertura
+    EBIT/intereses.
+  riesgo: Carga financiera y costo de intereses
+- detalle: El ingreso neto TTM reportado es 2.453 al 2026-09-30 frente a 18.254 en
+    FY 2025; se requiere reconciliar períodos y partidas antes de atribuir causa o
+    persistencia.
+  riesgo: Variabilidad del beneficio
+- detalle: El paquete no aporta datos de ventas por producto, exclusividad, competencia,
+    precios o cuota de mercado; la exposición y erosión no pueden cuantificarse.
+  riesgo: Erosión competitiva y concentración
+- detalle: Las observaciones financieras proceden de StockAnalysis y varias series
+    combinan TTM y años fiscales; algunas unidades del proveedor no están especificadas
+    de forma comparable.
+  riesgo: Calidad y compatibilidad de datos
 error_mercado:
-  catalizador_cambio: Una actualización verificable sobre crecimiento y rentabilidad
-    de productos, impacto de expiraciones de patentes o conversión de FCF podría cambiar
-    la lectura; el paquete no incluye tales datos.
-  conclusion_error_valoracion: 'No se valida un error de valoración: el consenso observado
-    y la evidencia financiera no bastan para estimar valor intrínseco ni para explicar
-    expectativas implícitas.'
-  consenso_actual: La cotización observada fue USD 149.52 al 2026-10-30; el consenso
-    de precio objetivo observado fue USD 161.53 al 2026-11-20, con rango USD 105–186.
-    (yfinance, https://finance.yahoo.com/quote/MRK/; stockanalysis, https://stockanalysis.com/stocks/mrk/forecast/)
-  hipotesis_contraria: La evidencia financiera disponible muestra ventas TTM de USD
-    67,378 millones y FCF TTM de USD 14,746 millones al 2026-09-30, pero el ingreso
-    neto TTM informado fue USD 2,453 millones; no permite concluir que el mercado
-    subestime crecimiento o rentabilidad sostenible. (stockanalysis, https://stockanalysis.com/stocks/mrk/financials/)
-  razonamiento: El precio objetivo medio supera la cotización observada, pero es una
-    observación de consenso, no una valoración propia. El paquete no aporta horizonte
-    de esos objetivos ni supuestos de analistas.
-generated_at: '2026-11-20T17:00:29.997721-03:00'
+  catalizador_cambio: No hay catalizadores corporativos fechados y verificables en
+    la evidencia entregada.
+  conclusion_error_valoracion: No validable con la evidencia disponible.
+  consenso_actual: El paquete registra una cotización de USD 149,52 al 2026-10-30
+    y un consenso medio de objetivos de USD 161,53 observado el 2026-11-21.
+  hipotesis_contraria: La brecha entre cotización y consenso no demuestra por sí misma
+    un error de valoración; faltan estimaciones de negocio y un método de valoración
+    con inputs verificables.
+  razonamiento: El momentum de 12 meses reportado es 73,9009% para 2025-10-31/2026-10-30,
+    pero no permite inferir expectativas implícitas ni valor intrínseco. Las fuentes
+    son Yahoo Finance para cotización e historial y StockAnalysis para el consenso.
+generated_at: '2026-11-21T16:52:47.351535-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-MRK
@@ -120,7 +131,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Merck & Co., Inc.
   operating_margin: 35.16
-  pe_ratio: 138.14
+  pe_ratio: 135.24
   products: ''
   revenue: 67379999999.99999
   revenue_growth: 4.89
@@ -154,27 +165,37 @@ ratios_investigados:
   period_end: '2026-09-30'
   sources:
   - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MRK/statistics/
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/mrk/financials/
   status: unavailable
   unit: percent
   value: null
 - formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs: {}
-  limitations: El paquete no incluye EBITDA entre los campos configurados como inputs
-    para este ratio; por ello no se calcula ni se sustituye el denominador.
+  inputs:
+    cash_and_investments_history:
+      Current: 9650.0
+    ebitda: 29490000000.0
+    total_debt_history:
+      Current: 53903.0
+  limitations: Deuda y efectivo están en unidades reportadas por el proveedor, mientras
+    EBITDA está expresado en importe monetario; no se valida compatibilidad de escala/moneda
+    para calcular el ratio.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/mrk/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MRK/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs: {}
-  limitations: Sólo se aporta shares_outstanding actual de 2,470 millones; falta una
-    observación comparable del período anterior y no se aportan acciones diluidas
-    históricas.
+  inputs:
+    shares_outstanding: 2470000000.0
+  limitations: Falta una serie comparable de acciones diluidas o acciones en circulación
+    para el período anterior; un dato puntual no permite calcular dilución interanual.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
@@ -214,7 +235,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Merck & Co., Inc. operates as a healthcare company worldwide. It
     offers human health pharmaceutical for various areas under the Keytruda, Keytruda
     Qlex, Welireg, Gardasil, ProQuad, M-M-R II, Varivax, Vaxneuvance, Capvaxive, RotaTeq,
@@ -247,7 +268,357 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.012
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Merck & Co., Inc. (MRK) es una compañía farmacéutica y de salud animal que descubre,
+    desarrolla, fabrica y comercializa medicamentos, vacunas y soluciones de gestión
+    sanitaria. Su cadena de valor incluye investigación interna y alianzas, desarrollo
+    preclínico y clínico, autorización regulatoria, fabricación y control de calidad,
+    y comercialización.
+
+
+    La actividad descrita comprende medicamentos y vacunas para salud humana, además
+    de productos de salud animal. Entre las marcas humanas enumeradas en la investigación
+    figuran Keytruda, Welireg, Winrevair, Januvia, Janumet, Gardasil, ProQuad, M-M-R
+    II, Vaxneuvance y Capvaxive. Los clientes y canales mencionados incluyen hospitales,
+    clínicas, profesionales sanitarios, distribuidores y farmacias.
+
+
+    La información disponible no detalla el desglose de ingresos por geografía, segmento,
+    producto o canal. MRK opera en un sector farmacéutico global caracterizado por
+    regulación estricta, largos plazos de desarrollo, competencia basada en innovación
+    y presión de pagadores sobre los precios. Empresas relacionadas del sector incluyen
+    [[ABBV]], [[AMGN]], [[AZN]], [[BMY]], [[GILD]], [[GSK]], [[JNJ]] y [[LLY]].
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Fuentes de ingresos y drivers
+
+
+    El modelo combina productos propios con ingresos derivados de alianzas estratégicas.
+    Los principales drivers que deben seguirse son:
+
+
+    - Ventas, crecimiento, penetración y precios por producto y mercado.
+
+    - Lanzamientos, autorizaciones y adopción de nuevos productos.
+
+    - Resultados de investigación y desarrollo y avance de ensayos clínicos.
+
+    - Renovación de la cartera frente a vencimientos de patentes y pérdida de exclusividad.
+
+
+    El material de investigación no aporta ventas ni cuotas de mercado por producto,
+    por lo que no permite cuantificar la contribución de las marcas enumeradas ni
+    la concentración real de los ingresos.
+
+
+    ### Ventajas competitivas
+
+
+    El análisis AOIF identifica como posibles fuentes de ventaja la propiedad intelectual,
+    las marcas, la escala global, las capacidades de I+D, la experiencia regulatoria,
+    las relaciones comerciales y una cartera diversificada. También clasifica el moat
+    como amplio y la posición competitiva como líder. Estas son evaluaciones cualitativas
+    del análisis proporcionado: el paquete no incluye métricas de cuota, retornos
+    sobre capital por segmento ni comparaciones de productos que permitan verificarlas
+    de forma independiente.
+
+
+    La dinámica competitiva combina barreras elevadas de desarrollo y regulación con
+    rivalidad por innovación, presión de precios y riesgo de sustitución al vencimiento
+    de patentes. En este contexto, las trayectorias de MRK y de competidores como
+    [[ABBV]], [[AMGN]], [[AZN]], [[BMY]], [[GILD]], [[GSK]], [[JNJ]] y [[LLY]] pueden
+    verse afectadas por resultados clínicos, aprobaciones y cambios en la exclusividad
+    de productos.
+
+
+    ## 3. Perfil Financiero
+
+
+    | Métrica | Valor informado | Período / fecha | Fuente y limitaciones |
+
+    |---|---:|---|---|
+
+    | Ventas TTM | USD 67.378 millones | TTM terminado el 2026-09-30 | [StockAnalysis](https://stockanalysis.com/stocks/mrk/financials/)
+    |
+
+    | Flujo de caja libre (FCF) TTM | USD 14.746 millones | TTM terminado el 2026-09-30
+    | [StockAnalysis](https://stockanalysis.com/stocks/mrk/financials/) |
+
+    | Utilidad neta TTM | USD 2.453 millones | TTM terminado el 2026-09-30 | [StockAnalysis](https://stockanalysis.com/stocks/mrk/financials/)
+    |
+
+    | Razón corriente | 1,35x | 2026-09-30 | [StockAnalysis](https://stockanalysis.com/stocks/MRK/statistics/);
+    el umbral de riesgo indicado era inferior a 0,5x |
+
+    | Crecimiento de ingresos | 4,89% | Período y metodología no especificados en
+    el paquete AOIF | Validar fuente y período antes de usar |
+
+    | Margen operativo | 35,16% | Período y metodología no especificados en el paquete
+    AOIF | Validar fuente y período antes de usar |
+
+    | ROIC | 13,69% | Período y metodología no especificados en el paquete AOIF |
+    Validar fuente y período antes de usar |
+
+    | PER | 138,14x | Fecha y metodología no especificadas en el paquete AOIF | No
+    tratar como valoración comparable sin validar |
+
+    | EV/EBITDA | 12,6x | Fecha y metodología no especificadas en el paquete AOIF
+    | No tratar como valoración comparable sin validar |
+
+    | FCF yield | 0 | Fecha y metodología no especificadas en el paquete AOIF | El
+    valor no permite evaluar conversión de beneficios en caja |
+
+
+    Los datos TTM muestran ventas y FCF positivos, pero la utilidad neta informada
+    es sustancialmente menor que el FCF. La investigación no aporta una conciliación
+    de esa diferencia ni permite atribuirla a causas recurrentes o no recurrentes.
+    Tampoco ofrece una serie comparable suficiente para establecer una tendencia financiera
+    sostenible.
+
+
+    El ratio corriente informado no alcanza el umbral de alerta citado en el análisis
+    (inferior a 0,5x). La dilución interanual no pudo evaluarse porque falta un conteo
+    de acciones comparable del período anterior. No se proporcionan cifras de deuda,
+    caja ni estructura de capital detallada.
+
+
+    La investigación califica la tendencia financiera como estable, pero advierte
+    que es necesario validar períodos y metodología de las métricas. Los cálculos
+    de CAGR de ingresos a tres años y crecimiento de FCF figuran como no disponibles
+    por falta de referencias explícitas a los datos de entrada.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación AOIF califica la calidad del management como buena, la asignación
+    de capital como neutral y el alineamiento de insiders como moderado. No se incluyen
+    nombres, experiencia detallada de los directivos, remuneración, tenencia accionaria,
+    historial de decisiones de capital, composición del consejo ni estructura de comités.
+
+
+    Por tanto, estas calificaciones deben considerarse evaluaciones preliminares,
+    no una conclusión verificable sobre gobierno corporativo. Se requiere revisar
+    fuentes primarias sobre liderazgo, incentivos, propiedad de insiders y supervisión
+    del consejo antes de formular una valoración más firme.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista: hipótesis por validar
+
+
+    - MRK combina operaciones farmacéuticas humanas y de salud animal con medicamentos,
+    vacunas, capacidades de I+D, experiencia regulatoria y alianzas. Esta combinación
+    podría respaldar una cartera diversificada, aunque el paquete no aporta ingresos
+    por segmento o producto para comprobarlo.
+
+    - El análisis AOIF identifica propiedad intelectual, marcas, escala global, capacidades
+    de investigación y relaciones comerciales como ventajas competitivas; también
+    califica el moat como amplio y la posición como líder. La evidencia disponible
+    no permite cuantificar la sostenibilidad o magnitud de estas ventajas.
+
+    - Las cifras observadas de ventas y FCF TTM fueron positivas: USD 67.378 millones
+    y USD 14.746 millones, respectivamente, al 2026-09-30 ([StockAnalysis](https://stockanalysis.com/stocks/mrk/financials/)).
+
+    - El análisis AOIF informa crecimiento de ingresos de 4,89%, margen operativo
+    de 35,16% y ROIC de 13,69%, pero no especifica claramente período ni metodología;
+    deben validarse antes de sustentar una tesis.
+
+
+    ### Lectura de mercado y límites
+
+
+    La cotización observada fue USD 149,52 al 2026-10-30. El precio objetivo medio
+    observado fue USD 161,53 al 2026-11-20, con un rango de USD 105–186, según la
+    fuente de consenso citada en la investigación ([Yahoo Finance](https://finance.yahoo.com/)).
+    El consenso es una observación externa y no una valoración propia; el paquete
+    no especifica horizonte ni supuestos subyacentes.
+
+
+    El precio registró un avance de 73,9009% en los 12 meses hasta el 2026-10-30,
+    según el dato incluido en DDD. Ese momentum, por sí solo, no demuestra crecimiento
+    sostenible, ventaja competitiva ni subvaloración. La oportunidad queda clasificada
+    como **investigación requerida; evidencia insuficiente para validar una tesis
+    de multibagger**. No se valida un error de valoración.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos principales
+
+
+    - **Patentes y concentración de productos:** el análisis AOIF identifica como
+    riesgo alto y de probabilidad alta la dependencia de productos de gran peso comercial
+    y la pérdida de exclusividad, incluida la exposición futura de Keytruda. El paquete
+    no proporciona calendario de patentes ni impacto financiero estimado.
+
+    - **Desarrollo clínico:** el fracaso, retraso o resultados inferiores a lo esperado
+    de ensayos y programas de desarrollo se evalúan como riesgos de alto impacto y
+    probabilidad media.
+
+    - **Precios y competencia:** la industria está expuesta a presión de pagadores
+    y competencia por innovación; no se aportan datos cuantitativos sobre el efecto
+    en precios, márgenes o volúmenes de MRK.
+
+    - **Diferencia entre FCF y utilidad neta:** el FCF TTM informado de USD 14.746
+    millones supera ampliamente la utilidad neta TTM de USD 2.453 millones al 2026-09-30.
+    El paquete no explica la diferencia ni determina si es recurrente ([StockAnalysis](https://stockanalysis.com/stocks/mrk/financials/)).
+
+    - **Evidencia incompleta de cartera:** sin ventas por producto, penetración, cuota,
+    concentración ni calendario de exclusividad, no es posible medir plenamente la
+    exposición a marcas individuales o la capacidad de sustitución.
+
+
+    ### Contra-tesis
+
+
+    Una contra-tesis razonable es que las cifras disponibles no demuestran que el
+    FCF, los márgenes o el crecimiento sean sostenibles, y que el riesgo de vencimientos
+    de patentes o de resultados clínicos insuficientes pueda debilitar las expectativas
+    de continuidad de la cartera. La información financiera y el consenso de precios
+    no bastan para estimar valor intrínseco.
+
+
+    ### Falsadores y señales de deterioro
+
+
+    - Datos comparables posteriores muestran deterioro persistente de ventas o FCF
+    frente a los períodos aportados.
+
+    - Información verificable indica que la utilidad o la conversión de caja no son
+    sostenibles, o que el FCF TTM estuvo afectado por factores no recurrentes.
+
+    - Datos de producto revelan una concentración, erosión de exclusividad o falta
+    de sustitución de ingresos más severas de lo que la tesis pueda asumir.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Fecha esperada | Qué observar | Impacto potencial |
+
+    |---|---|---|---|
+
+    | Próximas actualizaciones financieras | No especificada en el paquete | Ventas
+    comparables, evolución de márgenes y conciliación entre utilidad neta y FCF |
+    Podría confirmar o cuestionar la sostenibilidad del crecimiento y de la generación
+    de caja |
+
+    | Evidencia de ventas, penetración y mercados por producto | No especificada |
+    Ventas por producto y mercado, mercado direccionable y métricas de adopción |
+    Permitiría evaluar impulsores de crecimiento, concentración y diversificación
+    |
+
+    | Información sobre vencimientos de patentes y erosión comercial | No especificada
+    | Calendario, productos afectados e impacto financiero | Aclararía el riesgo de
+    pérdida de exclusividad y la suficiencia de los reemplazos |
+
+    | Avance de lanzamientos, ensayos y programas de desarrollo | No especificada
+    | Resultados clínicos, retrasos, autorizaciones y adopción comercial | Podría
+    modificar las expectativas sobre renovación de cartera y crecimiento |
+
+
+    El paquete no aporta fechas de eventos corporativos, decisiones regulatorias o
+    resultados clínicos concretos. No se asigna un calendario más preciso sin evidencia.
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración requiere métodos compatibles con una farmacéutica diversificada
+    y dependiente de carteras de productos y propiedad intelectual:
+
+
+    1. **Flujo de caja descontado por escenarios:** proyectar ventas, márgenes, impuestos,
+    inversión y FCF, incorporando escenarios de éxito o fracaso clínico, penetración
+    de productos y erosión tras vencimientos de patentes.
+
+    2. **Valoración por producto o cartera:** estimar flujos por marca y segmento
+    cuando haya datos de ventas, exclusividad y mercado. Aplicar supuestos distintos
+    a productos establecidos y a programas de desarrollo.
+
+    3. **Comparables:** usar métricas como EV/EBITDA y PER solo después de validar
+    período, definición, deuda, caja y comparabilidad con pares como [[ABBV]], [[AMGN]],
+    [[AZN]], [[BMY]], [[GILD]], [[GSK]], [[JNJ]] y [[LLY]].
+
+
+    El análisis AOIF registra PER de 138,14x, EV/EBITDA de 12,6x y FCF yield de 0,
+    pero no especifica adecuadamente fecha y metodología de estas cifras. También
+    clasifica el margen de seguridad como insuficiente. No son suficientes para inferir
+    valor intrínseco.
+
+
+    No puede estimarse rigurosamente un valor intrínseco con el material disponible:
+    faltan precio por acción validado para la valoración, deuda y caja, flujos proyectados
+    y supuestos explícitos de crecimiento y descuento. Tampoco hay evidencia para
+    fijar sensibilidades cuantitativas. La sensibilidad debería centrarse, una vez
+    obtenidos los datos, en crecimiento y márgenes, tasa de descuento, duración de
+    flujos protegidos por patentes, penetración de nuevos productos y erosión comercial
+    posterior a la exclusividad.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuáles son las ventas, el crecimiento, los márgenes y la penetración por producto,
+    segmento y mercado?
+
+    2. ¿Qué parte de los ingresos y del FCF depende de los principales productos,
+    y cómo ha cambiado esa concentración?
+
+    3. ¿Cuál es el calendario de patentes, la competencia esperada y la erosión estimada
+    para las marcas principales, incluida Keytruda?
+
+    4. ¿Qué productos y programas están destinados a sustituir ingresos expuestos
+    a vencimientos de exclusividad, y con qué evidencia de adopción?
+
+    5. ¿Qué explica la diferencia entre utilidad neta TTM de USD 2.453 millones y
+    FCF TTM de USD 14.746 millones al 2026-09-30? ¿Qué parte es recurrente?
+
+    6. ¿Cuál es la serie comparable de crecimiento de ingresos, FCF, márgenes y ROIC,
+    con períodos, fuentes y metodologías explícitos?
+
+    7. ¿Cuál es la deuda neta, la caja disponible y la estructura de capital actual?
+
+    8. ¿Cuáles son la tenencia de insiders, los incentivos ejecutivos y la composición
+    del consejo?
+
+    9. ¿Cuál es el horizonte y qué supuestos sustentan el consenso de precio objetivo
+    observado al 2026-11-20?
+
+    10. ¿Cómo cambian las conclusiones de valoración bajo distintos supuestos de crecimiento,
+    éxito clínico, duración de patentes y descuento?
+
+
+    **Estado de la investigación:** evidencia insuficiente para validar una tesis
+    de multibagger o un error de valoración. La recomendación del análisis AOIF queda
+    como **PENDIENTE_DECISION_BOARD**.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]], [[AMGN|Amgen
+    Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb
+    Company]], [[CAH|Cardinal Health, Inc.]], [[CVS|CVS Health Corporation]], [[DHR|Danaher
+    Corporation]], [[GILD|Gilead Sciences, Inc.]], [[GSK|GSK plc]], [[JNJ|Johnson
+    & Johnson]], [[LLY|Eli Lilly and Company]], [[MDT|Medtronic plc]]
+
+    - **Same Industry**: [[ABBV|AbbVie Inc.]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca
+    PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[GILD|Gilead
+    Sciences, Inc.]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly
+    and Company]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -282,7 +653,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T19:59:58.899860+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T19:52:13.378015+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -443,12 +814,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    186.0, "low": 105.0, "mean": 161.53, "median": 161.53, "observed_at": "2026-11-20T17:00:02.135723-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T17:00:02.135723-03:00", "observed_date": "2026-11-20", "target_price":
+    186.0, "low": 105.0, "mean": 161.53, "median": 161.53, "observed_at": "2026-11-21T16:52:16.589359-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T16:52:16.589359-03:00", "observed_date": "2026-11-21", "target_price":
     161.53, "url": "https://stockanalysis.com/stocks/mrk/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:00:02.135723-03:00",
-    "observed_date": "2026-11-20", "target_price": 161.525, "url": "https://finance.yahoo.com/quote/MRK/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T16:52:16.589359-03:00",
+    "observed_date": "2026-11-21", "target_price": 161.525, "url": "https://finance.yahoo.com/quote/MRK/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 149.52000427246094,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/MRK/"}]}}'
   sector: Healthcare
@@ -458,69 +829,50 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: b75008b0850a673eeb86ab89143663dbf1942d713e927bb8a98cda8541e4e017
+    sha256: f293e9b234d9143edb33ac2f683b0380a2b56f0a78ed2112ead0bc3eac6dbbd0
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T17:00:29.997721-03:00'
+  triggered_at: '2026-11-21T16:52:47.351535-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment: No alcanza el umbral configurado; observación informativa, no decisión.
-  metric: current_ratio
-  observation: 1.35
-  period_end: '2026-09-30'
-  sources:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/MRK/statistics/
+- metric: current_ratio
+  observation: 1,35x para TTM terminado el 2026-09-30; por encima del umbral configurado.
+  source: https://stockanalysis.com/stocks/MRK/statistics/
   threshold: below 0.5
-  unit: x
-- assessment: 'No evaluable: falta conteo de acciones comparable del período anterior.'
-  metric: dilution_yoy_pct
-  observation: null
-  period_end: '2026-09-30'
+- metric: dilution_yoy_pct
+  observation: 'No disponible: falta dato comparable de acciones diluidas o en circulación
+    del período previo.'
+  source: https://stockanalysis.com/stocks/MRK/statistics/
   threshold: above 10%
-  unit: percent
-- assessment: La fuente informa 0, pero no aporta EBIT y gasto por intereses para
-    validar o interpretar el dato; se señala para revisión, no como cobertura validada.
-  metric: interest_coverage
-  observation: 0
-  period_end: '2026-09-30'
-  sources:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/MRK/statistics/
+- metric: interest_coverage
+  observation: El proveedor reporta 0 para TTM terminado el 2026-09-30; no se puede
+    validar como EBIT/intereses porque falta el gasto por intereses verificable.
+  source: https://stockanalysis.com/stocks/MRK/statistics/
   threshold: below 2.0x
-  unit: x
-- assessment: No se calcula runway de quema cuando el FCF aportado es positivo.
-  metric: negative_fcf_runway_months
-  observation: 'No aplicable: FCF TTM reportado positivo de 14,746 millones'
-  period_end: '2026-09-30'
-  sources:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/mrk/financials/
-  threshold: below 12 months
-  unit: months
-- assessment: No evaluable con los inputs configurados disponibles; EBITDA no está
-    habilitado como input de este ratio.
-  metric: net_debt_ebitda
-  observation: null
-  period_end: '2026-09-30'
+- metric: net_debt_ebitda
+  observation: 'No disponible: unidades/escala de deuda y efectivo no son comparables
+    con EBITDA en la evidencia entregada.'
+  source: https://stockanalysis.com/stocks/MRK/statistics/
   threshold: above 4.0x
-  unit: x
-- assessment: 'No evaluable: falta historial fechado de acciones para tres años.'
-  metric: share_count_cagr_3y_pct
-  observation: null
-  period_end: '2026-09-30'
+- metric: share_count_cagr_3y_pct
+  observation: 'No disponible: falta historia de acciones comparable para tres años.'
+  source: https://stockanalysis.com/stocks/MRK/statistics/
   threshold: above 5%
-  unit: percent
+- metric: negative_fcf_runway_months
+  observation: No aplica según FCF positivo reportado para TTM terminado el 2026-09-30;
+    no es una conclusión de riesgo de liquidez.
+  source: https://stockanalysis.com/stocks/MRK/statistics/
+  threshold: below 12 months
 scenario_analysis: null
 scenario_validation:
   errors:
   - scenario_analysis ausente
   status: invalid_pending_revision
-score_general: 43
+score_general: 55
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T17:00:02.135723-03:00'
+  calculado_at: '2026-11-21T16:52:16.589359-03:00'
   fuentes:
     stockanalysis: 161.53
     yfinance: 161.525
@@ -528,25 +880,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 161.53
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T17:00:02.135723-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:52:16.589359-03:00'
+    observed_date: '2026-11-21'
     target_price: 161.53
     url: https://stockanalysis.com/stocks/mrk/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T17:00:02.135723-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T16:52:16.589359-03:00'
+    observed_date: '2026-11-21'
     target_price: 161.525
     url: https://finance.yahoo.com/quote/MRK/
   target_high: 186.0
   target_low: 105.0
-tesis_inversion: La evidencia disponible permite observar una empresa con ventas y
-  FCF positivos en el período TTM terminado el 2026-09-30, junto con una cotización
-  que avanzó durante los 12 meses hasta el 2026-10-30. No valida, sin datos de mercado
-  direccionable, productos, retornos sobre capital o erosión competitiva, que ese
-  avance refleje crecimiento sostenible; la tesis requiere investigación adicional.
-  (stockanalysis, https://stockanalysis.com/stocks/mrk/financials/; yfinance, https://finance.yahoo.com/quote/MRK/history/)
+tesis_inversion: Merck presenta crecimiento de ingresos entre FY 2022 y FY 2025 y
+  FCF positivo reportado en TTM a 2026-09-30; sin embargo, la evidencia disponible
+  no establece la sostenibilidad de ese crecimiento, la rentabilidad del capital reinvertido
+  ni su relación con el precio. La tesis queda incompleta hasta verificar concentración
+  por producto, vencimientos de exclusividad, pipeline, mercado direccionable, asignación
+  de capital y retornos incrementales.
 ticker: MRK
 version: '3.0'
