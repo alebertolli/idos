@@ -1,0 +1,29 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación pendiente; evidencia financiera insuficiente para
+  validar una tesis de crecimiento compuesto'
+- 'Market error: No se puede establecer un error de valoración con la evidencia disponible:
+  no hay extremos válidos de consenso ni inputs suficientes para un método de valoración
+  propio.'
+- 'Thesis: La tesis a investigar es que los negocios de gestión patrimonial, gestión
+  de inversiones y wholesale de Nomura puedan sostener crecimiento rentable mediante
+  ingresos recurrentes y reinversión discipli'
+generated_at: '2026-11-21T17:20:06.907635-03:00'
+id: ass-f8fb4499
+recommendation: REVIEW
+risks:
+- fuente: StockAnalysis, datos financieros de NMR, período TTM al 2026-09-30 y ejercicios
+    FY 2023–FY 2026.
+  riesgo: La caja libre reportada es negativa en TTM y en los ejercicios FY 2023–FY
+    2026; no se puede atribuir este patrón a una causa concreta con los datos disponibles.
+- fuente: StockAnalysis, financials y statistics de NMR, período TTM al 2026-09-30.
+  riesgo: 'Las cifras de ingresos no concuerdan entre campos del paquete: revenue_history
+    TTM y revenue_ttm reportan magnitudes diferentes para el 2026-09-30.'
+- fuente: StockAnalysis, statistics de NMR, período TTM al 2026-09-30; financials
+    al 2026-09-30.
+  riesgo: No hay datos suficientes para evaluar dilución, cobertura de intereses ni
+    deuda neta/EBITDA; el EBIT y el EBITDA figuran como n/a.
+score: 38
+status: COMPLETED
+version: '3.0'

@@ -1,0 +1,29 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido'
+- 'Market error: No se valida un error de valoración con la evidencia proporcionada;
+  los objetivos de analistas son referencias observadas, no valor intrínseco estimado.'
+- 'Thesis: OXY es una compañía de energía cuya evidencia suministrada muestra FCF
+  TTM positivo, margen bruto TTM elevado y reducción de deuda neta reportada frente
+  a ejercicios anteriores. La tesis favorable req'
+generated_at: '2026-11-21T17:24:58.533838-03:00'
+id: ass-28a3373d
+recommendation: REVIEW
+risks:
+- fuente: https://stockanalysis.com/stocks/oxy/financials/
+  observacion: La serie de FCF reporta descensos en FY 2023, FY 2024 y FY 2025, antes
+    del crecimiento TTM reportado al 2026-09-30; la variabilidad limita la extrapolación.
+  periodo: FY 2023-FY 2025 y TTM al 2026-09-30
+- fuente: https://stockanalysis.com/stocks/oxy/financials/
+  observacion: 'La deuda neta reportada era negativa en caja neta? No: net_cash_history
+    reporta -8.733 millones al 2026-09-30, señal de deuda neta, aunque menor que los
+    valores reportados para FY 2025 y FY 2024.'
+  periodo: Current al 2026-09-30; FY 2024-FY 2025
+- fuente: https://finance.yahoo.com/quote/OXY/history/
+  observacion: La volatilidad de 90 días fue 31,90% para el período 2025-10-31/2026-10-30,
+    según el snapshot de mercado.
+  periodo: 2025-10-31/2026-10-30
+score: 68
+status: COMPLETED
+version: '3.0'

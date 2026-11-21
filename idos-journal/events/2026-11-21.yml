@@ -1552,3 +1552,101 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T17:10:51.457496'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-NMR
+    ticker: NMR
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:18:25.076875'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-NMR
+    ticker: NMR
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:18:25.216588'
+- data:
+    classification: Investigación pendiente; evidencia financiera insuficiente para
+      validar una tesis de crecimiento compuesto
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 282da87230aa42614ac00243e9fc51e88e655e5a47354a5a2b508e91b52b78ab
+    opp_id: OPP-MB-NMR
+    original_status: UNDER_RESEARCH
+    score: 38
+    strategy_version: '1.5'
+    ticker: NMR
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:20:07.097967'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-O
+    ticker: O
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:20:42.881892'
+- data:
+    classification: RESEARCH_REQUIRED
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: be34ef7bc15cce2d3ccc1b11a09023ae57ebdd848ef181a696ce99c4f1b9c594
+    opp_id: OPP-MB-O
+    original_status: UNDER_RESEARCH
+    score: 43
+    strategy_version: '1.5'
+    ticker: O
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:22:32.079303'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-OXY
+    ticker: OXY
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T17:23:09.507505'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-OXY
+    ticker: OXY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T17:23:09.651209'
+- data:
+    classification: Research requerido
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 3fdf5162be3b50b0bd7e4562b67565f33fb3716a8c354e659cadf220ac7ed2b0
+    opp_id: OPP-MB-OXY
+    original_status: UNDER_RESEARCH
+    score: 68
+    strategy_version: '1.5'
+    ticker: OXY
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T17:24:58.728103'

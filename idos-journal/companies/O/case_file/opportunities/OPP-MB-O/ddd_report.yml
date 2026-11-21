@@ -1,85 +1,105 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La escala y diversificación geográfica podrían apoyar crecimiento por inversión
-    inmobiliaria, pero el paquete no demuestra la rentabilidad de esa reinversión.
-  - La divergencia entre valores de FCF requiere reconciliación antes de utilizar
-    FCF para evaluar dividendos, crecimiento o financiación.
-  - 'La compañía reporta más de 15,500 propiedades en 50 estados de EE. UU., Reino
-    Unido y otros ocho países europeos al 2026-06-30; fuente: resumen financiero de
-    contexto.'
-  - 'La cotización observada fue USD 56.93 al 2026-10-30; fuente: yfinance, https://finance.yahoo.com/quote/O/.'
-  - 'Los objetivos de analistas reportados al 2026-11-20 tienen rango USD 59–74 y
-    media/mediana USD 63.77; fuentes: stockanalysis y yfinance consignadas en el resumen
-    financiero.'
+  - La expansión de la plataforma podría ser un mecanismo de crecimiento, pero no
+    se puede atribuir crecimiento rentable sin datos comparables de inversión y retornos.
+  - La diferencia entre las dos observaciones de FCF puede reflejar incompatibilidad
+    de definición o unidades; el paquete no permite resolverla.
+  - La descripción del contexto informa más de 15,500 propiedades en Estados Unidos,
+    Reino Unido y otros ocho países europeos al 2026-06-30.
+  - Stockanalysis reporta ingresos TTM de 6,220 millones de USD y EBITDA TTM de 5,500
+    millones de USD al 2026-09-30.
+  - La cotización reportada por yfinance fue USD 56.93 al 2026-10-30; el rango de
+    objetivos observado por stockanalysis fue USD 59–74 al 2026-11-21.
   preguntas_abiertas:
-  - ¿Cuáles son las tendencias de ocupación, rentas comparables, retención de inquilinos
-    y concentración por arrendatario?
-  - ¿Qué retornos sobre capital obtiene en adquisiciones y cómo se comparan con el
-    coste de financiación?
-  - ¿Cuál es la definición, moneda y escala de las dos observaciones incompatibles
-    de FCF?
-  - ¿Qué metas, incentivos y criterios de asignación de capital emplea el management?
-catalizadores_previos: &id001 []
+  - ¿Cuáles son los retornos sobre capital, el coste incremental de financiación y
+    la rentabilidad de nuevas adquisiciones?
+  - ¿Qué muestran la ocupación, concentración y calendario de vencimientos de arrendamientos,
+    y qué datos sostienen la política de dividendos?
+  - ¿Cuál es la serie histórica comparable de ingresos y acciones diluidas, y cómo
+    se reconcilian las dos cifras de FCF?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T17:47:15.255255-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-O
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T17:47:15.255255-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-O
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T17:47:15.255255-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-O
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Research requerido; evidencia fundamental incompleta
-  justificacion: El paquete documenta escala inmobiliaria, una cotización y objetivos
-    de analistas, pero no permite validar los ratios fundamentales solicitados ni
-    construir escenarios de negocio con supuestos suficientes.
+  categoria: RESEARCH_REQUIRED
+  justificacion: El paquete registra discovery_type=RESEARCH_REQUIRED y discovery_score=66.73.
+    La evidencia disponible permite describir parte del negocio y algunas métricas,
+    pero no validar varios ratios requeridos ni sustentar una valoración fundamental
+    propia.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: La cartera amplia y la presencia multinacional son hechos reportados,
-    pero no bastan para validar moat, calidad de arrendatarios, poder de fijación
-    de rentas o retornos incrementales. La evidencia disponible no permite evaluar
-    la asignación de capital del management ni la erosión competitiva.
-  rating: Indeterminado
+  analisis: La escala geográfica y el portafolio amplio son hechos descriptivos, pero
+    no bastan para demostrar una ventaja competitiva durable. No hay datos en el paquete
+    para medir poder de fijación de rentas, coste relativo de capital, retornos sobre
+    capital invertido o calidad de la asignación de capital y del management.
+  rating: Incompleto
 dominio_catalizadores:
-- analisis: La cartera reportada supera 15,500 propiedades en EE. UU., Reino Unido
-    y otros ocho países europeos al 2026-06-30; no se incluyen metas de crecimiento
-    o adquisiciones futuras.
-  catalizador: Evolución de la cartera
-- analisis: Los siguientes informes podrían aclarar tendencias de ingresos, deuda
-    y flujo de caja, pero el paquete no proporciona fechas ni guía futura.
-  catalizador: Actualizaciones financieras
-- analisis: La compañía declara una misión de dividendos mensuales crecientes; faltan
-    importes, cobertura y compromisos cuantificados en la evidencia suministrada.
-  catalizador: Dividendos
+- analisis: La descripción corporativa informa más de 15,500 propiedades al 2026-06-30;
+    no incluye una serie histórica comparable de propiedades o adquisiciones para
+    medir el ritmo de expansión.
+  catalizador: Crecimiento de la plataforma inmobiliaria
+  fuente: 'Resumen financiero de contexto; fecha: 2026-06-30.'
+- analisis: Los ingresos TTM reportados fueron 6,216.0 al 2026-09-30, frente a 5,279.0
+    en FY 2024; la diferencia de períodos impide interpretarla como crecimiento anual
+    comparable.
+  catalizador: Crecimiento de ingresos reportado
+  fuente: 'https://stockanalysis.com/stocks/o/financials/; períodos: TTM al 2026-09-30
+    y FY 2024 al 2024-12-31.'
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- analisis: La deuda total reportada asciende a 32,110.0 en unidades del proveedor
-    al 2026-09-30; la falta de compatibilidad de unidades con EBITDA impide validar
-    deuda neta/EBITDA.
-  riesgo: Apalancamiento y coste de financiación
-- analisis: El FCF TTM en estadísticas aparece como -3,160,000,000, mientras que la
-    serie financiera muestra 4,149.0 al 2026-09-30; la discrepancia de valores y unidades
-    impide una conclusión sobre conversión o financiación.
-  riesgo: FCF y financiación de crecimiento
-- analisis: El momentum de precio a 12 meses fue -1.811% y el drawdown reportado fue
-    15.734% al 2026-10-30; son datos de mercado, no evidencia causal del negocio.
-  riesgo: Tendencia de mercado
-- analisis: No se aportan métricas de ocupación, renovaciones, escaladores de renta,
-    concentración de arrendatarios o retornos sobre capital para evaluar deterioro
-    o resiliencia.
-  riesgo: Evidencia operacional incompleta
-error_mercado:
-  catalizador_cambio: Resultados financieros futuros que aclaren crecimiento, financiación
-    y capacidad de sostener la política de dividendos; no hay fechas de hitos en la
-    evidencia disponible.
-  conclusion_error_valoracion: No se valida un error de valoración con la evidencia
+- analisis: La fuente reporta deuda total de 32,110.0 y net cash de -31,707.0 al 2026-09-30,
+    pero las unidades de esos campos no son comparables con EBITDA en la evidencia
     disponible.
-  consenso_actual: La cotización observada es USD 56.93 al 2026-10-30; el consenso
-    de objetivos reportado al 2026-11-20 tiene media y mediana de USD 63.77, con rango
-    USD 59–74.
-  hipotesis_contraria: 'Los objetivos de analistas no prueban infravaloración: el
-    paquete no aporta sus supuestos ni evidencia operativa suficiente para contrastar
-    el consenso.'
-  razonamiento: La cotización y los objetivos son referencias de mercado, no una valoración
-    intrínseca. La serie de momentum a 12 meses muestra -1.811% al 2026-10-30, pero
-    no identifica por sí misma una discrepancia fundamental.
-generated_at: '2026-11-20T17:47:15.255255-03:00'
+  riesgo: Apalancamiento y financiación
+- analisis: El FCF TTM aparece como -3.16 mil millones en estadísticas, mientras que
+    la historia financiera reporta FCF TTM de 4,149.0; la diferencia impide usarlo
+    sin reconciliación.
+  riesgo: Calidad y comparabilidad de FCF
+- analisis: No hay una serie suficiente de acciones para calcular dilución ni una
+    serie completa de ingresos para el CAGR de tres años solicitado.
+  riesgo: Evaluación incompleta de retornos y dilución
+- analisis: El paquete no aporta datos de vacancia, concentración de inquilinos, vencimientos
+    de contratos, rentas comparables ni costes de financiación para evaluar erosión
+    o resiliencia.
+  riesgo: Erosión competitiva y exposición inmobiliaria
+error_mercado:
+  catalizador_cambio: No hay catalizadores corporativos fechados y verificables en
+    el paquete; los datos financieros llegan al 2026-09-30.
+  conclusion_error_valoracion: No se valida un error de valoración; el consenso es
+    una referencia observada, no una estimación intrínseca independiente.
+  consenso_actual: La cotización observada fue USD 56.93 al 2026-10-30; el consenso
+    de analistas observado el 2026-11-21 tiene media y mediana de USD 63.77, con rango
+    de USD 59 a USD 74.
+  hipotesis_contraria: 'La evidencia no permite determinar si la diferencia entre
+    cotización y consenso refleja un error de valoración: faltan datos verificables
+    sobre crecimiento de rentas, ocupación, coste de capital y valoración de activos.'
+  razonamiento: La cotización y los objetivos están expresados en USD, pero no se
+    suministran metodología ni supuestos de los analistas. La evidencia financiera
+    presenta además inconsistencias entre los campos de FCF.
+generated_at: '2026-11-21T17:20:42.933060-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-O
@@ -100,7 +120,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Realty Income Corporation
   operating_margin: 46.78
-  pe_ratio: 40.14
+  pe_ratio: 39.9
   products: ''
   revenue: 6220000000.0
   revenue_growth: 10.71
@@ -111,25 +131,23 @@ ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
     revenue_history: null
-  limitations: La serie disponible incluye TTM y FY 2024/FY 2025, pero no una observación
-    fechada de FY 2023 en revenue_history; no se puede formar un intervalo anual comparable
+  limitations: La serie disponible contiene TTM al 2026-09-30, FY 2025 y FY 2024,
+    pero no una observación fechada de FY 2023 requerida para el período comparable
     de tres años.
   metric: revenue_cagr_3y_pct
-  period_end: '2026-09-30'
-  sources:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/o/financials/
+  period_end: null
+  sources: []
   status: unavailable
   unit: percent
   value: null
 - formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
   inputs:
-    fcf: null
+    fcf: -3160000000.0
     fcf_history: null
-    free_cash_flow: null
-  limitations: La serie histórica muestra FCF TTM 4,149.0 y FY 2025 3,995.0 en unidades
-    reportadas por el proveedor, mientras que las estadísticas reportan FCF TTM -3,160,000,000;
-    la discrepancia de signo y escala impide validar una serie comparable.
+  limitations: La historia financiera reporta FCF TTM de 4,149.0 y FY 2025 de 3,995.0,
+    mientras estadísticas reporta FCF de -3,160,000,000.0 al mismo cierre. La discrepancia
+    de definición/unidad no está reconciliada; no se calcula crecimiento con inputs
+    incompatibles.
   metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
@@ -140,16 +158,15 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+- formula: FCF / net_income * 100
   inputs:
     fcf_history: null
-    free_cash_flow: null
-    net_income_history:
-      TTM_2026-09-30: 1356.0
+    free_cash_flow: -3160000000.0
+    net_income_history: 1356.0
     net_income_ttm: null
-  limitations: El ingreso neto TTM está reportado como 1,356.0 en unidades del proveedor,
-    pero las observaciones de FCF disponibles son incompatibles en signo y escala;
-    no se puede calcular una conversión verificable.
+  limitations: FCF de estadísticas y net income de historia financiera no tienen una
+    unidad compatible demostrada; además, la historia de FCF reporta 4,149.0 para
+    TTM frente a -3,160,000,000.0 en estadísticas.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
@@ -160,22 +177,23 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash /
+    EBITDA
   inputs:
-    net_cash_history:
-      Current_2026-09-30: -31707.0
-    net_debt: null
-    total_debt: null
-    total_debt_history:
-      Current_2026-09-30: 32110.0
-  limitations: El paquete no ofrece EBITDA dentro de los campos configurados para
-    este ratio y las cifras de deuda/caja están en unidades reportadas por el proveedor;
-    no hay inputs compatibles y verificables para calcularlo.
+    cash_and_equivalents: 403.13
+    ebitda: 5500000000.0
+    net_cash_history: -31707.0
+    total_debt_history: 32110.0
+  limitations: Deuda, net cash y efectivo se presentan como importes reportados sin
+    escala explícita en la historia financiera, mientras EBITDA se reporta como 5,500,000,000.0.
+    La compatibilidad de escala y moneda no puede verificarse.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/o/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/O/statistics/
   status: unavailable
   unit: x
   value: null
@@ -185,9 +203,8 @@ ratios_investigados:
     diluted_shares_history: null
     shares_outstanding: 953680000.0
     shares_outstanding_history: null
-  limitations: Sólo se aporta shares_outstanding de 953,680,000 al 2026-09-30; falta
-    el recuento comparable del período anterior y no se aporta serie histórica de
-    acciones.
+  limitations: Sólo está disponible el número actual de acciones en circulación; falta
+    una observación comparable del período anterior o una serie de acciones diluidas.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
@@ -227,7 +244,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Realty Income Corporation, an S&P 500 company, is real estate partner
     to the world's leading companies. Founded in 1969, they serve their clients as
     a full-service real estate capital provider. As of June 30, 2026, they have a
@@ -246,7 +263,280 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.75
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Realty Income Corporation (ticker: O) es un REIT que adquiere, posee y arrienda
+    principalmente propiedades comerciales. Su modelo se basa en obtener capital mediante
+    deuda y emisión de acciones, adquirir inmuebles, celebrar contratos de arrendamiento
+    con empresas y cobrar las rentas. También se describen soluciones de capital inmobiliario
+    y financiación para empresas, aunque no se aportan datos sobre su contribución
+    a los ingresos. [AOIF; sin fuente ni fecha verificables]
+
+
+    La cartera reportada supera las 15.500 propiedades en Estados Unidos, Reino Unido
+    y otros ocho países europeos, al 30 de junio de 2026. La información disponible
+    no incluye el desglose por país, sector o arrendatario. [DDD; StockAnalysis, información
+    financiera](https://stockanalysis.com/stocks/o/financials/)
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Drivers de ingresos identificados:**
+
+    - Ocupación de la cartera y cobro de rentas.
+
+    - Adquisición de propiedades y expansión de la cartera.
+
+
+    La investigación describe contratos de arrendamiento de largo plazo, en su mayoría
+    de tipo *net lease*. Estos contratos podrían dar visibilidad a los ingresos, pero
+    el paquete no incluye datos de vencimientos, escaladores de rentas, ocupación,
+    cobros o renovaciones con los que validar esa estabilidad. [AOIF; sin fuente ni
+    fecha verificables]
+
+
+    La escala, la diversificación geográfica y por inquilino, la experiencia en adquisiciones
+    y la capacidad de acceder a mercados de capitales se plantean como posibles ventajas
+    competitivas. AOIF califica la posición como líder y el moat como estrecho; ambas
+    son evaluaciones del análisis suministrado, no conclusiones verificables con datos
+    comparativos en el paquete. La escala y la diversificación podrían apoyar el crecimiento,
+    pero no demuestran que las adquisiciones generen retornos superiores al coste
+    de financiación.
+
+
+    La economía del negocio depende de las condiciones de financiación, las tasas
+    de interés, los precios inmobiliarios, la solvencia de los inquilinos y la demanda
+    de espacios físicos. No se proporcionan comparables de competidores; por tanto,
+    no se incluyen otras compañías como referencias sectoriales.
+
+
+    ## 3. Perfil Financiero
+
+
+    | Métrica | Observación | Periodo / calidad de evidencia |
+
+    |---|---:|---|
+
+    | Propiedades | Más de 15.500 | 30-06-2026; reportado en DDD |
+
+    | Deuda total | 32.110,0 en unidades del proveedor | 30-09-2026; las unidades
+    no están conciliadas con las de EBITDA |
+
+    | Current ratio | 2,17x | 30-09-2026; StockAnalysis, [estadísticas](https://stockanalysis.com/stocks/O/statistics/)
+    |
+
+    | Interest coverage | 0 | 30-09-2026; dato reportado que debe verificarse antes
+    de interpretarlo |
+
+    | FCF TTM, estadísticas | -3.160.000.000 | 30-09-2026; StockAnalysis, [estadísticas](https://stockanalysis.com/stocks/O/statistics/)
+    |
+
+    | FCF TTM, serie financiera | 4.149,0 en unidades del proveedor | 30-09-2026;
+    StockAnalysis, [información financiera](https://stockanalysis.com/stocks/o/financials/)
+    |
+
+    | FCF FY 2025, serie financiera | 3.995,0 en unidades del proveedor | FY 2025;
+    StockAnalysis, [información financiera](https://stockanalysis.com/stocks/o/financials/)
+    |
+
+    | Crecimiento de ingresos | 10,71% | Cifra suministrada por AOIF; sin periodo
+    ni fuente verificables |
+
+    | Margen operativo | 46,78% | Cifra suministrada por AOIF; sin periodo ni fuente
+    verificables |
+
+    | ROIC | 3,68% | Cifra suministrada por AOIF; sin periodo ni fuente verificables
+    |
+
+    | EV/EBITDA | 15,9x | Cifra suministrada por AOIF; sin fuente ni fecha verificables
+    |
+
+    | PER | 40,14x | Cifra suministrada por AOIF; sin fuente ni fecha verificables
+    |
+
+    | FCF yield | 0% | Cifra suministrada por AOIF; sin fuente ni fecha verificables
+    |
+
+
+    No se pudo calcular el CAGR de ingresos a tres años: la serie disponible no proporciona
+    una observación comparable de FY 2023. El crecimiento del FCF tampoco es utilizable
+    hasta reconciliar las cifras incompatibles de FCF y sus unidades. En consecuencia,
+    no se debe inferir de estos datos una tendencia fiable de cobertura del dividendo,
+    generación de caja o capacidad de financiación.
+
+
+    El paquete no permite calcular deuda neta/EBITDA: las unidades disponibles no
+    son compatibles. Además, el interés cubierto reportado como cero necesita verificación
+    de definición e inputs. Las cifras financieras convencionales deben interpretarse
+    con cautela en un REIT; AOIF señala que el FCF puede ser poco representativo por
+    las adquisiciones inmobiliarias, pero no aporta una conciliación alternativa con
+    AFFO.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF califica la calidad del management como buena y la asignación de capital
+    como neutral. Señala la escala de la cartera y la trayectoria de dividendos como
+    indicios favorables de ejecución y acceso a capital, pero no proporciona evidencia
+    verificable de resultados recientes ni métricas de retorno sobre adquisiciones.
+
+
+    El alineamiento de insiders se califica como débil en AOIF, sin cifras de propiedad
+    accionaria ni detalle de incentivos. No hay información sobre composición, independencia,
+    experiencia o comités del board. Estas evaluaciones deben considerarse preliminares
+    hasta contar con fuentes corporativas y datos verificables.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista — hipótesis por validar:**
+
+
+    - Una cartera de más de 15.500 propiedades en varios países podría aportar escala
+    y diversificación. El dato está reportado al 30 de junio de 2026, pero no se incluyen
+    desglose ni medidas de concentración. [DDD; StockAnalysis, [información financiera](https://stockanalysis.com/stocks/o/financials/)]
+
+    - Los arrendamientos de largo plazo podrían favorecer la visibilidad de rentas,
+    siempre que se mantengan la ocupación, el cobro y la solvencia de los inquilinos.
+    AOIF describe el modelo, pero no aporta datos operativos para comprobar estos
+    factores.
+
+    - La compañía declara una misión centrada en dividendos mensuales que aumentan
+    con el tiempo, según la tesis suministrada. El paquete no incluye historial detallado,
+    AFFO por acción ni cobertura del dividendo para evaluar su sostenibilidad.
+
+    - La expansión mediante adquisiciones podría contribuir al crecimiento si los
+    retornos de los inmuebles superan el coste de capital. La investigación no proporciona
+    retornos de adquisición ni una comparación con los costes de financiación.
+
+
+    No se valida un error de valoración con la evidencia disponible. Los objetivos
+    de analistas no sustituyen una valoración independiente basada en AFFO, activos,
+    deuda y supuestos de crecimiento.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    - **Financiación y tasas:** un aumento de tasas o de diferenciales de crédito
+    podría encarecer refinanciaciones y reducir el atractivo relativo del dividendo.
+    AOIF lo identifica como un riesgo de impacto alto y probabilidad media; es una
+    evaluación cualitativa sin modelo de sensibilidad.
+
+    - **Riesgo de inquilinos y activos:** deterioro financiero, impagos, vacancia
+    o costes de re-arrendamiento podrían debilitar los ingresos. No hay datos de ocupación,
+    morosidad, retención ni concentración para cuantificar este riesgo.
+
+    - **Apalancamiento:** se reportan 32.110,0 de deuda total al 30 de septiembre
+    de 2026, pero las unidades no permiten validar deuda neta/EBITDA. [DDD; StockAnalysis,
+    [información financiera](https://stockanalysis.com/stocks/o/financials/)]
+
+    - **FCF no conciliado:** las cifras reportadas para FCF TTM difieren entre la
+    página de estadísticas y la serie financiera, por lo que no permiten extraer una
+    conclusión fiable sobre financiación del crecimiento o cobertura del dividendo.
+    [StockAnalysis, [estadísticas](https://stockanalysis.com/stocks/O/statistics/);
+    [información financiera](https://stockanalysis.com/stocks/o/financials/)]
+
+    - **Retornos de reinversión:** la escala de la cartera no demuestra por sí sola
+    que las adquisiciones creen valor. Retornos persistentemente inferiores al coste
+    de capital falsarían la hipótesis de creación de valor mediante reinversión.
+
+    - **Evidencia operativa incompleta:** un deterioro sostenido en ocupación, cobro
+    de rentas o renovaciones contradiría la hipótesis de ingresos inmobiliarios resilientes.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
+
+    |---|---|---|---|
+
+    | Próximas actualizaciones financieras | Sin fecha indicada | Podrían aclarar
+    evolución de ingresos, deuda, flujo de caja y capacidad para sostener la política
+    de dividendos | DDD no proporciona calendario ni guía futura |
+
+    | Evolución de la cartera | Sin fecha indicada | El crecimiento podría respaldar
+    ingresos; su valor dependería de los retornos de adquisición y del coste de financiación
+    | Cartera reportada superior a 15.500 propiedades al 30-06-2026 |
+
+    | Aclaración de FCF y métricas de cobertura | Sin fecha indicada | Permitiría
+    evaluar mejor financiación de inversiones y dividendos | Persiste una discrepancia
+    entre fuentes |
+
+
+    No hay en el paquete fechas específicas de resultados, hitos corporativos o adquisiciones
+    futuras.
+
+
+    ## 8. Marco de Valoración
+
+
+    Para un REIT, el análisis debería centrarse en AFFO por acción, crecimiento orgánico
+    de rentas, cobertura del dividendo, calidad y vencimientos de los arrendamientos,
+    valor de los activos y estructura de deuda. El paquete no contiene los datos necesarios
+    para construir una estimación independiente de valor intrínseco.
+
+
+    Como referencias de mercado, DDD reporta una cotización de **USD 56,93 al 30 de
+    octubre de 2026** y objetivos de analistas con media y mediana de **USD 63,77**,
+    dentro de un rango de **USD 59–74**, al 20 de noviembre de 2026. Estas referencias
+    no demuestran infravaloración; no se aportan los supuestos de los analistas para
+    contrastarlos. [DDD; precios y consenso reportados en el paquete]
+
+
+    **Supuestos y sensibilidad que deben investigarse antes de valorar:**
+
+    - AFFO normalizado por acción y crecimiento sostenible.
+
+    - Crecimiento orgánico de rentas, ocupación, renovaciones y retención de inquilinos.
+
+    - Retornos de nuevas adquisiciones frente al coste de deuda y al coste de capital
+    total.
+
+    - Deuda neta, vencimientos, tipo fijo o variable y sensibilidad a tasas.
+
+    - Valor de los activos y tasas de capitalización bajo distintos escenarios.
+
+
+    Sin estos datos, el valor intrínseco y el margen de seguridad no son estimables
+    con rigor. AOIF califica el margen de seguridad como insuficiente, pero también
+    indica que sus múltiplos no tienen fuente ni fecha verificables.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuáles son las tendencias de ocupación, cobro de rentas, rentas comparables,
+    renovaciones y retención de inquilinos?
+
+    2. ¿Qué concentración existe por arrendatario, sector, país y vencimiento de contratos?
+
+    3. ¿Qué retornos obtiene Realty Income en adquisiciones y cómo se comparan con
+    el coste de financiación y de capital?
+
+    4. ¿Cuál es la reconciliación correcta del FCF TTM entre las estadísticas y la
+    serie financiera? ¿Qué unidades usa cada fuente?
+
+    5. ¿Cuál es la cobertura del dividendo con AFFO por acción y cómo ha evolucionado?
+
+    6. ¿Qué nivel de deuda neta, calendario de vencimientos y exposición a tasas tiene
+    la compañía?
+
+    7. ¿Qué periodos y fuentes respaldan las cifras de crecimiento de ingresos, margen
+    operativo, ROIC y múltiplos proporcionadas por AOIF?
+
+    8. ¿Qué evidencia respalda las evaluaciones de calidad del management, asignación
+    de capital, alineamiento de insiders y composición del board?
+
+    9. ¿Qué supuestos sustentan los objetivos de analistas reportados al 20 de noviembre
+    de 2026?
+
+    '
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "cash_and_investments_history":
@@ -278,7 +568,7 @@ research_input_snapshot:
     "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
     "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
     "total_debt_history": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]},
-    "observations": {}, "observed_at": "2026-11-20T20:46:45.334746+00:00", "period_end":
+    "observations": {}, "observed_at": "2026-11-21T20:20:08.601593+00:00", "period_end":
     "2026-09-30", "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -423,12 +713,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    74.0, "low": 59.0, "mean": 63.77, "median": 63.77, "observed_at": "2026-11-20T17:46:49.313250-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T17:46:49.313250-03:00", "observed_date": "2026-11-20", "target_price":
+    74.0, "low": 59.0, "mean": 63.77, "median": 63.77, "observed_at": "2026-11-21T17:20:12.044405-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T17:20:12.044405-03:00", "observed_date": "2026-11-21", "target_price":
     63.77, "url": "https://stockanalysis.com/stocks/o/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:46:49.313250-03:00",
-    "observed_date": "2026-11-20", "target_price": 63.77381, "url": "https://finance.yahoo.com/quote/O/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T17:20:12.044405-03:00",
+    "observed_date": "2026-11-21", "target_price": 63.77381, "url": "https://finance.yahoo.com/quote/O/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 56.93000030517578,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/O/"}]}}'
   sector: Real Estate
@@ -438,43 +728,102 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: afffcf56c73ff86ae2c9715ea7fbad929805fec87cf0295331b1dc1a3fdd8175
+    sha256: be34ef7bc15cce2d3ccc1b11a09023ae57ebdd848ef181a696ce99c4f1b9c594
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T17:47:15.255255-03:00'
+  triggered_at: '2026-11-21T17:20:42.933060-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: 2.17x al 2026-09-30, por encima del umbral configurado.
+  observed_value: 2.17
+  period_end: '2026-09-30'
   source:
     name: stockanalysis.com
     url: https://stockanalysis.com/stocks/O/statistics/
-  threshold: below 0.5
-- metric: interest_coverage
-  observation: La fuente reporta 0 al 2026-09-30; debe verificarse la definición y
-    los inputs antes de interpretarlo como cobertura económica.
+  status: no_supera_umbral
+  threshold_observation: below 0.5
+  unit: x
+- limitation: Falta una serie comparable de acciones diluidas o acciones en circulación.
+  metric: dilution_yoy_pct
+  period_end: null
+  status: no_evaluable
+  threshold_observation: above 10 percent
+- limitation: La fuente reporta cero, pero no aporta en este paquete los inputs EBIT
+    y gasto por intereses para verificar el cociente.
+  metric: interest_coverage
+  observed_value: 0
+  period_end: '2026-09-30'
   source:
     name: stockanalysis.com
     url: https://stockanalysis.com/stocks/O/statistics/
-  threshold: below 2.0x
-- metric: net_debt_ebitda
-  observation: 'No evaluable: faltan inputs compatibles y verificables para calcular
-    el ratio.'
-  threshold: above 4.0x
-- metric: dilution_yoy_pct
-  observation: 'No evaluable: falta un recuento de acciones comparable del período
-    anterior.'
-  threshold: above 10%
-scenario_analysis: null
+  status: dato_reportado_que_requiere_validacion
+  threshold_observation: below 2.0
+  unit: x
+- limitation: La cifra de FCF es inconsistente entre campos y el paquete no aporta
+    un burn mensual compatible para calcular runway.
+  metric: negative_fcf_runway_months
+  status: no_evaluable
+  threshold_observation: below 12 months
+- limitation: No se puede verificar la compatibilidad de escala y moneda de deuda/net
+    cash con EBITDA.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  status: no_evaluable
+  threshold_observation: above 4.0x
+- limitation: No se suministra una serie histórica de acciones para calcular CAGR
+    de tres años.
+  metric: share_count_cagr_3y_pct
+  period_end: null
+  status: no_evaluable
+  threshold_observation: above 5 percent
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Una fuente fechada que explique el objetivo bajo con supuestos de negocio verificables
+      permitiría evaluar si esta ancla representa un resultado plausible.
+    id: BEAR
+    key_assumptions:
+    - Se usa el mínimo del rango de analistas observado el 2026-11-21 como ancla de
+      escenario.
+    - No se atribuye al consenso una explicación fundamental que no aparece en las
+      fuentes.
+    rationale: Ancla inferior observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Representa el extremo bajo del consenso disponible; el paquete
+      no documenta qué supuestos empresariales lo sustentan.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/o/forecast/
+    target_price: 59.0
+  - falsifiers:
+    - Una fuente fechada que explique el objetivo alto con supuestos de negocio verificables
+      permitiría evaluar si esta ancla representa un resultado plausible.
+    id: BULL
+    key_assumptions:
+    - Se usa el máximo del rango de analistas observado el 2026-11-21 como ancla de
+      escenario.
+    - No se atribuye al consenso una explicación fundamental que no aparece en las
+      fuentes.
+    rationale: Ancla superior observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Representa el extremo alto del consenso disponible; el paquete
+      no documenta qué supuestos empresariales lo sustentan.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/o/forecast/
+    target_price: 74.0
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 38
+  errors: []
+  status: valid_pending_decision_board
+score_general: 43
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T17:46:49.313250-03:00'
+  calculado_at: '2026-11-21T17:20:12.044405-03:00'
   fuentes:
     stockanalysis: 63.77
     yfinance: 63.77381
@@ -482,29 +831,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 63.77
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T17:46:49.313250-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T17:20:12.044405-03:00'
+    observed_date: '2026-11-21'
     target_price: 63.77
     url: https://stockanalysis.com/stocks/o/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T17:46:49.313250-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T17:20:12.044405-03:00'
+    observed_date: '2026-11-21'
     target_price: 63.77381
     url: https://finance.yahoo.com/quote/O/
   target_high: 74.0
   target_low: 59.0
-tesis_inversion: Realty Income opera una cartera inmobiliaria diversificada y declara
-  una misión centrada en dividendos mensuales que aumentan con el tiempo. La escala
-  y la recurrencia de rentas pueden sustentar crecimiento mediante adquisiciones y
-  financiación, pero el paquete no acredita rendimientos sobre capital, términos de
-  reinversión, crecimiento comparable ni ventaja competitiva; por tanto, no permite
-  concluir que la expansión cree valor. La penetración y el mercado direccionable
-  tampoco están cuantificados. El FCF reportado en estadísticas y la serie histórica
-  presentan cifras incompatibles, por lo que no se usan para inferir capacidad de
-  reinversión. La evidencia disponible no describe management, remuneración, adquisiciones,
-  disciplina de capital, vacancia, concentración de inquilinos ni erosión competitiva.
+tesis_inversion: Realty Income se describe como proveedor de capital inmobiliario
+  y propietario de más de 15,500 propiedades en Estados Unidos y Europa a 2026-06-30,
+  con una misión de dividendos mensuales crecientes. La expansión de ingresos y propiedades
+  podría apoyar crecimiento, pero el paquete no cuantifica retornos sobre capital,
+  reinversión, penetración del mercado direccionable ni sostenibilidad del dividendo;
+  el apalancamiento y la inconsistencia de FCF limitan la evaluación.
 ticker: O
 version: '3.0'
