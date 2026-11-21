@@ -1,148 +1,145 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento interanual de ingresos en los doce meses terminados
-      el 2027-09-30 es inferior al 5%.
+  - condition: Los ingresos reportados TTM al 2027-09-30 son inferiores a USD 40.848
+      mil millones.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los informes divulgados hasta la fecha objetivo muestran que el crecimiento
-      depende de adquisiciones o partidas no recurrentes y que los ingresos de productos
-      existentes disminuyen interanualmente.
+  - condition: Los ingresos reportados TTM al 2027-09-30 son iguales o inferiores
+      a USD 38.903 mil millones, lo que indicaría estancamiento o contracción.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento interanual de ingresos en los doce meses terminados el 2027-09-30
-    es inferior al 5%.
-  - Los informes divulgados hasta la fecha objetivo muestran que el crecimiento depende
-    de adquisiciones o partidas no recurrentes y que los ingresos de productos existentes
-    disminuyen interanualmente.
+  - Los ingresos reportados TTM al 2027-09-30 son inferiores a USD 40.848 mil millones.
+  - Los ingresos reportados TTM al 2027-09-30 son iguales o inferiores a USD 38.903
+    mil millones, lo que indicaría estancamiento o contracción.
   horizon: medio
   id: H1-OPP-MB-AMGN
   opportunity_id: OPP-MB-AMGN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-19'
-    expected: 5.0
+    deadline: '2027-09-30'
+    expected: 40.848
     met: null
-    metric: Crecimiento interanual de ingresos en los doce meses terminados el 2027-09-30
-    prediction: Los ingresos acumulados de los doce meses terminados el 2027-09-30
-      serán al menos un 5% superiores a los de los doce meses terminados el 2026-09-30.
-    unit: '%'
+    metric: Ingresos reportados TTM
+    prediction: Los ingresos reportados TTM al 2027-09-30 serán iguales o superiores
+      a USD 40.848 mil millones, equivalente a un crecimiento de al menos 5% frente
+      a USD 38.903 mil millones.
+    unit: USD mil millones
   priority: critical
   probability: 0.5
-  rationale: La tesis plantea crecimiento apoyado en la cartera de terapias, pero
-    la evidencia suministrada confirma ingresos sin aportar datos para validar penetración,
-    crecimiento por producto o resistencia competitiva. Esta hipótesis convierte esa
-    incertidumbre en una prueba cuantitativa.
-  review_trigger: Dejar de creerla si los ingresos de los doce meses terminados el
-    2027-06-30 crecen menos del 3% interanual y la compañía no presenta evidencia
-    cuantificada de una recuperación en el siguiente trimestre.
+  rationale: La tesis supone que la cartera de terapias puede sostener el crecimiento.
+    La base de ingresos TTM confirma una escala significativa, pero el paquete no
+    incluye ventas por producto, crecimiento orgánico ni datos de mercado para verificar
+    el mecanismo. Por ello, esta hipótesis somete a prueba, en vez de dar por demostrada,
+    la capacidad de crecimiento de la cartera.
+  review_trigger: Dejar de creerla si los ingresos reportados de los cuatro trimestres
+    terminados el 2027-09-30 no alcanzan USD 40.848 mil millones; la publicación de
+    ese dato es el evento de revisión.
   secondary_hypotheses: []
-  statement: Amgen sostendrá crecimiento de ingresos en los próximos doce meses, señal
-    de que su cartera comercial puede compensar la competencia y los riesgos de producto.
+  statement: Los ingresos reportados de Amgen crecerán al menos un 5% en los 12 meses
+    terminados el 2027-09-30 respecto a los ingresos TTM de USD 38.903 mil millones
+    informados al 2026-09-30.
   status: ACTIVE
   ticker: AMGN
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen de flujo de caja libre para los doce meses terminados el
-      2027-09-30 es inferior al 20%.
+  - condition: El margen de FCF TTM al 2027-09-30 es inferior al 22%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía informa que el flujo de caja libre se sostuvo mediante
-      una reducción no recurrente de inversión necesaria para sus operaciones o cartera.
+  - condition: El FCF TTM al 2027-09-30 es inferior a USD 8.986 mil millones si los
+      ingresos alcanzan USD 40.848 mil millones.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen de flujo de caja libre para los doce meses terminados el 2027-09-30
-    es inferior al 20%.
-  - La compañía informa que el flujo de caja libre se sostuvo mediante una reducción
-    no recurrente de inversión necesaria para sus operaciones o cartera.
+  - El margen de FCF TTM al 2027-09-30 es inferior al 22%.
+  - El FCF TTM al 2027-09-30 es inferior a USD 8.986 mil millones si los ingresos
+    alcanzan USD 40.848 mil millones.
   horizon: medio
   id: H2-OPP-MB-AMGN
   opportunity_id: OPP-MB-AMGN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-19'
-    expected: 20.0
+    deadline: '2027-09-30'
+    expected: 22.0
     met: null
-    metric: Flujo de caja libre como porcentaje de ingresos en los doce meses terminados
-      el 2027-09-30
-    prediction: El flujo de caja libre acumulado de los doce meses terminados el 2027-09-30
-      será al menos el 20% de los ingresos del mismo periodo.
-    unit: '%'
+    metric: Margen de FCF TTM
+    prediction: El margen de FCF TTM al 2027-09-30 será igual o superior al 22%; con
+      ingresos de USD 40.848 mil millones, esto equivaldría a un FCF de al menos USD
+      8.986 mil millones.
+    unit: porcentaje de ingresos reportados
   priority: critical
   probability: 0.5
-  rationale: La evidencia suministrada confirma flujo de caja libre, pero no permite
-    validar su trayectoria, calidad ni sostenibilidad. Una proporción mínima de flujo
-    de caja libre sobre ingresos permite comprobar directamente si el crecimiento
-    del negocio sigue convirtiéndose en caja.
-  review_trigger: Dejar de creerla si el margen de flujo de caja libre de los doce
-    meses terminados el 2027-06-30 cae por debajo del 18% y la información publicada
-    no identifica una causa temporal cuantificada y reversible.
+  rationale: El FCF TTM informado al 2026-09-30 es USD 9.581 mil millones frente a
+    ingresos de USD 38.903 mil millones, un margen aproximado de 24,6%. Mantener un
+    margen de al menos 22% pondría a prueba si la generación de caja puede sostenerse
+    mientras la empresa busca crecer. El paquete no detalla inversión, intereses ni
+    necesidades de capital, así que no permite atribuir causalmente el margen ni evaluar
+    por completo la carga de deuda.
+  review_trigger: Dejar de creerla si los resultados publicados para los cuatro trimestres
+    terminados el 2027-09-30 muestran un margen de FCF inferior al 22%, calculado
+    con la misma definición de FCF que la cifra de referencia.
   secondary_hypotheses:
   - H1-OPP-MB-AMGN
-  statement: Amgen conservará una conversión de ingresos en flujo de caja libre suficiente
-    para financiar su cartera y otras necesidades de capital sin deterioro marcado
-    de la generación de caja.
+  statement: Amgen conservará una generación de flujo de caja libre (FCF) equivalente
+    a por lo menos el 22% de sus ingresos reportados durante los 12 meses terminados
+    el 2027-09-30.
   status: ACTIVE
   ticker: AMGN
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de AMGN menos el rendimiento total del S&P 500
-      durante el periodo es inferior a 5 puntos porcentuales.
+  - condition: La diferencia entre el rendimiento total de AMGN y el de XLV al 2027-11-21
+      es inferior a 5 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La acción supera al S&P 500 únicamente por una revalorización no respaldada
-      por crecimiento de ingresos o generación de caja según los resultados publicados
-      en el periodo.
+  - condition: AMGN obtiene un rendimiento total inferior al de XLV durante el periodo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de AMGN menos el rendimiento total del S&P 500 durante el
-    periodo es inferior a 5 puntos porcentuales.
-  - La acción supera al S&P 500 únicamente por una revalorización no respaldada por
-    crecimiento de ingresos o generación de caja según los resultados publicados en
-    el periodo.
+  - La diferencia entre el rendimiento total de AMGN y el de XLV al 2027-11-21 es
+    inferior a 5 puntos porcentuales.
+  - AMGN obtiene un rendimiento total inferior al de XLV durante el periodo.
   horizon: medio
   id: H3-OPP-MB-AMGN
   opportunity_id: OPP-MB-AMGN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-19'
+    deadline: '2027-11-21'
     expected: 5.0
     met: null
-    metric: Rendimiento total relativo de AMGN frente al S&P 500
-    prediction: El rendimiento total de AMGN, incluidos dividendos, superará en al
-      menos 5 puntos porcentuales el rendimiento total del S&P 500 entre el 2026-11-19
-      y el 2027-11-19.
-    unit: puntos porcentuales
+    metric: Rendimiento total relativo de AMGN frente a XLV
+    prediction: El rendimiento total de AMGN, medido en dólares y con dividendos reinvertidos,
+      excederá el de XLV en al menos 5 puntos porcentuales durante el periodo terminado
+      el 2027-11-21.
+    unit: puntos porcentuales de exceso de rendimiento
   priority: important
   probability: 0.5
-  rationale: 'Los objetivos publicados por analistas, entre USD 230 y USD 542, reflejan
-    una dispersión considerable, pero la evidencia suministrada no permite atribuirla
-    a supuestos de negocio ni determinar el valor razonable. Por ello, esta hipótesis
-    no adopta un precio objetivo: contrasta el resultado de mercado de Amgen con un
-    referente observable.'
-  review_trigger: Dejar de creerla si, al cierre del 2027-06-30, AMGN acumula un rendimiento
-    total inferior al del S&P 500 en 10 o más puntos porcentuales y los resultados
-    divulgados no muestran una mejora de ingresos o flujo de caja libre.
+  rationale: Si Amgen sostiene el crecimiento de ingresos y una conversión de caja
+    robusta, el mercado podría valorar favorablemente la capacidad de financiar operaciones
+    y retornos al accionista. Sin embargo, el paquete no proporciona precio, múltiplos
+    ni expectativas de consenso; por tanto, no permite determinar si la valoración
+    inicial ya incorpora ese escenario. La comparación relativa con XLV hace la predicción
+    observable sin asumir un múltiplo de partida.
+  review_trigger: Dejar de creerla si, al 2027-05-21, el rendimiento total acumulado
+    de AMGN queda 10 puntos porcentuales o más por debajo del de XLV; evaluar definitivamente
+    la hipótesis el 2027-11-21.
   secondary_hypotheses:
   - H1-OPP-MB-AMGN
   - H2-OPP-MB-AMGN
-  statement: La generación de caja de Amgen será suficientemente resistente para que
-    la acción obtenga un rendimiento total superior al del mercado amplio durante
-    el próximo año.
+  statement: Entre el 2026-11-21 y el 2027-11-21, el rendimiento total de las acciones
+    de Amgen, incluidos dividendos, superará en al menos 5 puntos porcentuales el
+    rendimiento total del ETF Health Care Select Sector SPDR (XLV).
   status: ACTIVE
   ticker: AMGN
   version: 1

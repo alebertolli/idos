@@ -1,0 +1,23 @@
+confidence: HIGH
+engine: ResearchWorker
+findings:
+- 'Classification: Multibagger'
+- 'Market error: Existe una posible subvaloración del mercado, pero la magnitud depende
+  de la ejecución de la estrategia de crecimiento.'
+- 'Thesis: Analog Devices muestra crecimiento sostenido de ingresos (CAGR 3 años ~4.1%)
+  y fuerte generación de flujo de caja libre (34% YoY), aunque enfrenta presión de
+  cobertura de intereses y falta de datos de'
+generated_at: '2026-11-21T14:11:18.188138-03:00'
+id: ass-dcd715b5
+recommendation: REVIEW
+risks:
+- detalle: 'Interest coverage ratio = 0 (fuente: stockanalysis.com) está muy por debajo
+    del umbral de 2.0.'
+  riesgo: Cobertura de intereses insuficiente
+- detalle: Falta información histórica de diluted shares para calcular dilution_yoy_pct.
+  riesgo: Datos de dilución de acciones no disponibles
+- detalle: Dependencia de mercados cíclicos como automotriz y comunicaciones.
+  riesgo: Crecimiento de ingresos podría desacelerarse
+score: 81.78
+status: COMPLETED
+version: '3.0'

@@ -66,3 +66,127 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T06:24:04.130286'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ADI
+    ticker: ADI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T14:09:41.551647'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ADI
+    ticker: ADI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T14:09:41.559894'
+- data:
+    classification: Multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 3adbe5b97529194b2bb7631512ee7dc45bb755ee217fbdf42f215b30743f52af
+    opp_id: OPP-MB-ADI
+    original_status: SCREENED
+    score: 81.78
+    strategy_version: '1.5'
+    ticker: ADI
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T14:11:18.263220'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ADP
+    ticker: ADP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T14:11:43.109004'
+- data:
+    classification: Investigación fundamental requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 0b666d6094fa9bfa3494fbfea4d1124603db397cdb9d4e509cf577c9835d9bfa
+    opp_id: OPP-MB-ADP
+    original_status: UNDER_RESEARCH
+    score: 50
+    strategy_version: '1.5'
+    ticker: ADP
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T14:13:05.031086'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-AEG
+    ticker: AEG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T14:13:40.826287'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AEG
+    ticker: AEG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T14:13:40.841792'
+- data:
+    errors:
+    - 'H1: prediction or trigger references an expired year'
+    - 'H2: prediction or trigger references an expired year'
+    event_evidence: null
+    event_type: monthly
+    opp_id: OPP-MB-AEG
+    ticker: AEG
+  event_type: research:hypothesis_validation_failed
+  source: research_worker
+  timestamp: '2026-11-21T14:14:26.974156'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AMGN
+    ticker: AMGN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T14:14:52.296559'
+- data:
+    classification: Investigación pendiente; evidencia insuficiente para validar una
+      oportunidad de crecimiento compuesto.
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: c7bf2f841e8c2c9a75295045ead87aa1fe39eb84679fe170351aed25d4746a46
+    opp_id: OPP-MB-AMGN
+    original_status: UNDER_RESEARCH
+    score: 42
+    strategy_version: '1.5'
+    ticker: AMGN
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T14:16:26.778822'

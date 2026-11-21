@@ -1,124 +1,144 @@
 ## 1. Visión General de la Compañía
 
-Analog Devices, Inc. (ADI) diseña, fabrica, prueba y comercializa circuitos integrados, software y subsistemas. Sus productos permiten captar, convertir, acondicionar y gestionar señales y energía. La compañía opera en el sector de semiconductores, con exposición indicada a los mercados industrial, automotriz y de comunicaciones.
+Analog Devices, Inc. (ADI) diseña, fabrica, prueba y comercializa circuitos integrados (IC), software y subsistemas. Sus productos captan, convierten, acondicionan y gestionan señales analógicas y digitales, y se utilizan en aplicaciones industriales, de instrumentación y automotrices, entre otras.
 
-Su cadena de valor abarca el desarrollo de tecnología y diseños, la fabricación y prueba de productos y su distribución global. La información disponible no detalla la distribución geográfica de ingresos, la mezcla de fabricación propia y externa ni la concentración de clientes.
+La cadena de valor comprende el diseño de circuitos, software y herramientas de simulación; la fabricación y prueba de IC y subsistemas; y la comercialización global, incluida una fuerza de ventas directa. La información disponible no detalla la distribución geográfica de ingresos ni las instalaciones de fabricación.
 
-Los datos suministrados describen a ADI como un proveedor especializado de productos analógicos, de señal mixta, potencia y sensado. Entre las compañías del sector o de industrias relacionadas incluidas en el contexto están [[ALAB]], [[AMAT]], [[AMD]], [[ARM]], [[ASML]] y [[AVGO]]. Esta lista no implica que todas sean competidores directos.
+ADI opera en semiconductores analógicos y de señal mixta. Entre las compañías relacionadas del sector tecnológico y de semiconductores incluidas en esta wiki figuran [[AVGO]], [[AMAT]], [[AMD]] y [[ALAB]]; los datos suministrados no permiten establecer comparaciones directas de cuota de mercado o desempeño.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-**Productos y aplicaciones señalados:**
+**Productos y propuesta de valor**
 
 - Convertidores de datos analógico-digitales y digital-analógicos.
-- Productos de gestión de energía, referencias y circuitos integrados de potencia.
-- Software y subsistemas asociados al procesamiento de señales y energía.
+- Circuitos de gestión de energía y referencias.
+- Software, herramientas de simulación y subsistemas asociados.
 
-**Drivers de ingresos identificados:**
+**Drivers de ingresos identificados**
 
-- Demanda y ciclos de inventario en los mercados industrial y de comunicaciones.
-- Contenido electrónico por vehículo y adopción de sistemas avanzados en automoción.
-- Demanda de componentes especializados para captar, convertir y acondicionar señales.
+- Demanda de semiconductores analógicos y de señal mixta.
+- Ciclos de inversión y renovación en los mercados industrial y de instrumentación.
+- Actividad en mercados finales como el automotriz.
 
-La evaluación proporcionada califica la posición competitiva como líder y el moat como amplio. La justificación propuesta es que la especialización, la fiabilidad y el rendimiento de los productos podrían favorecer relaciones de diseño duraderas y costos de cambio. Estas son inferencias analíticas; no se aportaron datos primarios sobre retención de clientes, duración de diseños, participación de mercado o rentabilidad por producto que permitan verificarlas de forma independiente.
+La evaluación disponible califica la posición competitiva como líder y el moat como amplio. Las fuentes señalan como ventajas potenciales décadas de experiencia en señal analógica y mixta, amplitud de portafolio, propiedad intelectual, confiabilidad y costos de cambio. Son valoraciones cualitativas: no se suministran métricas comparativas para verificarlas de forma independiente.
 
-La industria es cíclica: los ingresos pueden verse afectados por la actividad de los clientes y la acumulación o corrección de inventarios en los mercados finales. La competencia tecnológica y la presión de precios también pueden limitar la diferenciación. [[AMD]], [[AVGO]] y [[ALAB]] son referencias del sector proporcionadas en el contexto, pero no se estableció el grado de solapamiento competitivo con ADI.
+La industria presenta motores estructurales potenciales —electrificación, automatización, conectividad y procesamiento de datos— junto con ciclos pronunciados de inventario y demanda. La competencia tecnológica y la presión de precios son riesgos relevantes. No se proporcionan datos para comparar la posición de ADI con competidores específicos como [[AVGO]] o [[AMAT]].
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes proceden de los datos de investigación proporcionados. No se especifican en todos los casos la fuente primaria, el periodo exacto ni la base de cálculo. Deben tratarse como observaciones pendientes de validación.
+Las cifras financieras se presentan con limitaciones de periodo, fuente o comparabilidad. No deben tratarse como una serie homogénea.
 
-| Métrica | Valor informado | Periodo/base indicada | Nota |
-|---|---:|---|---|
-| Crecimiento de ingresos | 33,65% | TTM al 2026-08-01 | Una fuente seleccionada; periodo y comparabilidad pendientes de confirmar. |
-| Margen operativo | 35,67% | No especificado | Base de cálculo pendiente de validar. |
-| ROIC | 10,96% | No especificado | Base de cálculo y periodo pendientes de validar. |
-| Flujo de caja libre (FCF) | USD 4.940 millones | TTM terminado el 2026-08-01 | Atribuido en el contexto a Stock Analysis; no se incluyó un enlace. |
-| PER | 41,96 | No especificado | La fecha y el tipo de beneficio empleado no se detallan. |
-| EV/EBITDA | 27,41 | No especificado | La fecha y la base de EBITDA no se detallan. |
-| FCF yield | 0% | No especificado | El propio análisis advierte que no se proporcionan cifras de flujo operativo, capex ni FCF para recalcularlo; por tanto, la cifra requiere reconciliación. |
+| Métrica | Valor reportado | Contexto y limitaciones |
+|---|---:|---|
+| Margen bruto | 65,8% | Reportado en el análisis DDD; no se especifican periodo ni fuente en el contexto. |
+| Margen operativo | 35,67% | Dato suministrado sin periodo, fuente ni serie temporal. |
+| ROIC | 10,96% | Dato suministrado sin periodo, fuente ni serie temporal. |
+| Crecimiento de ingresos | 33,65% | Dato suministrado sin periodo ni comparación interanual; no es directamente conciliable con el CAGR de tres años citado en otro análisis. |
+| CAGR de ingresos a 3 años | ~4,1% | Supuesto usado en el escenario base; el cálculo del ratio fue marcado como no disponible por falta de referencias explícitas a sus inputs. |
+| Crecimiento de FCF | 34,23% | Valor TTM reportado; período de referencia señalado como 2026-08-01. Fuente: [Stock Analysis, estadísticas de ADI](https://stockanalysis.com/stocks/ADI/statistics/). |
+| Conversión de FCF | ~119% | Supuesto del escenario base; no se incluyen cifras que permitan verificar el cálculo. |
+| EV/EBITDA | 27,41 | Múltiplo suministrado; faltan fecha y detalles de cálculo. |
+| P/E | 41,96 | Múltiplo suministrado; faltan fecha y detalles de cálculo. |
+| FCF yield | 0 | Valor conservado del input, pero no se puede determinar si representa un cálculo o un dato ausente. No debe interpretarse como rendimiento real nulo. |
 
-La evaluación recibida considera la salud financiera adecuada y la tendencia financiera estable, pero también señala que faltan datos para analizar la conversión de beneficios en efectivo y para estimar valor intrínseco de manera independiente. No se proporcionaron cifras sobre efectivo, deuda, vencimientos, liquidez, obligaciones financieras, capex o estructura de capital; no es posible evaluar aquí el apalancamiento ni la cobertura de deuda.
+El análisis describe generación positiva de flujo de caja libre, pero no aporta una serie de FCF ni datos suficientes para evaluar su conversión o sostenibilidad. La clasificación de tendencia financiera se considera provisional.
+
+| Aspecto de estructura de capital | Evidencia disponible | Evaluación |
+|---|---|---|
+| Cobertura de intereses | Ratio reportado de 0; fuente indicada: Stock Analysis | Señal de riesgo que debe verificarse junto con la definición del ratio, el periodo y los estados financieros subyacentes. |
+| Dilución de acciones | No se dispone de historial de acciones diluidas | No es posible calcular la dilución interanual ni su tasa en los últimos tres años. |
+| Deuda neta y liquidez | Sin cifras suministradas | No se puede evaluar adecuadamente la estructura de capital ni la capacidad de servicio de deuda. |
+
+Fuente citada para el ratio de cobertura de intereses: [Stock Analysis, estadísticas de ADI](https://stockanalysis.com/stocks/ADI/statistics/). El contexto no especifica la fecha de consulta de este dato.
 
 ## 4. Management y Gobierno Corporativo
 
-La información disponible no incluye evidencia primaria suficiente sobre la ejecución del equipo directivo, remuneración, tenencia accionarial de insiders, compras o ventas de acciones, composición del consejo ni historial de asignación de capital.
+La evaluación disponible califica la calidad del management como buena, la asignación de capital como creadora de valor y la alineación de insiders como moderada. Estas conclusiones son provisionales: no se aportan datos de remuneración, tenencia accionarial, compras o ventas de insiders, adquisiciones ni retornos de capital.
 
-Las evaluaciones aportadas divergen: una califica la gestión como regular por falta de evidencia suficiente; otra la califica como buena, con asignación de capital creadora de valor y alineamiento moderado de insiders. Estas calificaciones no están respaldadas por métricas o fuentes primarias en el material recibido y no deben considerarse hechos confirmados.
-
-**Conclusión:** la calidad de la gestión y el gobierno corporativo quedan sin verificar. Se requieren informes corporativos y datos de remuneración, participación accionarial y decisiones de capital para emitir una evaluación fundamentada.
+Tampoco se proporciona información sobre composición, independencia o comités del board. Por ello, no es posible evaluar de forma documentada el gobierno corporativo ni contrastar la evaluación cualitativa del management con resultados específicos.
 
 ## 5. Tesis de Inversión
 
-La tesis favorable es que ADI podría beneficiarse de su especialización en circuitos analógicos, de señal mixta y de gestión de potencia, componentes que cumplen funciones relevantes en sistemas industriales, automotrices y de comunicaciones. Si sus productos mantienen ventajas de fiabilidad y rendimiento y se integran en diseños de clientes durante periodos prolongados, podrían sostener relaciones comerciales y costos de cambio. Esta última conclusión es una hipótesis, no un hecho demostrado por la evidencia recibida.
+El caso alcista se apoya en la posición especializada de ADI en semiconductores analógicos y de señal mixta, un portafolio que atiende varios mercados finales y ventajas potenciales relacionadas con propiedad intelectual, confiabilidad y costos de cambio.
 
-Una recuperación amplia de la demanda, junto con la mejora de márgenes y la normalización de inventarios, podría impulsar los resultados. El crecimiento TTM de ingresos reportado —33,65% al 2026-08-01— es una observación potencialmente favorable, pero procede de una sola fuente seleccionada y su periodo y composición deben validarse antes de interpretarlo como una tendencia sostenida.
+Los principales elementos a favor son:
 
-La cotización disponible es **USD 356,67 al 2026-11-20**. El consenso de objetivos informado es de **USD 474,47**, con referencias entre **USD 365 y USD 675**. La cotización inferior al promedio de objetivos puede reflejar expectativas distintas sobre recuperación o crecimiento, pero no demuestra por sí sola una infravaloración. La dispersión amplia y la falta de una valoración independiente hacen que la conclusión sobre un posible error de valoración sea **incierta**.
+- **Calidad del negocio:** la evaluación DDD asigna una calificación A al dominio de calidad del negocio y destaca diversificación, margen bruto reportado de 65,8% y FCF positivo. La falta de periodos y series comparables limita la verificación.
+- **Generación de efectivo:** el crecimiento de FCF TTM de 34,23% aparece reportado en [Stock Analysis](https://stockanalysis.com/stocks/ADI/statistics/) con período de referencia 2026-08-01. No se suministra la serie que permitiría comprobar su evolución.
+- **Demanda potencial en aplicaciones emergentes:** la adopción de IA en edge computing podría elevar la demanda de convertidores de alta precisión; la expansión de energías renovables podría favorecer productos de gestión de energía. Estos son catalizadores potenciales, no resultados confirmados.
+- **Valoración relativa al consenso suministrado:** el precio de referencia indicado en el análisis DDD, USD 356,67, está por debajo del rango de consenso de USD 365–675 y de la media de USD 474,47. La fecha del precio y de las estimaciones de consenso no está especificada en ese input, por lo que la comparación requiere actualización y verificación.
+- **Potencial de nuevos productos y mercados:** nuevos convertidores de alta velocidad y expansión en aplicaciones automotrices podrían apoyar el crecimiento y reducir una eventual brecha de valoración, sujeto a ejecución.
 
-La clasificación suministrada es **quality at fair price** (calidad a precio razonable), con opinión de valoración **justa**. Esta clasificación debe leerse como una evaluación del material recibido, no como una conclusión sustentada en un modelo de flujos de caja completo.
+El puntaje general de descubrimiento de 81,78 y la clasificación de oportunidad como “Multibagger” son resultados del sistema de análisis, no evidencia independiente de retorno futuro. La tesis depende de que el crecimiento y la generación de caja se mantengan y de que los riesgos financieros reportados se aclaren.
 
 ## 6. Riesgos y Contra-Tesis
 
-| Riesgo | Impacto / probabilidad indicados | Consideración |
-|---|---|---|
-| Debilidad cíclica, corrección de inventarios o recuperación menor a la esperada en mercados finales | Alto / media | Puede afectar ingresos, utilización y márgenes, especialmente en mercados industriales y de comunicaciones. |
-| Competencia tecnológica y presión de precios | Alto / media | Puede erosionar márgenes o reducir la diferenciación de los productos analógicos, de señal mixta y de potencia. |
-| Pérdida de diseños o participación | Alto / media | Un cliente puede seleccionar productos alternativos o reducir el contenido de ADI en sus sistemas. |
-| Continuidad de suministro y capacidad de fabricación | Riesgo de nivel medio según la evaluación recibida | La exposición es propia de un fabricante y comercializador de semiconductores; no se aportaron datos concretos sobre proveedores, capacidad o interrupciones. |
-| Valoración exigente o expectativas no cumplidas | No cuantificada | Los múltiplos informados son elevados, pero sus fechas y bases no están especificadas. |
+**Riesgos principales**
 
-**Contra-tesis:** el crecimiento informado podría ser temporal o reflejar una comparación favorable del ciclo, en vez de una recuperación estructural. Si la demanda industrial o automotriz se debilita, los inventarios vuelven a corregirse o la presión competitiva aumenta, el crecimiento y los márgenes podrían no sostenerse. Asimismo, la diferencia entre cotización y objetivos de analistas no constituye evidencia suficiente de un error de valoración.
+1. **Ciclicidad y demanda:** una debilidad industrial, automotriz o de comunicaciones, o una acumulación de inventarios, podría reducir ventas y utilización de capacidad.
+2. **Cobertura de intereses:** el ratio reportado de 0 está por debajo del umbral de 2,0 usado en el análisis. Debe verificarse antes de inferir problemas de solvencia, dada la falta de detalle sobre periodo y cálculo.
+3. **Competencia y precios:** otros fabricantes de semiconductores analógicos y de señal mixta podrían ejercer presión tecnológica y sobre márgenes.
+4. **Dilución desconocida:** la ausencia de historial de acciones diluidas impide medir el impacto de la emisión de acciones sobre el valor por acción.
+5. **Ejecución y valoración:** los múltiplos reportados son exigentes; una desaceleración de ingresos o una reducción de márgenes podría hacer que las expectativas implícitas fueran difíciles de cumplir.
+6. **Cadena de suministro:** disrupciones prolongadas de suministro de semiconductores figuran como falsador de la tesis.
+7. **Riesgo regulatorio y geográfico:** cambios regulatorios que limiten ventas en China figuran como falsador, aunque no se aportan cifras de exposición regional.
 
-**Triggers de falsación de la tesis favorable:**
+**Contra-tesis**
 
-- Reportes futuros que muestren que la recuperación de ingresos no es amplia o sostenida.
-- Deterioro persistente de márgenes, pedidos o inventarios en los mercados relevantes.
-- Evidencia de pérdida de diseños, participación o poder de fijación de precios.
-- Dificultades de suministro o utilización que afecten materialmente la rentabilidad.
-- Confirmación de que el crecimiento TTM informado no es comparable o no representa una tendencia durable.
+El precio inferior al rango bajo del consenso no demuestra por sí mismo que ADI esté infravalorada. La desaceleración de la demanda, los ciclos de inventario, la presión sobre márgenes y la cobertura de intereses reportada podrían justificar una valoración menor. Además, los datos financieros clave contienen inconsistencias o carecen de periodo y fuente suficiente para respaldar una conclusión firme.
+
+**Falsadores y señales de revisión**
+
+- Crecimiento de ingresos inferior a 3% CAGR, según los criterios del escenario base suministrado.
+- FCF growth por debajo de 10% en el escenario bajista.
+- Margen bruto por debajo de 60%.
+- Falta de mejora de la cobertura de intereses por encima de 2,0.
+- Disrupciones prolongadas en la cadena de suministro.
+- Cambios regulatorios que restrinjan las ventas en China.
+
+Estos niveles son umbrales definidos por el análisis recibido, no pronósticos confirmados.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Horizonte indicado | Impacto potencial | Probabilidad informada | Estado y limitaciones |
-|---|---|---|---:|---|
-| Recuperación sostenida de demanda y márgenes, confirmada por reportes con desglose por mercado | Medio | Alto | 45% | Catalizador por verificar en resultados futuros; confianza baja. |
-| Adopción y contribución material de nuevos productos de conversión de datos para centros de datos, incluida la familia ADI-AIX de 10-Gbit/s | Medio | Medio | 25% | No se aportó evidencia primaria que confirme el lanzamiento, clientes o contribución comercial; confianza baja. |
-| Posible adquisición de una empresa de sensores de potencia para reforzar la oferta automotriz | No especificado | No evaluado | 15% | No se aportó anuncio ni registro de una operación. No puede afirmarse que haya ocurrido ni que esté confirmada. |
+El horizonte de escenarios indicado es del **21 de noviembre de 2026 al 21 de noviembre de 2027**. No se proporcionan fechas concretas para anuncios, lanzamientos o hitos comerciales.
 
-El contexto registra menores probabilidades que en una evaluación anterior para las dos iniciativas específicas: ADI-AIX pasó de 45% a 25%, y la posible adquisición de 30% a 15%. Estos cambios reflejan una actualización de la evaluación, no evidencia de que los eventos hayan ocurrido.
-
-No se proporcionaron fechas concretas de resultados, anuncios de productos o transacciones. El principal evento observable es la publicación de reportes futuros que permitan verificar demanda, pedidos, inventarios, márgenes y desempeño por mercado.
+| Catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia |
+|---|---|---|---|
+| Adopción de IA en edge computing | Sin fecha disponible | Mayor demanda potencial de convertidores de alta precisión | Hipótesis de catalizador; no se aportan estimaciones de ingresos. |
+| Expansión de energías renovables | Sin fecha disponible | Mayor uso potencial de productos de gestión de energía | Hipótesis de catalizador; no se cuantifica el impacto. |
+| Nuevos convertidores de alta velocidad | Sin fecha disponible | Podrían ampliar oportunidades comerciales y apoyar la valoración | No se aportan calendario de lanzamiento ni resultados de ventas. |
+| Expansión en mercados automotrices | Sin fecha disponible | Posible crecimiento de ingresos y diversificación de demanda | El impacto depende de adopción y ejecución. |
+| Mejora de cobertura de intereses | A monitorear durante el horizonte de escenarios | Reduciría una señal de riesgo financiero si se confirma | El análisis fija cobertura superior a 2,0 como falsador del escenario bajista. |
 
 ## 8. Marco de Valoración
 
-El valor intrínseco no puede estimarse de manera independiente con la información recibida: faltan proyecciones de flujos de caja, supuestos de crecimiento y márgenes, inversión en capital, coste de capital y detalles de deuda y liquidez.
+La información disponible no permite estimar rigurosamente el valor intrínseco: faltan precio de referencia fechado, proyecciones de flujo de caja, deuda neta y parámetros explícitos de valoración. El valor de FCF yield reportado como 0 no debe utilizarse como dato económico confirmado.
 
-Los múltiplos proporcionados —PER de 41,96 y EV/EBITDA de 27,41— son referencias incompletas porque no se especifican fecha, bases contables ni ajustes. El FCF yield reportado como 0% tampoco puede verificarse con los datos disponibles y debe reconciliarse con la observación de FCF de USD 4.940 millones para el TTM terminado el 2026-08-01.
+Los múltiplos suministrados —P/E de 41,96 y EV/EBITDA de 27,41— sugieren una valoración exigente según el análisis recibido, pero no se especifican fecha, periodo fiscal ni metodología. La comparación debe actualizarse antes de tomar una decisión.
 
-**Escenarios de referencia suministrados para el horizonte al 2027-11-21:**
+**Escenarios recibidos** —moneda: USD; fecha de análisis: 21 de noviembre de 2026; horizonte: 21 de noviembre de 2027:
 
-| Escenario | Precio objetivo | Interpretación |
-|---|---:|---|
-| Bajista (BEAR) | USD 365 | Anclado al extremo bajo del rango de objetivos observado; no es una valoración independiente ni un precio objetivo derivado de un modelo propio. |
-| Alcista (BULL) | USD 675 | Anclado al extremo alto del rango observado; no es una previsión propia ni una valoración independiente. |
+| Escenario | Precio objetivo | Supuestos principales | Lectura |
+|---|---:|---|---|
+| Bajista | 365,00 | Ingresos con CAGR inferior a 2% en los próximos 12 meses y crecimiento de FCF inferior a 10% | Refleja crecimiento limitado y presión de márgenes. |
+| Base | 474,47 | CAGR de ingresos a tres años cercano a 4,1% y conversión de FCF cercana a 119% | Supone mantenimiento de márgenes y crecimiento moderado. |
 
-Frente a la cotización de USD 356,67 al 2026-11-20, los objetivos de escenario son referencias, no estimaciones verificadas de valor razonable. La evaluación AOIF indica que el margen de seguridad es insuficiente y que el valor intrínseco no es estimable de forma independiente. Para realizar sensibilidad sería necesario modelar, como mínimo, crecimiento por mercado, márgenes, conversión a FCF, inversión, coste de capital y múltiplos de salida.
+Los objetivos corresponden a los extremos bajo y medio del consenso suministrado en el análisis DDD, no a una valoración independiente construida con flujos descontados. No se proporciona escenario alcista cuantificado. La hipótesis de infravaloración depende de confirmar el precio y el consenso en la misma fecha, así como de validar la calidad de los datos financieros.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. **Resultados y ciclo:** ¿Qué muestran los reportes primarios más recientes sobre ingresos, pedidos, inventarios, márgenes, guía y desempeño por mercado?
-2. **Calidad del crecimiento:** ¿Cuál es la base de comparación del crecimiento TTM de 33,65% al 2026-08-01 y qué segmentos lo explican?
-3. **Flujo de caja:** ¿Cómo se reconcilian el FCF de USD 4.940 millones y el FCF yield informado de 0%? ¿Cuáles son el flujo operativo y el capex correspondientes?
-4. **Balance y liquidez:** ¿Cuál es el efectivo, la deuda, los vencimientos, la liquidez disponible y el detalle de otras obligaciones financieras?
-5. **Rentabilidad:** ¿A qué periodos y definiciones corresponden el margen operativo de 35,67% y el ROIC de 10,96%?
-6. **Competencia y moat:** ¿Qué evidencia existe sobre participación de mercado, retención de clientes, duración de diseños, precios y pérdida o ganancia de posiciones frente a otros proveedores?
-7. **Productos para centros de datos:** ¿Se ha lanzado la familia ADI-AIX de 10-Gbit/s? ¿Hay clientes, volumen o contribución material a ingresos?
-8. **Adquisición potencial:** ¿Existe evidencia primaria de una operación relacionada con sensores de potencia para automoción?
-9. **Management y gobierno:** ¿Qué muestran los documentos corporativos sobre remuneración, incentivos, participación de insiders, composición del consejo y asignación de capital?
-10. **Valoración:** ¿Cuáles son la fecha y la base de cálculo de los múltiplos, el consenso de objetivos y el FCF yield? ¿Qué supuestos sostienen los extremos del rango de USD 365–675?
-
-**Fuentes y trazabilidad:** esta entrada se basa únicamente en los contextos DDD y AOIF proporcionados. La única atribución de fuente externa explícita dentro de esos contextos es Stock Analysis para el FCF TTM terminado el 2026-08-01, sin enlace suministrado. No se aportaron enlaces a reportes primarios ni evidencia primaria adicional; por ello, las cifras, anuncios y evaluaciones que requieren confirmación se identifican como pendientes de verificación.
+1. ¿Cuál fue la tasa de dilución de acciones en cada uno de los últimos tres años? Obtener la serie de acciones diluidas y calcular la variación interanual.
+2. ¿Qué periodo, definición y cifras sustentan el ratio de cobertura de intereses reportado como 0? ¿Cómo cambiaría con inversiones de capital o variaciones de deuda?
+3. ¿Cómo se reconcilian el crecimiento de ingresos reportado de 33,65% y el CAGR de tres años cercano a 4,1%? Confirmar periodo, fuente y método de cálculo de cada cifra.
+4. ¿Cuál es la serie histórica de ingresos, FCF, margen bruto, margen operativo y ROIC, con periodos fiscales y fuentes comparables?
+5. ¿Qué deuda neta, vencimientos, efectivo disponible y gastos por intereses tiene la empresa?
+6. ¿El crecimiento de FCF TTM de 34,23% es recurrente? Verificar las cifras subyacentes y la conversión de FCF citada en el escenario base.
+7. ¿Cuál es la exposición de ingresos por región y, en particular, a China? ¿Qué parte estaría afectada por posibles restricciones regulatorias?
+8. ¿Qué evidencia cuantitativa respalda las ventajas competitivas, costos de cambio y posición de liderazgo atribuidos a ADI?
+9. ¿Qué fechas, metas comerciales y contribución esperada tienen los productos de alta velocidad, las aplicaciones de edge AI y las oportunidades en renovables y automoción?
+10. ¿Cuál es la fecha y fuente del precio de USD 356,67 y del consenso de USD 365–675, y siguen siendo comparables?
+11. ¿Qué información sobre remuneración, tenencia de insiders, asignación de capital y composición del board permitiría validar las evaluaciones cualitativas de management y gobierno corporativo?
+12. ¿Cuál será la recomendación del Decision Board? El estado recibido figura como **PENDIENTE_DECISION_BOARD**.
 
 ---
 
