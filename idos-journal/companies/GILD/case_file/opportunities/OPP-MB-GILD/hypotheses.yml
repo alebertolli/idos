@@ -1,144 +1,145 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento interanual de ventas de productos en el ejercicio fiscal
-      2027 es inferior al 5%.
+  - condition: Los ingresos mundiales de productos para VIH del ejercicio fiscal 2027
+      crecen menos de un 3% frente al ejercicio fiscal 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa no publica datos suficientes para calcular la variación
-      interanual de ventas de productos.
+  - condition: La compañía deja de divulgar una cifra comparable y no proporciona
+      una conciliación que permita calcularla.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento interanual de ventas de productos en el ejercicio fiscal 2027 es
-    inferior al 5%.
-  - La empresa no publica datos suficientes para calcular la variación interanual
-    de ventas de productos.
+  - Los ingresos mundiales de productos para VIH del ejercicio fiscal 2027 crecen
+    menos de un 3% frente al ejercicio fiscal 2026.
+  - La compañía deja de divulgar una cifra comparable y no proporciona una conciliación
+    que permita calcularla.
   horizon: medio
   id: H1-OPP-MB-GILD
   opportunity_id: OPP-MB-GILD
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 5.0
+    deadline: '2028-02-15'
+    expected: 3.0
     met: null
-    metric: Crecimiento interanual de ventas de productos en el ejercicio fiscal 2027
-    prediction: Las ventas de productos del ejercicio fiscal 2027 serán al menos un
-      5% superiores a las del ejercicio fiscal 2026, según los resultados anuales
-      publicados antes del 2028-03-31.
+    metric: Variación interanual de ingresos mundiales de productos para VIH en el
+      ejercicio fiscal 2027
+    prediction: Los ingresos mundiales de productos para VIH del ejercicio fiscal
+      2027, según la categoría que Gilead reporte, serán al menos un 3% superiores
+      a los del ejercicio fiscal 2026.
     unit: porcentaje mínimo
   priority: important
   probability: 0.5
-  rationale: La información disponible describe ingresos de escala y un margen bruto
-    elevado, pero no identifica qué productos impulsan los resultados ni demuestra
-    crecimiento orgánico duradero. Esta hipótesis pone a prueba si la actividad comercial
-    agregada mantiene crecimiento pese a esa incertidumbre.
-  review_trigger: Dejar de creerla si los resultados anuales del ejercicio fiscal
-    2027 muestran crecimiento de ventas de productos inferior al 5%, o si la empresa
-    retira la divulgación necesaria para verificarlo.
+  rationale: La compañía cuenta con una cartera de productos en VIH que puede generar
+    ingresos recurrentes. Sin datos recientes de ventas por producto, cuota de mercado,
+    competencia o vencimientos de patentes, esta es una hipótesis que debe verificarse
+    con los resultados publicados, no una conclusión sobre la durabilidad del crecimiento.
+  review_trigger: Dejar de creerla cuando Gilead publique los resultados del ejercicio
+    fiscal 2027 si el crecimiento interanual de los ingresos de productos para VIH
+    es inferior al 3%; si no publica una medida comparable antes del 2028-02-15, clasificarla
+    como no verificable.
   secondary_hypotheses: []
-  statement: Las ventas de productos de Gilead crecerán durante el ejercicio fiscal
-    2027, lo que indicaría que la escala del negocio se sostiene más allá de la generación
-    de caja actual.
+  statement: La franquicia de VIH de Gilead mantendrá crecimiento anual, en vez de
+    contraerse, durante el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: GILD
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen de FCF del ejercicio fiscal 2027 es inferior al 20%.
+  - condition: El flujo de caja libre del ejercicio fiscal 2027 es cero o negativo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF del ejercicio fiscal 2027 es negativo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: No se pueden reconciliar el flujo de caja operativo y las inversiones
-      de capital a partir de información pública.
+  - condition: El flujo de caja libre es positivo, pero inferior al 5% de los ingresos
+      totales del ejercicio fiscal 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen de FCF del ejercicio fiscal 2027 es inferior al 20%.
-  - El FCF del ejercicio fiscal 2027 es negativo.
-  - No se pueden reconciliar el flujo de caja operativo y las inversiones de capital
-    a partir de información pública.
+  - El flujo de caja libre del ejercicio fiscal 2027 es cero o negativo.
+  - El flujo de caja libre es positivo, pero inferior al 5% de los ingresos totales
+    del ejercicio fiscal 2027.
   horizon: medio
   id: H2-OPP-MB-GILD
   opportunity_id: OPP-MB-GILD
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 20.0
+    deadline: '2028-02-15'
+    expected: 5.0
     met: null
-    metric: Margen de FCF del ejercicio fiscal 2027
-    prediction: El margen de FCF del ejercicio fiscal 2027 —FCF dividido por ingresos
-      totales, con FCF definido como flujo de caja operativo menos inversiones de
-      capital— será de al menos el 20%, según resultados publicados antes del 2028-03-31.
+    metric: Flujo de caja libre como porcentaje de ingresos totales en el ejercicio
+      fiscal 2027
+    prediction: El flujo de caja libre acumulado del ejercicio fiscal 2027 será positivo
+      y alcanzará al menos el 5% de los ingresos totales del mismo ejercicio. Se calculará
+      como flujo de caja operativo menos compras de propiedades, planta y equipo,
+      usando cifras reportadas por la compañía.
     unit: porcentaje mínimo
   priority: critical
   probability: 0.5
-  rationale: El contexto indica que el FCF TTM es positivo y ha crecido, y que el
-    margen bruto es elevado. Esto es compatible con una generación de recursos robusta,
-    aunque no prueba la rentabilidad económica de las reinversiones ni elimina el
-    riesgo asociado a una utilidad neta TTM negativa.
-  review_trigger: Dejar de creerla si los resultados anuales del ejercicio fiscal
-    2027 muestran un margen de FCF inferior al 20% o FCF negativo.
-  secondary_hypotheses:
-  - H1-OPP-MB-GILD
-  statement: Gilead conservará una elevada capacidad de conversión de ingresos en
-    caja libre durante el ejercicio fiscal 2027.
+  rationale: La información disponible indica flujo de caja libre TTM positivo y margen
+    bruto alto, pero también ingreso neto TTM negativo. La hipótesis es que la capacidad
+    de convertir operaciones en caja persistirá; debe comprobarse con cifras de flujo
+    de caja y no inferirse únicamente del margen bruto.
+  review_trigger: Dejar de creerla al publicarse los resultados del ejercicio fiscal
+    2027 si el flujo de caja libre es inferior al 5% de los ingresos totales; la hipótesis
+    queda refutada de forma más directa si el flujo de caja libre es negativo.
+  secondary_hypotheses: []
+  statement: Gilead conservará generación positiva de flujo de caja libre en el ejercicio
+    fiscal 2027, pese a la incertidumbre sobre la evolución del ingreso neto TTM.
   status: ACTIVE
   ticker: GILD
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de GILD menos el rendimiento total de XLV es inferior
-      a 5 puntos porcentuales en el período indicado.
+  - condition: La rentabilidad total de GILD menos la rentabilidad total del S&P 500
+      durante el periodo es inferior a 5 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No se dispone de precios ajustados por dividendos comparables para
-      calcular el rendimiento total de ambos activos.
+  - condition: La comparación no puede calcularse de manera consistente con precios
+      ajustados por dividendos para ambas inversiones.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de GILD menos el rendimiento total de XLV es inferior a 5
-    puntos porcentuales en el período indicado.
-  - No se dispone de precios ajustados por dividendos comparables para calcular el
-    rendimiento total de ambos activos.
+  - La rentabilidad total de GILD menos la rentabilidad total del S&P 500 durante
+    el periodo es inferior a 5 puntos porcentuales.
+  - La comparación no puede calcularse de manera consistente con precios ajustados
+    por dividendos para ambas inversiones.
   horizon: medio
   id: H3-OPP-MB-GILD
   opportunity_id: OPP-MB-GILD
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
+    deadline: '2028-11-20'
     expected: 5.0
     met: null
-    metric: Rendimiento total de GILD menos rendimiento total de XLV
-    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de GILD,
-      incluidos dividendos, superará en al menos 5 puntos porcentuales el rendimiento
-      total del ETF Health Care Select Sector SPDR (XLV).
-    unit: puntos porcentuales
+    metric: Rentabilidad total acumulada de GILD menos rentabilidad total del S&P
+      500
+    prediction: Entre el cierre del mercado del 2026-11-20 y el cierre del 2028-11-20,
+      la rentabilidad total de GILD, incluidos dividendos reinvertidos, superará la
+      rentabilidad total del S&P 500 en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales mínimo
   priority: informational
   probability: 0.5
-  rationale: La generación de FCF y el margen bruto descritos podrían respaldar la
-    valoración si persisten, pero el contexto no aporta expectativas financieras ni
-    valoración relativa que demuestren que el mercado esté descontando un deterioro
-    excesivo. Por ello, la hipótesis plantea una prueba de desempeño relativo, no
-    afirma que exista una infravaloración comprobada.
-  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de rendimiento total
-    entre GILD y XLV es inferior a 5 puntos porcentuales.
+  rationale: La generación de caja positiva reportada puede respaldar la rentabilidad
+    para accionistas, pero la información disponible no demuestra que el mercado esté
+    infravalorando el crecimiento, ni aporta estimaciones de beneficios, pipeline
+    o valoración. Por ello, la hipótesis se formula como una prueba relativa de mercado,
+    sin asumir expansión de múltiplos.
+  review_trigger: Dejar de creerla el 2028-11-20 si la rentabilidad total acumulada
+    de GILD no supera a la del S&P 500 en al menos 5 puntos porcentuales; revisar
+    antes si se produce una caída permanente de la capacidad de generación de caja
+    que invalide la premisa financiera.
   secondary_hypotheses:
   - H2-OPP-MB-GILD
-  statement: La acción de Gilead ofrecerá un rendimiento total superior al de un índice
-    amplio del sector sanitario durante los próximos doce meses.
+  statement: La rentabilidad total de las acciones de Gilead superará a la del S&P
+    500 en el periodo de dos años desde la fecha de corte.
   status: ACTIVE
   ticker: GILD
   version: 1

@@ -1,81 +1,72 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El aumento del FCF reportado frente a FY 2025 es compatible con una mejora reciente,
-    pero por sí solo no demuestra una tendencia sostenible ni su causa.
-  - La estabilidad histórica del margen bruto observado no basta para concluir que
-    exista una ventaja competitiva durable.
-  - La cotización reportada es USD 313,28 al 2026-10-30; el consenso de precio objetivo
-    es USD 356,81, con rango USD 160–479, observado el 2026-11-20.
-  - Stock Analysis reporta ingresos de 94.720 millones, FCF de 5.116 millones y utilidad
-    neta de 4.426 millones para FY 2026 terminado el 2026-05-31.
-  - El margen bruto reportado es 27,32% para FY 2026 terminado el 2026-05-31.
+  - Interpretación de riesgo de cobertura de intereses basada en ratio 0
+  - Suposición de que margen bruto estable indica estabilidad operativa
+  - Precio actual 313.28 USD (yfinance, 2026-10-30)
+  - Current ratio 1.48 (stockanalysis, 2026-05-31)
+  - FCF 5,120 millones USD (stockanalysis, 2026-05-31)
+  - EBITDA 11,840 millones USD (stockanalysis, 2026-05-31)
   preguntas_abiertas:
-  - ¿Qué factores operativos y de capital de trabajo explican el cambio del FCF y
-    qué evidencia demuestra su persistencia?
-  - ¿Cuáles son el mercado direccionable, la penetración, los retornos incrementales
-    sobre capital y las ventajas competitivas por segmento?
-  - ¿Cuál es el calendario de vencimientos, el gasto por intereses verificable y la
-    evolución histórica comparable de acciones diluidas?
-catalizadores_previos: &id001 []
+  - ¿Cuál es la evolución histórica de acciones en circulación para calcular dilución?
+  - ¿Existen proyecciones detalladas de ingresos por segmento para CAGR de 3 años?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T14:41:17.925569-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-FDX
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T14:41:17.925569-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-FDX
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación fundamental requerida
-  justificacion: El paquete presenta una señal de mercado favorable, pero la evidencia
-    disponible no basta para validar una tesis de crecimiento de largo plazo ni para
-    construir escenarios operativos defendibles.
+  categoria: multibaggers
+  justificacion: Elevado impulso de precio (53% 12m) y fuerte conversión de FCF (115%)
+    respaldan potencial de revalorización.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: La descripción del negocio evidencia operaciones de transporte, comercio
-    electrónico y servicios empresariales en Estados Unidos e internacionalmente.
-    El margen bruto reportado se mantuvo entre 27,06% y 27,32% en FY 2023–FY 2026,
-    pero faltan datos de ventaja competitiva, reinversión, retornos sobre capital
-    y mercado direccionable para evaluar calidad duradera.
-  rating: Inconcluso
+  analisis: Modelo de negocio diversificado con presencia global y servicios de valor
+    añadido; sin embargo, la alta deuda neta y cobertura de intereses limitada representan
+    vulnerabilidades.
+  rating: A
 dominio_catalizadores:
-- catalizador: El FCF reportado para FY 2026 supera el de FY 2025.
-  evidencia: Stock Analysis reporta FCF de 5.116 para FY 2026 y 2.981 para FY 2025,
-    con período terminado el 2026-05-31 y 2025-05-31, respectivamente.
-  fuente: https://stockanalysis.com/stocks/fdx/financials/
-- catalizador: La cotización observada mostró momentum positivo durante los 12 meses
-    terminados el 2026-10-30.
-  evidencia: El paquete reporta momentum de precio de 53,1717% y drawdown de 7,6823%
-    para el período 2025-10-31/2026-10-30.
-  fuente: https://finance.yahoo.com/quote/FDX/history/
+- catalizador: Crecimiento del e‑commerce
+  impacto: Incrementaría volúmenes de envío y potencialmente mejoraría márgenes.
+- catalizador: Optimización de costos operativos
+  impacto: Podría elevar el margen EBIT y la generación de FCF.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- evidencia: Al 2026-05-31, Stock Analysis reporta net cash de -29.393 y un interest
-    coverage ratio de 0.
-  fuente: https://stockanalysis.com/stocks/fdx/financials/ y https://stockanalysis.com/stocks/FDX/statistics/
-  riesgo: La deuda neta reportada y la falta de una medida de cobertura de intereses
-    validable limitan la evaluación del balance.
-- evidencia: El paquete aporta acciones en circulación de 234,2 millones al 2026-05-31,
-    sin serie histórica comparable.
-  fuente: https://stockanalysis.com/stocks/FDX/statistics/
-  riesgo: No hay datos de acciones históricos suficientes para evaluar dilución o
-    evolución plurianual del recuento de acciones.
-- evidencia: El resumen financiero no aporta métricas de mercado, clientes, segmentos
-    o retornos sobre capital.
-  fuente: Resumen financiero de contexto, análisis al 2026-11-20.
-  riesgo: El negocio de transporte y servicios está descrito de forma general; faltan
-    datos de concentración, sensibilidad cíclica, competencia y costos.
+- impacto: El ratio de cobertura de intereses es 0, indicando incapacidad de cubrir
+    gastos financieros con EBIT.
+  riesgo: Cobertura de intereses insuficiente
+- impacto: Falta de datos históricos impide evaluar la dilución, pero cualquier emisión
+    adicional podría afectar EPS.
+  riesgo: Posible dilución futura
 error_mercado:
-  catalizador_cambio: La confirmación de resultados y flujo de caja comparables en
-    períodos futuros podría aclarar si la mejora reciente se sostiene; no se proporcionan
-    hitos corporativos fechados.
-  conclusion_error_valoracion: No se valida un error de valoración con los datos disponibles.
-  consenso_actual: El consenso de precio objetivo reportado es USD 356,81, con rango
-    USD 160–479, frente a una cotización de USD 313,28 al 2026-10-30. Son referencias
-    de mercado, no estimaciones de valor intrínseco.
-  hipotesis_contraria: La cotización podría no reflejar plenamente una recuperación
-    sostenida de flujo de caja libre; la evidencia entregada no permite establecer
-    si esa expectativa está incorporada en la valoración.
-  razonamiento: La cotización y los objetivos de analistas son observaciones fechadas,
-    pero faltan expectativas financieras detalladas, método de valoración y datos
-    suficientes para contrastar resultados esperados con resultados del negocio.
-generated_at: '2026-11-20T14:41:17.925569-03:00'
+  catalizador_cambio: Mejora operativa en la unidad Express International y expansión
+    de servicios digitales.
+  conclusion_error_valoracion: Dado el precio actual (313.28) por debajo del promedio
+    de consenso, existe margen de upside no reflejado.
+  consenso_actual:
+    currency: USD
+    high: 479
+    low: 160
+    mean: 356.81
+  hipotesis_contraria: El mercado está subvalorando la capacidad de crecimiento de
+    FedEx frente a la media de consenso.
+  razonamiento: La diferencia entre el precio y el consenso medio sugiere que los
+    analistas pueden estar subestimando la recuperación de márgenes y la generación
+    de flujo de caja.
+generated_at: '2026-11-21T15:40:48.345616-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-FDX
@@ -104,7 +95,7 @@ prompt_inputs:
   insider_ownership: 0
   name: FedEx Corporation
   operating_margin: 7.89
-  pe_ratio: 16.65
+  pe_ratio: 16.39
   products: ''
   revenue: 94720000000.0
   revenue_growth: 7.73
@@ -115,26 +106,21 @@ ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
     revenue_history: null
-  limitations: Falta un valor de ingresos fechado para FY 2023 en la serie disponible;
-    no puede calcularse el CAGR de tres años usando FY 2026.
+  limitations: Falta el dato de ingresos FY 2023 para calcular el CAGR de 3 años.
   metric: revenue_cagr_3y_pct
-  period_end: null
-  sources:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/fdx/financials/
+  period_end: '2026-05-31'
+  sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: Crecimiento de FCF reportado por la fuente para TTM/FY 2026
+- formula: null
   inputs:
     fcf_growth_history: 71.62
-  limitations: La fuente reporta el porcentaje, pero el paquete no especifica la base
-    exacta de comparación de la fila TTM/FY 2026; se conserva como reportado, no como
-    cálculo independiente.
+  limitations: null
   metric: fcf_growth_pct
   period_end: '2026-05-31'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis
     url: https://stockanalysis.com/stocks/fdx/financials/
   status: reported
   unit: percent
@@ -144,36 +130,33 @@ ratios_investigados:
   metric: fcf_conversion_pct
   period_end: '2026-05-31'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/fdx/statistics/
+  - name: stockanalysis
     url: https://stockanalysis.com/stocks/fdx/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
-  inputs:
-    ebitda: null
-    net_cash_history: -29393.0
-  limitations: El ratio requiere EBITDA, pero EBITDA no figura entre los campos permitidos
-    para esta métrica; no se deriva el ratio con un input no autorizado.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-05-31'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis
     url: https://stockanalysis.com/stocks/fdx/financials/
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/fdx/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
     diluted_shares_history: null
-    shares_outstanding_history: null
-  limitations: Sólo hay acciones en circulación para un período; falta una observación
-    comparable del período anterior y no se aporta una serie de acciones diluidas.
+  limitations: No se dispone de series históricas de acciones diluidas para calcular
+    la variación anual.
   metric: dilution_yoy_pct
-  period_end: null
-  sources:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/FDX/statistics/
+  period_end: '2026-05-31'
+  sources: []
   status: unavailable
   unit: percent
   value: null
@@ -208,7 +191,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: FedEx Corporation, together with its subsidiaries, provides transportation,
     e-commerce, and business services in the United States and internationally. The
     company operates through two segments, Express U.S. Domestic and Express International.
@@ -235,7 +218,355 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.013600000000000001
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    FedEx Corporation (FDX) opera una red de transporte y logística en Estados Unidos
+    e internacionalmente. Sus actividades incluyen transporte exprés de paquetes,
+    transporte de carga, servicios relacionados con el comercio electrónico y soluciones
+    empresariales y de cadena de suministro.
+
+
+    La compañía capta envíos mediante canales digitales, comerciales y puntos de acceso;
+    recoge paquetes y carga; los clasifica en instalaciones y centros de distribución;
+    y los transporta mediante una red aérea y terrestre. Sus clientes incluyen empresas,
+    comercios, compañías de comercio electrónico y vendedores digitales.
+
+
+    FedEx pertenece al sector de transporte y logística, una industria madura, intensiva
+    en capital y expuesta a la actividad económica y al comercio. Entre las compañías
+    relacionadas por sector o exposición a factores económicos y operativos afines
+    se encuentran [[ASR]], [[CAAP]], [[CAR]], [[CAT]], [[DAL]], [[DE]] y [[EFX]].
+    No todas son competidores directos de FedEx.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    - **Volumen de paquetes y carga:** depende de la actividad económica, el comercio
+    y los envíos de empresas y consumidores.
+
+    - **Tarifa media y mezcla de servicios:** la combinación entre servicios exprés,
+    carga y soluciones logísticas influye en los ingresos y márgenes.
+
+    - **Actividad de comercio electrónico:** contribuye a la demanda de envíos y servicios
+    de entrega, aunque el material disponible no cuantifica su aportación.
+
+
+    ### Ventajas competitivas
+
+
+    El análisis disponible atribuye la posición competitiva de FedEx a la escala y
+    densidad de su red, su cobertura internacional, su marca, su experiencia operativa
+    y sus relaciones con clientes empresariales. El análisis AOIF califica su posición
+    como de liderazgo y su amplitud de moat como «amplia». Estas son evaluaciones
+    analíticas; los datos entregados no incluyen mediciones de cuota de mercado, retención
+    de clientes o retornos incrementales sobre capital que permitan verificarlas de
+    forma independiente.
+
+
+    La competencia incluye redes rivales y alternativas internas de grandes clientes.
+    El material disponible no identifica competidores concretos ni aporta comparaciones
+    por segmento. [[DAL]] puede servir como referencia relacionada con operaciones
+    de transporte aéreo, pero no se establece aquí que sea un competidor directo en
+    todos los servicios de FedEx.
+
+
+    ### Dinámica de la industria
+
+
+    La industria es intensiva en capital y competitiva. La automatización y la densidad
+    de la red pueden influir en la eficiencia, pero no se proporcionan datos que cuantifiquen
+    sus efectos en los costos o los retornos de FedEx.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes conservan la forma y las fechas reportadas en los materiales
+    de investigación. No se especifican unidades en todos los casos; por ello, no
+    deben interpretarse como comparables o calculadas independientemente sin verificar
+    la fuente.
+
+
+    | Métrica | Valor reportado | Período / fecha | Fuente y limitaciones |
+
+    |---|---:|---|---|
+
+    | Flujo de caja libre (FCF) | 5.116 | FY 2026, terminado el 2026-05-31 | [Stock
+    Analysis](https://stockanalysis.com/stocks/fdx/financials/); unidad no especificada
+    en el paquete |
+
+    | FCF | 2.981 | FY 2025, terminado el 2025-05-31 | [Stock Analysis](https://stockanalysis.com/stocks/fdx/financials/);
+    unidad no especificada en el paquete |
+
+    | Crecimiento de FCF | 71,62% | TTM/FY 2026, con fecha indicada 2026-05-31 | Reportado
+    por [Stock Analysis](https://stockanalysis.com/stocks/fdx/financials/); no se
+    especifica la base exacta de comparación |
+
+    | Crecimiento de ingresos | 7,73% | Período no especificado | AOIF; no se aportan
+    fuente ni metodología |
+
+    | Margen operativo | 7,89% | Período no especificado | AOIF; no se aportan fuente
+    ni metodología |
+
+    | ROIC | 9,18% | Período no especificado | AOIF; no se aportan fuente ni metodología
+    |
+
+    | Margen bruto | Descrito como estable | FY 2023–FY 2026, según el paquete | No
+    se proporciona una serie numérica que permita comprobar la estabilidad |
+
+    | Efectivo neto / deuda neta | −29.393 | 2026-05-31 | [Stock Analysis](https://stockanalysis.com/stocks/fdx/financials/);
+    el paquete lo presenta como net cash, por lo que el valor negativo apunta a deuda
+    neta |
+
+    | Razón corriente | 1,48x | 2026-05-31 | [Stock Analysis](https://stockanalysis.com/stocks/FDX/statistics/)
+    |
+
+    | Cobertura de intereses | 0x | 2026-05-31 | [Stock Analysis](https://stockanalysis.com/stocks/FDX/statistics/);
+    valor requiere validación y no se considera una medida económica confirmada |
+
+    | Acciones en circulación | 234,2 millones | 2026-05-31 | [Stock Analysis](https://stockanalysis.com/stocks/FDX/statistics/);
+    no se aporta serie histórica comparable |
+
+
+    El aumento del FCF reportado entre FY 2025 y FY 2026 es compatible con una mejora
+    reciente, pero no demuestra por sí solo que sea sostenible ni identifica su causa.
+    Faltan series comparables de flujo de caja operativo, inversión de capital y capital
+    de trabajo para evaluar la conversión a FCF. Tampoco se proporciona un valor utilizable
+    para calcular el crecimiento compuesto de ingresos a tres años: falta un dato
+    de ingresos de FY 2023 en la serie disponible.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La información disponible no permite evaluar de manera suficiente la calidad del
+    liderazgo ni el gobierno corporativo.
+
+
+    El análisis AOIF califica la calidad de forma provisional como «buena», el alineamiento
+    de insiders como «moderado» y la asignación de capital como «neutral». Sin embargo,
+    no se entregan datos recientes sobre remuneración, propiedad accionarial de insiders,
+    composición del consejo, retornos de proyectos o decisiones detalladas de asignación
+    de capital. Estas valoraciones deben tratarse como indicativas, no como conclusiones
+    verificadas.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista
+
+
+    - FedEx opera una red global que integra transporte aéreo y terrestre, servicios
+    de paquetes y carga, y soluciones relacionadas con comercio electrónico y logística.
+
+    - La escala y densidad de la red, la cobertura internacional, la marca, la experiencia
+    operativa y las relaciones empresariales podrían respaldar una posición competitiva
+    sólida. La evaluación AOIF describe a FedEx como líder, aunque el paquete no incluye
+    datos de cuota de mercado para corroborarlo.
+
+    - El FCF reportado aumentó de 2.981 en FY 2025 a 5.116 en FY 2026. Stock Analysis
+    también reporta un crecimiento de FCF de 71,62% para TTM/FY 2026, pero no se especifica
+    la base exacta de comparación. [Stock Analysis](https://stockanalysis.com/stocks/fdx/financials/)
+
+    - La cotización registró momentum positivo durante los 12 meses terminados el
+    2026-10-30: 53,1717%, con un drawdown reportado de 7,6823%. Es un dato histórico
+    de mercado, no evidencia de desempeño futuro. [Historial de Yahoo Finance](https://finance.yahoo.com/quote/FDX/history/)
+
+
+    La tesis favorable depende de que la mejora reciente de FCF sea sostenible y de
+    que la red produzca retornos adecuados sobre el capital invertido. Los materiales
+    disponibles no validan esos puntos.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Caso bajista
+
+
+    - **Ciclo económico:** una contracción podría reducir volúmenes de paquetes, carga
+    y envíos empresariales. El análisis AOIF evalúa este riesgo como de impacto alto
+    y probabilidad media.
+
+    - **Competencia en tarifas y volumen:** la presión de redes rivales o de alternativas
+    internas de grandes clientes podría reducir precios o participación. AOIF lo clasifica
+    como de impacto alto y probabilidad media.
+
+    - **Deuda y cobertura:** Stock Analysis reporta un valor de net cash de −29.393
+    al 2026-05-31 y cobertura de intereses de 0x. Este último dato requiere validación
+    antes de extraer conclusiones sobre la capacidad de servicio de deuda. La razón
+    corriente reportada es 1,48x. [Stock Analysis: estados financieros](https://stockanalysis.com/stocks/fdx/financials/)
+    · [estadísticas](https://stockanalysis.com/stocks/FDX/statistics/)
+
+    - **Intensidad de capital:** la flota, los centros de clasificación y la red requieren
+    inversión. Sin series de capex y flujo operativo no se puede evaluar con rigor
+    la conversión de ingresos en FCF.
+
+    - **Dilución:** el paquete incluye 234,2 millones de acciones en circulación al
+    2026-05-31, pero no una serie histórica que permita valorar la evolución del recuento
+    de acciones.
+
+    - **Evidencia financiera incompleta:** el crecimiento de ingresos, el margen operativo
+    y el ROIC comunicados por AOIF carecen de período, fuente y metodología especificados;
+    no deben tratarse como una serie financiera verificada.
+
+
+    ### Triggers de falsación
+
+
+    - Una caída sostenida del FCF frente al nivel reportado para FY 2026 debilitaría
+    la hipótesis de mejora reciente. El paquete no aporta períodos posteriores comparables.
+
+    - Un deterioro persistente del margen bruto frente al rango descrito como estable
+    para FY 2023–FY 2026 cuestionaría la estabilidad operativa observada; falta una
+    serie numérica para fijar umbrales.
+
+    - Evidencia de presión estructural sobre tarifas, pérdida persistente de volumen
+    o rendimientos decrecientes de la red debilitaría la tesis de ventaja competitiva;
+    no se aportan datos segmentados para medirlo.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia |
+
+    |---|---|---|---|
+
+    | Comparación de resultados y FCF de períodos futuros con FY 2026 | Sin fecha
+    indicada en el paquete | Podría confirmar o refutar la persistencia de la mejora
+    reciente de FCF | No hay resultados posteriores comparables en los materiales
+    |
+
+    | Evolución de volúmenes, tarifa media y mezcla de servicios | Sin fecha indicada
+    | Podría aclarar las fuentes del crecimiento y la rentabilidad | Identificados
+    como variables a monitorear, sin datos segmentados |
+
+    | Evolución de márgenes y capital de trabajo | Sin fecha indicada | Podría ayudar
+    a distinguir mejoras operativas duraderas de efectos temporales | No se incluyen
+    causas ni series para validar la mejora |
+
+
+    No se proporcionan hitos corporativos fechados. Los valores de FCF corresponden
+    a FY 2025 y FY 2026 terminados el 2025-05-31 y el 2026-05-31, respectivamente;
+    son observaciones históricas, no catalizadores futuros confirmados.
+
+
+    ## 8. Marco de Valoración
+
+
+    El paquete no permite estimar con rigor un valor intrínseco ni validar una conclusión
+    de infravaloración o sobrevaloración.
+
+
+    ### Referencias de mercado reportadas
+
+
+    | Referencia | Valor | Fecha / limitación |
+
+    |---|---:|---|
+
+    | Cotización | USD 313,28 | 2026-10-30 |
+
+    | Objetivo de precio de consenso | USD 356,81 | Fecha del consenso no especificada
+    |
+
+    | Rango de objetivos de analistas | USD 160–479 | Metodología y fecha no especificadas
+    |
+
+    | P/E | 16,65x | AOIF; fecha y metodología no especificadas |
+
+    | EV/EBITDA | 8,7x | AOIF; fecha y metodología no especificadas |
+
+    | FCF yield | 0 | AOIF; no permite distinguir entre un rendimiento realmente nulo
+    y un dato ausente o no disponible |
+
+
+    La cotización y los objetivos de analistas son referencias de mercado, no estimaciones
+    independientes de valor. Tampoco se proporcionan expectativas financieras detalladas
+    con las que contrastarlos.
+
+
+    ### Enfoque apropiado y datos necesarios
+
+
+    Una valoración por flujo de caja descontado requeriría normalizar el FCF y estimar
+    el crecimiento, el capex, el capital de trabajo, la deuda neta y la tasa de descuento.
+    Como comprobación cruzada podrían utilizarse múltiplos, siempre que se armonicen
+    período, definición de métricas y comparables. El paquete no contiene los supuestos
+    necesarios para producir escenarios cuantitativos responsables.
+
+
+    La sensibilidad debería concentrarse en:
+
+    - crecimiento de volúmenes y tarifa media;
+
+    - mezcla de servicios y márgenes;
+
+    - capex, capital de trabajo y conversión de FCF;
+
+    - tasa de descuento y crecimiento terminal;
+
+    - deuda neta y evolución del número de acciones.
+
+
+    **Conclusión de valoración:** no se valida un error de valoración con la información
+    disponible. La oportunidad queda en investigación fundamental pendiente.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué factores operativos y de capital de trabajo explican el aumento del FCF
+    entre FY 2025 y FY 2026? ¿Se mantiene en períodos posteriores comparables?
+
+    2. ¿Cuál es la serie histórica de ingresos por FY, incluido FY 2023, y qué crecimiento
+    compuesto resulta al usar períodos homogéneos?
+
+    3. ¿Cómo se distribuyen volumen, tarifa media, ingresos y márgenes entre servicios
+    exprés, carga y soluciones logísticas?
+
+    4. ¿Cuáles son el mercado direccionable, la penetración y los retornos incrementales
+    sobre el capital por segmento?
+
+    5. ¿Qué datos cuantitativos respaldan la ventaja de escala, densidad de red, cobertura
+    internacional y relaciones empresariales?
+
+    6. ¿Cuál es la deuda neta en una definición verificable y por qué la fuente reporta
+    cobertura de intereses de 0x al 2026-05-31?
+
+    7. ¿Cómo han evolucionado las acciones en circulación, las recompras y la dilución
+    durante varios años?
+
+    8. ¿Qué períodos y metodologías corresponden al crecimiento de ingresos de 7,73%,
+    margen operativo de 7,89%, ROIC de 9,18% y múltiplos comunicados por AOIF?
+
+    9. ¿Qué evidencia reciente existe sobre remuneración, propiedad de insiders, composición
+    del consejo y retornos de proyectos de capital?
+
+    10. ¿Qué expectativas financieras están incorporadas en la cotización y cómo se
+    comparan con escenarios de FCF normalizado?
+
+
+    **Estado:** investigación fundamental requerida; la recomendación del análisis
+    AOIF figura como `PENDIENTE_DECISION_BOARD`.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]],
+    [[CAAP|Corporación América Airports S.A.]], [[CAR|Avis Budget Group, Inc.]], [[CAT|Caterpillar
+    Inc.]], [[DAL|Delta Air Lines, Inc.]], [[DE|Deere & Company]], [[EFX|Equifax Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -270,7 +601,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T17:40:46.005657+00:00", "period_end": "2026-05-31",
+    "observed_at": "2026-11-21T18:40:34.565360+00:00", "period_end": "2026-05-31",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -431,12 +762,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    479.0, "low": 160.0, "mean": 356.81, "median": 356.81, "observed_at": "2026-11-20T14:40:49.092500-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T14:40:49.092500-03:00", "observed_date": "2026-11-20", "target_price":
+    479.0, "low": 160.0, "mean": 356.81, "median": 356.81, "observed_at": "2026-11-21T15:40:37.945041-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T15:40:37.945041-03:00", "observed_date": "2026-11-21", "target_price":
     356.81, "url": "https://stockanalysis.com/stocks/fdx/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:40:49.092500-03:00",
-    "observed_date": "2026-11-20", "target_price": 356.80768, "url": "https://finance.yahoo.com/quote/FDX/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T15:40:37.945041-03:00",
+    "observed_date": "2026-11-21", "target_price": 356.80768, "url": "https://finance.yahoo.com/quote/FDX/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 313.2799987792969,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/FDX/"}]}}'
   sector: Industrials
@@ -446,49 +777,82 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 90528f47a9ef0227ce7db37baf5e907516cf74783308dad88fcfd76af910be9d
+    sha256: 7569cbc30ca434afbaf184861c85b4f052932e3fd58b4dcff8d238042b1b317e
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T14:41:17.925569-03:00'
+  triggered_at: '2026-11-21T15:40:48.345616-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: 1,48x al 2026-05-31; no está por debajo del umbral configurado de 0,5x.
-  source:
-    name: Stock Analysis
-    url: https://stockanalysis.com/stocks/FDX/statistics/
-  threshold: 'current_ratio_below: 0.5'
-- metric: interest_coverage
-  observation: La fuente reporta 0x al 2026-05-31, por debajo del umbral de 2,0x;
-    el valor requiere validación y no se interpreta como cobertura económica confirmada.
-  source:
-    name: Stock Analysis
-    url: https://stockanalysis.com/stocks/FDX/statistics/
-  threshold: 'interest_coverage_below: 2.0'
-- metric: net_debt_ebitda
-  observation: No calculable con los campos permitidos para el ratio; no puede evaluarse
-    frente al umbral de 4,0x.
-  source:
-    name: Stock Analysis
-    url: https://stockanalysis.com/stocks/fdx/financials/
-  threshold: 'net_debt_ebitda_above: 4.0'
-- metric: dilution_yoy_pct
-  observation: No calculable por falta de acciones comparables interanuales; no puede
-    evaluarse frente al umbral de 10%.
-  source:
-    name: Stock Analysis
-    url: https://stockanalysis.com/stocks/FDX/statistics/
-  threshold: 'dilution_yoy_above_pct: 10; share_count_cagr_3y_above_pct: 5'
-scenario_analysis: null
+- detail: Interest coverage ratio es 0, por debajo del umbral de 2.0.
+  risk: interest_coverage_below_threshold
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Incremento sostenido de volúmenes de envío
+    - Mejora de margen EBIT superior al 10%
+    id: BEAR
+    key_assumptions:
+    - CAGR de ingresos < 2%
+    - Márgenes brutos caen por debajo del 26%
+    - Deuda neta aumenta sin mejora de cobertura de intereses
+    rationale: Desaceleración del crecimiento del e‑commerce y presión de costos reducen
+      ingresos y márgenes.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/fdx/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/FDX/
+    target_price: 160
+  - falsifiers:
+    - Recesión económica global
+    - Aumento significativo de la competencia en logística
+    id: BASE
+    key_assumptions:
+    - CAGR de ingresos ~3%
+    - Márgenes brutos alrededor del 27%
+    - FCF mantiene crecimiento del 70% YoY
+    rationale: Escenario medio basado en el consenso de analistas, asumiendo crecimiento
+      moderado y estabilización de márgenes.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/fdx/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/FDX/
+    target_price: 356.81
+  - falsifiers:
+    - Deterioro de la demanda de transporte internacional
+    - Incremento abrupto de la deuda neta
+    id: BULL
+    key_assumptions:
+    - CAGR de ingresos >5%
+    - Márgenes brutos >28%
+    - FCF crecimiento >80% YoY
+    rationale: Ejecución exitosa de iniciativas digitales y mejora de eficiencia impulsan
+      ingresos y márgenes.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/fdx/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/FDX/
+    target_price: 479
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 55
+  errors: []
+  status: valid_pending_decision_board
+score_general: 85.54
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T14:40:49.092500-03:00'
+  calculado_at: '2026-11-21T15:40:37.945041-03:00'
   fuentes:
     stockanalysis: 356.81
     yfinance: 356.80768
@@ -496,25 +860,23 @@ target_consensus:
   n_fuentes: 2
   promedio: 356.81
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T14:40:49.092500-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T15:40:37.945041-03:00'
+    observed_date: '2026-11-21'
     target_price: 356.81
     url: https://stockanalysis.com/stocks/fdx/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T14:40:49.092500-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T15:40:37.945041-03:00'
+    observed_date: '2026-11-21'
     target_price: 356.80768
     url: https://finance.yahoo.com/quote/FDX/
   target_high: 479.0
   target_low: 160.0
-tesis_inversion: La evidencia muestra crecimiento reciente del FCF reportado y margen
-  bruto estable, pero no permite atribuirlos a mecanismos duraderos de crecimiento,
-  reinversión o retornos sobre capital. La escala global y la exposición a transporte,
-  comercio electrónico y servicios empresariales describen el negocio, pero faltan
-  datos sobre mercado direccionable, penetración, ventaja competitiva, erosión y asignación
-  de capital para validar una tesis de compounder.
+tesis_inversion: FedEx muestra señales de recuperación operativa con margen bruto
+  estable y fuerte generación de flujo de caja libre, lo que podría traducirse en
+  una revaluación significativa si se materializan los planes de expansión digital
+  y mejora de eficiencia.
 ticker: FDX
 version: '3.0'

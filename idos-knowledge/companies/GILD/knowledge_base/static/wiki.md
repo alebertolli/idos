@@ -1,144 +1,155 @@
 # GILD — Gilead Sciences, Inc.
 
-> **Estado de investigación:** incompleto. La información disponible respalda la escala y rentabilidad operativa reportadas, pero no basta para validar una tesis de crecimiento duradero ni para concluir que la acción esté infravalorada. Se distinguen los datos reportados de las inferencias y cuestiones pendientes.
+> **Estado de investigación:** incompleto. La información disponible describe el negocio y aporta algunas métricas financieras, pero no permite validar de forma suficiente las tendencias, estimar valor intrínseco ni concluir que exista un error de valoración.  
+> **Fecha de corte de la investigación:** 2026-11-21.  
+> **Compañías relacionadas:** [[ABBV]], [[ABT]], [[AMGN]], [[AZN]], [[BIIB]], [[BMY]], [[GSK]], [[JNJ]], [[LLY]].
 
 ## 1. Visión General de la Compañía
 
-Gilead Sciences, Inc. es una compañía biofarmacéutica integrada que descubre, desarrolla y comercializa medicamentos para necesidades médicas no cubiertas. Su cadena de valor abarca investigación y descubrimiento, desarrollo preclínico y clínico, ensayos y aprobación regulatoria, fabricación propia o mediante terceros y comercialización.
+Gilead Sciences es una compañía biofarmacéutica integrada que descubre, desarrolla, fabrica y comercializa medicamentos para necesidades médicas no cubiertas. Su cadena de valor comprende investigación y descubrimiento, desarrollo preclínico y clínico, fabricación y control de calidad, aprobación regulatoria y comercialización.
 
-La cartera descrita incluye productos para VIH y hepatitis, además de exposición a oncología y terapias celulares. Entre los productos citados en los datos disponibles figuran Biktarvy, Descovy, Genvoya, Odefsey, Sunlenca, Symtuza y Yeztugo para VIH, y Epclusa, Livdelzi y Vemlidy para hepatitis y enfermedades hepáticas. No se proporcionan ventas por producto, región ni área terapéutica.
+El portafolio descrito incluye:
 
-Los clientes y canales descritos incluyen mayoristas, distribuidores, farmacias, hospitales, clínicas y centros especializados. La información disponible no detalla el desglose geográfico de ingresos.
+- **VIH:** Biktarvy, Descovy, Genvoya, Odefsey, Sunlenca, Symtuza y Yeztugo.
+- **Hepatitis y enfermedades hepáticas:** Epclusa, Livdelzi y Vemlidy.
+- **Oncología y terapias celulares:** se mencionan como áreas de actividad, sin detalle cuantitativo de productos o contribución a ingresos en la información disponible.
 
-Gilead compite dentro del sector biofarmacéutico, junto a compañías como [[ABBV]], [[AMGN]], [[AZN]], [[BIIB]] y [[BMY]]. Esas referencias describen pertenencia sectorial, no necesariamente competencia directa en todos los productos o áreas terapéuticas.
+Sus clientes y usuarios incluyen pacientes, profesionales sanitarios, hospitales y centros especializados, entre ellos centros que administran terapias celulares. No se aportaron datos suficientes para describir la distribución geográfica de ingresos o ventas.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Fuentes de ingresos y drivers
+### Drivers de ingresos
 
-El negocio genera ingresos principalmente mediante la venta de medicamentos. La cartera descrita se concentra en VIH y hepatitis, con exposición adicional a oncología y terapias celulares. Sin datos de ingresos por producto o segmento, no es posible determinar qué productos impulsan el crecimiento, la rentabilidad o la generación de caja.
+Los principales factores de ingresos identificados son:
 
-### Ventajas competitivas
+- Demanda, precio y mezcla de productos del portafolio, especialmente los tratamientos contra el VIH.
+- Adopción y expansión de indicaciones de productos oncológicos y terapias celulares.
+- Resultados clínicos, aprobaciones regulatorias, acceso al mercado y reembolso.
 
-El análisis AOIF identifica como posibles fuentes de ventaja:
+La contribución relativa de cada producto, segmento y mercado no está cuantificada en los materiales disponibles.
 
-- Patentes y exclusividad de producto.
-- Conocimiento clínico y experiencia regulatoria.
-- Escala comercial y relaciones con profesionales y sistemas sanitarios.
-- Capacidades de investigación y desarrollo (I+D).
+### Ventajas competitivas y competencia
 
-AOIF califica la amplitud del moat como “amplia” y la posición competitiva como “líder”. Estas son conclusiones del análisis, no hechos cuantificados en la evidencia incluida. La durabilidad de esas ventajas depende, entre otros factores, de la evolución de la cartera, la competencia y los vencimientos de exclusividad.
+El análisis suministrado caracteriza la posición competitiva como líder y el moat como amplio. Las fuentes potenciales de ventaja mencionadas son propiedad intelectual, evidencia clínica, experiencia regulatoria, escala comercial y capacidades de fabricación. Esta caracterización debe considerarse provisional: no se acompañó de comparaciones cuantitativas frente a competidores ni de análisis de cuota de mercado.
 
-### Dinámica competitiva
-
-La industria es intensiva en I+D, capital y regulación; el desarrollo clínico tiene ciclos largos y resultados inciertos. La competencia puede provenir de grandes farmacéuticas y biotecnológicas, así como de alternativas genéricas o tratamientos competidores. No se aportan comparaciones por producto, datos de cuota de mercado ni fechas de vencimiento de patentes.
+La industria es intensiva en investigación, capital y regulación. La innovación clínica, la protección de patentes, el acceso al mercado y la competencia son factores relevantes para mantener la posición de los productos. Entre las compañías relacionadas del sector figuran [[ABBV]], [[AMGN]], [[AZN]], [[BMY]], [[GSK]], [[JNJ]] y [[LLY]].
 
 ## 3. Perfil Financiero
 
-| Métrica | Valor reportado | Período / fecha | Fuente y limitaciones |
+| Métrica | Valor reportado | Período / fecha | Observación |
 |---|---:|---|---|
-| Margen bruto | 79.95% | TTM al 2026-09-30 | Stockanalysis.com, datos incluidos en DDD |
-| Flujo de caja libre (FCF) | 13,780 | TTM al 2026-09-30 | Stockanalysis.com; unidad no especificada en el paquete |
-| Utilidad neta | -3,862 | TTM al 2026-09-30 | Stockanalysis.com; unidad no especificada en el paquete |
-| Ingresos: crecimiento reportado | 6.54% | Período no precisado en AOIF | Valor proporcionado por AOIF; falta definición del período y detalle del cálculo |
-| Margen operativo | 38.23% | Período no precisado en AOIF | Valor proporcionado por AOIF; no se incluye referencia detallada al cálculo |
-| ROIC | 36.82% | Período no precisado en AOIF | Valor proporcionado por AOIF; no se especifican inputs ni método |
-| Crecimiento de FCF | -8.24% | FY2025 | Stockanalysis.com; tasa reportada por la fuente, no recalculada |
-| Deuda total | 26,231 | Al 2026-09-30 | Stockanalysis.com; unidad no especificada en el paquete |
-| Efectivo e inversiones | 7,952 | Al 2026-09-30 | Stockanalysis.com; unidad no especificada en el paquete |
-| Efectivo neto (métrica reportada) | -18,279 | Al 2026-09-30 | Stockanalysis.com; la convención del signo no se detalla |
-| Current ratio | 1.38x | Al 2026-09-30 | Stockanalysis.com; no cruza el umbral de alerta de 0.5x utilizado en DDD |
-| Cobertura de intereses | 0 | Al 2026-09-30 | Stockanalysis.com; valor que requiere verificación y explicación |
+| Margen bruto | 79,95% | TTM terminado el 2026-09-30 | Dato reportado por Stock Analysis; no demuestra por sí solo rentabilidad sostenible. |
+| Ingreso neto | Negativo | TTM terminado el 2026-09-30 | El material no aporta el importe. |
+| Efectivo e inversiones frente a deuda total | Deuda total superior | Período actual reportado al 2026-09-30 | No se aportan importes para evaluar magnitud o vencimientos. |
+| Ratio corriente | 1,38 | 2026-09-30 | El dato reportado no cruza el umbral de riesgo indicado en la fuente: inferior a 0,5. |
+| Crecimiento de ingresos | 6,54% | Período y metodología no especificados | Métrica proporcionada en AOIF; requiere verificación y contexto temporal. |
+| Margen operativo | 38,23% | Período y metodología no especificados | Métrica proporcionada en AOIF; no reconciliada con estados financieros fechados. |
+| ROIC | 36,82% | Período y metodología no especificados | Métrica proporcionada en AOIF; requiere validación de cálculo e inputs. |
+| EV/EBITDA | 15,33 | Fecha y metodología no especificadas | Referencia no suficiente para concluir si la acción está barata o cara. |
+| CAGR de ingresos a 3 años | No disponible | — | No se calculó: faltan referencias explícitas a los inputs de evidencia. |
+| Crecimiento de FCF | No disponible | — | No se calculó: falta un período TTM anterior comparable; TTM de septiembre de 2026 no es directamente comparable con FY 2025. |
+| Dilución interanual | No evaluable | — | Falta historial comparable de acciones diluidas. |
 
-**Lectura:** el margen bruto elevado y el FCF TTM positivo son compatibles con capacidad de generación de caja. No demuestran por sí solos retornos sostenibles sobre capital ni crecimiento futuro. La utilidad neta TTM negativa frente a FCF positivo requiere conciliación con los estados financieros detallados; no debe interpretarse como una tasa de conversión ordinaria.
+**Lectura financiera:** el margen bruto reportado y la mención de flujo de caja libre positivo no bastan para caracterizar la generación de caja ni su conversión. El ingreso neto TTM negativo requiere contexto sobre partidas y períodos comparables. La deuda total superior al efectivo e inversiones merece seguimiento, pero los datos aportados no permiten evaluar vencimientos, costo de deuda o apalancamiento neto.
 
-El FCF reportado para TTM al 2026-09-30 supera los valores anuales de FY2024 y FY2025 según la comparación de DDD, pero no se proporcionan las cifras anuales ni una explicación de la variación. Además, la fuente reporta una caída de FCF del 8.24% en FY2025.
-
-La deuda neta reduce la flexibilidad financiera en comparación con una posición de caja neta. La unidad, composición, calendario de vencimientos y coste de la deuda no están especificados en el paquete. El valor de cobertura de intereses reportado como cero requiere confirmación antes de extraer conclusiones sobre solvencia.
+**Fuentes:** [Stock Analysis — estados financieros de GILD](https://stockanalysis.com/stocks/gild/financials/); [Stock Analysis — estadísticas de GILD](https://stockanalysis.com/stocks/GILD/statistics/). Las métricas de crecimiento, margen operativo, ROIC y EV/EBITDA provienen del resumen AOIF y no incluyen fecha, metodología ni fuente verificable.
 
 ## 4. Management y Gobierno Corporativo
 
-AOIF califica la calidad del management como “buena”, la asignación de capital como “neutral” y el alineamiento de insiders como “débil”. El paquete no incluye nombres, trayectoria, compensación, participaciones de insiders ni operaciones de compraventa, por lo que estas valoraciones no pueden verificarse aquí.
+La evaluación suministrada califica la calidad del equipo directivo como buena, la asignación de capital como neutral y el alineamiento de insiders como débil. Sin embargo, la justificación señala que no se aportaron métricas de desempeño directivo, información de remuneración ni datos de tenencia accionaria.
 
-Tampoco se proporciona información sobre composición, independencia, comités o antigüedad de los miembros del board. La evaluación de gobierno corporativo queda, por tanto, pendiente de evidencia primaria y fechada.
+No hay información disponible sobre composición, independencia, experiencia o estructura de comités del consejo de administración. Por tanto, estas calificaciones no se consideran verificadas y no permiten una evaluación independiente del gobierno corporativo.
+
+**Agenda de verificación:** revisar desempeño operativo y financiero frente a objetivos, incentivos de largo plazo, participación accionaria de ejecutivos y directores, operaciones con partes relacionadas y composición del consejo.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista
+### Caso alcista — hipótesis por validar
 
-- **Franquicia establecida en VIH:** la compañía comercializa una cartera de productos para VIH, entre ellos Biktarvy y otros tratamientos citados en el análisis AOIF. La amplitud y evolución de las ventas por producto no están disponibles.
-- **Rentabilidad bruta y caja reportadas:** Stockanalysis.com informa un margen bruto TTM de 79.95% y FCF TTM positivo de 13,780 al 2026-09-30. Son señales compatibles con capacidad de generar recursos, aunque no bastan para establecer crecimiento sostenible o calidad de retornos.
-- **Capacidades y activos intangibles:** AOIF identifica patentes, conocimiento clínico, experiencia regulatoria y escala comercial como posibles fuentes de ventaja competitiva.
-- **Exposición a varias áreas terapéuticas:** además de VIH y hepatitis, el análisis describe exposición a oncología y terapias celulares. El paquete no cuantifica su contribución ni su potencial de crecimiento.
+- Gilead cuenta con una franquicia establecida en VIH y un portafolio que también incluye productos para hepatitis y enfermedades hepáticas.
+- La expansión de indicaciones y la adopción de productos de oncología y terapias celulares podrían aportar crecimiento adicional si se materializan clínica, regulatoria y comercialmente.
+- La experiencia en desarrollo, regulación, fabricación y comercialización podría favorecer la ejecución de programas y la llegada de productos al mercado.
+- AOIF reporta un margen operativo de 38,23% y un ROIC de 36,82%, pero ambos carecen de período, metodología y fuente en el material disponible; no deben usarse como evidencia concluyente hasta verificarlos.
 
-### Límite de la tesis
+### Evidencia y límites
 
-DDD clasifica la oportunidad como **RESEARCH_REQUIRED**: la evidencia no valida un crecimiento multianual ni permite estimar retornos. AOIF considera insuficiente el margen de seguridad y deja la recomendación pendiente de decisión del board. En conjunto, la tesis alcista es una hipótesis para investigar, no una conclusión de valoración.
+La descripción del portafolio y del modelo integrado respalda que Gilead tiene actividades en varias áreas terapéuticas. No obstante, la información no cuantifica crecimiento por producto, tamaño de mercado, penetración, duración comercial, retorno de la inversión en I+D o contribución de nuevos productos. Por ello, no permite confirmar que el portafolio vaya a crecer ni estimar el valor económico de su pipeline.
+
+La cotización observada fue de **USD 170,68 al 2026-10-30**. El paquete indica que el consenso de precio objetivo observado al 2026-11-21 fue USD 175, pero no proporciona la fuente completa ni su metodología. Cotización y consenso son referencias de mercado, no una estimación de valor intrínseco.
 
 ## 6. Riesgos y Contra-Tesis
 
-- **Pérdida de exclusividad y competencia:** la dependencia de productos clave expone a Gilead al vencimiento de patentes, genéricos y tratamientos competidores. AOIF evalúa este riesgo como de impacto alto y probabilidad alta, sin aportar calendario específico.
-- **Riesgo de I+D y clínico:** retrasos o fallos en ensayos pueden limitar el reemplazo de ingresos futuros. AOIF lo califica como de impacto alto y probabilidad media.
-- **Utilidad neta negativa:** la utilidad neta TTM reportada es -3,862 pese al FCF positivo de 13,780 al 2026-09-30. Se necesita una conciliación con partidas contables y de caja para evaluar la diferencia.
-- **Deuda neta:** al 2026-09-30, Stockanalysis.com reporta deuda total de 26,231, efectivo e inversiones de 7,952 y una métrica de efectivo neto de -18,279. La deuda puede reducir la flexibilidad, pero faltan vencimientos, intereses y detalle de liquidez.
-- **Señales financieras incompletas:** la cobertura de intereses reportada como cero requiere verificación. No se proporcionan gastos por intereses ni explicación de ese dato.
-- **Concentración y durabilidad desconocidas:** no hay ventas, márgenes ni participación por producto, región o cliente que permitan medir la dependencia económica de las franquicias principales.
-- **Riesgo de valoración:** la cotización observada fue USD 170.68 al 2026-10-30; el consenso de precio objetivo al 2026-11-20 fue USD 175.92, con rango de USD 131–200. Son referencias de mercado, no estimaciones de valor intrínseco. DDD no valida un error de valoración.
+### Riesgos principales
 
-### Triggers de falsación
+| Riesgo | Evaluación reportada | Relevancia |
+|---|---|---|
+| Concentración en tratamientos contra el VIH | Impacto alto; probabilidad media | Una presión comercial, competitiva o de acceso en productos clave podría afectar materialmente ingresos y beneficios. |
+| Pérdida de exclusividad y competencia de genéricos | Impacto alto; probabilidad media | La expiración de patentes puede erosionar ventas y precios. No se aportó calendario de vencimientos. |
+| Riesgo clínico y regulatorio | Sin cuantificación | El éxito de programas de I+D y la aprobación de nuevas indicaciones no están garantizados. |
+| Ingreso neto TTM negativo | Reportado al 2026-09-30 | Sin desglose, no se puede determinar si responde a factores recurrentes o no recurrentes. |
+| Deuda superior a efectivo e inversiones | Reportado para el período actual al 2026-09-30 | Faltan importes, plazos y costo de financiación para estimar el riesgo financiero. |
+| Dependencia de crecimiento futuro no demostrado | Evidencia incompleta | No se aportan series comparables de ingresos, FCF ni resultados desglosados por producto. |
 
-- Caída sostenida de ingresos o FCF en períodos comparables.
-- Evidencia de pérdida de ventas o participación de productos principales frente a competidores o tras expiraciones de exclusividad.
-- Falta de reemplazo de ingresos de productos maduros por nuevos productos o indicaciones, si se confirma mediante datos de ventas y cartera.
-- Empeoramiento de la posición financiera o incapacidad de sostener la generación de caja; requiere seguimiento con métricas comparables y datos de vencimientos de deuda.
+### Contra-tesis
+
+El portafolio existente y las ventajas competitivas descritas no bastan para demostrar crecimiento futuro, duración de las franquicias o retornos atractivos sobre investigación y desarrollo. El rango de objetivos de analistas y el avance de la cotización tampoco prueban que el mercado esté subestimando el crecimiento.
+
+### Falsadores de la tesis
+
+- Información verificable que muestre deterioro persistente de ingresos, FCF o márgenes frente a períodos comparables.
+- Evidencia de pérdida de exclusividad, presión competitiva o fracaso clínico/regulatorio que afecte materialmente productos relevantes.
+- Datos que indiquen que el crecimiento de nuevos productos no compensa la erosión de productos establecidos.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador / hito | Fecha esperada | Impacto potencial | Evidencia y estado |
+No se proporcionaron fechas específicas para resultados, decisiones regulatorias, lecturas clínicas o vencimientos de patentes. El siguiente calendario es, por tanto, una agenda de seguimiento y no una predicción de eventos fechados.
+
+| Evento a monitorear | Fecha esperada | Impacto potencial | Evidencia / fuente |
 |---|---|---|---|
-| Resultados por producto y área terapéutica | Sin fecha especificada | Permitirían comprobar qué productos impulsan ingresos y crecimiento, así como la concentración de la cartera | DDD propone este dato como requisito de investigación; no aporta contribución por producto |
-| Evolución de ventas, adopción y competencia | En próximos períodos de resultados; calendario no incluido | Podría confirmar o debilitar la tesis de continuidad de la franquicia | Hito de validación señalado por DDD; sin datos fechados de adopción |
-| Confirmación de la variación de FCF | Próximos períodos comparables; fecha no incluida | Ayudaría a determinar si el FCF TTM observado es recurrente y a explicar su relación con el FCF anual | Stockanalysis.com: FCF TTM al 2026-09-30 y crecimiento FY2025 de -8.24%; falta conciliación |
-| Calendario de vencimientos de patentes y exclusividad | No especificado | Puede afectar ventas, precios y duración de la ventaja competitiva | Punto de monitoreo AOIF; el paquete no incluye fechas |
-| Hitos clínicos y regulatorios de la cartera | No especificados | Podrían influir en la capacidad de renovar o ampliar fuentes de ingresos | AOIF identifica el riesgo clínico, pero no aporta activos, fechas ni probabilidades |
+| Próximas actualizaciones de resultados y guía financiera | Sin fecha aportada | Podrían aclarar ingresos, flujo de caja, rentabilidad y desempeño por producto. | [Stock Analysis — estados financieros](https://stockanalysis.com/stocks/gild/financials/) |
+| Datos clínicos o decisiones regulatorias de productos del portafolio | Sin fecha aportada | Podrían modificar las expectativas de crecimiento, riesgo y duración comercial. | No se aportó calendario ni fuente específica. |
+| Actualizaciones de ventas, adopción y expansión de indicaciones | Sin fecha aportada | Permitirían evaluar la contribución de VIH, enfermedades hepáticas, oncología y terapias celulares. | No se aportaron datos por producto. |
+| Información sobre patentes y competencia | Sin fecha aportada | Podría cambiar las expectativas de erosión de ventas y precios. | No se aportó calendario de exclusividades. |
 
 ## 8. Marco de Valoración
 
-### Metodología apropiada
+La valoración intrínseca **no puede estimarse con rigor** a partir de los datos disponibles. Faltan, entre otros elementos, estados financieros comparables y fechados, supuestos de crecimiento por producto, márgenes sostenibles, inversión de capital, flujo de caja libre normalizado, vencimientos de patentes y una evaluación cuantitativa del pipeline.
 
-La evaluación debería combinar:
+### Metodología apropiada para investigación posterior
 
-1. **Flujo de caja descontado (DCF):** con proyecciones por producto o franquicia, vencimientos de exclusividad, erosión competitiva, reinversión, impuestos y coste de capital.
-2. **Valoración por productos y cartera (rNPV):** para activos en desarrollo, incorporando fases clínicas, probabilidades de éxito, plazos regulatorios y necesidades de financiación.
-3. **Múltiplos comparables:** EV/EBITDA y otros indicadores frente a compañías farmacéuticas y biotecnológicas pertinentes, con ajustes por mezcla de productos, crecimiento, riesgo de patentes y deuda. AOIF reporta EV/EBITDA de 15.53, pero no especifica en el paquete la fecha, definición ni inputs utilizados.
+- **DCF por escenarios:** apropiado si se obtienen previsiones sustentadas de ventas, márgenes, impuestos, inversión y FCF.
+- **Múltiplos comparables:** EV/EBITDA u otros múltiplos pueden servir como contraste, usando períodos y definiciones consistentes y compañías comparables. El EV/EBITDA de 15,33 reportado en AOIF no incluye fecha ni metodología y no es suficiente por sí solo.
+- **Análisis por producto o franquicia:** útil para separar productos maduros de oportunidades de crecimiento, incorporando expiración de patentes, competencia y riesgos clínicos.
 
-### Supuestos que faltan
+### Referencias de mercado y escenarios recibidos
 
-No se proporcionan estimaciones de ventas futuras, márgenes por producto, gastos de I+D, capex, vencimientos de patentes, coste de capital ni escenarios de erosión de ingresos. Tampoco hay inputs suficientes para calcular una sensibilidad fiable del valor.
+Al 2026-11-21, los escenarios suministrados usan anclas del rango de objetivos de analistas, no una valoración intrínseca propia:
 
-DDD recoge una cotización de USD 170.68 al 2026-10-30 y un precio objetivo de consenso de USD 175.92 al 2026-11-20 (rango USD 131–200). La cercanía entre ambas observaciones no prueba que la acción esté correctamente valorada ni que exista un margen de seguridad. AOIF califica el margen de seguridad como “insuficiente”.
+| Escenario | Precio objetivo | Interpretación indicada |
+|---|---:|---|
+| Bajista | USD 131 | Extremo adverso del rango observado de objetivos de analistas. |
+| Alcista | USD 200 | Extremo favorable del rango observado de objetivos de analistas. |
 
-**Conclusión de valoración:** no se puede estimar un valor intrínseco ni una sensibilidad cuantitativa fiable con la información disponible.
+La cotización observada de USD 170,68 corresponde al 2026-10-30. Las fechas de cotización y de referencia de escenarios no coinciden; tampoco se aportaron probabilidades ni supuestos financieros que permitan interpretar estas cifras como una valoración independiente. El margen de seguridad fue calificado como insuficiente en AOIF, pero la información suministrada no permite reproducir esa conclusión.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué productos, regiones y clientes explican los ingresos y el FCF? ¿Cómo evolucionan sus ventas y márgenes?
-2. ¿Qué proporción de ingresos y beneficios depende de cada producto principal, especialmente de la franquicia de VIH?
-3. ¿Cuáles son los retornos sobre capital verificables, el coste de capital y el gasto de reinversión? ¿Qué período y metodología respaldan el ROIC de 36.82% y el margen operativo de 38.23% citados por AOIF?
-4. ¿Cómo se concilia la utilidad neta TTM negativa con el FCF TTM positivo? ¿Qué partidas explican la diferencia?
-5. ¿Cuál es la evolución del FCF en períodos comparables y qué explica la diferencia entre FY2025 y el TTM al 2026-09-30?
-6. ¿Cuáles son los vencimientos de patentes y exclusividades por producto, y qué exposición existe a genéricos, biosimilares u otros tratamientos competidores?
-7. ¿Cuál es el calendario de vencimientos de deuda, el coste de financiación y la liquidez disponible? ¿Por qué Stockanalysis.com reporta cobertura de intereses de cero?
-8. ¿Qué activos clínicos y regulatorios podrían reemplazar ingresos futuros? Se requieren fases, fechas, indicaciones, competencia y probabilidades de éxito.
-9. ¿Qué evidencia sustenta las evaluaciones de liderazgo, alineamiento de insiders y asignación de capital? ¿Cómo están compuestos el board y sus comités?
-10. ¿Qué período y método respaldan el crecimiento de ingresos de 6.54% reportado por AOIF?
-11. ¿Qué inputs sustentan EV/EBITDA de 15.53 y cómo cambia la valoración bajo escenarios de crecimiento, erosión de productos y reinversión?
-
-**Fuentes citadas en los datos de investigación:** Stockanalysis.com, financials y estadísticas, con observaciones al 2026-09-30 y datos FY2024/FY2025; cotización observada al 2026-10-30 y consenso de precio objetivo al 2026-11-20. AOIF y DDD son análisis proporcionados en el paquete y no sustituyen la verificación de métricas con información financiera detallada.
+1. ¿Cuál es el crecimiento histórico y previsto por producto, franquicia, indicación y geografía?
+2. ¿Qué penetración y duración comercial tienen los productos principales, especialmente los tratamientos contra el VIH?
+3. ¿Cuál es el calendario de expiración de patentes, exclusividades regulatorias y posibles entradas de genéricos o biosimilares?
+4. ¿Qué activos clínicos y regulatorios componen el pipeline, cuáles son sus hitos y qué probabilidades de éxito justifican los supuestos de crecimiento?
+5. ¿Qué productos contribuyen a ingresos, margen bruto y flujo de caja, y cómo han cambiado esas contribuciones?
+6. ¿Cuál es el FCF normalizado y cómo se reconcilia con el ingreso neto, los gastos de capital y el flujo de caja operativo?
+7. ¿Cuál es el importe, costo, vencimiento y perfil de refinanciación de la deuda, y cómo se compara con efectivo e inversiones?
+8. ¿Qué base temporal y metodología sustentan las cifras de crecimiento de ingresos, margen operativo, ROIC y EV/EBITDA proporcionadas por AOIF?
+9. ¿Cuál es la remuneración ejecutiva, qué métricas condicionan los incentivos y cuál es la participación accionaria de insiders?
+10. ¿Cuál es la composición del consejo, su nivel de independencia y su experiencia relevante?
+11. ¿Cuál es la fuente, fecha, cobertura y metodología del consenso de precio objetivo citado al 2026-11-21?
+12. ¿Qué supuestos de crecimiento, márgenes, duración de patentes y descuento justificarían una valoración intrínseca y un margen de seguridad cuantificables?
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[CAH|Cardinal Health, Inc.]], [[CVS|CVS Health Corporation]], [[DHR|Danaher Corporation]]
-- **Same Industry**: [[ABBV|AbbVie Inc.]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]]
+- **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[CAH|Cardinal Health, Inc.]], [[CVS|CVS Health Corporation]], [[DHR|Danaher Corporation]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly and Company]], [[MDT|Medtronic plc]], [[MRK|Merck & Co., Inc.]], [[NVS|Novartis AG]], [[TMO|Thermo Fisher Scientific Inc.]], [[UNH|UnitedHealth Group Incorporated]], [[VRTX|Vertex Pharmaceuticals Incorporated]]
+- **Same Industry**: [[ABBV|AbbVie Inc.]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly and Company]], [[MRK|Merck & Co., Inc.]], [[NVS|Novartis AG]]

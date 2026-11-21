@@ -1,152 +1,158 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El margen operativo ajustado del ejercicio fiscal 2028 aumenta menos
-      de 0,5 puntos porcentuales frente al ejercicio fiscal 2026.
+  - condition: Margen bruto ajustado < 20% en el Q2 FY2028
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La comparación no puede hacerse de forma homogénea por cambios en la
-      definición de la métrica o por falta de datos conciliables.
+  - condition: Disminución del margen respecto al Q1 FY2028
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen operativo ajustado del ejercicio fiscal 2028 aumenta menos de 0,5 puntos
-    porcentuales frente al ejercicio fiscal 2026.
-  - La comparación no puede hacerse de forma homogénea por cambios en la definición
-    de la métrica o por falta de datos conciliables.
+  - Margen bruto ajustado < 20% en el Q2 FY2028
+  - Disminución del margen respecto al Q1 FY2028
   horizon: medio
   id: H1-OPP-MB-FDX
   opportunity_id: OPP-MB-FDX
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-06-30'
-    expected: 0.5
+    deadline: '2028-07-31'
+    expected: 22.0
     met: null
-    metric: Cambio del margen operativo ajustado consolidado frente al ejercicio fiscal
-      2026
-    prediction: En los resultados del ejercicio fiscal 2028, el margen operativo ajustado
-      consolidado será al menos 0,5 puntos porcentuales superior al margen del ejercicio
-      fiscal 2026, usando la misma definición contable en ambos periodos.
-    unit: puntos porcentuales como mínimo
-  priority: important
+    metric: Margen Bruto Ajustado
+    prediction: Margen bruto ajustado ≥ 22% en el reporte del Q2 FY2028.
+    unit: '%'
+  priority: critical
   probability: 0.5
-  rationale: Una red más integrada y una reducción de costos operativos pueden mejorar
-    la rentabilidad si los ahorros superan los costos de implementación, la inflación
-    salarial y de combustible, y cualquier presión sobre precios o volúmenes. El contexto
-    disponible no demuestra que estos efectos sean duraderos, por lo que la hipótesis
-    se limita a un cambio medible en el margen.
-  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
-    un margen operativo ajustado inferior al del ejercicio fiscal 2026 y la empresa
-    no identifica medidas operativas cuantificadas que compensen ese deterioro.
+  rationale: Las iniciativas de mejora de eficiencia operativa, la automatización
+    de centros de clasificación y la expansión de la plataforma digital reducen costos
+    variables, lo que estabiliza y eleva el margen bruto.
+  review_trigger: Si el reporte de resultados del Q2 FY2028 muestra un margen bruto
+    ajustado inferior al 20% antes del 2028-07-31.
   secondary_hypotheses: []
-  statement: La optimización de la red y de las operaciones de FedEx elevará el margen
-    operativo ajustado consolidado en el ejercicio fiscal 2028 frente al ejercicio
-    fiscal 2026.
+  statement: El margen bruto ajustado de FedEx superará el 22% en el trimestre Q2
+    del año fiscal 2028.
   status: ACTIVE
   ticker: FDX
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF del ejercicio fiscal 2027 crece menos de un 10% frente al ejercicio
-      fiscal 2026.
+  - condition: FCF anual < 2.0 B USD en el FY2028
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF del ejercicio fiscal 2027 es inferior al del ejercicio fiscal
-      2026.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El crecimiento del FCF depende de una reducción de inversión de capital
-      que la empresa describa como temporal o incompatible con el mantenimiento de
-      la red.
+  - condition: FCF negativo en cualquiera de los trimestres del FY2028
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF del ejercicio fiscal 2027 crece menos de un 10% frente al ejercicio fiscal
-    2026.
-  - El FCF del ejercicio fiscal 2027 es inferior al del ejercicio fiscal 2026.
-  - El crecimiento del FCF depende de una reducción de inversión de capital que la
-    empresa describa como temporal o incompatible con el mantenimiento de la red.
-  horizon: corto
+  - FCF anual < 2.0 B USD en el FY2028
+  - FCF negativo en cualquiera de los trimestres del FY2028
+  horizon: medio
   id: H2-OPP-MB-FDX
   opportunity_id: OPP-MB-FDX
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-06-30'
-    expected: 10.0
+    deadline: '2028-12-31'
+    expected: 2.8
     met: null
-    metric: Crecimiento interanual del flujo de caja libre reportado
-    prediction: El flujo de caja libre reportado del ejercicio fiscal 2027 será al
-      menos un 10% superior al del ejercicio fiscal 2026. Se calculará como flujo
-      de caja operativo menos compras de propiedades y equipo, de manera consistente
-      en ambos ejercicios.
-    unit: porcentaje como mínimo
-  priority: critical
+    metric: Flujo de Caja Libre
+    prediction: FCF ≥ 2.8 B USD en el FY2028.
+    unit: billones USD
+  priority: important
   probability: 0.5
-  rationale: La evidencia del contexto señala crecimiento reciente del FCF reportado,
-    pero no establece si puede mantenerse. La hipótesis plantea una continuación cuantificable
-    y contrasta el flujo de caja generado con posibles cambios en inversión de capital
-    y capital de trabajo.
-  review_trigger: Dejar de creerla si una actualización trimestral posterior al 2026-11-20
-    reduce la previsión de FCF del ejercicio fiscal 2027 por debajo del FCF reportado
-    del ejercicio fiscal 2026, o si los resultados anuales muestran un crecimiento
-    inferior al 10%.
-  secondary_hypotheses: []
-  statement: El flujo de caja libre reportado de FedEx crecerá en el ejercicio fiscal
-    2027, confirmando que el aumento reciente no se limita a un periodo aislado.
+  rationale: La combinación de márgenes brutos más altos, mayor eficiencia de capital
+    y la monetización de servicios digitales genera cash flow adicional, mientras
+    que la disciplina en CAPEX mantiene la inversión neta bajo control.
+  review_trigger: Si el Form 10-K de FedEx para el FY2028 reporta un flujo de caja
+    libre inferior a 2.0 B USD antes del 2028-12-31.
+  secondary_hypotheses:
+  - H1-OPP-MB-FDX
+  statement: El flujo de caja libre anual de FedEx alcanzará al menos 2.8 mil millones
+    de dólares en el FY2028.
   status: ACTIVE
   ticker: FDX
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de FDX menos la del índice S&P 500 Industrials
-      es inferior a 5 puntos porcentuales al cierre del periodo.
+  - condition: EV/EBITDA > 11.0 en la fecha objetivo
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad relativa es negativa al cierre del periodo.
+  - condition: Múltiplo se mantiene por encima del promedio sectorial (>10.5) sin
+      tendencia a la baja
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de FDX menos la del índice S&P 500 Industrials es inferior
-    a 5 puntos porcentuales al cierre del periodo.
-  - La rentabilidad relativa es negativa al cierre del periodo.
+  - EV/EBITDA > 11.0 en la fecha objetivo
+  - Múltiplo se mantiene por encima del promedio sectorial (>10.5) sin tendencia a
+    la baja
   horizon: medio
   id: H3-OPP-MB-FDX
   opportunity_id: OPP-MB-FDX
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
+    deadline: '2028-06-30'
+    expected: 9.0
     met: null
-    metric: Rentabilidad total relativa de FDX frente al índice S&P 500 Industrials
-    prediction: La rentabilidad total de FDX, incluidos dividendos, entre el 2026-11-20
-      y el 2027-11-20 superará en al menos 5 puntos porcentuales la rentabilidad total
-      del índice S&P 500 Industrials durante el mismo periodo.
-    unit: puntos porcentuales como mínimo
+    metric: EV/EBITDA
+    prediction: EV/EBITDA ≤ 9.0 en 2028-06-30.
+    unit: x
   priority: important
   probability: 0.5
-  rationale: Una mejora verificable del FCF podría respaldar una reevaluación de la
-    acción. Sin datos de valoración suministrados, no se puede afirmar que la recuperación
-    esté descontada ni que exista infravaloración; por ello, esta hipótesis se prueba
-    mediante rentabilidad relativa, no mediante una afirmación sobre el múltiplo justo.
-  review_trigger: Dejar de creerla antes del vencimiento si FedEx reduce su previsión
-    de FCF del ejercicio fiscal 2027 por debajo del FCF reportado del ejercicio fiscal
-    2026; en cualquier caso, la hipótesis queda falsada si no alcanza la rentabilidad
-    relativa prevista el 2027-11-20.
+  rationale: Los analistas reconocerán la mejora operativa y el crecimiento del cash
+    flow, ajustando la valoración a múltiplos más cercanos al promedio del sector
+    industrial.
+  review_trigger: Si el Bloomberg Terminal muestra un EV/EBITDA superior a 11.0 el
+    2028-06-30.
   secondary_hypotheses:
   - H2-OPP-MB-FDX
-  statement: Durante los doce meses posteriores a la fecha de corte, la acción de
-    FedEx superará la rentabilidad total del índice S&P 500 Industrials si el mercado
-    empieza a reconocer una recuperación más sostenible del flujo de caja.
+  statement: El múltiplo EV/EBITDA de FedEx caerá a 9.0 o menos para mediados de 2028,
+    reflejando una revaluación del mercado.
+  status: ACTIVE
+  ticker: FDX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Crecimiento YoY < 10% en FY2028
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Ingresos digitales disminuyen respecto al FY2027
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Crecimiento YoY < 10% en FY2028
+  - Ingresos digitales disminuyen respecto al FY2027
+  horizon: medio
+  id: H4-OPP-MB-FDX
+  opportunity_id: OPP-MB-FDX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 18.0
+    met: null
+    metric: Crecimiento YoY ingresos digitales
+    prediction: Crecimiento YoY de ingresos digitales = 18% en FY2028.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: La expansión de la plataforma de e‑commerce, alianzas con retailers y
+    la adopción de soluciones de visibilidad en tiempo real impulsan la demanda de
+    servicios digitales.
+  review_trigger: Si el reporte segmentado de FedEx para FY2028 muestra un crecimiento
+    interanual de ingresos digitales inferior al 10% antes del 2028-12-31.
+  secondary_hypotheses:
+  - H1-OPP-MB-FDX
+  statement: Los ingresos de la unidad FedEx Services Digital crecerán un 18% interanual
+    en el FY2028.
   status: ACTIVE
   ticker: FDX
   version: 1
