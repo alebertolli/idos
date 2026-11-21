@@ -1,0 +1,210 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto consolidado de los cuatro trimestres más recientes
+      mejora menos de 100 puntos básicos frente al periodo comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto consolidado disminuye frente al periodo comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto consolidado de los cuatro trimestres más recientes mejora menos
+    de 100 puntos básicos frente al periodo comparable.
+  - El margen bruto consolidado disminuye frente al periodo comparable.
+  horizon: medio
+  id: H1-OPP-MB-PBI
+  opportunity_id: OPP-MB-PBI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 100.0
+    met: null
+    metric: Variación interanual del margen bruto consolidado en los últimos cuatro
+      trimestres reportados
+    prediction: Para los cuatro trimestres consecutivos más recientes cuyos resultados
+      se hayan publicado hasta el 2027-11-21, el margen bruto consolidado será al
+      menos 100 puntos básicos superior al de los cuatro trimestres comparables anteriores.
+    unit: puntos básicos
+  priority: important
+  probability: 0.5
+  rationale: El contexto disponible apunta a una mejora de los márgenes brutos, pero
+    no aporta datos segmentarios que permitan atribuirla a una línea concreta ni demostrar
+    que sea persistente. La hipótesis es que una mezcla de servicios más rentable
+    y una ejecución operativa favorable compensen parcialmente la menor escala de
+    ingresos.
+  review_trigger: Dejar de creerla si la información financiera publicada hasta el
+    2027-11-21 muestra que el margen bruto de los cuatro trimestres más recientes
+    no mejora al menos 100 puntos básicos frente al periodo comparable.
+  secondary_hypotheses: []
+  statement: La combinación de soluciones de envío y correo y servicios de presort
+    permitirá que Pitney Bowes estabilice su rentabilidad bruta, aunque los ingresos
+    sigan contrayéndose.
+  status: ACTIVE
+  ticker: PBI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado de los cuatro trimestres más recientes
+      es inferior a 50 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cifra solo supera el umbral al incluir ingresos por ventas de activos
+      u otros cobros extraordinarios identificables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no presenta datos suficientes para conciliar flujo de caja
+      operativo e inversiones de capital.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado de los cuatro trimestres más recientes es inferior
+    a 50 millones de dólares.
+  - La cifra solo supera el umbral al incluir ingresos por ventas de activos u otros
+    cobros extraordinarios identificables.
+  - La compañía no presenta datos suficientes para conciliar flujo de caja operativo
+    e inversiones de capital.
+  horizon: medio
+  id: H2-OPP-MB-PBI
+  opportunity_id: OPP-MB-PBI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 50.0
+    met: null
+    metric: Flujo de caja libre acumulado de los últimos cuatro trimestres reportados
+    prediction: En los cuatro trimestres consecutivos más recientes cuyos resultados
+      se hayan publicado hasta el 2027-11-21, el flujo de caja libre acumulado será
+      de al menos 50 millones de dólares. Se calculará como flujo de caja operativo
+      menos inversiones de capital, excluyendo ingresos por ventas de activos de ambos
+      componentes cuando estén identificados.
+    unit: millones de dólares
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica una mejora del flujo de caja libre, pero no establece
+    su persistencia ni su fuente. Si la conversión de caja mejora mediante cobros,
+    capital de trabajo y control de inversiones, la compañía debería generar caja
+    después de inversiones operativas aun con ingresos decrecientes.
+  review_trigger: Dejar de creerla si los resultados publicados hasta el 2027-11-21
+    muestran flujo de caja libre inferior a 50 millones de dólares en los últimos
+    cuatro trimestres, excluidas las ventas de activos identificables.
+  secondary_hypotheses:
+  - H1-OPP-MB-PBI
+  statement: La mejora de conversión de caja se traducirá en flujo de caja libre positivo
+    y recurrente, no explicado principalmente por ventas de activos o partidas extraordinarias.
+  status: ACTIVE
+  ticker: PBI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de los cuatro trimestres más recientes son inferiores
+      al 95% de los ingresos del periodo comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía deja de divulgar ingresos consolidados comparables y no
+      ofrece una conciliación suficiente para reconstruirlos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de los cuatro trimestres más recientes son inferiores al 95% de los
+    ingresos del periodo comparable.
+  - La compañía deja de divulgar ingresos consolidados comparables y no ofrece una
+    conciliación suficiente para reconstruirlos.
+  horizon: medio
+  id: H3-OPP-MB-PBI
+  opportunity_id: OPP-MB-PBI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 95.0
+    met: null
+    metric: Ingresos de los últimos cuatro trimestres reportados como porcentaje de
+      los ingresos de los cuatro trimestres comparables anteriores
+    prediction: Los ingresos consolidados de los cuatro trimestres consecutivos más
+      recientes cuyos resultados se hayan publicado hasta el 2027-11-21 serán como
+      mínimo el 95% de los ingresos de los cuatro trimestres comparables anteriores.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: La tesis presupone que la rentabilidad puede sostenerse pese a la contracción
+    de ingresos. Una desaceleración de la caída sería compatible con una base de negocio
+    más estable; una contracción pronunciada pondría en duda la capacidad de compensar
+    la pérdida de escala mediante eficiencia y mezcla.
+  review_trigger: Dejar de creerla si la información publicada hasta el 2027-11-21
+    muestra una caída interanual de ingresos superior al 5% en los últimos cuatro
+    trimestres reportados.
+  secondary_hypotheses:
+  - H1-OPP-MB-PBI
+  - H2-OPP-MB-PBI
+  statement: La contracción de ingresos se moderará lo suficiente para que la mejora
+    de márgenes y caja no dependa de una reducción acelerada del negocio.
+  status: ACTIVE
+  ticker: PBI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de PBI es inferior a la de XLI por 10 puntos
+      porcentuales o más.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: PBI supera a XLI por menos de 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No puede determinarse una rentabilidad comparable por falta de datos
+      de cotización o por un evento corporativo sin valor final verificable para el
+      accionista.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de PBI es inferior a la de XLI por 10 puntos porcentuales
+    o más.
+  - PBI supera a XLI por menos de 10 puntos porcentuales.
+  - No puede determinarse una rentabilidad comparable por falta de datos de cotización
+    o por un evento corporativo sin valor final verificable para el accionista.
+  horizon: medio
+  id: H4-OPP-MB-PBI
+  opportunity_id: OPP-MB-PBI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total de PBI menos rentabilidad total de XLI
+    prediction: Entre el 2026-11-21 y el 2027-11-21, la rentabilidad total de PBI,
+      incluidos dividendos y ajustada por eventos corporativos, superará en al menos
+      10 puntos porcentuales la rentabilidad total del ETF Industrial Select Sector
+      SPDR (XLI). Si PBI deja de cotizar, se utilizará el valor final efectivamente
+      recibido por el accionista, incluidos pagos en efectivo o acciones.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: 'El contexto plantea que el mercado podría infravalorar la mejora de
+    caja y márgenes, aunque no aporta evidencia de valoración, ventaja competitiva
+    durable ni reinversión incremental. La hipótesis, por tanto, es condicional: la
+    generación de caja debe ser observable antes de atribuir potencial de revalorización
+    a una posible brecha de expectativas.'
+  review_trigger: Dejar de creerla si, al 2027-11-21, PBI no ha superado a XLI en
+    rentabilidad total por al menos 10 puntos porcentuales, o si antes de esa fecha
+    la compañía publica resultados que invalidan H2.
+  secondary_hypotheses:
+  - H2-OPP-MB-PBI
+  statement: Si la mejora operativa se convierte en flujo de caja libre verificable,
+    el mercado reconocerá parcialmente esa mejora y la acción superará al mercado
+    industrial estadounidense en un horizonte de doce meses.
+  status: ACTIVE
+  ticker: PBI
+  version: 1

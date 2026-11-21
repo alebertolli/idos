@@ -1,189 +1,189 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento de ingresos del ejercicio fiscal 2027 es inferior a
-      15%.
+  - condition: Los ingresos TTM reportados al 2027-10-31 son inferiores a USD 13.696
+      millones.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía no puede demostrar crecimiento orgánico positivo cuando
-      haya adquisiciones materiales que afecten la comparabilidad.
+  - condition: La empresa informa crecimiento interanual de ingresos inferior al 10%
+      en dos trimestres consecutivos antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento de ingresos del ejercicio fiscal 2027 es inferior a 15%.
-  - La compañía no puede demostrar crecimiento orgánico positivo cuando haya adquisiciones
-    materiales que afecten la comparabilidad.
+  - Los ingresos TTM reportados al 2027-10-31 son inferiores a USD 13.696 millones.
+  - La empresa informa crecimiento interanual de ingresos inferior al 10% en dos trimestres
+    consecutivos antes de la fecha objetivo.
   horizon: medio
   id: H1-OPP-MB-PANW
   opportunity_id: OPP-MB-PANW
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 15.0
+    deadline: '2027-11-30'
+    expected: 13696.0
     met: null
-    metric: Crecimiento interanual de ingresos del ejercicio fiscal 2027
-    prediction: En los resultados del ejercicio fiscal 2027, que deberían publicarse
-      antes del 2027-09-30, los ingresos reportados crecerán al menos 15% frente al
-      ejercicio fiscal 2026. La compañía también informará crecimiento positivo de
-      ingresos orgánicos, excluyendo adquisiciones materiales si las hubiera.
-    unit: porcentaje mínimo
+    metric: Ingresos TTM reportados
+    prediction: En los resultados publicados para el periodo TTM terminado el 2027-10-31,
+      los ingresos reportados serán al menos un 10% superiores a los del TTM terminado
+      el 2026-10-31, es decir, alcanzarán al menos USD 13.696 millones.
+    unit: USD millones; mínimo para representar aproximadamente 10% de crecimiento
+      interanual
   priority: critical
   probability: 0.5
-  rationale: La evidencia disponible indica crecimiento de ingresos y una oferta que
-    cubre seguridad de red, acceso, aplicaciones y ecosistemas de IA. La expansión
-    y venta cruzada de estas plataformas podrían sostener la demanda; sin datos de
-    penetración de mercado ni desgloses suficientes, esta hipótesis debe validarse
-    con los resultados publicados.
-  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
-    crecimiento de ingresos inferior a 15%, o si una actualización de guidance anterior
-    reduce la previsión de crecimiento anual por debajo de ese umbral.
+  rationale: Los ingresos TTM reportados al 2026-10-31 fueron de USD 12.451 millones.
+    La diversificación de soluciones podría sostener la expansión, pero los datos
+    disponibles no demuestran qué productos o segmentos impulsan el crecimiento ni
+    si este es sostenible.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-11-30
+    muestra crecimiento interanual de ingresos inferior al 8% y la dirección reduce
+    su previsión de ingresos para el ejercicio en curso.
   secondary_hypotheses: []
-  statement: Palo Alto Networks mantendrá un crecimiento de ingresos de al menos 15%
-    en el ejercicio fiscal 2027, sin depender exclusivamente de adquisiciones.
+  statement: Palo Alto Networks mantendrá un crecimiento de ingresos de dos dígitos
+    durante los próximos doce meses, apoyado por la demanda de ciberseguridad de red,
+    acceso seguro y protección cloud.
   status: ACTIVE
   ticker: PANW
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen de FCF del ejercicio fiscal 2027 es inferior a 30%.
+  - condition: El margen de FCF TTM reportado al 2027-10-31 es igual o inferior al
+      30%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía modifica la definición de FCF y, bajo una definición comparable,
-      el margen cae por debajo de 30%.
+  - condition: El FCF TTM cae por debajo de USD 4.109 millones cuando los ingresos
+      TTM alcanzan al menos USD 13.696 millones.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen de FCF del ejercicio fiscal 2027 es inferior a 30%.
-  - La compañía modifica la definición de FCF y, bajo una definición comparable, el
-    margen cae por debajo de 30%.
+  - El margen de FCF TTM reportado al 2027-10-31 es igual o inferior al 30%.
+  - El FCF TTM cae por debajo de USD 4.109 millones cuando los ingresos TTM alcanzan
+    al menos USD 13.696 millones.
   horizon: medio
   id: H2-OPP-MB-PANW
   opportunity_id: OPP-MB-PANW
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
+    deadline: '2027-11-30'
     expected: 30.0
     met: null
-    metric: Margen de FCF del ejercicio fiscal 2027
-    prediction: El margen de FCF del ejercicio fiscal 2027 será de al menos 30%, calculado
-      como FCF dividido por ingresos, usando la definición de FCF que la compañía
-      haya mantenido de forma consistente y conciliando cualquier cambio metodológico.
-    unit: porcentaje mínimo de ingresos
+    metric: Margen de FCF TTM
+    prediction: El margen de FCF TTM al 2027-10-31 será superior al 30%; si los ingresos
+      alcanzan el mínimo previsto en H1, esto implica un FCF superior a USD 4.109
+      millones.
+    unit: '%; umbral estrictamente superior'
   priority: critical
   probability: 0.5
-  rationale: La información suministrada señala crecimiento del flujo de caja libre
-    (FCF), pero no permite evaluar su margen ni su sostenibilidad. Un margen de FCF
-    robusto sería evidencia de que el crecimiento de la plataforma no requiere un
-    consumo desproporcionado de recursos.
-  review_trigger: Dejar de creerla cuando los resultados del ejercicio fiscal 2027
-    indiquen un margen de FCF inferior a 30%, o cuando la compañía anticipe un margen
-    inferior a ese nivel para el ejercicio completo.
+  rationale: El FCF TTM al 2026-10-31 fue de USD 4.268 millones, equivalente a aproximadamente
+    34,3% de los ingresos TTM de USD 12.451 millones. Ese nivel ofrece una base cuantitativa
+    favorable, aunque no basta para demostrar que sea sostenible y puede variar por
+    capital circulante, inversión y compensación en acciones.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes del 2027-11-30 muestran un margen de FCF TTM inferior al 30%, o si la empresa
+    revisa a la baja su previsión anual de FCF.
   secondary_hypotheses:
   - H1-OPP-MB-PANW
-  statement: Palo Alto Networks sostendrá una conversión de ingresos en flujo de caja
-    libre elevada durante el ejercicio fiscal 2027, sin que el crecimiento dependa
-    de un deterioro material de la rentabilidad de caja.
+  statement: Palo Alto Networks conservará una elevada generación de flujo de caja
+    libre, con un margen de FCF superior al 30% durante el periodo TTM que termina
+    en octubre de 2027.
   status: ACTIVE
   ticker: PANW
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF por acción diluida del ejercicio fiscal 2027 crece menos de
-      10% interanual.
+  - condition: El margen neto TTM al 2027-10-31 es igual o inferior al 5%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF total crece, pero el aumento del promedio ponderado de acciones
-      diluidas limita el crecimiento del FCF por acción a menos de 10%.
+  - condition: El beneficio neto TTM al 2027-10-31 es inferior a USD 685 millones,
+      incluso si los ingresos superan USD 13.696 millones.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF por acción diluida del ejercicio fiscal 2027 crece menos de 10% interanual.
-  - El FCF total crece, pero el aumento del promedio ponderado de acciones diluidas
-    limita el crecimiento del FCF por acción a menos de 10%.
+  - El margen neto TTM al 2027-10-31 es igual o inferior al 5%.
+  - El beneficio neto TTM al 2027-10-31 es inferior a USD 685 millones, incluso si
+    los ingresos superan USD 13.696 millones.
   horizon: medio
   id: H3-OPP-MB-PANW
   opportunity_id: OPP-MB-PANW
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 10.0
+    deadline: '2027-11-30'
+    expected: 5.0
     met: null
-    metric: Crecimiento interanual del FCF por acción diluida
-    prediction: El FCF por acción diluida del ejercicio fiscal 2027 será al menos
-      10% superior al del ejercicio fiscal 2026, calculado con FCF anual dividido
-      por el promedio ponderado de acciones diluidas del mismo ejercicio.
-    unit: porcentaje mínimo
+    metric: Margen neto TTM
+    prediction: El margen neto TTM reportado al 2027-10-31 será superior al 5%, equivalente
+      a un beneficio neto superior a USD 685 millones si los ingresos TTM alcanzan
+      USD 13.696 millones.
+    unit: '%; umbral estrictamente superior'
   priority: important
   probability: 0.5
-  rationale: 'La tesis requiere que la generación de FCF cree valor por acción. El
-    FCF total, por sí solo, no permite comprobarlo: la evolución del número de acciones
-    diluidas y las recompras también determinan el resultado para cada accionista.'
-  review_trigger: Dejar de creerla al publicarse los resultados del ejercicio fiscal
-    2027 si el FCF por acción diluida no alcanza un crecimiento interanual de 10%,
-    o antes si la guía anual implica que no podrá alcanzar ese umbral.
+  rationale: El beneficio neto TTM al 2026-10-31 fue de USD 455 millones frente a
+    ingresos de USD 12.451 millones, un margen neto aproximado de 3,65%. La diferencia
+    entre ese margen y la elevada generación de FCF hace relevante comprobar si los
+    beneficios contables crecen, sin asumir que la brecha se cerrará automáticamente.
+  review_trigger: Dejar de creerla si los resultados publicados para el segundo trimestre
+    fiscal de 2027 muestran que el margen neto TTM permanece por debajo del 4% y la
+    dirección no presenta una vía cuantificada de mejora.
   secondary_hypotheses:
-  - H2-OPP-MB-PANW
-  statement: El crecimiento del FCF se traducirá en crecimiento del FCF por acción,
-    y no será absorbido por la dilución de acciones.
+  - H1-OPP-MB-PANW
+  statement: La rentabilidad contable de Palo Alto Networks mejorará, y su margen
+    neto TTM superará el 5% para octubre de 2027.
   status: ACTIVE
   ticker: PANW
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de PANW menos el rendimiento total del Nasdaq
-      Composite es inferior a 5 puntos porcentuales durante el periodo indicado.
+  - condition: La rentabilidad total de PANW menos la del Nasdaq-100 durante el periodo
+      indicado es inferior a 10 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La acción queda por detrás del Nasdaq Composite, independientemente
-      de que la empresa cumpla sus objetivos operativos.
+  - condition: PANW registra una rentabilidad total negativa durante el periodo, aunque
+      supere al Nasdaq-100.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de PANW menos el rendimiento total del Nasdaq Composite es
-    inferior a 5 puntos porcentuales durante el periodo indicado.
-  - La acción queda por detrás del Nasdaq Composite, independientemente de que la
-    empresa cumpla sus objetivos operativos.
+  - La rentabilidad total de PANW menos la del Nasdaq-100 durante el periodo indicado
+    es inferior a 10 puntos porcentuales.
+  - PANW registra una rentabilidad total negativa durante el periodo, aunque supere
+    al Nasdaq-100.
   horizon: medio
   id: H4-OPP-MB-PANW
   opportunity_id: OPP-MB-PANW
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
+    deadline: '2027-11-19'
+    expected: 10.0
     met: null
-    metric: Rendimiento total relativo de PANW frente al Nasdaq Composite
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
-      total de PANW, incluidos dividendos si los hubiera, superará al del Nasdaq Composite
-      en al menos 5 puntos porcentuales.
-    unit: puntos porcentuales de exceso de rendimiento
-  priority: important
+    metric: Rentabilidad total relativa de PANW frente al Nasdaq-100
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, la rentabilidad
+      total de PANW, incluidos dividendos si los hubiera, superará la del Nasdaq-100
+      en al menos 10 puntos porcentuales.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: informational
   probability: 0.5
-  rationale: La expansión de plataformas y el crecimiento de ingresos y FCF podrían
-    respaldar el desempeño relativo de la acción. Sin datos sobre cotización, múltiplos
-    o expectativas implícitas no puede afirmarse que la valoración sea atractiva;
-    por ello, esta hipótesis se limita a una predicción de rendimiento relativo verificable
-    y queda condicionada a la confirmación operativa.
-  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de rendimiento total
-    frente al Nasdaq Composite es inferior a 5 puntos porcentuales; también se debilita
-    si los resultados del ejercicio fiscal 2027 incumplen H1 o H2.
+  rationale: El crecimiento de ingresos y la generación de FCF observados podrían
+    respaldar la confianza de los inversores si se mantienen. Sin datos de cotización,
+    múltiplos o expectativas de mercado al corte, esta hipótesis no presupone que
+    la acción esté barata y se formula como una prueba relativa de desempeño.
+  review_trigger: Dejar de creerla si, al cierre del 2027-05-21, PANW acumula una
+    rentabilidad inferior a la del Nasdaq-100 en al menos 10 puntos porcentuales y
+    los resultados publicados no muestran crecimiento de ingresos de dos dígitos.
   secondary_hypotheses:
   - H1-OPP-MB-PANW
   - H2-OPP-MB-PANW
-  statement: La acción de Palo Alto Networks superará al Nasdaq Composite durante
-    los 12 meses posteriores a la fecha de corte, siempre que los resultados confirmen
-    crecimiento y generación de caja.
+  - H3-OPP-MB-PANW
+  statement: La acción de Palo Alto Networks tendrá una rentabilidad total superior
+    a la del Nasdaq-100 durante los doce meses siguientes al corte de investigación.
   status: ACTIVE
   ticker: PANW
   version: 1
