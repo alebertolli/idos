@@ -1048,3 +1048,143 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T16:13:15.993848'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-ITUB
+    ticker: ITUB
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T16:20:25.332039'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ITUB
+    ticker: ITUB
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T16:20:25.387429'
+- data:
+    classification: Multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 60dd500b01a6f304caf76e2d20db9ec8590ccc1e16546b60d61e861d5bd304c0
+    opp_id: OPP-MB-ITUB
+    original_status: UNDER_RESEARCH
+    score: 75.02
+    strategy_version: '1.5'
+    ticker: ITUB
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T16:21:55.518187'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-JCI
+    ticker: JCI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T16:22:25.960369'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-JCI
+    ticker: JCI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T16:22:26.016686'
+- data:
+    classification: Investigación requerida; crecimiento de mercado y calidad de retornos
+      insuficientemente validados
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: df3f61437b6f69d1034ba4840282a92ae1f62f78b717f2e510e50d1557d3f9b6
+    opp_id: OPP-MB-JCI
+    original_status: UNDER_RESEARCH
+    score: 64
+    strategy_version: '1.5'
+    ticker: JCI
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T16:24:05.487895'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-JOYY
+    ticker: JOYY
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T16:24:42.219758'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-JOYY
+    ticker: JOYY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T16:24:42.279131'
+- data:
+    errors:
+    - 'H1: prediction or trigger references an expired year'
+    - 'H2: prediction or trigger references an expired year'
+    event_evidence: null
+    event_type: monthly
+    opp_id: OPP-MB-JOYY
+    ticker: JOYY
+  event_type: research:hypothesis_validation_failed
+  source: research_worker
+  timestamp: '2026-11-21T16:25:31.914784'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-JPM
+    ticker: JPM
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T16:26:03.029723'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-JPM
+    ticker: JPM
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T16:26:03.090355'
+- data:
+    classification: Research requerido; evidencia insuficiente para validar una tesis
+      de multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: a4f73bb0a26d4c0156d814de0b99cda3d2606e0eb36929c3e82c201197ad2fef
+    opp_id: OPP-MB-JPM
+    original_status: UNDER_RESEARCH
+    score: 58
+    strategy_version: '1.5'
+    ticker: JPM
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T16:27:34.995693'
