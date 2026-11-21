@@ -1,81 +1,110 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El FCF reportado superior al beneficio neto en TTM da una conversión calculada
-    elevada, pero un solo período no demuestra persistencia ni calidad estructural
-    de caja.
-  - El margen bruto cercano a 60% es compatible con capacidad de fijación de precios,
-    pero no prueba una ventaja competitiva sin evidencia de precios, volumen y competencia.
-  - 'Precio de USD 93.44 al 2026-10-30 y momentum de 12 meses de 1.466% hasta esa
-    fecha; fuente y período: Yahoo Finance, https://finance.yahoo.com/quote/DEO/history/.'
-  - 'FCF de 3,195 y beneficio neto de 1,737 en TTM terminado el 2026-06-30; fuente:
-    Stock Analysis, https://stockanalysis.com/stocks/deo/financials/.'
-  - 'Consenso de objetivos de analistas: USD 83–133, media y mediana USD 110.71, observado
-    el 2026-11-20; fuentes: https://stockanalysis.com/stocks/deo/forecast/ y https://finance.yahoo.com/quote/DEO/.'
+  - La coexistencia de FCF positivo y contracción de ingresos y beneficio neto deja
+    abierta la sostenibilidad de la conversión de resultados en caja.
+  - Los extremos del consenso se usan únicamente como anclas observadas para escenarios,
+    no como precios intrínsecos.
+  - Cotización de USD 93.44 al 2026-10-30; momentum de precio a 12 meses de 1.466%
+    y volatilidad a 90 días de 28.2653%, según Yahoo Finance.
+  - Ingresos FY 2026 de 19,643, FCF de 3,195 y beneficio neto de 1,737, con período
+    terminado el 2026-06-30, según StockAnalysis.
+  - Margen bruto FY 2026 de 59.82%, deuda total de 22,196 y caja e inversiones de
+    1,781, con período terminado el 2026-06-30, según StockAnalysis.
+  - 'Consenso observado de precio objetivo: rango USD 83–133 y media USD 110.71 al
+    2026-11-21, según StockAnalysis y Yahoo Finance.'
   preguntas_abiertas:
-  - ¿Cuáles son la cuota, penetración y crecimiento de las categorías, marcas y geografías
-    relevantes?
-  - ¿Qué inversiones, retornos sobre capital y decisiones de asignación de capital
-    explican la trayectoria de FCF y beneficio neto?
-  - ¿Qué supuestos de negocio sustentan el rango de objetivos de analistas y qué hitos
-    corporativos son verificables?
-catalizadores_previos: &id001 []
+  - '¿Qué explican los cambios de ingresos y beneficio neto: volumen, precio, mezcla,
+    divisas u otros factores?'
+  - ¿Cuál es la rentabilidad incremental sobre el capital y cuánto reinvierte la compañía
+    en crecimiento?
+  - ¿Qué evidencia cuantitativa existe sobre cuota, penetración, marcas, poder de
+    fijación de precios y erosión competitiva?
+  - ¿Cuál es la cifra verificable de cobertura de intereses y qué política de asignación
+    de capital aplica management?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T13:32:29.695892-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-DEO
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T13:32:29.695892-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-DEO
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: RESEARCH_REQUIRED
-  justificacion: El paquete la identifica como oportunidad de investigación del perfil
-    MULTIBAGGERS, con discovery_score 67.31. La evidencia aportada permite revisar
-    algunos indicadores financieros, pero no sustenta una valoración intrínseca ni
-    escenarios de negocio cuantificados.
+  categoria: Investigación requerida; calidad de evidencia fundamental incompleta
+  justificacion: El paquete aporta datos financieros históricos y una cotización,
+    pero no evidencia suficiente sobre penetración de mercado, retornos sobre capital,
+    estrategia de reinversión o ventaja competitiva para sostener una tesis de crecimiento
+    de largo plazo.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El margen bruto reportado fue 59.82% en TTM terminado el 2026-06-30, frente
-    a 60.44% en FY 2025. La reinversión, los retornos sobre capital y la asignación
-    de capital no pueden juzgarse sin datos de capex, adquisiciones, retornos sobre
-    capital, dividendos o recompras y evidencia de management.
-  rating: Calidad operativa mixta; evaluación incompleta
+  analisis: El modelo descrito abarca producción, marketing y distribución de bebidas
+    alcohólicas y no alcohólicas en varias regiones y categorías. El margen bruto
+    reportado fue 59.82% en FY 2026, pero la evidencia aportada no permite evaluar
+    el mercado direccionable y la penetración, la reinversión, los retornos sobre
+    capital, la ventaja competitiva o su posible erosión, ni la calidad del management
+    y la asignación de capital.
+  rating: Mixto; evidencia insuficiente para una conclusión estructural
 dominio_catalizadores:
-- catalizador: Recuperación de ingresos o beneficio neto.
-  condición: Sería observable en futuros períodos financieros comparables; el paquete
-    no proporciona previsiones ni fechas de hitos.
-- catalizador: Mejora sostenida del flujo de caja libre.
-  condición: El FCF reportado fue 3,195 en FY 2026 frente a 2,685 en FY 2025; no se
-    suministran objetivos corporativos que permitan definir un umbral prospectivo.
+- catalizador: Evolución del FCF en los siguientes períodos reportados.
+  evidencia: FCF FY 2026 fue 3,195 frente a 2,685 en FY 2025; el paquete no incluye
+    guía futura.
   fuente: https://stockanalysis.com/stocks/deo/financials/
+- catalizador: Evolución de ingresos, margen bruto y beneficio neto.
+  evidencia: El margen bruto reportado fue 59.82% en FY 2026; los ingresos y el beneficio
+    neto reportados fueron menores que en FY 2023.
+  fuente: https://stockanalysis.com/stocks/deo/financials/
+- catalizador: Próximos datos de deuda, caja y asignación de capital.
+  evidencia: El paquete no contiene calendario de resultados, compromisos de dividendos,
+    recompras ni planes de inversión.
+  fuente: null
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- evidencia: 'Ingresos: 19,643 en TTM terminado el 2026-06-30 frente a 20,555 en FY
-    2023; beneficio neto: 1,737 en FY 2026 frente a 2,354 en FY 2025.'
+- evidencia: StockAnalysis reporta ingresos de 20,555 en FY 2023 y 19,643 en FY 2026;
+    beneficio neto de 4,445 y 1,737, respectivamente.
   fuente: https://stockanalysis.com/stocks/deo/financials/
-  riesgo: Ingresos y beneficio neto débiles en los períodos observados.
-- evidencia: 'Net cash reportado: -20,415 al 2026-06-30; la escala y compatibilidad
-    con EBITDA no quedan establecidas de forma suficiente para calcular net_debt_ebitda.'
+  riesgo: Contracción de ingresos y beneficio neto en los períodos financieros FY
+    2023–FY 2026 reportados.
+- evidencia: Las cifras son valores reportados por StockAnalysis; el ratio deuda neta/EBITDA
+    calculado se incluye abajo.
   fuente: https://stockanalysis.com/stocks/deo/financials/
-  riesgo: Deuda neta material según los datos reportados.
-- evidencia: El paquete enumera categorías de bebidas y marcas, pero no aporta cuotas,
-    precios, costos de adquisición, fidelidad, competencia ni datos de evolución de
-    marca.
-  fuente: Resumen financiero del Research Intake Package; sin URL ni período especificados.
-  riesgo: La ventaja competitiva y su posible erosión no se pueden evaluar con la
-    evidencia disponible.
+  riesgo: 'Apalancamiento material: deuda total reportada de 22,196 y caja e inversiones
+    de 1,781 al 2026-06-30.'
+- evidencia: No hay observaciones de esos campos en la evidencia financiera entregada.
+  fuente: null
+  riesgo: El paquete no ofrece desglose de volumen, precio, mezcla, mercados direccionables,
+    penetración ni retornos sobre capital.
+- evidencia: Debe tratarse como dato no validado, no como una medida confirmada de
+    capacidad de pago.
+  fuente: https://stockanalysis.com/stocks/DEO/statistics/
+  riesgo: La cifra reportada de cobertura de intereses es 0 para TTM terminado el
+    2026-06-30, pero no se aportan EBIT e intereses que permitan verificarla.
 error_mercado:
-  catalizador_cambio: No se identifica un catalizador verificable en la evidencia
-    suministrada; faltan previsiones corporativas y datos de resultados posteriores
-    al período financiero terminado el 2026-06-30.
-  conclusion_error_valoracion: 'No validado: el consenso de analistas es una referencia
-    observada, no una estimación independiente de valor intrínseco.'
-  consenso_actual: El precio observado fue USD 93.44 al 2026-10-30; el consenso de
-    analistas registrado al 2026-11-20 muestra objetivo medio y mediano de USD 110.71,
-    con rango USD 83–133.
-  hipotesis_contraria: La diferencia entre el precio y el objetivo medio no demuestra
-    por sí misma que el mercado esté equivocado; el paquete no incluye estimaciones
-    de beneficios, crecimiento o valoración que permitan contrastar expectativas.
-  razonamiento: La cotización y los objetivos están expresados en USD, pero no se
-    aportan supuestos que expliquen sus extremos. El momentum de precio a 12 meses
-    fue 1.466% al 2026-10-30, evidencia de mercado que no establece expectativas fundamentales.
-generated_at: '2026-11-20T13:32:29.695892-03:00'
+  catalizador_cambio: El paquete no incluye próximos resultados, guía de la empresa
+    ni eventos fechados que permitan identificar un catalizador verificable.
+  conclusion_error_valoracion: 'No se puede establecer un error de valoración con
+    la evidencia disponible: el rango de analistas es una referencia observada, no
+    una valoración intrínseca defendida por el paquete.'
+  consenso_actual: La cotización observada fue USD 93.44 al 2026-10-30; el consenso
+    de precio objetivo observado fue USD 110.71 al 2026-11-21, con rango de USD 83
+    a USD 133.
+  hipotesis_contraria: El deterioro reciente de ingresos y beneficio podría pesar
+    más que la generación positiva de flujo de caja libre; también es posible que
+    la resiliencia de márgenes y caja no esté reflejada plenamente en la cotización.
+  razonamiento: Los ingresos FY 2026 fueron inferiores a FY 2023, mientras que el
+    FCF FY 2026 superó FY 2025. No hay datos suficientes para atribuir esas variaciones
+    a volúmenes, precios, mezcla o cambios estructurales.
+generated_at: '2026-11-21T15:17:42.380287-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-DEO
@@ -97,11 +126,11 @@ prompt_inputs:
   insider_ownership: 0
   name: Diageo plc
   operating_margin: 29.3
-  pe_ratio: 32.13
+  pe_ratio: 31.61
   products: ''
   revenue: 19640000000.0
   revenue_growth: -0.81
-  roic: 13.17
+  roic: 12.85
   sector: Consumer Defensive
   ticker: DEO
 ratios_investigados:
@@ -110,52 +139,39 @@ ratios_investigados:
   metric: revenue_cagr_3y_pct
   period_end: '2026-06-30'
   sources:
-  - name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/deo/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1
-  inputs:
-    fcf_growth_history:
-      FY 2026: 18.99
-  limitations: Se usa el crecimiento FY 2026 reportado por la fuente; no se recalcula
-    porque la unidad monetaria y comparabilidad detallada de los importes no están
-    explicitadas.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_growth_pct
   period_end: '2026-06-30'
   sources:
-  - name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/deo/financials/
-  status: reported
+  status: unavailable
   unit: percent
-  value: 18.99
+  value: null
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-06-30'
   sources:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/deo/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/DEO/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs:
-    cash_and_investments_history:
-      Current: 1781
-    ebitda: 6430000000
-    total_debt_history:
-      Current: 22196
-  limitations: Los importes de deuda y caja están expresados como source_reported_amount
-    sin escala monetaria explícita, mientras que EBITDA está reportado como 6,430,000,000;
-    no puede validarse compatibilidad de unidades.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-06-30'
   sources:
-  - name: stockanalysis.com
+  - name: StockAnalysis, estados financieros
     url: https://stockanalysis.com/stocks/deo/financials/
-  - name: stockanalysis.com
+  - name: StockAnalysis, estadísticas
     url: https://stockanalysis.com/stocks/DEO/statistics/
   status: unavailable
   unit: x
@@ -163,12 +179,13 @@ ratios_investigados:
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
     shares_outstanding: 2220000000
-  limitations: Falta una serie histórica de acciones diluidas o acciones en circulación
-    comparable; el único dato aportado es acciones en circulación para un período.
+  limitations: Falta una serie de acciones diluidas o acciones en circulación para
+    dos períodos comparables; el dato puntual disponible no permite calcular dilución
+    interanual.
   metric: dilution_yoy_pct
   period_end: '2026-06-30'
   sources:
-  - name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/DEO/statistics/
   status: unavailable
   unit: percent
@@ -204,7 +221,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Diageo plc, together with its subsidiaries, engages in the production,
     marketing, and distribution of alcoholic beverages in North America, Europe, the
     Asia Pacific, Latin America and Caribbean, and Africa. It offers beer, scotch,
@@ -224,7 +241,350 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.0171
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Diageo plc (DEO) produce, comercializa y distribuye bebidas alcohólicas mediante
+    un portafolio global de marcas propias. También ofrece algunas bebidas listas
+    para consumir y bebidas no alcohólicas. Su cadena de valor comprende el desarrollo
+    y adquisición de marcas, abastecimiento de materias primas, producción o maduración,
+    control de calidad, marketing y distribución.
+
+
+    La empresa opera en la industria de bebidas, un sector maduro y competitivo. La
+    demanda puede verse afectada por los ingresos disponibles, las preferencias de
+    consumo, la regulación y las ocasiones sociales. La información recibida describe
+    una presencia y distribución globales, pero no aporta el detalle necesario para
+    evaluar la contribución de regiones o mercados específicos.
+
+
+    Entre las categorías indicadas figuran whisky escocés, irlandés, canadiense, estadounidense,
+    chino e indio, y ginebra. La cartera también incluye otras bebidas alcohólicas
+    y productos listos para consumir, aunque no se suministra un desglose completo.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Drivers de ingresos identificados:** volúmenes vendidos, precios, mezcla de
+    productos y categorías, desempeño de las marcas y distribución. No se proporcionan
+    datos segmentados por región, marca o categoría para medir la contribución de
+    cada driver.
+
+
+    El análisis de investigación caracteriza a Diageo como líder competitivo, con
+    un moat amplio basado en marcas reconocidas, escala de distribución, inversión
+    en marketing y capacidad potencial para fijar precios. Estas ventajas son evaluaciones
+    cualitativas del paquete; no se acompañan de datos de cuota de mercado, precios
+    relativos o retención de consumidores que permitan verificarlas de forma independiente.
+
+
+    La premiumización puede favorecer los ingresos, pero su efecto depende de la evolución
+    de la demanda y de la mezcla. La industria también está expuesta a cambios de
+    preferencias, competencia entre categorías y regulación. Entre las compañías relacionadas
+    en la misma industria o sector indicadas en la información recibida figuran [[ABEV]],
+    [[CL]] y [[COST]]; no se aportan comparaciones financieras o competitivas directas
+    con ellas.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las métricas siguientes se reproducen con sus períodos y unidades tal como fueron
+    informados. No se especifica la unidad monetaria de los importes financieros,
+    por lo que no deben compararse como si su escala y conversión fueran plenamente
+    verificadas.
+
+
+    | Métrica | Dato reportado | Período / referencia | Observación |
+
+    |---|---:|---|---|
+
+    | Ingresos | 19,643 | TTM terminado el 2026-06-30 | Inferiores a los 20,555 reportados
+    para FY 2023; la comparación mezcla períodos distintos. |
+
+    | Ingresos | 20,555 | FY 2023 | Base histórica citada en el análisis. |
+
+    | Margen bruto | 59.82% | TTM terminado el 2026-06-30 | Frente a 60.44% en FY
+    2025. |
+
+    | Margen operativo | 29.3% | Sin período precisado en AOIF | Dato reportado por
+    el análisis AOIF. |
+
+    | ROIC | 13.17% | Sin período precisado en AOIF | No se suministra metodología
+    ni serie histórica. |
+
+    | Beneficio neto | 1,737 | FY 2026 | Inferior a 2,354 en FY 2025. |
+
+    | Beneficio neto | 2,354 | FY 2025 | Comparación citada en DDD. |
+
+    | Flujo de caja libre (FCF) | 3,195 | FY 2026 | Superior a 2,685 en FY 2025; unidades
+    y detalle de cálculo no explicitados. |
+
+    | Flujo de caja libre (FCF) | 2,685 | FY 2025 | Base de comparación citada en
+    DDD. |
+
+    | Crecimiento de FCF | 18.99% | FY 2026 / dato reportado | No recalculado; la
+    fuente no explicita aquí unidades y comparabilidad detallada. |
+
+    | Current ratio | 1.6x | 2026-06-30 | Por encima del umbral de riesgo configurado
+    de 0.5x. |
+
+    | Net cash, según fuente | -20,415 | 2026-06-30 | Señala una posición de caja
+    neta negativa en la presentación citada; no se suministra base suficiente para
+    calcular deuda neta/EBITDA. |
+
+    | Dilución interanual de acciones | No disponible | — | No hay serie comparable
+    para evaluarla. |
+
+
+    **Tendencia y calidad de caja:** AOIF caracteriza la tendencia financiera como
+    deteriorándose y reporta crecimiento de ingresos de -0.81, sin especificar en
+    el paquete el período o unidad aplicable a esa cifra. DDD registra ingresos y
+    beneficio neto débiles en los períodos observados, junto con una mejora del FCF
+    en FY 2026. Que el FCF TTM supere el beneficio neto podría indicar una conversión
+    elevada en ese período, pero no demuestra persistencia ni calidad estructural
+    de caja. AOIF indica que no cuenta con datos de flujo de caja operativo, inversión
+    de capital y FCF para evaluar la conversión.
+
+
+    **Valoración relativa reportada por AOIF:**
+
+
+    | Métrica | Valor | Limitación |
+
+    |---|---:|---|
+
+    | EV/EBITDA | 11.92x | No se suministran fecha ni supuestos de referencia. |
+
+    | P/E | 32.13x | No se suministran fecha ni detalle del beneficio usado. |
+
+    | FCF yield | 0 | AOIF no aporta contexto suficiente para interpretar o verificar
+    el dato. |
+
+
+    La información disponible no permite establecer una trayectoria completa de deuda,
+    vencimientos, cobertura de intereses o deuda neta/EBITDA. La señal de net cash
+    reportada como -20,415 apunta a deuda neta material, pero su escala y compatibilidad
+    con EBITDA no están suficientemente definidas.
+
+
+    **Fuente de datos financieros citada en DDD:** [Stock Analysis — DEO Financials](https://stockanalysis.com/stocks/deo/financials/).
+    Para current ratio y otros indicadores: [Stock Analysis — DEO Statistics](https://stockanalysis.com/stocks/DEO/statistics/).
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF evalúa la calidad del management como **buena**, la asignación de capital
+    como **neutral** y el alineamiento de insiders como **débil**. Estas calificaciones
+    son cualitativas y el paquete no incluye su metodología, nombres de ejecutivos,
+    historial detallado de decisiones ni datos de remuneración.
+
+
+    No se proporcionan datos sobre participación accionaria de insiders, estructura
+    de incentivos, composición o independencia del board, comités, sucesión ejecutiva
+    o resultados de votaciones de accionistas. Por ello, no es posible evaluar de
+    forma independiente el alineamiento entre dirección y accionistas ni la supervisión
+    del board.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista sujeto a verificación:**
+
+
+    - Diageo cuenta con un portafolio global de marcas y una escala de distribución
+    que, según la evaluación AOIF, respaldan una posición competitiva destacada en
+    bebidas alcohólicas.
+
+    - El margen bruto reportado de 59.82% en el TTM terminado el 2026-06-30 y el margen
+    operativo de 29.3% reportado por AOIF son compatibles con una operación de márgenes
+    elevados. El período del margen operativo no está especificado.
+
+    - El FCF reportado aumentó de 2,685 en FY 2025 a 3,195 en FY 2026, con crecimiento
+    de FCF de 18.99% según la fuente. Si la mejora se mantiene y es respaldada por
+    caja operativa y reinversión adecuada, podría fortalecer la generación de caja.
+
+    - Una recuperación de ingresos o beneficios, acompañada de estabilidad de márgenes
+    y volúmenes, podría respaldar la tesis de recuperación. El paquete no incluye
+    previsiones corporativas que permitan cuantificarla.
+
+
+    La evaluación de DDD clasifica la oportunidad como **RESEARCH_REQUIRED**, con
+    discovery score de 67.31 y score general de 55. No constituye una recomendación
+    de compra. La afirmación de que existe capacidad de fijación de precios sigue
+    siendo una hipótesis: el margen bruto por sí solo no demuestra poder de precios
+    sin datos de precios, volúmenes y competencia.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    **Caso bajista y riesgos principales:**
+
+
+    - **Debilidad de ingresos y beneficios:** ingresos reportados de 19,643 en TTM
+    terminado el 2026-06-30 frente a 20,555 en FY 2023, y beneficio neto de 1,737
+    en FY 2026 frente a 2,354 en FY 2025. La mezcla de períodos impide una comparación
+    homogénea, pero los datos citados no acreditan una recuperación.
+
+    - **Debilitamiento de la demanda:** menor consumo, menores ingresos disponibles
+    o cambios de preferencias podrían afectar volúmenes y mezcla. AOIF califica este
+    riesgo como de impacto alto y probabilidad media.
+
+    - **Pérdida de relevancia de marcas o poder de precios:** la competencia y los
+    cambios en preferencias podrían reducir la capacidad de trasladar precios o sostener
+    la mezcla premium. AOIF lo califica como riesgo de impacto alto y probabilidad
+    media.
+
+    - **Deuda neta:** la cifra de net cash de -20,415 reportada al 2026-06-30 sugiere
+    una posición de deuda neta material, aunque no se aportan datos suficientes para
+    calcular su carga respecto al EBITDA.
+
+    - **Conversión de caja no demostrada:** la mejora del FCF de un ejercicio no establece
+    por sí sola su sostenibilidad. Faltan datos comparables de caja operativa, inversión
+    de capital y asignación de capital.
+
+    - **Valoración no validada:** el consenso de analistas está por encima del precio
+    observado, pero no constituye una estimación independiente de valor intrínseco.
+
+
+    **Falsadores a monitorear:**
+
+
+    1. Descensos continuados de ingresos en períodos comparables debilitarían la hipótesis
+    de recuperación del crecimiento.
+
+    2. Un deterioro sostenido del FCF frente a FY 2026 debilitaría la evidencia de
+    mejora de caja.
+
+    3. Volúmenes o mezcla débiles, junto con una incapacidad para sostener precios,
+    debilitarían la tesis de marcas y poder de fijación de precios.
+
+    4. Un deterioro de márgenes junto con caída de ingresos reduciría el respaldo
+    a la calidad operativa atribuida por AOIF.
+
+
+    No se proporcionan umbrales corporativos o previsiones para definir límites cuantitativos
+    a estos falsadores.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Fecha esperada | Impacto potencial | Evidencia / condición de
+    seguimiento |
+
+    |---|---|---|---|
+
+    | Recuperación de ingresos o beneficio neto | Sin fecha disponible | Positivo
+    si se confirma de forma sostenida; adverso si continúa el deterioro | Se observaría
+    en futuros períodos financieros comparables. El paquete no proporciona previsiones
+    ni fechas de hitos. |
+
+    | Mejora sostenida del FCF | Sin fecha disponible | Positivo si se mantiene y
+    se confirma con datos de caja operativa e inversión | FCF reportado de 3,195 en
+    FY 2026 frente a 2,685 en FY 2025. No hay objetivos corporativos para establecer
+    un umbral. |
+
+    | Evolución de volúmenes, precios y mezcla | Sin fecha disponible | Puede confirmar
+    o debilitar la tesis de marcas y poder de precios | Punto de monitoreo señalado
+    por AOIF; no se aportan datos segmentados ni guía. |
+
+
+    No se identifica un catalizador verificable con fecha concreta en la evidencia
+    suministrada. Los resultados posteriores al período financiero terminado el 2026-06-30
+    y las previsiones corporativas no están incluidos.
+
+
+    ## 8. Marco de Valoración
+
+
+    La información disponible no permite establecer un valor intrínseco fiable. AOIF
+    señala que faltan precio y fecha de referencia, deuda neta verificada, acciones,
+    proyecciones de flujos de caja y supuestos de descuento y crecimiento.
+
+
+    **Referencias observadas en el paquete:**
+
+
+    - Precio: **USD 93.44** al **2026-10-30**.
+
+    - Consenso de analistas registrado al **2026-11-20**: objetivo medio y mediano
+    de **USD 110.71**, con rango de **USD 83–133**.
+
+    - Momentum de precio a 12 meses: **1.466%** al **2026-10-30**, según el análisis
+    DDD; la cifra y su contexto no permiten inferir por sí solos una perspectiva de
+    valor.
+
+    - Ratios reportados por AOIF: EV/EBITDA de **11.92x**, P/E de **32.13x** y FCF
+    yield de **0**; no se suministra suficiente contexto para verificar sus fechas,
+    bases o supuestos.
+
+
+    La diferencia entre el precio observado y el objetivo medio del consenso no demuestra
+    que el mercado esté equivocado. Los objetivos de analistas son una referencia
+    observada, no una valoración independiente.
+
+
+    **Metodología apropiada para una evaluación posterior:** combinar una valoración
+    por flujo de caja descontado con múltiplos comparables, después de validar períodos,
+    moneda, deuda neta, acciones diluidas y generación normalizada de FCF. La sensibilidad
+    debería evaluar, como mínimo, crecimiento de ingresos y márgenes, inversión de
+    capital, conversión de caja, costo de capital y crecimiento terminal. No hay datos
+    suficientes en el paquete para asignar valores numéricos defendibles a esos supuestos
+    o calcular un margen de seguridad.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuáles son la cuota de mercado, penetración y crecimiento de las categorías,
+    marcas y geografías relevantes?
+
+    2. ¿Cómo evolucionan los volúmenes, precios y mezcla por región y categoría, y
+    qué explica la debilidad de ingresos reportada?
+
+    3. ¿Qué parte de la evolución del margen bruto refleja precios, costos, mezcla
+    de productos u otros factores?
+
+    4. ¿Son comparables los importes financieros citados en términos de moneda, período,
+    definición contable y tratamiento del FCF?
+
+    5. ¿Qué inversiones, retornos sobre capital y decisiones de asignación de capital
+    explican la trayectoria del FCF y del beneficio neto?
+
+    6. ¿Cuál es la deuda neta verificable, su calendario de vencimientos y la relación
+    entre deuda neta y EBITDA?
+
+    7. ¿Qué supuestos de beneficios, crecimiento y valoración explican el rango de
+    objetivos de analistas de USD 83 a USD 133?
+
+    8. ¿Cuál es la evolución comparable de acciones en circulación y la participación
+    accionaria de insiders?
+
+    9. ¿Qué composición, independencia, experiencia y estructura de supervisión tiene
+    el board?
+
+    10. ¿Qué previsiones corporativas o hitos permitirían medir la recuperación de
+    ingresos, beneficios y FCF?
+
+    11. ¿Cómo se compara la posición competitiva de Diageo con compañías relacionadas
+    como [[ABEV]], y qué riesgos de consumo o distribución comparte con otras empresas
+    del sector como [[CL]] y [[COST]]? Las entradas disponibles no contienen comparaciones
+    directas.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ABEV|Ambev S.A.]], [[CL|Colgate-Palmolive Company]], [[COST|Costco
+    Wholesale Corporation]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -259,7 +619,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T16:32:00.924574+00:00", "period_end": "2026-06-30",
+    "observed_at": "2026-11-21T18:17:07.643960+00:00", "period_end": "2026-06-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -279,7 +639,7 @@ research_input_snapshot:
     brands include Johnnie Wal
   revenue: 19640000000.0
   revenue_growth: -0.81
-  roic: 13.17
+  roic: 12.85
   scenario_financial_evidence:
     source_observations:
       cash_and_investments_history:
@@ -420,12 +780,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    133.0, "low": 83.0, "mean": 110.71, "median": 110.71, "observed_at": "2026-11-20T13:32:04.216630-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T13:32:04.216630-03:00", "observed_date": "2026-11-20", "target_price":
+    133.0, "low": 83.0, "mean": 110.71, "median": 110.71, "observed_at": "2026-11-21T15:17:10.749390-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T15:17:10.749390-03:00", "observed_date": "2026-11-21", "target_price":
     110.71, "url": "https://stockanalysis.com/stocks/deo/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:32:04.216630-03:00",
-    "observed_date": "2026-11-20", "target_price": 110.71429, "url": "https://finance.yahoo.com/quote/DEO/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T15:17:10.749390-03:00",
+    "observed_date": "2026-11-21", "target_price": 110.71429, "url": "https://finance.yahoo.com/quote/DEO/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 93.44000244140625,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/DEO/"}]}}'
   sector: Consumer Defensive
@@ -435,45 +795,103 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 1edccd1810d724c0bc8008911215a16674bb07ab028069270329347506a90b75
+    sha256: 263a4c555b481cded3d34eed1d08c100c7282c6911822fb2b95f68b524962bcb
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T13:32:29.695892-03:00'
+  triggered_at: '2026-11-21T15:17:42.380287-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_note: No cruza el umbral configurado; observación para Assessment, no
-    decisión de compra.
-  metric: current_ratio
-  observation: 1.6x al 2026-06-30
-  source: https://stockanalysis.com/stocks/DEO/statistics/
+- metric: current_ratio
+  observation: 1.6 al 2026-06-30; no cruza el umbral.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/DEO/statistics/
   threshold: below 0.5
-- assessment_note: No se puede evaluar el umbral configurado.
-  metric: dilution_yoy_pct
-  observation: No disponible; falta serie comparable de acciones.
-  source: https://stockanalysis.com/stocks/DEO/statistics/
-  threshold: above 10%
-- assessment_note: No interpretar el valor reportado como cobertura económica validada.
-  metric: interest_coverage
-  observation: La fuente reporta 0 al 2026-06-30; no se proporcionan EBIT ni gasto
-    por intereses para validar el cálculo.
-  source: https://stockanalysis.com/stocks/DEO/statistics/
+- metric: dilution_yoy_pct
+  observation: 'No disponible: falta una serie comparable de acciones para calcular
+    el cambio interanual.'
+  source: null
+  threshold: above 10 percent
+- metric: interest_coverage
+  observation: El valor reportado es 0 al 2026-06-30, pero no se aportan los inputs
+    EBIT e interés para validar el dato.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/DEO/statistics/
   threshold: below 2.0x
-- assessment_note: No se puede evaluar el umbral configurado.
-  metric: net_debt_ebitda
-  observation: No disponible por incompatibilidad verificable de escala entre los
-    datos de deuda/caja y EBITDA.
-  source: https://stockanalysis.com/stocks/deo/financials/
+- metric: negative_fcf_runway_months
+  observation: 'No aplica al FCF TTM reportado, que es positivo: 3,200 al 2026-06-30.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/DEO/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 3.18x calculado con los inputs disponibles; no cruza el umbral, sujeto
+    a la limitación de comparabilidad de escala indicada en el ratio.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/deo/financials/
   threshold: above 4.0x
-scenario_analysis: null
+- metric: share_count_cagr_3y_pct
+  observation: 'No disponible: no se proporciona historia comparable de acciones para
+    tres años.'
+  source: null
+  threshold: above 5 percent
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Ingresos y beneficio neto se estabilizan o crecen en períodos posteriores.
+    - El FCF se mantiene positivo y mejora junto con los resultados.
+    id: BEAR
+    key_assumptions:
+    - La debilidad histórica de ingresos y beneficio neto persiste.
+    - El FCF no compensa suficientemente la contracción de resultados.
+    rationale: 'Ancla observada: extremo bajo del rango de objetivos de analistas
+      al 2026-11-21, no valoración intrínseca propia. Es consistente como caso adverso
+      con la continuidad de la debilidad de ingresos y beneficio neto observada entre
+      FY 2023 y FY 2026; no se afirma que el consenso atribuya ese supuesto al extremo
+      bajo.'
+    sources:
+    - as_of_date: '2026-11-21'
+      name: StockAnalysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/deo/forecast/
+    - as_of_date: '2026-06-30'
+      name: StockAnalysis, estados financieros
+      url: https://stockanalysis.com/stocks/deo/financials/
+    target_price: 83
+  - falsifiers:
+    - Continúa la contracción de ingresos y beneficio neto.
+    - El FCF se debilita de forma sostenida.
+    id: BULL
+    key_assumptions:
+    - El FCF positivo observado se sostiene.
+    - Ingresos y beneficio neto dejan atrás la debilidad de los períodos históricos
+      reportados.
+    rationale: 'Ancla observada: extremo alto del rango de objetivos de analistas
+      al 2026-11-21, no valoración intrínseca propia. Es consistente como caso favorable
+      con la persistencia del FCF positivo y la recuperación de ingresos y beneficio
+      neto; el paquete no demuestra que esas condiciones ocurrirán ni que expliquen
+      el objetivo alto.'
+    sources:
+    - as_of_date: '2026-11-21'
+      name: StockAnalysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/deo/forecast/
+    - as_of_date: '2026-06-30'
+      name: StockAnalysis, estados financieros
+      url: https://stockanalysis.com/stocks/deo/financials/
+    target_price: 133
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 55
+  errors: []
+  status: valid_pending_decision_board
+score_general: 64
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T13:32:04.216630-03:00'
+  calculado_at: '2026-11-21T15:17:10.749390-03:00'
   fuentes:
     stockanalysis: 110.71
     yfinance: 110.71429
@@ -481,27 +899,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 110.71
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T13:32:04.216630-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T15:17:10.749390-03:00'
+    observed_date: '2026-11-21'
     target_price: 110.71
     url: https://stockanalysis.com/stocks/deo/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T13:32:04.216630-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T15:17:10.749390-03:00'
+    observed_date: '2026-11-21'
     target_price: 110.71429
     url: https://finance.yahoo.com/quote/DEO/
   target_high: 133.0
   target_low: 83.0
-tesis_inversion: 'Diageo produce, comercializa y distribuye bebidas alcohólicas y
-  también ofrece bebidas listas para consumir y no alcohólicas, según el resumen de
-  modelo de negocio del paquete, sin período especificado. La evidencia financiera
-  al 2026-06-30 muestra FCF de USD 3.195 millones y margen bruto de 59.82%, pero también
-  ingresos inferiores a FY 2023 y beneficio neto inferior a FY 2025. La tesis de crecimiento,
-  reinversión y retornos sobre capital no puede validarse: faltan datos de retornos
-  sobre capital, inversión, penetración de mercado, tamaño del mercado direccionable
-  y desglose de ventas por marca o región.'
+tesis_inversion: Diageo presenta generación positiva de FCF y margen bruto cercano
+  al 60% en los períodos reportados, pero los ingresos y el beneficio neto han disminuido
+  en los datos FY 2023–FY 2026. La tesis depende de que la generación de caja y la
+  rentabilidad operativa se mantengan pese a esa debilidad; el paquete no permite
+  validar crecimiento estructural, retornos incrementales sobre capital ni fortaleza
+  o erosión de la ventaja competitiva.
 ticker: DEO
 version: '3.0'

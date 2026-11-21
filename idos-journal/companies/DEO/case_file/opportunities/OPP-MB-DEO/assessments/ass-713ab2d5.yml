@@ -1,0 +1,36 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; calidad de evidencia fundamental incompleta'
+- 'Market error: No se puede establecer un error de valoración con la evidencia disponible:
+  el rango de analistas es una referencia observada, no una valoración intrínseca
+  defendida por el paquete.'
+- 'Thesis: Diageo presenta generación positiva de FCF y margen bruto cercano al 60%
+  en los períodos reportados, pero los ingresos y el beneficio neto han disminuido
+  en los datos FY 2023–FY 2026. La tesis depende'
+generated_at: '2026-11-21T15:19:18.895432-03:00'
+id: ass-713ab2d5
+recommendation: REVIEW
+risks:
+- evidencia: StockAnalysis reporta ingresos de 20,555 en FY 2023 y 19,643 en FY 2026;
+    beneficio neto de 4,445 y 1,737, respectivamente.
+  fuente: https://stockanalysis.com/stocks/deo/financials/
+  riesgo: Contracción de ingresos y beneficio neto en los períodos financieros FY
+    2023–FY 2026 reportados.
+- evidencia: Las cifras son valores reportados por StockAnalysis; el ratio deuda neta/EBITDA
+    calculado se incluye abajo.
+  fuente: https://stockanalysis.com/stocks/deo/financials/
+  riesgo: 'Apalancamiento material: deuda total reportada de 22,196 y caja e inversiones
+    de 1,781 al 2026-06-30.'
+- evidencia: No hay observaciones de esos campos en la evidencia financiera entregada.
+  fuente: null
+  riesgo: El paquete no ofrece desglose de volumen, precio, mezcla, mercados direccionables,
+    penetración ni retornos sobre capital.
+- evidencia: Debe tratarse como dato no validado, no como una medida confirmada de
+    capacidad de pago.
+  fuente: https://stockanalysis.com/stocks/DEO/statistics/
+  riesgo: La cifra reportada de cobertura de intereses es 0 para TTM terminado el
+    2026-06-30, pero no se aportan EBIT e intereses que permitan verificarla.
+score: 64
+status: COMPLETED
+version: '3.0'

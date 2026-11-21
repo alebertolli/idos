@@ -1,141 +1,146 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento orgánico de ingresos de FY 2027 es igual o inferior
-      a 0%.
+  - condition: El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior
+      a 4%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El crecimiento orgánico anual es negativo en al menos dos de los cuatro
-      trimestres de FY 2027.
+  - condition: La compañía no divulga una medida de crecimiento orgánico que permita
+      separar crecimiento interno de adquisiciones y divisas.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento orgánico de ingresos de FY 2027 es igual o inferior a 0%.
-  - El crecimiento orgánico anual es negativo en al menos dos de los cuatro trimestres
-    de FY 2027.
+  - El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior a 4%.
+  - La compañía no divulga una medida de crecimiento orgánico que permita separar
+    crecimiento interno de adquisiciones y divisas.
   horizon: medio
   id: H1-OPP-MB-DHR
   opportunity_id: OPP-MB-DHR
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-15'
-    expected: 3.0
+    deadline: '2028-03-31'
+    expected: 4.0
     met: null
-    metric: Crecimiento orgánico de ingresos de FY 2027
-    prediction: En FY 2027, Danaher reportará crecimiento orgánico de ingresos de
-      al menos 3% frente a FY 2026, según su definición de crecimiento orgánico, excluyendo
-      adquisiciones y efectos cambiarios.
-    unit: '%'
+    metric: Crecimiento orgánico de ingresos del ejercicio fiscal 2027
+    prediction: En la publicación de resultados del ejercicio fiscal 2027, el crecimiento
+      orgánico de ingresos será de al menos 4% frente al ejercicio fiscal 2026, según
+      la definición de crecimiento orgánico comunicada por Danaher.
+    unit: porcentaje interanual mínimo
   priority: critical
   probability: 0.5
-  rationale: Los ingresos anuales reportados descendieron de USD 26.643 millones en
-    FY 2022 a USD 23.890 millones en FY 2023 y alcanzaron USD 24.568 millones en FY
-    2025. Esa trayectoria hace que la recuperación del crecimiento sea una condición
-    central de la tesis; el portafolio de biotecnología, ciencias de la vida y diagnóstico
-    podría respaldarla si mejora la demanda y se normalizan los mercados finales.
-    Los datos disponibles no bastan para confirmar que esa mejora ya sea estructural.
-  review_trigger: Dejar de creerla si Danaher reporta crecimiento orgánico de FY 2027
-    igual o inferior a 0%, o si antes del 2028-02-15 la empresa reduce su perspectiva
-    de crecimiento orgánico anual a terreno negativo.
+  rationale: La compañía opera en biotecnología, ciencias de la vida y diagnóstico,
+    pero la información disponible no valida la demanda subyacente ni la penetración
+    de mercado. La hipótesis es que una recuperación de la demanda en sus mercados
+    finales se traducirá en crecimiento orgánico; debe comprobarse con resultados
+    reportados, no inferirse de los ingresos TTM de USD 25.608 millones.
+  review_trigger: Dejar de creerla si Danaher reporta crecimiento orgánico inferior
+    a 4% para el ejercicio fiscal 2027 o si, a más tardar el 2028-03-31, no publica
+    datos suficientes para verificarlo.
   secondary_hypotheses: []
-  statement: Danaher recuperará un crecimiento orgánico positivo y sostenible de sus
-    ingresos, en lugar de limitarse a estabilizar las ventas reportadas.
+  statement: Danaher volverá a generar crecimiento orgánico en su negocio durante
+    el ejercicio fiscal 2027, sin depender exclusivamente de adquisiciones o de efectos
+    cambiarios.
   status: ACTIVE
   ticker: DHR
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF TTM al 2027-09-30 es inferior a USD 5.200 millones.
+  - condition: El margen de FCF reportado para FY 2027 es inferior a 15%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen de FCF TTM al 2027-09-30 es inferior a 20%.
+  - condition: El FCF de FY 2027 no es positivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Las cifras publicadas no permiten conciliar FCF e ingresos del mismo
+      periodo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF TTM al 2027-09-30 es inferior a USD 5.200 millones.
-  - El margen de FCF TTM al 2027-09-30 es inferior a 20%.
+  - El margen de FCF reportado para FY 2027 es inferior a 15%.
+  - El FCF de FY 2027 no es positivo.
+  - Las cifras publicadas no permiten conciliar FCF e ingresos del mismo periodo.
   horizon: medio
   id: H2-OPP-MB-DHR
   opportunity_id: OPP-MB-DHR
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 5700.0
+    deadline: '2028-03-31'
+    expected: 15.0
     met: null
-    metric: FCF TTM al 2027-09-30
-    prediction: Al 2027-09-30, el FCF de los últimos doce meses será de al menos USD
-      5.700 millones y su margen sobre ingresos TTM será de al menos 22%.
-    unit: USD millones
+    metric: Margen de FCF de FY 2027
+    prediction: En el ejercicio fiscal 2027, el margen de FCF —FCF dividido por ingresos—
+      será de al menos 15%, calculado con las cifras reportadas por Danaher.
+    unit: porcentaje mínimo de ingresos
   priority: critical
   probability: 0.5
-  rationale: El FCF TTM reportado era de USD 5.727 millones al 2026-09-25 y el margen
-    bruto TTM era de 59,36%. Estos datos respaldan una hipótesis comprobable de resiliencia
-    financiera, pero no demuestran por sí solos que la generación de caja sea sostenible
-    ni que se mantenga la conversión de beneficios en efectivo.
-  review_trigger: Dejar de creerla si un reporte trimestral publicado antes o en 2027-09-30
-    muestra FCF TTM inferior a USD 5.200 millones, o margen de FCF TTM inferior a
-    20%.
+  rationale: El crecimiento del FCF del TTM contrasta con descensos reportados en
+    FY 2023 y FY 2024; la evidencia disponible no demuestra persistencia. La hipótesis
+    plantea que la conversión de ingresos en caja se sostendrá, pero no presupone
+    que exista una ventaja duradera de capital o una asignación de capital superior.
+  review_trigger: Dejar de creerla cuando Danaher reporte un margen de FCF inferior
+    a 15% para FY 2027, o si no publica datos verificables antes del 2028-03-31.
   secondary_hypotheses:
   - H1-OPP-MB-DHR
-  statement: Danaher mantendrá una generación de flujo de caja libre elevada mientras
-    recupera el crecimiento, sin que la mejora de ingresos venga acompañada de un
-    deterioro material de la conversión de caja.
+  statement: La mejora del flujo de caja libre (FCF) observada en el TTM hasta 2026-09-25
+    se traducirá en una generación de caja anual material y no será solo un repunte
+    temporal.
   status: ACTIVE
   ticker: DHR
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de DHR es igual o inferior al del S&P 500 Health
-      Care Sector durante el periodo.
+  - condition: El rendimiento total de DHR menos el rendimiento total del S&P 500
+      es inferior a 5 puntos porcentuales en la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad relativa de DHR frente al índice es inferior a 5 puntos
-      porcentuales al 2027-11-20.
+  - condition: La comparación no puede calcularse con precios ajustados por dividendos
+      de fuentes verificables.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de DHR es igual o inferior al del S&P 500 Health Care Sector
-    durante el periodo.
-  - La rentabilidad relativa de DHR frente al índice es inferior a 5 puntos porcentuales
-    al 2027-11-20.
+  - El rendimiento total de DHR menos el rendimiento total del S&P 500 es inferior
+    a 5 puntos porcentuales en la fecha objetivo.
+  - La comparación no puede calcularse con precios ajustados por dividendos de fuentes
+    verificables.
   horizon: medio
   id: H3-OPP-MB-DHR
   opportunity_id: OPP-MB-DHR
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
+    deadline: '2027-11-21'
     expected: 5.0
     met: null
-    metric: Rendimiento total relativo de DHR frente al S&P 500 Health Care Sector
-    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de DHR,
-      incluidos dividendos, superará en al menos 5 puntos porcentuales el rendimiento
-      total del S&P 500 Health Care Sector.
-    unit: puntos porcentuales
+    metric: Exceso de rendimiento total de DHR frente al S&P 500
+    prediction: Entre 2026-11-21 y 2027-11-21, el rendimiento total de DHR, incluidos
+      dividendos, superará en al menos 5 puntos porcentuales el rendimiento total
+      del S&P 500.
+    unit: puntos porcentuales mínimo
   priority: important
   probability: 0.5
-  rationale: 'La cotización podría no reflejar una recuperación sostenida del negocio,
-    pero la evidencia disponible no permite establecer una valoración intrínseca ni
-    afirmar que la acción esté infravalorada. La hipótesis es, por tanto, relativa
-    y verificable: una mejora observable de ingresos y caja debería traducirse en
-    un rendimiento total superior al de un índice sectorial comparable.'
-  review_trigger: Dejar de creerla si al 2027-11-20 la rentabilidad total acumulada
-    de DHR no supera en al menos 5 puntos porcentuales la del índice; también reevaluarla
-    antes si la empresa reduce su perspectiva de crecimiento orgánico a terreno negativo.
+  rationale: La tesis disponible no permite validar ventaja competitiva, retornos
+    sobre capital ni sostenibilidad del FCF, por lo que no justifica asumir que la
+    valoración actual sea atractiva. La hipótesis es que resultados verificables de
+    crecimiento y caja podrían reducir esa incertidumbre y favorecer el rendimiento
+    relativo; es una predicción de mercado, no una afirmación sobre el múltiplo actual.
+  review_trigger: Dejar de creerla el 2027-11-21 si el exceso de rendimiento total
+    de DHR frente al S&P 500 es inferior a 5 puntos porcentuales, independientemente
+    de la causa.
   secondary_hypotheses:
   - H1-OPP-MB-DHR
   - H2-OPP-MB-DHR
-  statement: Si se concreta la recuperación operativa y se mantiene la generación
-    de caja, la acción de Danaher superará al mercado amplio de salud estadounidense
-    durante los doce meses posteriores a la fecha de corte.
+  statement: Durante los próximos doce meses, la acción de Danaher tendrá un rendimiento
+    total superior al del S&P 500, si los resultados confirman crecimiento orgánico
+    y generación de FCF.
   status: ACTIVE
   ticker: DHR
   version: 1

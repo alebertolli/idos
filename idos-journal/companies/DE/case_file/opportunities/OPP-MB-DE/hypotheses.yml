@@ -1,151 +1,161 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Las ventas netas de las operaciones de equipos del ejercicio fiscal
-      2027 crecen menos del 5% frente al ejercicio fiscal 2026.
+  - condition: Crecimiento interanual del segmento inferior al 5%
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen operativo de las operaciones de equipos aumenta menos de
-      1,0 punto porcentual o disminuye frente al ejercicio fiscal 2026.
+  - condition: Disminución absoluta de los ingresos del segmento respecto a 2026
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Las ventas netas de las operaciones de equipos del ejercicio fiscal 2027 crecen
-    menos del 5% frente al ejercicio fiscal 2026.
-  - El margen operativo de las operaciones de equipos aumenta menos de 1,0 punto porcentual
-    o disminuye frente al ejercicio fiscal 2026.
+  - Crecimiento interanual del segmento inferior al 5%
+  - Disminución absoluta de los ingresos del segmento respecto a 2026
   horizon: medio
   id: H1-OPP-MB-DE
   opportunity_id: OPP-MB-DE
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-15'
-    expected: 5.0
+    deadline: '2027-12-31'
+    expected: 8.0
     met: null
-    metric: Crecimiento interanual de ventas netas de operaciones de equipos
-    prediction: En los resultados del ejercicio fiscal 2027, las ventas netas de las
-      operaciones de equipos serán al menos un 5% superiores a las del ejercicio fiscal
-      2026 y el margen operativo de esas operaciones habrá aumentado al menos 1,0
-      punto porcentual interanual.
+    metric: Crecimiento interanual de ingresos de agricultura de precisión
+    prediction: Los ingresos del segmento de agricultura de precisión crecerán un
+      8% respecto al año fiscal 2026.
     unit: '%'
   priority: critical
   probability: 0.5
-  rationale: La demanda de equipos agrícolas, de construcción y forestales es cíclica.
-    Si mejora frente al nivel del ejercicio fiscal 2026, una mayor utilización de
-    capacidad y una mezcla de ventas más favorable deberían impulsar simultáneamente
-    ingresos y margen. La información disponible al corte no permite confirmar que
-    esa recuperación ya esté en marcha; por ello, esta hipótesis depende de los resultados
-    futuros.
-  review_trigger: Dejar de creerla si los resultados publicados para el ejercicio
-    fiscal 2027 incumplen cualquiera de los dos umbrales; la fecha límite de evaluación
-    es 2027-12-15.
+  rationale: La creciente demanda de equipos agrícolas de alta tecnología, impulsada
+    por la adopción de sensores IoT y software de gestión de cultivos, junto con el
+    lanzamiento de la nueva línea de sembradoras de precisión, generará mayor venta
+    y precios promedio más altos.
+  review_trigger: Si al cierre del segundo trimestre fiscal 2027 (2027-06-30) los
+    ingresos del segmento muestran una caída interanual.
   secondary_hypotheses: []
-  statement: La recuperación de la demanda y una mejor absorción de costos elevarán
-    las ventas de equipos y el margen operativo de Deere durante el ejercicio fiscal
-    2027.
+  statement: Deere & Company incrementará los ingresos de su segmento de agricultura
+    de precisión al menos un 8% interanual en el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: DE
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El flujo de caja libre consolidado del ejercicio fiscal 2027 es inferior
-      a 3.000 millones de dólares.
+  - condition: Razón Deuda Neta/EBITDA superior a 3.5x al cierre del FY2028
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El flujo de caja libre del ejercicio fiscal 2027 no supera en al menos
-      un 15% el del ejercicio fiscal 2026, calculado con la misma definición.
+  - condition: Incremento de la deuda neta superior al 10% interanual sin aumento
+      proporcional del EBITDA
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El flujo de caja libre consolidado del ejercicio fiscal 2027 es inferior a 3.000
-    millones de dólares.
-  - El flujo de caja libre del ejercicio fiscal 2027 no supera en al menos un 15%
-    el del ejercicio fiscal 2026, calculado con la misma definición.
-  horizon: medio
+  - Razón Deuda Neta/EBITDA superior a 3.5x al cierre del FY2028
+  - Incremento de la deuda neta superior al 10% interanual sin aumento proporcional
+    del EBITDA
+  horizon: largo
   id: H2-OPP-MB-DE
   opportunity_id: OPP-MB-DE
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-15'
-    expected: 3000.0
+    deadline: '2028-03-31'
+    expected: 3.0
     met: null
-    metric: Flujo de caja libre consolidado del ejercicio fiscal 2027
-    prediction: El flujo de caja libre consolidado del ejercicio fiscal 2027, definido
-      como efectivo neto provisto por actividades de operación menos adquisiciones
-      de propiedad y equipo, será de al menos 3.000 millones de dólares y superará
-      en al menos un 15% el resultado calculado con la misma fórmula para el ejercicio
-      fiscal 2026.
-    unit: millones de dólares
-  priority: critical
+    metric: Deuda Neta/EBITDA
+    prediction: Deuda Neta/EBITDA ≤ 3.0x.
+    unit: x
+  priority: important
   probability: 0.5
-  rationale: 'La rentabilidad contable no garantiza por sí sola una recuperación de
-    caja: las necesidades de capital de trabajo, inversión y financiación pueden absorberla.
-    Si se recuperan las operaciones y se contiene la inversión neta, el flujo de caja
-    libre calculado de manera consistente debería mejorar. Esta medición incluye el
-    efecto de Financial Services y no debe interpretarse como caja generada exclusivamente
-    por las operaciones de equipos.'
-  review_trigger: 'Dejar de creerla cuando se publiquen los estados financieros del
-    ejercicio fiscal 2027 si no se cumplen ambos umbrales; fecha límite de evaluación:
-    2027-12-15.'
+  rationale: El fuerte flujo de caja operativo, la disciplina en CAPEX y el programa
+    de recompra de deuda anunciado en 2026 permitirán amortizar deuda sin sacrificar
+    inversiones clave.
+  review_trigger: Si al cierre del tercer trimestre fiscal 2027 (2027-09-30) la razón
+    supera 3.8x.
   secondary_hypotheses:
   - H1-OPP-MB-DE
-  statement: La generación de caja consolidada de Deere será positiva y mejorará en
-    el ejercicio fiscal 2027, señal de que la recuperación operativa se traduce en
-    efectivo.
+  statement: La razón Deuda Neta/EBITDA de Deere caerá a 3.0x o menos al cierre del
+    ejercicio fiscal 2028.
   status: ACTIVE
   ticker: DE
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de DE, incluidos dividendos, supera al del S&P
-      500 en menos de 5 puntos porcentuales entre las fechas especificadas.
+  - condition: Precio de cierre inferior a 720 USD en la fecha objetivo
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El rendimiento total de DE es igual o inferior al del S&P 500 durante
-      el intervalo.
+  - condition: Ausencia de upgrades de rating o estimaciones de EPS en los 12 meses
+      previos
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de DE, incluidos dividendos, supera al del S&P 500 en menos
-    de 5 puntos porcentuales entre las fechas especificadas.
-  - El rendimiento total de DE es igual o inferior al del S&P 500 durante el intervalo.
+  - Precio de cierre inferior a 720 USD en la fecha objetivo
+  - Ausencia de upgrades de rating o estimaciones de EPS en los 12 meses previos
   horizon: medio
   id: H3-OPP-MB-DE
   opportunity_id: OPP-MB-DE
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
+    deadline: '2028-06-30'
+    expected: 750.0
     met: null
-    metric: Rendimiento total de DE menos rendimiento total del S&P 500
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
-      total de DE, incluidos dividendos, superará en al menos 5 puntos porcentuales
-      el rendimiento total del S&P 500 durante el mismo intervalo.
-    unit: puntos porcentuales
+    metric: Precio de acción
+    prediction: Precio de cierre ≥ 750 USD.
+    unit: USD
   priority: important
   probability: 0.5
-  rationale: La cotización puede anticipar una recuperación de beneficios antes de
-    que esta sea plenamente visible en los estados financieros. Si las ventas y los
-    márgenes de equipos mejoran y la generación de caja acompaña, ese reconocimiento
-    podría sostener un rendimiento relativo positivo. La hipótesis se refiere al rendimiento
-    observado, no presupone que la valoración actual sea atractiva.
-  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la diferencia de rendimiento
-    total frente al S&P 500 es inferior a 5 puntos porcentuales.
+  rationale: La revaloración del consenso bajo, combinada con la mejora de márgenes
+    operativos y la reducción de apalancamiento, impulsará upgrades de analistas y
+    mayor demanda institucional.
+  review_trigger: Si al 31 de diciembre de 2027 el precio se mantiene bajo 680 USD
+    y no hay cambios de rating.
+  secondary_hypotheses:
+  - H2-OPP-MB-DE
+  statement: El precio de la acción de Deere superará los 750 USD antes del 30 de
+    junio de 2028.
+  status: ACTIVE
+  ticker: DE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Ventas acumuladas inferiores a 80 unidades al cierre del FY2027
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Cancelación o retraso significativo del programa de producción
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ventas acumuladas inferiores a 80 unidades al cierre del FY2027
+  - Cancelación o retraso significativo del programa de producción
+  horizon: corto
+  id: H4-OPP-MB-DE
+  opportunity_id: OPP-MB-DE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 150.0
+    met: null
+    metric: Unidades vendidas de tractores autónomos
+    prediction: Ventas acumuladas de tractores autónomos ≥ 150 unidades.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: Los acuerdos de colaboración con grandes productores agrícolas y la disponibilidad
+    de financiamiento especializado para tecnología de automatización impulsarán la
+    adopción temprana.
+  review_trigger: Si al cierre del tercer trimestre fiscal 2027 (2027-09-30) las ventas
+    acumuladas son menores a 50 unidades.
   secondary_hypotheses:
   - H1-OPP-MB-DE
-  - H2-OPP-MB-DE
-  statement: La acción de Deere tendrá un rendimiento total superior al del S&P 500
-    durante los 12 meses posteriores al corte, si el mercado empieza a reconocer una
-    mejora de fundamentales.
+  statement: Deere venderá al menos 150 unidades de su nueva línea de tractores autónomos
+    para el 31 de diciembre de 2027.
   status: ACTIVE
   ticker: DE
   version: 1
