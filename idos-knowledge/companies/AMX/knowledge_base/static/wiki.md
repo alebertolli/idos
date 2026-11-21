@@ -1,113 +1,108 @@
 ## 1. Visión General de la Compañía
 
-América Móvil, S.A.B. de C.V. (AMX) es un operador integrado de telecomunicaciones que ofrece servicios móviles y fijos en América Latina y otros mercados internacionales. Su negocio incluye telefonía, datos móviles, acceso a internet y banda ancha residencial; el material de investigación también menciona televisión, servicios empresariales y servicios de valor agregado.
+América Móvil, S.A.B. de C.V. (AMX) es una empresa de telecomunicaciones que presta servicios móviles y fijos, voz, datos y servicios de valor añadido. El material de investigación la describe como operador integrado con actividad en Latinoamérica y mercados internacionales, y menciona marcas como Telcel, Telmex e Infinitum. [AOIF, pasos 1 y 3; DDD, tesis de inversión]
 
-La compañía invierte en espectro, redes, fibra, sistemas y plataformas, y monetiza esos activos mediante servicios recurrentes para consumidores, hogares y empresas. La información disponible no detalla la contribución de cada país, segmento o producto a los ingresos.
+La cadena de valor descrita comprende el desarrollo y mantenimiento de redes, la adquisición de espectro y licencias, y la operación de servicios de conectividad. Entre sus productos se citan voz móvil y fija e internet de banda ancha mediante fibra y redes móviles. Los segmentos mencionados incluyen consumidores residenciales y pequeñas y medianas empresas. [AOIF, paso 1]
 
-**Alcance de la evidencia:** los datos de investigación combinan observaciones con fechas explícitas —por ejemplo, cifras TTM al 30 de septiembre de 2026 y cotización al 19 de noviembre de 2026— con indicadores financieros que no incluyen período ni fuente verificable. Estas últimas cifras se identifican como reportadas, pero no pueden tratarse como una serie histórica validada.
+**Alcance de la evidencia:** los inputs no aportan desgloses por país ni fuentes primarias enlazadas para comprobar el alcance geográfico, la composición de los ingresos o las cifras operativas. Por ello, esas descripciones deben considerarse información reportada por los análisis suministrados, no una verificación independiente. [DDD, calidad de evidencia]
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-**Fuentes de ingresos y operaciones**
-- Servicios móviles y fijos de voz y datos.
-- Acceso a internet y banda ancha residencial.
-- Servicios de televisión, empresariales y de valor agregado, según el resumen del modelo de negocio.
-- Venta o distribución de equipos y contenidos, mencionada en la descripción de la cadena de valor.
+Los ingresos dependerían de la prestación de servicios de conectividad móvil y fija, voz, datos y servicios de valor añadido. La investigación también identifica oportunidades vinculadas al crecimiento de servicios de datos y al despliegue de 5G, junto con presión de precios en algunos mercados. [AOIF, pasos 1 y 3]
 
-**Ventajas y límites competitivos**
-- El análisis AOIF identifica escala, cobertura, marcas, espectro e infraestructura como posibles ventajas, además de costos de cambio asociados a la continuidad del servicio y los paquetes convergentes.
-- Ese análisis califica la posición competitiva como “líder” y el moat como “estrecho”. Son conclusiones del análisis, no datos independientes demostrados por la evidencia disponible.
-- La industria se describe como madura e intensiva en capital: la demanda de conectividad y datos puede sostener el negocio, pero la presión de precios y la inversión continua en fibra, capacidad, espectro y tecnología pueden limitar la rentabilidad y la caja.
-- No se aportan datos comparables de cuota de mercado, clientes, penetración, churn, ingresos por usuario ni desempeño por país. Por ello, no es posible verificar la posición competitiva ni la evolución de sus ventajas.
+AOIF caracteriza la posición competitiva como líder y el moat como amplio, atribuyéndolo a una red extensa, espectro, marcas consolidadas y barreras regulatorias. Estas valoraciones son hipótesis del análisis AOIF; el paquete no incluye datos comparables de cuota de mercado, precios, churn, penetración, calidad de red o retornos sobre capital que permitan verificarlas. [AOIF, paso 3; DDD, dominio business quality]
 
-No se proporcionaron compañías comparables específicas en la lista de empresas del mismo sector. Por tanto, no se añaden wikilinks de competidores.
+La dinámica competitiva incluye presión potencial sobre precios y regulación de tarifas y del acceso a infraestructura. Como referencias sectoriales incluidas en la wiki existente, pueden consultarse [[TEO]], [[VOD]] y [[VZ]]; los inputs no ofrecen comparaciones directas de resultados, mercados o posicionamiento entre estas compañías y AMX.
 
 ## 3. Perfil Financiero
 
-| Métrica | Valor reportado | Período / fecha | Fuente y limitaciones |
-|---|---:|---|---|
-| Crecimiento de ingresos | 4,04% | No especificado | Indicador incluido en AOIF; sin serie histórica ni fuente detallada. |
-| Margen operativo | 19,68% | No especificado | Indicador incluido en AOIF; período no especificado. |
-| ROIC | 11,68% | No especificado | Indicador incluido en AOIF; período, método y serie no especificados. |
-| Margen bruto | 60,86% | FY 2022 | DDD; no se proporcionó una URL de respaldo. |
-| Margen bruto | 62,73% | TTM al 2026-09-30 | DDD; no se proporcionó una URL de respaldo. |
-| Crecimiento de FCF | 12,72% | TTM al 2026-09-30 | DDD lo reporta, pero no aporta URL ni períodos comparables para verificar la serie. |
-| Razón corriente | 0,75 | 2026-09-30 | Reportada por Stock Analysis: [estadísticas de AMX](https://stockanalysis.com/stocks/AMX/statistics/). DDD indica que el umbral configurado de alerta es inferior a 0,5; la observación no constituye una decisión de inversión. |
-| PER | 15,47 | No especificado | AOIF; fecha, fuente y método no detallados. |
-| EV/EBITDA | 6,22 | No especificado | AOIF; fecha, fuente y método no detallados. |
-| FCF yield | 0 | No especificado | AOIF advierte que no está confirmado su significado; no debe interpretarse como una medida validada. |
+Las cifras siguientes se transcriben de los análisis recibidos. No se proporcionaron enlaces admisibles ni conciliaciones con estados financieros; deben tratarse como métricas reportadas, no como cifras verificadas independientemente.
 
-DDD señala que las cifras de deuda total y caja disponibles no están en escalas compatibles para calcular deuda neta/EBITDA. Tampoco se proporcionan datos suficientes para evaluar cobertura de intereses o convertir beneficios en flujo de caja libre. Los ratios de CAGR de ingresos a tres años y crecimiento de FCF se clasificaron como no disponibles por falta de fuentes autorizadas y series verificables.
+| Métrica | Valor reportado | Periodo / referencia | Fuente en los inputs y limitaciones |
+|---|---:|---|---|
+| Crecimiento de ingresos | 4,04% | Periodo no especificado | AOIF, paso 2. No se identifica periodo, moneda ni método de cálculo. |
+| Margen operativo | 19,68% | Periodo no especificado | AOIF, paso 2. Sin definición ni conciliación. |
+| Conversión a FCF | 68% | Periodo no especificado | AOIF, paso 2. No se especifica fórmula ni base de comparación. |
+| ROIC | 11,68% | Periodo no especificado | AOIF, paso 2. Sin metodología ni fuente primaria. |
+| Deuda total y caja/inversiones | Se reportan cifras, no reproducidas en el paquete | 2026-09-30 | DDD indica que existen datos de Stock Analysis, pero no facilita los importes ni una URL admisible. |
+| Current ratio | 0,75x | 2026-09-30 | DDD atribuye el dato a Stock Analysis; señala que no cruza el umbral configurado de 0,5x. No es una conclusión sobre suficiencia de liquidez. |
+| Deuda neta / EBITDA | No disponible | — | DDD: falta URL admisible y hay incompatibilidad de escalas o periodos. |
+| CAGR de ingresos a 3 años | No disponible | — | DDD: se reporta un historial, pero sin fuente verificable para calcularlo. |
+| Crecimiento de FCF | No disponible | — | DDD: historial no reconciliado y sin fuente admisible. |
+| Dilución interanual | No disponible | — | DDD: falta historial comparable de acciones diluidas con fuente admitida. |
+
+AOIF también reporta EV/EBITDA de 6,12x, FCF yield de 5,2% y PER de 15,6x, pero no especifica fecha, precio de referencia, periodo financiero, definición ni fuente. No deben compararse directamente con otras métricas hasta reconciliar esos datos. [AOIF, paso 6]
+
+**Estructura de capital:** DDD identifica el apalancamiento como un riesgo, pero no permite determinar su nivel con un ratio net debt/EBITDA verificable. AOIF también menciona deuda neta elevada y exposición a tipos de cambio como riesgos, sin cuantificarlos. [DDD, dominio de riesgos; AOIF, paso 5]
 
 ## 4. Management y Gobierno Corporativo
 
-El análisis AOIF califica la calidad de la dirección como “regular”, la asignación de capital como “neutral” y el alineamiento de insiders como “fuerte”. También señala la existencia de un grupo controlador de larga trayectoria, lo que podría implicar alineamiento económico, pero también concentración de poder de decisión. Estas son valoraciones del análisis proporcionado y no están acompañadas de datos detallados sobre propiedad o incentivos.
-
-No se aportaron:
-- Porcentajes de propiedad de insiders o del grupo controlador.
-- Información sobre remuneración, objetivos de desempeño o transacciones con partes relacionadas.
-- Composición, independencia, experiencia o estructura de comités del consejo de administración.
-- Evidencia suficiente para evaluar el historial de asignación de capital.
+AOIF califica la calidad del management como buena, la asignación de capital como creadora de valor y el alineamiento de insiders como moderado. El paquete no proporciona nombres de directivos, historial de ejecución, métricas de remuneración, propiedad accionaria de insiders ni composición del consejo. Por tanto, esas calificaciones no se pueden corroborar con la evidencia disponible. [AOIF, paso 4; DDD, calidad de evidencia]
 
 ## 5. Tesis de Inversión
 
-**Caso potencial a favor — hipótesis que requiere validación**
-- La escala, la infraestructura, la cobertura y las marcas podrían respaldar la continuidad de los servicios y la venta de paquetes convergentes. El análisis AOIF identifica estas características como ventajas, pero no proporciona métricas de cuota, retención o rentabilidad que permitan medirlas.
-- Los indicadores reportados por AOIF —crecimiento de ingresos de 4,04%, margen operativo de 19,68% y ROIC de 11,68%— podrían ser compatibles con un negocio rentable. Sin período, serie y fuente verificable, no bastan para determinar la sostenibilidad o la tendencia de esos resultados.
-- DDD reporta margen bruto de 62,73% para TTM al 30 de septiembre de 2026 y crecimiento de FCF de 12,72% para ese período. Sin series comparables y fuentes trazables, estos datos son señales provisionales, no evidencia suficiente de mejora duradera.
+**Caso alcista — hipótesis pendiente de validación**
 
-**Conclusión actual:** la evidencia no valida una tesis de crecimiento de largo plazo, reinversión rentable o ventaja competitiva durable. Tampoco permite concluir que la cotización contenga un error de valoración. El caso de inversión queda pendiente de verificar crecimiento operativo, retornos sobre capital incremental, flujo de caja y deuda.
+- La escala de la red, el espectro y las marcas Telcel, Telmex e Infinitum podrían respaldar la prestación de servicios de conectividad en mercados clave. AOIF describe estos elementos como fuentes de ventaja competitiva, pero no aporta métricas operativas comparables para demostrar la magnitud o durabilidad del moat. [AOIF, pasos 1 y 3]
+- El crecimiento de datos y el despliegue de 5G podrían crear oportunidades de ingresos, sujeto a la demanda, la inversión requerida y la competencia local. [AOIF, paso 3]
+- AOIF reporta crecimiento de ingresos de 4,04%, margen operativo de 19,68%, conversión a FCF de 68% y ROIC de 11,68%. Sin fechas, definiciones ni conciliaciones, estas cifras son indicios para investigar, no evidencia suficiente para confirmar una tendencia financiera favorable. [AOIF, paso 2]
+- Como referencias de mercado, DDD reporta una cotización de USD 25,115 al 2026-11-20 y un consenso medio de USD 29,50 al 2026-11-21, dentro de un rango de USD 20,80 a USD 35,00. La diferencia frente al promedio no demuestra por sí sola que AMX esté infravalorada: los objetivos de analistas no equivalen a una valoración intrínseca. [DDD, error de mercado]
+
+**Conclusión provisional:** el negocio presenta características que podrían justificar una investigación adicional, pero la oportunidad no está validada. DDD clasifica el caso como «Research requerido; oportunidad no validada» y asigna un score general de 42, sin que se suministre una metodología para interpretar ese score. [DDD, clasificación de oportunidad]
 
 ## 6. Riesgos y Contra-Tesis
 
-**Riesgos principales**
-- **Competencia y precios:** el análisis AOIF identifica competencia intensa y posible pérdida de clientes frente a operadores móviles, de fibra y proveedores convergentes. No se aportan datos para cuantificar estos efectos por país o segmento.
-- **Inversión intensiva en capital:** la necesidad recurrente de invertir en redes, espectro y tecnología podría limitar el flujo de caja libre.
-- **Deuda y servicio financiero:** DDD señala que las cifras proporcionadas no permiten calcular deuda neta/EBITDA de forma compatible. La razón corriente de 0,75 al 30 de septiembre de 2026 es una observación por encima del umbral de alerta configurado en el paquete, pero no sustituye un análisis completo de liquidez y vencimientos.
-- **Regulación, competencia y divisas:** la exposición a varios mercados puede implicar riesgos regulatorios, competitivos y cambiarios. No se proporciona desglose por país ni estimación de sensibilidad.
-- **Riesgo de calidad de datos:** varias métricas carecen de período, fuente o serie comparable, lo que limita la confianza en cualquier conclusión financiera o de valoración.
+- **Regulación:** cambios en tarifas o condiciones de acceso a infraestructura podrían afectar ingresos, márgenes o retornos. AOIF califica el impacto como alto y la probabilidad como media, sin cuantificar la exposición por país. [AOIF, paso 5]
+- **Apalancamiento y divisas:** la deuda neta elevada y la exposición a tipos de cambio se señalan como riesgos. DDD no permite verificar el ratio net debt/EBITDA ni evaluar la sensibilidad a tasas o monedas. [AOIF, paso 5; DDD, dominio de riesgos]
+- **Liquidez:** el current ratio reportado de 0,75x requiere análisis junto con vencimientos, flujo de caja y acceso a financiación. El dato está por encima del umbral de 0,5x configurado en DDD, pero no determina por sí mismo la suficiencia de liquidez. [DDD, risk flags]
+- **Inversión y competencia:** la expansión o mantenimiento de redes puede requerir inversión sustancial; el paquete no cuantifica capex ni su retorno. La presión de precios señalada por AOIF podría limitar la rentabilidad. [AOIF, pasos 1 y 3; DDD, hipótesis contraria]
+- **Calidad de datos:** las métricas reportadas carecen de URL admitidas, periodos claramente definidos o conciliaciones. Las discrepancias de escala y periodo impiden validar ratios clave. [DDD, ratios investigados]
 
-**Contra-tesis:** la compañía podría enfrentar presión de precios y altos requerimientos de capital sin que el crecimiento de ingresos se traduzca en una generación de caja suficiente. La evidencia disponible no permite confirmar ni descartar esa posibilidad.
+**Contra-tesis:** la cotización podría reflejar riesgos de deuda, reinversión y competencia que no pueden cuantificarse con la evidencia suministrada. Tampoco hay datos suficientes para establecer si la posición de mercado y los retornos justifican las valoraciones reportadas. [DDD, error de mercado y dominio business quality]
 
-**Triggers de falsación de una tesis favorable**
-- Resultados futuros comparables muestran deterioro sostenido de ingresos, márgenes o flujo de caja frente a los datos históricos incluidos.
-- Datos verificados de deuda y gastos por intereses muestran una capacidad de servicio más débil de la que sugieren las cifras actualmente disponibles.
-- La investigación de seguimiento no confirma retornos atractivos sobre el capital incremental ni una conversión adecuada de beneficios en caja.
+**Falsadores y pruebas relevantes:** DDD identifica como posibles falsadores estados financieros y conciliaciones verificables que contradigan las cifras reportadas, y datos comparables por país que revelen deterioro persistente en ingresos, suscriptores, precios, inversión o competencia. [DDD, falsadores]
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia |
+| Evento | Fecha esperada | Posible impacto | Estado de la evidencia |
 |---|---|---|---|
-| Actualización de resultados y métricas operativas | No especificada | Permitiría evaluar ingresos, clientes, penetración, cuota por país y segmento, márgenes y evolución de la caja. | DDD lo identifica como catalizador de información; no aporta una fecha de resultados. |
-| Evidencia comparable de márgenes y flujo de caja | No especificada | Ayudaría a determinar si los márgenes y el crecimiento de FCF reportados se sostienen y si reflejan reinversión rentable. | Requiere series y fuentes verificables; no se identifica un evento concreto. |
-| Información sobre inversión, competencia y regulación | No especificada | Podría aclarar el efecto de capex, presión competitiva y regulación en la rentabilidad y las perspectivas. | DDD no identifica un catalizador operativo fechado. |
+| Próxima actualización de resultados | No disponible | Podría actualizar la evaluación de crecimiento, márgenes, FCF, deuda y capex. | DDD indica que no se proporcionó una fecha verificable de publicación. |
+| Revisión de expectativas de analistas | Sin fecha definida | Podría cambiar el consenso y el rango de objetivos. | DDD observa un consenso al 2026-11-21, pero no aporta cambios históricos de estimaciones ni sus fundamentos. |
+| Regulación de tarifas y acceso a infraestructura | Sin fecha definida | Podría afectar precios, costes y condiciones competitivas. | Riesgo descrito por AOIF; no se aportan eventos regulatorios fechados. |
+| Despliegue de 5G y evolución de datos | Sin fecha definida | Podría requerir inversión y habilitar servicios o ingresos adicionales. | Oportunidad sectorial descrita por AOIF, sin hitos o presupuestos verificables. |
 
-No se proporcionaron fechas de próximos anuncios, eventos corporativos ni estimaciones de impacto cuantificadas.
+No se identifican catalizadores fechados y verificables en los inputs. Los escenarios para el 2027-11-20 utilizan los extremos del rango de objetivos de analistas como anclas, no como precios objetivo derivados de una valoración propia. [DDD, catalizadores y análisis de escenarios]
 
 ## 8. Marco de Valoración
 
-No hay base suficiente para estimar un valor intrínseco. AOIF reporta PER de 15,47 y EV/EBITDA de 6,22, pero no especifica fecha, fuente, período de referencia ni datos de comparables. El FCF yield reportado como 0 no está definido ni validado.
+**Referencias disponibles, no valoración validada**
 
-DDD reporta, al 19 de noviembre de 2026, una cotización de **USD 24,83** y un objetivo medio y mediano de analistas de **USD 29,50**, con un rango de **USD 20,80 a USD 35,00**. El rango de objetivos no constituye por sí mismo una valoración intrínseca ni evidencia de un error de mercado. Las cifras financieras se presentan en MXN, mientras que la cotización y los objetivos están en USD; el paquete no aporta una conciliación de monedas, acciones o fechas.
+- DDD reporta cotización de USD 25,115 al 2026-11-20 y consenso medio de USD 29,50 al 2026-11-21, con rango de USD 20,80–35,00. La cotización se encuentra dentro del rango observado. [DDD, error de mercado]
+- AOIF estima un valor intrínseco de USD 28,50 por acción y califica el margen de seguridad como «adecuado». No proporciona metodología, supuestos, fecha de datos ni cálculo reproducible; por ello, esta cifra no puede validarse ni reconciliarse con el consenso de analistas. [AOIF, paso 6]
+- Los escenarios bear y bull de USD 20,80 y USD 35,00, respectivamente, son extremos del rango de objetivos reportado, no estimaciones propias basadas en proyecciones de negocio. El paquete no modela ingresos, márgenes, inversión ni múltiplos futuros. [DDD, análisis de escenarios]
 
-**Métodos que podrían evaluarse cuando haya datos suficientes**
-- Flujo de caja descontado, con flujo libre normalizado, capex de mantenimiento y expansión, capital de trabajo, deuda neta, acciones diluidas y costo de capital documentados.
-- Valoración por múltiplos de EV/EBITDA y PER, con períodos consistentes y comparables pertinentes.
-- Análisis de escenarios por país o segmento, si se obtiene información operativa desglosada.
+**Metodología a aplicar cuando haya datos suficientes:** contrastar una valoración basada en flujo de caja libre con una valoración relativa mediante múltiplos operativos, y reconciliar valor de empresa, deuda neta, acciones diluidas, moneda y periodo financiero. Los inputs actuales no permiten ejecutar este análisis de forma reproducible.
 
-**Sensibilidades por investigar:** crecimiento de ingresos y márgenes; inversión de capital y conversión a FCF; retornos del capital incremental; deuda, intereses y vencimientos; costo de capital; y evolución de acciones diluidas. No se cuantifican escenarios porque faltan supuestos y series verificables.
+**Sensibilidades pendientes:** crecimiento por país y segmento; márgenes y conversión a FCF; capex; coste de capital y tipos de cambio; deuda neta; y múltiplos terminales o comparables. No se puede cuantificar una sensibilidad fiable sin esos datos.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cómo evolucionan ingresos, clientes, penetración, cuota de mercado, churn y ARPU por país y segmento?
-2. ¿Qué retornos obtiene AMX sobre el capital incremental y qué proporción del flujo de caja se reinvierte?
-3. ¿Cuál es el flujo de caja libre normalizado y cómo se desglosa el capex entre mantenimiento, expansión, espectro y tecnología?
-4. ¿Cuáles son la deuda total, la caja, la deuda neta, el calendario de vencimientos y la cobertura de intereses, utilizando cifras en unidades y fechas compatibles?
-5. ¿Qué parte de los márgenes y del crecimiento de FCF reportados puede verificarse con estados financieros y series comparables?
-6. ¿Cuál es la exposición a riesgos regulatorios, competitivos y cambiarios por país?
-7. ¿Qué proporción de acciones diluidas corresponde a insiders o al grupo controlador, y cómo se vincula la remuneración directiva con el desempeño?
-8. ¿Cuál es el período, la fuente y la metodología de los indicadores de ROIC, crecimiento de ingresos, PER y EV/EBITDA reportados por AOIF?
-9. ¿Qué método y definición respaldan el FCF yield reportado como 0?
-10. ¿Puede reconciliarse la cotización en USD con los estados financieros, la moneda de reporte y la base de acciones utilizada?
+1. ¿Cuáles son los ingresos, suscriptores, precios, churn, capex y cuota de mercado por país y segmento?
+2. ¿Qué fuentes primarias y conciliaciones sustentan las cifras financieras reportadas, y qué periodos, monedas y escalas utiliza cada métrica?
+3. ¿Cuál es la deuda neta, su calendario de vencimientos y su exposición a tipos de interés y monedas? ¿Puede calcularse net debt/EBITDA con datos comparables?
+4. ¿Cuál es la evolución histórica comparable del FCF, la conversión de caja, el ROIC y las acciones diluidas?
+5. ¿Qué evidencia cuantitativa respalda la ventaja competitiva atribuida a la red, el espectro y las marcas? ¿Cómo varía por país?
+6. ¿Qué inversiones requiere el despliegue y mantenimiento de redes, incluido 5G, y qué retornos generan?
+7. ¿Qué cambios regulatorios concretos podrían afectar tarifas o acceso a infraestructura, y en qué mercados?
+8. ¿Cómo se calculó el valor intrínseco de USD 28,50 por acción reportado por AOIF, y cómo se concilia con los objetivos de analistas?
+9. ¿Cuáles son los incentivos, la propiedad accionaria de insiders, la composición del consejo y el historial de asignación de capital?
+10. ¿Cuál es la fecha verificable de la próxima publicación de resultados y qué cambios recientes hubo en las estimaciones de analistas?
 
-**Estado de la evaluación:** investigación requerida; evidencia insuficiente para validar una tesis de crecimiento de largo plazo o una conclusión de infravaloración.
+**Estado de investigación:** no hay hechos financieros incluidos en el paquete con una fuente primaria enlazada y verificable. Las métricas de AOIF y las referencias atribuidas a Stock Analysis deben reconciliarse antes de usarse para una conclusión de inversión.
+
+---
+
+## Related Companies
+
+- **Same Sector**: [[EA|Electronic Arts Inc]], [[GOOGL|Alphabet Inc.]], [[JOYY|JOYY Inc.]], [[PSO|Pearson plc]], [[ROKU|Roku, Inc.]], [[TEO|Telecom Argentina S.A.]], [[VOD|Vodafone Group Public Limited Company]], [[VZ|Verizon Communications Inc.]]
+- **Same Industry**: [[TEO|Telecom Argentina S.A.]], [[VOD|Vodafone Group Public Limited Company]], [[VZ|Verizon Communications Inc.]]

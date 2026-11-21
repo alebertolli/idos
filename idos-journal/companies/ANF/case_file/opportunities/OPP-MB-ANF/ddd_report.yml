@@ -1,22 +1,20 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La variación del FCF entre TTM y FY no prueba una tendencia de crecimiento comparable
-    porque los períodos difieren.
-  - Las marcas propias y la distribución omnicanal podrían apoyar diferenciación,
-    pero el paquete no demuestra poder de fijación de precios ni barreras competitivas.
-  - El snapshot atribuye a yfinance un retorno de precio de 126,6575% durante 2025-10-31/2026-10-30
-    y volatilidad de 73,7069% durante ese período de 90 días reportado.
-  - Stock Analysis informa ingresos TTM de USD 5.341 millones, margen bruto TTM de
-    63,68% y FCF TTM de USD 566,46 millones, todos con período terminado el 2026-08-01.
-  - El resumen financiero reporta precio de USD 140,37 y consenso medio de USD 170,64
-    al 2026-11-19.
+  - La variabilidad histórica del FCF hace necesario comprobar su sostenibilidad antes
+    de extrapolarlo.
+  - La exposición al comercio minorista de ropa implica riesgo de sensibilidad a cambios
+    de demanda; el paquete no cuantifica su magnitud.
+  - 'Precio de USD 139.67 al 2026-11-20, según yfinance: https://finance.yahoo.com/quote/ANF/.'
+  - 'Rango de objetivos de analistas de USD 150–200 y media de USD 170.64, observado
+    el 2026-11-21, según Stock Analysis: https://stockanalysis.com/stocks/anf/forecast/.'
+  - 'FCF TTM de USD 566.46 millones y margen bruto TTM de 63.68%, período terminado
+    el 2026-08-01, según Stock Analysis: https://stockanalysis.com/stocks/ANF/statistics/.'
   preguntas_abiertas:
-  - ¿Qué inversiones, retornos sobre capital y métricas de ventas comparables respaldan
-    la reinversión y el crecimiento?
-  - ¿Cuál es la evolución de acciones diluidas, deuda, gasto por intereses y guía
-    de la empresa en períodos comparables?
-  - ¿Qué horizonte y metodología sustentan los objetivos de analistas reportados?
+  - ¿Cuáles son el crecimiento orgánico, la penetración por marca y el mercado direccionable
+    con definiciones y períodos verificables?
+  - ¿Qué inversión requiere el crecimiento y qué retornos sobre capital produce?
+  - ¿Qué explican los objetivos de analistas y cuál es su horizonte explícito?
 catalizadores_previos: &id001
 - descripcion: Mejora de la experiencia digital mediante IA y personalización
   generated_at: '2026-11-19T18:58:41.756519-03:00'
@@ -40,58 +38,78 @@ catalizadores_previos: &id001
   nivel_confianza: alto
   opp_id: OPP-20261023-014
   probabilidad_anterior: 35
+- descripcion: ''
+  generated_at: '2026-11-19T19:00:08.765113-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-ANF
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-19T19:00:08.765113-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-ANF
+  probabilidad_anterior: null
 clasificacion_oportunidad:
   categoria: RESEARCH_REQUIRED
-  justificacion: El paquete muestra confirmación de mercado positiva, pero no aporta
-    URLs confiables habilitadas para validar los ratios configurados ni evidencia
-    suficiente para construir escenarios con horizonte definido.
+  justificacion: El paquete registra momentum de precio de 12 meses de 126.6575% y
+    volatilidad de 90 días de 73.7069%, pero no aporta evidencia verificable suficiente
+    para validar los ratios solicitados ni estimar valor intrínseco.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El negocio omnicanal y las marcas propias están descritos en el resumen
-    financiero, mientras que el margen bruto y el FCF TTM ofrecen indicadores operativos
-    favorables en un período concreto. No hay evidencia suficiente sobre retornos
-    sobre capital, economía de tienda, reinversión, penetración del mercado, moat,
-    gestión o historial de asignación de capital.
-  rating: Evidencia incompleta
+  analisis: La compañía opera marcas de ropa, productos de cuidado personal y accesorios
+    mediante tiendas, comercio electrónico y acuerdos mayoristas, de franquicia y
+    licencia. El margen bruto TTM reportado fue 63.68% al 2026-08-01; no hay información
+    suficiente sobre retornos sobre capital, penetración, poder de marca o reinversión
+    para concluir sobre la calidad o durabilidad del negocio.
+  rating: Evidencia insuficiente para calificar la calidad del negocio
 dominio_catalizadores:
-- catalizador: Confirmación de la generación de caja en períodos futuros.
-  evidencia: El FCF TTM informado fue USD 566,46 millones al 2026-08-01; no se aporta
-    guía futura en el paquete.
-- catalizador: Evolución de márgenes y resultados por marca o canal.
-  evidencia: El margen bruto TTM informado fue 63,68% al 2026-08-01; no se aportan
-    desgloses que permitan atribuirlo a marcas o canales.
+- analisis: Nuevos datos comparables de ventas, margen bruto y FCF permitirían comprobar
+    si el desempeño TTM observado al 2026-08-01 continúa.
+  catalizador: Actualización de resultados financieros
+- analisis: Desgloses de inversión, aperturas, canales y retornos permitirían evaluar
+    si la expansión omnicanal y multimarca crea valor; no están incluidos en el paquete.
+  catalizador: Evidencia de reinversión productiva
+- analisis: Cambios fechados en el rango de objetivos de analistas podrían servir
+    como evidencia de revisión de expectativas, pero no explican por sí solos sus
+    fundamentos.
+  catalizador: Revisión de expectativas del mercado
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- evidencia: El resumen clasifica a ANF en Consumer Cyclical y describe un negocio
-    minorista de apparel; el paquete no cuantifica sensibilidad a demanda.
-  riesgo: Ciclicidad y exposición a preferencias de consumo.
-- evidencia: Al 2026-08-01, Stock Analysis informa net cash de -USD 649,44 millones
-    y efectivo e inversiones de USD 638,00 millones; ambas series tienen URL fuente
-    en la evidencia financiera.
-  riesgo: Deuda neta reportada y recursos líquidos menores que el ejercicio anterior.
-- evidencia: Stock Analysis informa FCF TTM de USD 566,46 millones al 2026-08-01 frente
-    a USD 378,37 millones en FY 2026; los períodos no tienen la misma duración.
-  riesgo: Riesgo de extrapolar el crecimiento reciente de caja.
+- analisis: El modelo es de comercio minorista de ropa y accesorios; el paquete no
+    aporta datos para cuantificar sensibilidad, elasticidad o evolución de demanda.
+  riesgo: Ciclicidad y sensibilidad a la demanda
+- analisis: El historial reporta deuda total de USD 1,287 millones y caja e inversiones
+    de USD 638 millones al 2026-08-01; ambas cifras provienen de Stock Analysis.
+  riesgo: Apalancamiento y liquidez
+- analisis: El FCF TTM fue USD 566.46 millones al 2026-08-01, pero el historial muestra
+    variaciones entre ejercicios y no acredita que el nivel reciente sea recurrente.
+  riesgo: Sostenibilidad de resultados
+- analisis: No se proporcionan datos de inversión de capital, retornos sobre capital,
+    acciones diluidas históricas ni previsiones operativas verificables.
+  riesgo: Evidencia incompleta
 error_mercado:
-  catalizador_cambio: La evidencia del paquete no identifica un catalizador corporativo
-    fechado; resultados financieros posteriores podrían confirmar o refutar la continuidad
-    de márgenes y generación de caja.
-  conclusion_error_valoracion: 'No validado: el paquete ofrece referencias de precio
-    de mercado y consenso, pero no un método de valoración con inputs suficientes
-    para determinar infravaloración o sobrevaloración.'
-  consenso_actual: El resumen financiero reporta un precio de USD 140,37 al 2026-11-19
-    y un objetivo medio de analistas de USD 170,64 al 2026-11-19; estos datos no demuestran
-    por sí solos un error de valoración.
-  hipotesis_contraria: 'La mejora operativa observada podría no sostenerse: el FCF
-    TTM informado es superior al del ejercicio FY 2026, pero la serie disponible refleja
-    variaciones entre períodos.'
-  razonamiento: El precio de ANF subió 126,6575% en los 12 meses terminados el 2026-10-30,
-    según el snapshot de yfinance. El movimiento no acredita que las expectativas
-    fundamentales sean alcanzables ni que el consenso represente valor intrínseco.
-generated_at: '2026-11-19T19:00:08.765113-03:00'
+  catalizador_cambio: La confirmación o deterioro de ventas, márgenes y FCF en nuevos
+    períodos reportados cambiaría la lectura de sostenibilidad; el paquete no contiene
+    guía futura ni calendario de hitos.
+  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
+    disponible. El consenso es una referencia observada, no una estimación intrínseca.
+  consenso_actual: 'El precio observado fue USD 139.67 el 2026-11-20; el consenso
+    de precio objetivo fue USD 170.64, con rango USD 150–200, observado el 2026-11-21.
+    Fuentes: yfinance https://finance.yahoo.com/quote/ANF/ y Stock Analysis https://stockanalysis.com/stocks/anf/forecast/.'
+  hipotesis_contraria: La evidencia financiera muestra FCF TTM positivo y margen bruto
+    TTM de 63.68%, pero no demuestra que esas métricas sean sostenibles; el apalancamiento
+    y la exposición cíclica del comercio minorista pueden presionar resultados.
+  razonamiento: El precio y el rango de analistas son observaciones de mercado, mientras
+    que la evidencia fundamental disponible es histórica y parcial. Sin previsiones
+    operativas, múltiplos sustentados ni método de valoración con inputs fechados,
+    no es posible concluir que el mercado esté equivocado.
+generated_at: '2026-11-21T14:25:41.479685-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-ANF
@@ -110,7 +128,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Abercrombie & Fitch Co.
   operating_margin: 14.08
-  pe_ratio: 12.58
+  pe_ratio: 11.94
   products: ''
   revenue: 5340000000.0
   revenue_growth: 4.73
@@ -119,41 +137,52 @@ prompt_inputs:
   ticker: ANF
 ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
-  inputs: {}
-  limitations: No hay URL en trusted_source_urls y la serie de ingresos no incluye
-    una observación fechada FY 2023; además, no puede citarse una fuente del ratio
-    conforme a la restricción indicada.
+  inputs:
+    revenue_history: null
+  limitations: No hay una URL de ingresos en trusted_source_urls que cumpla el requisito
+    de citación. Además, el historial suministrado tiene etiquetas y fechas duplicadas/inconsistentes
+    y no presenta un punto FY 2023 fechado.
   metric: revenue_cagr_3y_pct
   period_end: null
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1
-  inputs: {}
-  limitations: La serie contiene períodos de duración distinta y no hay URL en trusted_source_urls
-    que pueda citarse para el ratio; no se calcula una variación comparable.
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_history: null
+  limitations: No hay URL de FCF en trusted_source_urls. El historial incluye períodos
+    fiscales y TTM no equivalentes; no se valida aquí una comparación con fuente citable
+    conforme a los requisitos.
   metric: fcf_growth_pct
   period_end: null
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: FCF / net_income * 100
-  inputs: {}
-  limitations: No hay URL en trusted_source_urls que respalde los inputs del ratio
-    conforme a la regla de citación aplicable; el ratio no se valida.
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf_history: null
+    free_cash_flow: null
+    net_income_history: null
+    net_income_ttm: null
+  limitations: No hay URL de FCF y utilidad neta en trusted_source_urls que permita
+    respaldar el cálculo y confirmar períodos compatibles.
   metric: fcf_conversion_pct
   period_end: null
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs: {}
-  limitations: El paquete presenta deuda, net cash y EBITDA en observaciones de Stock
-    Analysis, pero trusted_source_urls está vacío; no se puede citar la URL exigida
-    para validar o calcular el ratio.
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
+    cuando net_cash = cash - debt
+  inputs:
+    net_cash_history: null
+    net_debt: null
+    total_debt: null
+    total_debt_history: null
+  limitations: No hay URL citable en trusted_source_urls para los inputs y no se proporciona
+    un input EBITDA dentro de los campos enumerados para este ratio.
   metric: net_debt_ebitda
   period_end: null
   sources: []
@@ -161,9 +190,15 @@ ratios_investigados:
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs: {}
-  limitations: No se suministra historia de acciones diluidas ni una observación comparable
-    del período anterior; además, no hay URL en trusted_source_urls.
+  inputs:
+    diluted_shares: null
+    diluted_shares_history: null
+    dilution_yoy_pct: null
+    shares_outstanding: null
+    shares_outstanding_history: null
+  limitations: El paquete solo aporta acciones en circulación actuales, no una serie
+    comparable de acciones diluidas o en circulación. Tampoco hay una URL de acciones
+    en trusted_source_urls.
   metric: dilution_yoy_pct
   period_end: null
   sources: []
@@ -201,7 +236,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-19'
+  analysis_as_of_date: '2026-11-21'
   business_model: Abercrombie & Fitch Co., through its subsidiaries, operates as an
     omnichannel retailer in the Americas, Europe, the Middle East, Africa, and the
     Asia-Pacific. It offers an assortment of apparel, personal care products, and
@@ -212,8 +247,8 @@ research_input_snapshot:
     is headquartered in New Albany, Ohio.
   capital_allocation: N/A
   ceo_tenure: 0
-  current_price: 140.3699951171875
-  current_price_as_of_date: '2026-11-19'
+  current_price: 139.6699981689453
+  current_price_as_of_date: '2026-11-20'
   current_price_source: yfinance
   debt_maturity_profile: N/A
   debt_to_equity: 0.94
@@ -221,271 +256,311 @@ research_input_snapshot:
   existing_wiki: '## 1. Visión General de la Compañía
 
 
-    Abercrombie & Fitch Co. (ANF) es una compañía de retail de moda que opera en el
-    sector de consumo discrecional. Diseña, desarrolla y vende ropa y accesorios bajo
-    marcas propias mediante tiendas físicas, comercio electrónico, franquicias y acuerdos
-    mayoristas. Su cadena de valor comprende diseño de producto, aprovisionamiento
-    y manufactura con proveedores externos, logística y distribución, y venta al consumidor.
+    Abercrombie & Fitch Co. (ANF) es una compañía minorista de moda del sector de
+    consumo discrecional. Diseña, desarrolla y comercializa ropa, productos de cuidado
+    personal y accesorios a través de sus marcas Abercrombie & Fitch, Hollister y
+    abercrombie kids.
 
 
-    La información disponible describe operaciones en América, Europa, Oriente Medio,
-    África y Asia-Pacífico. Las marcas identificadas en los inputs son Abercrombie
-    & Fitch y abercrombie kids. El público objetivo incluye jóvenes adultos que buscan
-    moda casual premium y familias con niños.
-
-
-    La compañía compite en un sector expuesto a ciclos de consumo y a la evolución
-    del comercio digital. Comparte riesgos sectoriales con otros negocios de consumo
-    discrecional; la lista de compañías relacionadas proporcionada incluye [[ABNB]],
-    aunque los inputs no detallan una relación competitiva directa.
+    Su modelo combina tiendas propias y comercio electrónico con acuerdos mayoristas,
+    de franquicia y de licencia. La cadena de valor descrita incluye desarrollo de
+    producto, abastecimiento y fabricación mediante proveedores, planificación de
+    inventario, distribución y gestión de marca. La información disponible no especifica
+    la distribución geográfica de ingresos ni las operaciones por región.
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    **Drivers de ingresos:** ventas de ropa y accesorios a través de canales físicos
-    y digitales, además de franquicias y acuerdos mayoristas. El crecimiento puede
-    depender de la demanda por marca y producto, la ejecución omnicanal y la expansión
-    geográfica.
+    **Drivers de ingresos identificados:**
+
+    - Tráfico, conversión y ventas comparables en tiendas físicas y canales digitales.
+
+    - Frecuencia de compra y demanda de productos por marca.
+
+    - Actividad de los canales mayorista, de franquicia y de licencia.
 
 
-    **Posición competitiva:** los inputs atribuyen a ANF reconocimiento de marca,
-    lealtad de clientes jóvenes, tiendas físicas estratégicas y una plataforma digital
-    integrada. La evaluación de AOIF califica el moat como estrecho y a la compañía
-    como retadora. No se aportan datos que permitan cuantificar la contribución de
-    cada canal, la retención de clientes o la cuota de mercado.
+    **Posición competitiva:** ANF compite en una industria fragmentada, sensible a
+    tendencias, promociones, ciclos de consumo y costes de abastecimiento. La diferenciación
+    de marca, el reconocimiento entre ciertos segmentos y la presencia omnicanal podrían
+    apoyar su posición comercial. Sin embargo, la evidencia disponible no demuestra
+    poder de fijación de precios ni barreras competitivas duraderas.
 
 
-    La industria enfrenta cambios en las preferencias de consumo, competencia de fast-fashion
-    y desplazamiento de ventas hacia el comercio electrónico. La diferenciación de
-    marca y la integración entre tiendas y canal digital podrían respaldar la posición
-    competitiva, pero su eficacia futura no está demostrada en la evidencia disponible.
+    La evaluación AOIF clasifica el moat como **estrecho** y la posición competitiva
+    como **retador**. Estas son evaluaciones del análisis aportado, no hechos verificados
+    de forma independiente. El material recibido no identifica competidores concretos;
+    por tanto, no se añaden comparables específicos. [[ABNB]] figura en la wiki existente
+    como compañía relacionada por sector, pero no se dispone aquí de evidencia para
+    establecer una relación competitiva directa.
 
 
     ## 3. Perfil Financiero
 
 
-    Las métricas siguientes proceden de los inputs de investigación. No se incluyen
-    referencias a informes originales, fechas de publicación ni definiciones detalladas
-    de los cálculos; deben tratarse como cifras reportadas por los inputs, no como
-    cifras verificadas de manera independiente.
+    Las métricas siguientes proceden de los contextos de investigación recibidos.
+    No se proporcionaron URLs verificables para validarlas independientemente. Los
+    períodos, fechas de referencia y metodologías deben confirmarse antes de compararlas.
 
 
-    | Métrica | Valor reportado | Observaciones |
+    | Métrica | Valor informado | Período o fecha | Observaciones |
 
-    |---|---:|---|
+    |---|---:|---|---|
 
-    | Crecimiento de ingresos TTM | 4,73% | Crecimiento positivo, descrito como moderado
+    | Crecimiento de ingresos | 4,73% | No especificado en el contexto | Fuente y
+    metodología pendientes de verificar. |
+
+    | Margen operativo | 14,08% | No especificado en el contexto | Fuente y período
+    pendientes de verificar. |
+
+    | ROIC | 26,66% | No especificado en el contexto | Fuente y período pendientes
+    de verificar. |
+
+    | Margen bruto | 63,68% | TTM al 2026-08-01 | Informado por el resumen financiero;
+    sin desglose por marca o canal. |
+
+    | Flujo de caja libre (FCF) | USD 566,46 millones | TTM al 2026-08-01 | Informado
+    por el resumen financiero. |
+
+    | Efectivo e inversiones | USD 638,00 millones | Al 2026-08-01 | Informado por
+    Stock Analysis según el contexto DDD. |
+
+    | Caja neta / (deuda neta) | (USD 649,44 millones) | Al 2026-08-01 | Equivale
+    a deuda neta según la convención reportada; metodología pendiente de verificar.
     |
 
-    | Margen operativo TTM | 14,08% | Métrica reportada por DDD y AOIF |
+    | Current ratio | 1,41 | Al 2026-08-01 | Observación del contexto DDD; no estaba
+    entre los ratios principales solicitados. |
 
-    | Flujo de caja libre | 566,46 millones USD | No se especifica periodo ni definición
-    en el input |
+    | Precio de la acción | USD 140,37 | 2026-11-19 | Precio reportado por el resumen
+    financiero. |
 
-    | Conversión de FCF | 0,55 | Definición y periodo no especificados |
+    | Objetivo medio de analistas | USD 170,64 | 2026-11-19 | Consenso reportado;
+    no demuestra por sí solo infravaloración. |
 
-    | ROIC | 26,66% | Definición y periodo no especificados |
+    | PER | 12,58 | No especificado en el contexto | Fuente, fecha y definición pendientes
+    de verificar. |
 
-    | PER | 12,58 | Fecha y precio de referencia no documentados |
+    | EV/EBITDA | 7,51 | No especificado en el contexto | Fuente, fecha y definición
+    pendientes de verificar. |
 
-    | EV/EBITDA | 7,51 | Fecha y metodología no documentadas |
-
-    | Rentabilidad de FCF | 2,3% | Base de cálculo no especificada |
-
-    | Valor intrínseco estimado por AOIF | 150 USD | Estimación, no dato observado
-    |
+    | Rentabilidad del FCF | 0 | No especificado en el contexto | Unidad, período
+    y metodología no especificados; no interpretar como una métrica validada. |
 
 
-    Los inputs describen una generación de efectivo robusta y una calidad financiera
-    adecuada, pero señalan que no hay datos de deuda ni ratios de cobertura. Por tanto,
-    no es posible evaluar aquí el apalancamiento, la liquidez o la estructura de capital.
-    La afirmación de que la posición financiera es adecuada pese a esa ausencia de
-    información es una inferencia del análisis, no un hecho confirmado.
+    **Tendencia y comparabilidad:** AOIF califica la tendencia financiera como estable,
+    pero no se aportan series históricas ni fuentes suficientes para comprobarlo.
+    DDD indica que el FCF TTM informado supera el FCF del ejercicio FY 2026; esa diferencia
+    no prueba crecimiento comparable porque los períodos tienen distinta duración.
+    No se pudo calcular el CAGR de ingresos a tres años ni el crecimiento comparable
+    del FCF.
+
+
+    **Estructura de capital:** El contexto DDD reporta deuda neta de USD 649,44 millones
+    y efectivo e inversiones de USD 638,00 millones al 2026-08-01. No se aportan aquí
+    series comparables de deuda, acciones diluidas, gasto por intereses ni vencimientos.
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    La evaluación de DDD califica la gestión como buena y sostiene que el equipo directivo
-    ha ejecutado un reposicionamiento de marca y mejoras de rentabilidad en años recientes.
-    AOIF califica la calidad de la compañía como buena, la asignación de capital como
-    creadora de valor y el alineamiento de insiders como moderado.
+    AOIF califica la calidad del management como **buena**, la alineación de insiders
+    como **moderada** y la asignación de capital como **neutral**. No se proporcionan
+    nombres, fuentes ni criterios que permitan verificar estas evaluaciones.
 
 
-    Estas valoraciones son conclusiones de los análisis suministrados y no vienen
-    acompañadas de datos sobre resultados históricos concretos, remuneración, tenencia
-    accionarial de insiders o decisiones de capital específicas. Los inputs no incluyen
-    información sobre composición, independencia, experiencia o estructura del consejo
-    de administración. Estos aspectos requieren verificación adicional.
+    No hay información suficiente sobre:
+
+    - Composición, independencia, experiencia o comités del consejo de administración.
+
+    - Porcentaje de propiedad de insiders y evolución de sus participaciones.
+
+    - Diseño de remuneraciones, incentivos de largo plazo o objetivos de desempeño.
+
+    - Decisiones concretas de asignación de capital y retornos asociados.
+
+
+    Estas dimensiones requieren investigación adicional antes de extraer conclusiones
+    sobre gobierno corporativo.
 
 
     ## 5. Tesis de Inversión
 
 
-    **Caso alcista:** ANF combina marcas reconocidas, un modelo omnicanal y métricas
-    operativas reportadas como saludables: margen operativo TTM de 14,08%, FCF de
-    566,46 millones USD y ROIC de 26,66%. Los inputs también reportan crecimiento
-    de ingresos TTM de 4,73%. Si la empresa mantiene sus márgenes, continúa generando
-    caja y mejora la experiencia digital, podría sostener su rentabilidad y crecimiento.
+    **Caso alcista, sujeto a verificación:**
+
+    - ANF combina marcas propias con tiendas, comercio electrónico y canales mayoristas,
+    de franquicia y licencia.
+
+    - El margen bruto TTM reportado de 63,68% y el FCF TTM de USD 566,46 millones
+    al 2026-08-01 sugieren un desempeño operativo y una generación de caja favorables
+    en ese período; todavía falta confirmar su sostenibilidad y comparabilidad.
+
+    - Las cifras aportadas por AOIF de margen operativo del 14,08% y ROIC del 26,66%,
+    si se verifican para períodos y definiciones consistentes, serían indicativas
+    de rentabilidad operativa y retornos sobre capital atractivos.
+
+    - El precio de USD 140,37 y el objetivo medio de analistas de USD 170,64 al 2026-11-19
+    muestran una diferencia entre el precio reportado y el consenso, pero el consenso
+    no constituye una valoración independiente ni evidencia de un error de mercado.
 
 
-    La tesis de oportunidad clasifica ANF como **compounder castigado** y señala una
-    posible infravaloración. DDD indica que el consenso de analistas contemplado en
-    su análisis proyectaba un potencial alcista aproximado del 21%, pero no aporta
-    fecha, precios objetivo ni fuentes que permitan validar ese dato. AOIF estima
-    un valor intrínseco de 150 USD y califica el margen de seguridad como insuficiente.
-    Estas conclusiones de valoración no son hechos confirmados y dependen de supuestos
-    no documentados en los inputs.
-
-
-    Una estrategia omnicanal reforzada con personalización podría ser un catalizador,
-    aunque su probabilidad se estima en 30% en DDD y su impacto potencial se califica
-    como alto. Esa probabilidad es una estimación analítica, no una previsión verificable.
+    **Hipótesis, no hechos confirmados:** La diferenciación de marca y el modelo omnicanal
+    podrían sostener la demanda y los márgenes. El material disponible no demuestra
+    que ANF tenga poder de fijación de precios, una ventaja competitiva duradera o
+    una trayectoria de crecimiento comparable.
 
 
     ## 6. Riesgos y Contra-Tesis
 
 
-    **Caso bajista:** el mercado podría estar sobrestimando la recuperación del gasto
-    discrecional y la capacidad de ANF para diferenciarse de competidores de fast-fashion.
-    Una desaceleración del consumo o una intensificación de descuentos puede reducir
-    ventas y márgenes. La tesis también es vulnerable a problemas de inventario y
-    a una ejecución digital o de marca inferior a la esperada; los inputs no cuantifican
-    la exposición a estos factores.
+    **Riesgos identificados:**
+
+    - **Tendencias y preferencias:** Cambios en gustos o pérdida de relevancia de
+    las marcas pueden debilitar la demanda. AOIF evalúa este riesgo como de impacto
+    alto y probabilidad alta.
+
+    - **Inventario:** Errores de previsión pueden generar exceso de inventario, descuentos
+    y presión sobre los márgenes. AOIF lo evalúa como de impacto alto y probabilidad
+    media.
+
+    - **Ciclicidad del consumo:** La exposición al retail de moda hace que el desempeño
+    pueda verse afectado por ciclos de consumo; el paquete no cuantifica esta sensibilidad.
+
+    - **Deuda neta:** El resumen de Stock Analysis reporta deuda neta de USD 649,44
+    millones al 2026-08-01. Faltan datos sobre vencimientos, intereses y evolución
+    comparable para valorar su efecto.
+
+    - **Sostenibilidad de resultados:** El FCF TTM y las métricas operativas podrían
+    no mantenerse; la comparación con cifras FY de distinto período no basta para
+    probar una tendencia.
 
 
-    | Riesgo | Evaluación reportada | Posible efecto |
-
-    |---|---|---|
-
-    | Menor gasto discrecional por desaceleración macroeconómica | Impacto alto; probabilidad
-    media en AOIF | Menor demanda y presión sobre ventas |
-
-    | Competencia de fast-fashion y mayor presión de precios/descuentos | Impacto
-    alto; probabilidad alta en AOIF | Compresión de margen y menor diferenciación
-    |
-
-    | Endeudamiento y cobertura de deuda desconocidos | Pregunta abierta en DDD |
-    Impide valorar plenamente el riesgo financiero |
-
-    | Riesgos ESG y de cadena de suministro | Riesgo sectorial señalado; sin métricas
-    específicas | Posibles riesgos operativos y de reputación |
+    **Contra-tesis:** La mejora operativa observada podría ser transitoria. El paquete
+    no permite demostrar que marcas y canales sostengan el desempeño, ni descartar
+    presión futura sobre ventas, descuentos, márgenes o caja. DDD también señala que
+    la subida de 126,6575% del precio en los 12 meses terminados el 2026-10-30, según
+    el snapshot de yfinance, no acredita por sí sola que las expectativas fundamentales
+    sean alcanzables.
 
 
-    **Falsadores incluidos en el análisis de escenarios:**
+    **Triggers de falsación de la tesis:**
 
-    - Para el escenario alcista, se considera falsador un crecimiento de ingresos
-    inferior al 3% anual o que el margen operativo se mantenga en 14% o disminuya.
+    - Períodos posteriores muestran deterioro persistente del margen bruto o del FCF
+    frente a las cifras TTM reportadas al 2026-08-01.
 
-    - Para el escenario bajista, se considera falsador un crecimiento de ingresos
-    positivo en 2027 o el mantenimiento o mejora del margen operativo.
+    - Datos verificables de ventas, márgenes o caja contradicen la hipótesis de que
+    las marcas y canales sostienen el desempeño.
 
-
-    El input no aclara cómo se reconcilia el primer criterio con los supuestos del
-    escenario alcista, ni precisa el periodo de medición de todos los umbrales. Deben
-    tratarse como indicadores propuestos para seguimiento, no como reglas verificadas.
+    - Datos comparables de ventas e inventario muestran que los descuentos o la menor
+    demanda erosionan de forma persistente la rentabilidad.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    | Catalizador | Horizonte indicado | Impacto / probabilidad reportados | Estado
-    de evidencia |
+    | Catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
 
     |---|---|---|---|
 
-    | Mejora de la experiencia digital mediante IA y personalización | Medio plazo
-    | Impacto alto; probabilidad 30% | Hipótesis de catalizador; no se proporciona
-    fecha de lanzamiento |
-
-    | Expansión exitosa de productos sostenibles | Largo plazo | Impacto medio; probabilidad
-    25% | Hipótesis de catalizador; no se aportan iniciativas ni métricas concretas
+    | Resultados financieros posteriores y confirmación de la generación de caja |
+    Sin fecha indicada en el paquete | Podrían confirmar o refutar la sostenibilidad
+    del FCF y los márgenes reportados. | DDD no aporta guía futura ni fecha de resultados.
     |
 
-    | Crecimiento de ingresos superior al 6% y margen operativo de aproximadamente
-    16% | Hasta el 19-11-2027, según el horizonte del escenario | Supuestos del escenario
-    alcista; precio objetivo de 190 USD | Escenario, no previsión confirmada |
+    | Evolución de márgenes y resultados por marca o canal | Sin fecha indicada en
+    el paquete | Permitiría evaluar qué marcas y canales impulsan o presionan el desempeño.
+    | No se proporcionan desgloses por marca o canal. |
 
-    | Crecimiento nulo o negativo y margen operativo inferior al 12% | Hasta el 19-11-2027,
-    según el horizonte del escenario | Supuestos del escenario bajista; precio objetivo
-    de 120 USD | Escenario, no previsión confirmada |
+    | Evolución de ventas comparables, tráfico y conversión | Sin fecha indicada en
+    el paquete | Ayudaría a distinguir crecimiento de demanda de otros factores, como
+    precios o mezcla. | Métricas pendientes de investigar. |
 
 
-    La fecha de referencia indicada en el análisis de escenarios es 19-11-2026 y el
-    horizonte termina el 19-11-2027. No se proporcionan fechas concretas para resultados,
-    lanzamientos, aperturas o decisiones corporativas. Las cifras de escenarios son
-    proyecciones del input y no objetivos garantizados.
+    El paquete no identifica un catalizador corporativo fechado. No se asignan fechas
+    esperadas sin evidencia.
 
 
     ## 8. Marco de Valoración
 
 
-    Para un retailer con marcas propias y exposición a ciclos de consumo, puede ser
-    útil contrastar una valoración por beneficios o flujo de caja con múltiplos de
-    mercado como PER y EV/EBITDA. La valoración debería considerar la sensibilidad
-    de ventas y márgenes a la demanda discrecional, los descuentos, la mezcla de canales
-    y la inversión necesaria para sostener la plataforma omnicanal.
+    **Estado:** No se puede determinar el valor intrínseco con la información disponible.
+    El propio análisis AOIF califica el margen de seguridad como **insuficiente**;
+    esa clasificación debe tratarse como una evaluación del análisis recibido, no
+    como un resultado reproducible con los datos entregados.
 
 
-    AOIF reporta PER de 12,58, EV/EBITDA de 7,51, rentabilidad de FCF de 2,3% y un
-    valor intrínseco estimado de 150 USD. También califica el margen de seguridad
-    como insuficiente. DDD menciona un precio de 140,37 USD en su resumen, pero el
-    input está truncado y no aporta fecha ni metodología de valoración. No es posible
-    confirmar que las cifras sean contemporáneas o comparables.
+    **Metodologías apropiadas para investigar:**
+
+    - Flujo de caja descontado, con ingresos, márgenes, impuestos, reinversión, capital
+    de trabajo, capex y coste de capital explícitos.
+
+    - Valoración por múltiplos comparables —por ejemplo, EV/EBITDA y PER— únicamente
+    después de verificar períodos, definiciones, precio, acciones diluidas, deuda
+    y caja.
+
+    - Análisis de escenarios que refleje la ciclicidad de la demanda, la sensibilidad
+    promocional, el riesgo de inventario y la evolución por marca y canal.
 
 
-    | Escenario suministrado | Supuestos principales | Precio objetivo reportado |
-
-    |---|---|---:|
-
-    | Bajista | Crecimiento de ingresos nulo o negativo; margen operativo inferior
-    al 12% | 120 USD |
-
-    | Alcista | Crecimiento de ingresos superior al 6%; margen operativo cercano al
-    16% | 190 USD |
+    Los múltiplos informados de PER 12,58 y EV/EBITDA 7,51 no bastan para concluir
+    que la acción esté infravalorada o sobrevalorada. DDD clasifica la conclusión
+    sobre error de valoración como **no validada**.
 
 
-    La sensibilidad depende principalmente de la trayectoria de ingresos y del margen
-    operativo. Los inputs no especifican el modelo utilizado para derivar los precios
-    objetivo, las tasas de descuento, los múltiplos terminales, la evolución del capital
-    circulante ni la deuda neta. Por ello, los escenarios deben interpretarse como
-    referencias analíticas incompletas y no como valoraciones independientes verificables.
+    **Sensibilidades que deberían evaluarse cuando haya datos:**
+
+    - Crecimiento de ventas comparables y de ingresos.
+
+    - Margen bruto y margen operativo.
+
+    - Conversión de beneficios en FCF, capex y capital de trabajo.
+
+    - Coste de capital y crecimiento terminal.
+
+    - Deuda neta, intereses y número de acciones diluidas.
+
+
+    No se calculan escenarios numéricos porque faltan inputs verificables y comparables.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    1. ¿Cuál es la deuda bruta y neta de ANF, y cuáles son sus ratios de apalancamiento,
-    cobertura de intereses y vencimientos?
+    1. ¿Qué fuentes y períodos respaldan el crecimiento de ingresos del 4,73%, el
+    margen operativo del 14,08% y el ROIC del 26,66%?
 
-    2. ¿Cuál es el periodo exacto, la definición y la fuente del FCF de 566,46 millones
-    USD y de las demás métricas financieras?
+    2. ¿Cómo evolucionan las ventas comparables, el tráfico, la conversión y la frecuencia
+    de compra por marca, región y canal?
 
-    3. ¿Cómo se distribuyen los ingresos y márgenes entre tiendas, comercio electrónico,
-    franquicias y acuerdos mayoristas?
+    3. ¿Qué parte del margen bruto y del FCF procede de cada marca y canal?
 
-    4. ¿Qué evidencia histórica respalda la persistencia de la lealtad de marca, la
-    retención de clientes y la ventaja omnicanal?
+    4. ¿Qué inversiones, capex y necesidades de capital de trabajo respaldan la reinversión
+    y el crecimiento?
 
-    5. ¿Qué iniciativas concretas de IA y personalización están en marcha, con qué
-    presupuesto y métricas de éxito?
+    5. ¿Cuál es la evolución comparable de deuda, caja, gasto por intereses, vencimientos
+    y acciones diluidas?
 
-    6. ¿Qué objetivos, métricas y resultados tiene la compañía en sostenibilidad y
-    gestión de la cadena de suministro?
+    6. ¿Qué guía ha ofrecido la empresa y cómo se compara con los resultados posteriores?
 
-    7. ¿Qué tenencia accionarial tienen los insiders y cómo se vinculan sus incentivos
-    con la rentabilidad y la creación de valor a largo plazo?
+    7. ¿Qué información respalda las evaluaciones de calidad del management, alineación
+    de insiders y asignación de capital?
 
-    8. ¿Cuál es la composición del consejo, su nivel de independencia y la experiencia
-    relevante de sus integrantes?
+    8. ¿Cuál es la composición del consejo y cómo se estructuran la independencia
+    y los incentivos ejecutivos?
 
-    9. ¿Qué supuestos sustentan el valor intrínseco de 150 USD, los precios objetivo
-    de 120 y 190 USD y la estimación de potencial alcista del 21%?
+    9. ¿Cómo se construyeron los múltiplos, el margen de seguridad y la rentabilidad
+    del FCF informados por AOIF?
 
-    10. ¿Qué compañías son comparables competitivamente? Los inputs identifican [[ABNB]]
-    como compañía del mismo sector, pero no documentan que sea competidor directo
-    de ANF.
+    10. ¿Qué competidores comparables son adecuados para analizar la posición de ANF
+    y su valoración?
+
+
+    **Conclusión del paquete de investigación:** La clasificación DDD es **RESEARCH_REQUIRED**;
+    el score general es 48. La evidencia aportada permite describir el negocio e identificar
+    cifras operativas potencialmente favorables, pero no alcanza para validar tendencias
+    comparables, construir una valoración intrínseca ni determinar un error de valoración.
 
 
     ---
@@ -540,14 +615,14 @@ research_input_snapshot:
     "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
     ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
     {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
-    "observed_at": "2026-11-19T19:15:33.758496+00:00", "period_end_date": "2026-08-01",
+    "observed_at": "2026-11-20T18:55:11.118126+00:00", "period_end_date": "2026-08-01",
     "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
     null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
     {"currency": null, "period_end_date": "2026-08-01", "period_type": "TTM", "source_url":
     "https://stockanalysis.com/stocks/ANF/statistics/", "unit": "provider_financial_currency"}},
     "unit": "provider_financial_currency", "values": {"stockanalysis.com": 566460000.0}},
     "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
-    "non_comparable_values": {"yfinance": 14.079}, "observed_at": "2026-11-19T19:15:33.758496+00:00",
+    "non_comparable_values": {"yfinance": 14.079}, "observed_at": "2026-11-20T18:55:11.118126+00:00",
     "period_end_date": "2026-08-01", "period_status": "SINGLE_SOURCE", "period_type":
     "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
     "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
@@ -556,14 +631,14 @@ research_input_snapshot:
     "2026-08-01", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
     "unit": "percentage_points", "values": {"stockanalysis.com": 14.08}}, "revenue_growth_pct":
     {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
-    {"yfinance": 4.8}, "observed_at": "2026-11-19T19:15:33.758496+00:00", "period_end_date":
+    {"yfinance": 4.8}, "observed_at": "2026-11-20T18:55:11.118126+00:00", "period_end_date":
     "2026-08-01", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
     null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
     {"currency": null, "period_end_date": "2026-08-01", "period_type": "TTM", "source_url":
     "https://stockanalysis.com/stocks/anf/financials/", "unit": "percentage_points"},
     "yfinance": {"currency": null, "period_end_date": "2026-08-01", "period_type":
     "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
-    "values": {"stockanalysis.com": 4.73}}}, "observed_at": "2026-11-19T19:15:33.758496+00:00",
+    "values": {"stockanalysis.com": 4.73}}}, "observed_at": "2026-11-20T18:55:11.118126+00:00",
     "period_end": "2026-08-01", "sources_used": ["stockanalysis.com", "yfinance"]}'
   geography: ''
   insider_ownership: 0
@@ -724,14 +799,14 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    200.0, "low": 150.0, "mean": 170.64, "median": 170.64, "observed_at": "2026-11-19T18:58:32.504926-03:00",
-    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
-    "2026-11-19T18:58:32.504926-03:00", "observed_date": "2026-11-19", "target_price":
+    200.0, "low": 150.0, "mean": 170.64, "median": 170.64, "observed_at": "2026-11-21T14:25:11.221761-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T14:25:11.221761-03:00", "observed_date": "2026-11-21", "target_price":
     170.64, "url": "https://stockanalysis.com/stocks/anf/forecast/"}, {"as_of_date":
-    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T18:58:32.504926-03:00",
-    "observed_date": "2026-11-19", "target_price": 170.63635, "url": "https://finance.yahoo.com/quote/ANF/"}]},
-    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 140.3699951171875,
-    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ANF/"}]}}'
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T14:25:11.221761-03:00",
+    "observed_date": "2026-11-21", "target_price": 170.63635, "url": "https://finance.yahoo.com/quote/ANF/"}]},
+    "current_quote": {"as_of_date": "2026-11-20", "currency": "USD", "price": 139.6699981689453,
+    "sources": [{"as_of_date": "2026-11-20", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ANF/"}]}}'
   sector: Consumer Cyclical
   ticker: ANF
 research_trigger:
@@ -739,52 +814,100 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 72de8b48859912017766529c25ff628154d44bb726fc76111f6e704e74687bae
+    sha256: 198f62b37b10e306951ee2e46c3f6fb7ac48f16a89ee2481eb59326913ac9171
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-19T19:00:08.765113-03:00'
+  triggered_at: '2026-11-21T14:25:41.479685-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_note: Umbral configurado para revisión; no constituye una decisión.
+- assessment_note: Observación para Assessment, no decisión de compra.
   metric: current_ratio
-  observation: No se incluye entre los ratios solicitados; Stock Analysis reporta
-    1,41 al 2026-08-01, pero la URL no está en trusted_source_urls.
-  threshold: below 0.5
-- assessment_note: Umbral configurado para revisión; no constituye una decisión.
-  metric: dilution_yoy_pct
-  observation: 'No disponible: faltan acciones diluidas de períodos comparables y
-    URL confiable habilitada para citar.'
-  threshold: above 10%
-- assessment_note: Umbral configurado para revisión; no constituye una decisión.
+  observation: 1.41x al 2026-08-01; no está por debajo del umbral configurado de 0.5x.
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ANF/statistics/
+- assessment_note: Tratar como alerta de calidad de dato y verificar antes de interpretarlo.
   metric: interest_coverage
-  observation: Stock Analysis reporta 0 al 2026-08-01, pero no se puede validar qué
-    representa ese valor ni citar su URL bajo la restricción del paquete.
-  threshold: below 2.0x
-- assessment_note: Umbral configurado para revisión; no constituye una decisión.
+  observation: El campo reporta 0x al 2026-08-01, por debajo del umbral configurado
+    de 2.0x; su significado y compatibilidad con EBIT e interés no se pueden validar
+    con el paquete.
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ANF/statistics/
+- assessment_note: Falta historial comparable de acciones y una URL de fuente permitida
+    para validar el ratio.
+  metric: dilution_yoy_pct
+  observation: No disponible; no puede compararse con el umbral configurado superior
+    a 10%.
+  sources: []
+- assessment_note: El umbral configurado de menos de 12 meses se refiere a runway
+    cuando el FCF es negativo.
   metric: negative_fcf_runway_months
-  observation: No aplica a la observación FCF TTM positiva de USD 566,46 millones
-    al 2026-08-01; no se calcula runway.
-  threshold: below 12 months
-- assessment_note: Umbral configurado para revisión; no constituye una decisión.
+  observation: No aplica al FCF TTM reportado de USD 566.46 millones, positivo, para
+    el período terminado el 2026-08-01.
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/ANF/statistics/
+- assessment_note: No inferir el ratio a partir de campos que no cumplen los requisitos
+    de entrada y citación.
   metric: net_debt_ebitda
-  observation: No disponible como ratio validado; la evidencia reporta net cash negativo
-    al 2026-08-01, pero no se puede citar la URL requerida para calcularlo.
-  threshold: above 4.0x
-- assessment_note: Umbral configurado para revisión; no constituye una decisión.
+  observation: 'No se marca respecto al umbral superior a 4.0x: falta un input EBITDA
+    admitido para el ratio y una URL citable en trusted_source_urls.'
+  sources: []
+- assessment_note: Falta una serie fechada y comparable de acciones.
   metric: share_count_cagr_3y_pct
-  observation: 'No disponible: no se proporciona historia comparable de acciones diluidas
-    o en circulación.'
-  threshold: above 5%
-scenario_analysis: null
+  observation: No disponible; no puede compararse con el umbral configurado superior
+    a 5%.
+  sources: []
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Resultados futuros comparables que acrediten crecimiento sostenido de ventas,
+      margen bruto y FCF.
+    - Una revisión del rango de analistas que retire el extremo bajo observado.
+    id: BEAR
+    key_assumptions:
+    - El extremo bajo de USD 150 es comparable en moneda con la cotización observada.
+    - La actividad minorista y el FCF pueden deteriorarse, pero no hay previsiones
+      que cuantifiquen ese deterioro.
+    rationale: 'Ancla observada: extremo bajo del rango de objetivos de analistas
+      al 2026-11-21, no valoración intrínseca propia. Representa el resultado menos
+      favorable dentro del rango observado, coherente con presión sobre demanda, márgenes
+      o conversión de caja; el paquete no permite cuantificar esos impactos.'
+    sources:
+    - as_of_date: '2026-11-21'
+      name: Stock Analysis
+      url: https://stockanalysis.com/stocks/anf/forecast/
+    target_price: 150
+  - falsifiers:
+    - Resultados futuros que muestren deterioro persistente de margen bruto o FCF.
+    - Una revisión del rango de analistas que retire el extremo alto observado.
+    id: BULL
+    key_assumptions:
+    - El extremo alto de USD 200 es comparable en moneda con la cotización observada.
+    - El FCF y los márgenes reportados podrían mantenerse, aunque el paquete no aporta
+      guía ni datos para validar esa continuidad.
+    rationale: 'Ancla observada: extremo alto del rango de objetivos de analistas
+      al 2026-11-21, no valoración intrínseca propia. Representa el resultado más
+      favorable dentro del rango observado, compatible con sostener los niveles reportados
+      de margen bruto y FCF; la evidencia no permite afirmar que esos niveles continuarán.'
+    sources:
+    - as_of_date: '2026-11-21'
+      name: Stock Analysis
+      url: https://stockanalysis.com/stocks/anf/forecast/
+    target_price: 200
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 48
+  errors: []
+  status: valid_pending_decision_board
+score_general: 55
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-19T18:58:32.504926-03:00'
+  calculado_at: '2026-11-21T14:25:11.221761-03:00'
   fuentes:
     stockanalysis: 170.64
     yfinance: 170.63635
@@ -792,26 +915,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 170.64
   source_references:
-  - as_of_date: '2026-11-19'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-19T18:58:32.504926-03:00'
-    observed_date: '2026-11-19'
+    observed_at: '2026-11-21T14:25:11.221761-03:00'
+    observed_date: '2026-11-21'
     target_price: 170.64
     url: https://stockanalysis.com/stocks/anf/forecast/
-  - as_of_date: '2026-11-19'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-19T18:58:32.504926-03:00'
-    observed_date: '2026-11-19'
+    observed_at: '2026-11-21T14:25:11.221761-03:00'
+    observed_date: '2026-11-21'
     target_price: 170.63635
     url: https://finance.yahoo.com/quote/ANF/
   target_high: 200.0
   target_low: 150.0
-tesis_inversion: ANF opera marcas de ropa y accesorios mediante tiendas, comercio
-  electrónico y acuerdos mayoristas, de franquicia y licencia. La evidencia financiera
-  disponible muestra margen bruto TTM de 63,68% y FCF TTM de USD 566,46 millones al
-  2026-08-01, pero no permite establecer retornos sobre capital, crecimiento sostenible,
-  penetración de mercado ni una ventaja competitiva duradera. La tesis queda condicionada
-  a verificar la continuidad de márgenes y caja y a obtener evidencia sobre reinversión,
-  gestión y asignación de capital.
+tesis_inversion: La tesis a investigar es si la cartera omnicanal y multimarca de
+  ANF puede sostener crecimiento, márgenes y generación de caja mediante reinversión
+  eficaz, mientras preserva su atractivo de marca frente a cambios de demanda. La
+  evidencia disponible respalda rentabilidad y FCF positivos en el TTM terminado el
+  2026-08-01, pero no permite establecer retornos sobre capital, penetración de mercado
+  ni la durabilidad de una ventaja competitiva.
 ticker: ANF
 version: '3.0'

@@ -1,26 +1,24 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La evidencia disponible no permite concluir que la cotización refleje un error
-    de valoración.
-  - Los datos presentados no bastan para validar el mecanismo de crecimiento, la reinversión
-    rentable o una ventaja competitiva durable.
-  - 'La cotización reportada fue USD 24,83 al 2026-11-19; fuente: yfinance, https://finance.yahoo.com/quote/AMX/;
-    período: 2026-11-19.'
-  - 'El resumen financiero describe servicios inalámbricos y fijos de voz, datos,
-    centros de datos, hosting y servicios de valor agregado; fuente: resumen financiero
-    de contexto; período: descripción del negocio disponible al 2026-11-19.'
-  - 'El historial reporta ingresos de MXN 816.013 millones para FY 2023 y MXN 943.638
-    millones para FY 2025; fuente: stockanalysis.com, https://stockanalysis.com/stocks/AMX/statistics/;
-    períodos: FY 2023 y FY 2025.'
+  - La diferencia entre cotización y media del consenso, por sí sola, no prueba que
+    exista un error de valoración.
+  - La información suministrada no permite validar una ventaja competitiva, penetración
+    de mercado ni retornos sobre capital.
+  - El paquete reporta cotización de USD 25.115 al 2026-11-20, con fuente y fecha
+    en current_quote.
+  - El paquete reporta consenso de objetivos de analistas de USD 20.80 a USD 35.00
+    al 2026-11-21.
+  - El Research Intake Package reporta momentum de precio a 12 meses de 7.5099%, drawdown
+    de 11.7838% y volatilidad de 90 días de 23.9068%, todos al 2026-10-30 y con fuente
+    y período.
   preguntas_abiertas:
-  - ¿Cómo evolucionan los ingresos, clientes, penetración y cuota por país y segmento?
-  - ¿Qué retornos obtiene la empresa sobre el capital incremental y qué parte del
-    flujo de caja se reinvierte?
-  - ¿Cómo se concilian las magnitudes y unidades de deuda, EBITDA, FCF e ingresos
-    del paquete?
-  - ¿Qué evidencia fechada existe sobre asignación de capital, dilución, competencia
-    y exposición regulatoria?
+  - ¿Cuáles son los datos por país de suscriptores, ingresos, precios, churn, inversión
+    de capital y cuota de mercado?
+  - ¿Qué fuente primaria y reconciliación sustentan las escalas y períodos de los
+    campos financieros reportados?
+  - ¿Cómo se asigna el capital entre inversión, deuda, dividendos y recompras, y cuál
+    es la evolución de acciones diluidas?
 catalizadores_previos: &id001
 - descripcion: Acuerdo regulatorio que reduzca multas o restricciones operativas en
     México
@@ -44,64 +42,75 @@ catalizadores_previos: &id001
   nivel_confianza: bajo
   opp_id: OPP-20261023-015
   probabilidad_anterior: 35
+- descripcion: ''
+  generated_at: '2026-11-19T18:50:00.530359-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-AMX
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-19T18:50:00.530359-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-AMX
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
-    de crecimiento de largo plazo
-  justificacion: El paquete muestra una empresa de telecomunicaciones con datos financieros
-    históricos y cotización, pero no aporta evidencia sobre mercado direccionable,
-    penetración, retornos sobre capital, reinversión o asignación de capital que permita
-    sostener una tesis multibagger.
+  categoria: Research requerido; oportunidad no validada
+  justificacion: El paquete muestra actividad financiera y cotización reciente, pero
+    no permite validar los ratios solicitados mediante las URL verificables admitidas.
+    La evidencia disponible no basta para establecer una ventaja competitiva duradera
+    ni una valoración intrínseca.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo de servicios de voz, datos, internet y servicios de valor agregado
-    está descrito en el resumen financiero. No hay evidencia suficiente sobre retornos
-    incrementales del capital, escala económica, retención de clientes, poder de precios,
-    cuota de mercado o erosión competitiva para calificar la calidad del negocio.
+  analisis: El modelo descrito incluye servicios de conectividad fija y móvil y servicios
+    de datos y valor añadido. Sin información verificable sobre penetración, retención,
+    precios, retornos sobre capital, inversión y competencia, no se puede calificar
+    la calidad del negocio ni la sostenibilidad de sus márgenes.
   rating: No concluyente
 dominio_catalizadores:
-- analisis: Nuevos datos comparables de ingresos, flujo de caja, inversión y base
-    de acciones podrían permitir evaluar el crecimiento y la reinversión; el paquete
-    no proporciona fechas de próximos reportes.
-  catalizador: Actualización de resultados y métricas operativas
-- analisis: El historial incluido muestra margen bruto reportado de 60,86% para FY
-    2022 y 62,73% para TTM al 2026-09-30, y crecimiento de FCF reportado de 12,72%
-    para TTM al 2026-09-30; se requiere verificar unidades, definiciones y fuentes
-    autorizadas.
-  catalizador: Evidencia de evolución de márgenes y caja
+- catalizador: Actualización de resultados
+  observacion: Los datos de Stock Analysis llegan hasta TTM terminado el 2026-09-30;
+    el paquete no proporciona una fecha verificable de próxima publicación.
+- catalizador: Revisión de expectativas
+  observacion: El consenso de analistas observado el 2026-11-21 ofrece un rango de
+    objetivos, pero no se incluyen cambios históricos de estimaciones ni sus fundamentos.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- analisis: El registro financiero reporta deuda total y caja en escalas que no permiten
-    calcular de forma compatible deuda neta/EBITDA con los datos proporcionados. La
-    cobertura de intereses reportada figura como cero, pero no se dispone de EBIT
-    y gasto por intereses verificables mediante una URL autorizada para el cálculo.
-  riesgo: Apalancamiento y capacidad de servicio de deuda
-- analisis: El modelo descrito opera en telecomunicaciones en América Latina e internacionalmente;
-    el paquete no cuantifica exposición por país ni efectos de regulación, competencia
-    o divisas.
-  riesgo: Exposición a ciclos regulatorios, competitivos y cambiarios
-- analisis: El paquete contiene campos con magnitudes aparentemente no conciliables
-    entre sí y no incluye URLs en trusted_source_urls; por ello varios ratios solicitados
-    no pueden validarse.
-  riesgo: Calidad y comparabilidad de los datos
+- observacion: La evidencia reporta deuda total y caja/inversiones al 2026-09-30,
+    pero la fila del ratio net_debt_ebitda queda no disponible por falta de URL admisible
+    y por incompatibilidad de escala aparente entre campos.
+  riesgo: Apalancamiento
+- observacion: El current_ratio reportado es 0.75 al 2026-09-30; está por encima del
+    umbral configurado de 0.5, sin que ello constituya una conclusión sobre suficiencia
+    de liquidez.
+  riesgo: Liquidez
+- observacion: El resumen mezcla campos con escalas y períodos que no son reconciliables
+    con seguridad; además, trusted_source_urls está vacío.
+  riesgo: Calidad de datos
+- observacion: El paquete no aporta datos por país, cuotas de mercado, precios, regulación
+    ni métricas de clientes para medir exposición o erosión competitiva.
+  riesgo: Riesgo competitivo y regulatorio
 error_mercado:
-  catalizador_cambio: La evidencia disponible no identifica un catalizador operativo
-    concreto; se requiere información posterior sobre resultados, inversión, competencia
-    y regulación.
-  conclusion_error_valoracion: 'No validado: el rango de objetivos de analistas no
-    demuestra por sí solo un error de valoración ni constituye una valoración intrínseca.'
-  consenso_actual: El consenso de analistas reportado el 2026-11-19 tiene objetivo
-    medio y mediano de USD 29,50, con rango de USD 20,80 a USD 35,00; la cotización
-    reportada ese día fue USD 24,83.
-  hipotesis_contraria: La información disponible no permite establecer si las expectativas
-    del mercado subestiman o sobreestiman el crecimiento, la rentabilidad o los riesgos
-    de América Móvil.
-  razonamiento: El paquete aporta cotización y objetivos de analistas en USD, además
-    de datos financieros reportados en MXN, pero no ofrece un método de valoración
-    ni estimaciones operativas fechadas que permitan contrastarlos.
-generated_at: '2026-11-19T18:50:00.530359-03:00'
+  catalizador_cambio: No hay catalizadores fechados y verificables en la evidencia
+    entregada que permitan identificar un cambio de expectativas.
+  conclusion_error_valoracion: 'No se puede validar un error de valoración: los objetivos
+    de analistas son referencias observadas, no una valoración intrínseca, y faltan
+    inputs verificables para valorar el negocio.'
+  consenso_actual: El consenso de analistas reportado el 2026-11-21 es USD 29.50 de
+    media, con rango de USD 20.80 a USD 35.00; la cotización reportada al 2026-11-20
+    es USD 25.115.
+  hipotesis_contraria: La cotización podría reflejar riesgos de endeudamiento, reinversión
+    y competencia que el paquete no permite cuantificar frente a las expectativas
+    de consenso.
+  razonamiento: La cotización está por debajo de la media del consenso, pero dentro
+    del rango observado. La evidencia fundamental disponible no permite atribuir esa
+    diferencia a expectativas equivocadas.
+generated_at: '2026-11-21T14:24:00.881163-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-AMX
@@ -133,7 +142,7 @@ prompt_inputs:
   insider_ownership: 0
   name: América Móvil, S.A.B. de C.V.
   operating_margin: 19.68
-  pe_ratio: 15.47
+  pe_ratio: 15.6
   products: ''
   revenue: 54010000000.0
   revenue_growth: 4.04
@@ -144,9 +153,8 @@ ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
     revenue_history: null
-  limitations: El historial contiene observaciones fechadas, pero trusted_source_urls
-    está vacío; no hay URL autorizada que respalde la fila del ratio según las reglas
-    del encargo.
+  limitations: Aunque se incluyen cifras históricas en revenue_history, trusted_source_urls
+    está vacío; no hay URL permitida que respalde el ratio según las instrucciones.
   metric: revenue_cagr_3y_pct
   period_end: null
   sources: []
@@ -155,24 +163,26 @@ ratios_investigados:
   value: null
 - formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
   inputs:
+    fcf: null
     fcf_growth_history: null
     fcf_history: null
-  limitations: Existe historial de crecimiento de FCF, pero trusted_source_urls está
-    vacío y no hay URL autorizada para verificar la serie y sus períodos comparables.
+    free_cash_flow: null
+  limitations: No hay URL permitida en trusted_source_urls para respaldar el historial;
+    además, los importes reportados en fcf_history no se reconcilian con fcf_growth_history.
   metric: fcf_growth_pct
   period_end: null
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: FCF / net_income * 100
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
   inputs:
     fcf_history: null
     free_cash_flow: null
     net_income_history: null
     net_income_ttm: null
-  limitations: No se puede verificar con una URL autorizada un FCF y un ingreso neto
-    del mismo período y con unidades compatibles.
+  limitations: No hay URL permitida en trusted_source_urls que respalde ambos inputs
+    en períodos y escalas compatibles.
   metric: fcf_conversion_pct
   period_end: null
   sources: []
@@ -183,9 +193,11 @@ ratios_investigados:
   inputs:
     net_cash_history: null
     net_debt: null
+    net_debt_ebitda: null
     total_debt: null
-  limitations: No hay URL autorizada en trusted_source_urls y los campos reportados
-    no permiten verificar unidades compatibles entre deuda, caja y EBITDA.
+    total_debt_history: null
+  limitations: No hay URL permitida en trusted_source_urls; tampoco se proporcionan
+    inputs compatibles y verificables para deuda neta y EBITDA en la misma escala.
   metric: net_debt_ebitda
   period_end: null
   sources: []
@@ -199,9 +211,8 @@ ratios_investigados:
     dilution_yoy_pct: null
     shares_outstanding: null
     shares_outstanding_history: null
-  limitations: El paquete no contiene una serie histórica de acciones diluidas u ordinarias
-    comparable; además, no hay URL autorizada para verificar el dato disponible de
-    acciones.
+  limitations: Sólo se aporta una observación de acciones en circulación; falta una
+    serie comparable y no existe URL permitida en trusted_source_urls.
   metric: dilution_yoy_pct
   period_end: null
   sources: []
@@ -239,7 +250,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-19'
+  analysis_as_of_date: '2026-11-21'
   business_model: América Móvil, S.A.B. de C.V. provides telecommunications services
     in Latin America and internationally. It offers wireless and fixed-line voice
     services, including airtime, local, domestic, and international long-distance
@@ -263,8 +274,8 @@ research_input_snapshot:
     based in Mexico City, Mexico.
   capital_allocation: N/A
   ceo_tenure: 0
-  current_price: 24.829999923706055
-  current_price_as_of_date: '2026-11-19'
+  current_price: 25.114999771118164
+  current_price_as_of_date: '2026-11-20'
   current_price_source: yfinance
   debt_maturity_profile: N/A
   debt_to_equity: 0.015
@@ -272,343 +283,305 @@ research_input_snapshot:
   existing_wiki: '## 1. Visión General de la Compañía
 
 
-    América Móvil, S.A.B. de C.V. (AMX) es una compañía de telecomunicaciones con
-    operaciones en México y otros mercados de América Latina, además de presencia
-    internacional. Su modelo integrado combina servicios móviles y de línea fija,
-    datos, contenido digital y soluciones de tecnologías de la información.
+    América Móvil, S.A.B. de C.V. (AMX) es un operador integrado de telecomunicaciones
+    que ofrece servicios móviles y fijos en América Latina y otros mercados internacionales.
+    Su negocio incluye telefonía, datos móviles, acceso a internet y banda ancha residencial;
+    el material de investigación también menciona televisión, servicios empresariales
+    y servicios de valor agregado.
 
 
-    La empresa participa en un sector intensivo en capital y sujeto a regulación.
-    Según el análisis AOIF, controla una parte importante de su cadena de valor: adquiere
-    espectro y despliega y mantiene infraestructura de red, además de ofrecer servicios
-    y plataformas a clientes residenciales y empresariales. La evidencia suministrada
-    identifica a Telcel y Telmex como marcas consolidadas de la compañía.
+    La compañía invierte en espectro, redes, fibra, sistemas y plataformas, y monetiza
+    esos activos mediante servicios recurrentes para consumidores, hogares y empresas.
+    La información disponible no detalla la contribución de cada país, segmento o
+    producto a los ingresos.
 
 
-    **Base de evidencia:** análisis DDD y AOIF, con fecha de evaluación del 19 de
-    noviembre de 2026. No se proporcionaron fuentes externas ni enlaces verificables.
+    **Alcance de la evidencia:** los datos de investigación combinan observaciones
+    con fechas explícitas —por ejemplo, cifras TTM al 30 de septiembre de 2026 y cotización
+    al 19 de noviembre de 2026— con indicadores financieros que no incluyen período
+    ni fuente verificable. Estas últimas cifras se identifican como reportadas, pero
+    no pueden tratarse como una serie histórica validada.
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    ### Drivers de ingresos
+    **Fuentes de ingresos y operaciones**
+
+    - Servicios móviles y fijos de voz y datos.
+
+    - Acceso a internet y banda ancha residencial.
+
+    - Servicios de televisión, empresariales y de valor agregado, según el resumen
+    del modelo de negocio.
+
+    - Venta o distribución de equipos y contenidos, mencionada en la descripción de
+    la cadena de valor.
 
 
-    Los ingresos provienen principalmente de la prestación de servicios de telecomunicaciones,
-    entre ellos:
+    **Ventajas y límites competitivos**
+
+    - El análisis AOIF identifica escala, cobertura, marcas, espectro e infraestructura
+    como posibles ventajas, además de costos de cambio asociados a la continuidad
+    del servicio y los paquetes convergentes.
+
+    - Ese análisis califica la posición competitiva como “líder” y el moat como “estrecho”.
+    Son conclusiones del análisis, no datos independientes demostrados por la evidencia
+    disponible.
+
+    - La industria se describe como madura e intensiva en capital: la demanda de conectividad
+    y datos puede sostener el negocio, pero la presión de precios y la inversión continua
+    en fibra, capacidad, espectro y tecnología pueden limitar la rentabilidad y la
+    caja.
+
+    - No se aportan datos comparables de cuota de mercado, clientes, penetración,
+    churn, ingresos por usuario ni desempeño por país. Por ello, no es posible verificar
+    la posición competitiva ni la evolución de sus ventajas.
 
 
-    - Voz móvil, tanto de prepago como de pospago.
-
-    - Voz de línea fija y larga distancia.
-
-    - Servicios de datos y banda ancha.
-
-    - Contenido digital y soluciones de TI, según la descripción del modelo de negocio
-    AOIF.
-
-
-    Los segmentos de clientes identificados incluyen consumidores residenciales y
-    pequeñas y medianas empresas. El crecimiento de ingresos TTM reportado es de **4,04%**;
-    el material de investigación lo interpreta como crecimiento moderado, aunque no
-    incluye una serie histórica que permita evaluar su persistencia.
-
-
-    ### Moat y posición competitiva
-
-
-    El análisis AOIF clasifica la amplitud del moat como **amplia** y la posición
-    competitiva como **líder**. Los factores señalados son:
-
-
-    - Extensa infraestructura de red y acceso a espectro.
-
-    - Marcas reconocidas, incluidas Telcel y Telmex.
-
-    - Barreras de entrada relacionadas con la inversión de capital y las licencias
-    de espectro.
-
-    - Diversificación entre servicios y mercados.
-
-
-    Estas características son evaluaciones del análisis AOIF; los datos aportados
-    no incluyen comparaciones cuantitativas con competidores para verificarlas de
-    forma independiente.
-
-
-    ### Dinámica competitiva
-
-
-    La investigación describe una industria con altas necesidades de inversión, presión
-    regulatoria, consolidación y transición hacia servicios de datos. No se identificaron
-    compañías comparables concretas en la lista de empresas de la misma industria
-    proporcionada, por lo que no se añaden [[wikilinks]] a competidores.
+    No se proporcionaron compañías comparables específicas en la lista de empresas
+    del mismo sector. Por tanto, no se añaden wikilinks de competidores.
 
 
     ## 3. Perfil Financiero
 
 
-    Las métricas disponibles se presentan según el periodo o unidad indicados en el
-    material de investigación. No se proporcionaron estados financieros ni fechas
-    de publicación para corroborarlas.
-
-
-    | Métrica | Valor reportado | Periodo / unidad | Observación |
+    | Métrica | Valor reportado | Período / fecha | Fuente y limitaciones |
 
     |---|---:|---|---|
 
-    | Crecimiento de ingresos | 4,04% | TTM | Crecimiento moderado según DDD y AOIF.
+    | Crecimiento de ingresos | 4,04% | No especificado | Indicador incluido en AOIF;
+    sin serie histórica ni fuente detallada. |
+
+    | Margen operativo | 19,68% | No especificado | Indicador incluido en AOIF; período
+    no especificado. |
+
+    | ROIC | 11,68% | No especificado | Indicador incluido en AOIF; período, método
+    y serie no especificados. |
+
+    | Margen bruto | 60,86% | FY 2022 | DDD; no se proporcionó una URL de respaldo.
     |
 
-    | Margen operativo | 19,68% | Periodo no especificado | Métrica reportada por
-    DDD y AOIF. |
+    | Margen bruto | 62,73% | TTM al 2026-09-30 | DDD; no se proporcionó una URL de
+    respaldo. |
 
-    | FCF | 9,55 B MXN | TTM | La unidad informada es MXN; no se proporcionó desglose
-    de cálculo. |
+    | Crecimiento de FCF | 12,72% | TTM al 2026-09-30 | DDD lo reporta, pero no aporta
+    URL ni períodos comparables para verificar la serie. |
 
-    | Conversión de FCF | 0,45 | Periodo no especificado | No se especifica la definición
-    empleada. |
+    | Razón corriente | 0,75 | 2026-09-30 | Reportada por Stock Analysis: [estadísticas
+    de AMX](https://stockanalysis.com/stocks/AMX/statistics/). DDD indica que el umbral
+    configurado de alerta es inferior a 0,5; la observación no constituye una decisión
+    de inversión. |
 
-    | ROIC | 11,68% | Periodo no especificado | Sin serie histórica ni comparables.
+    | PER | 15,47 | No especificado | AOIF; fecha, fuente y método no detallados.
     |
 
-    | EV/EBITDA | 6,22 | Fecha de corte: 19 nov. 2026 | Métrica de valoración reportada
-    por AOIF. |
+    | EV/EBITDA | 6,22 | No especificado | AOIF; fecha, fuente y método no detallados.
+    |
 
-    | PER | 15,47 | Fecha de corte: 19 nov. 2026 | Métrica de valoración reportada
-    por AOIF. |
-
-    | FCF yield | 3,5% | Fecha de corte: 19 nov. 2026 | Métrica de valoración reportada
-    por AOIF. |
-
-    | Deuda neta / deuda-EBITDA | No disponible | — | La evidencia no permite evaluar
-    el apalancamiento. |
+    | FCF yield | 0 | No especificado | AOIF advierte que no está confirmado su significado;
+    no debe interpretarse como una medida validada. |
 
 
-    El material califica la salud financiera como fuerte, principalmente por el FCF
-    y el margen operativo. Sin embargo, también señala el apalancamiento como un riesgo
-    relevante sin aportar saldo de deuda, vencimientos, coste medio ni ratio deuda/EBITDA.
-    Por ello, la evaluación de la estructura de capital queda incompleta.
+    DDD señala que las cifras de deuda total y caja disponibles no están en escalas
+    compatibles para calcular deuda neta/EBITDA. Tampoco se proporcionan datos suficientes
+    para evaluar cobertura de intereses o convertir beneficios en flujo de caja libre.
+    Los ratios de CAGR de ingresos a tres años y crecimiento de FCF se clasificaron
+    como no disponibles por falta de fuentes autorizadas y series verificables.
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    El análisis DDD califica la gestión como buena y señala una política de inversión
-    en infraestructura y expansión regional. AOIF clasifica la asignación de capital
-    como creadora de valor y el alineamiento de insiders como fuerte.
+    El análisis AOIF califica la calidad de la dirección como “regular”, la asignación
+    de capital como “neutral” y el alineamiento de insiders como “fuerte”. También
+    señala la existencia de un grupo controlador de larga trayectoria, lo que podría
+    implicar alineamiento económico, pero también concentración de poder de decisión.
+    Estas son valoraciones del análisis proporcionado y no están acompañadas de datos
+    detallados sobre propiedad o incentivos.
 
 
-    Estas valoraciones no vienen acompañadas de datos sobre rendimientos históricos
-    de inversiones, remuneración, propiedad accionaria de insiders, composición del
-    consejo, independencia de sus miembros o mecanismos de supervisión. En consecuencia,
-    deben tratarse como apreciaciones de los análisis suministrados, no como hechos
-    verificados de gobierno corporativo.
+    No se aportaron:
+
+    - Porcentajes de propiedad de insiders o del grupo controlador.
+
+    - Información sobre remuneración, objetivos de desempeño o transacciones con partes
+    relacionadas.
+
+    - Composición, independencia, experiencia o estructura de comités del consejo
+    de administración.
+
+    - Evidencia suficiente para evaluar el historial de asignación de capital.
 
 
     ## 5. Tesis de Inversión
 
 
-    ### Caso alcista
+    **Caso potencial a favor — hipótesis que requiere validación**
+
+    - La escala, la infraestructura, la cobertura y las marcas podrían respaldar la
+    continuidad de los servicios y la venta de paquetes convergentes. El análisis
+    AOIF identifica estas características como ventajas, pero no proporciona métricas
+    de cuota, retención o rentabilidad que permitan medirlas.
+
+    - Los indicadores reportados por AOIF —crecimiento de ingresos de 4,04%, margen
+    operativo de 19,68% y ROIC de 11,68%— podrían ser compatibles con un negocio rentable.
+    Sin período, serie y fuente verificable, no bastan para determinar la sostenibilidad
+    o la tendencia de esos resultados.
+
+    - DDD reporta margen bruto de 62,73% para TTM al 30 de septiembre de 2026 y crecimiento
+    de FCF de 12,72% para ese período. Sin series comparables y fuentes trazables,
+    estos datos son señales provisionales, no evidencia suficiente de mejora duradera.
 
 
-    La tesis favorable se apoya en los siguientes elementos reportados por DDD y AOIF:
-
-
-    1. **Escala e infraestructura:** la compañía mantiene una posición de liderazgo
-    y una red propia extensa, con acceso a espectro y marcas consolidadas.
-
-    2. **Generación de caja:** se reporta un FCF TTM de **9,55 B MXN** y un margen
-    operativo de **19,68%**.
-
-    3. **Crecimiento positivo:** los ingresos TTM habrían crecido **4,04%**, con potencial
-    de expansión asociado a datos y banda ancha según el análisis.
-
-    4. **Posible mejora de riesgos:** una resolución favorable de asuntos regulatorios
-    en México o un refinanciamiento a menor coste podrían mejorar la percepción del
-    riesgo y la caja disponible.
-
-    5. **Valoración:** DDD considera que la acción está infravalorada y señala un
-    precio objetivo medio de analistas de **USD 29,5** (rango de **USD 20,8–35,0**).
-    No se proporcionó la fuente de ese consenso ni el precio de mercado usado para
-    calcular el descuento citado.
-
-
-    La tesis depende, entre otros factores, de que la generación de caja sea sostenible
-    y de que el apalancamiento no limite la capacidad de inversión o distribución
-    de capital. Ambos puntos requieren verificación adicional.
+    **Conclusión actual:** la evidencia no valida una tesis de crecimiento de largo
+    plazo, reinversión rentable o ventaja competitiva durable. Tampoco permite concluir
+    que la cotización contenga un error de valoración. El caso de inversión queda
+    pendiente de verificar crecimiento operativo, retornos sobre capital incremental,
+    flujo de caja y deuda.
 
 
     ## 6. Riesgos y Contra-Tesis
 
 
-    ### Riesgos identificados
+    **Riesgos principales**
+
+    - **Competencia y precios:** el análisis AOIF identifica competencia intensa y
+    posible pérdida de clientes frente a operadores móviles, de fibra y proveedores
+    convergentes. No se aportan datos para cuantificar estos efectos por país o segmento.
+
+    - **Inversión intensiva en capital:** la necesidad recurrente de invertir en redes,
+    espectro y tecnología podría limitar el flujo de caja libre.
+
+    - **Deuda y servicio financiero:** DDD señala que las cifras proporcionadas no
+    permiten calcular deuda neta/EBITDA de forma compatible. La razón corriente de
+    0,75 al 30 de septiembre de 2026 es una observación por encima del umbral de alerta
+    configurado en el paquete, pero no sustituye un análisis completo de liquidez
+    y vencimientos.
+
+    - **Regulación, competencia y divisas:** la exposición a varios mercados puede
+    implicar riesgos regulatorios, competitivos y cambiarios. No se proporciona desglose
+    por país ni estimación de sensibilidad.
+
+    - **Riesgo de calidad de datos:** varias métricas carecen de período, fuente o
+    serie comparable, lo que limita la confianza en cualquier conclusión financiera
+    o de valoración.
 
 
-    | Riesgo | Impacto indicado | Probabilidad indicada | Consideración |
-
-    |---|---|---|---|
-
-    | Disputas y restricciones regulatorias en México y otros mercados latinoamericanos
-    | Alto | Media | Podrían afectar la operación, los costes o la flexibilidad comercial.
-    |
-
-    | Apalancamiento y refinanciamiento | Alto | Media | No hay cifras de deuda para
-    cuantificar la exposición ni el calendario de vencimientos. |
-
-    | Exposición al tipo de cambio MXN-USD | Medio | Media | Puede introducir volatilidad
-    en resultados o valoración, aunque el material no cuantifica su efecto. |
+    **Contra-tesis:** la compañía podría enfrentar presión de precios y altos requerimientos
+    de capital sin que el crecimiento de ingresos se traduzca en una generación de
+    caja suficiente. La evidencia disponible no permite confirmar ni descartar esa
+    posibilidad.
 
 
-    ### Contra-tesis
+    **Triggers de falsación de una tesis favorable**
 
+    - Resultados futuros comparables muestran deterioro sostenido de ingresos, márgenes
+    o flujo de caja frente a los datos históricos incluidos.
 
-    El mercado podría estar descontando riesgos regulatorios, cambiarios y financieros
-    que la información disponible no permite descartar. En particular, la ausencia
-    de datos de deuda impide comprobar si el FCF reportado es suficiente frente a
-    intereses, vencimientos y necesidades de inversión. Asimismo, un crecimiento de
-    ingresos de 4,04% no demuestra por sí solo una expansión acelerada o sostenible.
+    - Datos verificados de deuda y gastos por intereses muestran una capacidad de
+    servicio más débil de la que sugieren las cifras actualmente disponibles.
 
-
-    ### Triggers de falsación
-
-
-    El análisis DDD presenta los siguientes escenarios para el horizonte hasta el
-    **19 de noviembre de 2027**:
-
-
-    - **Escenario bajista — USD 20,8:** presupone persistencia de disputas regulatorias
-    y presión de deuda sobre el flujo de caja. Sus falsadores indicados son una resolución
-    favorable de conflictos regulatorios o una reducción significativa del apalancamiento.
-
-    - **Escenario alcista — USD 35,0:** presupone un acuerdo regulatorio positivo,
-    refinanciamiento a tasas inferiores al 5% y expansión de servicios de datos. Sus
-    falsadores indicados son nuevas sanciones regulatorias o un aumento de la carga
-    de deuda.
-
-
-    Los precios objetivo son escenarios suministrados por la investigación, no estimaciones
-    verificadas independientemente.
+    - La investigación de seguimiento no confirma retornos atractivos sobre el capital
+    incremental ni una conversión adecuada de beneficios en caja.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    La investigación no aporta fechas concretas para los eventos. El horizonte temporal
-    de los catalizadores se describe como medio plazo; por tanto, la fecha esperada
-    es indeterminada.
+    | Catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia |
+
+    |---|---|---|---|
+
+    | Actualización de resultados y métricas operativas | No especificada | Permitiría
+    evaluar ingresos, clientes, penetración, cuota por país y segmento, márgenes y
+    evolución de la caja. | DDD lo identifica como catalizador de información; no
+    aporta una fecha de resultados. |
+
+    | Evidencia comparable de márgenes y flujo de caja | No especificada | Ayudaría
+    a determinar si los márgenes y el crecimiento de FCF reportados se sostienen y
+    si reflejan reinversión rentable. | Requiere series y fuentes verificables; no
+    se identifica un evento concreto. |
+
+    | Información sobre inversión, competencia y regulación | No especificada | Podría
+    aclarar el efecto de capex, presión competitiva y regulación en la rentabilidad
+    y las perspectivas. | DDD no identifica un catalizador operativo fechado. |
 
 
-    | Catalizador | Fecha esperada | Impacto potencial | Probabilidad indicada | Evidencia
-    / condición |
-
-    |---|---|---|---:|---|
-
-    | Resolución favorable de disputas regulatorias en México | Medio plazo; sin fecha
-    concreta | Alto | 45% para el catalizador regulatorio descrito en DDD | Podría
-    reducir multas o restricciones operativas. No se identificó un proceso o calendario
-    específico. |
-
-    | Refinanciamiento de deuda a tasas más bajas | Medio plazo; sin fecha concreta
-    | Alto | 40% | El escenario alcista de DDD supone tasas inferiores al 5%, pero
-    no se aportan ofertas, vencimientos ni condiciones de mercado. |
-
-    | Expansión de servicios de datos | Sin fecha concreta | Potencialmente favorable
-    | No especificada | Identificada como fuente potencial de crecimiento, sin objetivos
-    cuantificados. |
-
-
-    Las probabilidades son estimaciones del análisis DDD y no se acompañan de fuentes
-    o metodología que permitan validarlas.
+    No se proporcionaron fechas de próximos anuncios, eventos corporativos ni estimaciones
+    de impacto cuantificadas.
 
 
     ## 8. Marco de Valoración
 
 
-    ### Métricas y referencias disponibles
+    No hay base suficiente para estimar un valor intrínseco. AOIF reporta PER de 15,47
+    y EV/EBITDA de 6,22, pero no especifica fecha, fuente, período de referencia ni
+    datos de comparables. El FCF yield reportado como 0 no está definido ni validado.
 
 
-    | Referencia | Valor | Interpretación y limitaciones |
-
-    |---|---:|---|
-
-    | Valor intrínseco estimado por AOIF | USD 28,0 | No se proporciona modelo, horizonte,
-    tasa de descuento ni supuestos detallados. |
-
-    | Consenso de analistas citado por DDD | Media: USD 29,5; rango: USD 20,8–35,0
-    | No se proporciona la fuente ni la fecha de las estimaciones individuales. |
-
-    | Escenario bajista DDD | USD 20,8 | Horizonte: 19 nov. 2027. |
-
-    | Escenario alcista DDD | USD 35,0 | Horizonte: 19 nov. 2027. |
-
-    | EV/EBITDA | 6,22 | Sin comparación con pares o rango histórico. |
-
-    | PER | 15,47 | Sin detalle de beneficios normalizados. |
-
-    | FCF yield | 3,5% | Debe reconciliarse con la cifra de FCF y el precio de mercado
-    utilizados. |
+    DDD reporta, al 19 de noviembre de 2026, una cotización de **USD 24,83** y un
+    objetivo medio y mediano de analistas de **USD 29,50**, con un rango de **USD
+    20,80 a USD 35,00**. El rango de objetivos no constituye por sí mismo una valoración
+    intrínseca ni evidencia de un error de mercado. Las cifras financieras se presentan
+    en MXN, mientras que la cotización y los objetivos están en USD; el paquete no
+    aporta una conciliación de monedas, acciones o fechas.
 
 
-    ### Metodología apropiada y supuestos
+    **Métodos que podrían evaluarse cuando haya datos suficientes**
+
+    - Flujo de caja descontado, con flujo libre normalizado, capex de mantenimiento
+    y expansión, capital de trabajo, deuda neta, acciones diluidas y costo de capital
+    documentados.
+
+    - Valoración por múltiplos de EV/EBITDA y PER, con períodos consistentes y comparables
+    pertinentes.
+
+    - Análisis de escenarios por país o segmento, si se obtiene información operativa
+    desglosada.
 
 
-    Para evaluar AMX convendría combinar:
-
-
-    - **Flujo de caja descontado**, con supuestos explícitos de crecimiento, márgenes,
-    inversión en infraestructura, capital de trabajo, coste de capital y valor terminal.
-
-    - **EV/EBITDA y PER comparables**, contrastados con pares y con el historial propio
-    de la empresa, después de verificar deuda, caja y composición de los beneficios.
-
-    - **Análisis de escenarios**, incorporando riesgos regulatorios, cambiarios, de
-    refinanciamiento y de inversión de capital.
-
-
-    La información disponible no incluye los supuestos necesarios para reconstruir
-    el valor intrínseco ni para efectuar una sensibilidad cuantitativa. AOIF califica
-    el margen de seguridad como **insuficiente**, pese a que DDD considera la acción
-    infravalorada. Esta diferencia debe resolverse antes de concluir que existe una
-    oportunidad con margen de seguridad adecuado.
+    **Sensibilidades por investigar:** crecimiento de ingresos y márgenes; inversión
+    de capital y conversión a FCF; retornos del capital incremental; deuda, intereses
+    y vencimientos; costo de capital; y evolución de acciones diluidas. No se cuantifican
+    escenarios porque faltan supuestos y series verificables.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    1. ¿Cuál es la deuda neta actual, el ratio deuda neta/EBITDA y el coste medio
-    de la deuda?
+    1. ¿Cómo evolucionan ingresos, clientes, penetración, cuota de mercado, churn
+    y ARPU por país y segmento?
 
-    2. ¿Cuál es el calendario de vencimientos y qué proporción de la deuda está denominada
-    en moneda extranjera o a tipo variable?
+    2. ¿Qué retornos obtiene AMX sobre el capital incremental y qué proporción del
+    flujo de caja se reinvierte?
 
-    3. ¿Cuál es el CAPEX proyectado para los próximos dos o tres años y cómo se financia?
+    3. ¿Cuál es el flujo de caja libre normalizado y cómo se desglosa el capex entre
+    mantenimiento, expansión, espectro y tecnología?
 
-    4. ¿Cómo se calcula el FCF TTM de **9,55 B MXN** y qué periodo exacto cubre?
+    4. ¿Cuáles son la deuda total, la caja, la deuda neta, el calendario de vencimientos
+    y la cobertura de intereses, utilizando cifras en unidades y fechas compatibles?
 
-    5. ¿Qué definiciones y periodos se utilizaron para margen operativo, conversión
-    de FCF, ROIC, EV/EBITDA, PER y FCF yield?
+    5. ¿Qué parte de los márgenes y del crecimiento de FCF reportados puede verificarse
+    con estados financieros y series comparables?
 
-    6. ¿Cuáles son los procesos regulatorios concretos en México y otros mercados,
-    sus posibles sanciones y sus calendarios?
+    6. ¿Cuál es la exposición a riesgos regulatorios, competitivos y cambiarios por
+    país?
 
-    7. ¿Qué evidencia cuantitativa respalda el crecimiento potencial de datos y banda
-    ancha?
+    7. ¿Qué proporción de acciones diluidas corresponde a insiders o al grupo controlador,
+    y cómo se vincula la remuneración directiva con el desempeño?
 
-    8. ¿Cuál es la fuente, fecha y metodología del consenso de analistas de **USD
-    29,5** y del rango de **USD 20,8–35,0**?
+    8. ¿Cuál es el período, la fuente y la metodología de los indicadores de ROIC,
+    crecimiento de ingresos, PER y EV/EBITDA reportados por AOIF?
 
-    9. ¿Cómo se reconcilian la opinión de infravaloración de DDD y el margen de seguridad
-    calificado como insuficiente por AOIF?
+    9. ¿Qué método y definición respaldan el FCF yield reportado como 0?
 
-    10. ¿Qué datos verificables respaldan las evaluaciones de alineamiento de insiders,
-    calidad directiva y asignación de capital?
+    10. ¿Puede reconciliarse la cotización en USD con los estados financieros, la
+    moneda de reporte y la base de acciones utilizada?
 
 
-    **Registro de evidencia:** los datos y juicios de esta entrada proceden exclusivamente
-    de los inputs DDD y AOIF proporcionados, con fecha de análisis indicada del 19
-    de noviembre de 2026. No se incluyeron enlaces ni fuentes externas.'
+    **Estado de la evaluación:** investigación requerida; evidencia insuficiente para
+    validar una tesis de crecimiento de largo plazo o una conclusión de infravaloración.'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": "MXN", "field_sources":
     {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
@@ -654,14 +627,14 @@ research_input_snapshot:
     "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
     ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
     {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
-    "observed_at": "2026-11-19T19:15:35.577319+00:00", "period_end_date": "2026-09-30",
+    "observed_at": "2026-11-20T18:55:12.945040+00:00", "period_end_date": "2026-09-30",
     "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
     null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
     {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
     "https://stockanalysis.com/stocks/AMX/statistics/", "unit": "provider_financial_currency"}},
-    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 9500000000.0}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 9410000000.0}},
     "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
-    "non_comparable_values": {"yfinance": 19.681999}, "observed_at": "2026-11-19T19:15:35.577319+00:00",
+    "non_comparable_values": {"yfinance": 19.681999}, "observed_at": "2026-11-20T18:55:12.945040+00:00",
     "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
     "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
     "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
@@ -670,14 +643,14 @@ research_input_snapshot:
     "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
     "unit": "percentage_points", "values": {"stockanalysis.com": 19.68}}, "revenue_growth_pct":
     {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
-    {"yfinance": 7.6}, "observed_at": "2026-11-19T19:15:35.577319+00:00", "period_end_date":
+    {"yfinance": 7.6}, "observed_at": "2026-11-20T18:55:12.945040+00:00", "period_end_date":
     "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
     null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
     {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
     "https://stockanalysis.com/stocks/amx/financials/", "unit": "percentage_points"},
     "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
     "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
-    "values": {"stockanalysis.com": 4.04}}}, "observed_at": "2026-11-19T19:15:35.577319+00:00",
+    "values": {"stockanalysis.com": 4.04}}}, "observed_at": "2026-11-20T18:55:12.945040+00:00",
     "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
   geography: ''
   insider_ownership: 0
@@ -838,14 +811,14 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    35.0, "low": 20.8, "mean": 29.5, "median": 29.5, "observed_at": "2026-11-19T18:48:20.696117-03:00",
-    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
-    "2026-11-19T18:48:20.696117-03:00", "observed_date": "2026-11-19", "target_price":
+    35.0, "low": 20.8, "mean": 29.5, "median": 29.5, "observed_at": "2026-11-21T14:23:32.087690-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T14:23:32.087690-03:00", "observed_date": "2026-11-21", "target_price":
     29.5, "url": "https://stockanalysis.com/stocks/amx/forecast/"}, {"as_of_date":
-    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T18:48:20.696117-03:00",
-    "observed_date": "2026-11-19", "target_price": 29.498, "url": "https://finance.yahoo.com/quote/AMX/"}]},
-    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 24.829999923706055,
-    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AMX/"}]}}'
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T14:23:32.087690-03:00",
+    "observed_date": "2026-11-21", "target_price": 29.498, "url": "https://finance.yahoo.com/quote/AMX/"}]},
+    "current_quote": {"as_of_date": "2026-11-20", "currency": "USD", "price": 25.114999771118164,
+    "sources": [{"as_of_date": "2026-11-20", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AMX/"}]}}'
   sector: Communication Services
   ticker: AMX
 research_trigger:
@@ -853,51 +826,107 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 90f8371320f5de24cf846edea6374373b0561be4ec9f4c1c89e2bf74e04cbbb4
+    sha256: 655645c41078e00da92a6034f150267731b8c43351a001e571b114076eb19cb1
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-19T18:50:00.530359-03:00'
+  triggered_at: '2026-11-21T14:24:00.881163-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_note: La observación está por encima del umbral configurado; no constituye
-    una decisión de inversión.
+- assessment_note: Valor reportado por stockanalysis.com al 2026-09-30; no cruza el
+    umbral configurado. La URL no está en trusted_source_urls.
   metric: current_ratio
-  observation: 0,75 al 2026-09-30, reportado por stockanalysis.com en https://stockanalysis.com/stocks/AMX/statistics/.
+  observed_value: 0.75
+  period_end: '2026-09-30'
   threshold: below 0.5
-- assessment_note: Requiere datos de acciones verificables y fechados.
+  unit: x
+- assessment_note: 'No disponible: falta historial comparable de acciones diluidas
+    con URL admitida.'
   metric: dilution_yoy_pct
-  observation: 'No evaluable: el paquete no incluye una serie comparable de acciones
-    diluidas.'
+  observed_value: null
+  period_end: null
   threshold: above 10%
-- assessment_note: Tratar como señal no validada, no como cobertura calculada.
+  unit: percent
+- assessment_note: El campo reportado como interest_coverage_ratio es 0; no se valida
+    porque el paquete no aporta URL admitida ni evidencia de que sea EBIT dividido
+    por gasto de intereses.
   metric: interest_coverage
-  observation: El campo reportado es 0 al 2026-09-30 en https://stockanalysis.com/stocks/AMX/statistics/;
-    no se proporcionan inputs compatibles para validarlo como EBIT/gasto por intereses.
+  observed_value: null
+  period_end: '2026-09-30'
   threshold: below 2.0x
-- assessment_note: Requiere conciliación de los datos antes de compararlo con el umbral.
-  metric: net_debt_ebitda
-  observation: No evaluable por falta de unidades y fuente autorizada compatibles
-    para deuda neta y EBITDA.
-  threshold: above 4.0x
-- assessment_note: No convertir la ausencia de datos en una señal favorable o desfavorable.
-  metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: falta historial verificable de acciones para tres años.'
-  threshold: above 5%
-- assessment_note: El umbral se refiere a runway cuando el FCF es negativo.
+  unit: x
+- assessment_note: 'No calculable: no hay evidencia admisible de FCF negativo ni de
+    quema mensual.'
   metric: negative_fcf_runway_months
-  observation: 'No aplica a los datos incluidos: el FCF reportado es positivo para
-    TTM al 2026-09-30, pero requiere verificación de fuente y unidad.'
+  observed_value: null
+  period_end: null
   threshold: below 12 months
-scenario_analysis: null
+  unit: months
+- assessment_note: No disponible por falta de inputs conciliados y URL admitida; no
+    se puede determinar si cruza el umbral.
+  metric: net_debt_ebitda
+  observed_value: null
+  period_end: null
+  threshold: above 4.0x
+  unit: x
+- assessment_note: 'No disponible: no se suministra historial comparable de acciones
+    con URL admitida.'
+  metric: share_count_cagr_3y_pct
+  observed_value: null
+  period_end: null
+  threshold: above 5%
+  unit: percent
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Una metodología de valoración reproducible con inputs fechados que justifique
+      un resultado distinto.
+    - Evidencia operativa verificable que permita evaluar un escenario adverso de
+      negocio.
+    id: BEAR
+    key_assumptions:
+    - Se usa el objetivo bajo observado como ancla, no como precio garantizado.
+    - No se modelan ingresos, márgenes, inversión ni múltiplos futuros por falta de
+      inputs verificables.
+    rationale: Ancla del extremo bajo del rango de objetivos de analistas observado
+      el 2026-11-21; no es una valoración propia. El paquete no contiene evidencia
+      operativa suficiente para explicar de forma defendible por qué este extremo
+      sería el peor resultado plausible del horizonte.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/amx/forecast/
+    target_price: 20.8
+  - falsifiers:
+    - Una metodología de valoración reproducible con inputs fechados que justifique
+      un resultado distinto.
+    - Evidencia operativa verificable que permita evaluar un escenario favorable de
+      negocio.
+    id: BULL
+    key_assumptions:
+    - Se usa el objetivo alto observado como ancla, no como precio garantizado.
+    - No se modelan ingresos, márgenes, inversión ni múltiplos futuros por falta de
+      inputs verificables.
+    rationale: Ancla del extremo alto del rango de objetivos de analistas observado
+      el 2026-11-21; no es una valoración propia. El paquete no contiene evidencia
+      operativa suficiente para explicar de forma defendible por qué este extremo
+      sería el mejor resultado plausible del horizonte.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/amx/forecast/
+    target_price: 35.0
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 35
+  errors: []
+  status: valid_pending_decision_board
+score_general: 42
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-19T18:48:20.696117-03:00'
+  calculado_at: '2026-11-21T14:23:32.087690-03:00'
   fuentes:
     stockanalysis: 29.5
     yfinance: 29.498
@@ -905,24 +934,28 @@ target_consensus:
   n_fuentes: 2
   promedio: 29.5
   source_references:
-  - as_of_date: '2026-11-19'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-19T18:48:20.696117-03:00'
-    observed_date: '2026-11-19'
+    observed_at: '2026-11-21T14:23:32.087690-03:00'
+    observed_date: '2026-11-21'
     target_price: 29.5
     url: https://stockanalysis.com/stocks/amx/forecast/
-  - as_of_date: '2026-11-19'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-19T18:48:20.696117-03:00'
-    observed_date: '2026-11-19'
+    observed_at: '2026-11-21T14:23:32.087690-03:00'
+    observed_date: '2026-11-21'
     target_price: 29.498
     url: https://finance.yahoo.com/quote/AMX/
   target_high: 35.0
   target_low: 20.8
-tesis_inversion: América Móvil ofrece servicios de telecomunicaciones en América Latina
-  y otros mercados. La información proporcionada no basta para validar que el crecimiento,
-  la reinversión y los retornos sobre capital puedan generar una oportunidad multibagger;
-  la tesis queda pendiente de evidencia sobre mercado direccionable, penetración,
-  ventaja competitiva, competencia y asignación de capital.
+tesis_inversion: América Móvil presta servicios de telecomunicaciones inalámbricos
+  y fijos, voz, datos y servicios de valor añadido en Latinoamérica y mercados internacionales,
+  según el resumen financiero sin fecha de período para la descripción del negocio.
+  Los datos reportados por Stock Analysis muestran ingresos y margen bruto TTM al
+  2026-09-30, pero las URL de esa fuente no están incluidas en trusted_source_urls;
+  por ello no se pueden validar aquí los ratios requeridos ni concluir sobre crecimiento,
+  reinversión, retornos sobre capital, penetración, ventaja competitiva o asignación
+  de capital. La tesis queda sin validar hasta obtener fuentes verificables y datos
+  operativos y financieros comparables.
 ticker: AMX
 version: '3.0'

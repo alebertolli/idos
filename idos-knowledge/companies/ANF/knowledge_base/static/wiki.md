@@ -1,129 +1,139 @@
 ## 1. Visión General de la Compañía
 
-Abercrombie & Fitch Co. (ANF) es una compañía minorista de moda del sector de consumo discrecional. Diseña, desarrolla y comercializa ropa, productos de cuidado personal y accesorios a través de sus marcas Abercrombie & Fitch, Hollister y abercrombie kids.
+Abercrombie & Fitch Co. (ANF) es una compañía minorista de ropa, accesorios y productos de cuidado personal. Opera mediante tiendas físicas y comercio electrónico, con una cartera de marcas. La información disponible describe productos para hombres y mujeres, y segmentos de clientes que incluyen hombres, mujeres y niños.
 
-Su modelo combina tiendas propias y comercio electrónico con acuerdos mayoristas, de franquicia y de licencia. La cadena de valor descrita incluye desarrollo de producto, abastecimiento y fabricación mediante proveedores, planificación de inventario, distribución y gestión de marca. La información disponible no especifica la distribución geográfica de ingresos ni las operaciones por región.
+La cadena de valor comprende el diseño y desarrollo de productos y marcas, el abastecimiento y fabricación mediante proveedores, y la gestión de inventario y logística. La exposición geográfica, el desglose de ventas por región y la contribución de cada canal no están especificados en los materiales proporcionados.  
+*Fuente: AOIF, paso 1; el paquete no indica fecha para esta descripción.*
+
+ANF se analiza dentro del sector de consumo discrecional y comercio minorista. Como referencias de compañías relacionadas en el sector figuran [[DECK]] y [[ROST]]; su inclusión no implica que tengan modelos de negocio idénticos.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-**Drivers de ingresos identificados:**
-- Tráfico, conversión y ventas comparables en tiendas físicas y canales digitales.
-- Frecuencia de compra y demanda de productos por marca.
-- Actividad de los canales mayorista, de franquicia y de licencia.
+**Fuentes de ingresos y drivers.** La compañía vende ropa y accesorios para hombres y mujeres, además de productos de cuidado personal. Sus ingresos dependen de la demanda de los consumidores, el desempeño de las marcas y los canales de tiendas y comercio electrónico. No se aportan datos desglosados por marca, canal, región ni categoría de producto.
 
-**Posición competitiva:** ANF compite en una industria fragmentada, sensible a tendencias, promociones, ciclos de consumo y costes de abastecimiento. La diferenciación de marca, el reconocimiento entre ciertos segmentos y la presencia omnicanal podrían apoyar su posición comercial. Sin embargo, la evidencia disponible no demuestra poder de fijación de precios ni barreras competitivas duraderas.
+**Posición competitiva y moat.** AOIF caracteriza la amplitud del moat como **estrecha**. La diferenciación potencial se atribuye a marcas reconocibles, presencia omnicanal y operación en varios mercados. Sin datos comparativos de cuota de mercado, retención de clientes, poder de fijación de precios o resultados por marca, no es posible confirmar la durabilidad de esas ventajas.
 
-La evaluación AOIF clasifica el moat como **estrecho** y la posición competitiva como **retador**. Estas son evaluaciones del análisis aportado, no hechos verificados de forma independiente. El material recibido no identifica competidores concretos; por tanto, no se añaden comparables específicos. [[ABNB]] figura en la wiki existente como compañía relacionada por sector, pero no se dispone aquí de evidencia para establecer una relación competitiva directa.
+La industria se describe como cíclica y fragmentada, expuesta a cambios de moda, promociones, costos de inventario y competencia. AOIF clasifica a ANF como *retador*. Entre las compañías relacionadas de consumo discrecional pueden consultarse [[DECK]] y [[ROST]], sin asumir comparabilidad directa.
+
+*Fuente: AOIF, pasos 1 y 3; fecha no especificada en el material.*
 
 ## 3. Perfil Financiero
 
-Las métricas siguientes proceden de los contextos de investigación recibidos. No se proporcionaron URLs verificables para validarlas independientemente. Los períodos, fechas de referencia y metodologías deben confirmarse antes de compararlas.
+Las métricas siguientes proceden de los materiales de investigación. Salvo donde se indica una fecha, no se aportan período, definición o fuente primaria suficiente para asegurar su comparabilidad.
 
-| Métrica | Valor informado | Período o fecha | Observaciones |
-|---|---:|---|---|
-| Crecimiento de ingresos | 4,73% | No especificado en el contexto | Fuente y metodología pendientes de verificar. |
-| Margen operativo | 14,08% | No especificado en el contexto | Fuente y período pendientes de verificar. |
-| ROIC | 26,66% | No especificado en el contexto | Fuente y período pendientes de verificar. |
-| Margen bruto | 63,68% | TTM al 2026-08-01 | Informado por el resumen financiero; sin desglose por marca o canal. |
-| Flujo de caja libre (FCF) | USD 566,46 millones | TTM al 2026-08-01 | Informado por el resumen financiero. |
-| Efectivo e inversiones | USD 638,00 millones | Al 2026-08-01 | Informado por Stock Analysis según el contexto DDD. |
-| Caja neta / (deuda neta) | (USD 649,44 millones) | Al 2026-08-01 | Equivale a deuda neta según la convención reportada; metodología pendiente de verificar. |
-| Current ratio | 1,41 | Al 2026-08-01 | Observación del contexto DDD; no estaba entre los ratios principales solicitados. |
-| Precio de la acción | USD 140,37 | 2026-11-19 | Precio reportado por el resumen financiero. |
-| Objetivo medio de analistas | USD 170,64 | 2026-11-19 | Consenso reportado; no demuestra por sí solo infravaloración. |
-| PER | 12,58 | No especificado en el contexto | Fuente, fecha y definición pendientes de verificar. |
-| EV/EBITDA | 7,51 | No especificado en el contexto | Fuente, fecha y definición pendientes de verificar. |
-| Rentabilidad del FCF | 0 | No especificado en el contexto | Unidad, período y metodología no especificados; no interpretar como una métrica validada. |
+| Métrica | Valor reportado | Fecha/período y cautela |
+|---|---:|---|
+| Crecimiento de ingresos | 4,73% | AOIF; período no especificado |
+| Margen operativo | 14,08% | AOIF; período no especificado |
+| ROIC | 26,66% | AOIF; período y metodología no especificados |
+| P/E | 11,94x | AOIF; fecha de referencia no especificada |
+| EV/EBITDA | 7,08x | AOIF; fecha de referencia no especificada |
+| FCF yield | 0% | AOIF; cálculo y período no especificados |
+| Deuda total | USD 1.287 millones | DDD, 2026-08-01 |
+| Caja e inversiones | USD 638 millones | DDD, 2026-08-01 |
+| Current ratio | 1,41x | DDD, 2026-08-01 |
+| Cobertura de intereses | 0x reportado | DDD, 2026-08-01; alerta de calidad de dato por verificar |
 
-**Tendencia y comparabilidad:** AOIF califica la tendencia financiera como estable, pero no se aportan series históricas ni fuentes suficientes para comprobarlo. DDD indica que el FCF TTM informado supera el FCF del ejercicio FY 2026; esa diferencia no prueba crecimiento comparable porque los períodos tienen distinta duración. No se pudo calcular el CAGR de ingresos a tres años ni el crecimiento comparable del FCF.
+DDD señala FCF TTM positivo y un margen bruto TTM de 63,68%, pero no proporciona en el paquete la serie comparable ni las fuentes necesarias para verificar sostenibilidad o crecimiento. También advierte que el historial de FCF es variable. AOIF indica que los datos disponibles no bastan para evaluar la conversión de caja.
 
-**Estructura de capital:** El contexto DDD reporta deuda neta de USD 649,44 millones y efectivo e inversiones de USD 638,00 millones al 2026-08-01. No se aportan aquí series comparables de deuda, acciones diluidas, gasto por intereses ni vencimientos.
+DDD no pudo calcular el CAGR de ingresos a tres años ni el crecimiento de FCF: faltan fuentes verificables y períodos comparables. Por tanto, no deben extrapolarse las métricas puntuales como tendencias confirmadas.
+
+**Lectura de capital y liquidez.** Los datos reportados para 2026-08-01 muestran deuda total superior a la caja e inversiones. Sin información adicional sobre vencimientos, arrendamientos, necesidades de capital de trabajo y flujo de caja, no puede determinarse la holgura financiera. El valor de cobertura de intereses de 0x requiere comprobarse antes de interpretarlo como una medida económica válida.
+
+*Fuentes: DDD, datos al 2026-08-01 y análisis de evidencia; AOIF, paso 2 y paso 6.*
 
 ## 4. Management y Gobierno Corporativo
 
-AOIF califica la calidad del management como **buena**, la alineación de insiders como **moderada** y la asignación de capital como **neutral**. No se proporcionan nombres, fuentes ni criterios que permitan verificar estas evaluaciones.
+AOIF califica la calidad del management como **buena**, la asignación de capital como **neutral** y el alineamiento de insiders como **débil**. El material no incluye nombres, historial de ejecución, remuneración, porcentajes de propiedad de insiders ni detalles sobre composición o independencia del consejo de administración. Estas calificaciones son, por tanto, indicativas y no pueden verificarse con la evidencia incluida.
 
-No hay información suficiente sobre:
-- Composición, independencia, experiencia o comités del consejo de administración.
-- Porcentaje de propiedad de insiders y evolución de sus participaciones.
-- Diseño de remuneraciones, incentivos de largo plazo o objetivos de desempeño.
-- Decisiones concretas de asignación de capital y retornos asociados.
+La evaluación de la asignación de capital requiere información adicional sobre inversión, aperturas, retornos por canal o marca, recompras, dividendos y evolución del balance.
 
-Estas dimensiones requieren investigación adicional antes de extraer conclusiones sobre gobierno corporativo.
+*Fuente: AOIF, paso 4; fecha y evidencia específica no indicadas.*
 
 ## 5. Tesis de Inversión
 
-**Caso alcista, sujeto a verificación:**
-- ANF combina marcas propias con tiendas, comercio electrónico y canales mayoristas, de franquicia y licencia.
-- El margen bruto TTM reportado de 63,68% y el FCF TTM de USD 566,46 millones al 2026-08-01 sugieren un desempeño operativo y una generación de caja favorables en ese período; todavía falta confirmar su sostenibilidad y comparabilidad.
-- Las cifras aportadas por AOIF de margen operativo del 14,08% y ROIC del 26,66%, si se verifican para períodos y definiciones consistentes, serían indicativas de rentabilidad operativa y retornos sobre capital atractivos.
-- El precio de USD 140,37 y el objetivo medio de analistas de USD 170,64 al 2026-11-19 muestran una diferencia entre el precio reportado y el consenso, pero el consenso no constituye una valoración independiente ni evidencia de un error de mercado.
+**Caso alcista por investigar:** ANF combina una cartera de marcas, distribución omnicanal y métricas reportadas de margen operativo y ROIC que, si fueran sostenibles y comparables, podrían respaldar una operación rentable y una reinversión productiva. El paquete también reporta FCF TTM positivo y margen bruto TTM de 63,68% al 2026-08-01.
 
-**Hipótesis, no hechos confirmados:** La diferenciación de marca y el modelo omnicanal podrían sostener la demanda y los márgenes. El material disponible no demuestra que ANF tenga poder de fijación de precios, una ventaja competitiva duradera o una trayectoria de crecimiento comparable.
+Esta tesis todavía no está demostrada. No hay desglose suficiente para determinar qué marcas, canales o regiones impulsan el crecimiento ni para comprobar la persistencia de los márgenes, la conversión en caja o los retornos sobre la inversión. DDD clasifica la oportunidad como **RESEARCH_REQUIRED** y señala que no puede validarse un error de valoración con la evidencia disponible.
+
+**Observaciones de mercado, no estimaciones de valor intrínseco:**
+
+- Precio observado: **USD 139,67**, al 2026-11-20.
+- Consenso de precio objetivo: **USD 170,64**, con rango de **USD 150–200**; fecha reportada: 2026-11-20.
+- DDD registra momentum de precio de 12 meses de **126,6575%** y volatilidad de 90 días de **73,7069%**. Son datos de mercado y no prueban por sí mismos la calidad del negocio ni su valoración.
+
+El consenso y el rango de analistas son referencias observadas, no evidencia de valor intrínseco ni una recomendación.
+
+*Fuentes: DDD, paquete de investigación con datos de mercado al 2026-11-20 y análisis fechado 2026-11-21; AOIF, pasos 2 y 3.*
 
 ## 6. Riesgos y Contra-Tesis
 
-**Riesgos identificados:**
-- **Tendencias y preferencias:** Cambios en gustos o pérdida de relevancia de las marcas pueden debilitar la demanda. AOIF evalúa este riesgo como de impacto alto y probabilidad alta.
-- **Inventario:** Errores de previsión pueden generar exceso de inventario, descuentos y presión sobre los márgenes. AOIF lo evalúa como de impacto alto y probabilidad media.
-- **Ciclicidad del consumo:** La exposición al retail de moda hace que el desempeño pueda verse afectado por ciclos de consumo; el paquete no cuantifica esta sensibilidad.
-- **Deuda neta:** El resumen de Stock Analysis reporta deuda neta de USD 649,44 millones al 2026-08-01. Faltan datos sobre vencimientos, intereses y evolución comparable para valorar su efecto.
-- **Sostenibilidad de resultados:** El FCF TTM y las métricas operativas podrían no mantenerse; la comparación con cifras FY de distinto período no basta para probar una tendencia.
+**Caso bajista.** La demanda discrecional y las preferencias de moda pueden cambiar rápidamente. Errores de surtido, descuentos excesivos o inventario mal gestionado podrían presionar ventas y márgenes. La variabilidad histórica del FCF impide asumir que la generación de caja reciente sea sostenible. La deuda reportada también requiere análisis junto con vencimientos y necesidades de inversión.
 
-**Contra-tesis:** La mejora operativa observada podría ser transitoria. El paquete no permite demostrar que marcas y canales sostengan el desempeño, ni descartar presión futura sobre ventas, descuentos, márgenes o caja. DDD también señala que la subida de 126,6575% del precio en los 12 meses terminados el 2026-10-30, según el snapshot de yfinance, no acredita por sí sola que las expectativas fundamentales sean alcanzables.
+| Riesgo | Evidencia disponible | Implicación / límite de la evidencia |
+|---|---|---|
+| Ciclicidad y sensibilidad a la demanda | DDD identifica el riesgo; AOIF describe la industria como cíclica | No se aporta una estimación cuantitativa de sensibilidad |
+| Moda, surtido y descuentos | AOIF identifica cambios de preferencias, errores de surtido y descuentos excesivos | No hay datos de inventario, promociones o resultados por marca |
+| Apalancamiento y liquidez | Deuda total de USD 1.287 millones y caja e inversiones de USD 638 millones al 2026-08-01 | Faltan vencimientos, arrendamientos y proyecciones de caja |
+| Calidad de los datos financieros | Cobertura de intereses reportada como 0x al 2026-08-01 | Debe verificarse su definición y compatibilidad con EBIT e intereses |
+| Sostenibilidad del FCF y los márgenes | DDD observa FCF TTM positivo y margen bruto TTM de 63,68%, pero advierte sobre la variabilidad del FCF | No hay series comparables suficientes para confirmar la tendencia |
 
-**Triggers de falsación de la tesis:**
-- Períodos posteriores muestran deterioro persistente del margen bruto o del FCF frente a las cifras TTM reportadas al 2026-08-01.
-- Datos verificables de ventas, márgenes o caja contradicen la hipótesis de que las marcas y canales sostienen el desempeño.
-- Datos comparables de ventas e inventario muestran que los descuentos o la menor demanda erosionan de forma persistente la rentabilidad.
+**Falsadores de la tesis:**
+
+- Caída sostenida de ventas, margen bruto o FCF en períodos financieros comparables.
+- Evidencia de que el endeudamiento y las necesidades de inversión reducen materialmente la generación de caja.
+- Datos que muestren que el crecimiento depende de descuentos o de inversiones sin retornos adecuados.
+
+*Fuentes: DDD, riesgos y falsadores; AOIF, pasos 3 y 5; datos de balance al 2026-08-01.*
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
+| Catalizador | Fecha esperada | Impacto potencial | Qué confirmar |
 |---|---|---|---|
-| Resultados financieros posteriores y confirmación de la generación de caja | Sin fecha indicada en el paquete | Podrían confirmar o refutar la sostenibilidad del FCF y los márgenes reportados. | DDD no aporta guía futura ni fecha de resultados. |
-| Evolución de márgenes y resultados por marca o canal | Sin fecha indicada en el paquete | Permitiría evaluar qué marcas y canales impulsan o presionan el desempeño. | No se proporcionan desgloses por marca o canal. |
-| Evolución de ventas comparables, tráfico y conversión | Sin fecha indicada en el paquete | Ayudaría a distinguir crecimiento de demanda de otros factores, como precios o mezcla. | Métricas pendientes de investigar. |
+| Actualización de resultados financieros | Próximo período de resultados; fecha no proporcionada | Puede confirmar o debilitar la sostenibilidad de ventas, márgenes y FCF | Ventas comparables, margen bruto, margen operativo, FCF e inventario con períodos comparables |
+| Evidencia de reinversión productiva | Sin fecha especificada | Puede aclarar si la expansión omnicanal y multimarca crea valor | Desglose de inversión, aperturas, canales y retornos sobre capital |
+| Evolución por marca, canal y región | Sin fecha especificada | Puede identificar las fuentes del crecimiento o áreas de deterioro | Ingresos, penetración y rentabilidad con definiciones consistentes |
 
-El paquete no identifica un catalizador corporativo fechado. No se asignan fechas esperadas sin evidencia.
+No se dispone de un calendario corporativo de eventos. Los catalizadores son hitos de información que DDD considera necesarios para evaluar la tesis, no anuncios confirmados de la compañía.
+
+*Fuente: DDD, dominio de catalizadores; AOIF, puntos de monitoreo del paso 8.*
 
 ## 8. Marco de Valoración
 
-**Estado:** No se puede determinar el valor intrínseco con la información disponible. El propio análisis AOIF califica el margen de seguridad como **insuficiente**; esa clasificación debe tratarse como una evaluación del análisis recibido, no como un resultado reproducible con los datos entregados.
+AOIF reporta P/E de **11,94x**, EV/EBITDA de **7,08x** y FCF yield de **0%**, pero el material no especifica la fecha de referencia ni las definiciones y períodos usados. No se debe interpretar esos múltiplos como una conclusión de infravaloración. AOIF califica el margen de seguridad como **insuficiente** y señala que no puede determinar un valor intrínseco con la información disponible.
 
-**Metodologías apropiadas para investigar:**
-- Flujo de caja descontado, con ingresos, márgenes, impuestos, reinversión, capital de trabajo, capex y coste de capital explícitos.
-- Valoración por múltiplos comparables —por ejemplo, EV/EBITDA y PER— únicamente después de verificar períodos, definiciones, precio, acciones diluidas, deuda y caja.
-- Análisis de escenarios que refleje la ciclicidad de la demanda, la sensibilidad promocional, el riesgo de inventario y la evolución por marca y canal.
+Para una valoración más robusta conviene utilizar métodos complementarios:
 
-Los múltiplos informados de PER 12,58 y EV/EBITDA 7,51 no bastan para concluir que la acción esté infravalorada o sobrevalorada. DDD clasifica la conclusión sobre error de valoración como **no validada**.
+1. **Flujo de caja descontado:** requiere FCF normalizado, inversión de capital, capital de trabajo, crecimiento, márgenes y costo de capital. Los datos disponibles no permiten construir supuestos defendibles.
+2. **Múltiplos de beneficios o EBITDA:** requiere confirmar período, ajustes, deuda neta y comparabilidad con compañías pertinentes. Las métricas reportadas por AOIF carecen de esos detalles.
+3. **Escenarios por marca y canal:** serían útiles si se obtienen ingresos, márgenes e inversión por segmento; hoy esos datos no están disponibles.
 
-**Sensibilidades que deberían evaluarse cuando haya datos:**
-- Crecimiento de ventas comparables y de ingresos.
-- Margen bruto y margen operativo.
-- Conversión de beneficios en FCF, capex y capital de trabajo.
-- Coste de capital y crecimiento terminal.
-- Deuda neta, intereses y número de acciones diluidas.
+DDD presenta para el horizonte **2027-11-21** dos anclas basadas en el rango de objetivos de analistas, no en una valoración intrínseca propia: **USD 150** para el escenario bajista y **USD 200** para el alcista. Son extremos del rango de analistas observado, no precios objetivo independientes. El escenario de AOIF no contiene valores utilizables.
 
-No se calculan escenarios numéricos porque faltan inputs verificables y comparables.
+La principal sensibilidad analítica es la sostenibilidad del crecimiento, los márgenes y el FCF, además de la inversión necesaria para mantenerlos. Sin series comparables y supuestos explícitos, no procede inferir un valor razonable ni un margen de seguridad.
+
+*Fuentes: AOIF, paso 6; DDD, análisis de valoración y escenarios al 2026-11-21.*
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué fuentes y períodos respaldan el crecimiento de ingresos del 4,73%, el margen operativo del 14,08% y el ROIC del 26,66%?
-2. ¿Cómo evolucionan las ventas comparables, el tráfico, la conversión y la frecuencia de compra por marca, región y canal?
-3. ¿Qué parte del margen bruto y del FCF procede de cada marca y canal?
-4. ¿Qué inversiones, capex y necesidades de capital de trabajo respaldan la reinversión y el crecimiento?
-5. ¿Cuál es la evolución comparable de deuda, caja, gasto por intereses, vencimientos y acciones diluidas?
-6. ¿Qué guía ha ofrecido la empresa y cómo se compara con los resultados posteriores?
-7. ¿Qué información respalda las evaluaciones de calidad del management, alineación de insiders y asignación de capital?
-8. ¿Cuál es la composición del consejo y cómo se estructuran la independencia y los incentivos ejecutivos?
-9. ¿Cómo se construyeron los múltiplos, el margen de seguridad y la rentabilidad del FCF informados por AOIF?
-10. ¿Qué competidores comparables son adecuados para analizar la posición de ANF y su valoración?
+1. ¿Cuál es el crecimiento orgánico por marca, canal y región, y qué definiciones y períodos se utilizan?
+2. ¿Qué penetración tiene cada marca y cuál es el mercado direccionable bajo una metodología explícita?
+3. ¿Qué parte del crecimiento proviene de tiendas, comercio electrónico, precios, volumen o adquisiciones?
+4. ¿Son sostenibles el margen bruto TTM de 63,68%, el FCF TTM positivo y las métricas de margen operativo y ROIC reportadas?
+5. ¿Qué inversión de capital y necesidades de capital de trabajo requiere el crecimiento, y qué retornos producen?
+6. ¿Cómo se desglosan inventarios, descuentos, ventas comparables y márgenes por marca o canal?
+7. ¿Cuál es el calendario de deuda, y cómo se concilian la deuda, caja e inversiones con arrendamientos y otras obligaciones?
+8. ¿Por qué se reporta cobertura de intereses de 0x y cuál es la definición y fuente del indicador?
+9. ¿Cuáles son la propiedad de insiders, la remuneración ejecutiva, la composición del consejo y las métricas que respaldan las evaluaciones de management?
+10. ¿Cómo se calculan y fechan el P/E, EV/EBITDA y FCF yield de AOIF?
 
-**Conclusión del paquete de investigación:** La clasificación DDD es **RESEARCH_REQUIRED**; el score general es 48. La evidencia aportada permite describir el negocio e identificar cifras operativas potencialmente favorables, pero no alcanza para validar tendencias comparables, construir una valoración intrínseca ni determinar un error de valoración.
+**Prioridad de investigación:** obtener estados financieros y series comparables con fuentes verificables; reconciliar deuda, cobertura de intereses y FCF; y buscar desgloses por marca, canal, región e inversión antes de actualizar la valoración o la tesis.
+
+*Fuentes de las preguntas abiertas: DDD, ratios investigados y preguntas abiertas; AOIF, pasos 2, 4, 6 y 8.*
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ABNB|Airbnb, Inc.]]
+- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[AVY|Avery Dennison Corporation]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[EBAY|eBay Inc.]], [[ETSY|Etsy, Inc.]], [[GM|General Motors Company]], [[HMC|Honda Motor Co., Ltd.]], [[HOG|Harley-Davidson, Inc.]], [[RACE|Ferrari N.V.]], [[ROST|Ross Stores, Inc.]], [[SBUX|Starbucks Corporation]], [[TJX|The TJX Companies, Inc.]], [[URBN|Urban Outfitters, Inc.]]
+- **Same Industry**: [[ROST|Ross Stores, Inc.]], [[TJX|The TJX Companies, Inc.]], [[URBN|Urban Outfitters, Inc.]]
