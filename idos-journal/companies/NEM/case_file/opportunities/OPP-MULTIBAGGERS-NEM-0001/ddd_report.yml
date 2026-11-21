@@ -1,83 +1,104 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - FCF positivo y margen bruto alto en el TTM son compatibles con una capacidad de
-    generación de caja relevante en ese período, pero no prueban persistencia ni retornos
-    incrementales atractivos.
-  - No se valida una brecha entre expectativas y fundamentales ni una ventaja competitiva
-    duradera con la evidencia entregada.
-  - La cotización reportada fue USD 109.26 al 2026-10-26 (yfinance, https://finance.yahoo.com/quote/NEM/).
-  - Para el TTM terminado el 2026-09-30, Stock Analysis reportó ingresos de 26,606,
-    FCF de 10,074 y utilidad neta de 9,240; los importes se mantienen en las unidades
-    reportadas por la fuente.
-  - El consenso observado el 2026-11-20 fue USD 134.57, con extremos USD 70 y USD
-    165 (Stock Analysis y yfinance, según el resumen financiero).
+  - Los datos financieros recientes son compatibles con una mejora marcada de rentabilidad
+    y generación de caja, pero no identifican sus impulsores.
+  - Los extremos de analistas permiten anclas observadas para escenarios, no una estimación
+    independiente de valor.
+  - Stock Analysis reporta ingresos de 26,606, FCF de 10,074, beneficio neto de 9,240
+    y margen bruto de 68.04% para TTM terminado el 2026-09-30.
+  - Stock Analysis reporta caja e inversiones de 9,261, deuda total de 5,584 y caja
+    neta de 3,677 al 2026-09-30.
+  - YFinance reporta momentum de precio a 12 meses de 38.9546%, volatilidad a 90 días
+    de 41.4882% y drawdown de 19.1505% al 2026-10-26.
   preguntas_abiertas:
-  - ¿Qué parte de la evolución financiera proviene de precios realizados, producción,
-    costos, adquisiciones u otros factores?
-  - ¿Cuáles son los planes de inversión, producción y costos por activo, y qué retornos
-    generan?
-  - ¿Cómo han evolucionado las acciones diluidas y qué política de asignación de capital
-    aplica la dirección?
-catalizadores_previos: &id001 []
+  - ¿Qué parte del crecimiento y del margen se explica por precio de metales, producción,
+    mezcla o costes?
+  - ¿Cuáles son los retornos sobre capital, necesidades de reinversión, reservas,
+    costes unitarios y rendimientos de proyectos?
+  - ¿Cómo han evolucionado acciones diluidas, pagos de intereses y asignación de capital?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T17:24:23.956675-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MULTIBAGGERS-NEM-0001
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T17:24:23.956675-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MULTIBAGGERS-NEM-0001
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T17:24:23.956675-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MULTIBAGGERS-NEM-0001
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida
-  justificacion: El paquete asigna a NEM el perfil MULTIBAGGERS y un discovery_score
-    de 68.39 (Research Intake Package, 2026-10-26); esa puntuación no acredita por
-    sí sola una oportunidad de inversión.
+  categoria: Investigación requerida; exposición a productor de oro con fuerte mejora
+    financiera reciente
+  justificacion: El paquete muestra crecimiento de ingresos, FCF y margen bruto, junto
+    con un impulso de precio positivo; no incluye evidencia suficiente sobre precios
+    de metales, reservas, costes unitarios o proyectos para valorar la durabilidad
+    del crecimiento.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El FCF y el margen bruto reportados son sólidos en el TTM al 2026-09-30,
-    pero las series muestran resultados históricos variables y no permiten separar
-    efectos de precios, volumen, costos o cambios de perímetro. No hay información
-    suficiente sobre moat, reinversión, retornos incrementales sobre capital, management
-    o asignación de capital.
-  rating: Evidencia incompleta
+  analisis: La evidencia agregada muestra margen bruto TTM de 68.04% y FCF TTM positivo
+    al 2026-09-30, pero no permite medir retornos sobre capital, reinversión, ventajas
+    competitivas o erosión. El resumen describe un productor de oro con exposición
+    a otros metales y activos en múltiples países; no aporta datos de mercado direccionable,
+    penetración, management ni asignación de capital.
+  rating: Incompleto
 dominio_catalizadores:
-- base: Stock Analysis, https://stockanalysis.com/stocks/nem/financials/, TTM al 2026-09-30
-    y FY 2025.
-  catalizador: El FCF reportado fue 10,074 para el TTM terminado el 2026-09-30, frente
-    a 7,299 en FY 2025.
-- base: Stock Analysis, https://stockanalysis.com/stocks/nem/financials/, períodos
-    indicados.
-  catalizador: El margen bruto reportado aumentó de 63.24% en FY 2025 a 68.04% en
-    el TTM terminado el 2026-09-30.
-- base: Descripción del modelo de negocio del resumen financiero, 2026-11-20.
-  catalizador: La exposición a cobre, plata, plomo y zinc, además de oro, es una posible
-    fuente de diversificación de productos; el paquete no cuantifica su impacto económico.
+- catalizador: Confirmación de que el crecimiento de ingresos y margen bruto continúa
+    en períodos posteriores.
+  evidencia: Ingresos TTM de 26,606 y margen bruto TTM de 68.04% al 2026-09-30, según
+    Stock Analysis.
+- catalizador: Evidencia posterior sobre la conversión de resultados en caja y la
+    evolución del balance.
+  evidencia: FCF TTM de 10,074 y caja e inversiones de 9,261 al 2026-09-30, según
+    Stock Analysis.
+- catalizador: Seguimiento del rango de objetivos de analistas como referencia observable
+    de expectativas, no como valoración intrínseca.
+  evidencia: Rango de USD 70–165 y media de USD 134.57, observados el 2026-11-21.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- base: Descripción del modelo de negocio del resumen financiero, 2026-11-20.
-  riesgo: Exposición a múltiples metales y jurisdicciones; el paquete no cuantifica
-    la contribución por operación ni riesgos específicos de cada país.
-- base: Datos de deuda, efectivo y EBITDA de Stock Analysis con bases de unidad distintas
-    o no especificadas, período terminado el 2026-09-30.
-  riesgo: No se puede calcular net_debt_ebitda con unidades compatibles y verificables
-    a partir de las observaciones disponibles.
-- base: Research Intake Package, datos de yfinance, período 2025-10-27 a 2026-10-26.
-  riesgo: La volatilidad observada a 90 días fue 41.4882% y el drawdown informado
-    fue 19.1505%.
-- base: Campos disponibles en el paquete y resumen financiero, observados hasta 2026-11-20.
-  riesgo: No hay datos suficientes para evaluar dilución, retornos sobre capital,
-    producción, costos o ventaja competitiva.
+- evidencia: El paquete aporta resultados agregados, pero no desgloses operativos
+    suficientes para identificar sus impulsores.
+  riesgo: Exposición a metales y ausencia de datos de precios, costes, producción
+    y reservas impiden atribuir la mejora financiera a factores duraderos.
+- evidencia: 'FCF reportado: 97 en FY 2023, 2,961 en FY 2024, 7,299 en FY 2025 y 10,074
+    TTM al 2026-09-30.'
+  riesgo: La generación de FCF y los márgenes recientes podrían revertirse; la serie
+    anual reporta FCF muy variable.
+- evidencia: El resumen identifica activos y operaciones en América, África, Asia-Pacífico
+    y Oceanía, sin desglose de riesgos por activo.
+  riesgo: La exposición a operaciones en numerosos países plantea cuestiones de ejecución
+    y jurisdicción no evaluables con la evidencia suministrada.
 error_mercado:
-  catalizador_cambio: Resultados financieros posteriores al 2026-09-30 y evidencia
-    de ejecución operativa podrían cambiar la evaluación; no se aportan hitos corporativos
-    concretos.
-  conclusion_error_valoracion: No validado.
-  consenso_actual: El consenso de analistas reportado es USD 134.57, con rango USD
-    70–165; la cotización era USD 109.26 el 2026-10-26 (resumen financiero, consenso
-    observado el 2026-11-20 y cotización del 2026-10-26).
-  hipotesis_contraria: El paquete no contiene evidencia suficiente para establecer
-    que el mercado esté valorando mal la capacidad de generación de caja o el crecimiento
-    futuro de Newmont.
-  razonamiento: El rango de consenso y la cotización son referencias observadas, no
-    una valoración intrínseca; faltan datos de producción, costos, precios realizados
-    y método de valoración defendible.
-generated_at: '2026-11-20T17:24:23.956675-03:00'
+  catalizador_cambio: Resultados financieros posteriores que permitan comprobar la
+    evolución de ingresos, margen bruto, FCF, deuda neta y ejecución operativa.
+  conclusion_error_valoracion: 'No puede establecerse un error de valoración con la
+    evidencia disponible: el rango de analistas es una referencia observada, no una
+    estimación intrínseca validada.'
+  consenso_actual: La evidencia disponible muestra un precio de USD 109.26 al 2026-10-26
+    y un objetivo medio de analistas de USD 134.57 al 2026-11-21; el rango observado
+    es USD 70–165.
+  hipotesis_contraria: El desempeño financiero reciente podría no ser sostenible si
+    cambian las condiciones que impulsaron ingresos, margen y FCF; el paquete no identifica
+    cuánto corresponde a precios de metales, volumen o costes.
+  razonamiento: El precio subió 38.95% en el período de 12 meses terminado el 2026-10-26,
+    con volatilidad de 41.49% y drawdown de 19.15%; esas métricas describen mercado,
+    no valor fundamental.
+generated_at: '2026-11-21T17:09:06.463937-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MULTIBAGGERS-NEM-0001
@@ -93,7 +114,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Newmont Corporation
   operating_margin: 55.56
-  pe_ratio: 11.23
+  pe_ratio: 11.02
   products: ''
   revenue: 26610000000.0
   revenue_growth: 23.73
@@ -106,67 +127,65 @@ ratios_investigados:
   metric: revenue_cagr_3y_pct
   period_end: '2025-12-31'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/nem/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: FCF growth reportado por la fuente; no se recalcula sin los dos períodos
-    comparables que sustentan esta tasa.
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
   inputs:
-    fcf_growth_history:
-      TTM: 64.55
-  limitations: La fuente reporta crecimiento TTM, pero el paquete no identifica explícitamente
-    el período comparativo utilizado; no se puede validar la comparabilidad.
+    fcf_history:
+      FY 2025 terminado 2025-12-31: 7299
+      TTM terminado 2026-09-30: 10074
+  limitations: 'No calculado: compara un período TTM con un ejercicio fiscal completo,
+    que no son períodos compatibles.'
   metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/nem/financials/
-  status: reported
+  status: unavailable
   unit: percent
-  value: 64.55
+  value: null
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/NEM/statistics/
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/nem/financials/
   status: unavailable
   unit: percent
   value: null
 - formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
-    cash_and_investments_history:
-      Current: 9261.0
-    ebitda: 17610000000.0
-    total_debt_history:
-      Current: 5584.0
-  limitations: Deuda y efectivo están en source_reported_amount, mientras EBITDA figura
-    en provider_financial_currency; el paquete no valida escala o moneda compatibles
-    para el cálculo.
+    ebitda:
+      TTM terminado 2026-09-30: 17610000000
+    net_cash_history:
+      Current al 2026-09-30: 3677
+  limitations: 'No calculado: el paquete reporta net cash en source_reported_amount
+    y EBITDA en provider_financial_currency, sin escala o conversión verificable para
+    hacerlos compatibles.'
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/nem/financials/
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/NEM/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    shares_outstanding: 1040000000.0
-  limitations: Falta el número de acciones diluidas o acciones en circulación de un
-    período comparable anterior; sólo hay un dato actual.
+    shares_outstanding:
+      al 2026-09-30: 1040000000
+  limitations: Falta una observación comparable de acciones diluidas o acciones en
+    circulación para el período anterior.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/NEM/statistics/
   status: unavailable
   unit: percent
@@ -202,7 +221,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: Newmont Corporation operates as a gold producer. It also explores
     for copper, silver, lead, zinc, and other metals. It has operations and/or assets
     in the United States, Papua New Guinea, Australia, Ghana, Suriname, Argentina,
@@ -216,7 +235,323 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.16
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Newmont Corporation ([[NEM]]) es un productor minero integrado cuyo producto principal
+    es el oro y que también tiene exposición a cobre y otros metales. Su cadena de
+    valor abarca exploración y evaluación geológica, permisos y desarrollo de minas,
+    extracción, procesamiento y venta de concentrados o metales. Entre sus clientes
+    y contrapartes se incluyen refinadores, fundiciones, comerciantes y entidades
+    financieras de metales. [Resumen financiero y análisis del negocio, 2026-11-20;
+    AOIF, sin fecha indicada]
+
+
+    La empresa opera en una industria intensiva en capital y cíclica. Sus resultados
+    dependen de los precios de los metales, los volúmenes y leyes de mineral, la recuperación
+    en planta, los costos y la ejecución de proyectos. El material disponible indica
+    operaciones o activos en varias jurisdicciones, pero no identifica ni cuantifica
+    la exposición por país u operación. [Resumen financiero, 2026-11-20; AOIF, sin
+    fecha indicada]
+
+
+    Compañías del sector con riesgos o dinámicas comparables incluyen [[AEM]], [[B]],
+    [[BHP]], [[CDE]], [[FCX]] y [[HL]].
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    Los ingresos dependen principalmente del volumen de metales producido y vendido
+    y de los precios realizados. La extracción y el procesamiento están expuestos
+    a la calidad del yacimiento, las leyes del mineral, la recuperación, la disponibilidad
+    de equipos y la continuidad operativa. También son relevantes los costos de energía,
+    materiales, mano de obra y servicios. [AOIF, sin fecha indicada]
+
+
+    El análisis AOIF caracteriza a Newmont como líder y atribuye ventajas potenciales
+    a su escala, experiencia operativa, cartera de activos, conocimiento geológico
+    y capacidad para financiar proyectos de larga duración. El mismo análisis califica
+    el moat como **estrecho**: la escala no elimina la exposición a precios de commodities,
+    costos, riesgos geológicos ni dificultades de ejecución. Estos juicios son evaluaciones
+    del paquete de investigación, no verificaciones independientes. [AOIF, sin fecha
+    indicada]
+
+
+    La industria presenta barreras de oferta asociadas a los plazos de exploración,
+    desarrollo y permisos. A la vez, es cíclica y sensible a cambios en los precios
+    de oro y metales base. Las mismas dinámicas pueden afectar a compañías como [[AEM]],
+    [[BHP]] y [[FCX]].
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes proceden de las fuentes y evaluaciones incluidas en el material
+    de investigación. Cuando no se especifican definición, unidad, período comparable
+    o metodología, la métrica debe tratarse como reportada y pendiente de verificación.
+
+
+    | Métrica | Valor reportado | Período / referencia | Estado y limitaciones |
+
+    |---|---:|---|---|
+
+    | Flujo de caja libre (FCF) | 10,074 | TTM al 2026-09-30 | Reportado por Stock
+    Analysis; no se especifica aquí la unidad. |
+
+    | FCF | 7,299 | FY 2025 | Reportado por Stock Analysis; no se especifica aquí
+    la unidad. |
+
+    | Crecimiento del FCF | 64.55% | TTM al 2026-09-30 | Reportado por Stock Analysis;
+    el período comparativo no está identificado explícitamente, por lo que no se puede
+    validar la comparabilidad. |
+
+    | Margen bruto | 68.04% | TTM al 2026-09-30 | Reportado por Stock Analysis. |
+
+    | Margen bruto | 63.24% | FY 2025 | Reportado por Stock Analysis. |
+
+    | Crecimiento de ingresos | 23.73% | Período no especificado | Cifra de AOIF;
+    requiere verificar período, fuente y definición. |
+
+    | Margen operativo | 55.56% | Período no especificado | Cifra de AOIF; requiere
+    verificar período, fuente y definición. |
+
+    | ROIC | 29.38% | Período no especificado | Cifra de AOIF; requiere verificar
+    período, fuente y definición. |
+
+    | PER | 11.23 | Fecha y base no especificadas | Cifra de AOIF; no debe interpretarse
+    como múltiplo actual sin validar fecha y cálculo. |
+
+    | EV/EBITDA | 5.59 | Fecha y base no especificadas | Cifra de AOIF; no debe interpretarse
+    como múltiplo actual sin validar fecha y cálculo. |
+
+    | FCF yield | 0 | Fecha y método no especificados | Cifra de AOIF; no se aportan
+    inputs suficientes para interpretarla. |
+
+    | Current ratio | 2.45 | 2026-09-30 | Reportado por Stock Analysis; no cruza el
+    umbral de alerta inferior a 0.5 utilizado en el paquete. |
+
+    | Deuda neta / EBITDA | No calculable | 2026-09-30 | Las bases de unidad disponibles
+    no son compatibles o no están especificadas. |
+
+    | Dilución interanual | No evaluable | Sin período comparable | Falta una serie
+    comparable de acciones diluidas o en circulación. |
+
+
+    **Fuentes:** Stock Analysis, [financials](https://stockanalysis.com/stocks/nem/financials/)
+    y [statistics](https://stockanalysis.com/stocks/NEM/statistics/); observaciones
+    financieras hasta el 2026-09-30 y FY 2025. Los datos de AOIF se entregaron sin
+    fecha ni referencias explícitas para cada métrica.
+
+
+    El FCF y el margen bruto reportados para el TTM terminado el 2026-09-30 son superiores
+    a sus referencias FY 2025 indicadas en el paquete. Esto es compatible con una
+    mayor generación de caja y margen en ese período, pero no permite atribuir el
+    cambio a precios, producción, costos, adquisiciones u otros factores, ni demostrar
+    que sea persistente. El paquete no proporciona cifras verificables de flujo de
+    caja operativo, capex de sostenimiento y crecimiento o conversión de FCF.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    El análisis AOIF califica la calidad del management como **buena**, la asignación
+    de capital como **neutral** y el alineamiento de insiders como **moderado**. No
+    se incluyen nombres de directivos, evidencia sobre remuneraciones o incentivos,
+    porcentaje de propiedad interna ni información sobre composición, independencia
+    o experiencia del board. Estas valoraciones son, por tanto, conclusiones preliminares
+    del análisis y requieren respaldo documental antes de utilizarlas como hechos
+    confirmados. [AOIF, sin fecha indicada]
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista — hipótesis sujeta a verificación:**
+
+
+    - Newmont combina producción de oro con exposición a otros metales y cuenta, según
+    AOIF, con escala, experiencia operativa y una cartera de activos. Estas características
+    podrían respaldar continuidad operativa y capacidad para desarrollar proyectos,
+    aunque el paquete no cuantifica sus ventajas frente a competidores.
+
+    - Stock Analysis reporta FCF de 10,074 en el TTM al 2026-09-30, frente a 7,299
+    en FY 2025, y un margen bruto de 68.04% frente a 63.24%, respectivamente. Si las
+    cifras son comparables y los resultados se sostienen, podrían indicar una mejora
+    en la generación de caja y rentabilidad bruta en el período observado. [Stock
+    Analysis, [financials](https://stockanalysis.com/stocks/nem/financials/)]
+
+    - La industria tiene plazos largos de exploración, permisos y desarrollo, lo que
+    puede restringir la respuesta de la oferta. El efecto potencial para Newmont depende
+    de la calidad y rentabilidad de sus propios activos y no queda cuantificado en
+    la evidencia disponible. [AOIF, sin fecha indicada]
+
+
+    **Límite de la tesis:** el paquete no demuestra una ventaja competitiva duradera,
+    una brecha entre expectativas del mercado y fundamentales, ni la persistencia
+    de los resultados financieros reportados. La clasificación de oportunidad como
+    “Investigación requerida” y el discovery score de 68.39 del Research Intake Package
+    (2026-10-26) son señales de priorización investigativa, no evidencia de una oportunidad
+    de inversión validada.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    - **Precios de commodities:** una caída del oro o de los metales base reduciría
+    ingresos, márgenes y el valor económico de las reservas. AOIF califica el impacto
+    potencial como alto y la probabilidad como media. [AOIF, sin fecha indicada]
+
+    - **Costos y operación:** aumentos en energía, materiales, mano de obra o servicios,
+    o menor ley del mineral y problemas de recuperación, podrían deteriorar resultados.
+    AOIF califica el impacto y la probabilidad como altos. [AOIF, sin fecha indicada]
+
+    - **Ejecución y capital:** la exploración, el desarrollo, los permisos y la operación
+    minera exigen inversión de largo plazo y están sujetos a riesgos de ejecución.
+    El paquete no presenta planes de inversión ni retornos por proyecto.
+
+    - **Riesgo geográfico:** existe exposición a varias jurisdicciones, pero no se
+    cuantifican los riesgos específicos por país ni la contribución de cada operación.
+    [Descripción del modelo de negocio, resumen financiero, 2026-11-20]
+
+    - **Calidad de la evidencia financiera:** las métricas de crecimiento, ROIC y
+    valoración incluidas por AOIF no vienen acompañadas de períodos, definiciones
+    o fuentes específicas. Además, no es posible calcular deuda neta/EBITDA con las
+    bases disponibles.
+
+    - **Falta de validación de valoración:** el consenso de analistas reportado es
+    USD 134.57, con un rango de USD 70–165; la cotización indicada fue USD 109.26
+    al 2026-10-26. Son referencias observadas, no una estimación de valor intrínseco.
+    [Resumen financiero, consenso observado el 2026-11-20; cotización al 2026-10-26]
+
+
+    **Falsadores de la tesis que deben monitorearse:**
+
+
+    1. FCF futuro persistentemente inferior a los 10,074 reportados para el TTM terminado
+    el 2026-09-30, sin una explicación temporal verificable. [Stock Analysis, [financials](https://stockanalysis.com/stocks/nem/financials/)]
+
+    2. Deterioro sostenido del margen bruto frente al 68.04% reportado para ese TTM.
+
+    3. Evidencia de que el rendimiento de la cartera de activos no cubre los costos
+    y necesidades de inversión, una vez que se obtengan datos comparables por operación.
+
+
+    Los dos primeros son umbrales de seguimiento basados en observaciones reportadas,
+    no pronósticos ni niveles intrínsecos.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Fecha / horizonte | Evento o indicador | Impacto potencial | Evidencia y limitaciones
+    |
+
+    |---|---|---|---|
+
+    | TTM terminado el 2026-09-30 | FCF reportado de 10,074 y margen bruto de 68.04%
+    | Positivo si se confirma la comparabilidad y la persistencia; negativo si los
+    períodos posteriores muestran deterioro sostenido. | Datos históricos de Stock
+    Analysis, [financials](https://stockanalysis.com/stocks/nem/financials/); no se
+    proporcionan causas desglosadas. |
+
+    | Próximos resultados, fecha no aportada | Actualización de FCF, márgenes, producción,
+    costos y capex | Podría confirmar o debilitar la interpretación de mejora financiera.
+    | El paquete no identifica una fecha de publicación ni cifras futuras. |
+
+    | Próximas actualizaciones operativas, fecha no aportada | Evidencia de ejecución
+    por activo, producción, costos y retornos de inversión | Podría mejorar la evaluación
+    del negocio y de la asignación de capital, o revelar deterioro operativo. | No
+    se aportan hitos corporativos concretos ni planes por activo. |
+
+
+    El consenso observado y la cotización del 2026-10-26 no se consideran catalizadores:
+    son referencias de mercado, no eventos futuros identificados. No hay base en el
+    material para asignar fechas más específicas.
+
+
+    ## 8. Marco de Valoración
+
+
+    Una valoración de Newmont debería separar los activos y proyectos mineros y contrastar
+    sus flujos de caja con distintos supuestos de precio de metales, producción, leyes,
+    recuperación, costos operativos, impuestos, capex, permisos y vida de mina. También
+    convendría contrastar el resultado con métricas de mercado como EV/EBITDA y FCF
+    yield, usando fecha, unidades, deuda neta y acciones plenamente diluidas verificadas.
+
+
+    El AOIF reporta PER de 11.23 y EV/EBITDA de 5.59, pero no identifica fecha, inputs
+    ni metodología; también reporta FCF yield de 0 sin explicar su cálculo. Por ello,
+    esas cifras no permiten concluir que la acción esté barata ni construir una estimación
+    defendible de valor intrínseco. El AOIF califica el margen de seguridad como insuficiente
+    y señala que el valor intrínseco no es determinable con precisión a partir de
+    la información disponible.
+
+
+    El consenso de USD 134.57 (rango USD 70–165) y la cotización de USD 109.26 al
+    2026-10-26 deben tratarse únicamente como referencias observadas. La hipótesis
+    de error de valoración **no está validada**: faltan datos verificables de producción,
+    costos, precios realizados, deuda neta, acciones y método de valoración. [Resumen
+    financiero, 2026-11-20; cotización al 2026-10-26]
+
+
+    **Sensibilidad que debe evaluarse cuando se obtengan los datos:** escenarios de
+    precios de oro y metales base; producción y leyes; costos energéticos y de insumos;
+    capex; retrasos de desarrollo; y supuestos de vida de mina. El material actual
+    no permite asignar valores o probabilidades a esos escenarios.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué proporción de los cambios en FCF y márgenes proviene de precios realizados,
+    producción, costos, adquisiciones u otros factores?
+
+    2. ¿Cuál es la producción, el costo por unidad, la ley del mineral, la recuperación
+    y la contribución al flujo de caja de cada activo?
+
+    3. ¿Cuáles son los planes de inversión y producción por mina o proyecto, y qué
+    retornos se esperan para el capex de sostenimiento y de crecimiento?
+
+    4. ¿Son comparables el FCF de 10,074 del TTM al 2026-09-30 y el de 7,299 de FY
+    2025? ¿Qué período comparativo sustenta el crecimiento de FCF reportado de 64.55%?
+
+    5. ¿Cuáles son la deuda y el efectivo en unidades compatibles, y cuál es la deuda
+    neta/EBITDA con una definición verificable?
+
+    6. ¿Cómo han evolucionado las acciones diluidas y la remuneración basada en acciones?
+
+    7. ¿Qué evidencia respalda las calificaciones de management, asignación de capital
+    y alineamiento de insiders, y cuál es la composición del board?
+
+    8. ¿Cuál es la exposición económica y regulatoria por operación y jurisdicción?
+
+    9. ¿Qué períodos, definiciones y fuentes respaldan las cifras AOIF de crecimiento
+    de ingresos, margen operativo, ROIC, PER y EV/EBITDA?
+
+    10. ¿Qué expectativas de producción, costos, precios y capex están incorporadas
+    en el precio de mercado y en el rango de consenso reportado?
+
+
+    **Estado:** investigación requerida. La evidencia disponible identifica resultados
+    financieros recientes que merecen seguimiento, pero no basta para determinar persistencia,
+    ventaja competitiva duradera ni error de valoración.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]],
+    [[BHP|BHP Group Limited]], [[CDE|Coeur Mining, Inc.]], [[CX|CEMEX, S.A.B. de C.V.]],
+    [[DD|DuPont de Nemours, Inc.]], [[DOW|Dow Inc.]], [[ECL|Ecolab Inc.]], [[FCX|Freeport-McMoRan
+    Inc.]], [[GGB|Gerdau S.A.]], [[HL|Hecla Mining Company]], [[IFF|International
+    Flavors & Fragrances Inc.]]
+
+    - **Same Industry**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]],
+    [[CDE|Coeur Mining, Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -251,7 +586,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T20:23:56.747178+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T20:08:35.229351+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -410,12 +745,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    165.0, "low": 70.0, "mean": 134.57, "median": 134.57, "observed_at": "2026-11-20T17:24:00.005276-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T17:24:00.005276-03:00", "observed_date": "2026-11-20", "target_price":
+    165.0, "low": 70.0, "mean": 134.57, "median": 134.57, "observed_at": "2026-11-21T17:08:38.334956-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T17:08:38.334956-03:00", "observed_date": "2026-11-21", "target_price":
     134.57, "url": "https://stockanalysis.com/stocks/nem/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:24:00.005276-03:00",
-    "observed_date": "2026-11-20", "target_price": 134.56842, "url": "https://finance.yahoo.com/quote/NEM/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T17:08:38.334956-03:00",
+    "observed_date": "2026-11-21", "target_price": 134.56842, "url": "https://finance.yahoo.com/quote/NEM/"}]},
     "current_quote": {"as_of_date": "2026-10-26", "currency": "USD", "price": 109.26000213623047,
     "sources": [{"as_of_date": "2026-10-26", "name": "yfinance", "url": "https://finance.yahoo.com/quote/NEM/"}]}}'
   sector: Basic Materials
@@ -425,50 +760,83 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 545f5386d7581fa2227b27140bb70bcc411941f12871d5b6f58370a05dc958cd
+    sha256: 0b95c30f1ab31d11664fce83047f34dcf73f3c6735c9b1c111766f200efb1368
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T17:24:23.956675-03:00'
+  triggered_at: '2026-11-21T17:09:06.463937-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: 2.45 al 2026-09-30; no cruza el umbral.
-  source: Stock Analysis, https://stockanalysis.com/stocks/NEM/statistics/
+  observation: 2.45 al 2026-09-30; no está por debajo del umbral.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/NEM/statistics/
   threshold: below 0.5
 - metric: dilution_yoy_pct
-  observation: 'No evaluable: falta una serie comparable de acciones diluidas o en
-    circulación.'
-  source: Stock Analysis, https://stockanalysis.com/stocks/NEM/statistics/
+  observation: 'No evaluable: falta una serie comparable de acciones diluidas.'
   threshold: above 10%
 - metric: interest_coverage
-  observation: La fuente reporta 0 al 2026-09-30, pero el paquete no aclara si representa
-    un valor económico o dato faltante; requiere validación.
-  source: Stock Analysis, https://stockanalysis.com/stocks/NEM/statistics/
+  observation: El proveedor reporta 0 al 2026-09-30; no hay inputs EBIT y gasto por
+    intereses verificables para validar el cálculo.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/NEM/statistics/
   threshold: below 2.0x
-- metric: net_debt_ebitda
-  observation: 'No evaluable: unidades compatibles para deuda neta y EBITDA no están
-    verificadas.'
-  source: Stock Analysis, https://stockanalysis.com/stocks/nem/financials/ y https://stockanalysis.com/stocks/NEM/statistics/
-  threshold: above 4.0x
 - metric: negative_fcf_runway_months
-  observation: No aplica al FCF positivo reportado de 10,074 para el TTM terminado
-    el 2026-09-30; no se calcula runway.
-  source: Stock Analysis, https://stockanalysis.com/stocks/nem/financials/
+  observation: 'No aplicable a los datos reportados: FCF TTM positivo de 10,074 al
+    2026-09-30.'
   threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No evaluable por incompatibilidad de unidades reportadas entre net
+    cash y EBITDA.
+  threshold: above 4.0x
 - metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: faltan observaciones históricas de acciones comparables.'
-  source: Stock Analysis, https://stockanalysis.com/stocks/NEM/statistics/
+  observation: 'No evaluable: falta una serie histórica comparable de acciones.'
   threshold: above 5%
-scenario_analysis: null
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: null
+  scenarios:
+  - falsifiers:
+    - Evidencia posterior de que ingresos, márgenes y FCF se sostienen o mejoran.
+    id: BEAR
+    key_assumptions:
+    - Se usa el extremo bajo del rango de analistas como ancla observada.
+    - No se presume que los resultados TTM al 2026-09-30 se mantengan.
+    rationale: Ancla baja del rango de objetivos de analistas observado, no valoración
+      intrínseca propia. Es el extremo adverso observable; el paquete no aporta supuestos
+      operativos o de valoración suficientes para justificar una cifra distinta.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/nem/forecast/
+    target_price: 70
+  - falsifiers:
+    - Deterioro posterior de ingresos, margen bruto o FCF frente a los datos TTM disponibles.
+    id: BULL
+    key_assumptions:
+    - Se usa el extremo alto del rango de analistas como ancla observada.
+    - Los resultados financieros recientes no bastan para validar la sostenibilidad
+      de ese extremo.
+    rationale: Ancla alta del rango de objetivos de analistas observado, no valoración
+      intrínseca propia. Representa el extremo favorable observado; la evidencia no
+      permite respaldar un objetivo superior ni un método independiente de valoración.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/nem/forecast/
+    target_price: 165
+  schema_version: bear_bull_v2
 scenario_validation:
   errors:
-  - scenario_analysis ausente
+  - horizon_date debe ser una fecha ISO válida
   status: invalid_pending_revision
-score_general: 56
+score_general: 58
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T17:24:00.005276-03:00'
+  calculado_at: '2026-11-21T17:08:38.334956-03:00'
   fuentes:
     stockanalysis: 134.57
     yfinance: 134.56842
@@ -476,25 +844,26 @@ target_consensus:
   n_fuentes: 2
   promedio: 134.57
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T17:24:00.005276-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T17:08:38.334956-03:00'
+    observed_date: '2026-11-21'
     target_price: 134.57
     url: https://stockanalysis.com/stocks/nem/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T17:24:00.005276-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T17:08:38.334956-03:00'
+    observed_date: '2026-11-21'
     target_price: 134.56842
     url: https://finance.yahoo.com/quote/NEM/
   target_high: 165.0
   target_low: 70.0
-tesis_inversion: Newmont es un productor de oro con exposición adicional a otros metales
-  y operaciones o activos en varias jurisdicciones (resumen financiero, 2026-11-20).
-  Los datos financieros reportados muestran FCF positivo y márgenes brutos crecientes
-  hasta el TTM terminado el 2026-09-30, pero no bastan para atribuir esa evolución
-  a crecimiento estructural, evaluar retornos sobre capital ni validar una asimetría
-  de valoración.
+tesis_inversion: Newmont presenta una mejora financiera reciente compatible con expansión
+  de ingresos y generación de caja, pero el paquete no permite separar crecimiento
+  operativo de efectos de precios de metales ni evaluar rendimientos sobre el capital
+  invertido. La tesis depende de que los márgenes y el FCF observados se sostengan
+  y de que la asignación de capital convierta esos flujos en valor por acción; faltan
+  datos para validar ventajas competitivas, reinversión, penetración del mercado o
+  calidad de gestión.
 ticker: NEM
 version: '3.0'

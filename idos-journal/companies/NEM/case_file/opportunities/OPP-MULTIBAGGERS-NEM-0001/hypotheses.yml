@@ -1,146 +1,159 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La producción atribuible de oro del ejercicio 2027 es inferior a 5,0
-      millones de onzas.
+  - condition: El AISC de oro por onza de 2027 supera en más de un 10% el de 2026,
+      usando las cifras anuales comparables informadas por la empresa.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa reduce su previsión anual de producción de oro para 2027
-      por debajo de 5,0 millones de onzas.
+  - condition: Newmont no publica una cifra anual comparable de AISC por onza que
+      permita verificar la predicción antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La producción atribuible de oro del ejercicio 2027 es inferior a 5,0 millones
-    de onzas.
-  - La empresa reduce su previsión anual de producción de oro para 2027 por debajo
-    de 5,0 millones de onzas.
+  - El AISC de oro por onza de 2027 supera en más de un 10% el de 2026, usando las
+    cifras anuales comparables informadas por la empresa.
+  - Newmont no publica una cifra anual comparable de AISC por onza que permita verificar
+    la predicción antes de la fecha objetivo.
   horizon: medio
   id: H1-OPP-MULTIBAGGERS-NEM-0001
   opportunity_id: OPP-MULTIBAGGERS-NEM-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-29'
-    expected: 5.0
+    deadline: '2028-03-31'
+    expected: 10.0
     met: null
-    metric: Producción atribuible anual de oro
-    prediction: La producción atribuible de oro reportada para el ejercicio 2027 será
-      igual o superior a 5,0 millones de onzas.
-    unit: millones de onzas
-  priority: important
+    metric: Variación interanual del AISC de oro por onza
+    prediction: En los resultados anuales de 2027, publicados a más tardar el 2028-03-31,
+      el AISC de oro por onza informado por Newmont será como máximo un 10% superior
+      al AISC de oro por onza informado para 2026.
+    unit: porcentaje máximo
+  priority: critical
   probability: 0.5
-  rationale: La escala y diversificación de sus operaciones pueden compensar interrupciones
-    o descensos de producción en activos individuales. Sin embargo, la información
-    disponible no permite confirmar una trayectoria estructural de crecimiento; esta
-    hipótesis prueba la capacidad de sostener un nivel mínimo de producción.
-  review_trigger: Dejar de creerla si Newmont publica una previsión revisada para
-    2027 inferior a 5,0 millones de onzas o si un informe anual confirma una producción
-    inferior a ese umbral.
+  rationale: La tesis señala que no se puede separar el efecto de los precios del
+    oro y otros metales del efecto de volumen y costes. Si la operación mantiene disciplina
+    de costes, el coste sostenido por onza debería crecer menos que una tasa de inflación
+    de costes que erosionaría materialmente el margen. La evidencia de base disponible
+    no permite confirmar esa disciplina, por lo que esta hipótesis es comprobable,
+    no asumida como hecho.
+  review_trigger: Dejar de creerla si un informe anual o trimestral de 2027 muestra
+    que el AISC de oro por onza ya supera en más de un 10% el AISC anual de 2026,
+    o si la empresa retira la métrica comparable sin ofrecer una conciliación.
   secondary_hypotheses: []
-  statement: Newmont mantendrá una producción anual atribuible de oro de al menos
-    5,0 millones de onzas en 2027, señal de continuidad operativa a pesar de la exposición
-    a múltiples activos y jurisdicciones.
+  statement: Newmont contendrá el crecimiento de sus costes de extracción por onza
+    en 2027, de modo que la mejora financiera reciente no dependerá únicamente de
+    precios favorables de los metales.
   status: ACTIVE
   ticker: NEM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El flujo de caja libre reportado para el ejercicio 2027 es inferior
-      a 3.000 millones de dólares.
+  - condition: El FCF consolidado acumulado de 2027 es inferior a 2.000 millones de
+      dólares estadounidenses.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El flujo de caja libre acumulado resulta negativo durante dos trimestres
-      consecutivos de 2027.
+  - condition: El FCF acumulado resulta negativo en dos trimestres consecutivos de
+      2027 y la compañía no identifica una causa temporal cuantificada que revierta
+      antes del cierre anual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa deja de informar una medida de FCF comparable y no proporciona
+      una conciliación verificable con el flujo de caja operativo y el gasto de capital.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El flujo de caja libre reportado para el ejercicio 2027 es inferior a 3.000 millones
-    de dólares.
-  - El flujo de caja libre acumulado resulta negativo durante dos trimestres consecutivos
-    de 2027.
+  - El FCF consolidado acumulado de 2027 es inferior a 2.000 millones de dólares estadounidenses.
+  - El FCF acumulado resulta negativo en dos trimestres consecutivos de 2027 y la
+    compañía no identifica una causa temporal cuantificada que revierta antes del
+    cierre anual.
+  - La empresa deja de informar una medida de FCF comparable y no proporciona una
+    conciliación verificable con el flujo de caja operativo y el gasto de capital.
   horizon: medio
   id: H2-OPP-MULTIBAGGERS-NEM-0001
   opportunity_id: OPP-MULTIBAGGERS-NEM-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-29'
-    expected: 3000.0
+    deadline: '2028-03-31'
+    expected: 2000.0
     met: null
-    metric: Flujo de caja libre del ejercicio
-    prediction: El flujo de caja libre acumulado del ejercicio 2027, calculado como
-      flujo de caja operativo menos inversiones de capital, será igual o superior
-      a 3.000 millones de dólares.
-    unit: millones de dólares
+    metric: FCF consolidado del ejercicio 2027
+    prediction: El flujo de caja libre consolidado de Newmont para el ejercicio 2027
+      será de al menos 2.000 millones de dólares estadounidenses, según la definición
+      y conciliación publicadas por la empresa, a más tardar el 2028-03-31.
+    unit: millones de dólares estadounidenses como mínimo
   priority: critical
   probability: 0.5
-  rationale: El FCF reportado ha sido positivo y los márgenes brutos aumentaron hasta
-    el TTM terminado el 2026-09-30, lo que respalda la posibilidad de continuar generando
-    caja. Esa evidencia no demuestra por sí sola que la mejora sea estructural ni
-    permite atribuirla a retornos sobre capital; el umbral pone a prueba si la generación
-    de caja se mantiene en un ejercicio completo.
-  review_trigger: Dejar de creerla si Newmont reduce su previsión de flujo de caja
-    libre para 2027 por debajo de 3.000 millones de dólares o si los resultados anuales
-    de 2027 confirman un valor inferior.
+  rationale: La tesis identifica una mejora reciente de ingresos y FCF, pero no permite
+    atribuirla a precios, volúmenes o costes ni confirmar su sostenibilidad. Un FCF
+    anual positivo y de magnitud significativa sería evidencia observable de que la
+    generación de caja no se limita a un periodo favorable aislado; no demostraría
+    por sí solo el rendimiento del capital invertido ni la creación de valor por acción.
+  review_trigger: Dejar de creerla si los resultados publicados muestran que el FCF
+    acumulado de 2027 cae por debajo de 2.000 millones de dólares y la guía o información
+    disponible no respalda una recuperación hasta ese nivel antes del cierre del ejercicio.
   secondary_hypotheses:
   - H1-OPP-MULTIBAGGERS-NEM-0001
-  statement: Newmont generará al menos 3.000 millones de dólares de flujo de caja
-    libre durante 2027, si sostiene la producción y convierte los márgenes operativos
-    en caja después de inversiones.
+  statement: Newmont sostendrá una generación de flujo de caja libre material durante
+    2027, incluso después de cubrir sus inversiones de capital.
   status: ACTIVE
   ticker: NEM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de NEM menos la rentabilidad total de GDX es
-      inferior a 5 puntos porcentuales en el periodo indicado.
+  - condition: La rentabilidad total de NEM no supera la de GDX en al menos 5 puntos
+      porcentuales en el periodo definido.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: NEM registra una rentabilidad total inferior a la de GDX en el periodo
-      indicado.
+  - condition: NEM obtiene una rentabilidad total inferior a GDX durante el periodo,
+      aunque se cumplan las hipótesis de costes o FCF.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de NEM menos la rentabilidad total de GDX es inferior a
-    5 puntos porcentuales en el periodo indicado.
-  - NEM registra una rentabilidad total inferior a la de GDX en el periodo indicado.
+  - La rentabilidad total de NEM no supera la de GDX en al menos 5 puntos porcentuales
+    en el periodo definido.
+  - NEM obtiene una rentabilidad total inferior a GDX durante el periodo, aunque se
+    cumplan las hipótesis de costes o FCF.
   horizon: medio
   id: H3-OPP-MULTIBAGGERS-NEM-0001
   opportunity_id: OPP-MULTIBAGGERS-NEM-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
+    deadline: '2027-11-21'
     expected: 5.0
     met: null
-    metric: Rentabilidad total relativa de NEM frente a GDX
-    prediction: La rentabilidad total de NEM, incluidos dividendos, entre el 2026-11-20
-      y el 2027-11-20 excederá en al menos 5 puntos porcentuales la rentabilidad total
-      de GDX durante el mismo periodo.
-    unit: puntos porcentuales
-  priority: informational
+    metric: Rentabilidad total de NEM menos rentabilidad total de GDX
+    prediction: Entre el cierre del 2026-11-21 y el cierre del 2027-11-21, la rentabilidad
+      total de NEM, incluidos dividendos reinvertidos, superará en al menos 5 puntos
+      porcentuales la rentabilidad total del ETF VanEck Gold Miners (GDX), usando
+      precios ajustados por distribuciones.
+    unit: puntos porcentuales como mínimo
+  priority: important
   probability: 0.5
-  rationale: La producción diversificada, el FCF positivo y la expansión reciente
-    de márgenes podrían respaldar una rentabilidad relativa superior si se mantienen.
-    No hay evidencia suficiente para concluir que el mercado infravalora a Newmont;
-    por ello, esta hipótesis exige una diferencia observable frente a un índice sectorial,
-    en vez de asumir una revaloración.
-  review_trigger: Dejar de creerla si, al cierre de dos trimestres consecutivos antes
-    del 2027-11-20, la rentabilidad total acumulada de NEM desde la fecha inicial
-    queda por debajo de la de GDX y la empresa no muestra una mejora verificable de
-    FCF o producción.
+  rationale: 'Si la generación de caja y la disciplina de costes se sostienen, el
+    mercado podría reconocer una mayor calidad de los flujos de Newmont frente al
+    sector. Esta relación es incierta: los precios de los metales, la valoración inicial,
+    los riesgos operativos y la asignación de capital pueden dominar el rendimiento
+    bursátil. La comparación relativa permite evaluar el resultado sin afirmar que
+    la acción tendrá una rentabilidad absoluta positiva.'
+  review_trigger: Dejar de creerla al cierre del 2027-05-21 si NEM acumula un rendimiento
+    relativo inferior a GDX en 15 puntos porcentuales o más y no hay evidencia pública
+    de una recuperación operativa o financiera que permita revertir esa brecha en
+    los seis meses restantes; evaluar el resultado definitivo el 2027-11-21.
   secondary_hypotheses:
   - H1-OPP-MULTIBAGGERS-NEM-0001
   - H2-OPP-MULTIBAGGERS-NEM-0001
-  statement: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de NEM superará
-    en al menos 5 puntos porcentuales la del ETF VanEck Gold Miners (GDX), reflejando
-    una mejora relativa en la valoración de su generación de caja.
+  statement: La acción de Newmont obtendrá una rentabilidad total superior a la de
+    un índice diversificado de compañías mineras de oro durante los 12 meses posteriores
+    a la fecha de corte.
   status: ACTIVE
   ticker: NEM
   version: 1

@@ -1,113 +1,133 @@
 ## 1. Visión General de la Compañía
 
-Newmont Corporation ([[NEM]]) es un productor minero integrado cuyo producto principal es el oro y que también tiene exposición a cobre y otros metales. Su cadena de valor abarca exploración y evaluación geológica, permisos y desarrollo de minas, extracción, procesamiento y venta de concentrados o metales. Entre sus clientes y contrapartes se incluyen refinadores, fundiciones, comerciantes y entidades financieras de metales. [Resumen financiero y análisis del negocio, 2026-11-20; AOIF, sin fecha indicada]
+Newmont Corporation ([[NEM]]) es una minera internacional dedicada a explorar, desarrollar, extraer, procesar y vender metales, principalmente oro y también cobre. Su cadena de valor abarca desde la evaluación de recursos y la obtención de permisos hasta la operación de minas y la comercialización del producto.
 
-La empresa opera en una industria intensiva en capital y cíclica. Sus resultados dependen de los precios de los metales, los volúmenes y leyes de mineral, la recuperación en planta, los costos y la ejecución de proyectos. El material disponible indica operaciones o activos en varias jurisdicciones, pero no identifica ni cuantifica la exposición por país u operación. [Resumen financiero, 2026-11-20; AOIF, sin fecha indicada]
+Sus clientes incluyen refinadores, fundiciones y participantes del mercado de metales. La compañía opera en una industria cíclica y de capital intensivo, en la que los resultados dependen tanto de los precios de los metales como del desempeño de los activos mineros.
 
-Compañías del sector con riesgos o dinámicas comparables incluyen [[AEM]], [[B]], [[BHP]], [[CDE]], [[FCX]] y [[HL]].
+Entre las compañías relacionadas del sector figuran [[AEM]], [[BHP]], [[FCX]], [[SCCO]], [[HL]] y [[CDE]]. La exposición a metales y a operaciones mineras también conecta a NEM con otros productores como [[GGB]].
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-Los ingresos dependen principalmente del volumen de metales producido y vendido y de los precios realizados. La extracción y el procesamiento están expuestos a la calidad del yacimiento, las leyes del mineral, la recuperación, la disponibilidad de equipos y la continuidad operativa. También son relevantes los costos de energía, materiales, mano de obra y servicios. [AOIF, sin fecha indicada]
+**Drivers de ingresos y rentabilidad**
 
-El análisis AOIF caracteriza a Newmont como líder y atribuye ventajas potenciales a su escala, experiencia operativa, cartera de activos, conocimiento geológico y capacidad para financiar proyectos de larga duración. El mismo análisis califica el moat como **estrecho**: la escala no elimina la exposición a precios de commodities, costos, riesgos geológicos ni dificultades de ejecución. Estos juicios son evaluaciones del paquete de investigación, no verificaciones independientes. [AOIF, sin fecha indicada]
+- Precio de venta del oro, el cobre y otros metales producidos.
+- Volumen de producción y mezcla de metales.
+- Ley del mineral, recuperación y eficiencia de procesamiento.
+- Costes de operación, inversión de capital y continuidad de las minas.
+- Permisos, desarrollo de proyectos y disponibilidad de recursos explotables.
 
-La industria presenta barreras de oferta asociadas a los plazos de exploración, desarrollo y permisos. A la vez, es cíclica y sensible a cambios en los precios de oro y metales base. Las mismas dinámicas pueden afectar a compañías como [[AEM]], [[BHP]] y [[FCX]].
+Los datos disponibles no permiten desglosar cuánto de la mejora financiera reciente se debe a precios, producción, mezcla o costes.
+
+**Posición competitiva y moat**
+
+El análisis AOIF caracteriza a Newmont como un líder competitivo y atribuye su ventaja a escala global, una cartera diversificada de minas y jurisdicciones, experiencia operativa y recursos minerales. La amplitud del moat se califica como **estrecha**: estos atributos pueden contribuir a la resiliencia y a la eficiencia, pero no eliminan la exposición a los precios de los metales, a la geología ni a los riesgos de ejecución.
+
+La dinámica competitiva está condicionada por la geología, los permisos y los largos plazos de desarrollo. Otros productores pertinentes para comparar posición, costes y exposición a metales incluyen [[AEM]], [[BHP]], [[FCX]] y [[SCCO]].
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes proceden de las fuentes y evaluaciones incluidas en el material de investigación. Cuando no se especifican definición, unidad, período comparable o metodología, la métrica debe tratarse como reportada y pendiente de verificación.
+Las cifras de Stock Analysis corresponden al TTM terminado el **30 de septiembre de 2026**, salvo indicación distinta. La moneda se presenta como USD en los datos de escenario; la escala de las cifras financieras no está especificada en el material recibido.
 
-| Métrica | Valor reportado | Período / referencia | Estado y limitaciones |
+| Métrica | Valor | Periodo / referencia | Fuente y observaciones |
 |---|---:|---|---|
-| Flujo de caja libre (FCF) | 10,074 | TTM al 2026-09-30 | Reportado por Stock Analysis; no se especifica aquí la unidad. |
-| FCF | 7,299 | FY 2025 | Reportado por Stock Analysis; no se especifica aquí la unidad. |
-| Crecimiento del FCF | 64.55% | TTM al 2026-09-30 | Reportado por Stock Analysis; el período comparativo no está identificado explícitamente, por lo que no se puede validar la comparabilidad. |
-| Margen bruto | 68.04% | TTM al 2026-09-30 | Reportado por Stock Analysis. |
-| Margen bruto | 63.24% | FY 2025 | Reportado por Stock Analysis. |
-| Crecimiento de ingresos | 23.73% | Período no especificado | Cifra de AOIF; requiere verificar período, fuente y definición. |
-| Margen operativo | 55.56% | Período no especificado | Cifra de AOIF; requiere verificar período, fuente y definición. |
-| ROIC | 29.38% | Período no especificado | Cifra de AOIF; requiere verificar período, fuente y definición. |
-| PER | 11.23 | Fecha y base no especificadas | Cifra de AOIF; no debe interpretarse como múltiplo actual sin validar fecha y cálculo. |
-| EV/EBITDA | 5.59 | Fecha y base no especificadas | Cifra de AOIF; no debe interpretarse como múltiplo actual sin validar fecha y cálculo. |
-| FCF yield | 0 | Fecha y método no especificados | Cifra de AOIF; no se aportan inputs suficientes para interpretarla. |
-| Current ratio | 2.45 | 2026-09-30 | Reportado por Stock Analysis; no cruza el umbral de alerta inferior a 0.5 utilizado en el paquete. |
-| Deuda neta / EBITDA | No calculable | 2026-09-30 | Las bases de unidad disponibles no son compatibles o no están especificadas. |
-| Dilución interanual | No evaluable | Sin período comparable | Falta una serie comparable de acciones diluidas o en circulación. |
+| Ingresos | 26.606 | TTM al 30-09-2026 | Stock Analysis, citado en el paquete de investigación |
+| Margen bruto | 68,04% | TTM al 30-09-2026 | Stock Analysis |
+| Flujo de caja libre (FCF) | 10.074 | TTM al 30-09-2026 | Stock Analysis |
+| Caja e inversiones | 9.261 | Al 30-09-2026 | Stock Analysis |
+| FCF | 97 | FY 2023 | Stock Analysis, según el paquete |
+| FCF | 2.961 | FY 2024 | Stock Analysis, según el paquete |
+| FCF | 7.299 | FY 2025 | Stock Analysis, según el paquete |
+| Current ratio | 2,45 | Al 30-09-2026 | Stock Analysis, [estadísticas de NEM](https://stockanalysis.com/stocks/NEM/statistics/) |
+| Crecimiento de ingresos | 23,73% | Periodo no especificado | Métrica suministrada por AOIF; definición y fuente por verificar |
+| Margen operativo | 55,56% | Periodo no especificado | Métrica suministrada por AOIF; definición y fuente por verificar |
+| ROIC | 29,38% | Periodo no especificado | Métrica suministrada por AOIF; definición y fuente por verificar |
+| PER | 11,02 | Referencia no especificada | Métrica suministrada por AOIF; fecha y metodología por verificar |
+| EV/EBITDA | 5,36 | Referencia no especificada | Métrica suministrada por AOIF; fecha y metodología por verificar |
 
-**Fuentes:** Stock Analysis, [financials](https://stockanalysis.com/stocks/nem/financials/) y [statistics](https://stockanalysis.com/stocks/NEM/statistics/); observaciones financieras hasta el 2026-09-30 y FY 2025. Los datos de AOIF se entregaron sin fecha ni referencias explícitas para cada métrica.
+**Lectura financiera:** los datos agregados son compatibles con una mejora marcada de ingresos, margen bruto y generación de caja. Sin embargo, la serie anual de FCF muestra variabilidad, y el TTM no debe compararse directamente con ejercicios fiscales completos como si fueran periodos equivalentes. No se proporcionan deuda total, deuda neta, capex ni flujo de caja operativo suficientes para evaluar en detalle la estructura de capital y la conversión de beneficios en caja.
 
-El FCF y el margen bruto reportados para el TTM terminado el 2026-09-30 son superiores a sus referencias FY 2025 indicadas en el paquete. Esto es compatible con una mayor generación de caja y margen en ese período, pero no permite atribuir el cambio a precios, producción, costos, adquisiciones u otros factores, ni demostrar que sea persistente. El paquete no proporciona cifras verificables de flujo de caja operativo, capex de sostenimiento y crecimiento o conversión de FCF.
+El paquete no permite calcular de forma fiable el crecimiento de ingresos a tres años ni el crecimiento comparable de FCF. Tampoco hay una serie comparable de acciones diluidas para evaluar dilución. El current ratio reportado no está por debajo del umbral de 0,5 utilizado en el análisis.
 
 ## 4. Management y Gobierno Corporativo
 
-El análisis AOIF califica la calidad del management como **buena**, la asignación de capital como **neutral** y el alineamiento de insiders como **moderado**. No se incluyen nombres de directivos, evidencia sobre remuneraciones o incentivos, porcentaje de propiedad interna ni información sobre composición, independencia o experiencia del board. Estas valoraciones son, por tanto, conclusiones preliminares del análisis y requieren respaldo documental antes de utilizarlas como hechos confirmados. [AOIF, sin fecha indicada]
+El análisis AOIF califica la calidad de la dirección como **buena**, la asignación de capital como **neutral** y el alineamiento de insiders como **moderado**. Estas son valoraciones cualitativas del análisis suministrado; no se acompañan de métricas detalladas, historial de decisiones de inversión ni composición del consejo.
+
+No se aportan datos sobre remuneración ejecutiva, propiedad accionarial de insiders, composición o independencia del board, ni resultados específicos de la asignación de capital. La evaluación del gobierno corporativo queda, por tanto, incompleta y requiere verificación documental antes de extraer conclusiones firmes.
 
 ## 5. Tesis de Inversión
 
-**Caso alcista — hipótesis sujeta a verificación:**
+**Caso alcista —tesis provisional**
 
-- Newmont combina producción de oro con exposición a otros metales y cuenta, según AOIF, con escala, experiencia operativa y una cartera de activos. Estas características podrían respaldar continuidad operativa y capacidad para desarrollar proyectos, aunque el paquete no cuantifica sus ventajas frente a competidores.
-- Stock Analysis reporta FCF de 10,074 en el TTM al 2026-09-30, frente a 7,299 en FY 2025, y un margen bruto de 68.04% frente a 63.24%, respectivamente. Si las cifras son comparables y los resultados se sostienen, podrían indicar una mejora en la generación de caja y rentabilidad bruta en el período observado. [Stock Analysis, [financials](https://stockanalysis.com/stocks/nem/financials/)]
-- La industria tiene plazos largos de exploración, permisos y desarrollo, lo que puede restringir la respuesta de la oferta. El efecto potencial para Newmont depende de la calidad y rentabilidad de sus propios activos y no queda cuantificado en la evidencia disponible. [AOIF, sin fecha indicada]
+- Los datos agregados muestran una expansión financiera reciente: ingresos TTM de 26.606, margen bruto de 68,04% y FCF TTM de 10.074 al 30 de septiembre de 2026, según Stock Analysis.
+- Newmont combina exposición principal al oro con exposición al cobre y una cartera minera diversificada, lo que puede ampliar sus fuentes de producción frente a un productor concentrado en un solo activo o metal.
+- AOIF la describe como líder competitiva y destaca escala global, experiencia operativa y recursos minerales como fuentes potenciales de ventaja.
+- El precio de la acción registró una subida del 38,95% durante los 12 meses terminados el 26 de octubre de 2026. Este dato refleja impulso de mercado, pero no demuestra por sí mismo infravaloración ni sostenibilidad de resultados.
+- La serie de FCF reportada pasa de 97 en FY 2023 a 2.961 en FY 2024 y 7.299 en FY 2025; el FCF TTM fue 10.074 al 30 de septiembre de 2026. La mejora es significativa en los datos agregados, aunque sus causas y persistencia no están establecidas.
 
-**Límite de la tesis:** el paquete no demuestra una ventaja competitiva duradera, una brecha entre expectativas del mercado y fundamentales, ni la persistencia de los resultados financieros reportados. La clasificación de oportunidad como “Investigación requerida” y el discovery score de 68.39 del Research Intake Package (2026-10-26) son señales de priorización investigativa, no evidencia de una oportunidad de inversión validada.
+**Estado de la tesis:** investigación requerida. La evidencia respalda una mejora financiera reciente, pero no permite determinar si deriva de condiciones favorables de precios, de mayor producción, de una mejor mezcla, de costes menores o de factores transitorios.
 
 ## 6. Riesgos y Contra-Tesis
 
-- **Precios de commodities:** una caída del oro o de los metales base reduciría ingresos, márgenes y el valor económico de las reservas. AOIF califica el impacto potencial como alto y la probabilidad como media. [AOIF, sin fecha indicada]
-- **Costos y operación:** aumentos en energía, materiales, mano de obra o servicios, o menor ley del mineral y problemas de recuperación, podrían deteriorar resultados. AOIF califica el impacto y la probabilidad como altos. [AOIF, sin fecha indicada]
-- **Ejecución y capital:** la exploración, el desarrollo, los permisos y la operación minera exigen inversión de largo plazo y están sujetos a riesgos de ejecución. El paquete no presenta planes de inversión ni retornos por proyecto.
-- **Riesgo geográfico:** existe exposición a varias jurisdicciones, pero no se cuantifican los riesgos específicos por país ni la contribución de cada operación. [Descripción del modelo de negocio, resumen financiero, 2026-11-20]
-- **Calidad de la evidencia financiera:** las métricas de crecimiento, ROIC y valoración incluidas por AOIF no vienen acompañadas de períodos, definiciones o fuentes específicas. Además, no es posible calcular deuda neta/EBITDA con las bases disponibles.
-- **Falta de validación de valoración:** el consenso de analistas reportado es USD 134.57, con un rango de USD 70–165; la cotización indicada fue USD 109.26 al 2026-10-26. Son referencias observadas, no una estimación de valor intrínseco. [Resumen financiero, consenso observado el 2026-11-20; cotización al 2026-10-26]
+**Caso bajista**
 
-**Falsadores de la tesis que deben monitorearse:**
+- **Ciclo de metales:** una caída del precio del oro u otros metales puede reducir ingresos y márgenes. AOIF califica este riesgo como de impacto alto y probabilidad media. Es un riesgo compartido con productores como [[AEM]], [[BHP]], [[FCX]] y [[SCCO]].
+- **Riesgo operativo:** interrupciones, accidentes, menores leyes del mineral o problemas de procesamiento pueden afectar producción y costes. AOIF lo clasifica como de impacto alto y probabilidad media.
+- **Sostenibilidad del FCF:** la variabilidad observada entre FY 2023, FY 2024 y FY 2025 hace posible que la generación reciente de caja se revierta.
+- **Falta de atribución:** no hay datos operativos suficientes sobre producción, costes, reservas o precios realizados para explicar la expansión de ingresos y márgenes.
+- **Intensidad de capital:** los largos ciclos de desarrollo y las necesidades de reinversión pueden limitar la caja disponible, pero no se proporcionan cifras de capex o retornos por proyecto para cuantificarlo.
+- **Riesgo de mercado:** la acción tuvo volatilidad de 41,49% y un drawdown de 19,15% durante el periodo de 12 meses terminado el 26 de octubre de 2026, según el paquete de investigación.
 
-1. FCF futuro persistentemente inferior a los 10,074 reportados para el TTM terminado el 2026-09-30, sin una explicación temporal verificable. [Stock Analysis, [financials](https://stockanalysis.com/stocks/nem/financials/)]
-2. Deterioro sostenido del margen bruto frente al 68.04% reportado para ese TTM.
-3. Evidencia de que el rendimiento de la cartera de activos no cubre los costos y necesidades de inversión, una vez que se obtengan datos comparables por operación.
+**Falsadores de la tesis**
 
-Los dos primeros son umbrales de seguimiento basados en observaciones reportadas, no pronósticos ni niveles intrínsecos.
+1. Periodos posteriores muestran contracción persistente de ingresos, margen bruto o FCF frente al TTM terminado el 30 de septiembre de 2026.
+2. Datos verificables de producción, costes o reservas contradicen la interpretación de que la mejora financiera puede sostenerse.
+3. La evolución del balance o de las necesidades de reinversión reduce materialmente la caja disponible, una vez que se obtengan datos comparables de deuda, capex y flujo operativo.
 
 ## 7. Catalizadores y Timeline
 
-| Fecha / horizonte | Evento o indicador | Impacto potencial | Evidencia y limitaciones |
-|---|---|---|---|
-| TTM terminado el 2026-09-30 | FCF reportado de 10,074 y margen bruto de 68.04% | Positivo si se confirma la comparabilidad y la persistencia; negativo si los períodos posteriores muestran deterioro sostenido. | Datos históricos de Stock Analysis, [financials](https://stockanalysis.com/stocks/nem/financials/); no se proporcionan causas desglosadas. |
-| Próximos resultados, fecha no aportada | Actualización de FCF, márgenes, producción, costos y capex | Podría confirmar o debilitar la interpretación de mejora financiera. | El paquete no identifica una fecha de publicación ni cifras futuras. |
-| Próximas actualizaciones operativas, fecha no aportada | Evidencia de ejecución por activo, producción, costos y retornos de inversión | Podría mejorar la evaluación del negocio y de la asignación de capital, o revelar deterioro operativo. | No se aportan hitos corporativos concretos ni planes por activo. |
+No se proporcionan fechas confirmadas para resultados, decisiones de proyectos u otros eventos corporativos. Los catalizadores siguientes son **hitos de seguimiento**, no eventos con calendario anunciado.
 
-El consenso observado y la cotización del 2026-10-26 no se consideran catalizadores: son referencias de mercado, no eventos futuros identificados. No hay base en el material para asignar fechas más específicas.
+| Horizonte / fecha | Hito a vigilar | Impacto potencial |
+|---|---|---|
+| Próximos resultados publicados; fecha no disponible | Confirmación de la evolución de ingresos y margen bruto frente al TTM al 30-09-2026 | Positivo si continúa la mejora; negativo si se observa contracción persistente |
+| Próximos resultados publicados; fecha no disponible | Actualización comparable de FCF, flujo operativo, capex, caja y deuda neta | Permitiría evaluar conversión de resultados en caja y resiliencia del balance |
+| Próximas divulgaciones operativas; fecha no disponible | Producción, ley del mineral, costes por onza, recuperación y desempeño por operación | Aclararía los impulsores de resultados y el riesgo de ejecución |
+| Próximas actualizaciones de activos; fecha no disponible | Reservas, vida de mina, permisos y avance de proyectos | Podría modificar la perspectiva de producción y reinversión a largo plazo |
 
 ## 8. Marco de Valoración
 
-Una valoración de Newmont debería separar los activos y proyectos mineros y contrastar sus flujos de caja con distintos supuestos de precio de metales, producción, leyes, recuperación, costos operativos, impuestos, capex, permisos y vida de mina. También convendría contrastar el resultado con métricas de mercado como EV/EBITDA y FCF yield, usando fecha, unidades, deuda neta y acciones plenamente diluidas verificadas.
+La valoración apropiada para una minera debe considerar beneficios y flujos de caja normalizados a través del ciclo, junto con producción, costes unitarios, reservas, capex de mantenimiento y desarrollo, balance y sensibilidad a los precios de los metales. Con la evidencia disponible no puede estimarse con rigor un valor intrínseco: faltan, entre otros, deuda neta, flujo de caja normalizado, reinversión requerida y supuestos operativos verificables.
 
-El AOIF reporta PER de 11.23 y EV/EBITDA de 5.59, pero no identifica fecha, inputs ni metodología; también reporta FCF yield de 0 sin explicar su cálculo. Por ello, esas cifras no permiten concluir que la acción esté barata ni construir una estimación defendible de valor intrínseco. El AOIF califica el margen de seguridad como insuficiente y señala que el valor intrínseco no es determinable con precisión a partir de la información disponible.
+El paquete AOIF reporta PER de 11,02, EV/EBITDA de 5,36 y FCF yield de 0, pero no especifica fecha de referencia ni metodología para estas métricas. Deben tratarse como cifras indicativas no verificadas, no como una conclusión de valoración. AOIF también califica el margen de seguridad como insuficiente y señala que el valor intrínseco no es estimable con los datos disponibles.
 
-El consenso de USD 134.57 (rango USD 70–165) y la cotización de USD 109.26 al 2026-10-26 deben tratarse únicamente como referencias observadas. La hipótesis de error de valoración **no está validada**: faltan datos verificables de producción, costos, precios realizados, deuda neta, acciones y método de valoración. [Resumen financiero, 2026-11-20; cotización al 2026-10-26]
+Como referencia de mercado, el paquete DDD indica un precio de **USD 109,26 al 26 de octubre de 2026** y un objetivo medio de analistas de **USD 134,57**. El análisis presenta escenarios de **USD 70** (bajista) y **USD 165** (alcista), anclados en extremos observados de objetivos de analistas; no son estimaciones independientes de valor intrínseco ni una valoración propia.
 
-**Sensibilidad que debe evaluarse cuando se obtengan los datos:** escenarios de precios de oro y metales base; producción y leyes; costos energéticos y de insumos; capex; retrasos de desarrollo; y supuestos de vida de mina. El material actual no permite asignar valores o probabilidades a esos escenarios.
+| Escenario de referencia | Precio indicado | Interpretación |
+|---|---:|---|
+| Bajista | USD 70 | Ancla baja observada del rango de objetivos de analistas |
+| Central de referencia | USD 134,57 | Objetivo medio de analistas reportado en el paquete |
+| Alcista | USD 165 | Ancla alta observada del rango de objetivos de analistas |
+
+**Sensibilidades principales que requieren modelización:** precio del oro y del cobre, producción por activo, ley y recuperación, costes operativos, capex, reservas y deuda neta. Sin esos inputs no es posible cuantificar una sensibilidad de valor intrínseco ni concluir que exista un error de valoración.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué proporción de los cambios en FCF y márgenes proviene de precios realizados, producción, costos, adquisiciones u otros factores?
-2. ¿Cuál es la producción, el costo por unidad, la ley del mineral, la recuperación y la contribución al flujo de caja de cada activo?
-3. ¿Cuáles son los planes de inversión y producción por mina o proyecto, y qué retornos se esperan para el capex de sostenimiento y de crecimiento?
-4. ¿Son comparables el FCF de 10,074 del TTM al 2026-09-30 y el de 7,299 de FY 2025? ¿Qué período comparativo sustenta el crecimiento de FCF reportado de 64.55%?
-5. ¿Cuáles son la deuda y el efectivo en unidades compatibles, y cuál es la deuda neta/EBITDA con una definición verificable?
-6. ¿Cómo han evolucionado las acciones diluidas y la remuneración basada en acciones?
-7. ¿Qué evidencia respalda las calificaciones de management, asignación de capital y alineamiento de insiders, y cuál es la composición del board?
-8. ¿Cuál es la exposición económica y regulatoria por operación y jurisdicción?
-9. ¿Qué períodos, definiciones y fuentes respaldan las cifras AOIF de crecimiento de ingresos, margen operativo, ROIC, PER y EV/EBITDA?
-10. ¿Qué expectativas de producción, costos, precios y capex están incorporadas en el precio de mercado y en el rango de consenso reportado?
+1. ¿Qué proporción de la mejora de ingresos y márgenes procede de precios de los metales, volúmenes, mezcla, costes u otros factores?
+2. ¿Cuáles son la producción, la ley del mineral, la recuperación y los costes unitarios por mina, y cómo han evolucionado?
+3. ¿Cuál es el flujo de caja operativo, el capex de mantenimiento y desarrollo, y la conversión de beneficios en FCF?
+4. ¿Cuál es la deuda total y neta, y cómo ha evolucionado junto con la caja e inversiones?
+5. ¿Qué reservas y recursos respaldan la producción futura y cuál es la vida económica de los activos?
+6. ¿Qué retornos obtienen los proyectos de desarrollo y qué necesidades de reinversión requieren?
+7. ¿Qué periodos, definiciones y fuentes sustentan las métricas de crecimiento de ingresos, margen operativo y ROIC reportadas por AOIF?
+8. ¿Cuál es la metodología y la fecha de referencia de PER, EV/EBITDA y FCF yield?
+9. ¿Cómo se determinan la remuneración ejecutiva y los incentivos, qué participación tienen los insiders y cuál es la composición del consejo?
+10. ¿Qué datos comparables permiten contrastar la posición de costes y la calidad de activos con [[AEM]], [[BHP]], [[FCX]] y [[SCCO]]?
 
-**Estado:** investigación requerida. La evidencia disponible identifica resultados financieros recientes que merecen seguimiento, pero no basta para determinar persistencia, ventaja competitiva duradera ni error de valoración.
+**Fuentes del paquete de investigación:** cifras financieras atribuidas a Stock Analysis, incluida su [página de estadísticas de NEM](https://stockanalysis.com/stocks/NEM/statistics/); análisis AOIF y DDD suministrados, con fecha de corte general del **21 de noviembre de 2026**. La fecha específica de cotización y de retorno de mercado indicada en DDD es el **26 de octubre de 2026**.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]], [[BHP|BHP Group Limited]], [[CDE|Coeur Mining, Inc.]], [[CX|CEMEX, S.A.B. de C.V.]], [[DD|DuPont de Nemours, Inc.]], [[DOW|Dow Inc.]], [[ECL|Ecolab Inc.]], [[FCX|Freeport-McMoRan Inc.]], [[GGB|Gerdau S.A.]], [[HL|Hecla Mining Company]], [[IFF|International Flavors & Fragrances Inc.]]
+- **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]], [[BHP|BHP Group Limited]], [[CDE|Coeur Mining, Inc.]], [[CX|CEMEX, S.A.B. de C.V.]], [[DD|DuPont de Nemours, Inc.]], [[DOW|Dow Inc.]], [[ECL|Ecolab Inc.]], [[FCX|Freeport-McMoRan Inc.]], [[GGB|Gerdau S.A.]], [[HL|Hecla Mining Company]], [[IFF|International Flavors & Fragrances Inc.]], [[NUE|Nucor Corporation]], [[SCCO|Southern Copper Corporation]], [[TX|Ternium S.A.]]
 - **Same Industry**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]], [[CDE|Coeur Mining, Inc.]]

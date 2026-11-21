@@ -1,85 +1,117 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El FCF negativo y el apalancamiento calculado elevan el riesgo de financiar la
-    reinversión.
-  - Los extremos del consenso sirven como anclas de escenarios observadas, no como
-    estimaciones intrínsecas.
-  - 'El negocio se describe como generación, almacenamiento, transmisión, distribución
-    y venta de electricidad, con segmentos FPL y NEER; fuente: resumen financiero,
-    análisis al 2026-11-20.'
-  - 'Ingresos TTM de USD 28.825 millones y beneficio neto TTM de USD 11.637 millones
-    al 2026-09-30; fuente: StockAnalysis, datos financieros.'
-  - 'FCF TTM de -USD 18.011 millones y EBITDA TTM de USD 13.400 millones al 2026-09-30;
-    fuente: StockAnalysis, estadísticas financieras.'
-  - 'La cotización fue USD 83.71 al 2026-10-30; el rango de objetivos observado fue
-    USD 56–117 al 2026-11-20; fuentes: yfinance y StockAnalysis.'
+  - El FCF negativo y el net cash negativo elevan la importancia analítica de la financiación
+    de inversiones.
+  - La posibilidad de crecimiento mediante expansión de activos es condicional; no
+    hay evidencia suficiente para afirmar retornos incrementales atractivos o una
+    ventaja competitiva sostenible.
+  - Ingresos TTM de 28.825 millones, beneficio neto TTM de 11.637 millones y FCF TTM
+    de -18.011 millones al 2026-09-30, según stockanalysis.com.
+  - La descripción del negocio incluye FPL y NEER y actividades de generación, almacenamiento,
+    transmisión, distribución y venta de electricidad; resumen financiero del paquete,
+    fecha de análisis 2026-11-21.
+  - Cotización de USD 83.71 al 2026-10-30 y consenso de objetivos de USD 94.47, rango
+    USD 56–117, observado al 2026-11-21.
   preguntas_abiertas:
-  - ¿Qué retornos sobre capital y retornos por proyecto obtiene la empresa?
-  - ¿Qué explica el FCF negativo y qué proporción corresponde a inversión de crecimiento?
-  - ¿Cuál es la guía de management y qué hitos fechados existen para proyectos y financiación?
-  - ¿Cómo evolucionan competencia, penetración, mercado direccionable y economía por
-    segmento?
-catalizadores_previos: &id001 []
+  - ¿Qué explican el FCF negativo y el aumento de deuda, y cómo se financian las inversiones
+    futuras?
+  - ¿Cuáles son los ROIC, costes de capital y retornos por segmento y cohorte de proyectos?
+  - ¿Cuál es el mercado direccionable, la penetración y la cartera de proyectos, con
+    hitos y fechas verificables?
+  - ¿Qué muestran las acciones diluidas por período y los datos comparables necesarios
+    para crecimiento de ingresos y FCF?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T17:22:31.108204-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-NEE
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T17:22:31.108204-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-NEE
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T17:22:31.108204-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-NEE
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación fundamental pendiente de validación
-  justificacion: El paquete identifica NEE como oportunidad de perfil multibagger,
-    pero la evidencia aportada muestra FCF TTM negativo y endeudamiento elevado frente
-    a EBITDA. No incluye pronósticos operativos, retornos sobre capital ni evidencia
-    suficiente para validar una tesis de crecimiento compuesta.
+  categoria: Investigación requerida; evidencia incompleta para validar una tesis
+    de crecimiento compuesto
+  justificacion: El paquete describe un negocio integrado de electricidad y energía
+    limpia, pero el FCF TTM es negativo y varios ratios solicitados no pueden calcularse
+    con inputs comparables o fuentes permitidas. El score de descubrimiento mide prioridad
+    de investigación, no convicción ni probabilidad de retorno.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: 'El modelo abarca generación, almacenamiento, transmisión y distribución,
-    con segmentos FPL y NEER según el resumen financiero. La escala operativa no basta
-    para afirmar una ventaja competitiva: faltan datos de retornos, economía por segmento
-    y erosión competitiva.'
-  rating: Mixto; validación insuficiente
+  analisis: El resumen describe operaciones de electricidad reguladas y de mercado,
+    junto con activos de generación de varias tecnologías e inversiones en almacenamiento,
+    transmisión y distribución. El margen bruto reportado fue 60.17% y el EBIT TTM
+    8.66 mil millones al 2026-09-30, pero no se aportan ROIC, retornos por segmento,
+    tarifas, costes de capital ni datos suficientes para valorar moat, erosión competitiva
+    o asignación de capital.
+  rating: Calidad no validada; negocio esencial con retornos y ventaja competitiva
+    insuficientemente documentados
 dominio_catalizadores:
-- catalizador: Evidencia de crecimiento rentable
-  detalle: Crecimiento de ingresos por sí solo no validaría la tesis; se requiere
-    observar retornos sobre capital y conversión en efectivo, ausentes en el paquete.
-- catalizador: Mejora del flujo de caja
-  detalle: Una trayectoria de FCF menos negativa o positiva podría reducir la preocupación
-    por la financiación de la reinversión; no hay hitos futuros fechados disponibles.
-- catalizador: Ejecución financiera
-  detalle: La evolución de deuda, EBITDA y cobertura de intereses permitiría evaluar
-    si la expansión es compatible con la estructura financiera.
+- catalizador: Conversión del FCF negativo en una trayectoria menos negativa o positiva,
+    respaldada por períodos comparables.
+  estado: Hito de seguimiento; el paquete no proporciona guía ni fecha.
+- catalizador: Crecimiento de ingresos que pueda atribuirse a expansión rentable de
+    generación, almacenamiento, transmisión o distribución.
+  estado: Hipótesis a verificar; no se incluyen capacidad, cartera, retornos de proyectos
+    ni penetración.
+- catalizador: Evidencia de disciplina de financiación y estabilización de deuda neta.
+  estado: Hito de seguimiento; la deuda total y el net cash reportados aumentaron
+    entre FY2022 y el período actual, pero el paquete no explica las causas.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- detalle: El FCF reportado fue -USD 18.011 millones para TTM terminado el 2026-09-30;
-    no se aportan desgloses que expliquen el gasto de inversión.
-  riesgo: FCF negativo
-- detalle: La deuda neta calculada fue aproximadamente USD 108.353 millones y deuda
-    neta/EBITDA aproximadamente 8,09x al 2026-09-30.
-  riesgo: Apalancamiento
-- detalle: El current ratio reportado fue 0,53x y la cobertura de intereses reportada
-    fue 0x al 2026-09-30; la metodología y los componentes de esta última no están
-    detallados.
-  riesgo: Liquidez e intereses
-- detalle: No hay datos de retornos sobre capital, penetración de mercado, ventajas
-    competitivas cuantificadas ni guía de management en el paquete.
-  riesgo: Evidencia estratégica incompleta
+- fuente: https://stockanalysis.com/stocks/nee/financials/
+  hecho: FCF TTM reportado de -18.011 millones al 2026-09-30; los valores históricos
+    aportados también son negativos.
+  implicacion: La financiación de inversiones y la conversión de beneficios en caja
+    requieren análisis adicional.
+- fuente: https://stockanalysis.com/stocks/nee/financials/
+  hecho: Net cash reportado de -108.353 millones y deuda total reportada de 113.932
+    millones, ambos al 2026-09-30 en la unidad de origen.
+  implicacion: El apalancamiento es un foco material; no se puede validar el umbral
+    deuda neta/EBITDA solicitado porque los campos permitidos para ese ratio no incluyen
+    EBITDA.
+- fuente: https://stockanalysis.com/stocks/NEE/statistics/
+  hecho: El current ratio reportado fue 0.53x al 2026-09-30.
+  implicacion: Está próximo, pero por encima, del umbral configurado de 0.5x; no constituye
+    por sí solo una conclusión de liquidez.
+- hecho: El paquete no contiene historial de acciones diluidas ni acciones en circulación
+    por períodos comparables.
+  implicacion: No se puede evaluar la dilución interanual ni la tendencia de acciones
+    a tres años.
 error_mercado:
-  catalizador_cambio: Resultados financieros futuros que documenten crecimiento rentable,
-    mejora del FCF y retorno de las inversiones podrían cambiar la lectura; no se
-    proporcionan fechas ni hitos corporativos concretos.
-  conclusion_error_valoracion: No puede validarse un error de valoración con la evidencia
-    disponible; los objetivos de analistas son referencias observadas, no valor intrínseco
-    calculado.
+  catalizador_cambio: La evidencia futura sobre conversión de inversiones en FCF y
+    sobre crecimiento comparable de ingresos podría cambiar la lectura; el paquete
+    no documenta hitos corporativos fechados.
+  conclusion_error_valoracion: No validado. El consenso de analistas es una referencia
+    observada, no una valoración intrínseca ni evidencia de infravaloración.
   consenso_actual: La cotización observada fue USD 83.71 al 2026-10-30; el consenso
-    de precio objetivo observado al 2026-11-20 tuvo media y mediana de USD 94.29,
-    y rango de USD 56 a USD 117.
-  hipotesis_contraria: La inversión intensiva podría generar crecimiento si los activos
-    desarrollados producen retornos adecuados; el paquete no aporta datos de proyectos,
-    retornos o crecimiento futuro para comprobarlo.
-  razonamiento: La empresa opera en generación, almacenamiento, transmisión y distribución,
-    pero el paquete no cuantifica mercado direccionable, penetración ni retornos sobre
-    capital. El FCF negativo y la deuda creciente son contrapesos observados a una
-    posible tesis de reinversión.
-generated_at: '2026-11-20T17:22:31.108204-03:00'
+    de precio objetivo reportado fue USD 94.47, con rango USD 56–117 al 2026-11-21.
+  hipotesis_contraria: 'La evidencia disponible no permite establecer que el mercado
+    esté equivocado: el crecimiento de ingresos TTM coexiste con FCF negativo y deuda
+    neta negativa en efectivo (net cash reportado de -108.353 millones en la unidad
+    de origen).'
+  razonamiento: La cotización y el consenso proceden de fechas distintas y el paquete
+    no aporta un método de valoración ni expectativas operativas cuantificadas. El
+    momentum de precio a 12 meses fue 2.8378% para el período 2025-10-31/2026-10-30,
+    evidencia de mercado que no resuelve la brecha fundamental.
+generated_at: '2026-11-21T17:06:42.495891-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-NEE
@@ -108,7 +140,7 @@ prompt_inputs:
   insider_ownership: 0
   name: NextEra Energy, Inc.
   operating_margin: 30.03
-  pe_ratio: 15.29
+  pe_ratio: 15.03
   products: ''
   revenue: 28830000000.0
   revenue_growth: 9.61
@@ -118,27 +150,44 @@ prompt_inputs:
 ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
-    revenue_history: TTM terminado 2026-09-30 y FY 2023 disponibles, pero no son períodos
-      comparables de cierre anual separados por tres años.
-  limitations: Falta un dato de ingresos comparable al TTM terminado 2026-09-30 exactamente
-    tres años antes; no se calcula con FY 2023 como sustituto.
+    revenue_history:
+    - period: FY 2023
+      period_end: '2023-12-31'
+      unit: source_reported_amount
+      value: 28114
+    - period: TTM
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: 28825
+  limitations: Falta un ingreso al cierre de 2026-09-30 comparable exactamente con
+    el período t-3; FY2023 terminó el 2023-12-31 y no es un punto t-3 comparable para
+    el TTM.
   metric: revenue_cagr_3y_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/nee/financials/
   status: unavailable
   unit: percent
   value: null
 - formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
   inputs:
-    fcf_history: TTM -18011; FY 2025 -12121
-  limitations: Los FCF disponibles son negativos; no cumplen la definición requerida
-    de FCF comparable y positivo en ambos períodos.
+    fcf_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: -18011
+    - period: FY 2025
+      period_end: '2025-12-31'
+      unit: source_reported_amount
+      value: -12121
+  limitations: Los FCF disponibles son negativos y comparan un período TTM con un
+    ejercicio fiscal; no cumplen el requisito de FCF comparable y positivo en ambos
+    períodos.
   metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/nee/financials/
   status: unavailable
   unit: percent
@@ -148,34 +197,40 @@ ratios_investigados:
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/NEE/statistics/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/nee/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
+    cuando la fuente reporta net_cash = cash - debt
   inputs:
-    cash_and_investments_history: 5579
-    total_debt_history: 113932
-  limitations: El campo EBITDA no está entre los inputs configurados para este ratio;
-    la URL financiera citada no basta para verificarlo según los campos y URLs autorizados
-    para la fila.
+    net_cash_history:
+      period: Current
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: -108353
+  limitations: Falta EBITDA entre los campos enumerados para este ratio en ratio_input_fields;
+    no se puede usar otro campo para completar el cálculo.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/nee/financials/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs: {}
-  limitations: Falta historia fechada de acciones diluidas o acciones en circulación
-    que permita comparar períodos anuales; el dato puntual de acciones no calcula
-    dilución interanual.
+  inputs:
+    shares_outstanding: 2100000000
+  limitations: Sólo se proporciona un valor actual de acciones en circulación; falta
+    una serie histórica comparable de acciones diluidas o acciones en circulación
+    para el período anterior.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/NEE/statistics/
   status: unavailable
   unit: percent
   value: null
@@ -210,7 +265,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: NextEra Energy, Inc., through its subsidiaries, generates, stores,
     transmits, distributes, and sells electric power to retail and wholesale customers
     in North America. It operates through Florida Power & Light Company (FPL) and
@@ -237,7 +292,376 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.015300000000000001
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    NextEra Energy, Inc. (NEE) es una empresa eléctrica integrada que desarrolla,
+    financia, construye, posee y opera activos de generación, almacenamiento, transmisión
+    y distribución. El negocio incluye dos actividades principales:
+
+
+    - **Florida Power & Light (FPL):** utility regulada que genera, transmite y distribuye
+    electricidad a hogares y empresas de Florida.
+
+    - **NextEra Energy Resources (NEER):** plataforma de generación y almacenamiento,
+    además de actividades de venta mayorista de energía y capacidad.
+
+
+    La compañía opera en el sector eléctrico, una industria intensiva en capital y
+    sujeta a regulación. Sus actividades abarcan tanto redes locales reguladas como
+    activos de generación expuestos a condiciones de mercado y contratos. Comparte
+    sector con [[CEG]].
+
+
+    **Estado de la evaluación:** investigación fundamental pendiente de validación.
+    Los materiales describen el negocio y algunos indicadores financieros, pero no
+    aportan suficiente detalle para establecer retornos por proyecto, valor intrínseco
+    o una tesis de valoración validada.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Fuentes de ingresos y cadena de valor
+
+
+    NEE desarrolla y opera infraestructura eléctrica a lo largo de la cadena de valor:
+    generación, almacenamiento, transmisión, distribución y venta de electricidad.
+    Sus productos incluyen electricidad para clientes minoristas y mayoristas, así
+    como servicios de energía y capacidad.
+
+
+    Los principales grupos de clientes identificados son:
+
+
+    - Hogares y empresas atendidos por FPL en Florida.
+
+    - Clientes mayoristas y compradores de energía y capacidad.
+
+
+    ### Ventajas competitivas y dinámica de la industria
+
+
+    La franquicia regulada de FPL y las redes eléctricas locales constituyen barreras
+    geográficas de entrada; construir y operar infraestructura requiere inversiones
+    elevadas y capacidades especializadas. La evaluación de investigación caracteriza
+    el moat como amplio y la posición competitiva como líder, pero no aporta comparaciones
+    cuantitativas que permitan verificar esas valoraciones.
+
+
+    La industria combina demanda estructural de electricidad con una transición hacia
+    renovables y almacenamiento. Esa dinámica puede abrir oportunidades de inversión,
+    pero el crecimiento de activos solo respaldaría la tesis si produce retornos adecuados
+    y efectivo suficiente.
+
+
+    ### Consideración competitiva
+
+
+    NEE opera en el mismo sector que [[CEG]]. La información disponible no incluye
+    datos comparativos sobre costos, retornos, crecimiento o valoración entre ambas
+    compañías.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes son las reportadas en los materiales de investigación. Cuando
+    no se indica fuente, fecha o metodología, no deben tratarse como directamente
+    comparables ni como cifras verificadas de forma independiente.
+
+
+    | Métrica | Valor reportado | Período / fecha | Nota |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos | 9,61% | Período no especificado | Metodología y período
+    no detallados en AOIF. |
+
+    | Margen operativo | 30,03% | Período no especificado | Metodología no especificada.
+    |
+
+    | ROIC | 3,13% | Período no especificado | Metodología no especificada; requiere
+    validar retornos por proyecto. |
+
+    | FCF | -USD 18.011 millones | TTM terminado el 30-09-2026 | No se proporciona
+    desglose que explique la cifra. |
+
+    | FCF | -USD 12.121 millones | FY 2025 | La comparación de crecimiento de FCF
+    no es válida con los datos disponibles. |
+
+    | Deuda neta calculada | Aproximadamente USD 108.353 millones | 30-09-2026 | Cálculo
+    incluido en DDD; no se aporta desglose. |
+
+    | Deuda neta / EBITDA calculada | Aproximadamente 8,09x | 30-09-2026 | Indicador
+    de apalancamiento elevado según el cálculo reportado. |
+
+    | Current ratio | 0,53x | 30-09-2026 | StockAnalysis; superior al umbral de alerta
+    configurado de 0,5x. |
+
+    | PER | 15,29x | Fecha y metodología no especificadas | Valor reproducido por
+    AOIF. |
+
+    | EV/EBITDA | 21,2x | Fecha y metodología no especificadas | Valor reproducido
+    por AOIF. |
+
+    | FCF yield | 0% | Fecha y metodología no especificadas | Valor reproducido por
+    AOIF; el FCF TTM reportado por DDD es negativo. |
+
+
+    **Fuente identificada para current ratio:** [StockAnalysis — NEE Statistics](https://stockanalysis.com/stocks/NEE/statistics/),
+    período terminado el 30-09-2026.
+
+
+    ### Lectura financiera
+
+
+    El FCF TTM negativo, junto con el apalancamiento calculado, plantea una cuestión
+    de financiación y asignación de capital. No se dispone de un desglose que permita
+    distinguir qué parte del FCF negativo responde a inversión de crecimiento, mantenimiento
+    u otros factores. Tampoco se aportan vencimientos de deuda, costo de financiación
+    ni cobertura de intereses.
+
+
+    Las métricas de crecimiento, margen y ROIC suministradas por AOIF carecen de período
+    y metodología detallados. Por ello, no bastan para concluir que la inversión de
+    capital se esté traduciendo en retornos atractivos.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación AOIF califica la calidad del management como **buena** y la asignación
+    de capital como **neutral**. Como contexto, señala la escala y diversificación
+    de los activos, pero también el FCF TTM negativo y el endeudamiento elevado.
+
+
+    El alineamiento de insiders se califica como **débil**. No se incluyen datos de
+    propiedad accionarial de insiders, transacciones recientes, remuneración, incentivos
+    de largo plazo ni composición del consejo de administración. Por tanto, esas valoraciones
+    no pueden verificarse con el material disponible.
+
+
+    **Conclusión provisional:** evaluación mixta y pendiente de validar con información
+    detallada de gobierno corporativo, incentivos y resultados de inversión.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso favorable
+
+
+    La tesis favorable depende de que las inversiones de NEE en generación, almacenamiento
+    y redes produzcan crecimiento rentable y una mejora de la generación de efectivo.
+
+
+    Elementos que podrían respaldar esa tesis:
+
+
+    - La combinación de una utility regulada en Florida y una plataforma de generación
+    y almacenamiento diversifica las actividades de la compañía.
+
+    - La franquicia de FPL y las redes locales pueden ofrecer barreras geográficas
+    de entrada.
+
+    - La transición hacia renovables y almacenamiento y la demanda de electricidad
+    podrían sostener oportunidades de inversión.
+
+    - Una mejora del FCF, acompañada de evidencia de retornos adecuados sobre el capital
+    invertido, reduciría la preocupación por la financiación de la reinversión.
+
+
+    Estos puntos describen condiciones que podrían favorecer la tesis; no demuestran
+    que los proyectos actuales generen retornos suficientes.
+
+
+    ### Estado de validación
+
+
+    El paquete califica la calidad del negocio como mixta, con validación insuficiente.
+    El FCF TTM negativo y el apalancamiento calculado son limitaciones centrales.
+    No puede validarse un error de valoración con la evidencia disponible, y AOIF
+    no determina un valor intrínseco riguroso.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    | Riesgo | Evidencia disponible | Implicación |
+
+    |---|---|---|
+
+    | FCF negativo | -USD 18.011 millones TTM al 30-09-2026; -USD 12.121 millones
+    en FY 2025 | Puede aumentar la necesidad de financiación; no se conoce el desglose
+    entre inversión de crecimiento y otros usos. |
+
+    | Apalancamiento | Deuda neta calculada de aproximadamente USD 108.353 millones
+    y deuda neta/EBITDA de aproximadamente 8,09x al 30-09-2026 | Sensibilidad potencial
+    a tasas de interés, refinanciación y costo de financiación. |
+
+    | Retornos de inversión no demostrados | No se proporcionan retornos por proyecto
+    ni desgloses de retorno sobre capital | El crecimiento de ingresos, por sí solo,
+    no valida que la reinversión cree valor. |
+
+    | Dilución no evaluada | No hay historia fechada comparable de acciones | No puede
+    determinarse si se supera el umbral configurado de dilución interanual del 10%.
+    |
+
+    | Riesgo de valoración | No hay estimación intrínseca suficientemente sustentada
+    | Los objetivos de analistas no sustituyen una valoración propia. |
+
+
+    ### Contra-tesis
+
+
+    La inversión intensiva podría no generar retornos suficientes o podría tardar
+    en traducirse en efectivo, mientras el endeudamiento eleva la sensibilidad a las
+    condiciones de financiación. En ese caso, la expansión de activos no necesariamente
+    beneficiaría a los accionistas.
+
+
+    ### Triggers de falsación
+
+
+    - Persistencia del FCF negativo sin evidencia de retornos de inversión suficientes.
+
+    - Empeoramiento del endeudamiento o de la cobertura de intereses.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    No se proporcionan fechas específicas de resultados, puesta en servicio de proyectos,
+    decisiones regulatorias u otros eventos corporativos. Por ello, los catalizadores
+    se presentan como hitos de seguimiento, no como eventos fechados.
+
+
+    | Hito a observar | Fecha esperada | Impacto potencial |
+
+    |---|---|---|
+
+    | Publicación de resultados que explique la evolución y composición del FCF |
+    Sin fecha indicada; revisar en próximos reportes | Una trayectoria de FCF menos
+    negativa o positiva podría reducir la preocupación por la financiación de la reinversión.
+    |
+
+    | Evidencia de crecimiento rentable y retornos sobre capital o por proyecto |
+    Sin fecha indicada; revisar conforme se divulguen resultados de proyectos | Permitiría
+    evaluar si el crecimiento de activos crea valor y no solo aumenta la escala. |
+
+    | Evolución del endeudamiento, costo de financiación, vencimientos y cobertura
+    de intereses | Sin fecha indicada; seguimiento continuo en reportes financieros
+    | Un deterioro elevaría el riesgo financiero; una mejora podría reducirlo. |
+
+
+    Los objetivos de analistas incluidos en DDD son anclas observadas de escenarios,
+    no estimaciones intrínsecas propias. Para el 20-11-2026, los extremos reportados
+    fueron USD 56 y USD 117; DDD también reporta una cotización observada de USD 83,71
+    al 30-10-2026. No se detallan fechas esperadas de convergencia ni metodología
+    de valoración de esos objetivos.
+
+
+    ## 8. Marco de Valoración
+
+
+    ### Enfoques pertinentes
+
+
+    Para una empresa eléctrica integrada y intensiva en capital, la valoración debería
+    distinguir entre las actividades reguladas de FPL y los activos de generación,
+    almacenamiento y ventas mayoristas de NEER. La investigación disponible no incluye
+    la información necesaria para construir una valoración segmentada.
+
+
+    Como marcos de trabajo, una investigación adicional podría considerar:
+
+
+    - **Valoración de flujos de caja:** proyecciones por segmento, inversión de mantenimiento
+    y crecimiento, financiación, impuestos y costo de capital.
+
+    - **Valoración de activos y retornos:** evaluación de los retornos esperados de
+    proyectos y de la base de activos regulada.
+
+    - **Múltiplos comparables:** solo con períodos, definiciones y universos comparables
+    claramente documentados.
+
+
+    ### Información de valoración disponible
+
+
+    AOIF reporta PER de 15,29x, EV/EBITDA de 21,2x y FCF yield de 0%, pero no especifica
+    fecha ni metodología. DDD recoge una cotización de USD 83,71 al 30-10-2026 y un
+    rango observado de objetivos de analistas de USD 56–117 al 20-11-2026. Esos objetivos
+    representan referencias de consenso, no una valoración intrínseca validada.
+
+
+    ### Sensibilidad y limitaciones
+
+
+    No se puede realizar un análisis de sensibilidad cuantitativo fiable sin proyecciones,
+    costo de capital, estructura de deuda detallada, retornos por proyecto y escenarios
+    de regulación y financiación. La sensibilidad debería centrarse, como mínimo,
+    en:
+
+
+    - Retornos de los nuevos activos y ritmo de puesta en servicio.
+
+    - Evolución del FCF y necesidades de financiación.
+
+    - Tasas de interés, costo de deuda y refinanciación.
+
+    - Tratamiento regulatorio y recuperación de inversiones de FPL.
+
+
+    El valor intrínseco se considera **no determinable con rigor** a partir del paquete
+    disponible; AOIF también califica el margen de seguridad como insuficiente.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué retornos sobre capital y retornos por proyecto obtiene NEE en sus inversiones
+    de generación, almacenamiento y redes?
+
+    2. ¿Qué explica el FCF negativo y qué proporción corresponde a inversión de crecimiento,
+    mantenimiento u otros usos?
+
+    3. ¿Cómo evolucionan la deuda, los vencimientos, el costo de financiación y la
+    cobertura de intereses?
+
+    4. ¿Qué parte del crecimiento y de los retornos procede de FPL frente a NEER?
+
+    5. ¿Cuál es la metodología, el período y la base de cálculo de las métricas de
+    crecimiento de ingresos, margen operativo y ROIC reportadas por AOIF?
+
+    6. ¿Cómo se reconcilia el FCF yield de 0% reportado por AOIF con el FCF TTM negativo
+    reportado por DDD?
+
+    7. ¿Cuál ha sido la evolución comparable del número de acciones y de la dilución?
+
+    8. ¿Qué incentivos, remuneración y propiedad accionarial tienen los directivos
+    e integrantes del consejo?
+
+    9. ¿Qué supuestos y metodología sustentan los objetivos de analistas de USD 56–117
+    reportados al 20-11-2026?
+
+    10. ¿Qué proyecciones de FCF y retornos permitirían construir una valoración por
+    segmentos y un análisis de sensibilidad?
+
+
+    **Prioridades de seguimiento:** evolución y explicación del FCF; retornos de las
+    inversiones; deuda frente a EBITDA, costo y vencimientos de financiación; cobertura
+    de intereses; y dilución accionarial.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[CEG|Constellation Energy Corporation]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -270,7 +694,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T20:21:57.373492+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T20:06:04.518610+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -415,12 +839,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    117.0, "low": 56.0, "mean": 94.29, "median": 94.29, "observed_at": "2026-11-20T17:22:00.835645-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T17:22:00.835645-03:00", "observed_date": "2026-11-20", "target_price":
+    117.0, "low": 56.0, "mean": 94.47, "median": 94.47, "observed_at": "2026-11-21T17:06:07.567865-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T17:06:07.567865-03:00", "observed_date": "2026-11-21", "target_price":
     94.47, "url": "https://stockanalysis.com/stocks/nee/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:22:00.835645-03:00",
-    "observed_date": "2026-11-20", "target_price": 94.10526, "url": "https://finance.yahoo.com/quote/NEE/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T17:06:07.567865-03:00",
+    "observed_date": "2026-11-21", "target_price": 94.47368, "url": "https://finance.yahoo.com/quote/NEE/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 83.70999908447266,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/NEE/"}]}}'
   sector: Utilities
@@ -430,138 +854,111 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: c4f9eb2264705a53a751a16b1a9be840bd9365ca6005d0d700b79879ea7c8466
+    sha256: c6dc2d97b6ad1e0d5ac6116307a800283c2577526807054897a7b290a6b5007a
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T17:22:31.108204-03:00'
+  triggered_at: '2026-11-21T17:06:42.495891-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_note: Observación frente al umbral configurado; no es una decisión de
-    inversión.
+- assessment_note: Observación para Assessment, no decisión de inversión.
   metric: current_ratio
-  observation: 0.53x reportado al 2026-09-30; no está por debajo del umbral.
+  observation: 0.53x al 2026-09-30, frente al umbral configurado de 0.5x; no lo cruza.
   source:
-    name: StockAnalysis
-    period_end: '2026-09-30'
+    name: stockanalysis.com
     url: https://stockanalysis.com/stocks/NEE/statistics/
-  threshold: below 0.5x
-- assessment_note: No permite determinar si se supera el umbral configurado.
-  metric: dilution_yoy_pct
-  observation: No disponible; falta historia fechada comparable de acciones.
-  threshold: above 10%
-- assessment_note: Está por debajo del umbral configurado; el paquete no detalla componentes
-    ni metodología de la cifra.
-  metric: interest_coverage
-  observation: 0x reportado al 2026-09-30.
-  source:
-    name: StockAnalysis
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/NEE/statistics/
-  threshold: below 2.0x
-- assessment_note: No puede evaluarse el umbral de meses de runway.
-  metric: negative_fcf_runway_months
-  observation: FCF TTM negativo, pero no se dispone de una medición compatible de
-    efectivo y quema mensual para calcular runway.
-  source:
-    name: StockAnalysis
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/nee/financials/
-  threshold: below 12 months
-- assessment_note: Deuda neta reportada y EBITDA disponible sugieren una observación
-    de apalancamiento, pero no se usa aquí como ratio validado bajo la restricción
-    de inputs configurados.
+- assessment_note: No se puede evaluar el umbral configurado de 12 meses.
+  metric: fcf_runway_months
+  observation: 'No calculable: el FCF TTM es negativo, pero el paquete no aporta una
+    medida mensual de consumo de caja compatible con el cálculo de runway.'
+- assessment_note: No sustituir el cálculo faltante por otro ratio.
   metric: net_debt_ebitda
-  observation: El cálculo no se valida como ratio investigado porque EBITDA no está
-    entre los inputs configurados para la métrica.
-  source:
-    name: StockAnalysis
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/NEE/statistics/
-  threshold: above 4.0x
-- assessment_note: No permite determinar si se supera el umbral configurado.
-  metric: share_count_cagr_3y_pct
-  observation: No disponible; falta historia fechada de acciones comparable a tres
-    años.
-  threshold: above 5%
+  observation: No calculable con los campos permitidos para este ratio; por tanto,
+    no puede evaluarse el umbral configurado de 4.0x.
+- assessment_note: Se requiere historial verificable de acciones por período.
+  metric: dilution_yoy_pct y share_count_cagr_3y_pct
+  observation: No calculables por falta de series históricas de acciones comparables;
+    no puede evaluarse el umbral configurado de dilución interanual de 10% ni el de
+    CAGR de acciones de 5%.
 scenario_analysis:
-  as_of_date: '2026-11-20'
+  as_of_date: '2026-11-21'
   currency: USD
-  horizon_date: '2026-11-20'
+  horizon_date: '2027-11-21'
   scenarios:
   - falsifiers:
-    - Mejora sostenida del FCF junto con reducción del apalancamiento.
-    - Evidencia verificable de retornos adecuados en las inversiones.
+    - FCF comparable que mejore de forma sostenida y evidencia de financiación compatible
+      con las inversiones.
     id: BEAR
     key_assumptions:
-    - El negocio no convierte la inversión en efectivo suficiente para aliviar el
-      FCF negativo observado.
-    - El endeudamiento elevado frente a EBITDA continúa siendo una limitación financiera.
-    rationale: Ancla en el extremo bajo del rango de objetivos de analistas observado,
-      no valoración intrínseca propia. Es coherente como escenario adverso si el FCF
-      TTM negativo y el apalancamiento elevado frente a EBITDA persisten y la reinversión
-      no demuestra retornos adecuados.
+    - El FCF continúa siendo una restricción; el último dato disponible es -18.011
+      millones TTM al 2026-09-30.
+    - No se materializa una mejora de caja que compense el net cash negativo reportado
+      al 2026-09-30.
+    rationale: Ancla baja observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Como resultado adverso condicional, representa una ejecución
+      en la que el FCF negativo persiste y la carga de financiación limita la conversión
+      de inversiones en crecimiento.
     sources:
-    - as_of_date: '2026-11-20'
-      name: StockAnalysis, consenso de objetivos
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
       url: https://stockanalysis.com/stocks/nee/forecast/
     - as_of_date: '2026-09-30'
-      name: StockAnalysis, estadísticas financieras
-      url: https://stockanalysis.com/stocks/NEE/statistics/
-    target_price: 56.0
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/nee/financials/
+    target_price: 56
   - falsifiers:
-    - FCF persistentemente negativo sin evidencia de retornos sobre la inversión.
-    - Empeoramiento de deuda y cobertura de intereses.
+    - FCF que permanezca negativo sin mejora comparable y deuda neta que siga aumentando.
     id: BULL
     key_assumptions:
-    - Las inversiones en generación, almacenamiento y redes producen retornos adecuados.
-    - La ejecución mejora la generación de efectivo y permite gestionar el endeudamiento.
-    rationale: Ancla en el extremo alto del rango de objetivos de analistas observado,
-      no valoración intrínseca propia. Representa el caso favorable si la reinversión
-      en los negocios descritos se traduce en crecimiento rentable y mejora financiera,
-      resultados que aún no están demostrados por el paquete.
+    - La expansión de las actividades descritas se traduce en ingresos y caja incrementales.
+    - La mejora de ejecución permite sostener inversiones sin que la financiación
+      desplace la creación de valor.
+    rationale: Ancla alta observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Como resultado favorable condicional, presupone que la plataforma
+      de generación, almacenamiento, transmisión y distribución convierte inversión
+      en crecimiento y mejora de caja; el paquete no demuestra que esto vaya a ocurrir.
     sources:
-    - as_of_date: '2026-11-20'
-      name: StockAnalysis, consenso de objetivos
+    - as_of_date: '2026-11-21'
+      name: stockanalysis.com
       url: https://stockanalysis.com/stocks/nee/forecast/
     - as_of_date: '2026-09-30'
-      name: StockAnalysis, estadísticas financieras
-      url: https://stockanalysis.com/stocks/NEE/statistics/
-    target_price: 117.0
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/nee/financials/
+    target_price: 117
   schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - horizon_date debe ser posterior a la fecha actual
-  status: invalid_pending_revision
-score_general: 56
+  errors: []
+  status: valid_pending_decision_board
+score_general: 62
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T17:22:00.835645-03:00'
+  calculado_at: '2026-11-21T17:06:07.567865-03:00'
   fuentes:
     stockanalysis: 94.47
-    yfinance: 94.10526
-  mediana: 94.29
+    yfinance: 94.47368
+  mediana: 94.47
   n_fuentes: 2
-  promedio: 94.29
+  promedio: 94.47
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T17:22:00.835645-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T17:06:07.567865-03:00'
+    observed_date: '2026-11-21'
     target_price: 94.47
     url: https://stockanalysis.com/stocks/nee/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T17:22:00.835645-03:00'
-    observed_date: '2026-11-20'
-    target_price: 94.10526
+    observed_at: '2026-11-21T17:06:07.567865-03:00'
+    observed_date: '2026-11-21'
+    target_price: 94.47368
     url: https://finance.yahoo.com/quote/NEE/
   target_high: 117.0
   target_low: 56.0
-tesis_inversion: La tesis favorable depende de que las inversiones en generación,
-  almacenamiento y redes produzcan crecimiento rentable y permitan sostener los compromisos
-  financieros. La evidencia entregada no demuestra esos retornos; el FCF TTM negativo
-  y el apalancamiento calculado elevan la importancia de verificar la conversión de
-  inversión en efectivo y beneficios.
+tesis_inversion: La tesis condicional es que la plataforma de generación, almacenamiento,
+  transmisión y distribución de NEE pueda convertir inversión de capital en crecimiento
+  rentable; el caso contrario es que el FCF negativo y la financiación de una base
+  de deuda creciente limiten esa conversión. El paquete no aporta datos suficientes
+  de retornos sobre capital, penetración de mercado, cartera de proyectos ni resultados
+  por segmento para validar cuál trayectoria prevalece.
 ticker: NEE
 version: '3.0'

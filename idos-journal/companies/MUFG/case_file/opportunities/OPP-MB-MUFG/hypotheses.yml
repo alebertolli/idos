@@ -1,171 +1,200 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento acumulado entre los ejercicios fiscales 2026 y 2028
-      es inferior al 5%.
+  - condition: Los ingresos operativos consolidados crecen menos de un 5% interanual
+      en el ejercicio fiscal terminado el 31 de marzo de 2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: MUFG deja de publicar una métrica comparable y no es posible reconciliarla
-      con datos reportados de forma consistente.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El aumento de la métrica se debe exclusivamente a cambios de perímetro
-      o clasificación contable que impidan atribuirlo a un crecimiento operativo comparable.
+  - condition: El ratio de gastos operativos sobre ingresos operativos no mejora al
+      menos 0,5 puntos porcentuales frente al ejercicio fiscal anterior.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento acumulado entre los ejercicios fiscales 2026 y 2028 es inferior
-    al 5%.
-  - MUFG deja de publicar una métrica comparable y no es posible reconciliarla con
-    datos reportados de forma consistente.
-  - El aumento de la métrica se debe exclusivamente a cambios de perímetro o clasificación
-    contable que impidan atribuirlo a un crecimiento operativo comparable.
+  - Los ingresos operativos consolidados crecen menos de un 5% interanual en el ejercicio
+    fiscal terminado el 31 de marzo de 2028.
+  - El ratio de gastos operativos sobre ingresos operativos no mejora al menos 0,5
+    puntos porcentuales frente al ejercicio fiscal anterior.
   horizon: medio
   id: H1-OPP-MB-MUFG
   opportunity_id: OPP-MB-MUFG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-05-31'
+    deadline: '2028-05-15'
     expected: 5.0
     met: null
-    metric: Variación acumulada del beneficio neto de explotación relacionado con
-      clientes entre los ejercicios fiscales 2026 y 2028
-    prediction: El beneficio neto de explotación relacionado con clientes del ejercicio
-      fiscal 2028 será al menos un 5% superior al del ejercicio fiscal 2026, comparando
-      la misma métrica publicada por MUFG y aplicando sus definiciones de reporte.
+    metric: Crecimiento interanual de ingresos operativos consolidados
+    prediction: En el ejercicio fiscal que termina el 31 de marzo de 2028, los ingresos
+      operativos consolidados aumentarán al menos un 5% interanual y el ratio de gastos
+      operativos sobre ingresos operativos mejorará al menos 0,5 puntos porcentuales
+      frente al ejercicio fiscal anterior, usando las definiciones publicadas por
+      MUFG.
     unit: porcentaje mínimo
   priority: important
   probability: 0.5
-  rationale: Una expansión sostenida de las actividades bancarias y de servicios a
-    clientes podría elevar los ingresos y la rentabilidad operativa. Sin embargo,
-    la información suministrada no confirma crecimiento de volúmenes, precios, mezcla
-    de ingresos ni eficiencia; esta hipótesis plantea una prueba, no da por demostrado
-    el mecanismo.
-  review_trigger: Dejar de creerla cuando MUFG publique los resultados del ejercicio
-    fiscal 2027 si la métrica comparable cae respecto al ejercicio fiscal 2026 y la
-    guía o los datos publicados no muestran una vía verificable para alcanzar un crecimiento
-    acumulado del 5% al cierre del ejercicio fiscal 2028; en todo caso, reevaluar
-    el 2028-05-31.
+  rationale: La tesis de inversión indica fuerte crecimiento de ingresos y potencial
+    de mejora operativa. Si los ingresos por intereses y comisiones crecen más rápido
+    que los costes, MUFG debería generar una mejora observable en su ratio de gastos
+    operativos sobre ingresos operativos.
+  review_trigger: Dejar de creerla si MUFG informa, en sus resultados del ejercicio
+    terminado el 31 de marzo de 2027, que los ingresos operativos cayeron interanualmente
+    y que el ratio de gastos sobre ingresos empeoró frente al ejercicio anterior.
   secondary_hypotheses: []
-  statement: MUFG aumentará la rentabilidad de sus actividades con clientes, medida
-    por el beneficio neto de explotación relacionado con clientes que reporte el grupo,
-    durante el ejercicio fiscal terminado el 31 de marzo de 2028.
+  statement: MUFG aumentará sus ingresos operativos y mejorará su eficiencia durante
+    los próximos ejercicios, siempre que el crecimiento del negocio supere el aumento
+    de los gastos.
   status: ACTIVE
   ticker: MUFG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El ROE reportado para el ejercicio fiscal 2028 es inferior al 9%.
+  - condition: Los costes netos de crédito alcanzan o superan el 0,30% de los préstamos
+      medios en el ejercicio fiscal terminado el 31 de marzo de 2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La medida no puede calcularse con datos publicados o su definición
-      cambia sin una conciliación comparable.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El umbral solo se alcanza mediante una reducción extraordinaria del
-      patrimonio que no refleje una mejora de la rentabilidad recurrente.
+  - condition: MUFG informa de un aumento interanual de préstamos dudosos acompañado
+      de provisiones que reducen el beneficio neto consolidado.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El ROE reportado para el ejercicio fiscal 2028 es inferior al 9%.
-  - La medida no puede calcularse con datos publicados o su definición cambia sin
-    una conciliación comparable.
-  - El umbral solo se alcanza mediante una reducción extraordinaria del patrimonio
-    que no refleje una mejora de la rentabilidad recurrente.
+  - Los costes netos de crédito alcanzan o superan el 0,30% de los préstamos medios
+    en el ejercicio fiscal terminado el 31 de marzo de 2028.
+  - MUFG informa de un aumento interanual de préstamos dudosos acompañado de provisiones
+    que reducen el beneficio neto consolidado.
   horizon: medio
   id: H2-OPP-MB-MUFG
   opportunity_id: OPP-MB-MUFG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-05-31'
-    expected: 9.0
+    deadline: '2028-05-15'
+    expected: 0.3
     met: null
-    metric: ROE del ejercicio fiscal 2028
-    prediction: El ROE del ejercicio fiscal 2028, usando la definición publicada por
-      MUFG y especificando si se trata de ROE atribuible a los accionistas o de otra
-      medida, será igual o superior al 9%.
-    unit: porcentaje mínimo
+    metric: Costes netos de crédito sobre préstamos medios
+    prediction: En el ejercicio fiscal terminado el 31 de marzo de 2028, los costes
+      netos de crédito consolidados serán inferiores al 0,30% de los préstamos medios,
+      calculados como costes netos de crédito divididos por préstamos medios del periodo.
+    unit: porcentaje máximo
   priority: critical
   probability: 0.5
-  rationale: Una mejora sostenida de la rentabilidad operativa puede traducirse en
-    mayor retorno sobre el capital. La información recibida no proporciona ROE, coste
-    de capital, reinversión ni asignación de capital; por tanto, no permite confirmar
-    que MUFG pueda alcanzar este umbral.
-  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 sitúan
-    el ROE por debajo del 8% y MUFG no presenta una guía pública que sustente una
-    recuperación de al menos un punto porcentual en el ejercicio fiscal 2028; decisión
-    final al publicarse los resultados de 2028, como máximo el 2028-05-31.
+  rationale: La tesis identifica mayores pérdidas crediticias como riesgo para el
+    desempeño. Si los costes netos de crédito se mantienen contenidos, MUFG podrá
+    conservar el beneficio de su crecimiento de ingresos sin que las provisiones absorban
+    una parte sustancial de esa mejora.
+  review_trigger: Dejar de creerla si MUFG publica antes del 31 de marzo de 2028 una
+    previsión anual de costes netos de crédito igual o superior al 0,30% de los préstamos
+    medios, o si registra un deterioro sustancial de la calidad crediticia que obligue
+    a elevar esa previsión.
   secondary_hypotheses:
   - H1-OPP-MB-MUFG
-  statement: MUFG alcanzará un retorno sobre el patrimonio neto (ROE) de al menos
-    el 9% en el ejercicio fiscal terminado el 31 de marzo de 2028.
+  statement: El riesgo de crédito seguirá siendo manejable y no provocará un deterioro
+    material de la rentabilidad crediticia de MUFG.
   status: ACTIVE
   ticker: MUFG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de MUFG menos la rentabilidad total del TOPIX
-      es inferior a 5 puntos porcentuales en el periodo.
+  - condition: Una entidad bancaria principal sujeta al requisito informa de una ratio
+      de cobertura de liquidez inferior al 100% en la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La comparación no puede realizarse de forma consistente ajustando ambas
-      series por dividendos y eventos corporativos.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: MUFG obtiene rentabilidad relativa inferior a la del TOPIX, aunque
-      sus métricas operativas o financieras mejoren.
+  - condition: MUFG anuncia una reducción extraordinaria de préstamos y atribuye explícitamente
+      la medida a tensiones de liquidez o financiación.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de MUFG menos la rentabilidad total del TOPIX es inferior
-    a 5 puntos porcentuales en el periodo.
-  - La comparación no puede realizarse de forma consistente ajustando ambas series
-    por dividendos y eventos corporativos.
-  - MUFG obtiene rentabilidad relativa inferior a la del TOPIX, aunque sus métricas
-    operativas o financieras mejoren.
+  - Una entidad bancaria principal sujeta al requisito informa de una ratio de cobertura
+    de liquidez inferior al 100% en la fecha objetivo.
+  - MUFG anuncia una reducción extraordinaria de préstamos y atribuye explícitamente
+    la medida a tensiones de liquidez o financiación.
   horizon: medio
   id: H3-OPP-MB-MUFG
   opportunity_id: OPP-MB-MUFG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-11-20'
-    expected: 5.0
+    deadline: '2028-05-15'
+    expected: 100.0
     met: null
-    metric: Rentabilidad total de MUFG menos rentabilidad total del TOPIX
-    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
-      noviembre de 2028, la rentabilidad total de MUFG, incluidos dividendos y ajustada
-      por eventos corporativos, superará la rentabilidad total del TOPIX en al menos
-      5 puntos porcentuales.
-    unit: puntos porcentuales mínimos
+    metric: Ratio de cobertura de liquidez de las entidades sujetas al requisito
+    prediction: En las divulgaciones correspondientes al 31 de marzo de 2028, las
+      principales entidades bancarias reguladas de MUFG que estén sujetas al requisito
+      de ratio de cobertura de liquidez presentarán una ratio igual o superior al
+      100%; además, MUFG no anunciará una reducción extraordinaria de préstamos atribuida
+      a una escasez de liquidez.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis señala riesgos de liquidez que podrían limitar el desempeño.
+    Mantener colchones regulatorios suficientes reduciría la probabilidad de que tensiones
+    de financiación interrumpan el crecimiento del negocio o fuercen medidas costosas
+    de captación de fondos.
+  review_trigger: Dejar de creerla si una divulgación regulatoria o financiera publicada
+    antes del 31 de marzo de 2028 muestra que una entidad bancaria principal incumple
+    el mínimo aplicable o si MUFG comunica restricciones de crédito por falta de liquidez.
+  secondary_hypotheses: []
+  statement: La liquidez de las entidades bancarias reguladas de MUFG se mantendrá
+    por encima del mínimo regulatorio, sin que las necesidades de financiación obliguen
+    a una contracción extraordinaria del crédito.
+  status: ACTIVE
+  ticker: MUFG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: MUFG no eleva su previsión de costes de crédito ni comunica una restricción
+      regulatoria material antes de la fecha objetivo y el precio de cierre supera
+      18,33 USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de cierre del 21 de noviembre de 2027 supera 18,33 USD, aunque
+      se haya materializado uno de esos riesgos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - MUFG no eleva su previsión de costes de crédito ni comunica una restricción regulatoria
+    material antes de la fecha objetivo y el precio de cierre supera 18,33 USD.
+  - El precio de cierre del 21 de noviembre de 2027 supera 18,33 USD, aunque se haya
+    materializado uno de esos riesgos.
+  horizon: medio
+  id: H4-OPP-MB-MUFG
+  opportunity_id: OPP-MB-MUFG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-21'
+    expected: 18.33
+    met: null
+    metric: Precio de cierre de MUFG en USD
+    prediction: El precio de cierre de la cotización de MUFG en dólares estadounidenses
+      será igual o inferior a 18,33 USD el 21 de noviembre de 2027, equivalente a
+      una caída de al menos el 15% respecto de 21,56 USD, si antes de esa fecha MUFG
+      eleva su previsión de costes de crédito o informa de una nueva restricción regulatoria
+      material para sus beneficios.
+    unit: USD máximo en la fecha objetivo bajo la condición indicada
   priority: important
   probability: 0.5
-  rationale: Si la mejora operativa y financiera se materializa, podría respaldar
-    una revaloración y una rentabilidad relativa superior. No se dispone de valoración
-    inicial, expectativas del mercado ni evidencia sobre una ventaja competitiva;
-    por ello, la predicción se contrasta directamente con un índice de referencia
-    y no presupone que exista infravaloración.
-  review_trigger: Dejar de creerla antes del vencimiento si, al cierre del 20 de noviembre
-    de 2027, MUFG acumula una rentabilidad total inferior a la del TOPIX en 10 puntos
-    porcentuales o más y no hay evidencia publicada de una mejora de rentabilidad
-    que permita justificar una reversión; verificación definitiva el 2028-11-20.
+  rationale: La tesis plantea que el precio actual podría estar sobrevalorado ante
+    esos riesgos. Un aumento de las pérdidas crediticias reduce los beneficios disponibles
+    y una regulación más restrictiva puede limitar la rentabilidad o elevar los costes
+    de cumplimiento; cualquiera de los dos mecanismos puede comprimir la valoración.
+  review_trigger: Dejar de creerla si, antes del 21 de noviembre de 2027, MUFG confirma
+    que mantiene o reduce su previsión de costes de crédito, no se aprueban restricciones
+    regulatorias materiales y la cotización se mantiene por encima de 18,33 USD durante
+    20 sesiones bursátiles consecutivas.
   secondary_hypotheses:
-  - H1-OPP-MB-MUFG
   - H2-OPP-MB-MUFG
-  statement: La rentabilidad total para el accionista de MUFG superará la del TOPIX
-    en al menos 5 puntos porcentuales durante los dos años posteriores a la fecha
-    de corte.
+  - H3-OPP-MB-MUFG
+  statement: El precio de MUFG, de 21,56 USD en la fecha de corte indicada, caerá
+    si el mercado reevalúa a la baja las perspectivas de beneficios por pérdidas crediticias
+    o restricciones regulatorias.
   status: ACTIVE
   ticker: MUFG
   version: 1

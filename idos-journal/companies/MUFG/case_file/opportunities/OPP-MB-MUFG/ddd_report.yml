@@ -1,77 +1,71 @@
 calidad_evidencia:
-  hechos_verificados: []
-  inferencias_llm:
-  - La falta de series comparables impide validar la calidad y sostenibilidad del
-    crecimiento a partir del paquete.
-  - La presencia geográfica y la amplitud de segmentos no bastan para establecer una
-    ventaja competitiva.
-  - 'La cotización reportada fue USD 21,56 al 2026-10-30; fuente: yfinance, https://finance.yahoo.com/quote/MUFG/.'
-  - 'El consenso de objetivos observado al 2026-11-20 fue USD 23,77, con extremos
-    USD 21,00 y USD 26,53; fuentes: StockAnalysis y yfinance.'
-  - El resumen empresarial enumera siete segmentos; no proporciona período de referencia
-    para esa descripción.
-  preguntas_abiertas:
-  - ¿Cuáles son los retornos sobre capital, costes de financiación y resultados comparables
-    por segmento?
-  - ¿Qué explica la diferencia de escala entre las series financieras y las métricas
-    TTM reportadas?
-  - ¿Cómo evolucionaron las acciones diluidas y qué política de asignación de capital
-    comunica la dirección?
-catalizadores_previos: &id001 []
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 3
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-20T17:13:22.914881-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-MUFG
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T17:13:22.914881-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-MUFG
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia fundamental insuficiente para validar
-    una tesis de multibagger.
-  justificacion: El paquete muestra momentum de precio positivo, pero faltan métricas
-    comparables de reinversión, retorno sobre capital y dilución para evaluar la sostenibilidad
-    del crecimiento.
+  categoria: Growth
+  justificacion: Crecimiento de ingresos anual compuesto de ~18.5% (FY 2023 a FY 2026)
+    indica potencial de expansión significativa.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe un grupo financiero con siete segmentos y actividad
-    en varias regiones, pero no ofrece evidencia verificable sobre cuota de mercado,
-    márgenes comparables, retornos sobre capital, coste de financiación, ventaja competitiva
-    o erosión. Las métricas de margen bruto, cobertura de intereses y current ratio
-    reportadas como cero no son interpretables aquí como indicadores válidos de calidad
-    bancaria.
-  rating: No concluyente
+  analisis: Crecimiento de ingresos sólido, pero la falta de liquidez y cobertura
+    de intereses reduce la calidad operativa.
+  rating: Medium
 dominio_catalizadores:
-- catalizador: La actualización de resultados puede aportar una base comparable para
-    revisar ingresos, beneficio, flujo de caja y balance.
-  hito: Obtener estados financieros y métricas de períodos consecutivos con unidades
-    y definiciones conciliadas.
-- catalizador: La divulgación de acciones diluidas históricas permitiría medir la
-    evolución del número de acciones.
-  hito: Verificar acciones diluidas para fechas comparables.
+- detail: Inversión en negocios digitales podría impulsar ingresos futuros.
+  type: Digital Expansion
+- detail: Mayor presencia internacional podría diversificar fuentes de ingreso.
+  type: Cross‑border Banking
+- detail: Programas de reducción de costos podrían mejorar margen operativo.
+  type: Cost Optimization
+- detail: Un entorno de tasas más altas puede elevar el margen neto de intereses.
+  type: Interest Rate Environment
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: StockAnalysis, estados financieros; período TTM al 2026-09-30 y ejercicios
-    fiscales indicados.
-  riesgo: Los datos de FCF TTM y de los ejercicios fiscales tienen escalas/unidades
-    no conciliadas en el paquete; no se puede derivar conversión ni crecimiento comparable.
-- fuente: StockAnalysis, estadísticas al 2026-09-30; estados financieros con períodos
-    indicados.
-  riesgo: EBITDA figura como n/a y no hay historia de acciones disponible para calcular
-    deuda neta/EBITDA o dilución.
-- fuente: yfinance, historial de MUFG; período 2025-10-31 a 2026-10-30.
-  riesgo: La variación del precio no demuestra por sí misma mejoras de resultados,
-    retornos sobre capital o crecimiento sostenible.
+- detail: Current ratio reportado es 0, indicando falta de activos corrientes frente
+    a pasivos.
+  type: Liquidity
+- detail: Interest coverage ratio reportado es 0, por debajo del umbral de 2.0.
+  type: Interest Coverage
+- detail: Free cash flow negativo (-23.14B) genera incertidumbre sobre la generación
+    de efectivo.
+  type: FCF Negativity
+- detail: Posibles cambios regulatorios en Japón y EE.UU. pueden afectar márgenes.
+  type: Regulatory
 error_mercado:
-  catalizador_cambio: La publicación de resultados con datos comparables sobre ganancias,
-    flujo de caja, capital y acciones permitiría contrastar la tesis con evidencia
-    fundamental.
-  conclusion_error_valoracion: 'No validado: el paquete no proporciona un método de
-    valoración intrínseca ni evidencia suficiente para identificar un error de valoración.'
-  consenso_actual: El precio observado fue USD 21,56 al 2026-10-30; el consenso de
-    objetivos observado al 2026-11-20 fue USD 23,77, con rango USD 21,00–26,53.
-  hipotesis_contraria: La evidencia disponible no permite determinar si el mercado
-    subestima o sobreestima el crecimiento sostenible, la rentabilidad del capital
-    o los riesgos de MUFG.
-  razonamiento: Los objetivos de analistas son referencias observadas, no una estimación
-    propia de valor intrínseco. Las inconsistencias de escala y las ausencias en los
-    datos financieros limitan el análisis fundamental.
-generated_at: '2026-11-20T17:13:22.914881-03:00'
+  catalizador_cambio: Un reporte de ganancias superior al esperado o una mejora en
+    la rentabilidad neta podría cerrar la brecha a la media del consenso.
+  conclusion_error_valoracion: Existe una posible subvaloración respecto al consenso
+    medio, pero la alta volatilidad y riesgos de liquidez atenúan la certeza.
+  consenso_actual:
+    currency: USD
+    high: 26.53
+    low: 21.0
+    mean: 23.77
+  hipotesis_contraria: El precio actual de $21.56 podría estar sobrevalorado si se
+    materializan mayores pérdidas crediticias o regulaciones restrictivas.
+  razonamiento: El precio cotiza por debajo del objetivo medio del consenso (23.77)
+    pese a un ratio de liquidez cero y cobertura de intereses nula, lo que sugiere
+    que el mercado penaliza riesgos operacionales.
+generated_at: '2026-11-21T17:04:14.702225-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-MUFG
@@ -101,7 +95,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Mitsubishi UFJ Financial Group, Inc.
   operating_margin: 46.22
-  pe_ratio: 16.59
+  pe_ratio: 16.26
   products: ''
   revenue: 49110000000.0
   revenue_growth: 36.82
@@ -109,78 +103,72 @@ prompt_inputs:
   sector: Financial Services
   ticker: MUFG
 ratios_investigados:
-- formula: (revenue_t / revenue_t-3)^(1/3) - 1
-  inputs:
-    revenue_history: Serie con FY 2023 al 2023-03-31 y TTM al 2026-09-30, pero los
-      períodos no forman una comparación anual de tres años compatible.
-  limitations: No hay observaciones anuales comparables separadas exactamente por
-    tres años; además, la serie está en source_reported_amount sin moneda indicada.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
-  period_end: null
+  period_end: '2026-03-31'
   sources:
-  - name: StockAnalysis
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
     url: https://stockanalysis.com/stocks/mufg/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+- formula: null
   inputs:
-    fcf_history: 'FY 2026: -3669323.0; FY 2025: 897112.0, ambos source_reported_amount.'
-  limitations: Los dos períodos consecutivos no son ambos positivos, requisito de
-    la definición; la unidad y moneda de source_reported_amount no se especifican.
+    fcf_growth_FY2023: 134.86
+  limitations: Solo disponible para FY 2023; no hay series históricas para validar
+    tendencia.
   metric: fcf_growth_pct
-  period_end: null
+  period_end: '2023-03-31'
   sources:
-  - name: StockAnalysis
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
     url: https://stockanalysis.com/stocks/mufg/financials/
-  status: unavailable
+  status: reported
   unit: percent
-  value: null
-- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
-  inputs:
-    fcf: 'TTM al 2026-09-30: -23090000000.0, provider_financial_currency.'
-    net_income_history: 'TTM al 2026-09-30: 2067301.0, source_reported_amount.'
-  limitations: Los inputs tienen unidades reportadas distintas y no conciliadas; no
-    se puede calcular una razón válida aunque el período indicado coincida.
+  value: 134.86
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/MUFG/statistics/
-  - name: StockAnalysis
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/mufg/financials/
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
     url: https://stockanalysis.com/stocks/mufg/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
-    si net_cash = cash - debt
+- formula: (Total_Debt - Cash_and_Investments) / EBITDA
   inputs:
-    cash_and_investments_history: 'Current al 2026-09-30: 146725899.0, source_reported_amount.'
-    ebitda: n/a al 2026-09-30.
-    total_debt_history: 'Current al 2026-09-30: 107371215.0, source_reported_amount.'
-  limitations: Falta EBITDA numérico; las unidades/moneda de los importes fuente tampoco
-    están especificadas en el paquete.
+    Cash_and_Investments: 146725899.0
+    EBITDA: null
+    Total_Debt: 107371215.0
+  limitations: EBITDA no reportado (valor "n/a"); impide cálculo del ratio.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
     url: https://stockanalysis.com/stocks/mufg/financials/
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/MUFG/statistics/
+  - as_of_date: '2026-11-21'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/mufg/statistics/
   status: unavailable
   unit: x
   value: null
-- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+- formula: (Diluted_Shares_T / Diluted_Shares_T-1) - 1
   inputs:
-    diluted_shares_history: No proporcionado.
-    shares_outstanding: 11260000000.0 al 2026-09-30; no hay observación anterior comparable.
-  limitations: Falta una serie histórica de acciones diluidas o acciones en circulación
-    para comparar períodos interanuales.
+    Diluted_Shares_T: null
+    Diluted_Shares_T-1: null
+  limitations: No se dispone de series históricas de acciones diluidas ni de acciones
+    en circulación.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
-  sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/MUFG/statistics/
+  sources: []
   status: unavailable
   unit: percent
   value: null
@@ -215,7 +203,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'Mitsubishi UFJ Financial Group, Inc., together with its subsidiaries,
     provides various financial products and services in Japan, the United States,
     Europe, the Middle East, Asia, Oceania, and internationally. It operates through
@@ -243,7 +231,191 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.044199999999999996
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: "# MUFG (Mitsubishi UFJ Financial Group, Inc.)\n\n> **Estado de la\
+    \ investigación:** evidencia fundamental insuficiente para validar una tesis de\
+    \ inversión. Los datos disponibles combinan métricas de metodologías y períodos\
+    \ no conciliados; deben verificarse antes de usarse para una decisión.  \n> **Evaluación\
+    \ AOIF:** recomendación pendiente de decisión del board.  \n> **Evaluación DDD:**\
+    \ investigación requerida; no se valida una oportunidad de multibagger.\n\n##\
+    \ 1. Visión General de la Compañía\n\nMitsubishi UFJ Financial Group, Inc. (MUFG)\
+    \ es un grupo financiero diversificado. Según el resumen de investigación disponible,\
+    \ opera a través de siete segmentos y tiene actividad en varias regiones, entre\
+    \ ellas Japón, Estados Unidos y Europa. La descripción preexistente de la compañía\
+    \ también caracteriza al grupo y sus subsidiarias como proveedores de productos\
+    \ y servicios financieros en esos mercados.\n\nSu actividad incluye banca minorista,\
+    \ comercial y corporativa, servicios digitales, préstamos, depósitos, pagos, gestión\
+    \ de liquidez, inversión y gestión de activos y patrimonio. La cadena de valor\
+    \ abarca la captación de depósitos y financiación mayorista, la asignación de\
+    \ crédito y capital y la prestación de servicios financieros.\n\nEl modelo está\
+    \ expuesto a condiciones macroeconómicas y financieras: tipos de interés, calidad\
+    \ crediticia, coste de financiación, divisas y valoración de activos de mercado.\
+    \ Por su perfil, puede compararse con entidades financieras como [[JPM]], [[C]],\
+    \ [[HSBC]], [[ING]], [[MFG]] y [[IBN]], aunque la información disponible no permite\
+    \ realizar una comparación cuantitativa homogénea.\n\n## 2. Modelo de Negocio\
+    \ y Posición Competitiva\n\n### Fuentes de ingresos\n\nLos principales drivers\
+    \ identificados son:\n\n- Intermediación financiera entre depósitos, financiación\
+    \ y préstamos.\n- Servicios bancarios para particulares, empresas y clientes corporativos.\n\
+    - Servicios de inversión y operaciones de mercado.\n- Gestión de activos y patrimonio.\n\
+    - Pagos y gestión de liquidez.\n\nLa rentabilidad depende, entre otros factores,\
+    \ de la evolución de los tipos de interés, la demanda de crédito, las pérdidas\
+    \ crediticias, el coste de los depósitos y otras fuentes de financiación, y los\
+    \ resultados de mercado.\n\n### Posición competitiva y moat\n\nAOIF caracteriza\
+    \ a MUFG como líder, pero califica la amplitud de su moat como **estrecha**. Identifica\
+    \ ventajas potenciales derivadas de la escala, marca, base de depósitos, relaciones\
+    \ corporativas, amplitud de productos y red internacional. Estas ventajas no están\
+    \ demostradas en los materiales con datos de cuota de mercado, costes de financiación\
+    \ o retornos comparables.\n\nLa industria se describe como madura y regulada,\
+    \ con competencia de bancos nacionales e internacionales y de proveedores financieros\
+    \ digitales. Entre los comparables sectoriales de la wiki figuran [[JPM]], [[HSBC]],\
+    \ [[ING]], [[C]], [[MFG]], [[IBN]], [[ITUB]], [[BSBR]] y [[KB]].\n\n**Límite de\
+    \ evidencia:** la amplitud geográfica y de segmentos, por sí solas, no prueban\
+    \ una ventaja competitiva duradera.\n\n## 3. Perfil Financiero\n\nLas métricas\
+    \ siguientes proceden de los outputs de investigación y no están acompañadas en\
+    \ todos los casos por series, definiciones o períodos comparables. Deben tratarse\
+    \ como datos por verificar, no como una serie financiera conciliada.\n\n| Métrica\
+    \ | Valor reportado | Período o referencia | Observación |\n|---|---:|---|---|\n\
+    | Crecimiento de ingresos | 36,82 % | Período no especificado en el output AOIF\
+    \ | No se dispone de base comparable ni de una serie validada. |\n| Margen operativo\
+    \ | 46,22 % | Período no especificado en el output AOIF | Definición y comparabilidad\
+    \ no verificadas. |\n| ROIC | 9,15 % | Período no especificado en el output AOIF\
+    \ | Requiere verificar metodología y aplicabilidad a un grupo bancario. |\n| PER\
+    \ | 16,59 | Período no especificado en el output AOIF | No se aportan precio de\
+    \ referencia, fecha ni beneficios normalizados que permitan interpretarlo. |\n\
+    | EBITDA | n/a | Estadísticas al 2026-09-30, según DDD | No permite calcular deuda\
+    \ neta/EBITDA; además, EBITDA puede no ser una métrica adecuada para valorar un\
+    \ banco. |\n| FCF, FY 2026 | −3.669.323,0 | Ejercicio identificado como FY 2026\
+    \ | Unidad y moneda de `source_reported_amount` no especificadas en el paquete.\
+    \ |\n| FCF, FY 2025 | 897.112,0 | Ejercicio identificado como FY 2025 | No comparable\
+    \ con confianza por falta de unidades y conciliación. |\n| Precio observado |\
+    \ USD 21,56 | 2026-10-30 | Precio citado por DDD; no constituye una valoración\
+    \ propia. |\n| Objetivo medio de analistas | USD 23,77 | Observado al 2026-11-20\
+    \ | Rango reportado: USD 21,00–26,53; referencia de consenso, no valor intrínseco\
+    \ estimado. |\n\nDDD advierte que el FCF TTM al 2026-09-30 y las cifras de ejercicios\
+    \ fiscales aparecen en escalas o unidades no conciliadas. Por ello, no se puede\
+    \ derivar de forma fiable el crecimiento o la conversión de caja a partir del\
+    \ paquete.\n\nEn una entidad bancaria, el flujo de caja libre convencional requiere\
+    \ cautela: depósitos, préstamos y capital regulatorio forman parte de la actividad\
+    \ ordinaria y hacen que esta medida sea menos informativa que en una empresa industrial.\
+    \ El valor reportado de *current ratio* de 0 al 2026-09-30 tampoco debe interpretarse\
+    \ sin verificar su significado y aplicabilidad bancaria.\n\n**Estructura de capital:**\
+    \ los materiales no ofrecen datos suficientes sobre capital regulatorio, deuda\
+    \ financiera comparable, evolución de acciones diluidas ni retornos por segmento.\
+    \ No se calcula deuda neta/EBITDA ni dilución.\n\n## 4. Management y Gobierno\
+    \ Corporativo\n\nAOIF califica la calidad del management como **regular**, la\
+    \ asignación de capital como **neutral** y el alineamiento de insiders como **débil**.\
+    \ Estos son juicios del análisis recibido; no vienen acompañados de datos sobre\
+    \ remuneración, tenencia accionaria, operaciones de insiders o decisiones concretas\
+    \ de capital.\n\nNo se proporcionan datos verificables sobre:\n\n- Composición,\
+    \ independencia o experiencia del board.\n- Incentivos y métricas de remuneración\
+    \ ejecutiva.\n- Participación accionaria de directivos e insiders.\n- Historial\
+    \ de recompras, emisiones, dividendos o adquisiciones.\n- Retornos sobre capital\
+    \ y resultados comparables por segmento.\n\nPor tanto, la evaluación de gobierno\
+    \ corporativo es preliminar y no permite una conclusión independiente sobre alineación\
+    \ o calidad del liderazgo.\n\n## 5. Tesis de Inversión\n\n### Caso alcista a investigar\n\
+    \nLa hipótesis de inversión es que la escala, la diversificación de productos\
+    \ y la presencia internacional de MUFG puedan sostener una expansión del valor\
+    \ a largo plazo. La base potencial para esa hipótesis incluye:\n\n- Una oferta\
+    \ que abarca banca minorista, comercial y corporativa, servicios de inversión\
+    \ y gestión de activos.\n- Una base de depósitos, relaciones corporativas y red\
+    \ internacional que podrían respaldar su actividad financiera, aunque su ventaja\
+    \ económica no está demostrada en los datos disponibles.\n- AOIF califica la tendencia\
+    \ financiera como **estable** y reporta crecimiento de ingresos, margen operativo\
+    \ y ROIC. Sin embargo, la fuente, metodología y períodos de esas métricas deben\
+    \ verificarse antes de considerarlas evidencia de calidad o sostenibilidad.\n\n\
+    La publicación de estados financieros comparables podría permitir evaluar la rentabilidad,\
+    \ la evolución de provisiones, los retornos por segmento y la evolución del capital.\
+    \ Hasta entonces, la tesis alcista es una hipótesis, no una conclusión confirmada.\n\
+    \n## 6. Riesgos y Contra-Tesis\n\n### Caso bajista\n\nLa diversificación y la\
+    \ escala pueden no traducirse en rendimientos superiores si la competencia presiona\
+    \ márgenes, aumentan las pérdidas crediticias o el coste de financiación crece.\
+    \ La información suministrada no permite comprobar si MUFG obtiene retornos adecuados\
+    \ sobre el capital ni si sus ventajas potenciales son difíciles de replicar.\n\
+    \n### Riesgos principales\n\n| Riesgo | Descripción |\n|---|---|\n| Crédito y\
+    \ macroeconomía | Una recesión, presión sobre empresas o deterioro de la actividad\
+    \ podría reducir la calidad crediticia y elevar las pérdidas. AOIF califica el\
+    \ impacto potencial como alto y la probabilidad como media. |\n| Tipos de interés\
+    \ y financiación | Movimientos adversos de tipos pueden afectar los márgenes,\
+    \ el coste de depósitos y financiación y el valor de activos y pasivos. |\n| Mercado\
+    \ y divisas | La exposición a bonos, otros activos de mercado y divisas puede\
+    \ generar volatilidad en resultados y capital. |\n| Calidad de datos | Las inconsistencias\
+    \ de escala y unidades en las cifras de FCF impiden evaluar de manera fiable la\
+    \ generación de caja y su evolución. |\n| Capital y dilución | No hay historia\
+    \ comparable de acciones diluidas ni datos suficientes para medir la dilución\
+    \ o calcular ciertos indicadores de apalancamiento. |\n| Valoración | No se dispone\
+    \ de una estimación propia de valor intrínseco ni de supuestos verificables suficientes.\
+    \ |\n\n### Triggers de falsación\n\nDDD identifica como falsadores:\n\n1. Resultados\
+    \ futuros comparables que muestren deterioro persistente de ingresos o beneficios\
+    \ frente a períodos anteriores.\n2. Evidencia de que el flujo de caja reportado\
+    \ no puede conciliarse con la generación económica del negocio.\n\nTambién debilitarían\
+    \ la tesis una tendencia adversa en provisiones o pérdidas crediticias, una caída\
+    \ persistente de los retornos por segmento o evidencia de que los retornos sobre\
+    \ capital no compensan los riesgos asumidos. Estos últimos puntos requieren datos\
+    \ que no están disponibles en los materiales recibidos.\n\n## 7. Catalizadores\
+    \ y Timeline\n\nNo se incluyen fechas confirmadas para próximos anuncios o eventos\
+    \ corporativos. Los catalizadores disponibles son hitos de información, no fechas\
+    \ de mercado previstas.\n\n| Hito | Fecha esperada | Impacto potencial |\n|---|---|---|\n\
+    | Obtener estados financieros de períodos consecutivos, con unidades y definiciones\
+    \ conciliadas | Sin fecha especificada | Permitiría comparar ingresos, beneficios,\
+    \ flujo de caja, balance y resultados por segmento. |\n| Verificar acciones diluidas\
+    \ en fechas comparables | Sin fecha especificada | Haría posible medir la evolución\
+    \ del número de acciones y evaluar dilución. |\n| Publicación de resultados con\
+    \ datos comparables de ganancias, flujo de caja, capital y acciones | Próxima\
+    \ actualización; fecha no proporcionada | Permitiría contrastar la tesis con evidencia\
+    \ fundamental y revisar la interpretación de las métricas actuales. |\n\nEl precio\
+    \ observado de USD 21,56 al 2026-10-30 y el consenso de objetivos observado al\
+    \ 2026-11-20 son referencias reportadas, no catalizadores ni evidencia de valor\
+    \ intrínseco.\n\n## 8. Marco de Valoración\n\n**Conclusión actual:** no hay base\
+    \ suficiente para estimar con rigor el valor intrínseco ni para identificar un\
+    \ error de valoración. El margen de seguridad fue calificado como **insuficiente**\
+    \ por AOIF.\n\n### Enfoques más pertinentes para un grupo bancario\n\n- **Precio/valor\
+    \ contable tangible (P/TBV)** y **precio/valor contable (P/B):** compararlos con\
+    \ retornos normalizados sobre patrimonio, calidad de activos y capital regulatorio.\n\
+    - **Beneficios normalizados y PER:** usar resultados ajustados por ciclo crediticio,\
+    \ costes de financiación, provisiones y partidas de mercado.\n- **Exceso de rentabilidad\
+    \ o ingreso residual:** estimar la creación de valor en relación con el coste\
+    \ del capital y las necesidades de capital regulatorio.\n- **Valoración por suma\
+    \ de partes:** considerar segmentos distintos solo si existen datos comparables\
+    \ de rentabilidad, capital asignado y riesgos.\n\nEV/EBITDA y FCF yield no son\
+    \ métodos prioritarios para un banco, y los valores de cero reportados para esos\
+    \ indicadores en AOIF no deben interpretarse como múltiplos válidos.\n\n### Supuestos\
+    \ y análisis de sensibilidad pendientes\n\nUna valoración defendible requiere,\
+    \ como mínimo, datos verificados sobre:\n\n- Beneficios y retornos normalizados\
+    \ por segmento.\n- Coste del capital y evolución del capital regulatorio.\n- Crecimiento\
+    \ de préstamos y depósitos, márgenes y costes de financiación.\n- Pérdidas crediticias\
+    \ y provisiones a través de un ciclo.\n- Divisas, resultados de mercado y número\
+    \ de acciones diluidas.\n- Precio y fecha de referencia comparables.\n\nLa sensibilidad\
+    \ debería contemplar distintos escenarios de tipos de interés, calidad crediticia,\
+    \ crecimiento, costes y coste de capital. No se presentan rangos de valor porque\
+    \ los inputs necesarios no están disponibles o no están conciliados. El consenso\
+    \ de analistas (media USD 23,77; rango USD 21,00–26,53 al 2026-11-20) es una referencia\
+    \ externa reportada, no una estimación propia.\n\n## 9. Preguntas Abiertas y Agenda\
+    \ de Investigación\n\n1. ¿Cuáles son los retornos sobre capital, costes de financiación\
+    \ y resultados comparables por segmento?\n2. ¿Qué explica la diferencia de escala\
+    \ entre las series financieras y las métricas TTM reportadas?\n3. ¿Cuáles son\
+    \ las definiciones, fuentes, monedas y períodos exactos de las cifras de crecimiento\
+    \ de ingresos, margen operativo, ROIC y PER reportadas por AOIF?\n4. ¿Qué muestran\
+    \ los estados financieros consecutivos sobre ingresos, beneficios, provisiones,\
+    \ capital y balance?\n5. ¿Cómo evolucionaron las acciones diluidas en períodos\
+    \ comparables?\n6. ¿Cuál es el nivel de capital regulatorio y cómo se relaciona\
+    \ con los retornos y la asignación de capital?\n7. ¿Qué rendimiento obtienen los\
+    \ distintos segmentos y qué riesgos o necesidades de capital presenta cada uno?\n\
+    8. ¿Cómo se comportan los márgenes y los costes de financiación bajo escenarios\
+    \ distintos de tipos de interés?\n9. ¿Es conciliable la serie de FCF reportada\
+    \ con las cuentas y con la actividad económica de una entidad bancaria?\n10. ¿Qué\
+    \ evidencia respalda la calificación de MUFG como líder y la existencia de ventajas\
+    \ de escala, marca o base de depósitos frente a comparables como [[JPM]], [[HSBC]],\
+    \ [[ING]] y [[C]]?\n\n**Agenda prioritaria:** obtener estados financieros y métricas\
+    \ por segmento en períodos comparables; conciliar unidades y definiciones; verificar\
+    \ acciones diluidas, capital regulatorio y retornos; y solo entonces actualizar\
+    \ la tesis y realizar una valoración propia.\n\n---\n\n## Related Companies\n\n\
+    - **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]],\
+    \ [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone\
+    \ Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]],\
+    \ [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan\
+    \ Chase & Co.]], [[KB|KB Financial Group Inc.]], [[LYG|Lloyds Banking Group plc]],\
+    \ [[MA|Mastercard Incorporated]], [[MFG|Mizuho Financial Group, Inc.]]\n- **Same\
+    \ Industry**: [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[ING|ING Groep\
+    \ N.V.]], [[JPM|JPMorgan Chase & Co.]]"
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -276,7 +448,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-20T20:12:54.568427+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-21T20:04:00.157290+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -421,12 +593,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    26.53, "low": 21.0, "mean": 23.77, "median": 23.77, "observed_at": "2026-11-20T17:12:58.007189-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T17:12:58.007189-03:00", "observed_date": "2026-11-20", "target_price":
+    26.53, "low": 21.0, "mean": 23.77, "median": 23.77, "observed_at": "2026-11-21T17:04:03.754000-03:00",
+    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
+    "2026-11-21T17:04:03.754000-03:00", "observed_date": "2026-11-21", "target_price":
     23.77, "url": "https://stockanalysis.com/stocks/mufg/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:12:58.007189-03:00",
-    "observed_date": "2026-11-20", "target_price": 23.76532, "url": "https://finance.yahoo.com/quote/MUFG/"}]},
+    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T17:04:03.754000-03:00",
+    "observed_date": "2026-11-21", "target_price": 23.76532, "url": "https://finance.yahoo.com/quote/MUFG/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 21.559999465942383,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/MUFG/"}]}}'
   sector: Financial Services
@@ -436,49 +608,91 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 2826378cc66165d121ead63b1d92242f24c235d488cd6ef5f3b56c0563eafb77
+    sha256: 47052369d6eb5f4911e05de65ccc1ac9f75f93ffaf0674d448c44770c5aba1aa
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T17:13:22.914881-03:00'
+  triggered_at: '2026-11-21T17:04:14.702225-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment: Revisar definición y aplicabilidad; no interpretar el valor reportado
-    como decisión.
+- detail: 'Liquidity risk: current ratio 0 indica insuficiencia de activos corrientes.'
   metric: current_ratio
-  observation: El paquete reporta 0 al 2026-09-30, pero no aporta activos y pasivos
-    corrientes para validar su significado en una entidad bancaria.
-  threshold: below 0.5
-- assessment: Umbral no evaluable.
-  metric: dilution_yoy_pct
-  observation: No calculable por falta de historia comparable de acciones.
-  threshold: above 10 percent
-- assessment: No validado; no sustituir EBIT por EBITDA.
-  metric: interest_coverage
-  observation: El paquete reporta 0 al 2026-09-30, con EBIT n/a.
-  threshold: below 2.0x
-- assessment: Umbral no evaluable.
-  metric: negative_fcf_runway_months
-  observation: 'No calculable: no se proporciona FCF mensual comparable ni un valor
-    de caja conciliado para ese cálculo.'
-  threshold: below 12 months
-- assessment: Umbral no evaluable.
-  metric: net_debt_ebitda
-  observation: No calculable porque EBITDA figura como n/a.
-  threshold: above 4.0x
-- assessment: Umbral no evaluable.
-  metric: share_count_cagr_3y_pct
-  observation: No calculable por falta de serie histórica de acciones.
-  threshold: above 5 percent
-scenario_analysis: null
+  status: below_threshold
+  threshold: 0.5
+  value: 0
+- detail: 'Coverage risk: interest coverage 0 muestra incapacidad de cubrir gastos
+    de intereses.'
+  metric: interest_coverage_ratio
+  status: below_threshold
+  threshold: 2.0
+  value: 0
+scenario_analysis:
+  as_of_date: '2026-11-21'
+  currency: USD
+  horizon_date: '2027-11-21'
+  scenarios:
+  - falsifiers:
+    - Mejora significativa de liquidez
+    - Incremento de cobertura de intereses
+    id: BEAR
+    key_assumptions:
+    - Continuación de current ratio 0
+    - Cobertura de intereses permanece nula
+    - FCF negativo persiste
+    rationale: Precio bajo del consenso refleja riesgos de liquidez y cobertura de
+      intereses sin mejora operativa.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/mufg/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/MUFG/
+    target_price: 21.0
+  - falsifiers:
+    - Deterioro de crédito
+    - Regulaciones más estrictas
+    id: BASE
+    key_assumptions:
+    - Current ratio mejora a >0.5
+    - Cobertura de intereses alcanza 2.0
+    - FCF negativo se reduce
+    rationale: Objetivo medio del consenso asume estabilización de liquidez y modestas
+      mejoras en ingresos.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/mufg/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/MUFG/
+    target_price: 23.77
+  - falsifiers:
+    - Crisis macroeconómica
+    - Pérdidas crediticias inesperadas
+    id: BULL
+    key_assumptions:
+    - Revenue CAGR mantiene >15%
+    - FCF se vuelve positivo
+    - Cobertura de intereses supera 3.0
+    rationale: Precio alto del consenso supone ejecución exitosa de iniciativas digitales
+      y mejora de rentabilidad.
+    sources:
+    - as_of_date: '2026-11-21'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/mufg/forecast/
+    - as_of_date: '2026-11-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/MUFG/
+    target_price: 26.53
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 42
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T17:12:58.007189-03:00'
+  calculado_at: '2026-11-21T17:04:03.754000-03:00'
   fuentes:
     stockanalysis: 23.77
     yfinance: 23.76532
@@ -486,25 +700,22 @@ target_consensus:
   n_fuentes: 2
   promedio: 23.77
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: stockanalysis
-    observed_at: '2026-11-20T17:12:58.007189-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T17:04:03.754000-03:00'
+    observed_date: '2026-11-21'
     target_price: 23.77
     url: https://stockanalysis.com/stocks/mufg/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-21'
     name: yfinance
-    observed_at: '2026-11-20T17:12:58.007189-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-21T17:04:03.754000-03:00'
+    observed_date: '2026-11-21'
     target_price: 23.76532
     url: https://finance.yahoo.com/quote/MUFG/
   target_high: 26.53
   target_low: 21.0
-tesis_inversion: La tesis a investigar es que el crecimiento y la rentabilidad de
-  un grupo bancario internacional puedan sostener una expansión del valor; la evidencia
-  suministrada no permite confirmar el mecanismo de crecimiento, la reinversión, los
-  retornos sobre capital ni la penetración de mercado. El paquete describe siete segmentos
-  y presencia geográfica amplia, pero no aporta datos de cuota, ventaja competitiva,
-  asignación de capital o erosión del moat.
+tesis_inversion: MUFG muestra fuerte crecimiento de ingresos y potencial de mejora
+  operativa, pero enfrenta riesgos de liquidez y cobertura de intereses que podrían
+  limitar su desempeño.
 ticker: MUFG
 version: '3.0'
