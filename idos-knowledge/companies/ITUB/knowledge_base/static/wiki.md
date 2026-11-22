@@ -1,121 +1,119 @@
 ## 1. Visión General de la Compañía
 
-Itaú Unibanco Holding S.A. (ITUB) es un banco universal con operaciones principalmente en Brasil y presencia internacional. Su actividad comprende la captación de depósitos y otras fuentes de financiación, la evaluación y originación de crédito, la distribución de productos financieros por canales físicos y digitales, y el procesamiento de pagos.
+Itaú Unibanco Holding S.A. (ITUB) es un grupo de servicios financieros y banco universal. La información de investigación describe actividades de banca minorista y mayorista, además de actividades de mercado y corporativas. Su operación principal se vincula con Brasil, aunque los materiales disponibles no detallan de forma suficiente la distribución geográfica de ingresos o activos.
 
-Entre los productos reportados están las cuentas corrientes, los servicios de pagos y cobros, los préstamos y las tarjetas de crédito y débito. Atiende a clientes minoristas —con y sin cuentas— y a personas de altos ingresos. La información disponible no permite detallar la contribución de cada geografía o segmento a los resultados.
+El modelo comprende captación de depósitos y financiación mayorista, evaluación de riesgo y originación de crédito, y distribución de productos mediante canales digitales y físicos. También ofrece servicios de pagos y cobranzas, gestión de activos, seguros y banca corporativa. La evidencia recibida describe el negocio, pero no incluye una segmentación financiera completa ni cifras por geografía.
 
-Pertenece al sector bancario, donde la rentabilidad y la calidad de activos son sensibles a las tasas de interés, la actividad económica, el desempleo y las pérdidas crediticias. Comparables o compañías relacionadas incluidas en la lista sectorial de la wiki: [[BSBR]], [[IBN]], [[SAN]], [[JPM]], [[C]], [[HSBC]] y [[MFG]].
+Entre las compañías del sector incluidas en la wiki están [[BSBR]], [[IBN]], [[SAN]], [[JPM]], [[C]] y [[MFG]]. La lista sectorial existente también incluye proveedores de pagos y servicios financieros como [[V]] y [[MA]], que no son comparables directos de un banco universal.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-**Fuentes de ingresos reportadas**
-- Intermediación financiera entre financiación y crédito.
-- Comisiones por servicios y pagos.
-- Productos asociados a tarjetas.
+**Fuentes de ingresos descritas:** intermediación financiera; comisiones por servicios; gestión de activos; seguros; y actividades de banca corporativa y de mercados. La investigación menciona cuentas corrientes, pagos y cobranzas, préstamos, crédito inmobiliario y leasing, pero no proporciona el peso de cada producto en los ingresos.
 
-La evaluación disponible describe posibles ventajas competitivas derivadas de escala, marca, base de clientes, distribución, datos y relaciones de largo plazo. Los costos de cambio asociados a productos bancarios también podrían contribuir a la retención. El análisis clasifica la amplitud potencial del moat como amplia y la posición competitiva como líder; sin embargo, estos juicios no están acompañados de métricas comparativas ni de evidencia detallada, por lo que deben tratarse como evaluaciones preliminares, no como hechos cuantificados.
+**Ventajas competitivas señaladas por AOIF:** escala, marca, relaciones de largo plazo con clientes, variedad de productos, infraestructura de pagos y capacidad de distribución. AOIF califica la amplitud del moat como «amplia» y la posición competitiva como «líder». Estas son valoraciones del análisis AOIF; el paquete no aporta datos comparativos de cuota de mercado, retención de clientes o rentabilidad que permitan verificarlas independientemente.
 
-La competencia en Brasil incluye bancos establecidos y proveedores digitales. La expansión de canales digitales puede ampliar la distribución y los servicios, pero no se aportan datos sobre adopción, costos de adquisición, retención o rentabilidad digital. Entre los pares sectoriales de la wiki figuran [[BSBR]], [[IBN]] y [[SAN]].
+**Dinámica de la industria:** la banca brasileña combina regulación y barreras de entrada con competencia intensa. La rentabilidad puede verse afectada por tasas de interés, inflación, desempleo, el ciclo crediticio y la competencia digital. Estos factores también son relevantes para bancos comparables como [[BSBR]] e [[IBN]].
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes se recibieron como datos proporcionados, pero no se especifican fecha, período, moneda o metodología, salvo donde se indica. No deben interpretarse como una serie histórica validada.
+Las cifras de esta sección proceden de proveedores o análisis incluidos en el paquete. Salvo donde se indica lo contrario, no se especifican unidad, definición, período de cálculo ni metodología; por ello no deben tratarse como métricas plenamente comparables o verificadas.
 
-| Métrica | Valor reportado | Período / limitación |
-|---|---:|---|
-| Crecimiento de ingresos | 8,67% | Período y fuente no especificados |
-| Margen operativo | 36,56% | Período y fuente no especificados |
-| ROIC | 19,98% | Período y fuente no especificados; su interpretación en bancos requiere cautela |
-| PER | 9,05 | Fecha, precio y período de beneficios no especificados |
-| EV/EBITDA | 0 | No es una métrica especialmente adecuada para valorar bancos; no se proporciona metodología |
-| Rendimiento de FCF | 0 | No se proporcionan cifras ni definición |
-| CAGR de ingresos a 3 años | No disponible | Se descartó el cálculo por falta de referencias explícitas a los inputs de evidencia |
-| Crecimiento de FCF | No disponible | Falta el período previo; el análisis indica que el FCF convencional requiere cautela en bancos |
+| Métrica | Dato reportado | Período / fuente | Observaciones |
+|---|---:|---|---|
+| Tendencia de ingresos | Positiva | FY 2022–FY 2025; resumen DDD | No se proporcionan cifras anuales. La tendencia no identifica por sí sola crecimiento orgánico ni rentabilidad de la reinversión. |
+| Crecimiento de ingresos | 8,67% | AOIF; período y definición no indicados | Pendiente de validar fuente, período y comparabilidad. |
+| Margen operativo | 36,56% | AOIF; período y definición no indicados | Pendiente de validar; la definición de margen puede no ser directamente comparable entre bancos. |
+| ROIC | 19,98% | AOIF; período y definición no indicados | AOIF señala que ROIC puede ser poco representativo para bancos; requiere validar metodología e inputs. |
+| PER | 9,05 | AOIF; fecha no indicada | No constituye una valoración actual verificable sin fecha y base de beneficios. |
+| Ingreso neto | Positivo | TTM al 2026-09-30; resumen DDD | No se incluye el importe. |
+| FCF reportado | -49.626 | TTM al 2026-09-30; Stock Analysis | Unidad y definición del FCF no especificadas en el paquete. Su interpretación en un banco requiere validar la metodología. |
+| FCF reportado | 105.840; -6.043; -97.578; -26.451 | FY 2022, FY 2023, FY 2024 y FY 2025, respectivamente; Stock Analysis | Unidad y componentes no especificados. La serie no permite calcular el crecimiento de FCF conforme a la fórmula propuesta. |
+| Precio observado | USD 9,435 | 2026-10-23; Yahoo Finance, citado por DDD | Observación de mercado, no estimación de valor intrínseco. |
+| Momentum a 12 meses | 36,8739% | 2026-10-23; Yahoo Finance, citado por DDD | Dato de precio; no prueba que la acción esté infravalorada. |
+| Volatilidad a 90 días | 39,9419% | 2026-10-23; Yahoo Finance, citado por DDD | Dato de mercado; no es por sí solo una medida de riesgo fundamental. |
 
-El análisis cualitativo disponible califica la tendencia financiera como **estable**, pero señala que los valores financieros carecen de período y fuente para validar una tendencia histórica. La conversión de beneficios a flujo de caja libre no puede verificarse con la información recibida.
+**Capital y calidad de activos:** el paquete no permite evaluar de forma suficiente capital regulatorio, apalancamiento, morosidad, provisiones, castigos, cobertura, costo de riesgo ni evolución de acciones diluidas. El «current ratio» reportado como 0 al 2026-09-30 no se considera interpretable para un banco sin validar su definición y los componentes subyacentes.
 
-La investigación DDD marca como alertas un *current ratio* de 0 y una cobertura de intereses de 0, atribuyéndolos a StockAnalysis. No se aportan fecha, definición, cálculo ni datos subyacentes. Además, los ratios convencionales de liquidez y cobertura de intereses pueden no representar adecuadamente la situación de un banco, cuyo balance se estructura en torno a depósitos, préstamos y otros pasivos financieros. Por ello, estas alertas no bastan para concluir que exista una insuficiencia de liquidez o cobertura sin validación específica.
+**Comparabilidad del FCF:** DDD califica como no disponible el crecimiento de FCF porque no hay dos períodos consecutivos con FCF positivo y porque el TTM al 2026-09-30 no es directamente comparable con FY 2025. La cifra negativa no basta para concluir que la conversión económica del negocio bancario sea débil.
 
-**Estructura de capital:** no hay información suficiente sobre capital regulatorio, apalancamiento, vencimientos, depósitos, deuda o distribución de capital para evaluarla.
+Fuentes citadas en el paquete: [Stock Analysis — estados financieros de ITUB](https://stockanalysis.com/stocks/itub/financials/) y Yahoo Finance, citado por DDD para observaciones al 2026-10-23. No se proporcionan enlaces ni fechas para las métricas de AOIF.
 
 ## 4. Management y Gobierno Corporativo
 
-La evaluación recibida califica la calidad del management como “buena”, el alineamiento de insiders como “moderado” y la asignación de capital como “neutral”. No se proporcionan datos que permitan verificar esas valoraciones, tales como resultados históricos del equipo directivo, remuneración, participación accionaria, decisiones de dividendos o recompras, ni composición y funcionamiento del consejo.
+AOIF califica la calidad del management como «buena», la asignación de capital como «crea valor» y el alineamiento de insiders como «moderado». Son evaluaciones cualitativas sin evidencia detallada en el paquete sobre remuneración, historial de decisiones de capital, propiedad accionaria o resultados por ejecutivo.
 
-**Conclusión:** evaluación pendiente de evidencia. No es posible emitir una conclusión independiente sobre liderazgo, incentivos, propiedad de insiders o gobierno corporativo con los datos disponibles.
+No se incluyen composición del board, independencia de directores, estructura de comités, participación accionaria de insiders ni mecanismos de gobierno. Estos aspectos requieren investigación adicional antes de formular una conclusión sobre gobierno corporativo.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista
+**Caso alcista — hipótesis por validar:**
 
-- **Escala y amplitud de oferta:** Itaú opera como banco universal y ofrece productos de depósitos, crédito, tarjetas, pagos y servicios, lo que puede permitir relaciones financieras amplias con sus clientes. La descripción del negocio proviene del análisis AOIF, sin desglose de contribución por producto.
-- **Posibles ventajas competitivas:** escala, marca, distribución, datos y relaciones bancarias podrían apoyar la retención y la distribución cruzada. Es una hipótesis cualitativa del análisis competitivo; no se aportan indicadores para medir su intensidad frente a pares como [[BSBR]] o [[IBN]].
-- **Canales digitales:** una mayor expansión de los servicios digitales y bancarios se identifica como catalizador potencial positivo. No se proporcionan objetivos, inversiones, métricas de adopción ni fechas específicas.
-- **Calidad crediticia:** una mejora de la calidad de la cartera se identifica como otro catalizador positivo. La tesis dependería de que se traduzca en menor morosidad, provisiones o costo del riesgo; no se incluyen datos actuales de estas variables.
-- **Impulso y crecimiento reportados:** DDD describe un fuerte impulso de precio y crecimiento de ingresos, y AOIF reporta un crecimiento de ingresos de 8,67%. No se especifican períodos ni fuentes verificables para estas afirmaciones, por lo que su valor probatorio es limitado.
+- Itaú tiene un modelo bancario diversificado, con fuentes de ingresos de intermediación, comisiones, gestión de activos, seguros y banca corporativa.
+- AOIF identifica ventajas potenciales de escala, marca, distribución y relaciones con clientes, y lo clasifica como líder competitivo. La evidencia del paquete no aporta métricas de mercado para comprobar el alcance de esas ventajas.
+- El resumen DDD describe una tendencia positiva de ingresos entre FY 2022 y FY 2025 y un ingreso neto positivo en el TTM al 2026-09-30. No incluye importes suficientes para analizar las tasas de crecimiento, su composición o su sostenibilidad.
+- La cotización observada tuvo momentum positivo a 12 meses hasta el 2026-10-23. Esto describe el comportamiento de la acción, pero no demuestra que su valoración sea atractiva.
+- El consenso de precio objetivo reportado al 2026-11-22 tenía media y mediana de USD 8,69, con un rango de USD 6,10 a USD 10,20, según DDD. La fuente original y los supuestos de analistas no se especifican en el paquete.
 
-La clasificación DDD de “Multibagger” se basa en un perfil de descubrimiento asociado a momentum y drawdown. No se proporcionan las métricas, el período ni el método que sustentan esa clasificación; no constituye por sí misma una estimación de retorno esperado.
+La tesis depende de confirmar que el crecimiento de ingresos y beneficios es sostenible y está acompañado por rentabilidad adecuada, calidad crediticia controlada y capital suficiente. La evidencia actual no permite estimar valor intrínseco ni validar un margen de seguridad.
 
 ## 6. Riesgos y Contra-Tesis
 
-### Caso bajista y riesgos principales
+**Riesgos identificados:**
 
-- **Deterioro crediticio:** mayor morosidad y provisiones pueden reducir la rentabilidad. El análisis asigna impacto alto y probabilidad media.
-- **Desaceleración o recesión en Brasil:** puede reducir la demanda de crédito y la capacidad de pago de los clientes. El análisis asigna impacto alto y probabilidad media.
-- **Riesgo regulatorio:** cambios que aumenten los requerimientos de capital figuran como falsador de la tesis, aunque no se describe una medida concreta ni su probabilidad.
-- **Riesgo operacional y de liquidez:** DDD sostiene que el mercado podría subestimar riesgos operacionales y de liquidez. La conclusión no está respaldada por una evaluación bancaria detallada del balance.
-- **Alertas de ratios:** los valores reportados de *current ratio* y cobertura de intereses son 0 y se atribuyen a StockAnalysis, pero requieren confirmar definición, período y pertinencia para una entidad bancaria.
-- **Sobrevaloración frente al consenso reportado:** DDD indica un precio de 9,44 USD, superior al promedio de consenso de 8,69 USD. La comparación depende de cotización, fecha y consenso no especificados en los datos, y no demuestra por sí sola sobrevaloración intrínseca.
+- **Crédito:** una recesión, el desempleo o el sobreendeudamiento de hogares y empresas podrían deteriorar la calidad crediticia y elevar provisiones y pérdidas. AOIF asigna impacto alto y probabilidad media a este riesgo.
+- **Entorno macroeconómico:** tasas de interés, inflación, tipo de cambio y condiciones macroeconómicas de Brasil y otros mercados pueden afectar ingresos, costo de financiación y calidad de activos. AOIF asigna impacto alto y probabilidad alta a este riesgo.
+- **Competencia:** la presión competitiva, incluida la digitalización, puede limitar márgenes o elevar los costos de captación y servicio.
+- **Capital y dilución:** faltan datos para evaluar capital regulatorio, deuda neta, apalancamiento o cambios en el número de acciones. Las métricas convencionales de deuda corporativa, como deuda neta/EBITDA, no se consideran evaluables con este paquete.
+- **Interpretación financiera:** el FCF reportado es negativo en TTM al 2026-09-30, pero su definición y componentes no están validados. No debe utilizarse aisladamente como evidencia de deterioro económico.
 
-### Falsadores identificados
+**Contra-tesis:** la trayectoria de ingresos y el ingreso neto positivo podrían no traducirse en una mejora sostenible de rentabilidad o valor para accionistas si se deteriora la cartera, aumentan las provisiones, cae la rentabilidad ajustada por riesgo o se debilita el capital.
 
-- Condiciones macroeconómicas adversas en Brasil.
-- Cambios regulatorios que aumenten los requerimientos de capital.
-- Deterioro sostenido de la calidad crediticia o mayores provisiones.
-- Crecimiento débil de ingresos, deterioro de rentabilidad o aumento inesperado del endeudamiento, según los supuestos del escenario base.
+**Falsadores que requieren seguimiento:**
+
+1. Resultados comparables que muestren contracción persistente de ingresos o ingreso neto respecto de la trayectoria reportada.
+2. Datos financieros que confirmen deterioro de calidad crediticia, capital o rentabilidad.
+3. Evidencia de que el crecimiento de ingresos no se convierte en beneficios sostenibles o exige más riesgo de crédito del que compensan los retornos.
 
 ## 7. Catalizadores y Timeline
 
-No se aportan fechas esperadas para los catalizadores. La única fecha definida corresponde al horizonte de los escenarios, no a un evento corporativo anunciado.
+| Fecha o hito | Evento | Impacto potencial y evidencia necesaria |
+|---|---|---|
+| Después del período terminado el 2026-09-30; fecha de publicación no proporcionada | Publicación de resultados posteriores a ese período | Contrastar ingresos e ingreso neto con métricas comparables de rentabilidad, crédito y capital. DDD señala que estos resultados todavía no están incluidos en el paquete. |
+| Sin fecha indicada | Clarificación de la composición del FCF reportado | Obtener la definición del proveedor y estados financieros comparables para determinar si el FCF es informativo al evaluar un banco. |
+| Sin fecha indicada | Actualización de métricas de cartera y capital | Seguir morosidad, provisiones, castigos, cobertura, costo de riesgo y capital regulatorio; el paquete actual no contiene una serie suficiente. |
 
-| Catalizador o hito | Fecha disponible | Impacto potencial | Evidencia / condición |
-|---|---|---|---|
-| Mejora de la calidad crediticia de la cartera | Sin fecha | Positivo | Identificado por DDD; vigilar morosidad, provisiones, cobertura y costo del riesgo |
-| Expansión de servicios digitales y bancarios | Sin fecha | Positivo | Identificado por DDD; faltan objetivos y métricas de avance |
-| Escenarios de precio a 12 meses | Del 23-10-2026 al 23-10-2027 | Depende del escenario | Horizonte indicado por DDD; no equivale a una fecha de evento |
-
-**Nota temporal:** el análisis de escenarios está fechado el 23-10-2026 y fija un horizonte al 23-10-2027. Estas fechas se reproducen tal como fueron recibidas; no se proporcionan fuentes externas para verificarlas.
+No se dispone de fechas concretas para los próximos resultados ni de un calendario corporativo verificable.
 
 ## 8. Marco de Valoración
 
-La valoración intrínseca se considera **no estimable con la información disponible**. El PER de 9,05 carece de fecha, precio y período de beneficios de referencia. El consenso de precios en USD reportado por DDD tampoco incluye fuente, fecha de observación o metodología detalladas.
+Para un banco, la valoración debería centrarse en beneficios normalizados y métricas de rentabilidad y capital pertinentes para entidades financieras. Un marco basado exclusivamente en FCF convencional, EV/EBITDA o deuda neta/EBITDA puede ser poco informativo si no se adapta a la naturaleza del balance bancario.
 
-| Escenario DDD | Precio objetivo reportado | Supuestos principales | Limitaciones |
-|---|---:|---|---|
-| Bajista | 6,10 USD | Crecimiento de ingresos inferior al 2% anual; aumento de provisiones por pérdidas crediticias | Fuentes asociadas al escenario aparecen como nulas |
-| Base | 8,69 USD | CAGR de ingresos cercano al 5,5% anual; FCF negativo moderado | Supuestos y cifras no están respaldados por fuentes identificadas |
+**Variables necesarias para una valoración fundamentada:**
 
-DDD reporta un rango de consenso de 6,10–10,20 USD y una media de 8,69 USD, frente a un precio de 9,44 USD. La información no permite determinar si las cifras corresponden a la misma fecha, al mismo instrumento o a una metodología homogénea. AOIF califica el margen de seguridad como insuficiente, pero no ofrece un valor intrínseco calculado que permita reproducir esa conclusión.
+- Beneficios normalizados y proyecciones por segmento.
+- Rentabilidad sobre capital y su relación con el costo de capital.
+- Valor contable y capital regulatorio.
+- Supuestos sobre crecimiento del crédito, tasas, márgenes, pérdidas crediticias, provisiones y costo de riesgo.
+- Fecha de valoración, número de acciones y tratamiento de la dilución.
+- Comparables y múltiplos coherentes, junto con una metodología explícita.
 
-**Metodología apropiada:** para un banco, conviene priorizar métricas ligadas a beneficios, capital y rentabilidad —por ejemplo, PER y valor contable en relación con la rentabilidad sobre capital—, además de evaluar la calidad de activos y el capital regulatorio. EV/EBITDA y el FCF convencional requieren cautela por la naturaleza del balance bancario. No se aportan datos suficientes para calcular estas medidas comparables.
+AOIF reporta un PER de 9,05, pero no indica la fecha ni la base de beneficios. También marca EV/EBITDA y FCF yield como 0; el paquete no establece que esos ceros representen métricas económicamente válidas. AOIF califica el margen de seguridad como insuficiente y señala que no puede estimar valor intrínseco con la información disponible.
 
-**Sensibilidad que debería investigarse:** cambios en morosidad y provisiones, crecimiento del crédito e ingresos, rentabilidad, costo del riesgo y requerimientos de capital. No se puede cuantificar su efecto en el valor objetivo con los inputs actuales.
+DDD reporta un consenso de precio objetivo al 2026-11-22 de USD 8,69 de media y mediana, con rango de USD 6,10 a USD 10,20. Ese rango no sustituye una valoración propia: faltan las estimaciones de analistas y los supuestos operativos que lo sustentan. Por tanto, no es posible validar un error de valoración ni realizar una sensibilidad cuantitativa con la evidencia disponible.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿A qué período, moneda, definición y fuente corresponden el crecimiento de ingresos, el margen operativo, el ROIC y el PER reportados?
-2. ¿Qué series históricas respaldan el crecimiento de ingresos de 8,67% y la descripción de crecimiento e impulso de precio?
-3. ¿Cuál es la evolución de morosidad, provisiones, cobertura de cartera y costo del riesgo, y cómo se compara con [[BSBR]], [[IBN]] y [[SAN]]?
-4. ¿Qué datos del balance permiten evaluar depósitos, liquidez, deuda y capital regulatorio? ¿Cómo se calcularon los ratios de liquidez y cobertura citados por DDD?
-5. ¿Qué proporción de ingresos y beneficios proviene de intermediación, comisiones, tarjetas, pagos y operaciones internacionales?
-6. ¿Qué métricas demuestran las ventajas atribuidas a escala, marca, distribución, datos y costos de cambio?
-7. ¿Qué indicadores cuantifican la adopción, el crecimiento y la rentabilidad de los canales digitales?
-8. ¿Quién integra el consejo y el equipo directivo, y qué evidencia existe sobre remuneración, propiedad de insiders y decisiones de asignación de capital?
-9. ¿Cuál es la fecha y metodología del consenso de 6,10–10,20 USD y del precio reportado de 9,44 USD? ¿Las estimaciones son comparables y vigentes?
-10. ¿Qué evidencia sustenta los supuestos de crecimiento del escenario base y bajista, y cuál es la sensibilidad de la valoración a pérdidas crediticias y capital?
-11. ¿Qué métricas y período sustentan la clasificación “Multibagger” y el score general de 75,02 reportado por DDD?
+1. ¿Qué definición y componentes utiliza el proveedor para el FCF de ITUB? ¿Es comparable entre FY 2022, FY 2023, FY 2024, FY 2025 y el TTM al 2026-09-30?
+2. ¿Cómo evolucionan, en períodos comparables, ROE/ROIC, margen financiero, ingresos por comisiones y costo de riesgo?
+3. ¿Cuál es la trayectoria de morosidad, provisiones, castigos, cobertura y composición de la cartera?
+4. ¿Cómo evolucionan el capital regulatorio y los principales indicadores de solvencia?
+5. ¿Cuál fue el crecimiento de ingresos por segmento y geografía, y cuánto corresponde a crecimiento orgánico?
+6. ¿Cuál es la evolución del número de acciones diluidas y de la participación accionaria de insiders?
+7. ¿Qué fuente, período y definición sustentan el crecimiento de ingresos del 8,67%, el margen operativo del 36,56%, el ROIC del 19,98% y el PER de 9,05 reportados por AOIF?
+8. ¿Qué supuestos de beneficios, costo de capital, crédito y tasas justifican los precios objetivo del consenso reportado?
+9. ¿Cuándo se publicarán los resultados posteriores al período terminado el 2026-09-30 y qué métricas comparables incluirán?
 
-**Fuentes recibidas:** análisis DDD y AOIF incluidos en los inputs de investigación. DDD cita [StockAnalysis — Financials de ITUB](https://stockanalysis.com/stocks/itub/financials/) para algunas alertas de ratios; no se incluyeron fechas ni extractos que permitan verificar los valores.
+**Estado de la evaluación:** investigación requerida; evidencia fundamental incompleta. La recomendación de AOIF queda como `PENDIENTE_DECISION_BOARD`.
 
 ---
 

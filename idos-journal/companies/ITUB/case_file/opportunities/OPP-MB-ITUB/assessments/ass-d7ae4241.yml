@@ -1,0 +1,28 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia fundamental incompleta'
+- 'Market error: No es posible validar un error de valoración con la evidencia disponible:
+  faltan un método de valoración y supuestos operativos verificables.'
+- 'Thesis: Itaú Unibanco es un grupo de servicios financieros con operaciones de banca
+  minorista, mayorista y actividades de mercado y corporativas, según el resumen financiero
+  sin período indicado. Los ingresos'
+generated_at: '2026-11-22T08:42:13.806847-03:00'
+id: ass-d7ae4241
+recommendation: REVIEW
+risks:
+- implicacion: No se pueden evaluar con rigor la conversión de beneficios en caja,
+    el apalancamiento relativo ni el cambio del número de acciones.
+  riesgo: La evidencia no permite calcular de forma compatible crecimiento de FCF,
+    deuda neta/EBITDA ni dilución.
+- implicacion: La conversión de FCF calculada resulta negativa; en una entidad financiera,
+    su interpretación requiere conocer la definición y composición del FCF del proveedor.
+  riesgo: El FCF reportado fue negativo en TTM al 2026-09-30, mientras que el ingreso
+    neto del mismo período fue positivo.
+- implicacion: Quedan sin validar riesgos centrales del negocio bancario y posibles
+    factores de erosión de retornos.
+  riesgo: El paquete no contiene métricas de calidad crediticia, capital regulatorio,
+    morosidad o costos de riesgo.
+score: 48
+status: COMPLETED
+version: '3.0'

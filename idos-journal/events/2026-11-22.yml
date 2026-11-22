@@ -383,3 +383,113 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-22T08:31:50.510993'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-HOG
+    ticker: HOG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:39:00.103292'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HOG
+    ticker: HOG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:39:00.141044'
+- data:
+    classification: Desafiante
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 1b9b84d1ef2f482417d232f7dc3ab825c8c075232c9402ce60a2a0547b8cfe4a
+    opp_id: OPP-MB-HOG
+    original_status: SCREENED
+    score: 73
+    strategy_version: '1.5'
+    ticker: HOG
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:40:14.732614'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-ITUB
+    ticker: ITUB
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:40:46.916570'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ITUB
+    ticker: ITUB
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:40:46.954971'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 7ec3d45ea4331d972e024330687f97b51043e2d9368f6e85e48ba244ac7581a5
+    opp_id: OPP-MB-ITUB
+    original_status: UNDER_RESEARCH
+    score: 48
+    strategy_version: '1.5'
+    ticker: ITUB
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:42:13.922748'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-JCI
+    ticker: JCI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:42:48.522328'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-JCI
+    ticker: JCI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:42:48.564128'
+- data:
+    classification: Empresa industrial madura con crecimiento potencial ligado a soluciones
+      para edificios
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 0293266bbfa072852a76205d6d0cc08058684427db999097eaf25a2515e343da
+    opp_id: OPP-MB-JCI
+    original_status: UNDER_RESEARCH
+    score: 62
+    strategy_version: '1.5'
+    ticker: JCI
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:44:18.533545'

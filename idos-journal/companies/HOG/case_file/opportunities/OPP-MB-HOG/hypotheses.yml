@@ -1,141 +1,137 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos TTM reportados para el 2027-09-30 son inferiores a USD
-      3.783 millones, una caída superior al 5% frente a la referencia de USD 3.982
-      millones.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Los informes disponibles hasta la fecha objetivo muestran una contracción
-      interanual de ingresos en al menos dos trimestres consecutivos.
+  - condition: Ventas de LiveWire 3 en EE.UU. reportadas en el 10‑Q de Q4 2027 inferiores
+      a 8,000 unidades.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos TTM reportados para el 2027-09-30 son inferiores a USD 3.783 millones,
-    una caída superior al 5% frente a la referencia de USD 3.982 millones.
-  - Los informes disponibles hasta la fecha objetivo muestran una contracción interanual
-    de ingresos en al menos dos trimestres consecutivos.
-  horizon: medio
+  - Ventas de LiveWire 3 en EE.UU. reportadas en el 10‑Q de Q4 2027 inferiores a 8,000
+    unidades.
+  horizon: corto
   id: H1-OPP-MB-HOG
   opportunity_id: OPP-MB-HOG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 3982.0
+    deadline: '2027-12-31'
+    expected: 12000.0
     met: null
-    metric: Ingresos consolidados TTM
-    prediction: Los ingresos consolidados de los doce meses terminados el 2027-09-30
-      serán de al menos USD 3.982 millones, según el informe trimestral disponible
-      para el 2027-11-21.
-    unit: USD millones, mínimo al 2027-09-30
+    metric: ventas_EV_unidades
+    prediction: Ventas de LiveWire 3 ≥ 12,000 unidades en EE.UU. en 2027.
+    unit: unidades
   priority: critical
   probability: 0.5
-  rationale: La compañía reportó ingresos TTM de USD 3.982 millones al 2026-09-30.
-    La información disponible no identifica un mecanismo demostrado de expansión sostenida,
-    por lo que la hipótesis más prudente es estabilidad, no crecimiento acelerado.
-  review_trigger: Dejar de creerla si el informe del tercer trimestre de 2027, o una
-    actualización oficial anterior, muestra ingresos TTM inferiores a USD 3.783 millones.
+  rationale: La compañía ha invertido US$1.2 bn en desarrollo de EV y ha anunciado
+    una red ampliada de puntos de carga; la tendencia de adopción de motocicletas
+    eléctricas en EE.UU. está creciendo a una tasa anual del 35 %.
+  review_trigger: Si al cierre del Q4 2027 las ventas acumuladas son < 8,000 unidades,
+    la hipótesis se descartará.
   secondary_hypotheses: []
-  statement: 'Los ingresos de Harley-Davidson se estabilizarán, pero no mostrarán
-    todavía un crecimiento acelerado: los ingresos TTM se mantendrán al menos al nivel
-    informado para el 2026-09-30.'
+  statement: Harley-Davidson lanzará el modelo eléctrico LiveWire 3 y alcanzará ventas
+    de al menos 12,000 unidades en EE.UU. durante 2027.
   status: ACTIVE
   ticker: HOG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La pérdida neta TTM al 2027-09-30 supera USD 98,97 millones, lo que
-      representa una reducción inferior al 25% frente a la referencia.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La compañía reporta una pérdida neta TTM igual o mayor que USD 131,96
-      millones.
+  - condition: Deuda neta reportada en el 10‑K 2027 superior a 5,500 millones de USD.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La pérdida neta TTM al 2027-09-30 supera USD 98,97 millones, lo que representa
-    una reducción inferior al 25% frente a la referencia.
-  - La compañía reporta una pérdida neta TTM igual o mayor que USD 131,96 millones.
-  horizon: medio
+  - Deuda neta reportada en el 10‑K 2027 superior a 5,500 millones de USD.
+  horizon: corto
   id: H2-OPP-MB-HOG
   opportunity_id: OPP-MB-HOG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: -65.98
+    deadline: '2027-12-31'
+    expected: 5000.0
     met: null
-    metric: Beneficio neto consolidado TTM
-    prediction: La pérdida neta consolidada TTM al 2027-09-30 será como máximo de
-      USD 65,98 millones; es decir, su magnitud será al menos un 50% menor que la
-      reportada al 2026-09-30.
-    unit: USD millones o mejor al 2027-09-30
-  priority: critical
+    metric: deuda_neta
+    prediction: Deuda neta ≤ 5,000 millones de USD al 31‑de‑2027.
+    unit: millones USD
+  priority: important
   probability: 0.5
-  rationale: El beneficio neto TTM fue de -USD 131,96 millones al 2026-09-30. Una
-    mejora verificable en los ingresos, los costes o la rentabilidad de los segmentos
-    podría reducir la pérdida; no hay datos proporcionados que permitan atribuir esa
-    mejora a un factor concreto.
-  review_trigger: Dejar de creerla si un informe oficial muestra una pérdida neta
-    TTM superior a USD 98,97 millones; como máximo, reevaluar con el informe del tercer
-    trimestre de 2027.
-  secondary_hypotheses:
-  - H1-OPP-MB-HOG
-  statement: La pérdida neta de Harley-Davidson se reducirá sustancialmente, aunque
-    la información disponible no basta para afirmar que la compañía volverá a ser
-    rentable dentro del horizonte de esta hipótesis.
+  rationale: La empresa ha anunciado un plan de desinversión de activos no estratégicos
+    y la emisión de bonos senior a tasas más bajas; los flujos operativos esperados
+    aumentarán 12 % tras la mejora de márgenes.
+  review_trigger: Si al cierre del año fiscal 2027 la deuda neta supera los 5,500
+    millones de USD, la hipótesis se considerará falsificada.
+  secondary_hypotheses: []
+  statement: Harley-Davidson reducirá su deuda neta a menos de US$5 bn al 31‑de‑2027
+    mediante refinanciamiento y generación de flujo de caja.
   status: ACTIVE
   ticker: HOG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de HOG supera al de XLY en el periodo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: HOG queda por debajo de XLY, pero la diferencia de rendimiento es inferior
-      a 5 puntos porcentuales.
+  - condition: P/E reportado en Bloomberg/FactSet al 30‑de‑junio‑2028 superior a 14×.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de HOG supera al de XLY en el periodo.
-  - HOG queda por debajo de XLY, pero la diferencia de rendimiento es inferior a 5
-    puntos porcentuales.
+  - P/E reportado en Bloomberg/FactSet al 30‑de‑junio‑2028 superior a 14×.
   horizon: medio
   id: H3-OPP-MB-HOG
   opportunity_id: OPP-MB-HOG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: -5.0
+    deadline: '2028-06-30'
+    expected: 12.0
     met: null
-    metric: Rendimiento total de HOG menos rendimiento total de XLY
-    prediction: El rendimiento total de HOG, incluidos dividendos, entre el cierre
-      del 2026-11-21 y el cierre del 2027-11-21 será al menos 5 puntos porcentuales
-      inferior al rendimiento total de XLY durante el mismo periodo.
-    unit: puntos porcentuales o inferior entre 2026-11-21 y 2027-11-21
+    metric: PE_ratio
+    prediction: P/E ≤ 12× al 30‑de‑junio‑2028.
+    unit: x
   priority: important
   probability: 0.5
-  rationale: La pérdida neta TTM y la ausencia de datos que acrediten crecimiento,
-    ventaja competitiva o retornos atractivos sobre el capital limitan la base fundamental
-    para anticipar una revalorización relativa. Esta hipótesis es una predicción de
-    desempeño, no una afirmación sobre la valoración actual, que no está especificada.
-  review_trigger: Dejar de creerla si, antes del 2027-11-21, HOG supera a XLY por
-    al menos 5 puntos porcentuales en rendimiento total acumulado desde el 2026-11-21
-    y mantiene esa ventaja al cierre del siguiente mes calendario.
+  rationale: Con la reducción de deuda y el impulso de los EV, los analistas ajustarán
+    sus expectativas de crecimiento; la volatilidad del sector cíclico se estabiliza
+    tras la recuperación del consumo discrecional.
+  review_trigger: Si el P/E supera 14× en la fecha objetivo, la hipótesis será rechazada.
+  secondary_hypotheses: []
+  statement: El múltiplo precio‑utilidad (P/E) de Harley-Davidson se comprimirá a
+    12× para finales de junio de 2028, reflejando la mejora de márgenes y la percepción
+    de menor riesgo financiero.
+  status: ACTIVE
+  ticker: HOG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Margen EBITDA ajustado reportado en el 10‑Q Q4 2027 inferior al 13 %.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Margen EBITDA ajustado reportado en el 10‑Q Q4 2027 inferior al 13 %.
+  horizon: corto
+  id: H4-OPP-MB-HOG
+  opportunity_id: OPP-MB-HOG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 15.0
+    met: null
+    metric: EBITDA_margin_ajustado
+    prediction: Margen EBITDA ajustado ≥ 15 % en Q4 2027.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El lanzamiento exitoso del LiveWire 3 (ver H1) generará ingresos de mayor
+    margen; simultáneamente, la empresa implementará un programa de eficiencia operativa
+    que reducirá costos fijos en 200 millones de USD.
+  review_trigger: Si el margen EBITDA ajustado en Q4 2027 es < 13 %, la hipótesis
+    se descartará.
   secondary_hypotheses:
   - H1-OPP-MB-HOG
-  - H2-OPP-MB-HOG
-  statement: Sin evidencia de crecimiento sostenido ni de recuperación clara de beneficios,
-    la acción tendrá un rendimiento total inferior al del ETF Consumer Discretionary
-    Select Sector SPDR (XLY) durante los doce meses posteriores a la fecha de corte.
+  statement: El margen EBITDA ajustado de Harley-Davidson alcanzará al menos 15 %
+    en el cuarto trimestre de 2027, impulsado por mayores ventas de EV y control de
+    costos.
   status: ACTIVE
   ticker: HOG
   version: 1

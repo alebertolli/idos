@@ -2,49 +2,38 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-DOCU",
-      "ticker": "DOCU",
+      "opp_id": "OPP-MB-HOG",
+      "ticker": "HOG",
       "status": "completed",
-      "score": 68,
+      "score": 73,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-ECL",
-      "ticker": "ECL",
+      "opp_id": "OPP-MB-ITUB",
+      "ticker": "ITUB",
       "status": "quality_failed",
-      "score": 43,
+      "score": 48,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "opp_id": "OPP-MB-GOOGL",
-      "ticker": "GOOGL",
-      "status": "quality_failed",
-      "score": 56,
+      "opp_id": "OPP-MB-JCI",
+      "ticker": "JCI",
+      "status": "completed",
+      "score": 62,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "errors": []
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "ECL",
-      "opp_id": "OPP-MB-ECL",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "ticker": "GOOGL",
-      "opp_id": "OPP-MB-GOOGL",
+      "ticker": "ITUB",
+      "opp_id": "OPP-MB-ITUB",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -53,8 +42,8 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 17,
-  "quarantined_count": 7,
+  "deferred_count": 14,
+  "quarantined_count": 8,
   "capacity_failure": null,
   "event_type": "monthly",
   "force": false,

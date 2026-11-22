@@ -1,127 +1,131 @@
 ## 1. Visión General de la Compañía
 
-Harley-Davidson, Inc. ([[HOG]]) diseña, fabrica y vende motocicletas en Estados Unidos y otros mercados internacionales. Su actividad también incluye productos y servicios relacionados, financiación a clientes y ventas mediante concesionarios independientes y canales digitales.
+Harley-Davidson, Inc. ([[HOG]]) diseña, fabrica y vende motocicletas en Estados Unidos y otros mercados internacionales. También comercializa piezas, accesorios y ropa, y ofrece servicios financieros. Su distribución combina una red de concesionarios independientes con canales digitales.
 
-La oferta descrita en los materiales incluye motocicletas de combustión —cruiser, trike, touring, standard, sportbike, adventure touring y dual sport—, así como motocicletas eléctricas y bicicletas eléctricas. Los clientes incluyen compradores de motocicletas nuevas y usadas, además de propietarios que adquieren repuestos, accesorios, ropa y servicios.
+La empresa opera en motocicletas recreativas y premium, un segmento expuesto al gasto discrecional, los ciclos económicos, las preferencias de movilidad y los cambios demográficos. La información disponible no detalla los ingresos ni la rentabilidad por segmento o geografía.
 
-La información disponible identifica tres segmentos, pero no proporciona sus nombres, ingresos ni contribución a resultados. Por ello, no es posible caracterizar aquí su composición financiera.
+**Fecha de corte de la información suministrada:** 22 de noviembre de 2026. Las métricas financieras recibidas no incluyen siempre período, unidades o fuentes verificables; deben interpretarse con cautela.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
 ### Drivers de ingresos
 
-- Volumen de motocicletas vendidas y mezcla de modelos y regiones.
-- Precio medio, promociones e incentivos al consumidor.
-- Demanda de repuestos, accesorios, ropa y servicios relacionados.
-- Actividad de financiación a clientes, cuya contribución no está cuantificada en los materiales disponibles.
+- Volumen de motocicletas vendidas y precio medio.
+- Mezcla de modelos y mercados geográficos.
+- Ventas de piezas, accesorios y ropa a propietarios de Harley-Davidson.
+- Actividad de financiación asociada al negocio.
 
-La cadena de valor abarca diseño e ingeniería, abastecimiento y fabricación, gestión de inventario y logística, y distribución mediante concesionarios y canales digitales.
+### Moat y competencia
 
-### Moat y posición competitiva
+La marca histórica, la comunidad de clientes, la red de concesionarios y el ecosistema de productos y servicios pueden contribuir a la diferenciación y la lealtad. La evaluación disponible califica la amplitud del moat como **estrecha**: no hay evidencia suficiente para confirmar la durabilidad de estas ventajas ni su capacidad de proteger márgenes.
 
-La marca, la identidad cultural, la comunidad de propietarios y la red de concesionarios podrían favorecer fidelidad, poder de precios y ventas complementarias. El análisis AOIF caracteriza la amplitud del moat como **estrecha** y la posición competitiva como líder, pero no aporta métricas que permitan verificar retención, cuota de mercado, precios relativos o rentabilidad incremental. Estas valoraciones deben considerarse indicativas, no hechos cuantitativamente confirmados.
+La compañía se describe como líder en su posición competitiva, pero esta clasificación no viene acompañada de datos de cuota de mercado. En motocicletas, compite con fabricantes como [[HMC]]; la información suministrada no contiene una comparación financiera o competitiva directa. Por exposición a demanda discrecional, también puede resultar útil comparar algunos riesgos con compañías de consumo como [[ANF]], aunque operan en actividades distintas.
 
-La compañía compite en una industria sensible al gasto discrecional, la disponibilidad de crédito, las preferencias demográficas y los cambios tecnológicos y regulatorios. La información disponible menciona competencia en precio, sin identificar competidores directos ni comparar sus resultados. Entre las compañías relacionadas por exposición a consumo discrecional, vehículos o productos de marca se encuentran [[HMC]], [[GM]] y [[RACE]]; la relación no implica equivalencia de negocio.
+La electrificación puede modificar la dinámica competitiva. El material identifica a LiveWire como posible catalizador, pero no aporta datos verificables sobre ventas, cuota, rentabilidad o contribución a los resultados.
 
 ## 3. Perfil Financiero
 
-Los datos financieros cuantificados proceden de Stock Analysis, según las observaciones fechadas en los materiales de investigación. Los períodos fiscal anual y TTM no son directamente comparables como una serie anual uniforme.
+Las métricas siguientes proceden de los outputs de investigación y no incluyen todas una definición, período o fuente subyacente. No deben tratarse como una serie financiera reconciliada.
 
-| Métrica | Valor | Período / fecha | Observación |
-|---|---:|---|---|
-| Ingresos | USD 5.836 millones | FY 2023 | Cifra reportada por Stock Analysis |
-| Ingresos | USD 3.982 millones | TTM al 2026-09-30 | No equivale a un ejercicio fiscal completo comparable |
-| Beneficio neto | USD 338,74 millones | FY 2025 | Cifra reportada por Stock Analysis |
-| Beneficio neto | -USD 131,96 millones | TTM al 2026-09-30 | Resultado neto negativo |
-| Crecimiento de FCF | -20,39% | TTM al 2026-09-30 | Tasa reportada por el proveedor; el paquete no detalla los períodos exactos de comparación |
-| Current ratio | 1,97x | 2026-09-30 | No cruza el umbral de riesgo de 0,5x indicado en el análisis |
-| Precio objetivo medio observado | USD 31,50 | Observado el 2026-11-21 | Fuentes citadas: Stock Analysis y Yahoo Finance |
-| Cotización | USD 31,22 | 2026-10-30 | Fecha de observación indicada en el análisis |
+| Métrica | Valor informado | Interpretación y limitaciones |
+|---|---:|---|
+| Crecimiento de ingresos | -14,64% | El período y la fuente no se especifican en AOIF. |
+| Margen operativo | -4,26% | Métrica negativa informada; período y base de cálculo no especificados. |
+| ROIC | -4,14% | Métrica negativa informada; período y base de cálculo no especificados. |
+| Crecimiento del FCF (TTM) | -20,39% | Reportado en DDD; StockAnalysis figura como fuente, consultada el 22-11-2026. |
+| Cobertura de intereses | 0x | Señalada como bandera de riesgo en DDD; faltan detalle del cálculo y período. |
+| Deuda neta/EBITDA | ≈467x | Señalada como bandera de riesgo en DDD; faltan detalle del cálculo y período. |
+| EV/EBITDA | 2.056,59 | Valor informado en AOIF, sin fecha, inputs ni metodología verificables; no es interpretable con fiabilidad. |
+| FCF yield | 0 | Valor informado en AOIF, sin período ni inputs verificables. |
+| PER | 0 | Valor informado en AOIF; no debe interpretarse como una valoración válida sin conocer beneficios y metodología. |
+| CAGR de ingresos a 3 años | No disponible | DDD descartó el cálculo por falta de referencias explícitas a los inputs de evidencia. |
 
-El paquete también contiene valores de crecimiento de ingresos de **-14,64%**, margen operativo de **-4,26%**, ROIC de **-4,14%** y EV/EBITDA de **2.056,59**. AOIF advierte que no se especifican período, metodología ni fuente para esos valores; deben verificarse antes de utilizarlos en conclusiones o comparaciones.
+**Fuentes consignadas en DDD:** [estadísticas de HOG en StockAnalysis](https://stockanalysis.com/stocks/HOG/statistics/) y [financieros de HOG en StockAnalysis](https://stockanalysis.com/stocks/hog/financials/), ambas con fecha de consulta indicada del 22-11-2026. El crecimiento del FCF TTM de -20,39% se atribuye a esta última fuente en el material recibido.
 
-No se proporcionan datos suficientes para evaluar deuda neta, vencimientos, flujo de caja operativo, inversión de capital, conversión de beneficios en efectivo o dilución interanual. Stock Analysis no ofrecía en el paquete una cifra comparable de acciones para evaluar dilución.
-
-**Fuentes:** [Stock Analysis — Financials](https://stockanalysis.com/stocks/hog/financials/) (datos citados al 2026-09-30); [Stock Analysis — Statistics](https://stockanalysis.com/stocks/HOG/statistics/) (current ratio citado al 2026-09-30). El consenso y el precio objetivo se atribuyen también a Yahoo Finance, observados el 2026-11-21; no se proporcionó un enlace específico a esa observación.
+El análisis disponible describe una tendencia financiera deteriorada y señala presión sobre ingresos, márgenes y retornos. AOIF indica que no hay datos suficientes de flujo de caja operativo, capex y FCF para evaluar la conversión de caja. Tampoco se proporcionan cifras verificables de deuda absoluta, vencimientos, liquidez o estructura de capital. Las estimaciones de apalancamiento extremo y cobertura nula requieren validación antes de usarse en una valoración.
 
 ## 4. Management y Gobierno Corporativo
 
-La evaluación AOIF califica la calidad del management como **regular**, la asignación de capital como **neutral** y el alineamiento de insiders como **moderado**. Sin embargo, los materiales no incluyen resultados detallados de iniciativas estratégicas, historial cuantificado de asignación de capital, remuneración ejecutiva, tenencia accionarial de insiders ni información sobre la composición del board.
+La información recibida califica la calidad de la gestión como **regular**, la asignación de capital como **neutral** y el alineamiento de insiders como **débil**. Estas valoraciones no vienen acompañadas de datos sobre resultados del equipo directivo, participación accionaria, remuneración, recompras, dividendos, adquisiciones o rendimientos de inversiones.
 
-Estas valoraciones no pueden verificarse con la evidencia suministrada. No hay base suficiente para concluir si los incentivos directivos están alineados con la creación de valor por acción o si las decisiones de capital han generado retornos atractivos.
+No se proporcionan nombres ni antecedentes de ejecutivos, composición del consejo, independencia de sus integrantes, comités, estructura de incentivos ni tenencia accionaria de insiders. Por tanto, no es posible emitir una evaluación fundamentada del liderazgo o del gobierno corporativo.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista, sujeto a confirmación
+La tesis alcista depende de que Harley-Davidson logre estabilizar el negocio tradicional y mejorar la rentabilidad, apoyándose en sus activos de marca, distribución y relación con los clientes.
 
-- La marca Harley-Davidson, su comunidad de propietarios y su red de concesionarios podrían sostener fidelidad y ventas de productos complementarios.
-- Una recuperación de volumen, precios o mezcla de modelos podría contribuir a estabilizar ingresos y márgenes.
-- La expansión o recuperación de repuestos, accesorios, ropa, servicios y financiación podría diversificar la actividad respecto de la venta inicial de motocicletas. Los materiales no cuantifican esta contribución.
-- La cotización observada de USD 31,22 estaba cerca del precio objetivo medio de USD 31,50 citado en el paquete. Esa proximidad no valida por sí sola una oportunidad de valoración: faltan los supuestos del consenso y una valoración independiente.
+**Elementos potencialmente favorables, sujetos a verificación:**
 
-La tesis es **de investigación pendiente**, no una conclusión de crecimiento compuesto. La evidencia financiera disponible muestra ingresos TTM inferiores a los ingresos de FY 2023 y una pérdida neta TTM, pero las ventanas de tiempo no son plenamente comparables. No se dispone de información suficiente para confirmar que la compañía haya iniciado una recuperación.
+- La marca, la comunidad de clientes y la red de concesionarios podrían sostener la diferenciación y las ventas de productos relacionados.
+- Un crecimiento rentable de LiveWire y su expansión internacional podrían abrir una fuente adicional de ingresos. El material lo identifica como catalizador, pero no aporta resultados que confirmen su escala o rentabilidad.
+- La reducción de costos y una recuperación del margen bruto podrían mejorar la rentabilidad operativa.
+- El escenario alcista de DDD supone crecimiento anual de ingresos del 5%, crecimiento anual del FCF del 10%, margen bruto de 25%, reducción de deuda y cobertura de intereses superior a 2x. Son **supuestos de escenario**, no hechos observados.
+
+La tesis perdería credibilidad si no se recuperan ingresos, márgenes y generación de caja, o si el endeudamiento impide financiar la operación y las prioridades estratégicas.
 
 ## 6. Riesgos y Contra-Tesis
 
-### Caso bajista y riesgos clave
+El caso bajista se apoya en la posibilidad de que la debilidad de ingresos y rentabilidad persista en un negocio cíclico y discrecional. DDD clasifica la oportunidad como **Desafiante** y la calidad del negocio como **Media**; estas son evaluaciones del análisis, no métricas reportadas por la compañía.
 
-- **Deterioro financiero:** ingresos de USD 3.982 millones TTM al 2026-09-30 y pérdida neta de USD 131,96 millones en ese período, según Stock Analysis.
-- **Flujo de caja:** el FCF reportado cayó 20,39% en TTM. El paquete no presenta el desglose de sus impulsores ni los importes subyacentes.
-- **Demanda discrecional:** una reducción del gasto de los consumidores, cambios demográficos o variaciones en preferencias puede reducir la demanda de motocicletas.
-- **Concesionarios e inventario:** la dependencia de concesionarios, los niveles de inventario y el uso de incentivos pueden afectar el volumen y los precios.
-- **Crédito:** la industria depende de la confianza del consumidor y del acceso a financiación; el impacto específico sobre Harley-Davidson no está cuantificado.
-- **Competencia y transición tecnológica:** la competencia en precio, los cambios tecnológicos y los requisitos regulatorios pueden presionar la posición de la compañía.
-- **Incertidumbre de valoración:** el paquete no permite determinar si el mercado subestima o sobrestima el valor intrínseco. Faltan expectativas de consenso detalladas, comparables y supuestos verificables.
+### Riesgos identificados
 
-### Triggers de falsación
+- **Caída de ingresos y presión sobre márgenes:** señaladas como tendencias deterioradas en AOIF y DDD.
+- **Riesgo de deuda y servicio financiero:** cobertura de intereses de 0x y deuda neta/EBITDA de aproximadamente 467x según DDD. Dada la falta de inputs verificables, ambos valores requieren reconciliación antes de sacar conclusiones cuantitativas.
+- **Ciclicidad y demanda discrecional:** una debilidad macroeconómica podría reducir la demanda de motocicletas y productos relacionados.
+- **Ejecución en electrificación:** LiveWire podría no alcanzar escala, crecimiento rentable o expansión internacional.
+- **Volatilidad:** DDD informa volatilidad a 90 días de 37,6%.
 
-La hipótesis de recuperación se debilitaría si:
+### Contra-tesis y falsadores
 
-1. Los ingresos y márgenes continúan deteriorándose en períodos posteriores que sean comparables.
-2. La compañía no recupera un beneficio neto positivo ni estabiliza el FCF en períodos posteriores.
-3. Una recuperación de ventas depende de incentivos que erosionen precios o márgenes, una posibilidad que requiere comprobar con datos futuros.
+DDD plantea que el mercado podría subestimar la capacidad de recuperación de Harley-Davidson. Sin embargo, también observa que el deterioro financiero podría justificar una valoración más cercana al extremo bajo del rango de analistas suministrado.
+
+Los siguientes son **umbrales propuestos por los análisis**, no resultados confirmados:
+
+- DDD identifica como falsadores de la tesis general ingresos anuales superiores a 6.000 millones de USD y un margen bruto sostenido por encima del 30%.
+- El escenario bajista añade como falsadores ingresos anuales superiores a 5.000 millones de USD y cobertura de intereses superior a 2x.
+- El escenario alcista quedaría cuestionado si el margen bruto se mantiene por debajo del 20% o la deuda neta supera 2.000 millones de USD.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador o hito a monitorear | Fecha esperada | Impacto potencial |
-|---|---|---|
-| Próximos resultados financieros comparables | No especificada en los materiales | La recuperación sostenida de ingresos, márgenes y beneficio neto podría respaldar una estabilización; nuevos deterioros reforzarían la contra-tesis |
-| Evolución del FCF frente a la caída reportada de 20,39% | Próxima actualización financiera; fecha no especificada | Una mejora sería una señal favorable, pero será necesario identificar si proviene de operaciones sostenibles, capital de trabajo u otros factores |
-| Ventas, precios, mezcla de modelos, inventario e incentivos por región | Seguimiento continuo; no hay fechas ni hitos corporativos identificados | Permitiría distinguir una recuperación de demanda de un aumento de ventas impulsado principalmente por descuentos |
-| Cambios en guía o anuncios corporativos | No disponibles en el paquete | Podrían modificar las expectativas si aportan objetivos cuantificados y verificables |
+No se proporcionan fechas confirmadas para eventos corporativos concretos. Los catalizadores siguientes son condicionales y su calendario es desconocido.
 
-No se proporcionan fechas de resultados, guía de la compañía ni un calendario de eventos específicos. Por tanto, los puntos anteriores son indicadores a vigilar, no catalizadores confirmados con fecha.
+| Catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
+|---|---|---|---|
+| Crecimiento de ventas de LiveWire y expansión internacional | No especificada | Positivo si genera ingresos y rentabilidad sostenibles | Catalizador propuesto en DDD; sin métricas verificables de desempeño. |
+| Reducción de costos y mejora del margen bruto | No especificada | Positivo si revierte la presión sobre márgenes | Catalizador propuesto en DDD; sin plan, plazo ni objetivos corporativos citados. |
+| Recuperación de ingresos y mejora de cobertura de intereses | No especificada | Positivo para la solvencia y la valoración | Supuesto del escenario alcista; no es un evento confirmado. |
 
 ## 8. Marco de Valoración
 
-No es posible estimar responsablemente un valor intrínseco con la información disponible. El paquete carece de precio y capitalización fechados para construir una valoración completa, deuda neta, flujo de caja libre y resultados normalizados, así como supuestos de crecimiento y rentabilidad a largo plazo.
+El valor intrínseco no puede estimarse de forma fiable con los datos recibidos. AOIF señala la falta de precio y capitalización de mercado verificables, deuda neta, acciones diluidas, beneficios normalizados y flujos de caja suficientes. El valor de EV/EBITDA informado en AOIF (2.056,59) tampoco puede utilizarse sin validar sus inputs y metodología.
 
-### Enfoques posibles para una investigación posterior
+**Enfoques apropiados para una evaluación futura:**
 
-- **DCF basado en flujo de caja libre:** apropiado solo después de normalizar resultados y separar capital de trabajo, inversión de mantenimiento y otros componentes del FCF.
-- **Múltiplos comparables:** requeriría seleccionar empresas realmente comparables, normalizar métricas y confirmar períodos y definiciones de EV/EBITDA y otros múltiplos.
-- **Escenarios de recuperación:** comparar casos de estabilización, recuperación y deterioro usando supuestos explícitos sobre volumen, precios, mezcla, márgenes y conversión a efectivo.
+- **Flujo de caja descontado:** una vez reconstruidos los flujos operativos, capex, necesidades de financiación y deuda.
+- **Valoración por segmentos:** si se obtienen resultados separados y comparables para motocicletas, financiación, productos relacionados y LiveWire.
+- **Múltiplos de comparables:** con beneficios o EBITDA normalizados y empresas comparables justificadas; la información actual no permite establecer múltiplos fiables.
 
-### Supuestos y sensibilidades que deben modelarse
+DDD aporta un rango de consenso de analistas de **19 a 40 USD**, con media y mediana de **31,5 USD**. El material también menciona un precio actual de **31,22 USD**, pero no establece una fuente verificable para ese precio. Estas cifras son datos del análisis suministrado y no una valoración independiente.
 
-La valoración sería especialmente sensible a la trayectoria de ventas y márgenes, la intensidad de los incentivos, la recuperación del beneficio neto, la conversión de efectivo y la inversión de mantenimiento. AOIF etiqueta el margen de seguridad como **insuficiente**, pero la falta de inputs verificables impide reconstruir ese juicio.
+| Escenario DDD | Supuestos principales | Precio objetivo informado | Horizonte |
+|---|---|---:|---|
+| Bajista | Ingresos: CAGR de -12% anual; crecimiento del FCF: -20% continuo; margen bruto inferior al 19% y sin mejora de cobertura | 19 USD | 22-11-2027 |
+| Alcista | Ingresos: CAGR de +5% anual; crecimiento del FCF: +10% anual; margen bruto de 25%, reducción de deuda y cobertura superior a 2x | 40 USD | 22-11-2027 |
 
-El precio objetivo medio observado de USD 31,50 frente a una cotización de USD 31,22 (datos observados en las fechas citadas en la sección 3) indica proximidad entre ambas cifras, no una estimación independiente del valor intrínseco. No hay evidencia suficiente para afirmar un error de valoración del mercado.
+Los escenarios tienen supuestos y resultados reportados, pero las fuentes de respaldo aparecen como nulas en el análisis. Deben considerarse ilustrativos y no objetivos de valoración verificados.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué explica la caída de ingresos y margen bruto, y qué parte es temporal frente a estructural?
-2. ¿Cuáles son los ingresos, márgenes y beneficios por segmento, región y categoría de producto?
-3. ¿Qué retornos incrementales sobre capital obtiene la compañía? ¿Cuál es la inversión de mantenimiento necesaria y cómo se asigna el capital?
-4. ¿Cuáles son los importes y componentes del flujo de caja operativo, la inversión de capital y el FCF? ¿Qué explica su caída reportada?
-5. ¿Cómo evolucionan las ventas minoristas frente a los envíos a concesionarios, los inventarios, los precios y los incentivos?
-6. ¿Qué proporción de la demanda depende de financiación y cómo cambian las aprobaciones, los impagos y la rentabilidad de esa actividad?
-7. ¿Qué deuda, vencimientos, obligaciones financieras y compromisos de capital tiene la compañía?
-8. ¿Cómo se sustentan y definen los valores de crecimiento de ingresos (-14,64%), margen operativo (-4,26%), ROIC (-4,14%) y EV/EBITDA (2.056,59) aportados por AOIF?
-9. ¿Qué muestran los datos comparables de acciones en circulación, remuneración ejecutiva, propiedad de insiders y composición del board?
-10. ¿Qué expectativas financieras sustentan el precio objetivo medio de USD 31,50, y con qué fechas, analistas y supuestos se calculó?
-11. ¿Qué evidencia cuantitativa confirma la fuerza de marca, la fidelidad, el poder de precios y la posición competitiva?
-12. ¿Existe guía corporativa o un calendario de hitos que permita evaluar de forma anticipada la recuperación?
+1. ¿A qué períodos, unidades y fuentes corresponden las tasas de crecimiento de ingresos, margen operativo y ROIC informadas por AOIF?
+2. ¿Cómo se calculan la cobertura de intereses de 0x y la deuda neta/EBITDA de aproximadamente 467x? ¿Pueden reconciliarse con estados financieros verificables?
+3. ¿Cuál es la deuda neta absoluta, su vencimiento, coste, liquidez disponible y estructura por negocio?
+4. ¿Cuáles son los ingresos, márgenes, flujos de caja, capex y necesidades de financiación por segmento?
+5. ¿Qué tendencia muestran ventas, margen bruto y rentabilidad a través de varios períodos, y qué factores explican sus cambios?
+6. ¿Qué escala y rentabilidad tiene LiveWire, y qué inversiones necesita para cumplir las expectativas de crecimiento y expansión internacional?
+7. ¿Qué datos de management, compensación, participación de insiders, asignación de capital y composición del consejo permiten validar las calificaciones de AOIF?
+8. ¿Qué inputs sustentan el precio actual, el rango de consenso y los objetivos de 19 y 40 USD?
+9. ¿Puede construirse una estimación de valor con datos verificables de acciones diluidas, beneficios normalizados y flujos de caja?
+10. ¿Las ventas anuales superan los umbrales de 5.000 o 6.000 millones de USD, y puede sostenerse un margen bruto por encima del 30%? Los períodos y criterios de medición de estos falsadores deben precisarse.
 
 ---
 

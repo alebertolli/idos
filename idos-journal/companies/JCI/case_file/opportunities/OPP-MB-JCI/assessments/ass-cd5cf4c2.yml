@@ -1,0 +1,32 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Empresa industrial madura con crecimiento potencial ligado a soluciones
+  para edificios'
+- 'Market error: No se valida un error de valoración: el consenso observado no sustituye
+  una valoración intrínseca y la evidencia disponible no permite probar que el mercado
+  esté infravalorando o sobrevalorando JCI.'
+- 'Thesis: JCI ofrece productos, sistemas, servicios y soluciones digitales para edificios
+  en varias regiones. La tesis favorable requiere que el crecimiento de ingresos y
+  la expansión del margen bruto observado'
+generated_at: '2026-11-22T08:44:18.381639-03:00'
+id: ass-cd5cf4c2
+recommendation: REVIEW
+risks:
+- evidencia: Current ratio 0,9 al 2026-09-30; StockAnalysis, https://stockanalysis.com/stocks/JCI/statistics/.
+  riesgo: La liquidez corriente reportada es inferior a 1, aunque no cruza el umbral
+    de observación configurado.
+- evidencia: FCF 3.309 en FY 2026 frente a 965 en FY 2025; unidad reportada por la
+    fuente. StockAnalysis, https://stockanalysis.com/stocks/jci/financials/.
+  riesgo: El FCF más reciente informado presenta una variación interanual elevada
+    frente a una base FY 2025 reducida.
+- evidencia: Se proporciona una observación de acciones en circulación, pero no una
+    serie histórica fechada comparable.
+  riesgo: No hay datos suficientes en el paquete para evaluar dilución y crecimiento
+    del número de acciones.
+- evidencia: La fuente informa interest coverage 0 al 2026-09-30, sin detalle que
+    permita validar el cálculo o interpretar ese valor.
+  riesgo: No se puede evaluar cobertura de intereses con la observación disponible.
+score: 62
+status: COMPLETED
+version: '3.0'
