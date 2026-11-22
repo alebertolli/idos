@@ -1,0 +1,33 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida'
+- 'Market error: No se valida un error de valoración: el precio está por debajo del
+  rango de objetivos observado, pero no hay un método de valoración independiente
+  con inputs suficientes.'
+- 'Thesis: Ecolab ofrece soluciones y servicios de agua, higiene y prevención de infecciones
+  en cuatro segmentos. Los datos financieros del paquete muestran aumento de ingresos
+  y margen bruto entre FY2022 y FY20'
+generated_at: '2026-11-22T08:29:46.390265-03:00'
+id: ass-39bbf89d
+recommendation: REVIEW
+risks:
+- analisis: La cobertura de intereses aparece como 0 en el proveedor y no se puede
+    validar; el dato no permite inferir cobertura económica. La deuda y caja reportadas
+    tienen URL en la evidencia de campo, pero no una URL admitida en trusted_source_urls
+    para validar el ratio requerido.
+  riesgo: Apalancamiento y liquidez
+- analisis: El FCF fue positivo en FY2021–FY2025 según la serie disponible, pero no
+    hay URL de fuente habilitada para citar los ratios de crecimiento y conversión
+    solicitados.
+  riesgo: Calidad de la generación de caja
+- analisis: No se aportan datos de cuota, penetración, retención, precios, competencia
+    ni mercado direccionable; la ventaja competitiva y su erosión quedan abiertas.
+  riesgo: Erosión competitiva y mercado
+- analisis: El paquete no incluye evidencia sobre decisiones de inversión, adquisiciones,
+    retornos incrementales sobre capital o dilución histórica suficiente para evaluar
+    la asignación de capital.
+  riesgo: Gestión y asignación de capital
+score: 43
+status: COMPLETED
+version: '3.0'

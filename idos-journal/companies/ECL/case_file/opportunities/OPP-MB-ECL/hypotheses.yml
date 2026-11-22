@@ -1,186 +1,189 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de ECL menos la del S&P 500 durante el periodo
-      es inferior a 5 puntos porcentuales.
+  - condition: El crecimiento orgánico de ventas de FY2027 es inferior al 4%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: ECL registra una rentabilidad total negativa durante el periodo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - La rentabilidad total de ECL menos la del S&P 500 durante el periodo es inferior
-    a 5 puntos porcentuales.
-  - ECL registra una rentabilidad total negativa durante el periodo.
-  horizon: medio
-  id: H4-OPP-MB-ECL
-  opportunity_id: OPP-MB-ECL
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-11-19'
-    expected: 5.0
-    met: null
-    metric: Ventaja de rentabilidad total de ECL frente al S&P 500
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, la rentabilidad
-      total de ECL, incluidos dividendos, superará en al menos 5 puntos porcentuales
-      la rentabilidad total del S&P 500.
-    unit: puntos porcentuales
-  priority: informational
-  probability: 0.5
-  rationale: Si el crecimiento de ingresos y la conversión de caja cumplen las hipótesis
-    H1 y H3, el mercado podría reconocer una trayectoria operativa más sólida. Sin
-    datos de valoración, expectativas del consenso ni precio de referencia suministrados,
-    no hay evidencia suficiente para afirmar que Ecolab esté infravalorada; esta es
-    una hipótesis de desempeño relativo, no una conclusión de valoración.
-  review_trigger: Evaluar la hipótesis al cierre del 2027-11-19 usando rentabilidad
-    total ajustada por dividendos; abandonarla en esa fecha si la ventaja frente al
-    S&P 500 es inferior a 5 puntos porcentuales.
-  secondary_hypotheses:
-  - H1-OPP-MB-ECL
-  - H3-OPP-MB-ECL
-  statement: La rentabilidad total de la acción de Ecolab superará a la del S&P 500
-    en al menos 5 puntos porcentuales durante los próximos doce meses.
-  status: ACTIVE
-  ticker: ECL
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: Las ventas TTM al 2027-09-30 son inferiores a USD 18.414 mil millones.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La compañía informa crecimiento orgánico de ventas acumulado negativo
-      durante los cuatro trimestres terminados el 2027-09-30.
+  - condition: Las ventas orgánicas disminuyen interanualmente en dos trimestres consecutivos
+      de FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Las ventas TTM al 2027-09-30 son inferiores a USD 18.414 mil millones.
-  - La compañía informa crecimiento orgánico de ventas acumulado negativo durante
-    los cuatro trimestres terminados el 2027-09-30.
+  - El crecimiento orgánico de ventas de FY2027 es inferior al 4%.
+  - Las ventas orgánicas disminuyen interanualmente en dos trimestres consecutivos
+    de FY2027.
   horizon: medio
   id: H1-OPP-MB-ECL
   opportunity_id: OPP-MB-ECL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 18.414
+    deadline: '2028-03-31'
+    expected: 4.0
     met: null
-    metric: Ventas TTM
-    prediction: Las ventas TTM reportadas al 2027-09-30 serán al menos USD 18.414
-      mil millones, equivalente a un crecimiento mínimo de 6% frente a los USD 17.372
-      mil millones del 2026-09-30.
-    unit: USD mil millones; mínimo al 2027-09-30
+    metric: Crecimiento de ventas orgánicas de FY2027 frente a FY2026
+    prediction: Las ventas orgánicas de FY2027, calculadas excluyendo el efecto de
+      adquisiciones, desinversiones y conversión de divisas según la definición de
+      Ecolab, crecerán al menos un 4% frente a FY2026.
+    unit: porcentaje mínimo
   priority: important
   probability: 0.5
-  rationale: La base disponible registra ventas TTM de USD 17.372 mil millones al
-    2026-09-30. La hipótesis plantea que la demanda de servicios de agua, higiene
-    y prevención de infecciones permitirá seguir creciendo, pero el contexto no aporta
-    datos de crecimiento orgánico, precios o volúmenes que demuestren ese mecanismo.
-  review_trigger: Dejar de creerla si un reporte trimestral publicado antes del 2027-09-30
-    muestra ventas orgánicas negativas en dos trimestres consecutivos, o si las ventas
-    TTM al 2027-09-30 quedan por debajo del umbral previsto.
+  rationale: El paquete reporta aumento de ingresos entre FY2022 y FY2025 y describe
+    servicios de agua, higiene y prevención de infecciones en cuatro segmentos. La
+    recurrencia potencial de estas necesidades podría sostener la demanda, aunque
+    el paquete no aporta estimaciones operativas ni datos para validar la penetración
+    o el mercado direccionable.
+  review_trigger: Abandonar la hipótesis si Ecolab informa dos trimestres consecutivos
+    de FY2027 con ventas orgánicas interanuales decrecientes, o cuando publique los
+    resultados de FY2027 si el crecimiento anual es inferior al 4%.
   secondary_hypotheses: []
-  statement: Ecolab mantendrá un crecimiento de ventas TTM de al menos 6% entre el
-    2026-09-30 y el 2027-09-30, compatible con una expansión sostenida de la demanda
-    por sus soluciones y servicios.
+  statement: Ecolab mantendrá crecimiento orgánico positivo y alcanzará al menos un
+    4% de crecimiento de ventas orgánicas en el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: ECL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen bruto TTM al 2027-09-30 es inferior a 44.5%.
+  - condition: El margen bruto reportado de FY2027 aumenta menos de 0,30 puntos porcentuales
+      frente a FY2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen bruto TTM cae por debajo de 44.04% en dos reportes trimestrales
-      consecutivos antes de la fecha objetivo.
+  - condition: El margen bruto reportado de FY2027 es inferior al de FY2026.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen bruto TTM al 2027-09-30 es inferior a 44.5%.
-  - El margen bruto TTM cae por debajo de 44.04% en dos reportes trimestrales consecutivos
-    antes de la fecha objetivo.
+  - El margen bruto reportado de FY2027 aumenta menos de 0,30 puntos porcentuales
+    frente a FY2026.
+  - El margen bruto reportado de FY2027 es inferior al de FY2026.
   horizon: medio
   id: H2-OPP-MB-ECL
   opportunity_id: OPP-MB-ECL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 44.5
+    deadline: '2028-03-31'
+    expected: 0.3
     met: null
-    metric: Margen bruto TTM
-    prediction: El margen bruto TTM reportado al 2027-09-30 alcanzará al menos 44.5%,
-      una mejora de 0.46 puntos porcentuales o más frente al 44.04% del 2026-09-30.
-    unit: porcentaje mínimo al 2027-09-30
+    metric: Variación del margen bruto de FY2027 frente a FY2026
+    prediction: El margen bruto reportado de FY2027 será al menos 0,30 puntos porcentuales
+      superior al margen bruto reportado de FY2026.
+    unit: puntos porcentuales mínimos
   priority: important
   probability: 0.5
-  rationale: El margen bruto TTM disponible ofrece una base cuantitativa verificable,
-    pero no hay evidencia suficiente sobre precios, mezcla de productos, productividad
-    o costos de insumos para atribuir una mejora concreta. La hipótesis es una prueba
-    de si esos factores permiten expansión del margen.
-  review_trigger: Dejar de creerla si dos reportes trimestrales consecutivos muestran
-    contracción interanual del margen bruto o si el margen TTM al 2027-09-30 no supera
-    44.04%.
+  rationale: El paquete indica que el margen bruto aumentó entre FY2022 y FY2025,
+    pero no aporta datos posteriores ni estimaciones que permitan determinar si la
+    tendencia continúa. Una mejora adicional sería compatible con la tesis de crecimiento
+    rentable; su ausencia pondría en duda la capacidad de trasladar precios, gestionar
+    costes y mantener una combinación favorable de productos y servicios.
+  review_trigger: Abandonar la hipótesis si los resultados anuales de FY2027 muestran
+    una expansión inferior a 0,30 puntos porcentuales frente a FY2026; antes de esa
+    fecha, revisarla si dos trimestres consecutivos muestran una contracción interanual
+    del margen bruto.
   secondary_hypotheses:
   - H1-OPP-MB-ECL
-  statement: Ecolab elevará moderadamente su margen bruto TTM respecto del 44.04%
-    observado al 2026-09-30.
+  statement: Ecolab ampliará su margen bruto en FY2027 respecto de FY2026, en lugar
+    de que el crecimiento de ingresos se consiga a costa de una presión sostenida
+    sobre el margen.
   status: ACTIVE
   ticker: ECL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La diferencia entre el rendimiento total de ECL y el del índice durante
-      el periodo es inferior a 5 puntos porcentuales.
+  - condition: La razón flujo de caja libre/beneficio neto de FY2027 es inferior a
+      0,80.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: ECL registra un rendimiento total inferior al del índice durante el
-      periodo.
+  - condition: Ecolab registra flujo de caja libre negativo en FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La diferencia entre el rendimiento total de ECL y el del índice durante el periodo
-    es inferior a 5 puntos porcentuales.
-  - ECL registra un rendimiento total inferior al del índice durante el periodo.
+  - La razón flujo de caja libre/beneficio neto de FY2027 es inferior a 0,80.
+  - Ecolab registra flujo de caja libre negativo en FY2027.
   horizon: medio
   id: H3-OPP-MB-ECL
   opportunity_id: OPP-MB-ECL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
+    deadline: '2028-03-31'
+    expected: 0.8
+    met: null
+    metric: Flujo de caja libre dividido por beneficio neto atribuible a accionistas
+      en FY2027
+    prediction: La razón entre flujo de caja libre y beneficio neto atribuible a accionistas
+      de FY2027 será igual o superior a 0,80, utilizando flujo de caja libre definido
+      como efectivo neto de actividades operativas menos inversiones de capital.
+    unit: razón mínima
+  priority: important
+  probability: 0.5
+  rationale: El paquete muestra flujo de caja libre positivo en los períodos reportados,
+    pero no aporta cifras que permitan evaluar su estabilidad, conversión frente a
+    beneficios o necesidades de reinversión. La hipótesis pone a prueba si la generación
+    de efectivo se mantiene a medida que continúa el crecimiento.
+  review_trigger: Abandonar la hipótesis cuando se publiquen los resultados de FY2027
+    si la razón es inferior a 0,80 o el flujo de caja libre anual es negativo. Si
+    el beneficio neto anual es cero o negativo, considerar la métrica no interpretable
+    y no dar la hipótesis por confirmada.
+  secondary_hypotheses: []
+  statement: Ecolab conservará una conversión adecuada de beneficios en efectivo y
+    generará flujo de caja libre equivalente, como mínimo, al 80% de su beneficio
+    neto en FY2027.
+  status: ACTIVE
+  ticker: ECL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ECL es igual o inferior a la del S&P 500 durante
+      el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de ECL supera a la del S&P 500, pero por menos
+      de 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ECL es igual o inferior a la del S&P 500 durante el período.
+  - La rentabilidad total de ECL supera a la del S&P 500, pero por menos de 5 puntos
+    porcentuales.
+  horizon: medio
+  id: H4-OPP-MB-ECL
+  opportunity_id: OPP-MB-ECL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-22'
     expected: 5.0
     met: null
-    metric: Rendimiento total relativo de ECL frente al índice
-    prediction: Entre el 2026-11-21 y el 2027-11-21, el rendimiento total de ECL,
-      incluidos dividendos, superará en al menos 5 puntos porcentuales el rendimiento
-      total del S&P 500 Materials Select Sector Index.
-    unit: puntos porcentuales de exceso de rendimiento mínimo al 2027-11-21
+    metric: Rentabilidad total de ECL menos rentabilidad total del S&P 500
+    prediction: La rentabilidad total de ECL entre el cierre del 22 de noviembre de
+      2026 y el cierre del 22 de noviembre de 2027 superará en al menos 5 puntos porcentuales
+      la rentabilidad total del S&P 500 durante el mismo período.
+    unit: puntos porcentuales mínimos
   priority: informational
   probability: 0.5
-  rationale: La exposición a servicios recurrentes de agua, higiene y prevención de
-    infecciones podría aportar resiliencia relativa frente a empresas de materiales
-    más expuestas a ciclos de materias primas. Sin datos de valoración actual, expectativas
-    del mercado o estimaciones fundamentales, esta hipótesis no implica que exista
-    infravaloración ni que el consenso esté equivocado.
-  review_trigger: Dejar de creerla si, al cierre del 2027-05-21, ECL acumula un rendimiento
-    total al menos 10 puntos porcentuales inferior al índice y los resultados publicados
-    no muestran crecimiento de ventas orgánicas ni estabilidad del margen bruto.
+  rationale: La tesis plantea que los objetivos de analistas podrían no reflejar una
+    desaceleración del crecimiento o presión sobre márgenes, mientras que la información
+    disponible no permite validar estimaciones operativas, retornos sobre capital
+    ni asignación de capital. Por ello, la posible superioridad bursátil es una hipótesis
+    que debe comprobarse frente a un índice amplio, no una conclusión derivada de
+    una valoración conocida.
+  review_trigger: Abandonar la hipótesis el 22 de noviembre de 2027 si la rentabilidad
+    total de ECL no supera en al menos 5 puntos porcentuales la del S&P 500; no inferir
+    que la tesis está confirmada antes de esa fecha.
   secondary_hypotheses:
   - H1-OPP-MB-ECL
   - H2-OPP-MB-ECL
-  statement: La acción de Ecolab obtendrá un rendimiento total superior al del índice
-    S&P 500 Materials Select Sector Index durante los 12 meses posteriores a la fecha
-    de corte.
+  - H3-OPP-MB-ECL
+  statement: Desde la fecha de corte hasta el 22 de noviembre de 2027, ECL ofrecerá
+    una rentabilidad total superior a la del S&P 500, incluida la reinversión de dividendos.
   status: ACTIVE
   ticker: ECL
   version: 1

@@ -1,128 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Crecimiento interanual de ingresos IA inferior al 15% en el trimestre
-      mencionado.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La división IA representa menos del 5% del ingreso total, sin aumento
-      significativo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Crecimiento interanual de ingresos IA inferior al 15% en el trimestre mencionado.
-  - La división IA representa menos del 5% del ingreso total, sin aumento significativo.
-  horizon: medio
-  id: H1-OPP-MB-DOCU
-  opportunity_id: OPP-MB-DOCU
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-06-30'
-    expected: 20.0
-    met: null
-    metric: crecimiento_ingresos_IA
-    prediction: Los ingresos de la división IA crecerán al menos un 20% interanual
-      en el trimestre terminado el 2027-06-30.
-    unit: '%'
-  priority: critical
-  probability: 0.5
-  rationale: La compañía ha anunciado una hoja de ruta de IA que incluye integración
-    de modelos generativos en su flujo de trabajo, y los clientes han mostrado alta
-    disposición a pagar por automatizaciones avanzadas, lo que históricamente impulsa
-    crecimiento de ingresos en segmentos de alta tecnología.
-  review_trigger: Si al 2027-07-01 los ingresos IA no muestran al menos un 15% de
-    crecimiento interanual.
-  secondary_hypotheses: []
-  statement: DocuSign escalará su plataforma de IA, incrementando significativamente
-    los ingresos de la división IA.
-  status: ACTIVE
-  ticker: DOCU
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: Conversión de flujo de caja libre inferior al 10% al cierre del FY2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Flujo de caja libre negativo en el FY2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Conversión de flujo de caja libre inferior al 10% al cierre del FY2027.
-  - Flujo de caja libre negativo en el FY2027.
-  horizon: medio
-  id: H2-OPP-MB-DOCU
-  opportunity_id: OPP-MB-DOCU
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-12-31'
-    expected: 15.0
-    met: null
-    metric: conversion_fcf
-    prediction: El flujo de caja libre representará al menos el 15% de los ingresos
-      consolidados al cierre del año fiscal 2027.
-    unit: '%'
-  priority: important
-  probability: 0.5
-  rationale: El impulso de ingresos IA (H1) y la reducción de costos operativos mediante
-    automatización deberían traducirse en mayor efectivo disponible, mientras que
-    la empresa ha anunciado planes de optimización de capital de trabajo.
-  review_trigger: Si al 2028-01-01 la conversión de FCF es menor al 10% o es negativa.
-  secondary_hypotheses:
-  - H1-OPP-MB-DOCU
-  statement: DocuSign mejorará su generación de flujo de caja libre, alcanzando una
-    conversión de al menos el 15% de los ingresos consolidados en FY2027.
-  status: ACTIVE
-  ticker: DOCU
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: Múltiplo EV/Revenue superior a 9.5 al cierre del 31 de marzo de 2028.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El precio de la acción no muestra una tendencia a la baja sostenida
-      pese a los fundamentos.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Múltiplo EV/Revenue superior a 9.5 al cierre del 31 de marzo de 2028.
-  - El precio de la acción no muestra una tendencia a la baja sostenida pese a los
-    fundamentos.
-  horizon: largo
-  id: H3-OPP-MB-DOCU
-  opportunity_id: OPP-MB-DOCU
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2028-03-31'
-    expected: 8.0
-    met: null
-    metric: EV/Revenue
-    prediction: El múltiplo EV/Revenue será ≤ 8.0 al 2028-03-31.
-    unit: x
-  priority: important
-  probability: 0.5
-  rationale: Una mayor generación de flujo de caja libre (H2) y la percepción de menor
-    riesgo tras la estabilización de ingresos IA deberían presionar a la baja el múltiplo
-    de valoración, alineándolo con el promedio del sector tecnológico de firma electrónica.
-  review_trigger: Si al 2028-04-01 el múltiplo EV/Revenue permanece por encima de
-    9.5.
-  secondary_hypotheses:
-  - H2-OPP-MB-DOCU
-  statement: El múltiplo de valoración EV/Revenue de DocuSign convergerá a 8.0x o
-    menos al cierre del 31 de marzo de 2028.
-  status: ACTIVE
-  ticker: DOCU
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: Churn anualizado igual o superior al 7% en la medición del 30 de septiembre
       de 2027.
     metric: ''
@@ -158,6 +36,161 @@ hypotheses:
   - H1-OPP-MB-DOCU
   statement: DocuSign reducirá su tasa de churn anualizada de clientes de suscripción
     a 5% o menos para el 30 de septiembre de 2027.
+  status: ACTIVE
+  ticker: DOCU
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de suscripción del ejercicio fiscal 2028 crecen menos
+      del 6% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La dirección atribuye la desaceleración a una adopción de IAM inferior
+      a la prevista o no comunica evidencia de expansión comercial de IAM en sus resultados
+      o presentaciones para inversores.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de suscripción del ejercicio fiscal 2028 crecen menos del 6% interanual.
+  - La dirección atribuye la desaceleración a una adopción de IAM inferior a la prevista
+    o no comunica evidencia de expansión comercial de IAM en sus resultados o presentaciones
+    para inversores.
+  horizon: medio
+  id: H1-OPP-MB-DOCU
+  opportunity_id: OPP-MB-DOCU
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 9.0
+    met: null
+    metric: Crecimiento interanual de los ingresos de suscripción en el ejercicio
+      fiscal 2028
+    prediction: En el ejercicio fiscal 2028, los ingresos de suscripción crecerán
+      al menos un 9% interanual, según los resultados anuales publicados hasta el
+      2028-03-31. La confirmación será más sólida si la empresa también informa de
+      nuevas implementaciones empresariales o ampliaciones de clientes vinculadas
+      a IAM o a funciones de IA.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea que la plataforma de gestión de acuerdos digitales ofrece
+    una ventaja competitiva y que IAM puede ampliar el valor que DocuSign ofrece a
+    clientes existentes y nuevos. Una mayor adopción debería reflejarse en el crecimiento
+    de los ingresos recurrentes, aunque la empresa no divulgue una métrica independiente
+    de ingresos de IAM.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2028 publicados
+    hasta el 2028-03-31 muestran crecimiento de ingresos de suscripción inferior al
+    6% interanual, o si antes de esa fecha la empresa reconoce que la demanda de IAM
+    no está generando expansión comercial material.
+  secondary_hypotheses: []
+  statement: La adopción de Intelligent Agreement Management (IAM), incluidas sus
+    funciones de IA, contribuirá a acelerar el crecimiento del negocio de suscripción
+    de DocuSign.
+  status: ACTIVE
+  ticker: DOCU
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre del ejercicio fiscal 2028 es inferior
+      al 22%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja operativo no cubre al menos cinco veces el gasto por
+      intereses del ejercicio fiscal 2028, si la empresa informa un gasto por intereses
+      positivo y comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre del ejercicio fiscal 2028 es inferior al 22%.
+  - El flujo de caja operativo no cubre al menos cinco veces el gasto por intereses
+    del ejercicio fiscal 2028, si la empresa informa un gasto por intereses positivo
+    y comparable.
+  horizon: medio
+  id: H2-OPP-MB-DOCU
+  opportunity_id: OPP-MB-DOCU
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 25.0
+    met: null
+    metric: Margen de flujo de caja libre del ejercicio fiscal 2028
+    prediction: En el ejercicio fiscal 2028, el margen de flujo de caja libre será
+      de al menos el 25%. Se calculará como flujo de caja operativo menos compras
+      de propiedad y equipo, dividido por ingresos, usando cifras del informe anual.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: Una plataforma de software con ingresos recurrentes puede convertir la
+    expansión de clientes y productos en caja si el crecimiento de ingresos supera
+    el aumento de los costes operativos y de infraestructura. La generación de caja
+    también es relevante frente al riesgo señalado de cobertura limitada de intereses.
+  review_trigger: Dejar de creerla si el informe anual del ejercicio fiscal 2028 publicado
+    hasta el 2028-03-31 muestra un margen de flujo de caja libre inferior al 22%,
+    o si la empresa revisa a la baja su perspectiva de caja por costes persistentes
+    de IA, retención de clientes o servicio de deuda.
+  secondary_hypotheses:
+  - H1-OPP-MB-DOCU
+  statement: DocuSign mantendrá o mejorará la generación de caja a medida que invierte
+    en IAM, evitando que la expansión de productos de IA deteriore materialmente la
+    rentabilidad de caja.
+  status: ACTIVE
+  ticker: DOCU
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de DOCU durante el periodo queda igual o por debajo
+      del del Nasdaq-100.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Al 2028-11-22, el crecimiento de ingresos de suscripción del ejercicio
+      fiscal 2028 es inferior al 6% interanual o el margen de flujo de caja libre
+      es inferior al 22%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de DOCU durante el periodo queda igual o por debajo del del
+    Nasdaq-100.
+  - Al 2028-11-22, el crecimiento de ingresos de suscripción del ejercicio fiscal
+    2028 es inferior al 6% interanual o el margen de flujo de caja libre es inferior
+    al 22%.
+  horizon: largo
+  id: H3-OPP-MB-DOCU
+  opportunity_id: OPP-MB-DOCU
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-22'
+    expected: 15.0
+    met: null
+    metric: Rendimiento total superior de DOCU frente al Nasdaq-100
+    prediction: Entre el 2026-11-22 y el 2028-11-22, el rendimiento total de DOCU,
+      incluidos dividendos si los hubiera, superará en al menos 15 puntos porcentuales
+      el rendimiento total del Nasdaq-100.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Si la adopción de IAM respalda el crecimiento de los ingresos y la caja,
+    los inversores podrían asignar a DocuSign una valoración relativa más favorable.
+    La elevada volatilidad de la acción hace que esta hipótesis sea menos segura que
+    las hipótesis operativas y financieras.
+  review_trigger: Dejar de creerla si, al cierre del 2027-11-22, DOCU acumula un rendimiento
+    total inferior al del Nasdaq-100 por 20 puntos porcentuales o más y los resultados
+    publicados no muestran crecimiento de ingresos de suscripción de al menos el 6%;
+    reevaluar definitivamente el 2028-11-22.
+  secondary_hypotheses:
+  - H1-OPP-MB-DOCU
+  - H2-OPP-MB-DOCU
+  statement: El mercado reconocerá parcialmente el potencial de crecimiento de IAM
+    y la capacidad de generación de caja de DocuSign, produciendo un rendimiento bursátil
+    superior al del mercado tecnológico de referencia.
   status: ACTIVE
   ticker: DOCU
   version: 1

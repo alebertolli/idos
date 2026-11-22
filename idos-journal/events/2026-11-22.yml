@@ -281,3 +281,105 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-22T08:19:06.168750'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-DOCU
+    ticker: DOCU
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:26:09.269056'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DOCU
+    ticker: DOCU
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:26:09.288732'
+- data:
+    classification: Growth
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 3ac06295d0f0aa834ad76a4ad34310bf1942775a992eb88da692b9712a78bd3b
+    opp_id: OPP-MB-DOCU
+    original_status: UNDER_RESEARCH
+    score: 68
+    strategy_version: '1.5'
+    ticker: DOCU
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:27:47.189411'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ECL
+    ticker: ECL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:28:16.826359'
+- data:
+    classification: Investigación fundamental requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: f1bb32d2538d36e70f2af4dbd3b998fc54c784356fdb1090c4d399ab2c4e9ae8
+    opp_id: OPP-MB-ECL
+    original_status: UNDER_RESEARCH
+    score: 43
+    strategy_version: '1.5'
+    ticker: ECL
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:29:46.486464'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-GOOGL
+    ticker: GOOGL
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:30:20.042480'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GOOGL
+    ticker: GOOGL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:30:20.064505'
+- data:
+    classification: Investigación fundamental requerida; calidad de evidencia financiera
+      parcialmente suficiente
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 2eab6e46a31bba210f817b4910d241b67fa72994434a0c30e6232b8aa43b90ff
+    opp_id: OPP-MB-GOOGL
+    original_status: UNDER_RESEARCH
+    score: 56
+    strategy_version: '1.5'
+    ticker: GOOGL
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:31:50.510993'
