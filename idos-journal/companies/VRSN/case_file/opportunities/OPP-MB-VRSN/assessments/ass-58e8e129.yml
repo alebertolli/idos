@@ -1,0 +1,28 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; negocio de infraestructura de dominios'
+- 'Market error: No se valida un error de valoración; los objetivos de analistas son
+  referencias observadas, no valoraciones intrínsecas propias.'
+- 'Thesis: VeriSign opera servicios de registro y resolución autoritativa de dominios,
+  incluidos .com y .net, y servicios de infraestructura de zona raíz. Los datos al
+  2026-09-30 muestran ingresos TTM de USD 1.7'
+generated_at: '2026-11-22T09:42:52.451429-03:00'
+id: ass-58e8e129
+recommendation: REVIEW
+risks:
+- detalle: Current ratio reportado de 0,42 al 2026-09-30, inferior al umbral de revisión
+    de 0,5.
+  riesgo: Liquidez corriente
+- detalle: Deuda total reportada de 1.792,0 y efectivo e inversiones de 476,1 al 2026-09-30;
+    no se valida net debt/EBITDA con los inputs configurados para ese ratio.
+  riesgo: Deuda y cobertura
+- detalle: El resumen describe servicios .com y .net, pero no cuantifica concentración
+    de ingresos, penetración, sustitutos ni cambios competitivos.
+  riesgo: Concentración y erosión competitiva
+- detalle: El paquete no incluye historial de recompras, dividendos, adquisiciones
+    ni retorno incremental sobre capital.
+  riesgo: Asignación de capital
+score: 67
+status: COMPLETED
+version: '3.0'

@@ -1,191 +1,182 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Se documenta una interrupción no planificada atribuible a VeriSign
-      que afecta materialmente la resolución global de nombres durante 24 horas consecutivas
-      o más.
+  - condition: La base de dominios .com y .net publicada para el 2027-09-30 es inferior
+      al nivel publicado para el 2026-09-30.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Un informe oficial o regulatorio confirma un fallo sistémico de los
-      servicios de registro o de la zona raíz con impacto material en los usuarios.
+  - condition: La empresa deja de divulgar datos comparables que permitan medir la
+      evolución interanual de la base .com y .net.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Se documenta una interrupción no planificada atribuible a VeriSign que afecta
-    materialmente la resolución global de nombres durante 24 horas consecutivas o
-    más.
-  - Un informe oficial o regulatorio confirma un fallo sistémico de los servicios
-    de registro o de la zona raíz con impacto material en los usuarios.
-  horizon: corto
+  - La base de dominios .com y .net publicada para el 2027-09-30 es inferior al nivel
+    publicado para el 2026-09-30.
+  - La empresa deja de divulgar datos comparables que permitan medir la evolución
+    interanual de la base .com y .net.
+  horizon: medio
   id: H1-OPP-MB-VRSN
   opportunity_id: OPP-MB-VRSN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 0.0
+    deadline: '2027-09-30'
+    expected: 1.0
     met: null
-    metric: Interrupciones no planificadas sistémicas de al menos 24 horas
-    prediction: Hasta 2027-11-21, no se registrará una interrupción no planificada
-      atribuible a VeriSign que afecte materialmente la resolución de nombres a escala
-      global durante 24 horas consecutivas o más.
-    unit: eventos
-  priority: critical
+    metric: Crecimiento interanual de la base de dominios .com y .net
+    prediction: En la divulgación correspondiente al 2027-09-30, las registraciones
+      de .com y .net estarán al menos un 1,0% por encima del nivel del 2026-09-30.
+    unit: '%'
+  priority: important
   probability: 0.5
-  rationale: La tesis depende de la continuidad de servicios esenciales para .com,
-    .net y la zona raíz. La posición operativa establecida crea incentivos y capacidad
-    para mantener esos servicios, aunque el contexto proporcionado no incluye métricas
-    históricas de disponibilidad.
-  review_trigger: Dejar de creerla en cuanto un informe oficial confirme una interrupción
-    sistémica no planificada de 24 horas consecutivas o más, o, si no ocurre, al llegar
-    el 2027-11-21.
+  rationale: La demanda de registros y renovaciones genera ingresos recurrentes, y
+    la posición de VeriSign en .com y .net puede sostener esa base. Sin embargo, los
+    datos disponibles no demuestran la penetración potencial ni la evolución reciente
+    del volumen de dominios; por eso, el crecimiento de la base debe verificarse directamente.
+  review_trigger: Dejar de creerla si una divulgación trimestral oficial muestra una
+    caída interanual de la base .com y .net y la divulgación siguiente no muestra
+    recuperación.
   secondary_hypotheses: []
-  statement: VeriSign preservará la continuidad operativa de sus servicios de registro
-    y resolución autoritativa sin una interrupción grave durante los próximos 12 meses.
+  statement: La base de dominios .com y .net seguirá creciendo, aunque a un ritmo
+    moderado, y respaldará el crecimiento del negocio de registro.
   status: ACTIVE
   ticker: VRSN
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento interanual de los ingresos TTM al objetivo es inferior
-      al 3%.
+  - condition: Los ingresos TTM al 2027-09-30 son inferiores a USD 1.801 millones.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El crecimiento interanual de los ingresos TTM al objetivo supera el
-      8%, lo que falsaría la predicción de crecimiento moderado dentro del intervalo
-      definido.
+  - condition: La empresa reporta una contracción interanual de ingresos en dos publicaciones
+      trimestrales consecutivas antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento interanual de los ingresos TTM al objetivo es inferior al 3%.
-  - El crecimiento interanual de los ingresos TTM al objetivo supera el 8%, lo que
-    falsaría la predicción de crecimiento moderado dentro del intervalo definido.
-  horizon: corto
+  - Los ingresos TTM al 2027-09-30 son inferiores a USD 1.801 millones.
+  - La empresa reporta una contracción interanual de ingresos en dos publicaciones
+    trimestrales consecutivas antes de la fecha objetivo.
+  horizon: medio
   id: H2-OPP-MB-VRSN
   opportunity_id: OPP-MB-VRSN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 5.5
+    deadline: '2027-09-30'
+    expected: 1801.0
     met: null
-    metric: Crecimiento interanual de ingresos TTM
-    prediction: En los doce meses terminados el 2027-11-21, los ingresos de los últimos
-      doce meses serán entre 3% y 8% superiores a los de los doce meses terminados
-      el 2026-11-21, usando los estados financieros publicados más cercanos a cada
-      fecha.
-    unit: porcentaje; intervalo esperado de 3% a 8%
-  priority: critical
+    metric: Ingresos TTM
+    prediction: Los ingresos TTM publicados para el periodo terminado el 2027-09-30
+      serán iguales o superiores a USD 1.801 millones.
+    unit: USD millones
+  priority: important
   probability: 0.5
-  rationale: El contexto confirma crecimiento de ingresos, pero no aporta evidencia
-    de aceleración, expansión del mercado direccionable o mayor penetración. La dependencia
-    de servicios de registro establecidos y de sus condiciones contractuales respalda
-    la posibilidad de continuidad, no necesariamente de aceleración.
-  review_trigger: Dejar de creerla si una publicación financiera muestra crecimiento
-    de ingresos TTM inferior al 3% o superior al 8%; si no se publica una cifra comparable
-    antes, evaluarla con el primer informe que permita calcularla después del 2027-11-21.
+  rationale: Los ingresos recurrentes asociados a registros y renovaciones pueden
+    impulsar el crecimiento, y la base de ingresos existente ofrece una referencia
+    medible. El crecimiento de la base de dominios respaldaría esta hipótesis, pero
+    no se dispone de información suficiente para atribuir de antemano el crecimiento
+    a precios, volumen u otros factores.
+  review_trigger: Dejar de creerla si los ingresos TTM publicados quedan por debajo
+    de USD 1.801 millones al 2027-09-30 o si se registran dos contracciones interanuales
+    trimestrales consecutivas.
   secondary_hypotheses:
   - H1-OPP-MB-VRSN
-  statement: Los ingresos de VeriSign crecerán a un ritmo moderado, sin aceleración
-    sostenida frente al crecimiento reciente descrito en el contexto.
+  statement: VeriSign aumentará sus ingresos TTM al menos un 4% respecto de los USD
+    1.732 millones reportados al 2026-09-30.
   status: ACTIVE
   ticker: VRSN
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF TTM crece menos de 2% o disminuye frente a la base TTM de 2026-11-21.
+  - condition: El margen FCF TTM al 2027-09-30 es inferior al 55%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF TTM crece más de 10%, resultado que refutaría la predicción
-      de crecimiento sin aceleración marcada.
+  - condition: El FCF TTM al 2027-09-30 es inferior a USD 990 millones.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF TTM crece menos de 2% o disminuye frente a la base TTM de 2026-11-21.
-  - El FCF TTM crece más de 10%, resultado que refutaría la predicción de crecimiento
-    sin aceleración marcada.
-  horizon: corto
+  - El margen FCF TTM al 2027-09-30 es inferior al 55%.
+  - El FCF TTM al 2027-09-30 es inferior a USD 990 millones.
+  horizon: medio
   id: H3-OPP-MB-VRSN
   opportunity_id: OPP-MB-VRSN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 6.0
+    deadline: '2027-09-30'
+    expected: 55.0
     met: null
-    metric: Crecimiento interanual del FCF TTM
-    prediction: En los doce meses terminados el 2027-11-21, el FCF TTM —calculado
-      como flujo de caja operativo menos inversiones de capital— será entre 2% y 10%
-      superior al FCF TTM de los doce meses terminados el 2026-11-21.
-    unit: porcentaje; intervalo esperado de 2% a 10%
+    metric: Margen FCF TTM
+    prediction: Al 2027-09-30, el margen FCF TTM —FCF TTM dividido por ingresos TTM—
+      será igual o superior al 55% y el FCF TTM será al menos USD 990 millones.
+    unit: '%'
   priority: critical
   probability: 0.5
-  rationale: El contexto indica que el FCF ha crecido y que el margen bruto TTM es
-    elevado, lo cual es compatible con generación de caja sostenida. Sin datos sobre
-    conversión de caja, inversión, capital de trabajo o retornos sobre capital, no
-    hay base suficiente para asumir una aceleración.
-  review_trigger: Dejar de creerla ante la primera divulgación financiera comparable
-    que sitúe el crecimiento del FCF TTM fuera del intervalo de 2% a 10%; confirmar
-    el cálculo cuando se publique información suficiente para cubrir el período objetivo.
+  rationale: Al 2026-09-30, el FCF TTM de USD 1.020 millones equivale aproximadamente
+    al 58,9% de los ingresos TTM de USD 1.732 millones. Esa conversión constituye
+    una referencia observable, pero su persistencia depende de que los gastos operativos,
+    impuestos, capital de trabajo e inversiones no la erosionen sustancialmente.
+  review_trigger: Dejar de creerla si una publicación oficial al 2027-09-30 muestra
+    un margen FCF TTM inferior al 55% o un FCF TTM inferior a USD 990 millones.
   secondary_hypotheses:
-  - H1-OPP-MB-VRSN
   - H2-OPP-MB-VRSN
-  statement: El flujo de caja libre de VeriSign seguirá creciendo, pero no mostrará
-    una aceleración que exceda claramente el crecimiento de ingresos.
+  statement: VeriSign conservará una conversión elevada de ingresos en flujo de caja
+    libre, con un margen FCF TTM de al menos el 55%.
   status: ACTIVE
   ticker: VRSN
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de VRSN iguala o supera el del S&P 500, o queda
-      menos de 5 puntos porcentuales por debajo, en el período definido.
+  - condition: El rendimiento total de VRSN menos el rendimiento total del S&P 500
+      durante el periodo es inferior a 5 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El crecimiento de ingresos y FCF TTM supera 10% interanual en dos períodos
-      consecutivos, evidencia que debilitaría la premisa de ausencia de aceleración.
+  - condition: El rendimiento total de VRSN es igual o inferior al del S&P 500 al
+      cierre de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de VRSN iguala o supera el del S&P 500, o queda menos de
-    5 puntos porcentuales por debajo, en el período definido.
-  - El crecimiento de ingresos y FCF TTM supera 10% interanual en dos períodos consecutivos,
-    evidencia que debilitaría la premisa de ausencia de aceleración.
+  - El rendimiento total de VRSN menos el rendimiento total del S&P 500 durante el
+    periodo es inferior a 5 puntos porcentuales.
+  - El rendimiento total de VRSN es igual o inferior al del S&P 500 al cierre de la
+    fecha objetivo.
   horizon: medio
   id: H4-OPP-MB-VRSN
   opportunity_id: OPP-MB-VRSN
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-11-21'
-    expected: -5.0
+    deadline: '2027-11-22'
+    expected: 5.0
     met: null
-    metric: Rendimiento total de VRSN menos rendimiento total del S&P 500
-    prediction: Entre el 2026-11-21 y el 2028-11-21, el rendimiento total de VRSN,
-      incluidos dividendos y ajustado por desdoblamientos, quedará al menos 5 puntos
-      porcentuales por debajo del rendimiento total del S&P 500 en el mismo período.
-    unit: puntos porcentuales o menos
-  priority: important
+    metric: Rendimiento total relativo de VRSN frente al S&P 500
+    prediction: Entre el 2026-11-22 y el 2027-11-22, el rendimiento total de VRSN,
+      incluidos dividendos, superará al rendimiento total del S&P 500 en al menos
+      5 puntos porcentuales.
+    unit: puntos porcentuales
+  priority: informational
   probability: 0.5
-  rationale: El contexto no valida valor intrínseco ni demuestra que el crecimiento
-    vaya a acelerarse. Si la valoración de mercado exige una aceleración no respaldada
-    por los resultados, la falta de sorpresas positivas podría limitar el rendimiento
-    relativo, aunque la empresa siga generando caja.
-  review_trigger: Dejar de creerla si se cumple cualquiera de los criterios de falsación;
-    evaluar el rendimiento acumulado en la fecha objetivo y revisar la premisa de
-    crecimiento tras cada publicación financiera.
+  rationale: La combinación de ingresos recurrentes y FCF elevado podría ser valorada
+    favorablemente si se mantiene, pero la información disponible no permite demostrar
+    que la acción esté infravalorada ni estimar su valoración inicial. Esta hipótesis
+    somete a prueba, en lugar de dar por sentada, la posibilidad de que el mercado
+    reconozca esa resiliencia.
+  review_trigger: Abandonar la hipótesis en la fecha objetivo si la rentabilidad relativa
+    acumulada desde el 2026-11-22 es inferior a 5 puntos porcentuales; no inferir
+    infravaloración únicamente a partir de los márgenes o del FCF.
   secondary_hypotheses:
   - H2-OPP-MB-VRSN
   - H3-OPP-MB-VRSN
-  statement: Sin evidencia de aceleración de ingresos y FCF, la acción tendrá un rendimiento
-    total inferior al del S&P 500 durante los próximos dos años.
+  statement: La acción de VRSN obtendrá un rendimiento total superior al del S&P 500
+    durante los 12 meses posteriores a la fecha de corte, consistente con una revalorización
+    relativa de la generación de caja del negocio.
   status: ACTIVE
   ticker: VRSN
   version: 1
