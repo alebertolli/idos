@@ -1,128 +1,139 @@
 ## 1. Visión General de la Compañía
 
-Alphabet Inc. ([[GOOGL]]) es una compañía tecnológica que desarrolla y opera plataformas digitales, sistemas operativos, infraestructura de centros de datos y modelos de inteligencia artificial. Su negocio combina servicios para consumidores y creadores con productos dirigidos a anunciantes y clientes empresariales. La información disponible no especifica el desglose geográfico de sus operaciones o ingresos.
+Alphabet Inc. ([[GOOGL]]) es una compañía tecnológica global que desarrolla infraestructura técnica, modelos de inteligencia artificial, software y plataformas digitales. Su ecosistema organiza información y distribuye servicios a usuarios, anunciantes, empresas y desarrolladores.
 
-Entre los productos y servicios mencionados están Google Search, YouTube, Android, Chrome, Gmail, Drive, Maps, Photos y Google Play. El resumen de investigación agrupa sus actividades en Google Services, Google Cloud y Other Bets, pero no aporta métricas verificables por segmento.
+El negocio incluye Google Services —entre otros, Search, YouTube, publicidad, suscripciones, contenido y dispositivos—, Google Cloud y Other Bets. La información disponible no desglosa ingresos, márgenes ni inversiones por segmento, por lo que no permite determinar su contribución relativa al desempeño consolidado.
 
-**Fuente:** análisis del negocio AOIF incluido en el paquete de investigación; no se proporcionó fecha ni enlace de fuente primaria para esta descripción.
+Alphabet opera en publicidad digital, servicios en la nube y plataformas tecnológicas. Comparte exposiciones sectoriales —como la competencia por atención, distribución digital y cambios regulatorios— con compañías como [[AMX]], [[EA]], [[JOYY]], [[PSO]], [[ROKU]], [[TEO]], [[VOD]] y [[VZ]], aunque sus modelos de negocio no son necesariamente equivalentes.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-**Drivers de ingresos descritos en la investigación:**
+### Fuentes de ingresos
 
-- Publicidad en Google Search, YouTube y otras propiedades.
-- Suscripciones y servicios, mencionados como fuentes complementarias, sin desglose de ingresos.
-- Servicios de nube e IA, sin métricas de crecimiento o rentabilidad segmentaria en la evidencia disponible.
+El modelo de negocio monetiza un ecosistema digital global mediante:
 
-**Ventajas competitivas propuestas por el análisis AOIF:** escala y relevancia de Search, marca, datos y señales de uso, distribución, ecosistema Android y Chrome, infraestructura técnica y relaciones con anunciantes. AOIF califica la amplitud del moat como «amplia» y la posición competitiva como «líder». Son evaluaciones del análisis, no métricas verificables aportadas con fuentes independientes.
+- Publicidad, principalmente vinculada a Search, YouTube y otras propiedades.
+- Servicios y suscripciones, además de ventas de contenido y dispositivos.
+- Servicios de Google Cloud.
 
-La industria se describe como competitiva y de rápida evolución, especialmente en publicidad digital, nube e IA. La IA generativa podría crear oportunidades en productos y nube, pero también alterar las interfaces de búsqueda y la monetización publicitaria. Entre las compañías del mismo sector o de industrias relacionadas listadas en la wiki están [[AMX]], [[EA]], [[JOYY]], [[PSO]], [[ROKU]], [[TEO]], [[VOD]] y [[VZ]]. La información disponible no establece comparaciones directas de producto, cuota de mercado o resultados financieros con estas compañías.
+Los clientes incluyen anunciantes y agencias, consumidores y usuarios de servicios digitales, y empresas que utilizan servicios en la nube. El material disponible no proporciona un desglose cuantitativo de ingresos por producto, cliente o segmento.
+
+### Ventajas competitivas
+
+El análisis de negocio identifica posibles ventajas derivadas de escala, marca, distribución, datos y amplitud del ecosistema. También señala efectos de red entre usuarios, anunciantes y desarrolladores, junto con infraestructura y capacidad tecnológica. La posición competitiva se caracteriza como líder y el moat como amplio en la evaluación AOIF; son valoraciones cualitativas, no mediciones verificadas en los materiales aportados.
+
+### Dinámica competitiva
+
+La publicidad digital y los servicios en la nube son industrias competitivas y cambiantes. La IA generativa puede modificar el comportamiento de búsqueda, la distribución de tráfico y la monetización publicitaria. Para evaluar la resistencia de las ventajas competitivas, hacen falta datos sobre cuota, precios, volumen, uso de productos alternativos y resultados por segmento.
 
 ## 3. Perfil Financiero
 
-Las cifras de Stock Analysis que aparecen en el paquete se reproducen con sus períodos y limitaciones. Los importes de ingresos y FCF se presentan tal como fueron suministrados; el paquete no especifica explícitamente la escala de esos importes.
+Las cifras de esta sección se reproducen según las fuentes y el contexto proporcionados. No se deben combinar métricas de periodos distintos como si fueran comparables.
 
-| Métrica | Valor reportado | Período / fecha | Fuente y observaciones |
+| Métrica | Valor reportado | Periodo / fecha | Fuente y limitaciones |
 |---|---:|---|---|
-| Ingresos | 471.098 | TTM al 2026-09-30 | [Stock Analysis — Financials](https://stockanalysis.com/stocks/googl/financials/). Escala no especificada en el paquete. |
-| Margen bruto | 60,86% | TTM al 2026-09-30 | [Stock Analysis — Financials](https://stockanalysis.com/stocks/googl/financials/). |
-| Margen bruto | 55,38% | FY 2022 | Valor histórico mencionado en DDD; fuente indicada para la serie: [Stock Analysis — Financials](https://stockanalysis.com/stocks/googl/financials/). |
-| FCF | 19.747 | TTM al 2026-09-30 | [Stock Analysis — Financials](https://stockanalysis.com/stocks/googl/financials/). Escala no especificada. |
-| FCF | 73.266 | FY 2025 | [Stock Analysis — Financials](https://stockanalysis.com/stocks/googl/financials/). Escala no especificada. No es un período directamente comparable con el TTM. |
-| Current ratio | 2,79 | Al 2026-09-30 | [Stock Analysis — Statistics](https://stockanalysis.com/stocks/GOOGL/statistics/). El indicador no cruza el umbral de alerta señalado en el paquete (<0,5). |
-| Crecimiento de ingresos | 22,21% | Período no identificado en el resumen AOIF | AOIF; no se proporcionaron fecha, metodología ni fuente verificable. |
-| Margen operativo | 33,32% | Período no identificado en el resumen AOIF | AOIF; fecha y fuente no especificadas. |
-| ROIC | 23,79% | Período no identificado en el resumen AOIF | AOIF advierte que debe verificarse el período, la fuente y la comparabilidad. |
-| PER | 13,85 | Fecha no especificada | AOIF; no se proporcionan inputs ni fecha de valoración. |
-| EV/EBITDA | 16,96 | Fecha no especificada | AOIF; no se proporcionan inputs ni fecha de valoración. |
-| FCF yield | 0 | Fecha y metodología no especificadas | AOIF; no debe interpretarse como medida validada sin verificar sus inputs. |
+| Ingresos | 282.836 | FY 2022 | Stock Analysis; unidades según fuente. [Financials](https://stockanalysis.com/stocks/googl/financials/) |
+| Ingresos | 402.836 | FY 2025 | Stock Analysis; unidades según fuente. [Financials](https://stockanalysis.com/stocks/googl/financials/) |
+| Margen bruto | 55,38% | FY 2022 | Stock Analysis. [Financials](https://stockanalysis.com/stocks/googl/financials/) |
+| Margen bruto | 60,86% | TTM al 2026-09-30 | Stock Analysis. [Financials](https://stockanalysis.com/stocks/googl/financials/) |
+| Flujo de caja libre (FCF) | 73.266 | FY 2025 | Stock Analysis; unidades según fuente. [Financials](https://stockanalysis.com/stocks/googl/financials/) |
+| Flujo de caja libre (FCF) | 19.747 | TTM al 2026-09-30 | Stock Analysis; unidades según fuente. El TTM no es comparable directamente con un año fiscal completo. [Financials](https://stockanalysis.com/stocks/googl/financials/) |
+| Current ratio | 2,79 | 2026-09-30 | Stock Analysis; supera el umbral de alerta configurado de 0,5. [Statistics](https://stockanalysis.com/stocks/GOOGL/statistics/) |
+| Crecimiento de ingresos | 22,21% | Periodo no especificado | Métrica AOIF tomada de los valores incluidos en la solicitud; sin fuente, fecha de corte ni periodo explícitos. |
+| Margen operativo | 33,32% | Periodo no especificado | Métrica AOIF; sin fuente, fecha de corte ni periodo explícitos. |
+| ROIC | 23,79% | Periodo no especificado | Métrica AOIF; sin fuente, fecha de corte ni periodo explícitos. |
 
-**Lectura y limitaciones:**
+Los datos reportados muestran crecimiento de ingresos entre FY 2022 y FY 2025 y un margen bruto superior en el TTM informado frente a FY 2022. La causa de la expansión del margen bruto no está identificada. La caída del FCF TTM frente al FCF de FY 2025 no constituye por sí sola una comparación de crecimiento anual y no puede explicarse con los datos disponibles.
 
-- DDD menciona una evolución del margen bruto desde 55,38% en FY 2022 hasta 60,86% en TTM al 2026-09-30. La causa de esa evolución no está establecida; la hipótesis de mejora de escala o mezcla no está confirmada.
-- El FCF TTM reportado es inferior al de FY 2025, pero compara períodos de distinta duración. DDD descarta calcular una tasa de crecimiento a partir de esos datos.
-- No se pudo calcular el CAGR de ingresos a tres años: DDD indica que no identificó referencias explícitas a los inputs necesarios.
-- AOIF califica la tendencia financiera como «estable», pero el paquete no permite reconciliar esa valoración con períodos comparables o estados financieros segmentados.
+No se proporcionan datos suficientes para validar tendencias de flujo de caja operativo, beneficio neto, deuda, acciones diluidas o conversión de beneficios a FCF. El crecimiento compuesto de ingresos y el crecimiento de FCF se marcaron como no disponibles por falta de referencias explícitas a sus inputs. Tampoco se pudo establecer un historial compatible de dilución.
 
 ## 4. Management y Gobierno Corporativo
 
-AOIF evalúa la calidad del management como «buena», la asignación de capital como «neutral» y el alineamiento de insiders como «moderado». El paquete no proporciona nombres, datos de compensación, porcentaje de propiedad de insiders, operaciones de insiders, composición del board ni evidencia específica sobre la asignación de capital.
+La evaluación AOIF califica la calidad del management como buena, la alineación de insiders como moderada y la asignación de capital como neutral. La justificación cualitativa destaca la capacidad de la compañía para construir y escalar negocios de gran alcance, además de su inversión significativa en infraestructura e innovación.
 
-Estas valoraciones deben tratarse como conclusiones preliminares del análisis AOIF, no como hechos confirmados. La evaluación de la calidad de la asignación de capital requiere, entre otros datos, información comparable sobre inversión, retornos incrementales y resultados por segmento.
+Estas valoraciones no están acompañadas por datos específicos sobre incentivos, compensación, tenencia accionaria de insiders, transacciones de directivos, composición del consejo o historial cuantitativo de asignación de capital. Por tanto, no permiten evaluar de manera independiente el alineamiento económico ni la supervisión del consejo.
 
 ## 5. Tesis de Inversión
 
-**Tesis a investigar:** si Alphabet puede sostener el crecimiento de sus plataformas y convertirlo en generación de caja mientras financia la reinversión sin deteriorar materialmente sus retornos.
+### Caso alcista
 
-Elementos que podrían respaldar el caso alcista, sujetos a verificación:
+- Alphabet combina plataformas digitales de gran alcance en Search, YouTube, Android y otros servicios con una operación de Google Cloud.
+- Los ingresos reportados por Stock Analysis aumentaron de 282.836 en FY 2022 a 402.836 en FY 2025. [Stock Analysis — Financials](https://stockanalysis.com/stocks/googl/financials/)
+- El margen bruto reportado pasó de 55,38% en FY 2022 a 60,86% en el TTM al 2026-09-30. La mejora es compatible con cambios favorables en mezcla o eficiencia, aunque su causa no está confirmada.
+- El análisis AOIF identifica ventajas potenciales de escala, marca, distribución, datos, efectos de red e infraestructura tecnológica. También califica a Alphabet como líder competitivo, sin aportar métricas cuantitativas de cuota de mercado.
+- Una evaluación fundamental posterior podría aclarar si el crecimiento de Cloud y los productos de IA contribuye de manera atractiva a los resultados y retornos incrementales.
 
-- La compañía opera plataformas de gran alcance en búsqueda, video, móvil y otros servicios digitales; AOIF describe como ventajas la escala, la distribución y el ecosistema de productos.
-- El ingreso TTM reportado fue de 471.098 y el margen bruto TTM de 60,86% al 2026-09-30, según [Stock Analysis](https://stockanalysis.com/stocks/googl/financials/). La escala de los importes no está especificada en el paquete.
-- La expansión de nube e IA podría ofrecer fuentes de crecimiento adicionales, pero la evidencia entregada no incluye cifras segmentarias que permitan comprobarlo.
-- AOIF reporta un margen operativo de 33,32% y ROIC de 23,79%; la fecha, la fuente y la comparabilidad de ambos indicadores deben verificarse antes de usarlos como sustento de una tesis de rentabilidad.
+### Límites de la tesis
 
-**Estado de la tesis:** investigación fundamental requerida. La evidencia disponible no basta para confirmar crecimiento sostenible, retornos incrementales sobre capital ni conversión normalizada de beneficios en caja. La evaluación AOIF deja la recomendación pendiente de decisión del board.
+El material no permite estimar con rigor el valor intrínseco, determinar la rentabilidad de las inversiones en IA o Cloud, ni concluir que la acción esté infravalorada. Las cifras financieras disponibles tampoco ofrecen una serie segmentaria suficiente para atribuir el crecimiento o la mejora del margen a motores concretos.
 
 ## 6. Riesgos y Contra-Tesis
 
-**Riesgos señalados en la investigación:**
+### Riesgos principales
 
-1. **Regulatorio y litigios:** AOIF asigna impacto alto y probabilidad alta a posibles cambios regulatorios, litigios o restricciones sobre búsqueda, publicidad, distribución y acuerdos comerciales.
-2. **Cambio tecnológico y monetización:** AOIF asigna impacto alto y probabilidad media al riesgo de que la IA generativa u otros cambios de interfaz desplacen consultas o alteren la monetización publicitaria de Search.
-3. **Visibilidad por segmentos:** faltan métricas segmentarias verificables de crecimiento, rentabilidad, mercado direccionable, penetración e inversión. Esto dificulta evaluar los motores de crecimiento y los retornos incrementales.
-4. **Conversión a caja:** el FCF reportado para TTM al 2026-09-30 es marcadamente inferior al de FY 2025, aunque los períodos no son homogéneos y el paquete no especifica la escala de los importes.
-5. **Valoración no validada:** el consenso de precio objetivo no equivale a una valoración intrínseca y las fechas de cotización y consenso difieren.
+| Riesgo | Evaluación proporcionada | Implicación |
+|---|---|---|
+| Cambios en búsqueda y publicidad por IA generativa o nuevos hábitos | Impacto alto, probabilidad media (AOIF) | Podrían afectar el tráfico, la distribución y la monetización de Search y la publicidad. |
+| Riesgo antimonopolio y regulatorio | Impacto alto, probabilidad alta (AOIF) | Litigios, remedios regulatorios o restricciones podrían afectar acuerdos de distribución y prácticas comerciales. |
+| Erosión competitiva | No cuantificada | No hay datos de cuota, precios, volumen ni desplazamiento por productos alternativos. |
+| Conversión de beneficios a caja | Evidencia incompleta | El FCF TTM reportado es inferior al valor de FY 2025, pero los periodos no son directamente comparables y no se identifican sus causas. |
+| Inversiones y retornos incrementales | Desconocidos | No se proporcionan datos suficientes sobre inversión de capital, gastos asociados ni retornos por segmento. |
 
-**Contra-tesis:** la posición actual de Alphabet podría no garantizar que mantenga el crecimiento o la monetización de Search ante cambios tecnológicos, regulatorios o competitivos. Con la evidencia aportada no se puede cuantificar la probabilidad ni el efecto financiero de esos escenarios. Los cambios en publicidad y competencia pueden ser relevantes también para compañías relacionadas como [[ROKU]], aunque el paquete no aporta datos comparativos.
+### Contra-tesis
 
-**Falsadores propuestos por DDD:**
+La posición de liderazgo y la amplitud del ecosistema podrían no ser suficientes para proteger Search y la publicidad si la IA generativa cambia la forma en que los usuarios encuentran información, la distribución de tráfico o la economía de los anuncios. Además, las acciones regulatorias podrían limitar prácticas o acuerdos importantes. Sin resultados por segmento y métricas de inversión y retorno, tampoco puede verificarse que el crecimiento de Cloud o de productos de IA compense presiones en otros negocios.
 
-- Ingresos o márgenes futuros que contradigan la continuidad del crecimiento observado en las series históricas reportadas.
-- FCF persistentemente débil frente a resultados, sin una explicación verificable relacionada con períodos, inversión o capital circulante.
+### Triggers de falsación
+
+- Ingresos o márgenes brutos posteriores que reviertan de forma sostenida las mejoras observadas en el historial reportado.
+- Resultados por segmento que muestren deterioro persistente de los motores principales sin compensación de otras actividades.
+- Evidencia de que cambios en búsqueda o publicidad reducen de manera sostenida el tráfico o la monetización.
+- Datos de inversión que muestren retornos incrementales persistentemente débiles en Cloud, IA u otras actividades.
 
 ## 7. Catalizadores y Timeline
 
-El paquete no proporciona fechas concretas para próximos eventos ni hitos corporativos. Los siguientes son **indicadores a seguir**, no eventos con calendario confirmado:
-
-| Indicador o posible catalizador | Fecha esperada | Impacto potencial | Evidencia disponible |
+| Catalizador / hito | Fecha esperada | Impacto potencial | Evidencia disponible |
 |---|---|---|---|
-| Próximos resultados financieros y evolución de ingresos y márgenes | No especificada | Podrían confirmar o contradecir la continuidad del crecimiento observado. | DDD identifica los resultados futuros como evidencia relevante; no incluye calendario. |
-| Evolución del FCF y conciliación con inversión y capital circulante | No especificada | Una recuperación o continuidad del FCF ayudaría a evaluar la conversión de resultados en caja. | FCF TTM de 19.747 al 2026-09-30 frente a 73.266 en FY 2025, según [Stock Analysis](https://stockanalysis.com/stocks/googl/financials/); períodos no homogéneos. |
-| Monetización de Search ante la adopción de productos y respuestas de IA | No especificada | Podría apoyar o debilitar la tesis sobre sostenibilidad del negocio publicitario. | Punto de monitoreo clave señalado por AOIF; no se proporcionan métricas ni fechas. |
-| Resultados y retornos por segmento, en particular Google Cloud y Other Bets | No especificada | Permitirían evaluar qué negocios impulsan crecimiento y qué retornos producen. | DDD identifica la falta de métricas segmentarias como pregunta abierta. |
+| Publicación de resultados desglosados por Google Services, Google Cloud y Other Bets | Sin fecha especificada | Permitiría identificar qué segmentos impulsan ingresos, márgenes e inversiones. | Pregunta abierta en el análisis DDD; no se proporcionan estimaciones ni calendario. |
+| Divulgación de inversiones de capital, gastos asociados y retornos por segmento | Sin fecha especificada | Ayudaría a evaluar la intensidad de inversión y la rentabilidad de Cloud e IA. | Datos insuficientes en DDD y AOIF. |
+| Evidencia de impacto de IA generativa en Search y publicidad | Sin fecha especificada | Podría aclarar si los productos de IA complementan o presionan el modelo de búsqueda y su monetización. | Riesgo identificado por AOIF; no se aporta una medición de impacto. |
+| Seguimiento de ingresos y margen bruto | Próximos reportes; fecha no disponible | Confirmaría o refutaría la continuidad de las tendencias observadas. | Historial reportado hasta FY 2025 y TTM al 2026-09-30. |
+
+No se proporcionan fechas de resultados, lanzamientos o resoluciones regulatorias. Los catalizadores se presentan como elementos a monitorear, no como eventos fechados confirmados.
 
 ## 8. Marco de Valoración
 
-AOIF reporta PER de 13,85 y EV/EBITDA de 16,96, pero el paquete no incluye fecha de valoración, precio y número de acciones asociados, deuda, caja ni inputs de cálculo. También reporta un FCF yield de 0, sin metodología verificable. Por ello, estos valores deben considerarse **indicativos y pendientes de validación**, no una base suficiente para estimar valor intrínseco.
+### Datos de mercado incluidos en el material
 
-DDD informa que, el 2026-11-21, el consenso de precio objetivo reportado fue de USD 397,13 —promedio y mediana— con un rango de USD 300–500. La cotización disponible era USD 323,11 al 2026-10-23. Fuentes citadas en el paquete: Stock Analysis, sin enlace específico para esos datos. Las fechas difieren; además, no se aportan horizonte, supuestos operativos ni metodología del consenso. Por tanto, la diferencia entre esos valores no demuestra por sí sola un error de valoración ni un margen de seguridad.
+- Precio observado: USD 323,11 al 2026-10-23, atribuido a yfinance.
+- Consenso de precio objetivo recopilado el 2026-11-22: USD 397,13, con un rango de USD 300–500. El consenso es un dato de contexto y no una estimación de valor intrínseco.
+- Múltiplos reportados por AOIF: P/E de 13,85 y EV/EBITDA de 16,96. No se especifican fecha, fuente ni base temporal, por lo que requieren validación antes de su uso.
+- Margen de seguridad: calificado como insuficiente en AOIF.
 
-AOIF califica el margen de seguridad como «insuficiente» y señala que no es responsable estimar valor intrínseco con los datos disponibles.
+### Metodología adecuada
 
-**Enfoque apropiado para completar la valoración:**
+Una valoración rigurosa podría combinar un análisis de flujo de caja descontado con una valoración por segmentos y una comparación mediante múltiplos. Para ello serían necesarios estados financieros con periodos y fuentes compatibles, flujos de caja proyectados, acciones diluidas, precio y fecha de valoración, inversiones de capital y supuestos explícitos sobre crecimiento, márgenes, impuestos, tasa de descuento y valor terminal.
 
-- Verificar precio, número de acciones, deuda y caja a una misma fecha.
-- Construir una estimación de flujo de caja libre normalizado y contrastarla con estados financieros comparables.
-- Separar supuestos de crecimiento, márgenes, inversión y retornos por segmento cuando existan datos suficientes.
-- Evaluar sensibilidad a la monetización de Search, inversión en infraestructura e IA, y rentabilidad de Google Cloud.
-- Contrastar los resultados de un modelo de flujos de caja con múltiplos comparables, documentando período y metodología.
+El valor intrínseco se considera no estimable con rigor a partir de la información disponible. El rendimiento de FCF no se calculó por falta de datos y no debe interpretarse como cero.
 
-No se proporciona un modelo cuantitativo ni una sensibilidad numérica defendible con los inputs actuales.
+### Sensibilidad y límites
+
+No se puede construir un análisis de sensibilidad cuantitativo sin proyecciones verificables y supuestos de valoración. En una futura valoración, los resultados deberían presentarse bajo escenarios de crecimiento, margen, inversión y tasa de descuento, prestando especial atención a la sensibilidad de Search y publicidad ante cambios tecnológicos y a los retornos de Cloud e IA.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué crecimiento, rentabilidad e inversión reporta cada segmento en períodos comparables?
-2. ¿Cuál es el retorno incremental sobre el capital de las inversiones actuales y planificadas?
-3. ¿Qué explica la evolución del margen bruto y qué parte corresponde a escala, mezcla u otros factores?
-4. ¿Cómo se reconcilian los valores de FCF TTM y FY 2025, y cuál es la serie de FCF en períodos homogéneos?
-5. ¿Cuál es la conversión de ingresos y beneficios en caja, usando flujo operativo, inversión de capital y capital circulante del mismo período?
-6. ¿Cuál es la fecha, fuente y metodología de los indicadores AOIF de crecimiento de ingresos, margen operativo, ROIC, PER, EV/EBITDA y FCF yield?
-7. ¿Cómo afectan los cambios en interfaces de IA a las consultas, el tráfico y la monetización de Search?
-8. ¿Qué métricas permiten evaluar por separado el crecimiento, la inversión y los retornos de Google Cloud y Other Bets?
-9. ¿Qué supuestos, horizonte y método sustentan el consenso de precio objetivo reportado?
-10. ¿Cuál es la información disponible sobre compensación, propiedad de insiders, composición del board y decisiones de asignación de capital?
+1. ¿Cómo evolucionan ingresos, márgenes e inversiones en Google Services, Google Cloud y Other Bets?
+2. ¿Qué inversión de capital y gastos asociados explican el FCF TTM informado, y cuáles son sus retornos?
+3. ¿Cuál es la contribución de Search, YouTube, publicidad, suscripciones, Cloud y otros negocios al crecimiento consolidado?
+4. ¿Qué efecto tienen las funciones de IA en el uso de Search, el tráfico a sitios de terceros, los precios publicitarios y la monetización?
+5. ¿Qué datos de cuota, precios y volumen permiten medir la posición competitiva y los cambios en el mercado?
+6. ¿Cómo se comparan de manera consistente el flujo de caja operativo, el FCF y el beneficio neto a lo largo del tiempo?
+7. ¿Cuál es la evolución de acciones diluidas y la dilución interanual?
+8. ¿Qué incentivos, propiedad accionaria de insiders y mecanismos de supervisión permiten evaluar el alineamiento del management y el consejo?
+9. ¿Qué obligaciones, remedios o decisiones regulatorias concretas podrían afectar las prácticas comerciales o los acuerdos de distribución?
+10. ¿Cuál es el periodo, fuente y fecha de corte de las métricas AOIF de crecimiento de ingresos, margen operativo, ROIC y múltiplos de valoración?
 
-**Agenda prioritaria:** obtener datos segmentarios comparables; reconstruir una serie homogénea de flujo de caja libre; verificar fecha y metodología de las métricas financieras; y evaluar la rentabilidad incremental de las inversiones en nube e IA antes de concluir sobre crecimiento, calidad del negocio o valoración.
+**Conclusión provisional:** la evidencia sugiere crecimiento histórico de ingresos y expansión del margen bruto, pero es insuficiente para concluir sobre la calidad duradera del negocio, la conversión de beneficios en caja, los retornos de reinversión o la valoración intrínseca. La recomendación de AOIF permanece pendiente de decisión.
 
 ---
 

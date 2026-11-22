@@ -1,147 +1,133 @@
 ## 1. Visión General de la Compañía
 
-Ecolab Inc. (ECL) ofrece soluciones y servicios de tratamiento de agua, higiene, limpieza, control de plagas y prevención de infecciones para clientes empresariales e institucionales. Su oferta combina productos químicos, equipos, protocolos y servicios, con atención técnica y operativa en las instalaciones de los clientes.
+Ecolab Inc. (ECL) desarrolla, fabrica, distribuye y presta servicios relacionados con tratamiento de agua, higiene, limpieza, prevención de infecciones y control de plagas. Su modelo combina productos y tecnologías con servicio técnico y soluciones integradas para las operaciones de sus clientes.
 
-La compañía atiende sectores como manufactura, alimentos y bebidas, transporte, energía, minería, refinación, petroquímica y papel, así como restaurantes, hoteles, hospitales, comercios, instituciones educativas y organismos gubernamentales. El resumen de investigación menciona cuatro segmentos, pero no proporciona sus nombres ni sus resultados financieros por separado.
+Los clientes descritos en la investigación abarcan sectores industriales —como manufactura, alimentos y bebidas, energía, minería, refinación, petroquímica y pulpa y papel— y comerciales o institucionales, como restaurantes, hoteles, salud, educación, gobierno y comercio minorista. La información proporcionada no especifica la distribución geográfica de ingresos ni la presencia por región.
 
-El modelo combina la venta de productos con servicios recurrentes y relaciones de largo plazo. La demanda está vinculada a necesidades de eficiencia hídrica, seguridad alimentaria, higiene, prevención de infecciones y cumplimiento de estándares. La información disponible no permite precisar la distribución geográfica de ventas ni la contribución de cada región.
+**Fuentes:** síntesis de investigación AOIF y DDD proporcionadas; sin URL verificable adjunta para la mayoría de las cifras financieras.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
 ### Drivers de ingresos
 
-Los ingresos dependen de la demanda de productos y servicios de tratamiento de agua, limpieza, higiene, sanitización, control de infecciones y gestión de plagas. Entre los factores operativos relevantes se encuentran:
+- Venta de productos y tecnologías para tratamiento de agua, limpieza, sanitización e higiene.
+- Servicios asociados y soluciones integradas para procesos de clientes.
+- Demanda relacionada con necesidades recurrentes de seguridad, higiene, prevención de infecciones, eficiencia hídrica y cumplimiento.
+- Exposición a clientes industriales, comerciales e institucionales, con posibles efectos de los volúmenes de actividad y de la inversión de esos clientes.
 
-- Volumen de actividad de los clientes y utilización de las soluciones.
-- Renovaciones y retención de contratos.
-- Precios y mezcla de productos y servicios.
-- Capacidad de trasladar cambios en los costos de materias primas, energía, transporte y mano de obra.
-- Desarrollo de soluciones adaptadas a las necesidades de cada sector.
+La investigación describe una cadena de valor que incluye desarrollo y formulación de productos, fabricación y distribución mediante canales propios y de terceros, además de integración en los procesos de los clientes.
 
-El paquete de investigación no incluye datos segmentados de crecimiento orgánico ni una separación verificable entre volumen, precio y mezcla.
+### Posición competitiva y moat
 
-### Ventaja competitiva
+AOIF caracteriza a Ecolab como líder, con un moat amplio, sustentado en servicio técnico en campo, conocimiento de los procesos de los clientes, relaciones de largo plazo y costos operativos de cambio. Estas valoraciones son **inferencias de la investigación**, no una medición independiente: el paquete no aporta cuotas de mercado, datos de retención, comparaciones con competidores ni evidencia cuantitativa de retornos sobre capital incremental.
 
-El análisis AOIF atribuye la posición competitiva de Ecolab a su escala, conocimiento técnico aplicado, relaciones de largo plazo, reputación de marca, servicio en las instalaciones y costos de cambio asociados a la integración de sus soluciones en las operaciones del cliente. Describe a la compañía como líder y califica su moat como amplio. Estas valoraciones son **inferencias del análisis**, no hechos corroborados por datos comparativos de cuota de mercado, retención de clientes o retornos sobre capital.
-
-La recurrencia de las necesidades de agua, higiene y control de infecciones puede favorecer la continuidad de la demanda. Sin embargo, no se aportan series de renovaciones, pérdidas de clientes, precios relativos ni evidencia cuantitativa de que los costos de cambio permitan sostener márgenes o rendimientos superiores.
-
-Ecolab comparte exposiciones generales a costos industriales y necesidades de insumos con compañías como [[DD]] y [[DOW]], aunque la información disponible no establece comparabilidad directa de productos, clientes o posición competitiva. Otras compañías listadas en la misma industria o sector en la base de conocimiento incluyen [[AEM]], [[B]], [[BHP]], [[CDE]], [[CX]], [[FCX]], [[GGB]], [[HL]], [[IFF]], [[NEM]], [[NUE]], [[SCCO]] y [[TX]]; no se dispone de evidencia suficiente para caracterizarlas como competidores directos de Ecolab.
+Como referencias de compañías relacionadas por exposición industrial o química, pueden consultarse [[DD]] y [[DOW]]. La información disponible no establece que sean competidores directos de Ecolab.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes proceden del paquete de investigación y no se acompañan todas de definiciones, series comparables ni enlaces de fuente completos. Deben tratarse como datos reportados, no como ratios independientemente validados.
+Las cifras siguientes proceden del paquete de investigación. No se adjuntaron URLs confiables para validar la mayoría de las series o los ratios; por tanto, deben tratarse como datos reportados por el paquete, no como cifras verificadas independientemente.
 
-| Métrica | Valor reportado | Período / fecha | Observaciones |
+| Métrica | Valor reportado | Periodo o fecha | Observación |
 |---|---:|---|---|
-| Crecimiento de ingresos | 9,33% | Período no especificado en AOIF | No se indica si es crecimiento orgánico, interanual o de otra base. |
-| Margen operativo | 18,54% | Período no especificado en AOIF | Sin serie histórica ni desglose por segmento. |
-| ROIC | 12,24% | Período no especificado en AOIF | No se proporcionan fórmula, componentes ni evolución histórica. |
-| Margen bruto | 44,04% | TTM al 2026-09-30 | Reportado en DDD; referencia: [Stock Analysis, estadísticas de ECL](https://stockanalysis.com/stocks/ECL/statistics/). |
-| Flujo de caja libre (FCF) | USD 1.870 millones | TTM al 2026-09-30 | Reportado en DDD; la conversión del beneficio a caja no está analizada. |
-| Deuda total | USD 13.770 millones | Al 2026-09-30 | Reportado en DDD; no se proporciona deuda neta. |
-| Current ratio | 1,11 | Al 2026-09-30 | No cruza el umbral de alerta configurado de menos de 0,5; no sustituye un análisis completo de liquidez. |
-| Cobertura de intereses | 0 | Al 2026-09-30 | Dato no utilizable para concluir capacidad de servicio de deuda; faltan EBIT y gasto por intereses. |
-| Crecimiento de ingresos a 3 años | No disponible | — | No calculable con respaldo de fuentes permitido en el paquete. |
-| Crecimiento de FCF | No disponible | — | Se reporta historia de FCF, pero no se valida el ratio de crecimiento. |
-| Dilución interanual | No evaluable | — | Falta una serie comparable de acciones diluidas. |
+| Ingresos | USD 14.188 millones | FY2022 | Serie histórica incluida en DDD |
+| Ingresos | USD 16.081 millones | FY2025 | El paquete señala crecimiento entre FY2022 y FY2025 |
+| Margen bruto | 38,25% | FY2022 | Serie histórica incluida en DDD |
+| Margen bruto | 44,51% | FY2025 | Aumento frente a FY2022, según la serie reportada |
+| Margen bruto | 44,04% | TTM al 2026-09-30 | Inferior al dato FY2025 reportado |
+| FCF | Positivo | FY2021–FY2025 | Sin cifras detalladas ni fuente habilitada para validación |
+| Crecimiento de ingresos | 9,33% | Periodo no especificado en el resumen AOIF | No se proporciona la serie de cálculo |
+| Margen operativo | 18,54% | Periodo no especificado en el resumen AOIF | No se proporciona la serie de cálculo |
+| ROIC | 12,24% | Periodo no especificado en el resumen AOIF | No se aportan cálculo ni retornos incrementales |
+| Current ratio | 1,11 | 2026-09-30 | El paquete indica que no está por debajo del umbral de 0,5; URL de campo citada de forma incompleta |
+| Cobertura de intereses | 0 en el proveedor | Periodo no especificado | DDD advierte que el dato no es validable y no permite concluir que la cobertura económica sea nula |
+| Acciones diluidas / dilución interanual | No evaluable | — | Falta una serie comparable |
 
-**Contexto de mercado reportado:** la cotización fue de USD 303,005 al 2026-10-30. El rendimiento de precio a 12 meses informado fue de 18,1669% para el período 2025-10-31 a 2026-10-30, con un drawdown reportado de 1,7415%. Estos datos describen el comportamiento de mercado, pero no demuestran por sí solos infravaloración o sobrevaloración. La fuente financiera citada en el contexto DDD aparece truncada como `https://fina…`, por lo que no es posible identificarla con precisión.
+AOIF también informa PER de 41,11 y EV/EBITDA de 22,74, pero no especifica la fecha de referencia ni aporta los datos subyacentes. El FCF yield figura como 0 en AOIF; el propio análisis indica que no puede corroborarse con la información disponible. No debe interpretarse como una medición validada.
 
-El análisis AOIF informa PER de 41,11 y EV/EBITDA de 22,74, pero no especifica fecha, precio de referencia, fuente ni metodología. También informa un FCF yield de 0; su significado no está verificado y no debe interpretarse como un rendimiento de caja calculado y confirmado.
-
-La oportunidad se clasifica como de **investigación requerida**, porque faltan fuentes verificables para varios ratios y series históricas. En particular, no se dispone de información suficiente sobre deuda neta, necesidades de reinversión, flujo de caja operativo, capex y evolución del ROIC.
+**Lectura:** las series reportadas apuntan a crecimiento de ingresos y expansión del margen bruto entre FY2022 y FY2025, así como a FCF positivo en FY2021–FY2025. La falta de estados financieros enlazados y de cifras de caja detalladas impide validar la conversión de beneficios a FCF, el apalancamiento y la rentabilidad incremental.
 
 ## 4. Management y Gobierno Corporativo
 
-El análisis AOIF califica la calidad del management como buena y la asignación de capital como neutral. También describe la alineación de insiders como débil. Son evaluaciones cualitativas del análisis; el paquete no aporta composición del board, datos de remuneración, porcentajes de propiedad de insiders, transacciones de ejecutivos ni criterios cuantitativos para esas calificaciones.
+La investigación AOIF califica la calidad de gestión como buena y la asignación de capital como neutral, pero no ofrece evidencia concreta sobre resultados de gestión, retornos de adquisiciones, política de capital, remuneración ejecutiva o composición del consejo.
 
-Por tanto, no es posible evaluar con rigor la independencia del board, la alineación de incentivos con accionistas, la trayectoria de asignación de capital o la estructura de compensación. Estos aspectos requieren investigación adicional con información corporativa primaria.
+El alineamiento de insiders se califica como débil. No se adjuntan datos de propiedad accionaria de insiders que permitan cuantificar o verificar esa evaluación.
+
+**Conclusión:** no hay base suficiente en el paquete para evaluar de forma independiente el desempeño del equipo directivo, los incentivos, el ownership interno ni la composición y supervisión del board.
 
 ## 5. Tesis de Inversión
 
-**Caso alcista, sujeto a verificación:**
+### Caso alcista — hipótesis que requiere validación
 
-- Ecolab ofrece soluciones relacionadas con necesidades recurrentes de agua, higiene, seguridad alimentaria y prevención de infecciones en clientes empresariales e institucionales.
-- El modelo combina productos, equipos y servicios, y puede integrarse en los procesos operativos de los clientes. El análisis AOIF plantea que esa integración, junto con el conocimiento técnico, la reputación y la atención en las instalaciones, contribuye a relaciones duraderas y costos de cambio.
-- Los indicadores suministrados describen crecimiento de ingresos de 9,33%, margen operativo de 18,54% y ROIC de 12,24%, aunque no se especifican períodos ni definiciones, y no se presentan series para comprobar su sostenibilidad.
-- DDD reporta un margen bruto TTM de 44,04% y FCF TTM de USD 1.870 millones al 2026-09-30. La continuidad de estos indicadores sería relevante para evaluar la capacidad de generar caja, pero el paquete no permite validar su tendencia ni su conversión desde beneficios.
-- La apreciación del precio reportada durante los 12 meses terminados el 2026-10-30 es un dato de mercado, no evidencia de una ventaja competitiva ni de valor intrínseco.
+- **Modelo de demanda recurrente:** las soluciones de agua, higiene, prevención de infecciones y control de plagas responden a necesidades operativas continuas de clientes industriales, comerciales e institucionales.
+- **Integración con operaciones de clientes:** el servicio técnico y el conocimiento de procesos podrían favorecer relaciones duraderas y elevar los costos operativos de cambio. Esta es una caracterización de AOIF, no una ventaja demostrada cuantitativamente en el material disponible.
+- **Crecimiento y expansión de margen históricos:** los ingresos reportados subieron de USD 14.188 millones en FY2022 a USD 16.081 millones en FY2025, mientras el margen bruto reportado aumentó de 38,25% a 44,51%. Son tendencias históricas; por sí solas no demuestran que puedan mantenerse.
+- **Generación de caja reportada:** DDD señala FCF positivo en FY2021–FY2025, aunque no facilita importes ni fuentes verificables para analizar su calidad.
 
-La hipótesis de inversión depende de que Ecolab pueda conservar sus relaciones con clientes, sostener crecimiento y márgenes, y convertir sus resultados operativos en FCF suficiente después de inversiones. La evidencia disponible no permite concluir que esas condiciones estén confirmadas ni establecer una valoración propia.
+La posible combinación de servicios técnicos recurrentes y necesidades de higiene y eficiencia tiene paralelos temáticos con empresas industriales y químicas como [[DD]] y [[DOW]], sin que la investigación establezca una comparación competitiva directa.
 
 ## 6. Riesgos y Contra-Tesis
 
-### Riesgos principales
+- **Desaceleración de clientes:** una menor actividad industrial o comercial podría reducir volúmenes y demanda de servicios. AOIF asigna impacto y probabilidad medios.
+- **Presión sobre márgenes:** inflación de insumos, mano de obra o logística, o dificultad para trasladar costos a precios, podría erosionar márgenes. AOIF asigna impacto y probabilidad medios.
+- **Durabilidad del crecimiento no demostrada:** las tendencias históricas reportadas no bastan para acreditar crecimiento futuro ni penetración sostenible de mercado.
+- **Calidad de la caja por validar:** no hay cifras detalladas de flujo operativo, capex y FCF. La señal de FCF positivo no permite evaluar conversión, volatilidad ni necesidades de inversión.
+- **Apalancamiento y liquidez insuficientemente documentados:** la cobertura de intereses del proveedor figura como 0, pero DDD considera que el dato no es validable. El current ratio reportado de 1,11 está por encima del umbral de alerta de 0,5, aunque la fuente no queda plenamente documentada.
+- **Valoración exigente según los múltiplos reportados:** AOIF informa PER de 41,11 y EV/EBITDA de 22,74, sin fecha ni datos suficientes para recalcularlos. El margen de seguridad se califica como insuficiente.
+- **Riesgo de que el consenso no refleje deterioro:** los objetivos de analistas podrían no incorporar una desaceleración o presión de márgenes; el paquete no aporta evidencia para confirmar o descartar esa hipótesis.
 
-- **Costos e inflación de insumos:** el encarecimiento de materias primas, energía, transporte o mano de obra podría presionar los márgenes si no se traslada plenamente a los clientes. Este riesgo fue señalado en AOIF; no se aportan datos de sensibilidad ni evidencia sobre la recuperación de costos.
-- **Presión competitiva y contratos:** una pérdida de clientes, contratos o poder de fijación de precios debilitaría la tesis de recurrencia y costos de cambio. AOIF asigna a la pérdida de contratos o a la presión sobre precios un impacto alto y una probabilidad media, sin cuantificación adicional.
-- **Deuda y liquidez:** DDD reporta deuda total de USD 13.770 millones y un current ratio de 1,11 al 2026-09-30. No se dispone de deuda neta, calendario de vencimientos ni métricas verificables de apalancamiento frente al EBITDA.
-- **Cobertura de intereses:** el valor reportado de 0 no permite evaluar la capacidad de servicio de deuda. Faltan EBIT, gasto por intereses y aclaración sobre la metodología o calidad del dato.
-- **Conversión a caja y reinversión:** no hay cifras de flujo operativo y capex comparables para evaluar la conversión del beneficio en FCF, las necesidades de mantenimiento o la inversión requerida para crecer.
-- **Valoración:** el PER de 41,11 y el EV/EBITDA de 22,74 comunicados por AOIF carecen de fecha y fuente verificable. El consenso de precio objetivo no constituye una valoración independiente.
+### Triggers de falsación
 
-### Contra-tesis
-
-La demanda recurrente y el servicio integrado no bastan por sí solos para confirmar una ventaja competitiva duradera. Si la empresa afrontara presión sostenida sobre precios o costos, pérdida de contratos, retornos sobre capital insuficientes o reinversión elevada, el atractivo económico del modelo podría ser menor de lo sugerido por el análisis cualitativo.
-
-### Falsadores a monitorear
-
-- Una secuencia de resultados con deterioro sostenido de ventas, margen bruto o FCF frente a los períodos reportados debilitaría la hipótesis de continuidad operativa.
-- Evidencia verificable de erosión competitiva, pérdida de clientes o contratos, o retornos sobre capital insuficientes refutaría una tesis basada en durabilidad y reinversión.
-- La confirmación de que el crecimiento depende principalmente de precios, sin una trayectoria sostenible de volumen o retención, reduciría la confianza en los drivers de ingresos.
-- Un aumento de deuda neta o necesidades de reinversión que limitara la generación de FCF debilitaría la tesis financiera.
+- Ingresos futuros o FCF que contradigan la continuidad sugerida por las series históricas reportadas.
+- Deterioro sostenido del margen bruto frente a los niveles reportados entre FY2022 y FY2025.
+- Evidencia de que los retornos sobre capital incremental o la conversión de beneficios a caja no respaldan el crecimiento.
+- Datos de mercado que contradigan la hipótesis de posición competitiva o de costos de cambio.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Fecha esperada | Impacto potencial | Evidencia y limitaciones |
+| Catalizador o evento | Fecha esperada | Impacto potencial | Estado de evidencia |
 |---|---|---|---|
-| Próximos resultados financieros | Sin fecha indicada en el paquete | Permitirían contrastar crecimiento, márgenes, FCF y deuda con períodos anteriores y expectativas. | DDD no identifica fechas concretas de resultados ni estima expectativas financieras detalladas. |
-| Evolución del FCF | Próximos períodos, sin calendario específico | Una mejora sostenida podría respaldar la capacidad de autofinanciar inversiones y atender obligaciones; un deterioro debilitaría la tesis. | FCF reportado de USD 1.870 millones TTM al 2026-09-30; referencia: [Stock Analysis, estadísticas de ECL](https://stockanalysis.com/stocks/ECL/statistics/). |
-| Actualización de consenso de precio objetivo | Observación reportada al 2026-11-21; siguiente actualización no indicada | Puede servir como referencia de expectativas de mercado, no como estimación propia ni garantía de precio. | Media y mediana reportadas de USD 342,95; rango de USD 310 a USD 385. Fuentes: [Stock Analysis, previsión de ECL](https://stockanalysis.com/stocks/ecl/forecast/) y [Yahoo Finance, ECL](https://finance.yahoo.com/quote/ECL/). |
+| Publicación de resultados financieros posteriores | Sin fecha especificada | Permitiría evaluar continuidad del crecimiento, generación de caja y evolución de márgenes | Catalizador señalado por DDD; no se aporta calendario |
+| Evolución de ingresos | Serie observada FY2022–FY2025 | Confirmaría o debilitaría la tendencia de crecimiento reportada | Histórico; no es una previsión |
+| Evolución del margen bruto | Serie observada FY2022–FY2025 y TTM al 2026-09-30 | Podría indicar continuidad o reversión de la expansión observada | Histórico; el margen TTM reportado es 44,04% |
+| Revisión de objetivos de analistas | No especificada | Podría modificar la referencia de mercado, pero no determina valor intrínseco | El consenso citado tiene fecha 2026-11-22 |
 
-No se identifican en el paquete anuncios corporativos, fechas de eventos o hitos operativos específicos. La fecha de consenso del 2026-11-21 es una fecha de observación, no un catalizador corporativo.
+No hay en la información suministrada anuncios corporativos, fechas de resultados confirmadas ni otros eventos específicos con calendario definido.
 
 ## 8. Marco de Valoración
 
-La valoración no puede considerarse validada con la evidencia disponible. DDD concluye que no se ha demostrado un error de valoración y que los datos son insuficientes para sostener una conclusión sobre retornos sobre capital, penetración de mercado o ventaja competitiva. AOIF indica que no es responsable estimar valor intrínseco sin precio y número de acciones de referencia, FCF normalizado, deuda neta y supuestos explícitos de crecimiento.
+### Información disponible
 
-### Enfoques apropiados para la investigación
+DDD registra un precio observado de **USD 303,01 al 2026-10-30** y un consenso de precio objetivo de **USD 342,95 al 2026-11-22**. También presenta escenarios basados en extremos del rango de objetivos de analistas al 2026-11-22:
 
-1. **Flujo de caja descontado:** requiere normalizar el FCF, modelar crecimiento orgánico, márgenes, impuestos, capex y capital de trabajo, e incorporar deuda neta y un costo de capital sustentado.
-2. **Comparables de mercado:** PER y EV/EBITDA pueden servir como referencias si se confirman sus fechas, definiciones y fuentes, y se comparan empresas con modelos y perfiles económicos pertinentes.
-3. **Valoración por escenarios:** conviene contrastar escenarios de crecimiento, margen y conversión a caja, evitando tratar el consenso como valor intrínseco.
+| Escenario | Precio objetivo | Base descrita |
+|---|---:|---|
+| Bajista | USD 310 | Extremo bajo del rango de objetivos de analistas |
+| Alcista | USD 385 | Extremo alto del rango de objetivos de analistas |
 
-### Supuestos y sensibilidades pendientes
+Estas cifras son referencias de objetivos de analistas, no una valoración fundamental independiente. Las fechas del precio observado y del consenso son distintas. DDD concluye que la información no valida un error de valoración y que no se proporciona un método suficiente para determinar valor intrínseco.
 
-| Variable | Información necesaria |
-|---|---|
-| Crecimiento | Crecimiento orgánico y separación entre volumen, precio y mezcla; no disponibles en el paquete. |
-| Márgenes | Evolución histórica y proyecciones por segmento; no disponibles. |
-| FCF normalizado | Flujo operativo, capex, capital de trabajo y efectos no recurrentes; no disponibles en series comparables. |
-| Reinversión y retornos | Capex de mantenimiento y crecimiento, necesidades de capital y evolución del ROIC; no disponibles por segmento. |
-| Estructura de capital | Efectivo, deuda neta, vencimientos y costo de deuda; información incompleta. |
-| Múltiplos | Confirmación de fecha, fuente y metodología para PER 41,11, EV/EBITDA 22,74 y FCF yield 0. |
-| Sensibilidad | Efecto sobre el valor estimado de cambios en crecimiento, márgenes, tasa de descuento y conversión a caja; no cuantificable con los datos actuales. |
+AOIF reporta PER de 41,11 y EV/EBITDA de 22,74, pero sin fecha de referencia ni inputs para verificación. También califica el margen de seguridad como insuficiente.
 
-El precio de USD 303,005 al 2026-10-30 y el consenso de precio objetivo reportado al 2026-11-21 deben mantenerse como observaciones de mercado independientes de una valoración propia. No se infiere margen de seguridad a partir de ellos.
+### Método apropiado y datos necesarios
+
+Para una valoración fundamental sería necesario construir un análisis de flujos de caja descontados o una valoración por múltiplos comparables con datos consistentes. El paquete no permite estimar un valor intrínseco: faltan previsiones de ingresos y márgenes, flujo operativo, capex, coste de capital, estructura de deuda validada y supuestos de crecimiento terminal.
+
+Las variables clave de sensibilidad serían crecimiento orgánico, márgenes, conversión a FCF, reinversión necesaria y coste de capital. No hay datos suficientes para cuantificar sensibilidad o establecer un precio objetivo propio.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuál es el crecimiento orgánico esperado por la dirección y cómo se divide entre volumen, precio y mezcla?
-2. ¿Cómo se comparan las expectativas de crecimiento y márgenes con el consenso, y qué supuestos las explican?
-3. ¿Cuáles son los nombres, ventas, márgenes y necesidades de inversión de los cuatro segmentos mencionados?
-4. ¿Cómo han evolucionado el ROIC y la reinversión por segmento? ¿Qué parte del retorno depende del crecimiento y cuál de la rentabilidad existente?
-5. ¿Cuáles son las series comparables de ingresos, margen operativo, FCF, flujo de caja operativo y capex?
-6. ¿Qué explica el dato de cobertura de intereses reportado como 0? ¿Cuál es el EBIT, el gasto por intereses, la deuda neta y el calendario de vencimientos?
-7. ¿Cuál es la definición y el período de referencia del crecimiento de ingresos de 9,33%, el margen operativo de 18,54% y el ROIC de 12,24%?
-8. ¿Qué significan exactamente el PER de 41,11, el EV/EBITDA de 22,74 y el FCF yield de 0 reportados por AOIF? ¿Cuáles son sus fechas y fuentes?
-9. ¿Qué datos verificables existen sobre retención de clientes, renovaciones, pérdidas de contratos, cuotas de mercado y capacidad de trasladar costos?
-10. ¿Cómo se comparan la propiedad de insiders, la remuneración ejecutiva y la composición del board con los intereses de los accionistas?
-11. ¿Cuál es una estimación de valor intrínseco basada en FCF normalizado, deuda neta, número de acciones y supuestos explícitos?
-12. ¿Qué fechas de resultados y otros hitos corporativos permitirán revisar las hipótesis de crecimiento, márgenes y generación de caja?
+1. ¿Cuál es el mercado direccionable, la penetración por segmento y la cuota de Ecolab?
+2. ¿Qué retornos obtiene sobre el capital incremental y cuánto necesita reinvertir para crecer?
+3. ¿Qué parte del crecimiento de ingresos proviene de volumen, precios, adquisiciones y efectos cambiarios?
+4. ¿Cómo evolucionan el flujo de caja operativo, el capex, el FCF y la conversión de beneficios a caja?
+5. ¿Cuál es la deuda, el calendario de vencimientos y la cobertura de intereses calculada con estados financieros verificables?
+6. ¿Qué evidencia cuantitativa existe sobre retención de clientes, duración de contratos, costos de cambio y ventaja frente a competidores?
+7. ¿Cómo se distribuyen ingresos y resultados por segmento y geografía?
+8. ¿Qué historial tiene la dirección en adquisiciones y asignación de capital, y cómo se vincula la remuneración a resultados de largo plazo?
+9. ¿Cuál es el ownership de insiders y cuál es la estructura, independencia y experiencia del board?
+10. ¿Qué fuentes primarias sustentan las métricas financieras, los múltiplos y las cifras de mercado citadas?
 
-**Estado de la investigación:** evidencia fundamental incompleta. La decisión de inversión queda pendiente de verificar series financieras, fuentes y supuestos de valoración.
+**Estado de la oportunidad:** investigación fundamental requerida. La evidencia disponible sugiere tendencias financieras históricas favorables y una propuesta de valor basada en servicios integrados, pero no permite validar plenamente la calidad del negocio, la durabilidad de la ventaja competitiva ni el valor intrínseco.
 
 ---
 
