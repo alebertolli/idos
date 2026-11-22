@@ -1,0 +1,27 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida'
+- 'Market error: No se valida un error de valoración con la evidencia disponible.'
+- 'Thesis: Danaher opera en Biotecnología, Ciencias de la Vida y Diagnóstico, según
+  el resumen financiero. La evidencia disponible muestra generación positiva de FCF
+  TTM y margen bruto reportado, pero no basta p'
+generated_at: '2026-11-22T08:19:06.118939-03:00'
+id: ass-25141d24
+recommendation: REVIEW
+risks:
+- fuente: StockAnalysis, evidencia financiera por campo, período Current terminado
+    el 2026-09-25.
+  riesgo: Deuda neta reportada de USD 22.1 mil millones al 2026-09-25; el dato aislado
+    no determina capacidad de servicio ni apalancamiento relativo.
+- fuente: StockAnalysis, evidencia financiera por campo, historial de crecimiento
+    de FCF.
+  riesgo: 'El crecimiento de FCF reportado varió entre años fiscales: -21.89% en FY
+    2023, -8.39% en FY 2024, -0.68% en FY 2025 y 14.15% en TTM terminado el 2026-09-25.'
+- fuente: 'Research Intake Package: trusted_source_urls vacío; evidencia financiera
+    por campo.'
+  riesgo: El paquete no permite validar tendencias de acciones diluidas ni cobertura
+    de intereses con los criterios de fuente requeridos.
+score: 35
+status: COMPLETED
+version: '3.0'

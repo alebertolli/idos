@@ -1,123 +1,146 @@
 ## 1. Visión General de la Compañía
 
-**Delta Air Lines, Inc. (DAL)** es una aerolínea estadounidense que transporta pasajeros y carga en rutas nacionales e internacionales. Opera en una industria intensiva en capital y cíclica, expuesta a la demanda de viajes, los precios del combustible, los salarios y las condiciones económicas.
+**Delta Air Lines, Inc. (DAL)** es una aerolínea estadounidense que transporta pasajeros y carga en rutas nacionales e internacionales. Según los materiales de investigación, sus actividades se organizan en los segmentos **Airline** y **Refinery**. La compañía planifica rutas y capacidad, comercializa billetes y servicios complementarios, y opera aeronaves, tripulaciones y hubs.
 
-La cadena de valor comprende la financiación y operación de aeronaves, la compra de combustible, la contratación de personal y la planificación de rutas, capacidad y precios. La compañía vende transporte aéreo y servicios relacionados a viajeros de ocio y corporativos, además de servicios de carga. La investigación describe segmentos denominados *Airline* y *Refinery*, pero no aporta cifras comparables por segmento.
+Su negocio está expuesto a la demanda de viajes, los precios del combustible, los costes laborales, la disponibilidad de capacidad y las condiciones económicas. La industria es intensiva en capital y cíclica. La información disponible describe una red doméstica e internacional, pero no aporta datos verificables suficientes para evaluar por sí solos su cobertura geográfica o el valor competitivo de cada hub.
 
-Entre las compañías identificadas en la misma industria o sector figuran [[ASR]], [[CAAP]], [[CAR]] y [[CAT]]. La información disponible no establece comparaciones operativas directas con ellas.
+En el grupo de compañías relacionadas de la wiki figuran [[ASR]], [[CAAP]] y [[PAM]]; [[FDX]] puede servir como referencia sectorial para ciertos riesgos y dinámicas vinculados al transporte de carga. La información proporcionada no demuestra que todas sean competidores directos de Delta.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-Las principales fuentes de ingresos descritas son el transporte de pasajeros y de carga. La red de hubs, los horarios, la flota, las alianzas, la conectividad internacional y el programa de fidelización pueden contribuir a la conveniencia para los clientes y a la diferenciación del servicio. La investigación también menciona ingresos complementarios relacionados con fidelización, mantenimiento y otros servicios, pero no cuantifica su contribución.
+### Fuentes de ingresos y operación
 
-La evaluación AOIF caracteriza la posición competitiva como **líder** y el moat como **estrecho**, atribuyéndolo a escala, marca, red y fidelización. Estas son evaluaciones del análisis recibido; no se acompañan de datos verificables sobre cuota de mercado, retornos de capital o costes de cambio.
+Los ingresos principales provienen del transporte aéreo de pasajeros y carga. Los materiales también identifican actividades complementarias asociadas a la refinería, el mantenimiento, la fidelización y los servicios adicionales. No se aporta un desglose cuantitativo de ingresos o beneficios por actividad.
 
-La industria presenta competencia en precio y servicio, y la capacidad no siempre puede ajustarse rápidamente. Los factores operativos señalados incluyen combustible, salarios, tipos de cambio y demanda. Entre los pares listados en la wiki existente se encuentran [[ASR]], [[CAAP]], [[CAR]] y [[CAT]].
+Los clientes incluyen pasajeros de ocio y viajeros de negocios. La demanda y los ingresos pueden variar con el ciclo económico, la mezcla de viajeros, la capacidad ofrecida y las condiciones de precios.
+
+### Posición competitiva y moat
+
+El análisis AOIF caracteriza a Delta como **líder** en su posición competitiva y describe un moat **estrecho**. Identifica como posibles fuentes de ventaja la red de hubs, los horarios y frecuencias, la escala operativa, la marca, el programa de fidelización y las alianzas. Estas características podrían apoyar la retención de clientes y la eficiencia en mercados clave, pero los materiales no aportan pruebas suficientes para cuantificar sus efectos ni para confirmar poder de fijación de precios.
+
+La competencia y los riesgos operativos deben analizarse junto con otras compañías relacionadas, como [[ASR]], [[CAAP]] y [[PAM]], sin asumir que su modelo o posición competitiva sean equivalentes.
+
+### Dinámica de la industria
+
+El sector es intensivo en capital y sensible al combustible, los salarios, la demanda económica y la capacidad disponible. La regulación, la congestión aeroportuaria y las restricciones de capacidad también pueden afectar las operaciones y la rentabilidad.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes se reproducen con sus períodos y limitaciones tal como aparecen en la investigación. Las métricas AOIF carecen de fecha, fuente y período especificados, por lo que no deben tratarse como cifras verificadas o directamente comparables.
+Las cifras siguientes proceden de los materiales de investigación. Salvo donde se especifica una fuente pública, **no se acompañan de enlaces o documentación que permita verificarlas de forma independiente**. Los datos de distintos periodos y metodologías no deben tratarse como directamente comparables sin revisar sus definiciones.
 
-| Métrica | Valor reportado | Período / referencia | Estado y limitaciones |
+| Métrica | Valor reportado | Periodo o referencia | Observación |
 |---|---:|---|---|
-| Ingresos | USD 71.8 mil millones | TTM al 2026-09-30 | Reportado por Stock Analysis; no se aporta aquí una serie histórica equivalente. |
-| Ingresos | USD 63.364 mil millones | FY 2025 | Reportado por Stock Analysis. Compararlo con TTM no constituye una comparación de períodos equivalentes. |
-| Deuda total | USD 19.935 mil millones | 2026-09-30 | Reportado por Stock Analysis. |
-| Deuda total | USD 21.374 mil millones | FY 2025 | Reportado por Stock Analysis; la comparación con el dato TTM corresponde a referencias de período distintas. |
-| Efectivo e inversiones | USD 3.787 mil millones | 2026-09-30 | Reportado por Stock Analysis. |
-| Current ratio | 0.4x | 2026-09-30 | Reportado por Stock Analysis; por debajo del umbral de revisión de 0.5x utilizado en el análisis. |
-| Cobertura de intereses | 0x | 2026-09-30 | Valor reportado por Stock Analysis, pero no validado como EBIT dividido por gasto de intereses. |
-| Crecimiento de ingresos | 14.11% | Período no especificado | Valor incluido en AOIF; fuente y período no especificados. |
-| Margen operativo | 7.29% | Período no especificado | Valor incluido en AOIF; fuente y período no especificados. |
-| ROIC | 10.23% | Período no especificado | Valor incluido en AOIF; fuente y período no especificados. |
-| PER | 15.86x | Fecha no especificada | Múltiplo incluido en AOIF; fuente y metodología no especificadas. |
-| EV/EBITDA | 9.27x | Fecha no especificada | Múltiplo incluido en AOIF; fuente y metodología no especificadas. |
-| FCF yield | 0 | Fecha y definición no especificadas | Valor incluido en AOIF; no permite inferir el rendimiento de caja sin aclarar período y cálculo. |
-| Crecimiento de FCF | No disponible | — | No calculado: faltan fuentes verificables para la serie, y TTM frente a FY no sería una comparación equivalente. |
+| Precio de la acción | USD 78,95 | 30-oct-2026 | Dato del paquete DDD; no se incluye una URL de cotización. |
+| Variación del precio | +39,6828% | 12 meses hasta 30-oct-2026 | Dato reportado por DDD; no se aportan detalles metodológicos. |
+| Consenso de analistas | USD 101,65 | Observado en octubre de 2026 | Rango reportado: USD 53–125. El paquete menciona StockAnalysis y Yahoo Finance, pero no proporciona enlaces directos para esta observación. El consenso no es una valoración intrínseca. |
+| Ingresos | Crecimiento de 14,11% | Periodo no especificado | Dato AOIF sin fuente ni periodo identificables. |
+| Margen operativo | 7,29% | Periodo no especificado | Dato AOIF sin fuente ni periodo identificables. |
+| ROIC | 10,23% | Periodo no especificado | Dato AOIF sin fuente ni metodología identificables. |
+| PER | 15,86 | Periodo no especificado | Dato AOIF sin precio y fecha de referencia verificables. |
+| EV/EBITDA | 9,27 | Periodo no especificado | Dato AOIF sin inputs ni metodología verificables. |
+| FCF | USD 3.843 millones | FY 2025 | Dato reportado por DDD; falta una URL de respaldo en `trusted_source_urls`. |
+| FCF | USD 3.022 millones | TTM al 30-sep-2026 | Dato reportado por DDD; la metodología y fuente no pueden validarse con los materiales disponibles. |
+| Margen bruto TTM | Inferior al de FY 2024 y FY 2025 | TTM hasta 30-sep-2026 | Comparación reportada por DDD; no se proporcionan los valores. |
+| Deuda total | USD 21.374 millones | FY 2025 | Dato reportado por DDD; falta una URL de respaldo. |
+| Deuda total | USD 19.935 millones | 30-sep-2026 | Dato reportado por DDD; falta una URL de respaldo. |
+| Efectivo e inversiones | USD 3.787 millones | 30-sep-2026 | Dato reportado por DDD; falta una URL de respaldo. |
+| Current ratio | 0,4 | 30-sep-2026 | Inferior al umbral de 0,5 definido en el análisis DDD. Fuente indicada: [StockAnalysis — DAL Statistics](https://stockanalysis.com/stocks/DAL/statistics/). |
+| Cobertura de intereses | 0 | Periodo no especificado | Dato reportado por DDD; no puede verificarse ni interpretarse sin definición y fuente. |
+| FCF yield | 0 | Periodo no especificado | Dato AOIF; metodología y periodo no especificados, por lo que no se considera una medida validada. |
 
-DDD informa crecimiento de ingresos y FCF positivo, pero no proporciona en este paquete una serie documentada y comparable que permita validar tendencias, márgenes, conversión de caja o retornos sobre capital. La diferencia entre ingresos TTM y FY 2025 no prueba por sí sola una tasa de crecimiento interanual. Tampoco se aportan cifras suficientes para calcular deuda neta o evaluar la cobertura de intereses.
+El FCF TTM reportado es inferior al valor de FY 2025, aunque los periodos no son directamente equivalentes. El análisis debe comprobar si se trata de una reducción sostenida o de un efecto de periodo. El descenso reportado de la deuda entre FY 2025 y el 30 de septiembre de 2026 es una señal favorable potencial, pero no basta para concluir que el desapalancamiento sea sostenible.
 
-**Fuente citada para estadísticas financieras:** [Stock Analysis — DAL Statistics](https://stockanalysis.com/stocks/DAL/statistics/), con períodos indicados en la tabla y en el análisis recibido.
+El análisis AOIF clasifica la tendencia financiera como **estable**, pero no aporta periodos ni fuentes suficientes para reconciliar esa conclusión con la reducción del FCF observada por DDD. Tampoco hay series comparables verificables para calcular crecimiento de ingresos, crecimiento de FCF o evolución de acciones diluidas.
 
 ## 4. Management y Gobierno Corporativo
 
-AOIF califica la calidad del management como **buena**, el alineamiento de insiders como **moderado** y la asignación de capital como **neutral**. El comentario del análisis relaciona la escala de la red y la diversificación hacia fidelización, mantenimiento y servicios complementarios con capacidad de gestión; no aporta evidencia reciente específica para comprobar esas valoraciones.
+El análisis AOIF califica la calidad del management como **buena** y la asignación de capital como **neutral**, pero señala que la evaluación es provisional. Los materiales no incluyen información reciente sobre compensación, propiedad accionarial, decisiones de inversión, recompras, dividendos, endeudamiento o compromisos de flota.
 
-No se proporcionan nombres de ejecutivos o consejeros, composición del board, participación accionaria de insiders, remuneración, incentivos, historial de asignación de capital ni fuentes verificables sobre gobierno corporativo. Estos aspectos requieren investigación adicional antes de extraer conclusiones.
+La alineación de insiders aparece calificada como **débil** en AOIF, sin datos que permitan comprobar esa valoración. No se proporcionan la composición del board, la independencia de sus miembros ni información sobre incentivos de largo plazo. Por ello, no es posible llegar a una conclusión independiente sobre gobierno corporativo o alineación entre directivos y accionistas.
 
 ## 5. Tesis de Inversión
 
-**Caso alcista — hipótesis sujeta a verificación:**
+**Hipótesis de inversión por investigar:** Delta podría beneficiarse de su red de hubs, la escala operativa, la marca, el programa de fidelización y la conectividad. La diversificación entre pasajeros, carga y actividades complementarias también podría contribuir a la economía del negocio. Sin embargo, los materiales disponibles no cuantifican la contribución de esos elementos ni verifican que produzcan una ventaja competitiva sostenible.
 
-- Delta cuenta con una red de rutas, hubs y conexiones que puede ofrecer ventajas de conveniencia y apoyar la demanda de clientes de ocio y corporativos.
-- El programa de fidelización, las alianzas y los servicios complementarios podrían diversificar la propuesta frente al transporte aéreo básico. El paquete no cuantifica cuánto aportan a los ingresos o a los márgenes.
-- Stock Analysis reporta ingresos de USD 71.8 mil millones TTM al 2026-09-30 y USD 63.364 mil millones en FY 2025. La diferencia es una observación entre períodos no equivalentes, no evidencia suficiente para establecer una tasa de crecimiento.
-- Stock Analysis reporta deuda total de USD 19.935 mil millones al 2026-09-30 frente a USD 21.374 mil millones en FY 2025. Esto podría ser consistente con una reducción de deuda, pero las referencias de período y la comparabilidad deben comprobarse.
-- AOIF describe la calidad de la tendencia financiera como estable e incluye valores de crecimiento, margen operativo y ROIC; al no especificar períodos ni fuentes, estos datos no bastan para validar la calidad del crecimiento ni la reinversión.
+Elementos que respaldan el caso alcista, sujetos a verificación:
 
-La tesis sigue siendo **no concluyente**: la escala de ingresos y la mención de FCF positivo no bastan para confirmar una oportunidad de crecimiento compuesto, la calidad del moat o retornos atractivos sobre el capital.
+- El AOIF describe a Delta como líder competitivo y atribuye posibles ventajas a su escala, hubs, marca, frecuencias, fidelización y alianzas.
+- La deuda total reportada bajó de USD 21.374 millones en FY 2025 a USD 19.935 millones al 30-sep-2026. Si las cifras y definiciones son comparables, podría indicar desapalancamiento.
+- El precio reportado subió 39,6828% en los 12 meses hasta el 30-oct-2026. Esta evolución muestra impulso de mercado, pero no demuestra por sí sola una mejora de los fundamentales.
+- El consenso reportado de USD 101,65, con un rango de USD 53–125, está por encima del precio de USD 78,95 observado el 30-oct-2026. Es una referencia de expectativas de analistas, no una estimación independiente del valor intrínseco.
+
+La tesis requeriría confirmación mediante recuperación sostenida de FCF y márgenes, evidencia de retornos sobre el capital, y una revisión de la estructura de deuda y las necesidades de reinversión.
 
 ## 6. Riesgos y Contra-Tesis
 
-**Caso bajista y riesgos identificados:**
+### Caso bajista
 
-- **Combustible y refinación:** AOIF considera de alto impacto y alta probabilidad el riesgo de aumentos del precio del combustible o deterioro de los márgenes de refinación.
-- **Demanda cíclica:** una recesión o caída de la demanda podría afectar viajes corporativos y de ocio, según el análisis AOIF.
-- **Competencia e intensidad de capital:** la competencia en precio y servicio, junto con la necesidad de financiar aeronaves e infraestructura, puede limitar la flexibilidad operativa.
-- **Liquidez corriente:** Stock Analysis reporta un current ratio de 0.4x al 2026-09-30, inferior al umbral de revisión de 0.5x señalado en DDD. Es una señal de revisión, no por sí sola una conclusión sobre solvencia.
-- **Deuda y cobertura:** se reportan deuda total de USD 19.935 mil millones y efectivo e inversiones de USD 3.787 mil millones al 2026-09-30. La cobertura de intereses reportada como 0 no está validada y requiere comprobar EBIT y gasto de intereses.
-- **Valoración no demostrada:** el amplio rango de objetivos de analistas y la falta de supuestos operativos verificables impiden concluir si la cotización incorpora expectativas excesivas o insuficientes.
+La mejora del precio no garantiza crecimiento sostenible. DDD reporta un FCF TTM de USD 3.022 millones al 30-sep-2026, inferior a los USD 3.843 millones de FY 2025, y señala que el margen bruto TTM está por debajo de los de FY 2024 y FY 2025. Sin series comparables y fuentes verificables, no es posible determinar si esta diferencia representa un deterioro sostenido o un efecto de periodo.
 
-**Falsadores a monitorear:**
+### Riesgos principales
 
-1. Resultados comparables que muestren deterioro persistente de ingresos o FCF frente a los valores reportados al 2026-09-30.
-2. Aumento de deuda o deterioro de liquidez frente a las referencias reportadas al 2026-09-30.
-3. Evidencia futura de márgenes o retornos sobre capital insuficientes para sostener la tesis de ventajas de escala y red.
-4. Verificación de que la cobertura de intereses es débil una vez recalculada con datos de EBIT y gasto de intereses comparables.
+| Riesgo | Evidencia o señal disponible | Implicación |
+|---|---|---|
+| Liquidez de corto plazo | Current ratio reportado de 0,4 al 30-sep-2026, por debajo del umbral de 0,5. [Fuente indicada: StockAnalysis](https://stockanalysis.com/stocks/DAL/statistics/) | Requiere revisar vencimientos, obligaciones corrientes y generación de caja. |
+| Deuda y cobertura | Deuda total reportada de USD 19.935 millones y efectivo e inversiones de USD 3.787 millones al 30-sep-2026; la cobertura de intereses reportada como 0 no es verificable. | No permite concluir sobre solvencia ni servicio de deuda sin vencimientos, costes financieros y metodología. |
+| Combustible y márgenes de refinería | AOIF identifica el aumento del precio del combustible o la volatilidad de los márgenes de refinación como riesgo de impacto alto y probabilidad alta. | Puede presionar los costes y la rentabilidad; no se cuantifica la sensibilidad. |
+| Demanda cíclica | AOIF considera de impacto alto y probabilidad media el riesgo de recesión o caída de la demanda de viajes, incluidos viajes de negocios y ocio prémium. | Puede afectar ingresos, utilización de capacidad y márgenes. |
+| Costes y operación | La actividad es intensiva en capital y sensible a salarios, capacidad disponible, congestión y regulación. | Puede limitar la flexibilidad operativa y la rentabilidad. |
+| Calidad de los datos | Los materiales carecen de fuentes verificables para varias métricas financieras y de valoración. | Reduce la confianza en las conclusiones cuantitativas y en las comparaciones entre periodos. |
 
-Los puntos 3 y 4 son criterios de seguimiento, no hechos confirmados sobre resultados futuros.
+### Triggers de falsación
+
+- Los periodos posteriores no muestran recuperación sostenida del FCF o del margen bruto.
+- La deuda total deja de disminuir o aumenta sin una mejora compensatoria del flujo de caja.
+- La revisión de estados financieros comparables invalida el descenso de deuda o el nivel de FCF reportado.
+- La evidencia sobre retornos, reinversión y generación de caja no respalda una ventaja sostenible derivada de la red o de la escala.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Fecha esperada | Impacto potencial | Evidencia disponible |
+| Catalizador o dato a observar | Fecha esperada | Impacto potencial | Estado de la evidencia |
 |---|---|---|---|
-| Próximos resultados financieros comparables | No especificada en el paquete | Podrían aclarar la trayectoria de ingresos, FCF, deuda y márgenes | DDD señala estos resultados como información que podría modificar la lectura, pero no identifica fechas de eventos. |
-| Verificación de la trayectoria de deuda y liquidez | Sin fecha especificada | Podría confirmar o cuestionar la lectura de reducción de deuda y la señal de liquidez | Referencias reportadas por Stock Analysis para FY 2025 y 2026-09-30; períodos no necesariamente equivalentes. |
-| Actualización de objetivos de analistas | Consenso observado el 2026-11-20; horizonte no especificado | Puede cambiar la referencia de expectativas, pero no constituye por sí sola una valoración intrínseca | Objetivo medio y mediano reportado de USD 101.65, con rango de USD 53–125. |
-| Cotización de referencia | 2026-10-30 | Permite contextualizar los objetivos reportados, sin resolver su horizonte ni el valor intrínseco | Cotización observada de USD 78.95, según DDD. |
+| Próximos resultados y actualización de FCF y márgenes | Sin fecha proporcionada | Una recuperación sostenida podría respaldar la tesis; un nuevo deterioro la debilitaría. | No se proporciona calendario de resultados ni guía financiera. |
+| Evolución de la deuda total | Próximos periodos de reporte; fechas no proporcionadas | Una reducción sostenida reforzaría la lectura de desapalancamiento; un aumento sin más caja sería negativo. | DDD reporta una caída entre FY 2025 y 30-sep-2026, sin proyecciones. |
+| Revisión de liquidez y cobertura de intereses | Próximos estados financieros; fechas no proporcionadas | Podría aclarar el riesgo de liquidez señalado por el current ratio de 0,4 y la cobertura reportada como 0. | Los datos actuales no están suficientemente documentados. |
+| Demanda de viajes y exposición a combustible | Continuo; no se indican hitos concretos | Cambios en demanda, costes de combustible o márgenes de refinería pueden afectar materialmente los resultados. | Riesgos cualitativos identificados por AOIF; sin sensibilidades cuantificadas. |
 
-No se identifican fechas concretas para próximos eventos corporativos ni se especifica el horizonte de los objetivos de analistas.
+No hay en los materiales fechas esperadas verificables para próximos eventos corporativos ni proyecciones de la compañía. Por ello, los catalizadores deben actualizarse cuando se incorporen fuentes primarias y un calendario confirmado.
 
 ## 8. Marco de Valoración
 
-La valoración no puede estimarse con rigor a partir de la información disponible. AOIF indica que faltan precio y capitalización de referencia, deuda neta, FCF normalizado, previsiones y supuestos de valoración. Los múltiplos PER de 15.86x y EV/EBITDA de 9.27x carecen de fecha y fuente especificadas, y el FCF yield informado como 0 requiere aclarar período, definición y cálculo.
+No puede validarse una conclusión de infravaloración o sobrevaloración con la información disponible. El precio observado y el consenso de analistas son referencias de mercado, no una valoración intrínseca. La valoración intrínseca no es estimable con rigor sin flujos de caja normalizados, deuda neta, acciones diluidas, precio y fecha de referencia coherentes, y supuestos explícitos de crecimiento y reinversión.
 
-**Metodología apropiada para una investigación posterior:**
+### Metodologías apropiadas para investigar
 
-- Normalizar el FCF a través de períodos comparables, considerando la naturaleza cíclica del negocio.
-- Contrastar una valoración por flujo de caja con múltiplos de empresas comparables y con la evolución histórica de márgenes y deuda.
-- Separar los supuestos operativos —demanda, capacidad, precios, combustible, costes laborales y márgenes— de los supuestos financieros y de valoración.
-- Verificar períodos, definiciones y fuentes de cada múltiplo antes de utilizarlos.
+1. **DCF basado en flujo de caja libre normalizado:** estimar flujos a través de un ciclo, con supuestos explícitos de crecimiento, márgenes, inversión, capital circulante y coste de capital.
+2. **Valoración por múltiplos:** contrastar PER y EV/EBITDA con empresas y periodos comparables, ajustando por ciclo, deuda y estructura de negocio. Los valores de 15,86 y 9,27 del AOIF no son utilizables como conclusión hasta validar sus inputs y fechas.
+3. **Análisis de balance y liquidez:** integrar deuda, efectivo, vencimientos y compromisos de flota en la valoración y en el análisis de solvencia.
 
-Los objetivos de analistas reportados el 2026-11-20 son referencias observadas, no valor intrínseco validado. El objetivo medio y mediano de USD 101.65 y el rango de USD 53–125 no especifican horizonte; la cotización de USD 78.95 corresponde al 2026-10-30. No se puede evaluar el margen de seguridad ni hacer una sensibilidad cuantitativa fiable sin previsiones y supuestos comparables.
+### Sensibilidad y límites
+
+La valoración debería presentar escenarios bajo, base y alto, variando al menos demanda, precios de combustible, márgenes, FCF normalizado, inversión y coste de capital. No se asignan valores a esos escenarios porque los materiales no proporcionan inputs suficientes.
+
+El FCF yield reportado como 0 no tiene metodología especificada y no debe utilizarse para inferir rentabilidad de caja. Asimismo, el consenso reportado de USD 101,65 y su rango de USD 53–125 deben tratarse únicamente como expectativas observadas por DDD, no como margen de seguridad.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuál es la cuota de mercado de Delta y cómo ha evolucionado frente a competidores, con períodos y fuentes comparables?
-2. ¿Qué tamaño tiene el mercado direccionable relevante, qué penetración presenta y qué retornos obtiene Delta sobre el capital invertido?
-3. ¿Qué parte de los ingresos y beneficios procede de pasajeros, carga, fidelización, mantenimiento y otros servicios complementarios?
-4. ¿Qué factores explican los cambios de ingresos, capacidad, tarifas y mezcla de productos en períodos comparables?
-5. ¿Cuál es la serie histórica verificable de FCF, inversión de capital, márgenes y conversión de caja?
-6. ¿La deuda reportada es comparable entre FY 2025 y 2026-09-30? ¿Cómo evolucionan deuda neta, vencimientos, liquidez y gasto de intereses?
-7. ¿Cómo se calcula la cobertura de intereses reportada como 0 y cuál es el resultado al verificar EBIT y gasto de intereses?
-8. ¿Qué períodos, fuentes y metodologías sustentan los valores AOIF de crecimiento de ingresos, margen operativo, ROIC, PER, EV/EBITDA y FCF yield?
-9. ¿Qué supuestos operativos sustentan los objetivos de analistas y cuál es el horizonte de esos objetivos?
-10. ¿Qué evidencia reciente permite evaluar la calidad del management, la asignación de capital, los incentivos, la propiedad de insiders y la composición del board?
+1. ¿Qué explica la diferencia entre el FCF de FY 2025 y el FCF TTM al 30-sep-2026? ¿Son periodos y definiciones comparables?
+2. ¿Cuáles son los valores y la evolución del margen bruto y operativo en varios periodos, y qué parte se debe a combustible, salarios, mezcla de rutas o utilización?
+3. ¿Cuál es el FCF después de inversión en aeronaves, mantenimiento y otros gastos de capital? ¿Cómo se calcula el FCF yield reportado como 0?
+4. ¿Qué retornos sobre capital puede sostener Delta a través de un ciclo y cuál es su relación con el gasto de reinversión?
+5. ¿Cómo evolucionan las acciones diluidas, la compensación basada en acciones y la propiedad de insiders? No hay una serie comparable para medir dilución.
+6. ¿Cuál es la deuda neta, su calendario de vencimientos, coste medio, obligaciones de arrendamiento y cobertura de intereses calculada con una definición verificable?
+7. ¿Qué explica el current ratio de 0,4 y qué obligaciones corrientes o fuentes de liquidez deben considerarse junto con ese indicador?
+8. ¿Qué parte de ingresos y beneficios proviene de pasajeros, carga, refinería, mantenimiento, fidelización y servicios complementarios?
+9. ¿Qué evidencia cuantitativa respalda el moat atribuido a hubs, marca, escala, frecuencias y fidelización? ¿Varía por mercado o tipo de cliente?
+10. ¿Qué información reciente permite evaluar compensación ejecutiva, propiedad accionarial, decisiones de asignación de capital y composición del board?
+11. ¿Cuáles son los supuestos, fechas y metodologías detrás de las métricas de valoración AOIF y del consenso reportado por DDD?
+12. ¿Cuáles son las fechas confirmadas de próximos resultados y qué métricas o guías permitirían evaluar los falsadores de la tesis?
 
-**Estado de investigación:** pendiente de validación. La oportunidad de crecimiento compuesto no está demostrada con la evidencia disponible.
+La clasificación de oportunidad de DDD es **RESEARCH_REQUIRED** y la recomendación de AOIF es **PENDIENTE_DECISION_BOARD**. Ambas son coherentes con la falta de evidencia verificable para resolver estas preguntas y validar la valoración.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]], [[CAAP|Corporación América Airports S.A.]], [[CAR|Avis Budget Group, Inc.]], [[CAT|Caterpillar Inc.]]
+- **Same Sector**: [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]], [[CAAP|Corporación América Airports S.A.]], [[CAR|Avis Budget Group, Inc.]], [[CAT|Caterpillar Inc.]], [[DE|Deere & Company]], [[EFX|Equifax Inc.]], [[FDX|FedEx Corporation]], [[JCI|Johnson Controls International plc]], [[LMT|Lockheed Martin Corporation]], [[MMM|3M Company]], [[PAM|Pampa Energía S.A.]], [[PBI|Pitney Bowes Inc.]], [[RTX|RTX Corporation]], [[SIEGY|Siemens Aktiengesellschaft]], [[SNA|Snap-on Incorporated]], [[UNP|Union Pacific Corporation]]

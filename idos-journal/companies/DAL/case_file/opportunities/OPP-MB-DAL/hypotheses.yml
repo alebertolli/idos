@@ -1,138 +1,208 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos TTM al 2027-09-30 son iguales o inferiores a USD 74.0
-      mil millones.
+  - condition: El crecimiento anual de ASMs en 2027 es inferior a 2% o superior a
+      5%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los ingresos TTM disminuyen frente a los USD 71.8 mil millones reportados
-      al 2026-09-30.
+  - condition: El TRASM anual de pasajeros de 2027 cae frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Delta no publica datos comparables que permitan comprobar ambas métricas.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos TTM al 2027-09-30 son iguales o inferiores a USD 74.0 mil millones.
-  - Los ingresos TTM disminuyen frente a los USD 71.8 mil millones reportados al 2026-09-30.
+  - El crecimiento anual de ASMs en 2027 es inferior a 2% o superior a 5%.
+  - El TRASM anual de pasajeros de 2027 cae frente a 2026.
+  - Delta no publica datos comparables que permitan comprobar ambas métricas.
   horizon: medio
   id: H1-OPP-MB-DAL
   opportunity_id: OPP-MB-DAL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 74.0
+    deadline: '2028-02-20'
+    expected: 2.0
     met: null
-    metric: Ingresos TTM
-    prediction: Los ingresos TTM reportados al 2027-09-30 serán superiores a USD 74.0
-      mil millones.
-    unit: USD mil millones
-  priority: important
+    metric: Crecimiento de ASMs en 2027 y crecimiento interanual del TRASM de pasajeros
+    prediction: En el ejercicio fiscal 2027, la capacidad medida en ASMs crecerá entre
+      2% y 5% frente a 2026 y el TRASM de pasajeros aumentará al menos 1% frente a
+      2026, usando en ambos casos las definiciones reportadas por Delta.
+    unit: '% de crecimiento de ASMs como límite inferior; TRASM de pasajeros al menos
+      +1%'
+  priority: critical
   probability: 0.5
-  rationale: La compañía reportó ingresos TTM de USD 71.8 mil millones al 2026-09-30
-    y opera redes domésticas e internacionales de pasajeros y carga. Una expansión
-    de ingresos es plausible, pero el paquete no aporta datos de demanda, capacidad,
-    tarifas ni participación de mercado que permitan identificar su causa o sostenibilidad.
-  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
-    antes del 2027-09-30 muestran ingresos interanuales decrecientes, o si el dato
-    TTM al 2027-09-30 no supera USD 74.0 mil millones.
+  rationale: 'La escala de la red podría permitir añadir capacidad y distribuir costes
+    fijos entre más asientos. La hipótesis es condicional: la información disponible
+    no demuestra que ese crecimiento vaya a traducirse en mayores ingresos unitarios
+    ni aporta una medida cuantificada de ventaja competitiva.'
+  review_trigger: Dejar de creerla si, al publicarse los resultados de 2027, el TRASM
+    anual de pasajeros disminuye frente a 2026 o el crecimiento de ASMs queda fuera
+    del intervalo previsto.
   secondary_hypotheses: []
-  statement: Los ingresos de Delta crecerán moderadamente durante los próximos doce
-    meses, sin que la información disponible permita atribuir ese crecimiento a una
-    ganancia duradera de cuota de mercado.
+  statement: Delta mantendrá crecimiento moderado de capacidad en 2027 sin deteriorar
+    los ingresos unitarios de pasajeros.
   status: ACTIVE
   ticker: DAL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF TTM al 2027-09-30 es inferior a USD 3.3 mil millones.
+  - condition: El FCF de FY 2027 es inferior al de FY 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF TTM desciende por debajo de USD 3.022 mil millones en dos cierres
-      trimestrales consecutivos antes de la fecha objetivo.
+  - condition: El aumento del FCF de FY 2027 es menor de 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Un cambio de definición impide comparar los dos ejercicios y Delta
+      no facilita una conciliación.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF TTM al 2027-09-30 es inferior a USD 3.3 mil millones.
-  - El FCF TTM desciende por debajo de USD 3.022 mil millones en dos cierres trimestrales
-    consecutivos antes de la fecha objetivo.
+  - El FCF de FY 2027 es inferior al de FY 2026.
+  - El aumento del FCF de FY 2027 es menor de 10%.
+  - Un cambio de definición impide comparar los dos ejercicios y Delta no facilita
+    una conciliación.
   horizon: medio
   id: H2-OPP-MB-DAL
   opportunity_id: OPP-MB-DAL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 3.3
+    deadline: '2028-02-20'
+    expected: 10.0
     met: null
-    metric: FCF TTM
-    prediction: El FCF TTM reportado al 2027-09-30 será al menos USD 3.3 mil millones.
-    unit: USD mil millones
+    metric: Variación del FCF de FY 2027 frente a FY 2026
+    prediction: El FCF de FY 2027, calculado con la misma definición que Delta reporte
+      para FY 2026, será al menos 10% superior al de FY 2026.
+    unit: '% mínimo'
   priority: critical
   probability: 0.5
-  rationale: El FCF TTM era de USD 3.022 mil millones al 2026-09-30 y se señala un
-    descenso reciente. Una mejora de ingresos o de conversión de caja podría elevarlo,
-    pero faltan datos sobre márgenes futuros, inversiones, capital de trabajo y servicio
-    de deuda para establecer un mecanismo cuantificado más específico.
-  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos muestran
-    FCF TTM inferior a USD 3.022 mil millones, o si el FCF TTM al 2027-09-30 queda
-    por debajo de USD 3.3 mil millones.
+  rationale: El contexto indica que el FCF TTM es inferior al FCF de FY 2025, lo que
+    advierte que una mejora puntual del precio no prueba una generación de caja sostenible.
+    La hipótesis contraria es que Delta logre convertir la actividad operativa en
+    caja después de inversiones sin depender de un dato trimestral aislado.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran un FCF
+    inferior a FY 2026 o un crecimiento menor de 10%. Si cambia la definición, suspender
+    la hipótesis hasta disponer de cifras conciliadas.
   secondary_hypotheses:
   - H1-OPP-MB-DAL
-  statement: El flujo de caja libre TTM de Delta se recuperará respecto del nivel
-    reportado al 2026-09-30, aunque el paquete disponible no permite determinar si
-    la recuperación será sostenible ni si reducirá materialmente la deuda neta.
+  statement: El flujo de caja libre anual de Delta aumentará en 2027 respecto de 2026,
+    señal de que la reinversión y las necesidades de capital no absorberán todo el
+    crecimiento operativo.
   status: ACTIVE
   ticker: DAL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El valor de empresa dividido por el FCF TTM más reciente disponible
-      supera 12 veces al 2027-11-20.
+  - condition: La deuda neta/EBITDAR de cierre de FY 2027 es igual o superior a la
+      de cierre de FY 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El múltiplo supera 12 veces en dos cierres mensuales consecutivos antes
-      de la fecha objetivo.
+  - condition: La reducción es menor de 0,2x.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El cociente cae únicamente por un cambio metodológico no conciliado.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El valor de empresa dividido por el FCF TTM más reciente disponible supera 12
-    veces al 2027-11-20.
-  - El múltiplo supera 12 veces en dos cierres mensuales consecutivos antes de la
-    fecha objetivo.
+  - La deuda neta/EBITDAR de cierre de FY 2027 es igual o superior a la de cierre
+    de FY 2026.
+  - La reducción es menor de 0,2x.
+  - El cociente cae únicamente por un cambio metodológico no conciliado.
   horizon: medio
   id: H3-OPP-MB-DAL
   opportunity_id: OPP-MB-DAL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 12.0
+    deadline: '2028-02-20'
+    expected: 0.2
     met: null
-    metric: Valor de empresa / FCF TTM
-    prediction: Al 2027-11-20, el valor de empresa dividido por el FCF TTM más reciente
-      divulgado será igual o inferior a 12 veces.
-    unit: veces, máximo
-  priority: informational
+    metric: Reducción de deuda neta/EBITDAR frente al cierre de FY 2026
+    prediction: La deuda neta/EBITDAR al cierre de FY 2027 será al menos 0,2x menor
+      que al cierre de FY 2026, calculada con una metodología consistente y usando
+      las cifras reportadas por Delta.
+    unit: veces, como mínimo
+  priority: important
   probability: 0.5
-  rationale: El FCF TTM reportado fue de USD 3.022 mil millones y la deuda neta limita
-    lo que puede inferirse sobre el valor atribuible a los accionistas. Como no se
-    proporcionan cotización, capitalización bursátil, importe de deuda neta ni expectativas
-    incorporadas en el precio, no hay base para afirmar que el mercado esté sobrevalorando
-    o infravalorando la empresa. La hipótesis se limita a un múltiplo empresarial
-    observable.
-  review_trigger: Dejar de creerla si el múltiplo EV/FCF supera 12 veces en dos cierres
-    mensuales consecutivos, calculado con valor de empresa y FCF TTM publicados y
-    precios de cierre verificables.
+  rationale: Si la generación de caja mejora y se destina parcialmente a reducir deuda,
+    la carga financiera y la exposición a ciclos adversos deberían moderarse. La información
+    disponible señala deuda e intensidad de capital como riesgos, pero no proporciona
+    una base numérica para afirmar que el desapalancamiento ya esté en marcha.
+  review_trigger: Dejar de creerla si los resultados de FY 2027 muestran que la deuda
+    neta/EBITDAR no ha bajado al menos 0,2x frente al cierre de FY 2026, o si una
+    conciliación revela que la reducción se explica por un cambio metodológico.
   secondary_hypotheses:
   - H2-OPP-MB-DAL
-  statement: La valoración de Delta no se sostendrá por encima de 12 veces su FCF
-    TTM durante el horizonte de la hipótesis; este umbral es una prueba prospectiva,
-    no una conclusión sobre si la cotización actual es barata o cara.
+  statement: Delta reducirá su apalancamiento neto en 2027, pese a la intensidad de
+    capital del negocio.
+  status: ACTIVE
+  ticker: DAL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de DAL menos el rendimiento total de XLI es inferior
+      a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: DAL obtiene un rendimiento total negativo y no supera a XLI por al
+      menos 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se puede construir una comparación consistente de precios ajustados
+      por dividendos para ambas inversiones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de DAL menos el rendimiento total de XLI es inferior a 5
+    puntos porcentuales.
+  - DAL obtiene un rendimiento total negativo y no supera a XLI por al menos 5 puntos
+    porcentuales.
+  - No se puede construir una comparación consistente de precios ajustados por dividendos
+    para ambas inversiones.
+  horizon: medio
+  id: H4-OPP-MB-DAL
+  opportunity_id: OPP-MB-DAL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-23'
+    expected: 5.0
+    met: null
+    metric: Exceso de rendimiento total de DAL frente a XLI
+    prediction: Entre el cierre del 23 de noviembre de 2026 y el cierre del 23 de
+      noviembre de 2027, el rendimiento total de DAL, incluidos dividendos, superará
+      en al menos 5 puntos porcentuales el rendimiento total de XLI en el mismo intervalo.
+    unit: puntos porcentuales, como mínimo
+  priority: informational
+  probability: 0.5
+  rationale: Si la red sostiene ingresos unitarios y la generación de caja permite
+    reducir apalancamiento, el mercado podría valorar mejor la capacidad de Delta
+    para reinvertir y resistir la intensidad de capital. Sin embargo, el contexto
+    no aporta una valoración, un precio objetivo ni evidencia suficiente de que el
+    mercado aún no haya descontado esos factores.
+  review_trigger: Dejar de creerla al cierre del 23 de noviembre de 2027 si la diferencia
+    de rendimiento total entre DAL y XLI es menor de 5 puntos porcentuales; antes
+    de esa fecha, revisarla si Delta reduce materialmente su previsión de capacidad
+    o generación de caja.
+  secondary_hypotheses:
+  - H1-OPP-MB-DAL
+  - H2-OPP-MB-DAL
+  - H3-OPP-MB-DAL
+  statement: La acción de Delta ofrecerá un rendimiento total superior al del ETF
+    industrial XLI durante los doce meses posteriores a la fecha de corte.
   status: ACTIVE
   ticker: DAL
   version: 1
