@@ -1,0 +1,26 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No puede validarse un error de valoración: el consenso es una referencia
+  observada, no una valoración intrínseca, y falta un método con inputs fechados.'
+- 'Thesis: Delta opera transporte aéreo de pasajeros y carga, con segmentos Airline
+  y Refinery, según el resumen financiero. La tesis a investigar es si la escala de
+  su red y la capacidad de reinvertir en operac'
+generated_at: '2026-11-22T08:17:06.645122-03:00'
+id: ass-50d53e0d
+recommendation: REVIEW
+risks:
+- analisis: El current ratio reportado es 0,4 al 2026-09-30; está por debajo del umbral
+    configurado de 0,5.
+  tema: Liquidez de corto plazo
+- analisis: La deuda total reportada es USD 19.935 millones y el efectivo e inversiones
+    USD 3.787 millones al 2026-09-30; la cobertura de intereses reportada como 0 no
+    permite verificar una cobertura EBIT/intereses válida.
+  tema: Deuda y cobertura
+- analisis: El margen bruto TTM reportado fue 17,89% al 2026-09-30, frente a 20,45%
+    en FY 2025; la evidencia disponible no explica los factores del cambio.
+  tema: Ciclo operativo y rentabilidad
+score: 45
+status: COMPLETED
+version: '3.0'

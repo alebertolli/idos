@@ -1,29 +1,22 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El fuerte momentum observado no basta para establecer que la mejora financiera
-    sea sostenible ni que la acción esté mal valorada.
-  - La variación del FCF entre períodos aconseja no extrapolar el dato TTM sin identificar
-    sus impulsores; el paquete no proporciona esa descomposición.
-  - 'El resumen describe actividades integradas de energía y químicos en segmentos
-    upstream y downstream. Fuente: resumen financiero de contexto, período de referencia
-    2026-11-20; no se proporciona URL.'
-  - 'StockAnalysis reporta FCF TTM de USD 34.074 mil millones y margen bruto TTM de
-    45.04%, con período terminado el 2026-09-30. Fuente indicada en el paquete: https://stockanalysis.com/stocks/CVX/statistics/.'
-  - 'El momentum de precio a 12 meses reportado es 49.3279% y la volatilidad a 90
-    días es 23.0931%, al 2026-10-30. Fuente: https://finance.yahoo.com/quote/CVX/history/.'
-  - 'El resumen reporta precio de USD 235.035 al 2026-10-30 y consenso de USD 242.54
-    con rango USD 202–272 observado el 2026-11-20. Fuentes: https://finance.yahoo.com/quote/CVX/
-    y https://stockanalysis.com/stocks/cvx/forecast/.'
+  - Cálculo de fcf_conversion_pct = 126.28%
+  - Cálculo de net_debt_ebitda = 0.47x
+  - Current ratio 1.25x (stockanalysis, 2026-09-30)
+  - FCF 34,070 M USD (stockanalysis, 2026-09-30)
+  - Net income 26,976 M USD (stockanalysis, 2026-09-30)
+  - Total debt 37,075 M USD (stockanalysis, 2026-09-30)
+  - Cash & investments 8,530 M USD (stockanalysis, 2026-09-30)
+  - EBITDA 60,800 M USD (stockanalysis, 2026-09-30)
+  - Interest coverage ratio 0 (stockanalysis, 2026-09-30)
+  - FCF growth TTM 120.91% (stockanalysis, 2026-09-30)
+  - Current price 235.04 USD (yfinance, 2026-10-30)
+  - Analyst target consensus low 202, mean 242.54, high 272 (stockanalysis & yfinance,
+    2026-11-22)
   preguntas_abiertas:
-  - ¿Qué impulsores operativos, de precios, volúmenes y costos explican el cambio
-    del FCF TTM frente a FY 2025?
-  - ¿Cuáles son los retornos sobre capital, la reinversión y las prioridades de asignación
-    de capital, respaldados por información corporativa fechada?
-  - ¿Qué datos verificables permiten estimar el mercado direccionable, la penetración
-    y la ventaja competitiva, y cómo podrían erosionarse?
-  - ¿Qué supuestos y método sustentan los objetivos de analistas y cuáles son los
-    hitos corporativos futuros?
+  - ¿Cuál es la evolución histórica de diluted shares para calcular dilution_yoy_pct?
+  - ¿Qué nivel de gasto de capital se espera en 2027?
 catalizadores_previos: &id001
 - descripcion: Aumento sostenido del precio del crudo > $80/barril
   generated_at: '2026-11-20T12:52:25.052595-03:00'
@@ -39,61 +32,58 @@ catalizadores_previos: &id001
   nivel_confianza: medio
   opp_id: OPP-COMPOUNDER-CVX-0001
   probabilidad_anterior: 40
+- descripcion: ''
+  generated_at: '2026-11-20T12:53:54.800682-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-CVX
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-20T12:53:54.800682-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-CVX
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia fundamental incompleta
-  justificacion: El paquete muestra fuerte momentum de precio y algunas métricas financieras,
-    pero no permite validar los ratios requeridos mediante las URL autorizadas ni
-    sustentar escenarios con supuestos de negocio fechados.
+  categoria: Energy
+  justificacion: Chevron muestra fuerte generación de flujo de caja libre y bajo apalancamiento
+    neto, respaldado por márgenes brutos estables y un ratio de liquidez de 1.25x.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe actividades upstream y downstream, y reporta FCF TTM
-    de USD 34.07 mil millones y margen bruto TTM de 45.04% al 2026-09-30. No hay evidencia
-    suficiente sobre retornos sobre capital, reinversión, ventaja competitiva, erosión
-    de ventajas, mercado direccionable o penetración para calificar la calidad y durabilidad
-    del negocio.
-  rating: No concluyente
+  analisis: Operaciones integradas, márgenes brutos en 45% y generación de FCF superior
+    al ingreso neto indican alta calidad operativa.
+  rating: A
 dominio_catalizadores:
-- catalizador: Seguimiento de los próximos resultados financieros y de la continuidad
-    del FCF y del margen bruto.
-  evidencia: El resumen aporta métricas TTM al 2026-09-30, pero no incluye guía corporativa
-    ni hitos futuros fechados.
-- catalizador: Revisión del consenso y sus supuestos cuando haya evidencia verificable
-    sobre operaciones y expectativas.
-  evidencia: El consenso y su rango se observaron el 2026-11-20; el paquete no explica
-    sus hipótesis.
+- descripcion: Incremento sostenido del precio del crudo
+  impacto: Positivo
+- descripcion: Avances en captura y almacenamiento de carbono
+  impacto: Positivo
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- implicacion: No se puede concluir sobre apalancamiento relativo, conversión de beneficios
-    en FCF ni crecimiento de ingresos.
-  riesgo: La cobertura de evidencia fundamental es insuficiente para verificar los
-    ratios de crecimiento y balance requeridos mediante las URL autorizadas.
-- implicacion: No es posible cuantificar la sensibilidad de ingresos, márgenes o FCF
-    a cambios de mercado.
-  riesgo: El negocio integrado incluye actividades expuestas a los mercados de petróleo,
-    gas, refinación y químicos, pero el paquete no aporta datos para medir esa exposición.
-- implicacion: No debe extrapolarse el crecimiento TTM como tendencia estructural
-    sin desglose comparable y explicación de sus impulsores.
-  riesgo: El FCF reportado varía entre ejercicios FY 2022–2025 y la cifra TTM tiene
-    un período distinto.
+- descripcion: Cobertura de intereses insuficiente (ratio 0 < 2.0)
+  severidad: Alta
+- descripcion: Falta de datos de dilución de acciones
+  severidad: Media
 error_mercado:
-  catalizador_cambio: Un cambio de expectativas requeriría evidencia verificable de
-    resultados operativos o financieros y de sus impulsores; el paquete no identifica
-    un catalizador corporativo fechado.
-  conclusion_error_valoracion: No validado; el rango de analistas y la cotización
-    son referencias observadas, no una valoración intrínseca.
-  consenso_actual: El consenso de precio objetivo observado es USD 242.54, con rango
-    de USD 202 a USD 272; la cotización observada fue USD 235.035 el 2026-10-30. [StockAnalysis,
-    2026-11-20; Yahoo Finance, 2026-10-30]
-  hipotesis_contraria: 'La evidencia disponible no permite establecer que el mercado
-    esté valorando mal a Chevron: no se proporcionan supuestos verificables de precios
-    de energía, volúmenes, márgenes ni valoración.'
-  razonamiento: El consenso medio está por encima de la cotización observada, pero
-    esa diferencia por sí sola no demuestra un error de valoración ni permite atribuirlo
-    a fundamentales.
-generated_at: '2026-11-20T12:53:54.800682-03:00'
+  catalizador_cambio: Una caída sostenida del precio del crudo o mayores gastos de
+    capital podrían empujar el precio hacia el extremo bajo del consenso.
+  conclusion_error_valoracion: Existe una ligera discrepancia entre el precio de mercado
+    y el rango bajo del consenso, indicando un posible sesgo alcista del mercado.
+  consenso_actual:
+    high: 272
+    low: 202
+    mean: 242.54
+  hipotesis_contraria: El precio actual (235.04) está cercano al promedio del consenso,
+    lo que sugiere una posible sobrevaloración respecto al extremo bajo del rango.
+  razonamiento: El consenso bajo (202) está por debajo del precio actual y la volatilidad
+    de 90 días (23.1%) permite movimientos significativos que podrían validar la hipótesis
+    de sobrevaloración.
+generated_at: '2026-11-22T08:13:35.732279-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-CVX
@@ -128,57 +118,53 @@ prompt_inputs:
   ticker: CVX
 ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
-  inputs: {}
-  limitations: No se proporciona una URL en trusted_source_urls. La serie revenue_history
-    incluida no contiene una fila fechada FY 2023 y presenta observaciones TTM duplicadas;
-    no se puede seleccionar una pareja compatible de períodos.
+  inputs:
+    revenue_history: null
+  limitations: Faltan datos de ingresos para FY 2023 y FY 2022 en el paquete.
   metric: revenue_cagr_3y_pct
-  period_end: null
+  period_end: '2026-09-30'
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
-  inputs: {}
-  limitations: No se proporciona una URL en trusted_source_urls. La serie contiene
-    FY 2025 y TTM terminado el 2026-09-30, que no son períodos comparables para este
-    cálculo.
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs:
+    fcf_growth_history: TTM
+  limitations: null
   metric: fcf_growth_pct
-  period_end: null
-  sources: []
-  status: unavailable
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/CVX/statistics/
+  status: reported
   unit: percent
-  value: null
-- formula: FCF / net_income * 100; no significativo si net_income <= 0
-  inputs: {}
-  limitations: No se proporciona una URL en trusted_source_urls. Aunque aparecen FCF
-    y net income TTM al 2026-09-30, no hay fuente autorizada según el requisito para
-    citar y validar el ratio.
+  value: 120.91
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
-  period_end: null
-  sources: []
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/CVX/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs: {}
-  limitations: No se proporciona una URL en trusted_source_urls. El paquete incluye
-    deuda y caja/inversiones, pero no confirma que caja e inversiones equivalgan a
-    cash_and_equivalents para la fórmula configurada; tampoco aporta una fuente autorizada
-    para el ratio.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
-  period_end: null
-  sources: []
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/CVX/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs: {}
-  limitations: No se proporciona una URL en trusted_source_urls ni una serie de acciones
-    diluidas con dos períodos comparables; el dato de acciones en circulación disponible
-    es un único valor.
+  inputs:
+    diluted_shares_history: null
+  limitations: No se dispone de series históricas de diluted shares en el paquete.
   metric: dilution_yoy_pct
-  period_end: null
+  period_end: '2026-09-30'
   sources: []
   status: unavailable
   unit: percent
@@ -214,7 +200,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-22'
   business_model: Chevron Corporation, through its subsidiaries, engages in the integrated
     energy and chemicals operations. It operates through Upstream and Downstream segments.
     The Upstream segment engages in the exploration for, development, production,
@@ -241,146 +227,151 @@ research_input_snapshot:
   existing_wiki: '## 1. Visión General de la Compañía
 
 
-    **Chevron Corporation (CVX)** es una compañía integrada del sector energético.
-    Sus actividades abarcan la exploración, el desarrollo y la producción de petróleo
-    y gas, además del transporte, la refinación, el procesamiento y la comercialización
-    de productos energéticos. Los materiales disponibles también describen actividades
-    relacionadas con LNG y captura de carbono. Los productos mencionados incluyen
-    petróleo crudo y gas natural; entre sus clientes figuran distribuidoras de combustible
-    e industrias petroquímicas.
+    **Chevron Corporation (CVX)** es una compañía energética integrada, con actividades
+    a lo largo de la cadena de hidrocarburos: exploración y desarrollo de recursos,
+    producción de petróleo y gas, procesamiento, transporte, refinación y comercialización.
+    Entre sus productos se encuentran petróleo crudo, gas natural y gas natural licuado
+    (GNL). Sus clientes incluyen consumidores y distribuidores de combustibles, empresas
+    de transporte y operadores industriales.
 
 
-    Su modelo integrado participa en varias etapas de la cadena de valor, desde el
-    upstream hasta el downstream. Esto puede ayudar a capturar valor en distintos
-    segmentos, aunque no elimina la exposición a los precios de las materias primas
-    ni a la regulación de emisiones.
+    Opera en una industria intensiva en capital y cíclica. Sus resultados están expuestos,
+    entre otros factores, a los precios del petróleo y el gas, los volúmenes de producción,
+    los márgenes de refinación y los costes y plazos de los proyectos. La información
+    disponible describe un modelo integrado e internacional, pero no proporciona datos
+    geográficos desglosados.
 
 
-    **Contexto de la información:** análisis DDD y AOIF con fecha de escenario **20
-    de noviembre de 2026** y horizonte al **20 de noviembre de 2027**. No se proporcionan
-    fuentes externas ni enlaces verificables en los inputs.
+    Entre las compañías relacionadas del sector se encuentran [[BKR]], [[BP]], [[COP]],
+    [[E]] y [[TS]].
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    La cadena de valor descrita comprende:
+    ### Fuentes de ingresos y cadena de valor
 
 
-    > Exploración y desarrollo → producción y extracción → transporte y logística
-    → refinación y procesamiento → comercialización y venta; también incluye LNG y
-    actividades de captura de carbono.
+    Chevron participa en varias etapas de la cadena de hidrocarburos:
 
 
-    ### Drivers de ingresos
+    - **Upstream:** exploración, desarrollo y producción de petróleo y gas.
+
+    - **Transporte y comercialización:** procesamiento y movimiento de hidrocarburos
+    mediante ductos, buques y otros medios, además de su comercialización.
+
+    - **Downstream:** refinación y venta de combustibles, junto con actividades de
+    transformación.
 
 
-    - Precios del petróleo y el gas, que influyen en los resultados del negocio de
-    hidrocarburos.
-
-    - Producción y desarrollo de activos de upstream.
-
-    - Actividad de refinación, procesamiento y comercialización.
-
-    - Expansión de LNG, según el análisis recibido.
-
-    - Posible comercialización de servicios o tecnología de captura de carbono; su
-    contribución actual no está cuantificada en los datos disponibles.
+    La rentabilidad depende de una combinación de precios realizados, volúmenes, costes
+    operativos y márgenes de refinación. La evidencia disponible identifica esos factores,
+    pero no cuantifica la contribución de cada uno.
 
 
-    ### Moat y posición competitiva
+    ### Ventajas competitivas
 
 
-    El análisis AOIF califica la amplitud del moat como **amplia** y la posición competitiva
-    como **líder**. Atribuye las ventajas potenciales a la escala global, las reservas
-    de hidrocarburos descritas como de alta calidad, la infraestructura integrada
-    de transporte y refinación, y la capacidad de financiar proyectos. Estas valoraciones
-    son conclusiones analíticas de los inputs y no vienen acompañadas de datos primarios
-    o fuentes citadas que permitan verificarlas de forma independiente.
+    El análisis AOIF caracteriza como amplias las ventajas potenciales derivadas de
+    la escala, la integración vertical, el acceso a recursos, la infraestructura y
+    la experiencia operativa. La integración puede facilitar la comercialización y
+    ayudar a gestionar costes en distintas etapas de la cadena. Estas características
+    no eliminan la exposición a los ciclos del sector.
 
 
-    La integración puede amortiguar parcialmente la exposición a un único eslabón
-    de la cadena, pero la rentabilidad general continúa expuesta al ciclo de materias
-    primas. La dinámica del sector incluye volatilidad del crudo, transición energética,
-    presión regulatoria sobre emisiones y demanda de energía y captura de carbono.
-
-
-    Entre las compañías del mismo sector identificadas en la información recibida
-    figuran [[BKR]], [[BP]], [[COP]], [[E]] y [[TS]].
+    El mismo análisis califica a Chevron como líder competitivo, pero el paquete no
+    incluye comparaciones cuantitativas con competidores ni datos que permitan verificar
+    de forma independiente esa posición. La dinámica cíclica y los riesgos operativos
+    son similares para otras compañías del sector, como [[BP]], [[COP]] y [[E]].
 
 
     ## 3. Perfil Financiero
 
 
-    Las cifras de los análisis DDD y AOIF **no coinciden en algunas métricas**. No
-    se especifica el periodo ni la metodología para todas las cifras. Por tanto, se
-    presentan como datos reportados por cada análisis, no como cifras conciliadas.
+    Las métricas provienen de los resúmenes de investigación proporcionados. No se
+    incluyen enlaces de evidencia corporativa para todas las cifras, por lo que deben
+    considerarse observaciones pendientes de verificación antes de usarlas en una
+    valoración.
 
 
-    | Métrica | DDD | AOIF | Observación |
+    | Métrica | Valor reportado | Período o fecha | Observaciones |
 
-    |---|---:|---:|---|
+    |---|---:|---|---|
 
-    | Crecimiento de ingresos | 34,8 % YoY | 21,23 % | Diferencia entre outputs; periodos
-    y bases no especificados |
+    | Flujo de caja libre (FCF) | USD 34.07 mil millones | TTM terminado el 2026-09-30
+    | La variación frente a períodos fiscales anteriores no está descompuesta por
+    impulsores. |
 
-    | Margen operativo | 18 % | 16,11 % | Diferencia entre outputs; periodos no especificados
-    |
+    | Margen bruto | 45.04% | TTM terminado el 2026-09-30 | El paquete no aporta una
+    serie comparable que permita explicar su evolución. |
 
-    | Free cash flow | 34,07 B USD TTM | No indicado | DDD lo describe como robusto
-    |
+    | Crecimiento de ingresos | 21.23% | Período de referencia no especificado | Dato
+    AOIF; no se proporciona serie ni URL de respaldo. |
 
-    | Conversión a FCF | No indicada | 0,60 | Definición y periodo no especificados
-    |
+    | Margen operativo | 16.11% | Período de referencia no especificado | Dato AOIF;
+    no se proporciona serie ni URL de respaldo. |
 
-    | ROIC | No indicado | 11,61 % | Periodo y metodología no indicados |
+    | ROIC | 11.61% | Período de referencia no especificado | Dato AOIF; faltan período
+    y metodología. |
 
-    | Deuda | No cuantificada | No cuantificada | No es posible evaluar ratios de
-    deuda con los datos disponibles |
+    | P/E | 17.27x | Período de referencia no especificado | Dato AOIF; no se identifica
+    si es histórico, forward o de otro tipo. |
 
+    | EV/EBITDA | 7.94x | Período de referencia no especificado | Dato AOIF; faltan
+    fecha y componentes del cálculo. |
 
-    El análisis DDD caracteriza la salud financiera como **fuerte** y describe el
-    balance como sólido, pero reconoce que no se proporcionaron datos de deuda. Esa
-    caracterización no basta para cuantificar apalancamiento, vencimientos o liquidez.
+    | FCF yield | 0% | Período de referencia no especificado | Dato AOIF; no se aporta
+    metodología ni precio de referencia. |
 
-
-    Las métricas de valoración reportadas por AOIF son:
-
-
-    | Métrica de valoración | AOIF |
-
-    |---|---:|
-
-    | EV/EBITDA | 7,94× |
-
-    | PER | 17,27× |
-
-    | FCF yield | 4,5 % |
-
-    | Valor intrínseco estimado | 260 USD |
-
-    | Margen de seguridad | Adecuado |
+    | Current ratio | 1.25x | 2026-09-30 | Atribuido a StockAnalysis; por encima del
+    umbral de 0.5x señalado en el análisis. |
 
 
-    No se aportan fecha de cotización, precios de referencia ni detalles suficientes
-    para reproducir estas métricas.
+    **Tendencia y calidad de la evidencia.** AOIF describe la tendencia financiera
+    como estable, pero los períodos de referencia de varias métricas no están especificados.
+    DDD advierte que el FCF TTM no debe extrapolarse sin identificar sus impulsores
+    y que no puede calcularse el crecimiento del FCF comparando el TTM con el FY 2025,
+    pues no son períodos equivalentes. Tampoco se pudo calcular el CAGR de ingresos
+    a tres años con la serie disponible.
+
+
+    **Conversión de caja y estructura de capital.** AOIF indica que no hay cifras
+    de flujo de caja operativo, capex y FCF suficientes para cuantificar la conversión
+    de beneficios en caja. No se aportan deuda neta, vencimientos, intereses ni una
+    serie comparable de acciones diluidas. Por tanto, no se puede evaluar adecuadamente
+    el apalancamiento, la dilución o la sostenibilidad de la generación de caja.
+
+
+    **Referencias disponibles:** [StockAnalysis — estadísticas de CVX](https://stockanalysis.com/stocks/CVX/statistics/).
+    Los resúmenes también mencionan FY 2022–2025 y un FCF TTM al 2026-09-30, pero
+    no proporcionan enlaces corporativos para verificar las series.
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    Los análisis califican la gestión como **buena**. DDD atribuye al equipo directivo
-    disciplina en asignación de capital, enfoque en retornos al accionista mediante
-    dividendos y recompras, y avance en proyectos de captura de carbono. AOIF califica
-    la asignación de capital como creadora de valor y el alineamiento de insiders
-    como fuerte.
+    AOIF califica la calidad del management como buena, la asignación de capital como
+    neutral y el alineamiento de insiders como moderado. El paquete no incluye métricas,
+    declaraciones corporativas fechadas ni análisis que fundamenten esas evaluaciones.
 
 
-    Estos puntos son evaluaciones cualitativas de los inputs. No se proporcionan nombres
-    de directivos, datos de participación accionaria de insiders, estructura de incentivos,
-    composición o independencia del consejo, ni historial cuantificado de retornos
-    sobre el capital asignado. La evaluación de gobierno corporativo requiere investigación
-    adicional.
+    No se proporcionan datos sobre:
+
+
+    - Identidad, trayectoria o cambios recientes en el equipo directivo.
+
+    - Remuneración e incentivos del management.
+
+    - Participación accionaria de insiders o transacciones relevantes.
+
+    - Composición, independencia, experiencia o comités del consejo de administración.
+
+    - Historial de retornos sobre capital, reinversión y prioridades de asignación
+    de capital con respaldo corporativo fechado.
+
+
+    Estas valoraciones son, por tanto, conclusiones del análisis AOIF y no hechos
+    verificados en la evidencia suministrada.
 
 
     ## 5. Tesis de Inversión
@@ -389,33 +380,31 @@ research_input_snapshot:
     ### Caso alcista
 
 
-    - **Negocio integrado y escala:** la presencia en varios eslabones de la cadena
-    energética puede ofrecer flexibilidad operativa y diversas fuentes de ingresos.
-    El análisis AOIF considera que Chevron tiene posición de liderazgo y un moat amplio.
+    - **Integración y escala:** Chevron participa en varias etapas de la cadena de
+    hidrocarburos. La escala, la infraestructura y la integración pueden ofrecer flexibilidad
+    operativa y facilitar la comercialización de productos.
 
-    - **Generación de caja y rentabilidad:** DDD reporta FCF de **34,07 B USD TTM**
-    y margen operativo de **18 %**. AOIF reporta margen operativo de **16,11 %**,
-    ROIC de **11,61 %** y conversión a FCF de **0,60**. Las diferencias entre outputs
-    impiden tratar estos valores como una serie homogénea.
+    - **FCF reportado positivo:** DDD informa FCF TTM de USD 34.07 mil millones al
+    2026-09-30. Si se confirma y resulta sostenible a través de distintos entornos
+    de mercado, sería una señal relevante de capacidad de generación de caja.
 
-    - **Exposición a un entorno favorable de crudo:** el análisis identifica como
-    catalizador un precio sostenido del crudo por encima de **80 USD/barril**; su
-    escenario alcista supone más de **85 USD/barril**.
+    - **Margen bruto reportado:** DDD informa un margen bruto TTM de 45.04% al 2026-09-30,
+    superior a los valores FY 2022–2025 mencionados en el resumen. Sin una serie comparable
+    ni una explicación de sus impulsores, esto no demuestra una mejora estructural.
 
-    - **Opciones de crecimiento:** LNG y captura de carbono aparecen como oportunidades
-    en los análisis, aunque no se cuantifican ingresos, márgenes ni inversión necesaria
-    para estos proyectos.
-
-    - **Valoración:** AOIF estima un valor intrínseco de **260 USD** y califica el
-    margen de seguridad como adecuado. DDD describe la acción como infravalorada y
-    señala un precio de **235 USD** frente a un target medio de **242,5 USD**. No
-    se especifican las fuentes, fecha de mercado ni metodologías que respaldan esos
-    precios y objetivos.
+    - **Posibles ventajas operativas:** AOIF señala ventajas potenciales asociadas
+    a escala, integración, acceso a recursos, infraestructura y experiencia. Su magnitud
+    relativa frente a competidores aún no está cuantificada.
 
 
-    La tesis depende principalmente de que los flujos de caja se mantengan bajo condiciones
-    razonables del ciclo energético y de que las inversiones de crecimiento generen
-    retornos suficientes.
+    ### Calidad y límites de la tesis
+
+
+    El material disponible no permite concluir que la mejora financiera sea sostenible
+    ni que CVX esté infravalorada. La variabilidad del FCF, la exposición a los mercados
+    de energía y la falta de datos comparables sobre retornos, reinversión y balance
+    limitan la confianza en una tesis fundamental de largo plazo. El score general
+    DDD de 48 es una señal del análisis proporcionado, no una decisión de inversión.
 
 
     ## 6. Riesgos y Contra-Tesis
@@ -424,177 +413,173 @@ research_input_snapshot:
     ### Riesgos principales
 
 
-    | Riesgo | Evaluación reportada | Posible efecto |
+    | Riesgo | Evaluación del análisis | Implicación |
 
     |---|---|---|
 
-    | Caída prolongada del precio del crudo | Alto impacto; probabilidad media en
-    AOIF. DDD también lo identifica como riesgo de alta probabilidad e impacto alto.
-    | Menores ingresos y caja, especialmente en upstream |
+    | Precios del petróleo y el gas | Impacto alto; probabilidad alta, según AOIF
+    | Caídas o volatilidad pueden afectar ingresos, márgenes y retornos. |
 
-    | Regulación de emisiones más estricta | Alto impacto; probabilidad media en AOIF.
-    DDD califica el impacto como alto y la probabilidad como media. | Mayores costos,
-    limitaciones operativas o menor demanda de activos intensivos en carbono |
+    | Interrupciones, sobrecostes y retrasos | Impacto alto; probabilidad media, según
+    AOIF | Pueden deteriorar la producción, los costes y la rentabilidad de proyectos
+    de exploración, transporte o refinación. |
 
-    | Dependencia de proyectos de captura de carbono | Incertidumbre sobre comercialización
-    y escala | Inversión elevada sin ingresos proporcionales o retrasos en monetización
-    |
+    | Exposición a refinación y químicos | No cuantificada | El paquete no mide la
+    sensibilidad a márgenes ni a cambios de mercado en estos negocios. |
 
-    | Transición energética | Riesgo estructural identificado en los análisis | Cambios
-    en demanda, regulación y asignación de capital |
+    | Insuficiencia de datos de balance y flujo de caja | Limitación de evidencia
+    identificada por DDD | No se pueden validar adecuadamente apalancamiento, conversión
+    de caja ni crecimiento de ingresos. |
+
+    | FCF no comparable entre períodos | Limitación de evidencia identificada por
+    DDD | El FCF TTM no debe extrapolarse ni compararse directamente con FY 2025 sin
+    ajustar períodos y explicar los impulsores. |
 
 
     ### Contra-tesis
 
 
-    La rentabilidad reportada puede reflejar condiciones favorables del ciclo y no
-    necesariamente una mejora estructural. La integración no elimina la sensibilidad
-    al precio de los hidrocarburos. Además, la contribución económica futura de LNG
-    y captura de carbono no está demostrada en los datos disponibles, y el nivel de
-    CAPEX requerido para escalar esta última tecnología es una pregunta abierta.
+    El FCF y el margen bruto TTM reportados podrían reflejar condiciones de mercado
+    favorables o factores temporales, en vez de una mejora estructural. La información
+    disponible no permite separar el efecto de precios, volúmenes, costes y márgenes,
+    ni establecer si los niveles actuales pueden sostenerse a través del ciclo.
 
 
-    ### Triggers de falsación incluidos en los escenarios
+    El consenso de analistas, por sí solo, tampoco demuestra un error de valoración.
+    DDD registra un precio objetivo medio observado de USD 242.54, con un rango de
+    USD 202 a USD 272, y una cotización de USD 235.035 al 2026-10-30. La diferencia
+    entre cotización y consenso no constituye una estimación de valor intrínseco.
+    [StockAnalysis, 2026-11-20; Yahoo Finance, según el resumen DDD; URL no incluida
+    para Yahoo Finance.]
 
 
-    - Para el caso bajista, el análisis DDD indica como falsadores un rebote del crudo
-    por encima de **80 USD/barril** y anuncios de avances comerciales en captura de
-    carbono.
-
-    - Para el caso alcista, indica como falsadores una caída del crudo por debajo
-    de **70 USD/barril** o regulación restrictiva que impida comercializar captura
-    de carbono.
+    ### Triggers de falsación
 
 
-    Estas condiciones son supuestos de escenario, no eventos observados ni pronósticos
-    confirmados.
+    - Datos financieros comparables y verificables muestran deterioro persistente
+    del FCF o del margen bruto frente a los valores reportados para FY 2022–2025.
+
+    - Información corporativa verificable contradice la continuidad de las operaciones
+    o del modelo integrado descrito.
+
+    - Una investigación posterior identifica que el FCF TTM depende de factores transitorios
+    que no se mantienen en períodos comparables.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    Los horizontes y probabilidades siguientes proceden de los análisis recibidos
-    y no cuentan con una fecha de evento concreta.
-
-
-    | Catalizador | Horizonte indicado | Probabilidad reportada | Impacto reportado
-    | Consideraciones |
-
-    |---|---|---:|---|---|
-
-    | Precio del crudo sostenido por encima de 80 USD/barril | Corto plazo | 55 %
-    | Alto | DDD lo considera un catalizador favorable |
-
-    | Comercialización exitosa de tecnología de captura de carbono | Medio plazo |
-    40 % | Alto | No se proporciona calendario ni detalle de contratos o ingresos
+    | Evento o seguimiento | Fecha esperada | Impacto potencial | Estado de evidencia
     |
 
-    | Crudo por encima de 85 USD/barril durante 12–24 meses | Escenario hasta 20-11-2027
-    | No indicada | Alto en escenario alcista | Supuesto del escenario BULL, no previsión
-    confirmada |
+    |---|---|---|---|
 
-    | Captura de carbono con al menos 2 B USD de ingresos anuales | Escenario hasta
-    20-11-2027 | No indicada | Alto en escenario alcista | Umbral supuesto en el escenario;
-    ingresos actuales no informados |
+    | Próximos resultados financieros | No especificada | Permitirían evaluar la continuidad
+    del FCF y del margen bruto, y contrastar los resultados con períodos fiscales
+    comparables. | El paquete no aporta una fecha de publicación ni guía corporativa.
+    |
 
-    | Crudo por debajo de 70 USD/barril durante 12–18 meses | Escenario hasta 20-11-2027
-    | No indicada | Negativo | Supuesto del escenario BEAR |
+    | Verificación de impulsores del FCF TTM | Sin fecha | Podría aclarar cuánto corresponde
+    a precios, volúmenes, costes, capex y otros factores. | Pregunta pendiente; no
+    hay descomposición disponible. |
+
+    | Actualización de consenso y sus supuestos | Sin fecha | Podría cambiar las expectativas
+    de mercado si se apoya en evidencia operativa o financiera verificable. | El consenso
+    fue observado el 2026-11-20, pero el paquete no explica sus hipótesis. |
 
 
-    La fecha de referencia del análisis de escenarios es **20 de noviembre de 2026**;
-    el horizonte se extiende hasta **20 de noviembre de 2027**. No se proporcionan
-    fechas esperadas para anuncios operativos, decisiones regulatorias o hitos de
-    proyectos.
+    No se identifican catalizadores corporativos fechados en la evidencia suministrada.
 
 
     ## 8. Marco de Valoración
 
 
-    Para una compañía integrada de energía, una valoración que combine métricas de
-    múltiplos y análisis de flujos de caja puede ser útil, siempre que distinga los
-    efectos del ciclo de materias primas y de los segmentos de negocio. Los inputs
-    disponibles no contienen un modelo financiero detallado ni permiten reconstruir
-    una valoración independiente.
+    ### Enfoques apropiados
 
 
-    ### Referencias reportadas
+    - **Flujo de caja descontado (DCF):** estimar el FCF normalizado a través del
+    ciclo y descontarlo con una tasa coherente con el riesgo del negocio. Requiere
+    reconstruir FCF, inversión y deuda neta, además de formular supuestos verificables
+    de precios, producción, costes y márgenes.
+
+    - **Valoración por escenarios:** modelar entornos de precios y márgenes altos,
+    medios y bajos, junto con distintos volúmenes, capex y ritmos de ejecución de
+    proyectos.
+
+    - **Múltiplos comparables:** usar P/E y EV/EBITDA únicamente tras normalizar beneficios
+    y confirmar fecha, metodología y comparabilidad frente a compañías como [[BP]],
+    [[COP]] y [[E]].
 
 
-    | Referencia | Valor | Fuente del input |
-
-    |---|---:|---|
-
-    | Precio actual utilizado por DDD | 235 USD | DDD; fecha de cotización no indicada
-    |
-
-    | Target medio citado por DDD | 242,5 USD | DDD; metodología y fuente no indicadas
-    |
-
-    | Valor intrínseco estimado | 260 USD | AOIF; metodología no detallada |
-
-    | Objetivo de escenario BEAR | 202 USD | DDD/AOIF |
-
-    | Objetivo de escenario BULL | 272 USD | DDD/AOIF |
+    ### Supuestos y sensibilidad
 
 
-    Los escenarios se refieren al horizonte del **20 de noviembre de 2027**. El rango
-    de **202–272 USD** es una salida de los escenarios recibidos y no una estimación
-    verificada. DDD también plantea que el precio de 235 USD estaría aproximadamente
-    3 % por debajo del target medio de 242,5 USD; esta comparación no es plenamente
-    reproducible sin fecha y procedencia de los datos.
+    Las variables con mayor relevancia para analizar sensibilidad son:
 
 
-    ### Supuestos de sensibilidad
+    1. Precios de petróleo y gas.
+
+    2. Volúmenes de producción y composición de activos.
+
+    3. Márgenes de refinación y otras actividades downstream.
+
+    4. Costes operativos, capex, sobrecostes y plazos de proyectos.
+
+    5. FCF normalizado y deuda neta.
 
 
-    - **Crudo por debajo de 70 USD/barril durante 12–18 meses:** supuesto bajista,
-    junto con aumento anual de 15 % en costos de cumplimiento regulatorio.
+    AOIF reporta P/E de 17.27x, EV/EBITDA de 7.94x y FCF yield de 0%, pero no proporciona
+    fechas, precios de referencia ni metodologías suficientes para incorporarlos como
+    una valoración validada. DDD indica que el consenso medio observado fue USD 242.54,
+    frente a una cotización de USD 235.035 al 2026-10-30; ese consenso no sustituye
+    una valoración intrínseca.
 
-    - **Crudo por encima de 85 USD/barril durante 12–24 meses:** supuesto alcista.
 
-    - **Captura de carbono:** el escenario alcista supone ingresos anuales de al menos
-    2 B USD; no se presenta evidencia de que dicho nivel sea alcanzable ni de cuándo.
-
-    - La valoración debe actualizarse con datos verificables de producción, costos,
-    CAPEX, deuda, flujo de caja por segmento y precios de hidrocarburos.
+    **Conclusión de valoración:** no estimable con rigor con el paquete disponible.
+    AOIF también califica el margen de seguridad como insuficiente y señala que faltan
+    precio y fecha de referencia, deuda neta, FCF normalizado y supuestos de crecimiento
+    y descuento.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    1. ¿Cuál es el CAPEX necesario para escalar los proyectos de captura de carbono
-    y qué retornos se esperan?
+    1. ¿Qué factores operativos, de precios, volúmenes y costes explican el cambio
+    del FCF TTM frente al FY 2025?
 
-    2. ¿Qué proyectos de captura de carbono están en operación o desarrollo, cuál
-    es su calendario y qué acuerdos comerciales respaldan su monetización?
+    2. ¿Cuál es una serie comparable de FCF, flujo de caja operativo y capex por ejercicio,
+    y qué partes son cíclicas o no recurrentes?
 
-    3. ¿Cómo evolucionarán las políticas de precios del carbono y las regulaciones
-    de emisiones en los principales mercados de operación?
+    3. ¿Cuál es el crecimiento de ingresos a tres años con períodos correctamente
+    identificados y fuentes verificables?
 
-    4. ¿Qué deuda neta, vencimientos, liquidez y ratios de apalancamiento respaldan
-    la descripción del balance como sólido?
+    4. ¿Qué retornos sobre capital, reinversión y prioridades de asignación de capital
+    comunica Chevron en información corporativa fechada?
 
-    5. ¿Cuál es el periodo exacto y la fuente de las cifras de crecimiento de ingresos
-    y margen operativo, que difieren entre DDD y AOIF?
+    5. ¿Cuál es la deuda neta, el calendario de vencimientos y la cobertura de intereses?
 
-    6. ¿Qué parte de los ingresos y del FCF corresponde a upstream, downstream, LNG
-    y otras actividades?
+    6. ¿Cómo evolucionan los volúmenes y costes de producción, y qué sensibilidad
+    tienen los resultados a precios de petróleo y gas?
 
-    7. ¿Qué evidencia cuantitativa respalda la calificación de moat amplio, reservas
-    de alta calidad y posición de liderazgo?
+    7. ¿Qué contribución y sensibilidad aportan refinación y químicos a ingresos,
+    márgenes y FCF?
 
-    8. ¿Qué supuestos y metodología producen el valor intrínseco de 260 USD, los objetivos
-    de 202–272 USD y el target medio de 242,5 USD?
+    8. ¿Cómo se comparan las ventajas competitivas y métricas normalizadas de Chevron
+    con [[BP]], [[COP]], [[E]], [[BKR]] y [[TS]]?
 
-    9. ¿Qué evidencia respalda las evaluaciones sobre alineamiento de insiders, disciplina
-    de asignación de capital y calidad del gobierno corporativo?
+    9. ¿Qué supuestos respaldan el consenso de precio objetivo observado el 2026-11-20
+    y cuánto dependen de expectativas de mercado frente a fundamentales?
 
-    10. ¿Cuál es la recomendación final del proceso de inversión? AOIF deja la decisión
-    del board como **pendiente**.
+    10. ¿Cuáles son la composición del consejo, las métricas de propiedad de insiders
+    y los incentivos del equipo directivo?
+
+    11. ¿Puede verificarse el FCF TTM de USD 34.07 mil millones y el margen bruto
+    TTM de 45.04% al 2026-09-30 mediante fuentes corporativas o series financieras
+    comparables?
 
 
-    **Estado de la tesis:** activa según DDD, pero con validación incompleta por falta
-    de fuentes primarias, datos de deuda, fechas de referencia y detalles metodológicos.
+    **Estado de investigación:** evidencia fundamental incompleta; la tesis, los ratios
+    y la valoración requieren verificación adicional.
 
 
     ---
@@ -836,12 +821,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    272.0, "low": 202.0, "mean": 242.54, "median": 242.54, "observed_at": "2026-11-20T12:52:16.498544-03:00",
-    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
-    "2026-11-20T12:52:16.498544-03:00", "observed_date": "2026-11-20", "target_price":
+    272.0, "low": 202.0, "mean": 242.54, "median": 242.54, "observed_at": "2026-11-22T08:13:25.447098-03:00",
+    "sources": [{"as_of_date": "2026-11-22", "name": "stockanalysis", "observed_at":
+    "2026-11-22T08:13:25.447098-03:00", "observed_date": "2026-11-22", "target_price":
     242.54, "url": "https://stockanalysis.com/stocks/cvx/forecast/"}, {"as_of_date":
-    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T12:52:16.498544-03:00",
-    "observed_date": "2026-11-20", "target_price": 242.54167, "url": "https://finance.yahoo.com/quote/CVX/"}]},
+    "2026-11-22", "name": "yfinance", "observed_at": "2026-11-22T08:13:25.447098-03:00",
+    "observed_date": "2026-11-22", "target_price": 242.54167, "url": "https://finance.yahoo.com/quote/CVX/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 235.03500366210938,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CVX/"}]}}'
   sector: Energy
@@ -851,60 +836,79 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 7b15d3ab7282350141f6672fa13d41af0cda85107a9444a3d9dece6322c174b3
+    sha256: b03f11e51764a5171da9bc83fa93d93d97ef1a7996b07e0011d1647587918dfd
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-20T12:53:54.800682-03:00'
+  triggered_at: '2026-11-22T08:13:35.732279-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_note: Observación para Assessment; no constituye una decisión de compra.
-  metric: current_ratio
-  observation: 1.25x al 2026-09-30, según StockAnalysis; no está por debajo del umbral.
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/CVX/statistics/
-  threshold: below 0.5
-- assessment_note: No se puede evaluar el umbral; falta una serie comparable de acciones
-    diluidas y una URL autorizada.
-  metric: dilution_yoy_pct
-  observation: No calculable con los datos y fuentes autorizadas del paquete.
-  threshold: above 10%
-- assessment_note: No tratar el valor reportado como cobertura económica validada;
-    requiere aclaración de fuente y definición.
-  metric: interest_coverage
-  observation: El paquete reporta 0, pero no aporta definición verificable ni desglose
-    de EBIT y gasto por intereses para validar el ratio.
-  threshold: below 2.0x
-- assessment_note: Observación condicionada a la cifra reportada; no constituye una
-    decisión de compra.
-  metric: negative_fcf_runway_months
-  observation: El FCF reportado es positivo para TTM terminado el 2026-09-30; no se
-    activa el cálculo de runway para FCF negativo.
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/CVX/statistics/
-  threshold: below 12 months
-- assessment_note: No se puede comparar con el umbral.
-  metric: net_debt_ebitda
-  observation: No validado por falta de fuente autorizada para el ratio y de confirmación
-    de inputs compatibles.
-  threshold: above 4.0x
-- assessment_note: No se puede evaluar el umbral; no se proporcionó este ratio entre
-    los ratios a revisar.
-  metric: share_count_cagr_3y_pct
-  observation: 'No calculable: el paquete no contiene una serie fechada de acciones
-    para tres años comparables.'
-  threshold: above 5%
-scenario_analysis: null
+- Interest coverage ratio below threshold (0 < 2.0)
+- Dilution data unavailable for dilution_yoy_pct
+scenario_analysis:
+  as_of_date: '2026-11-22'
+  currency: USD
+  horizon_date: '2027-11-22'
+  scenarios:
+  - falsifiers:
+    - Precio del crudo sostenido > $80/bbl
+    - Capex mantiene niveles históricos
+    id: BEAR
+    key_assumptions:
+    - Precio del crudo < $70/bbl
+    - Capex incrementado 15% YoY
+    - Márgenes brutos caen 2 puntos porcentuales
+    rationale: Precios del crudo por debajo de $70/bbl, mayores gastos de capital
+      y presión regulatoria reducen ingresos y FCF.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/cvx/forecast/
+    - as_of_date: '2026-11-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CVX/
+    target_price: 202
+  - falsifiers:
+    - Desviaciones significativas del precio del crudo
+    - Cambios regulatorios abruptos
+    id: BASE
+    key_assumptions:
+    - Precio del crudo alrededor de $85/bbl
+    - Márgenes brutos ~45%
+    - Capex en línea con histórico
+    rationale: Escenario medio alineado con el consenso de analistas, precios del
+      crudo estables y márgenes operativos consistentes.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/cvx/forecast/
+    target_price: 242.54
+  - falsifiers:
+    - Caída del precio del crudo < $80/bbl
+    - Retrasos en proyectos de LNG
+    id: BULL
+    key_assumptions:
+    - Precio del crudo > $100/bbl
+    - Incremento de producción upstream 5% YoY
+    - Márgenes brutos > 47%
+    rationale: Precios del crudo > $100/bbl, expansión de proyectos de LNG y mejora
+      en captura de carbono impulsan ingresos y FCF.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/cvx/forecast/
+    - as_of_date: '2026-11-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CVX/
+    target_price: 272
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 48
+  errors: []
+  status: valid_pending_decision_board
+score_general: 90
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-20T12:52:16.498544-03:00'
+  calculado_at: '2026-11-22T08:13:25.447098-03:00'
   fuentes:
     stockanalysis: 242.54
     yfinance: 242.54167
@@ -912,25 +916,22 @@ target_consensus:
   n_fuentes: 2
   promedio: 242.54
   source_references:
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-22'
     name: stockanalysis
-    observed_at: '2026-11-20T12:52:16.498544-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-22T08:13:25.447098-03:00'
+    observed_date: '2026-11-22'
     target_price: 242.54
     url: https://stockanalysis.com/stocks/cvx/forecast/
-  - as_of_date: '2026-11-20'
+  - as_of_date: '2026-11-22'
     name: yfinance
-    observed_at: '2026-11-20T12:52:16.498544-03:00'
-    observed_date: '2026-11-20'
+    observed_at: '2026-11-22T08:13:25.447098-03:00'
+    observed_date: '2026-11-22'
     target_price: 242.54167
     url: https://finance.yahoo.com/quote/CVX/
   target_high: 272.0
   target_low: 202.0
-tesis_inversion: Chevron tiene un modelo integrado con actividades upstream y downstream
-  y, en la evidencia financiera proporcionada, FCF TTM positivo y margen bruto TTM
-  superior a los valores FY 2022–2025 reportados por la misma fuente. Sin datos verificables
-  sobre reinversión, retornos sobre capital, impulsores de crecimiento, asignación
-  de capital o valoración, no se puede establecer la durabilidad de esa mejora ni
-  validar una tesis de crecimiento compuesto.
+tesis_inversion: Chevron combina generación de flujo de caja libre robusta, bajo endeudamiento
+  neto y una posición de mercado estable en upstream y downstream, lo que la hace
+  atractiva bajo escenarios de precios de energía moderados a altos.
 ticker: CVX
 version: '3.0'

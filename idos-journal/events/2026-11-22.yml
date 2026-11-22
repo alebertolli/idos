@@ -191,3 +191,93 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-22T08:06:38.057652'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-CVX
+    ticker: CVX
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:13:35.713690'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CVX
+    ticker: CVX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:13:35.723559'
+- data:
+    classification: Energy
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b03f11e51764a5171da9bc83fa93d93d97ef1a7996b07e0011d1647587918dfd
+    opp_id: OPP-MB-CVX
+    original_status: UNDER_RESEARCH
+    score: 90
+    strategy_version: '1.5'
+    ticker: CVX
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:15:02.903308'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DAL
+    ticker: DAL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:15:27.063374'
+- data:
+    classification: RESEARCH_REQUIRED
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: f026bd32e25fad31ed5ef832d0d1a7f690a1393b9a7f664705aa700a848a59b7
+    opp_id: OPP-MB-DAL
+    original_status: UNDER_RESEARCH
+    score: 45
+    strategy_version: '1.5'
+    ticker: DAL
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:17:06.704080'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DHR
+    ticker: DHR
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:17:36.251829'
+- data:
+    classification: Investigación requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: fc85f62fed7ca257cb4804ea3a9a85d8bd3d67141da6fe58ed899c2e4ae60890
+    opp_id: OPP-MB-DHR
+    original_status: UNDER_RESEARCH
+    score: 35
+    strategy_version: '1.5'
+    ticker: DHR
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:19:06.168750'

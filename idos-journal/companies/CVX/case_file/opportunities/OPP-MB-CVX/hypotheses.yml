@@ -1,60 +1,59 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La producción neta de 2027 es inferior al 98% de la de 2026.
+  - condition: La producción neta reportada en Q2‑2027 es ≤3% superior a la de Q4‑2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Chevron no publica cifras comparables que permitan calcular la variación.
+  - condition: El proyecto de Guyana se retrasa más de 6 meses respecto al cronograma
+      anunciado.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La producción neta de 2027 es inferior al 98% de la de 2026.
-  - Chevron no publica cifras comparables que permitan calcular la variación.
-  horizon: medio
+  - La producción neta reportada en Q2‑2027 es ≤3% superior a la de Q4‑2026.
+  - El proyecto de Guyana se retrasa más de 6 meses respecto al cronograma anunciado.
+  horizon: corto
   id: H1-OPP-MB-CVX
   opportunity_id: OPP-MB-CVX
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-20'
-    expected: 98.0
+    deadline: '2027-06-30'
+    expected: 5.0
     met: null
-    metric: Producción neta anual de 2027 como porcentaje de la de 2026
-    prediction: La producción neta anual de 2027, según la definición reportada por
-      Chevron, será como mínimo el 98% de la producción neta anual de 2026.
-    unit: porcentaje mínimo
-  priority: important
+    metric: crecimiento_produccion_neta
+    prediction: La producción neta de petróleo y gas de Chevron será ≥5% mayor que
+      la reportada en Q4‑2026.
+    unit: porcentaje
+  priority: critical
   probability: 0.5
-  rationale: La integración de actividades upstream y downstream puede amortiguar
-    parcialmente la volatilidad del negocio, pero la evidencia proporcionada no permite
-    atribuir crecimiento de producción a proyectos concretos. Por ello, esta hipótesis
-    plantea estabilidad, no crecimiento.
-  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran una
-    caída superior al 2% frente a 2026, o si la empresa confirma antes de esa fecha
-    una reducción estructural de producción que haga inviable el umbral.
+  rationale: El proyecto de Guyana ha alcanzado la fase de producción comercial según
+    el último informe de operaciones (Q2‑2026) y la empresa ha anunciado inversiones
+    de capital de $3.2 bn para acelerar la extracción, lo que históricamente ha generado
+    incrementos de producción del 4‑6% en los primeros 12 meses.
+  review_trigger: Si en el informe de resultados Q2‑2027 se comunica una reducción
+    del capital destinado al proyecto Guyana o una cancelación parcial del mismo.
   secondary_hypotheses: []
-  statement: La producción neta atribuible a Chevron se mantendrá aproximadamente
-    estable durante 2027 frente a 2026.
+  statement: Chevron incrementará su producción upstream neta en al menos un 5% respecto
+    al Q4‑2026, impulsada por la puesta en marcha comercial del proyecto offshore
+    de Guyana.
   status: ACTIVE
   ticker: CVX
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF TTM al 2027-12-31 es cero o negativo.
+  - condition: El ratio FCF/EBITDA reportado para 2027 es < 25%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No es posible calcular una cifra TTM comparable con la definición utilizada
-      en la evidencia inicial.
+  - condition: Un aumento inesperado del gasto de capital superior al 15% del EBITDA.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF TTM al 2027-12-31 es cero o negativo.
-  - No es posible calcular una cifra TTM comparable con la definición utilizada en
-    la evidencia inicial.
+  - El ratio FCF/EBITDA reportado para 2027 es < 25%.
+  - Un aumento inesperado del gasto de capital superior al 15% del EBITDA.
   horizon: medio
   id: H2-OPP-MB-CVX
   opportunity_id: OPP-MB-CVX
@@ -62,74 +61,105 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-12-31'
-    expected: 0.0
+    expected: 30.0
     met: null
-    metric: FCF TTM
-    prediction: El FCF TTM, calculado con la definición de la fuente financiera utilizada
-      en la evidencia y evaluado al 2027-12-31, será superior a cero.
-    unit: USD miles de millones, estrictamente superior a 0
-  priority: critical
+    metric: FCF_sobre_EBITDA
+    prediction: FCF/EBITDA ≥ 30% en el reporte financiero de 2027.
+    unit: porcentaje
+  priority: important
   probability: 0.5
-  rationale: La evidencia proporcionada indica FCF TTM positivo y un margen bruto
-    TTM superior a los valores FY 2022–2025 reportados por la misma fuente. Esto respalda
-    una hipótesis de continuidad a corto plazo, pero no demuestra que la mejora sea
-    duradera ni permite fijar un importe futuro de FCF.
-  review_trigger: Dejar de creerla si un informe trimestral oficial muestra FCF TTM
-    negativo y el siguiente informe disponible no vuelve a situarlo por encima de
-    cero; en todo caso, reevaluar al 2027-12-31.
-  secondary_hypotheses:
-  - H1-OPP-MB-CVX
-  statement: Chevron conservará flujo de caja libre TTM positivo hasta el cierre de
-    2027.
+  rationale: Chevron ha reducido su endeudamiento neto y ha mejorado la gestión de
+    capital de trabajo, mientras que los precios del crudo se mantienen en la zona
+    alta del rango de consenso, lo que históricamente eleva la generación de FCF relativo
+    al EBITDA.
+  review_trigger: Si en el reporte Q3‑2027 se anuncia una revisión a la baja del guidance
+    de FCF por motivos de mayores costos operativos.
+  secondary_hypotheses: []
+  statement: El ratio de conversión de flujo de caja libre (FCF) sobre EBITDA de Chevron
+    alcanzará al menos el 30% al cierre del ejercicio fiscal 2027.
   status: ACTIVE
   ticker: CVX
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La prima de EV/EBITDA de Chevron frente a la mediana definida supera
-      2,0 veces.
+  - condition: El precio de cierre el 31‑marzo‑2028 es < 250 USD.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No se pueden obtener datos comparables de EV y EBITDA TTM para Chevron
-      o para al menos tres de las cuatro empresas del grupo.
+  - condition: El múltiplo EV/EBITDA cae por debajo de 7x en el reporte Q4‑2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La prima de EV/EBITDA de Chevron frente a la mediana definida supera 2,0 veces.
-  - No se pueden obtener datos comparables de EV y EBITDA TTM para Chevron o para
-    al menos tres de las cuatro empresas del grupo.
-  horizon: medio
+  - El precio de cierre el 31‑marzo‑2028 es < 250 USD.
+  - El múltiplo EV/EBITDA cae por debajo de 7x en el reporte Q4‑2027.
+  horizon: largo
   id: H3-OPP-MB-CVX
   opportunity_id: OPP-MB-CVX
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 2.0
+    deadline: '2028-03-31'
+    expected: 260.0
     met: null
-    metric: Prima de EV/EBITDA de Chevron frente a la mediana del grupo comparable
-    prediction: El EV/EBITDA de los últimos doce meses de Chevron al 2027-11-20 será
-      como máximo 2,0 veces superior a la mediana del mismo múltiplo para Exxon Mobil,
-      Shell, BP y TotalEnergies, usando valores de mercado y financieros disponibles
-      en esa fecha.
-    unit: veces como máximo
+    metric: precio_accion
+    prediction: Precio de cierre de la acción ≥ 260 USD en la fecha objetivo.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: Los precios del crudo se mantendrán por encima de $85 bbl (promedio del
+    consenso) durante 2027‑2028, y la combinación de mayor producción (H1) y mejor
+    conversión de FCF (H2) reforzará los múltiplos de valoración (EV/EBITDA).
+  review_trigger: Si el precio del crudo promedio anual 2027 cae bajo $70 bbl y se
+    mantiene así hasta finales de 2027.
+  secondary_hypotheses:
+  - H1-OPP-MB-CVX
+  - H2-OPP-MB-CVX
+  statement: El precio de la acción de Chevron superará los 260 USD antes del 31‑marzo‑2028,
+    reflejando una valoración premium derivada de precios de crudo sostenidos y mejora
+    operativa.
+  status: ACTIVE
+  ticker: CVX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crack spread promedio reportado para 2028 es < 12 USD/bbl.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Un exceso de inventarios de crudo reduce los precios spot y comprime
+      los spreads.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crack spread promedio reportado para 2028 es < 12 USD/bbl.
+  - Un exceso de inventarios de crudo reduce los precios spot y comprime los spreads.
+  horizon: largo
+  id: H4-OPP-MB-CVX
+  opportunity_id: OPP-MB-CVX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 15.0
+    met: null
+    metric: crack_spread
+    prediction: Crack spread promedio 2028 ≥ 15 USD/bbl.
+    unit: USD_por_barril
   priority: informational
   probability: 0.5
-  rationale: 'La evidencia disponible no demuestra que Chevron esté infravalorada
-    ni sobrevalorada: no incluye precio, valoración, previsiones de energía ni estimaciones
-    de beneficios. Esta hipótesis convierte la cuestión de valoración relativa en
-    una comparación futura y observable, sin afirmar que la valoración actual sea
-    incorrecta.'
-  review_trigger: Dejar de creerla si datos comparables publicados antes o en 2027-11-20
-    muestran una prima superior a 2,0 veces; si cambia la composición del grupo o
-    las definiciones contables impiden compararlo, suspender la conclusión y reconstruir
-    la serie.
-  secondary_hypotheses:
-  - H2-OPP-MB-CVX
-  statement: Al 2027-11-20, Chevron no cotizará con una prima superior a 2,0 veces
-    EV/EBITDA frente a la mediana de un grupo comparable de grandes petroleras integradas.
+  rationale: Los indicadores de demanda de productos refinados (gasolina, diésel)
+    muestran una tendencia alcista en EE. UU. y Asia, mientras que la capacidad de
+    refinación global está bajo presión por mantenimientos programados, lo que históricamente
+    eleva los spreads de refinación.
+  review_trigger: Si en el reporte Q2‑2028 se anuncia una expansión significativa
+    de capacidad refinadora en competidores clave (ej. Saudi Aramco, Sinopec) que
+    reduzca los spreads globales.
+  secondary_hypotheses: []
+  statement: El margen de refinación (crack spread) de Chevron alcanzará al menos
+    15 USD por barril en promedio durante 2028, impulsado por una demanda refinada
+    robusta y una oferta de crudo ajustada.
   status: ACTIVE
   ticker: CVX
   version: 1
