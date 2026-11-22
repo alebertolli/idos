@@ -2,26 +2,28 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-MRK",
-      "ticker": "MRK",
+      "opp_id": "OPP-MB-PBI",
+      "ticker": "PBI",
       "status": "completed",
-      "score": 78,
+      "score": 81.7,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MULTIBAGGERS-NEM-0001",
-      "ticker": "NEM",
-      "status": "completed",
-      "score": 47,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-NMR",
-      "ticker": "NMR",
+      "opp_id": "OPP-MULTIBAGGERS-SIEGY-0001",
+      "ticker": "SIEGY",
       "status": "quality_failed",
-      "score": 42,
+      "score": 60,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "opp_id": "OPP-MULTIBAGGERS-SNOW-0001",
+      "ticker": "SNOW",
+      "status": "quality_failed",
+      "score": 48,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
@@ -32,8 +34,17 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "NMR",
-      "opp_id": "OPP-MB-NMR",
+      "ticker": "SIEGY",
+      "opp_id": "OPP-MULTIBAGGERS-SIEGY-0001",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "ticker": "SNOW",
+      "opp_id": "OPP-MULTIBAGGERS-SNOW-0001",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -42,8 +53,8 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 8,
-  "quarantined_count": 10,
+  "deferred_count": 5,
+  "quarantined_count": 12,
   "capacity_failure": null,
   "event_type": "monthly",
   "force": false,

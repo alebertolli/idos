@@ -1,146 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos de productos del trimestre terminado el 2027-01-31 crecen
-      menos del 20% interanual.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La empresa informa una contracción interanual de los ingresos de productos
-      en ese trimestre.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Los ingresos de productos del trimestre terminado el 2027-01-31 crecen menos del
-    20% interanual.
-  - La empresa informa una contracción interanual de los ingresos de productos en
-    ese trimestre.
-  horizon: medio
-  id: H1-OPP-MULTIBAGGERS-SNOW-0001
-  opportunity_id: OPP-MULTIBAGGERS-SNOW-0001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-04-30'
-    expected: 20.0
-    met: null
-    metric: Crecimiento interanual de ingresos de productos
-    prediction: En el trimestre que termina el 2027-01-31, los ingresos de productos
-      crecerán al menos un 20% interanual.
-    unit: porcentaje mínimo
-  priority: critical
-  probability: 0.5
-  rationale: El contexto disponible indica crecimiento de ingresos en los períodos
-    reportados. Si la expansión de uso y consumo de la plataforma continúa, debería
-    reflejarse en los ingresos de productos, la principal métrica operativa para evaluar
-    la demanda del negocio.
-  review_trigger: Dejar de creerla si los resultados publicados para el trimestre
-    terminado el 2027-01-31 muestran crecimiento interanual de ingresos de productos
-    inferior al 20%.
-  secondary_hypotheses: []
-  statement: Snowflake mantendrá un crecimiento de doble dígito alto en ingresos de
-    productos hasta el cierre del ejercicio fiscal 2027.
-  status: ACTIVE
-  ticker: SNOW
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: El flujo de caja libre de los doce meses terminados el 2027-01-31 es
-      cero o negativo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El margen TTM de flujo de caja libre no supera el margen TTM terminado
-      el 2026-07-31 en al menos 1 punto porcentual.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El flujo de caja libre de los doce meses terminados el 2027-01-31 es cero o negativo.
-  - El margen TTM de flujo de caja libre no supera el margen TTM terminado el 2026-07-31
-    en al menos 1 punto porcentual.
-  horizon: medio
-  id: H2-OPP-MULTIBAGGERS-SNOW-0001
-  opportunity_id: OPP-MULTIBAGGERS-SNOW-0001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-04-30'
-    expected: 1.0
-    met: null
-    metric: Variación del margen TTM de flujo de caja libre frente al TTM terminado
-      el 2026-07-31
-    prediction: Para los doce meses terminados el 2027-01-31, el flujo de caja libre
-      será positivo y su margen sobre ingresos superará en al menos 1 punto porcentual
-      el margen TTM terminado el 2026-07-31.
-    unit: punto porcentual mínimo, con flujo de caja libre positivo
-  priority: critical
-  probability: 0.5
-  rationale: El contexto señala que el flujo de caja libre fue positivo en los períodos
-    reportados, aunque el TTM todavía muestra EBITDA negativo y pérdidas netas. La
-    generación de caja podría mejorar con el crecimiento de ingresos y una evolución
-    favorable de los gastos operativos.
-  review_trigger: Dejar de creerla cuando la información publicada para el ejercicio
-    fiscal terminado el 2027-01-31 muestre flujo de caja libre no positivo o una mejora
-    del margen inferior a 1 punto porcentual frente al TTM de referencia.
-  secondary_hypotheses:
-  - H1-OPP-MULTIBAGGERS-SNOW-0001
-  statement: Snowflake conservará un flujo de caja libre positivo y aumentará su margen
-    de flujo de caja libre frente al período TTM terminado el 2026-07-31.
-  status: ACTIVE
-  ticker: SNOW
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: La mejora del margen operativo GAAP frente al TTM de referencia es
-      inferior a 2 puntos porcentuales.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El margen operativo GAAP de los doce meses terminados el 2027-01-31
-      es igual o superior a 0%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - La mejora del margen operativo GAAP frente al TTM de referencia es inferior a
-    2 puntos porcentuales.
-  - El margen operativo GAAP de los doce meses terminados el 2027-01-31 es igual o
-    superior a 0%.
-  horizon: medio
-  id: H3-OPP-MULTIBAGGERS-SNOW-0001
-  opportunity_id: OPP-MULTIBAGGERS-SNOW-0001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-04-30'
-    expected: 2.0
-    met: null
-    metric: Mejora del margen operativo GAAP TTM
-    prediction: El margen operativo GAAP de los doce meses terminados el 2027-01-31
-      mejorará al menos 2 puntos porcentuales frente al TTM terminado el 2026-07-31,
-      pero seguirá siendo inferior a 0%.
-    unit: puntos porcentuales mínimos; margen final inferior a 0%
-  priority: important
-  probability: 0.5
-  rationale: El TTM terminado el 2026-07-31 presenta EBITDA negativo y pérdidas netas,
-    lo que evidencia que el crecimiento y el flujo de caja libre positivo aún no se
-    han traducido en rentabilidad contable. El crecimiento de ingresos puede diluir
-    gastos operativos, aunque la conversión a beneficios GAAP puede requerir más tiempo.
-  review_trigger: Dejar de creerla si los estados financieros publicados para el ejercicio
-    terminado el 2027-01-31 muestran una mejora inferior a 2 puntos porcentuales frente
-    al TTM de referencia; si el margen alcanza 0% o más, también queda refutada la
-    predicción de que persistirán pérdidas operativas.
-  secondary_hypotheses:
-  - H1-OPP-MULTIBAGGERS-SNOW-0001
-  statement: La rentabilidad operativa GAAP mejorará, pero Snowflake todavía no alcanzará
-    el punto de equilibrio operativo en el ejercicio fiscal 2027.
-  status: ACTIVE
-  ticker: SNOW
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: La diferencia entre el rendimiento total de SNOW y el del Nasdaq Composite
       es superior a -10 puntos porcentuales en el período definido.
     metric: ''
@@ -184,6 +44,165 @@ hypotheses:
   - H3-OPP-MULTIBAGGERS-SNOW-0001
   statement: La acción de Snowflake tendrá un rendimiento total inferior al del Nasdaq
     Composite durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: SNOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de producto del trimestre terminado el 2027-10-31 crecen
+      menos del 20% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica un dato comparable y no es posible verificar
+      la predicción antes del 2027-12-15.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de producto del trimestre terminado el 2027-10-31 crecen menos del
+    20% interanual.
+  - La empresa no publica un dato comparable y no es posible verificar la predicción
+    antes del 2027-12-15.
+  horizon: medio
+  id: H1-OPP-MULTIBAGGERS-SNOW-0001
+  opportunity_id: OPP-MULTIBAGGERS-SNOW-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-15'
+    expected: 20.0
+    met: null
+    metric: Crecimiento interanual de ingresos de producto
+    prediction: En el trimestre terminado el 2027-10-31, los ingresos de producto
+      crecerán al menos un 20% interanual, según el informe de resultados publicado
+      a más tardar el 2027-12-15.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible indica que los ingresos y el flujo de caja libre
+    (FCF) están creciendo. La expansión de la plataforma y el aumento del uso de datos
+    por parte de los clientes podrían sostener los ingresos de producto; sin embargo,
+    el paquete no aporta datos que permitan cuantificar la retención, el consumo o
+    la cuota de mercado.
+  review_trigger: Dejar de creerla si los resultados del trimestre terminado el 2027-10-31
+    muestran un crecimiento interanual de ingresos de producto inferior al 20%, o
+    si la compañía retira la métrica sin ofrecer una medida comparable antes del 2027-12-15.
+  secondary_hypotheses: []
+  statement: El crecimiento del negocio de Snowflake se mantendrá en el corto plazo,
+    pese a la competencia y a la posible moderación del gasto en consumo de datos.
+  status: ACTIVE
+  ticker: SNOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo GAAP de los doce meses terminados el 2028-01-31
+      es igual o inferior al 0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de FCF del mismo periodo es inferior al 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica información suficiente para calcular ambas métricas
+      antes del 2028-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo GAAP de los doce meses terminados el 2028-01-31 es igual o
+    inferior al 0%.
+  - El margen de FCF del mismo periodo es inferior al 20%.
+  - La compañía no publica información suficiente para calcular ambas métricas antes
+    del 2028-03-31.
+  horizon: medio
+  id: H2-OPP-MULTIBAGGERS-SNOW-0001
+  opportunity_id: OPP-MULTIBAGGERS-SNOW-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 20.0
+    met: null
+    metric: Margen operativo GAAP y margen de FCF sobre ingresos, doce meses terminados
+      el 2028-01-31
+    prediction: Para los doce meses terminados el 2028-01-31, Snowflake registrará
+      margen operativo GAAP superior al 0% y margen de FCF igual o superior al 20%,
+      calculados sobre ingresos del mismo periodo. La información deberá estar disponible
+      a más tardar el 2028-03-31.
+    unit: porcentaje mínimo de margen de FCF, con margen operativo GAAP superior a
+      0%
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible respalda que el FCF está creciendo, pero no acredita
+    rentabilidad GAAP ni retornos atractivos sobre el capital. Una mejora sostenida
+    de la monetización y el control de gastos operativos podría permitir que el crecimiento
+    de ingresos se traduzca en margen operativo GAAP positivo.
+  review_trigger: Dejar de creerla si, al publicar los resultados anuales correspondientes
+    a los doce meses terminados el 2028-01-31, el margen operativo GAAP no es positivo
+    o el margen de FCF es inferior al 20%.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-SNOW-0001
+  statement: El crecimiento del FCF de Snowflake empezará a convertirse en rentabilidad
+    operativa GAAP positiva, aunque el paquete disponible todavía no demuestra esa
+    conversión.
+  status: ACTIVE
+  ticker: SNOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de SNOW supera a la del Nasdaq Composite en menos
+      de 5 puntos porcentuales durante el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de SNOW es inferior o igual a la del Nasdaq Composite
+      durante el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se dispone de precios de cierre ajustados por distribuciones para
+      calcular la comparación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de SNOW supera a la del Nasdaq Composite en menos de 5 puntos
+    porcentuales durante el periodo definido.
+  - La rentabilidad total de SNOW es inferior o igual a la del Nasdaq Composite durante
+    el periodo definido.
+  - No se dispone de precios de cierre ajustados por distribuciones para calcular
+    la comparación.
+  horizon: medio
+  id: H3-OPP-MULTIBAGGERS-SNOW-0001
+  opportunity_id: OPP-MULTIBAGGERS-SNOW-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-22'
+    expected: 5.0
+    met: null
+    metric: Exceso de rentabilidad total de SNOW frente al Nasdaq Composite
+    prediction: Entre el cierre del 2026-11-22 y el cierre del 2027-11-22, la rentabilidad
+      total de SNOW, incluidos dividendos si los hubiera, superará en al menos 5 puntos
+      porcentuales la rentabilidad total del Nasdaq Composite.
+    unit: puntos porcentuales mínimo en doce meses
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de ingresos y FCF puede respaldar la valoración, pero
+    la evidencia disponible no demuestra retornos sostenibles ni permite afirmar que
+    la valoración actual sea atractiva. Por eso la tesis de mercado se formula como
+    una comparación futura y verificable con un índice, no como una afirmación sobre
+    el precio objetivo.
+  review_trigger: Dejar de creerla al cierre del 2027-11-22 si el exceso de rentabilidad
+    total de SNOW frente al Nasdaq Composite es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-SNOW-0001
+  - H2-OPP-MULTIBAGGERS-SNOW-0001
+  statement: La acción de Snowflake ofrecerá una rentabilidad total superior a la
+    del Nasdaq Composite durante los doce meses posteriores a la fecha de corte, siempre
+    que el crecimiento y la conversión financiera no se deterioren materialmente.
   status: ACTIVE
   ticker: SNOW
   version: 1

@@ -1,0 +1,34 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida'
+- 'Market error: No se puede validar un error de valoración con la evidencia entregada;
+  el rango de analistas es una referencia observada, no una valoración intrínseca.'
+- 'Thesis: Siemens opera en automatización y digitalización, infraestructura inteligente,
+  movilidad, Healthineers y servicios financieros. La evidencia disponible muestra
+  ingresos y FCF mayores en FY 2026 que en'
+generated_at: '2026-11-22T09:19:28.706494-03:00'
+id: ass-3df4becb
+recommendation: REVIEW
+risks:
+- fuente: Paquete de evidencia financiera; ausencia de campos de retorno sobre capital
+    e inversión.
+  riesgo: La evidencia no incluye métricas de retorno sobre capital, inversión orgánica
+    ni asignación de capital, por lo que no se puede comprobar la calidad de la reinversión.
+- fuente: stockanalysis, https://stockanalysis.com/stocks/SIEGY/statistics/, TTM terminado
+    el 2026-09-30.
+  riesgo: La medida de cobertura de intereses reportada es 0 para TTM terminado el
+    2026-09-30, pero no se incluyen gasto por intereses ni explicación de la métrica
+    para validar ese dato.
+- fuente: stockanalysis, https://stockanalysis.com/stocks/siegy/financials/, período
+    terminado el 2026-09-30.
+  riesgo: La deuda neta reportada es negativa en términos de caja neta (net_cash =
+    -34316) para el período terminado el 2026-09-30; no puede compararse con EBITDA
+    debido a incompatibilidad de unidades entre los campos disponibles.
+- fuente: yfinance, https://finance.yahoo.com/quote/SIEGY/history/, período 2025-10-31/2026-10-30.
+  riesgo: El momentum de precio a 12 meses fue 4.4181% y la volatilidad de 90 días
+    30.3019% al 2026-10-30; son indicadores de mercado, no evidencia de desempeño
+    fundamental futuro.
+score: 60
+status: COMPLETED
+version: '3.0'
