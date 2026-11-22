@@ -1,148 +1,144 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La producción neta del tercer trimestre de 2027 es inferior o igual
-      a la del tercer trimestre de 2026.
+  - condition: La producción promedio diaria de 2027 resulta inferior al 95% del promedio
+      de 2026, según los informes anuales de la compañía.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La producción neta del tercer trimestre de 2027 es menos de un 3% superior
-      a la del tercer trimestre de 2026.
+  - condition: La compañía informa una reducción material de capacidad productiva
+      durante 2027 que no se compensa con nueva producción antes del cierre del año.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La producción neta del tercer trimestre de 2027 es inferior o igual a la del tercer
-    trimestre de 2026.
-  - La producción neta del tercer trimestre de 2027 es menos de un 3% superior a la
-    del tercer trimestre de 2026.
+  - La producción promedio diaria de 2027 resulta inferior al 95% del promedio de
+    2026, según los informes anuales de la compañía.
+  - La compañía informa una reducción material de capacidad productiva durante 2027
+    que no se compensa con nueva producción antes del cierre del año.
   horizon: medio
   id: H1-OPP-MB-XOM
   opportunity_id: OPP-MB-XOM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 3.0
+    deadline: '2028-03-31'
+    expected: 95.0
     met: null
-    metric: Cambio interanual de la producción neta media del tercer trimestre
-    prediction: La producción neta media del tercer trimestre de 2027 será al menos
-      un 3% superior a la del tercer trimestre de 2026, medida en millones de barriles
-      equivalentes de petróleo por día y usando la misma definición de producción
-      en ambos periodos.
+    metric: Producción promedio diaria de hidrocarburos de 2027 como proporción de
+      la de 2026
+    prediction: La producción promedio diaria de hidrocarburos en el año calendario
+      2027 será al menos el 95% de la producción promedio diaria reportada para 2026,
+      usando en ambos casos la misma definición de producción de ExxonMobil y cifras
+      de sus informes anuales.
     unit: porcentaje mínimo
-  priority: critical
+  priority: important
   probability: 0.5
-  rationale: La tesis de crecimiento de ingresos y la expansión de activos de la compañía
-    sugieren que el crecimiento operativo puede sostenerse. La producción neta reportada
-    permite comprobar si ese crecimiento se materializa, aunque los precios de las
-    materias primas pueden afectar los ingresos sin reflejar cambios de volumen.
-  review_trigger: Dejar de creerla si el informe del tercer trimestre de 2027, o una
-    actualización oficial anterior, muestra que la producción neta interanual no crece
-    al menos un 3%.
+  rationale: La información disponible describe actividades integradas de exploración
+    y producción, productos energéticos, químicos y productos especializados, pero
+    no aporta datos sobre proyectos, reservas ni crecimiento. Por ello, la hipótesis
+    es de continuidad operativa, no de crecimiento estructural.
+  review_trigger: Dejar de creerla si el informe anual de 2027, o una actualización
+    oficial posterior con datos comparables, muestra que la producción promedio diaria
+    cayó más del 5% frente a 2026.
   secondary_hypotheses: []
-  statement: La producción neta de ExxonMobil crecerá interanualmente hasta el tercer
-    trimestre de 2027, respaldando el crecimiento operativo.
+  statement: La escala y diversificación del negocio integrado de ExxonMobil permitirán
+    mantener la producción anual de hidrocarburos aproximadamente estable durante
+    2027, en vez de sufrir un deterioro operativo material.
   status: ACTIVE
   ticker: XOM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El flujo de caja libre acumulado de los primeros nueve meses de 2027
-      es igual o inferior a cero.
+  - condition: El flujo de caja libre TTM al 2027-09-30 es igual o inferior a cero.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El flujo de caja libre acumulado de los primeros nueve meses de 2027
-      no supera en al menos un 5% el del periodo comparable de 2026.
+  - condition: La compañía publica datos comparables que muestran FCF TTM negativo
+      antes de la fecha objetivo y no informa una recuperación suficiente para volver
+      a terreno positivo al 2027-09-30.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El flujo de caja libre acumulado de los primeros nueve meses de 2027 es igual
-    o inferior a cero.
-  - El flujo de caja libre acumulado de los primeros nueve meses de 2027 no supera
-    en al menos un 5% el del periodo comparable de 2026.
+  - El flujo de caja libre TTM al 2027-09-30 es igual o inferior a cero.
+  - La compañía publica datos comparables que muestran FCF TTM negativo antes de la
+    fecha objetivo y no informa una recuperación suficiente para volver a terreno
+    positivo al 2027-09-30.
   horizon: medio
   id: H2-OPP-MB-XOM
   opportunity_id: OPP-MB-XOM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
+    deadline: '2027-09-30'
+    expected: 0.0
     met: null
-    metric: Crecimiento interanual del FCF acumulado de nueve meses
-    prediction: El flujo de caja libre acumulado de los primeros nueve meses de 2027
-      será positivo y al menos un 5% mayor que el de los primeros nueve meses de 2026.
-      Se calculará como flujo de caja operativo menos inversiones de capital, usando
-      cifras reportadas comparables.
-    unit: porcentaje mínimo
+    metric: Flujo de caja libre TTM
+    prediction: El flujo de caja libre TTM al 2027-09-30 será mayor que cero, calculado
+      como flujo de caja de operaciones menos gastos de capital, con criterios consistentes
+      con los reportes de ExxonMobil.
+    unit: USD miles de millones, estrictamente mayor que cero
   priority: critical
   probability: 0.5
-  rationale: El crecimiento de FCF del 80,7% indicado en la tesis y el margen bruto
-    del 29,8% apuntan a una capacidad de generación de efectivo sólida. La predicción
-    comprueba si esa fortaleza persiste en un periodo futuro comparable, sin asumir
-    que el crecimiento excepcional informado se repetirá.
-  review_trigger: Dejar de creerla si los resultados del tercer trimestre de 2027
-    muestran que el FCF acumulado de nueve meses es negativo o que el crecimiento
-    interanual es inferior al 5%.
+  rationale: El paquete indica que el FCF TTM era positivo al 2026-09-30. La generación
+    de FCF podría persistir si el flujo operativo continúa cubriendo las inversiones
+    de capital; no se proporcionan datos suficientes para estimar cuánto depende del
+    ciclo de materias primas.
+  review_trigger: Dejar de creerla si un reporte oficial muestra FCF TTM negativo
+    al 2027-09-30 o si la compañía confirma que el flujo de caja de operaciones no
+    cubrirá los gastos de capital en ese período.
   secondary_hypotheses:
   - H1-OPP-MB-XOM
-  statement: ExxonMobil mantendrá un flujo de caja libre positivo y superior al del
-    periodo comparable de 2026 durante los primeros nueve meses de 2027.
+  statement: ExxonMobil conservará flujo de caja libre TTM positivo durante los próximos
+    doce meses, aunque la evidencia disponible no permite concluir que ese flujo implique
+    reinversión rentable o crecimiento estructural.
   status: ACTIVE
   ticker: XOM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de XOM menos el rendimiento total de XLE es inferior
-      a 3 puntos porcentuales en el periodo definido.
+  - condition: El rendimiento total de XOM menos el rendimiento total de XLE durante
+      el período es inferior a 5 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: XOM registra un rendimiento total negativo durante el periodo, aunque
-      supere a XLE.
+  - condition: XOM obtiene un rendimiento total inferior al de XLE durante el período.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de XOM menos el rendimiento total de XLE es inferior a 3
-    puntos porcentuales en el periodo definido.
-  - XOM registra un rendimiento total negativo durante el periodo, aunque supere a
-    XLE.
+  - El rendimiento total de XOM menos el rendimiento total de XLE durante el período
+    es inferior a 5 puntos porcentuales.
+  - XOM obtiene un rendimiento total inferior al de XLE durante el período.
   horizon: medio
   id: H3-OPP-MB-XOM
   opportunity_id: OPP-MB-XOM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 3.0
+    deadline: '2027-11-21'
+    expected: 5.0
     met: null
-    metric: Rendimiento total relativo de XOM frente a XLE
-    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 19 de
-      noviembre de 2027, el rendimiento total de XOM, con dividendos reinvertidos,
-      superará al rendimiento total de XLE en al menos 3 puntos porcentuales.
-    unit: puntos porcentuales de exceso de rendimiento
-  priority: important
+    metric: Rendimiento total de XOM menos rendimiento total de XLE
+    prediction: El rendimiento total de XOM entre el cierre del 2026-11-21 y el cierre
+      del 2027-11-21 superará el rendimiento total de XLE en al menos 5 puntos porcentuales,
+      incluyendo dividendos y usando precios ajustados por distribuciones.
+    unit: puntos porcentuales como mínimo
+  priority: informational
   probability: 0.5
-  rationale: La generación de efectivo y los márgenes señalados pueden sostener las
-    expectativas de beneficios y compensar parcialmente una valoración exigente. Comparar
-    el rendimiento total con XLE permite evaluar si esos fundamentos se traducen en
-    desempeño relativo, incluyendo dividendos y evitando depender de un precio objetivo
-    de consenso no especificado.
-  review_trigger: Dejar de creerla al cierre del 19 de noviembre de 2027 si la diferencia
-    de rendimiento total entre XOM y XLE es inferior a 3 puntos porcentuales; también
-    revisarla antes si una reducción material de la guía de flujo de caja o producción
-    invalida H1 o H2.
+  rationale: El negocio integrado y el FCF TTM positivo podrían favorecer la resistencia
+    relativa de XOM frente a una exposición más amplia al sector energético. Sin embargo,
+    el paquete no incluye estimaciones de analistas, supuestos de valoración ni datos
+    para determinar si la cotización actual ya refleja esas características.
+  review_trigger: Dejar de creerla al cierre del 2027-11-21 si la diferencia de rendimiento
+    total frente a XLE es inferior a 5 puntos porcentuales.
   secondary_hypotheses:
-  - H1-OPP-MB-XOM
   - H2-OPP-MB-XOM
-  statement: La acción de ExxonMobil ofrecerá un rendimiento total superior al del
-    ETF Energy Select Sector SPDR (XLE) durante los doce meses posteriores a la fecha
-    de corte, pese a la valoración ligeramente superior al consenso medio descrita
-    en la tesis.
+  statement: Durante los doce meses posteriores al corte, la acción de XOM tendrá
+    un rendimiento total superior al del ETF Energy Select Sector SPDR (XLE), aunque
+    la información disponible no permite sostener una tesis de revalorización absoluta
+    ni calcular un valor razonable.
   status: ACTIVE
   ticker: XOM
   version: 1

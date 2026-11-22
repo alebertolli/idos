@@ -2414,3 +2414,91 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-21T18:59:39.456743'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-WMT
+    ticker: WMT
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T23:51:42.118234'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-WMT
+    ticker: WMT
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T23:51:42.333400'
+- data:
+    classification: Multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 552455521c2997e1e56ad64b609301a14caebd7fbe82145238fcc5f9ecd2e907
+    opp_id: OPP-MB-WMT
+    original_status: UNDER_RESEARCH
+    score: 74.91
+    strategy_version: '1.5'
+    ticker: WMT
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T23:53:31.813510'
+- data:
+    classification: systematic_momentum
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 1
+    input_snapshot_sha256: f4e42e1e4fd088ee48824ca2ea705424c1ddd55c13a0cf62cd5e4aa40a594953
+    opp_id: OPP-20261001-MOM-XLF
+    original_status: UNDER_RESEARCH
+    score: 36
+    strategy_version: '1.0'
+    ticker: XLF
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T23:53:32.729212'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-XOM
+    ticker: XOM
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-21T23:54:07.037398'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-XOM
+    ticker: XOM
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-21T23:54:07.251804'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: aeb361effbdc382682a4913166059a19cc9527dcc4abe28eba14949f87b78283
+    opp_id: OPP-MB-XOM
+    original_status: UNDER_RESEARCH
+    score: 55
+    strategy_version: '1.5'
+    ticker: XOM
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-21T23:55:53.081911'
