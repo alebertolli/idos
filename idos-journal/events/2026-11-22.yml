@@ -822,3 +822,112 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-22T09:21:26.464899'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MULTIBAGGERS-SPGI-0001
+    ticker: SPGI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T09:28:34.469629'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-SPGI-0001
+    ticker: SPGI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T09:28:34.513883'
+- data:
+    classification: Growth
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: c04adad8fa4e47148a0cc11f3038765369439461920c2b861a5ecd59c8938e1f
+    opp_id: OPP-MULTIBAGGERS-SPGI-0001
+    original_status: UNDER_RESEARCH
+    score: 68
+    strategy_version: '1.5'
+    ticker: SPGI
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T09:29:55.021041'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-TGT
+    ticker: TGT
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T09:30:21.983123'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TGT
+    ticker: TGT
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T09:30:22.028039'
+- data:
+    classification: Investigación fundamental requerida; evidencia insuficiente para
+      validar una tesis de multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 7df431016557e4391e83525853513a505063aa011f91e119e5555238cf9234ff
+    opp_id: OPP-MB-TGT
+    original_status: UNDER_RESEARCH
+    score: 57
+    strategy_version: '1.5'
+    ticker: TGT
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T09:31:49.815899'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-UGP
+    ticker: UGP
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T09:32:23.509267'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-UGP
+    ticker: UGP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T09:32:23.556325'
+- data:
+    classification: Investigación requerida; evidencia incompleta para una valoración
+      fundamental concluyente
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 502109695f62e67a975d057204078122f8f2b87296e2941283f4837065da00d2
+    opp_id: OPP-MB-UGP
+    original_status: SCREENED
+    score: 65.66
+    strategy_version: '1.5'
+    ticker: UGP
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T09:33:53.404922'
