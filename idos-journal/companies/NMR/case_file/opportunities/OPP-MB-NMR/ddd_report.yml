@@ -1,111 +1,95 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El momentum positivo es evidencia de comportamiento de mercado, no validación
-    por sí misma de crecimiento rentable o ventaja competitiva.
-  - La falta de comparabilidad de algunos campos impide usar las cifras de caja y
-    beneficios para concluir sobre conversión de beneficios en caja.
-  - 'El paquete describe tres segmentos: Wealth Management, Investment Management
-    y Wholesale; no detalla sus contribuciones financieras.'
-  - YFinance reporta momentum de precio de 12 meses de 31,7416%, drawdown de 13,628%
-    y volatilidad de 90 días de 24,6886%, todos hasta el 2026-10-30.
-  - StockAnalysis reporta current ratio de 1,5 y FCF TTM de -7.550.000.000 al 2026-09-30;
-    la unidad del FCF indicada por el proveedor no concuerda con la escala de otras
-    series financieras del paquete.
+  - El crecimiento calculado de ingresos no demuestra por sí mismo crecimiento orgánico,
+    mejora de retornos sobre capital ni oportunidad multibagger.
+  - La combinación de FCF negativo y beneficio neto positivo requiere reconciliar
+    definiciones y flujos específicos de una institución financiera antes de interpretarla
+    como deterioro económico.
+  - StockAnalysis reporta ingresos de 1.335.577 en FY2023 y 2.167.713 en FY2026, ambos
+    con fecha de cierre 31 de marzo; el extracto no especifica la moneda de esos importes.
+  - StockAnalysis reporta FCF de -1.196.778 y beneficio neto de 362.129 en FY2026,
+    ambos con cierre 2026-03-31 y unidad source_reported_amount.
+  - El resumen financiero describe los segmentos Wealth Management, Investment Management
+    y Wholesale; la descripción disponible está truncada.
   preguntas_abiertas:
-  - ¿Qué explican las discrepancias entre revenue_history TTM y revenue_ttm para el
-    2026-09-30, y en qué moneda y escala están expresadas las series?
-  - ¿Cuáles son los retornos sobre capital, ingresos y beneficios por segmento, inversión
-    requerida y evolución de acciones diluidas?
-  - ¿Qué tamaño tienen los mercados atendidos, cuál es la penetración de Nomura y
-    qué evidencia hay de retención, costes de cambio o erosión competitiva?
-  - ¿Qué próximos resultados o hitos permitirían contrastar la evolución de caja,
-    rentabilidad y asignación de capital?
+  - ¿Qué parte del crecimiento de ingresos y beneficio procede de cada segmento, y
+    qué parte es recurrente?
+  - ¿Cuáles son la moneda, las definiciones contables y la composición del FCF y de
+    los saldos de deuda y efectivo reportados?
+  - ¿Qué datos de acciones diluidas, retornos sobre capital, cuota de mercado y asignación
+    de capital permiten evaluar management y ventaja competitiva?
 catalizadores_previos: &id001
-- descripcion: Un entorno de mercado favorable podría elevar los ingresos.
-  generated_at: '2026-11-20T17:34:38.090779-03:00'
+- descripcion: ''
+  generated_at: '2026-11-21T17:18:25.267723-03:00'
   horizonte: ''
   impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-NMR
   probabilidad_anterior: null
-- descripcion: Reducciones de costos podrían convertir ingresos en flujo de caja positivo.
-  generated_at: '2026-11-20T17:34:38.090779-03:00'
-  horizonte: ''
-  impacto: ''
-  nivel_confianza: ''
-  opp_id: OPP-MB-NMR
-  probabilidad_anterior: null
-- descripcion: Mayor captación de activos bajo gestión impulsaría el margen bruto.
-  generated_at: '2026-11-20T17:34:38.090779-03:00'
-  horizonte: ''
-  impacto: ''
-  nivel_confianza: ''
-  opp_id: OPP-MB-NMR
-  probabilidad_anterior: null
-- descripcion: Reducir la deuda neta mejoraría la ratio net debt/EBITDA.
-  generated_at: '2026-11-20T17:34:38.090779-03:00'
+- descripcion: ''
+  generated_at: '2026-11-21T17:18:25.267723-03:00'
   horizonte: ''
   impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-NMR
   probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación pendiente; evidencia financiera insuficiente para validar
-    una tesis de crecimiento compuesto
-  justificacion: La acción muestra momentum positivo a 12 meses en el paquete, pero
-    las métricas disponibles no bastan para validar crecimiento sostenible, retornos
-    sobre capital ni creación de valor por reinversión.
+  categoria: Investigación requerida; evidencia fundamental incompleta
+  justificacion: El paquete documenta momentum de precio y algunos datos financieros,
+    pero no permite validar varias métricas clave ni construir escenarios de valoración
+    defendibles.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo comprende Wealth Management, Investment Management y Wholesale
-    y atiende clientes individuales, institucionales y gubernamentales, según el resumen
-    financiero. No hay evidencia suficiente en el paquete sobre cuota de mercado,
-    retención, poder de fijación de precios, retornos sobre capital o ventajas competitivas;
-    tampoco se puede evaluar erosión de una ventaja.
-  rating: No concluyente
+  analisis: El resumen describe tres segmentos —Wealth Management, Investment Management
+    y Wholesale—, pero está truncado y no aporta detalles suficientes sobre productos,
+    geografía o motores de ingresos. No hay evidencia verificable sobre moat, retornos
+    sobre capital, reinversión, gestión o decisiones de asignación de capital; por
+    ello no se puede evaluar su calidad ni su erosión.
+  rating: Indeterminado
 dominio_catalizadores:
-- catalizador: Los ingresos reportados en revenue_history aumentan entre FY 2023 y
-    FY 2026, pero la serie por sí sola no demuestra crecimiento orgánico, recurrencia
-    ni rentabilidad incremental.
-  fuente: StockAnalysis, financials de NMR, FY 2023 y FY 2026.
-- catalizador: El consenso medio de precio objetivo está por encima de la cotización
-    del 2026-10-30; el paquete no aporta distribución válida de objetivos ni metodología
-    del consenso.
-  fuente: YFinance, cotización al 2026-10-30 y consenso observado al 2026-11-21.
+- catalizador: Crecimiento de ingresos reportados desde FY2023 hasta FY2026.
+  condicion: Debe confirmarse con datos comparables por segmento y períodos posteriores;
+    la serie no identifica por sí sola el motor de crecimiento.
+- catalizador: Beneficio neto reportado superior en FY2026 respecto de FY2025.
+  condicion: La evidencia no desglosa cuánto corresponde a expansión sostenible, elementos
+    no recurrentes o cambios de mercado.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: StockAnalysis, datos financieros de NMR, período TTM al 2026-09-30 y ejercicios
-    FY 2023–FY 2026.
-  riesgo: La caja libre reportada es negativa en TTM y en los ejercicios FY 2023–FY
-    2026; no se puede atribuir este patrón a una causa concreta con los datos disponibles.
-- fuente: StockAnalysis, financials y statistics de NMR, período TTM al 2026-09-30.
-  riesgo: 'Las cifras de ingresos no concuerdan entre campos del paquete: revenue_history
-    TTM y revenue_ttm reportan magnitudes diferentes para el 2026-09-30.'
-- fuente: StockAnalysis, statistics de NMR, período TTM al 2026-09-30; financials
-    al 2026-09-30.
-  riesgo: No hay datos suficientes para evaluar dilución, cobertura de intereses ni
-    deuda neta/EBITDA; el EBIT y el EBITDA figuran como n/a.
+- implicacion: La métrica agregada no demuestra generación de caja recurrente; su
+    interpretación en una entidad financiera requiere entender la composición y definición
+    del flujo.
+  riesgo: La serie anual de FCF reportada es negativa en FY2022–FY2026, mientras que
+    el dato TTM hasta 2026-09-30 también es negativo.
+- implicacion: La falta de datos comparables limita el análisis de reinversión, financiación
+    y cambios en la participación accionaria.
+  riesgo: El paquete no permite validar crecimiento de FCF, deuda neta/EBITDA ni dilución.
+- implicacion: No es posible verificar tamaño del mercado direccionable ni durabilidad
+    de una ventaja competitiva.
+  riesgo: No se proporcionan datos de cuota de mercado, penetración, retornos sobre
+    capital, costes de cambio o retención de clientes.
 error_mercado:
-  catalizador_cambio: La publicación de resultados comparables que aclaren rentabilidad,
-    flujos de caja y evolución del capital podría cambiar la lectura; el paquete no
-    identifica fechas de próximos hitos.
-  conclusion_error_valoracion: 'No se puede establecer un error de valoración con
-    la evidencia disponible: no hay extremos válidos de consenso ni inputs suficientes
-    para un método de valoración propio.'
-  consenso_actual: El paquete muestra precio de USD 9,38 al 2026-10-30 y consenso
-    medio de precio objetivo de USD 10,642 al 2026-11-21; los extremos alto y bajo
-    del consenso figuran como 0.
-  hipotesis_contraria: 'El momentum observado podría no reflejar una mejora duradera
-    de beneficios: faltan datos comparables para verificar conversión de caja, apalancamiento
-    neto sobre EBITDA y dilución.'
-  razonamiento: La evidencia de mercado disponible incluye momentum de 12 meses de
-    31,7416% y una cotización en USD, pero no proporciona una base fundamental completa
-    para contrastar expectativas.
-generated_at: '2026-11-21T17:18:25.267723-03:00'
+  catalizador_cambio: La publicación de resultados comparables por segmento, acompañados
+    de datos verificables sobre flujos, rentabilidad y asignación de capital, podría
+    cambiar la evaluación; el paquete no especifica fechas de publicación.
+  conclusion_error_valoracion: No validado. El objetivo medio de analistas es una
+    referencia observada, no una valoración intrínseca; no hay método y datos suficientes
+    para justificar extremos alternativos.
+  consenso_actual: El consenso de analistas reportado es USD 10,642 por ADR, frente
+    a una cotización de USD 9,38 al 2026-10-30; el paquete no proporciona rango de
+    objetivos válido, pues el extremo bajo reportado es USD 0. (yfinance, 2026-11-22
+    y 2026-10-30).
+  hipotesis_contraria: 'Los datos no bastan para concluir que el mercado esté valorando
+    mal a Nomura: el negocio es financiero y los saldos de efectivo, deuda y flujos
+    agregados no explican por sí solos la rentabilidad económica de sus segmentos.'
+  razonamiento: El precio subió 31,7416% en los 12 meses hasta 2026-10-30, con drawdown
+    de 13,628% y volatilidad a 90 días de 24,6886% (yfinance, historial NMR, período
+    2025-10-31/2026-10-30). Estos indicadores describen el mercado, pero no demuestran
+    expectativas fundamentales ni un error de valoración.
+generated_at: '2026-11-22T09:07:38.483890-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-NMR
@@ -149,10 +133,10 @@ ratios_investigados:
 - formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
   inputs:
     fcf_history:
-      FY_2025: -868582.0
-      FY_2026: -1196778.0
-  limitations: Los FCF de FY 2025 y FY 2026 son negativos; la definición configurada
-    requiere valores positivos en ambos períodos.
+      FY 2025: -868582
+      FY 2026: -1196778
+  limitations: Los dos FCF reportados son negativos; la definición configurada exige
+    valores comparables y positivos en ambos períodos.
   metric: fcf_growth_pct
   period_end: '2026-03-31'
   sources:
@@ -161,31 +145,25 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: FCF / net_income * 100
-  inputs:
-    fcf: -7550000000.0
-    net_income_history:
-      TTM: 414775.0
-  limitations: Las magnitudes y unidades reportadas para FCF y net income no son compatibles
-    ni conciliables con la evidencia disponible; no se calcula el ratio.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
-  period_end: '2026-09-30'
+  period_end: '2026-03-31'
   sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/NMR/statistics/
   - name: StockAnalysis
     url: https://stockanalysis.com/stocks/nmr/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash /
-    EBITDA
+- formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
-    ebitda: n/a
-    net_cash_history:
-      Current: 14418765.0
-  limitations: EBITDA figura como n/a; sin ese denominador no se puede calcular el
-    ratio.
+    cash_and_investments_history:
+      Current: 51602145
+    total_debt_history:
+      Current: 37183380
+  limitations: EBITDA figura como n/a en las estadísticas para TTM hasta 2026-09-30;
+    además, el campo disponible es cash_and_investments, no cash_and_equivalents,
+    y no se valida su equivalencia.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
@@ -197,12 +175,15 @@ ratios_investigados:
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs: {}
-  limitations: El paquete no contiene historial de acciones diluidas ni acciones en
-    circulación para dos períodos comparables con fuente y URL verificable.
+  inputs:
+    shares_outstanding: 2920000000
+  limitations: Sólo hay un valor puntual de shares_outstanding; faltan acciones diluidas
+    o acciones en dos períodos comparables para calcular variación interanual.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/NMR/statistics/
   status: unavailable
   unit: percent
   value: null
@@ -237,7 +218,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-22'
   business_model: 'Nomura Holdings, Inc. engages in the provision of investment, financing,
     and related services to individual, institutional, and government clients worldwide.
     It operates through three segments: Wealth Management, Investment Management,
@@ -261,384 +242,325 @@ research_input_snapshot:
   existing_wiki: '## 1. Visión General de la Compañía
 
 
-    Nomura Holdings, Inc. (NMR) es un grupo financiero global que ofrece servicios
-    de inversión, financiación y actividades relacionadas a clientes individuales,
-    institucionales, empresariales y emisores. Su negocio abarca gestión patrimonial
-    y de activos, intermediación y negociación de valores, financiación y banca de
-    inversión. La información disponible describe operaciones internacionales, pero
-    no especifica países, ingresos por geografía ni exposición regional.
+    Nomura Holdings, Inc. (NMR) es un grupo financiero global con actividades de gestión
+    patrimonial, gestión de inversiones y banca mayorista (*Wholesale*). Atiende a
+    clientes individuales, hogares, inversores institucionales y entidades gubernamentales.
+    Su cadena de valor incluye captación y asesoría, diseño y gestión de productos
+    financieros, distribución, intermediación, financiación y gestión de riesgos.
 
 
-    La compañía opera en el sector de servicios financieros. Sus actividades están
-    expuestas al ciclo económico y a las condiciones de los mercados de capitales,
-    incluidos los tipos de interés, la volatilidad y el volumen de negociación. Entre
-    las empresas del sector y competidores comparables para investigación futura figuran
-    [[JPM]], [[C]], [[HSBC]], [[MUFG]] y [[MFG]].
+    Opera en una industria financiera global, intensamente competitiva y regulada,
+    cuyas condiciones dependen, entre otros factores, de la actividad de los mercados
+    y de la confianza de los clientes. El material disponible no detalla de forma
+    suficiente la distribución geográfica de ingresos o activos para caracterizarla
+    con mayor precisión.
 
 
-    **Alcance de la evidencia:** los materiales suministrados contienen datos financieros
-    y valoraciones sin siempre indicar periodo, base contable o fuente verificable.
-    Se señalan expresamente las limitaciones; no deben interpretarse cifras no documentadas
-    como hechos financieros confirmados.
+    Compañías del mismo sector o con actividades financieras relacionadas incluyen
+    [[C]], [[HSBC]], [[JPM]], [[MUFG]], [[MFG]], [[SAN]], [[IBN]], [[ING]], [[BX]]
+    y [[AIG]]. La pertenencia a esta lista no implica que sus modelos de negocio sean
+    directamente comparables con el de Nomura.
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    Nomura genera ingresos a través de tres áreas principales:
+    **Fuentes de ingresos y actividades**
+
+    - **Gestión patrimonial:** asesoría de inversiones y servicios para clientes individuales
+    y hogares.
+
+    - **Gestión de inversiones:** fondos y soluciones de inversión para clientes institucionales
+    y vehículos de inversión.
+
+    - **Banca mayorista:** servicios financieros y actividades de mercado, intermediación
+    y financiación. La información disponible no desglosa los ingresos por producto
+    ni por segmento.
 
 
-    - **Gestión patrimonial:** asesoramiento y servicios para clientes individuales
-    y patrimoniales.
-
-    - **Gestión de activos:** fondos, fideicomisos de inversión y soluciones para
-    inversores institucionales.
-
-    - **Wholesale:** negociación y distribución de valores de deuda y capital, financiación
-    y servicios de banca de inversión para instituciones, empresas y emisores.
+    Los ingresos pueden depender de comisiones y honorarios, así como de resultados
+    asociados a la actividad de mercado. Por ello, el desempeño puede variar con las
+    condiciones de negociación, las emisiones, las operaciones corporativas, las tasas
+    de interés y la confianza de los clientes.
 
 
-    La cadena de valor comprende captar y asesorar clientes, diseñar soluciones de
-    inversión, gestionar activos y riesgos, facilitar transacciones y financiación,
-    y distribuir valores. Depende de profesionales especializados, tecnología y datos,
-    acceso a mercados y contrapartes, y controles de riesgo y cumplimiento.
+    **Posición competitiva y moat**
 
+    - La escala, la marca, las relaciones con clientes institucionales y el acceso
+    a mercados pueden constituir ventajas.
 
-    **Drivers de ingresos:** las comisiones y los activos gestionados impulsan los
-    negocios patrimoniales y de gestión de activos; la actividad de los mercados,
-    el volumen de operaciones y la ejecución de transacciones influyen en los negocios
-    mayoristas. Las fuentes describen estos drivers, pero no aportan una descomposición
-    cuantitativa de ingresos por segmento.
+    - La evaluación de investigación califica el moat como **estrecho** y la posición
+    competitiva como **retadora**: la intermediación y la banca de inversión son competitivas
+    y sensibles a los ciclos de mercado.
 
-
-    **Posición competitiva y moat:** las ventajas potenciales incluyen marca, relaciones
-    con clientes, presencia internacional, distribución, acceso a mercados y conocimiento
-    especializado. La evaluación proporcionada caracteriza el moat como **estrecho**
-    y la posición competitiva como **retadora**: la movilidad de clientes y profesionales,
-    la competencia intensa y la ciclicidad limitan la durabilidad de esas ventajas.
-    Entre los pares relevantes para comparación figuran [[JPM]], [[C]], [[HSBC]],
-    [[MUFG]] y [[MFG]].
-
-
-    La industria también afronta presiones por digitalización, plataformas de bajo
-    coste, regulación y costes de cumplimiento. Estos factores pueden presionar precios
-    y márgenes.
+    - No se proporcionan datos comparables de cuota de mercado, retención de clientes,
+    rentabilidad por segmento ni retornos incrementales que permitan confirmar la
+    durabilidad de esas ventajas.
 
 
     ## 3. Perfil Financiero
 
 
-    Las métricas siguientes proceden de los materiales de investigación y **no son
-    plenamente verificables**: en general no se especifican periodo, fuente primaria,
-    definiciones o base contable. Deben validarse antes de utilizarlas en una valoración.
+    Las cifras de los paquetes de investigación no tienen todas periodo, moneda, escala,
+    definición o fuente suficientemente especificados. Deben tratarse como referencias
+    no comparables hasta verificarlas.
 
 
-    | Métrica | Valor reportado | Periodo / fuente indicada | Estado y limitaciones
-    |
+    | Métrica | Dato disponible | Periodo / fuente | Limitación |
 
     |---|---:|---|---|
 
-    | Crecimiento de ingresos | 21,55% | No especificados | AOIF lo presenta como
-    cifra proporcionada; no acredita tendencia plurianual. |
+    | Crecimiento de ingresos | 21,55% | AOIF; periodo no especificado | No se especifican
+    definición, fuente, moneda ni periodo. No es directamente reconciliable con otras
+    series. |
 
-    | Margen operativo | 25,07% | No especificados | Cifra reportada sin fuente, periodo
-    ni definición. |
+    | Margen operativo | 25,07% | AOIF; periodo no especificado | Definición y periodo
+    sin confirmar. |
 
-    | ROIC | 1,06% | No especificados | Cifra reportada sin fuente, periodo ni definición.
+    | ROIC | 1,06% | AOIF; periodo no especificado | Base de cálculo y adecuación
+    de la métrica para una entidad financiera sin confirmar. |
+
+    | PER | 9,83x | AOIF; fecha no especificada | Faltan precio y beneficios normalizados
+    comparables. |
+
+    | Current ratio | 1,5 | 2026-09-30; StockAnalysis, [estadísticas de NMR](https://stockanalysis.com/stocks/NMR/statistics/)
+    | No supera el umbral de alerta indicado en el paquete (por debajo de 0,5); la
+    ratio no sustituye un análisis de liquidez específico para una entidad financiera.
     |
 
-    | PER | 10,05 | No especificados | Cifra proporcionada; requiere validar fecha
-    y beneficios normalizados. |
+    | FCF | Negativo en TTM y FY 2023–FY 2026 | StockAnalysis; TTM al 2026-09-30 y
+    ejercicios indicados | No se proporciona una explicación verificable. La comparabilidad
+    del flujo de caja libre para una entidad financiera es limitada. |
 
-    | FCF TTM | -7,54B USD | TTM; fuente no identificada en el material | DDD lo reporta
-    como consumo de efectivo. Su interpretación es limitada para una entidad financiera.
-    |
+    | FCF FY 2025 | -868.582 | FY 2025; StockAnalysis | Moneda y escala no especificadas
+    en el paquete. |
 
-    | Current ratio | 1,53 | Periodo no indicado | Reportado por DDD; no se proporcionan
-    los componentes ni la fuente. |
+    | FCF FY 2026 | -1.196.778 | FY 2026; StockAnalysis | Moneda y escala no especificadas
+    en el paquete. |
 
-    | Cobertura de intereses | 0 | DDD menciona Stock Analysis al 2026-09-30 | Indicador
-    señalado como inferior al umbral de 2,0. Faltan detalles de cálculo y contexto
-    contable. |
+    | Precio de la acción | USD 9,38 | 2026-10-30; YFinance según el paquete | Observación
+    de mercado, no valoración fundamental. |
 
-    | Volatilidad a 90 días | 24,69% | Periodo no detallado | DDD la reporta como
-    referencia de volatilidad histórica. |
-
-    | Precio de la acción | 9,38 USD | Fecha no indicada | Dato de DDD; no se indica
-    fuente o momento de observación. |
-
-    | Consenso de precio objetivo | 10,64 USD | Fecha no indicada | Dato de DDD; no
-    se indica cobertura, número de analistas ni metodología. |
-
-    | Crecimiento de ingresos, CAGR a 3 años | 17,5% | Periodo descrito como tres
-    años; DDD | Inferencia incluida en la clasificación de oportunidad, sin evidencia
-    subyacente identificada. |
+    | Momentum a 12 meses | 31,7416% | Paquete DDD | Indicador de comportamiento de
+    mercado; no valida crecimiento rentable ni ventaja competitiva. |
 
 
-    DDD cita como fuente para datos financieros la página de [Stock Analysis](https://stockanalysis.com/stocks/nmr/financials/)
-    y, para estadísticas, [Stock Analysis — NMR Statistics](https://stockanalysis.com/stocks/NMR/statistics/),
-    ambas consultadas el **2026-11-20**. El material no vincula de manera explícita
-    cada cifra con una línea concreta de esas páginas ni incluye extractos que permitan
-    verificarla.
+    StockAnalysis muestra ingresos crecientes entre FY 2023 y FY 2026 en `revenue_history`,
+    pero no se aportan aquí las cifras de cada ejercicio ni evidencia de crecimiento
+    orgánico o de rentabilidad incremental. Además, para el 2026-09-30, `revenue_history`
+    TTM y `revenue_ttm` presentan magnitudes diferentes. La discrepancia y la escala
+    de las series no están aclaradas.
 
 
-    La generación de efectivo requiere cautela analítica: AOIF señala que los flujos
-    de caja y el capital de trabajo de una entidad financiera se ven afectados por
-    activos y pasivos financieros propios del negocio. Considera más pertinente contrastar
-    beneficios con generación de capital, dividendos y recompras. No se aportan cifras
-    sobre capital regulatorio, deuda, liquidez regulatoria, dividendos o recompras
-    que permitan evaluar la estructura de capital.
-
-
-    El crecimiento de ingresos y la valoración de la tendencia financiera quedan sin
-    validar. DDD marca como no disponibles el CAGR de ingresos calculable, el crecimiento
-    de FCF y la conversión de FCF, por falta de referencias explícitas a los inputs
-    o por las limitaciones de FCF negativo.
+    No se dispone de datos suficientes para evaluar deuda neta sobre EBITDA, evolución
+    de acciones diluidas, conversión de beneficios en caja ni retornos sobre capital
+    por segmento. El crecimiento del FCF no se calculó: los valores FY 2025 y FY 2026
+    son negativos y el método indicado requiere valores positivos y comparables en
+    ambos periodos.
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    La evaluación disponible califica la calidad del management como **regular**,
-    la asignación de capital como **neutral** y el alineamiento de insiders como **débil**.
-    Son evaluaciones prudentes y no conclusiones respaldadas por datos detallados:
-    el material indica que faltan resultados plurianuales, información sobre remuneración
-    frente a objetivos, historial de asignación de capital y participación accionarial
-    de insiders.
+    La evaluación de AOIF califica la calidad del management como **regular**, la
+    asignación de capital como **neutral** y el alineamiento de insiders como **débil**.
+    Son valoraciones de investigación no corroboradas en el material aportado: no
+    se incluyen resultados frente a objetivos, remuneración, propiedad de insiders
+    ni ejemplos concretos de decisiones de asignación de capital.
 
 
-    No se aportan datos sobre integrantes, independencia, experiencia o comités del
-    consejo de administración, ni sobre cambios en el liderazgo. Por tanto, no es
-    posible valorar la composición del board ni los mecanismos de supervisión corporativa.
+    No hay información disponible sobre composición, independencia, experiencia o
+    comités del consejo de administración. Por tanto, la calidad del liderazgo y la
+    supervisión corporativa no pueden evaluarse de forma concluyente.
 
 
     ## 5. Tesis de Inversión
 
 
-    **Caso alcista — hipótesis, no hecho confirmado:**
+    **Tesis por investigar:** los negocios de gestión patrimonial, gestión de inversiones
+    y banca mayorista podrían sostener crecimiento rentable si las relaciones con
+    clientes, la escala y el acceso a mercados se traducen en ingresos recurrentes
+    y retornos adecuados. La evidencia disponible no confirma todavía esa condición.
 
 
-    - La combinación de gestión patrimonial, gestión de activos y negocios mayoristas
-    diversifica las fuentes potenciales de ingresos.
+    Elementos que podrían respaldar el caso:
 
-    - Un entorno de mercado favorable podría elevar la actividad y las tarifas de
-    banca de inversión y negociación.
+    - El resumen de StockAnalysis indica un aumento de ingresos en `revenue_history`
+    entre FY 2023 y FY 2026. Sin cifras comparables por segmento, esto no demuestra
+    crecimiento orgánico, recurrencia ni rentabilidad incremental. Fuente: [StockAnalysis,
+    estados financieros de NMR](https://stockanalysis.com/stocks/nmr/financials/),
+    ejercicios FY 2023–FY 2026.
 
-    - Una mayor captación de activos gestionados podría impulsar los ingresos por
-    comisiones y mejorar el margen de los negocios patrimoniales y de gestión de activos.
+    - El paquete reporta momentum positivo a 12 meses de 31,7416%. Es una señal de
+    mercado, no evidencia de mejora fundamental.
 
-    - Mejoras de eficiencia podrían convertir ingresos en una generación de efectivo
-    más sostenible.
-
-    - La marca, las relaciones con clientes, la distribución y el acceso a mercados
-    podrían respaldar la competitividad, aunque el material considera estrecho el
-    moat.
-
-    - DDD reporta un precio de 9,38 USD frente a un consenso de 10,64 USD. Esa diferencia
-    no demuestra por sí sola infravaloración: faltan fecha, composición del consenso
-    y supuestos de valoración.
+    - El precio objetivo medio reportado por YFinance es USD 10,642, superior al precio
+    de USD 9,38 observado el 2026-10-30. El consenso se observó el 2026-11-21; los
+    extremos alto y bajo figuran como 0 y no son utilizables. No se aporta la metodología
+    del consenso.
 
 
-    La tesis general es que el crecimiento de ingresos podría traducirse en mejores
-    beneficios y generación de capital si mejora la actividad de mercado y la eficiencia
-    operativa. Sin evidencia de periodos comparables, beneficios normalizados o generación
-    de capital, esta posibilidad permanece como hipótesis.
+    **Clasificación actual:** investigación pendiente. La evidencia financiera disponible
+    es insuficiente para validar crecimiento sostenible, retornos sobre capital o
+    creación de valor. El score general del paquete DDD es 38, pero no se especifica
+    una escala o metodología que permita interpretarlo como estimación autónoma de
+    calidad o valor.
 
 
     ## 6. Riesgos y Contra-Tesis
 
 
-    **Caso bajista — hipótesis de riesgo:** el crecimiento reportado podría no convertirse
-    en rentabilidad sostenible. La compañía podría seguir consumiendo efectivo y tener
-    una cobertura de intereses insuficiente, mientras que la volatilidad y la actividad
-    de mercado afectan ingresos y resultados. La hipótesis contraria de DDD es que
-    el mercado podría estar incorporando expectativas de mejora que todavía no se
-    reflejan en la situación financiera reportada.
+    **Caso bajista:** el momentum de la acción podría no reflejar una mejora duradera
+    de beneficios. La exposición a mercados puede producir volatilidad en ingresos
+    y resultados, mientras que los datos disponibles no permiten verificar la conversión
+    de beneficios en caja, el apalancamiento neto sobre EBITDA ni la dilución.
 
 
-    | Riesgo | Evidencia o fundamento disponible | Posible efecto |
+    | Riesgo | Evidencia o limitación | Posible consecuencia |
 
     |---|---|---|
 
-    | FCF negativo | DDD reporta FCF TTM de -7,54B USD; no se aporta detalle de cálculo.
-    | Presión sobre liquidez y capacidad de financiar distribuciones o inversión,
-    aunque el FCF convencional requiere cautela en una entidad financiera. |
+    | Ciclo de mercado | La actividad de negociación, emisiones, asesoría y operaciones
+    corporativas puede debilitarse en ciclos desfavorables. | Menores ingresos y beneficios
+    en las actividades expuestas a mercados. |
 
-    | Cobertura de intereses reportada en cero | DDD cita un ratio de 0 e indica que
-    está por debajo del umbral de 2,0. | Señal de riesgo financiero que debe verificarse
-    con definiciones y estados financieros pertinentes. |
+    | Riesgo financiero y de mercado | AOIF identifica como riesgos las pérdidas por
+    posiciones de mercado, crédito, contraparte o liquidez. | Pérdidas, mayor volatilidad
+    o presión de liquidez. |
 
-    | Ciclicidad de mercados | Los ingresos mayoristas dependen de actividad, volatilidad
-    y ejecución de operaciones. | Caída de ingresos o pérdidas de negociación en mercados
-    de deuda, acciones o divisas. |
-
-    | Riesgo de posiciones y contrapartes | Identificado en AOIF como riesgo de alto
-    impacto y probabilidad media. | Pérdidas y mayor presión sobre capital o liquidez.
+    | Flujo de caja libre negativo | StockAnalysis reporta FCF negativo en TTM y FY
+    2023–FY 2026; no se identifica una causa verificable. | Dificultad para interpretar
+    la generación de caja sin datos de inversión y necesidades propias del negocio.
     |
 
-    | Riesgo regulatorio y de cumplimiento | Operaciones sujetas a regulación en las
-    jurisdicciones donde opera. | Sanciones, costes adicionales o restricciones operativas.
-    |
+    | Inconsistencia de ingresos | `revenue_history` TTM y `revenue_ttm` difieren
+    para el 2026-09-30. | Riesgo de análisis erróneo de crecimiento si no se aclaran
+    periodos, escalas y definiciones. |
 
-    | Competencia y presión sobre márgenes | Competencia de bancos globales, gestores
-    y plataformas de bajo coste. | Compresión de precios, pérdida de clientes o menor
-    rentabilidad. |
+    | Dilución | La dilución interanual no está disponible. | No es posible evaluar
+    el efecto de la evolución de acciones sobre el valor por acción. |
 
-    | Volatilidad de la acción | DDD reporta volatilidad a 90 días de 24,69%. | Mayor
-    variabilidad del precio; no equivale a una medida de riesgo fundamental. |
-
-
-    **Falsadores de la tesis alcista señalados por DDD:**
+    | Valoración | No hay inputs suficientes para una valoración propia; los extremos
+    del consenso son inválidos. | No puede determinarse si el precio incorpora expectativas
+    excesivas o insuficientes. |
 
 
-    - Persistencia del flujo de caja libre negativo.
+    **Falsadores de la tesis**
 
-    - Deterioro adicional de la cobertura de intereses.
+    - Resultados posteriores que muestren deterioro persistente de ingresos o beneficio
+    neto frente a las series históricas disponibles.
 
-    - Caída sostenida de ingresos por condiciones macroeconómicas adversas.
-
-
-    Estos indicadores deben interpretarse junto con métricas apropiadas para una entidad
-    financiera, como beneficios normalizados, capital regulatorio, exposición a contrapartes
-    y evolución de costes.
+    - Evidencia comparable de flujos de caja persistentemente negativos sin una explicación
+    verificable de inversión o de necesidades propias del negocio.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    No se proporcionan fechas esperadas ni un calendario de eventos. Los siguientes
-    son catalizadores potenciales, no eventos confirmados:
-
-
-    | Catalizador potencial | Fecha esperada | Impacto potencial | Evidencia / condición
-    |
+    | Catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia |
 
     |---|---|---|---|
 
-    | Recuperación de tarifas y actividad de banca de inversión | No especificada
-    | Positivo si aumenta la actividad y los ingresos mayoristas. | Requiere un entorno
-    de mercado más favorable; no se aportan previsiones. |
+    | Publicación de resultados comparables que aclare ingresos, beneficios, flujos
+    de caja y evolución del capital | No especificada en el paquete | Podría permitir
+    reevaluar la calidad de beneficios, la conversión de caja y la tesis de crecimiento.
+    | El paquete no identifica la fecha de los próximos resultados. |
 
-    | Mejora de eficiencia operativa | No especificada | Positivo si reduce costes
-    y mejora la conversión de ingresos en beneficios y capital. | No se detallan iniciativas
-    anunciadas de reducción de costes. |
+    | Aclaración de la diferencia entre `revenue_history` TTM y `revenue_ttm` | Sin
+    fecha | Podría cambiar la lectura de la tendencia de ingresos y mejorar la comparabilidad
+    financiera. | Discrepancia señalada por StockAnalysis para el 2026-09-30; causa
+    no identificada. |
 
-    | Expansión de gestión patrimonial y de activos | No especificada | Positivo si
-    aumenta la captación de clientes y activos gestionados. | No se aportan datos
-    de flujos, activos bajo gestión o márgenes por segmento. |
+    | Consenso de precio objetivo medio superior al precio observado | Precio observado
+    el 2026-10-30; consenso observado el 2026-11-21 | Puede influir en expectativas
+    de mercado, pero no confirma valor fundamental. | YFinance, según el paquete:
+    USD 9,38 frente a USD 10,642. Extremos del consenso reportados como 0. |
 
-    | Mejora de generación de efectivo o cobertura de intereses | Sin fecha; condición
-    de seguimiento | Podría reducir la percepción de riesgo y apoyar una reevaluación
-    de la valoración. | DDD la identifica como condición que podría cambiar la percepción
-    del mercado; no es un evento anunciado. |
+
+    No se proporcionan fechas concretas para próximos resultados, eventos corporativos
+    u otros hitos, por lo que no corresponde asignar un calendario más preciso.
 
 
     ## 8. Marco de Valoración
 
 
-    La valoración no puede establecerse de forma robusta con los datos disponibles.
-    AOIF registra un PER de 10,05, pero indica que debe contrastarse con la fecha,
-    los beneficios normalizados, el capital regulatorio, la rentabilidad sostenible
-    y la política de distribución. También clasifica el margen de seguridad como **insuficiente**
-    y señala que el valor intrínseco no es estimable con la información suministrada.
+    No puede estimarse un valor intrínseco defendible con la información disponible.
+    La valoración requiere datos financieros comparables, beneficios normalizados
+    y una metodología apropiada para un grupo financiero.
 
 
-    Para una entidad financiera, conviene dar prioridad a métodos y variables que
-    reflejen beneficios y capital, en lugar de depender de métricas empresariales
-    generales:
+    **Marco recomendado para la investigación**
+
+    - Separar y valorar los segmentos de gestión patrimonial, gestión de inversiones
+    y banca mayorista, siempre que se obtengan ingresos, beneficios y capital asignado
+    comparables.
+
+    - Para negocios financieros, priorizar métricas de rentabilidad sobre patrimonio
+    o capital regulatorio, beneficios normalizados y relación entre valoración y beneficios
+    o patrimonio. No se aportan los datos necesarios para aplicarlas.
+
+    - Tratar con cautela el PER de 9,83x reportado por AOIF: faltan fecha, precio,
+    definición de beneficios y normalización del ciclo.
+
+    - No usar EV/EBITDA o FCF yield a partir de los valores AOIF de 0: el paquete
+    no establece que esos ceros sean ratios calculados y comparables.
+
+    - No aplicar una valoración basada en caja libre hasta reconciliar la definición
+    de FCF, su comparabilidad en una entidad financiera y la diferencia entre las
+    series de ingresos.
 
 
-    - PER sobre beneficios normalizados, con ajuste por ciclo de mercado.
+    **Sensibilidad cualitativa**
 
-    - Relación entre precio y valor contable o capital, una vez verificados los datos
-    correspondientes.
+    - Una recuperación sostenible de beneficios, con datos verificables de rentabilidad
+    por segmento y generación de caja, podría respaldar una valoración mayor.
 
-    - Retorno sobre capital y capacidad de generar capital regulatorio.
+    - Una caída de la actividad de mercados, pérdidas financieras o deterioro persistente
+    de beneficios podría reducirla.
 
-    - Dividendos y recompras frente a la capacidad de distribución y necesidades de
-    capital.
-
-
-    AOIF registra EV/EBITDA y FCF yield como cero, pero advierte que estas métricas
-    no son especialmente informativas para el negocio y no deben interpretarse como
-    estimaciones de valor.
-
-
-    DDD informa un precio de 9,38 USD y un consenso de 10,64 USD, ambos sin fecha
-    específica en el material. El descuento implícito frente al consenso no basta
-    para concluir que NMR está infravalorada. DDD plantea, como hipótesis bajista,
-    que el mercado podría estar sobrevalorando la conversión del crecimiento de ingresos
-    en rentabilidad sostenible.
-
-
-    **Sensibilidad cualitativa:**
-
-
-    - **Escenario favorable:** mejora de actividad, tarifas y eficiencia; recuperación
-    de la generación de capital y resultados normalizados.
-
-    - **Escenario intermedio:** ingresos sensibles al ciclo, con avances limitados
-    de eficiencia y rentabilidad.
-
-    - **Escenario adverso:** caída de actividad, pérdidas de negociación o costes
-    de riesgo elevados, junto con persistencia de los indicadores financieros desfavorables
-    reportados.
-
-
-    No hay datos suficientes para asignar probabilidades, estimar valores por escenario
-    o calcular un precio objetivo propio.
+    - No se presentan objetivos de precio propios ni escenarios cuantitativos porque
+    faltan supuestos y datos fiables.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    1. ¿Cuál es el periodo, la fuente primaria y la definición de las cifras de crecimiento
-    de ingresos, margen operativo, ROIC y PER reportadas por AOIF?
+    1. ¿Qué explica la discrepancia entre `revenue_history` TTM y `revenue_ttm` para
+    el 2026-09-30? ¿En qué moneda y escala están expresadas las series?
 
-    2. ¿Qué estados financieros y componentes sustentan el FCF TTM de -7,54B USD y
-    cómo debe interpretarse en el contexto de los flujos de una entidad financiera?
+    2. ¿Cuáles son los ingresos, beneficios y retornos sobre capital por segmento,
+    y cómo han evolucionado?
 
-    3. ¿Cómo se calcula la cobertura de intereses reportada como cero y qué gastos
-    o ingresos incluye?
+    3. ¿Qué parte de los ingresos proviene de comisiones y honorarios frente a resultados
+    sensibles a la actividad de mercado?
 
-    4. ¿Cuáles son las proyecciones de EBITDA para los próximos años? La pregunta
-    figura en DDD, pero la métrica debe evaluarse teniendo en cuenta la naturaleza
-    financiera del negocio.
+    4. ¿Qué inversión, requisitos regulatorios o necesidades propias del negocio explican
+    el FCF negativo reportado en TTM y FY 2023–FY 2026?
 
-    5. ¿Existe un plan anunciado de reestructuración de deuda? ¿Qué obligaciones,
-    vencimientos y fuentes de financiación son pertinentes?
+    5. ¿Cuál es la deuda neta y cómo debe medirse el apalancamiento en relación con
+    los riesgos y el capital de una entidad financiera?
 
-    6. ¿Qué iniciativas de reducción de costes se están implementando y cuáles son
-    sus objetivos, plazos y costes de ejecución?
+    6. ¿Cómo han evolucionado las acciones diluidas y cuál es el efecto de la dilución
+    sobre el valor por acción?
 
-    7. ¿Cómo se distribuyen los ingresos, beneficios y activos entre Wealth Management,
-    Investment Management y Wholesale?
+    7. ¿Qué beneficios normalizados y comparables sustentan el PER de 9,83x reportado
+    por AOIF?
 
-    8. ¿Cuál es la evolución de activos bajo gestión, entradas y salidas de clientes,
-    comisiones y márgenes por segmento?
+    8. ¿Cuál es la distribución geográfica de ingresos, beneficios, activos y exposición
+    a riesgos?
 
-    9. ¿Cuáles son el capital regulatorio, la calidad de activos, las exposiciones
-    a contrapartes y las necesidades de capital?
+    9. ¿Qué evidencia respalda las valoraciones sobre calidad del management, alineamiento
+    de insiders y asignación de capital?
 
-    10. ¿Qué historial tienen las recompras, dividendos y otras decisiones de asignación
-    de capital?
-
-    11. ¿Qué participación accionarial poseen los insiders y cómo se vincula la remuneración
-    ejecutiva con resultados de largo plazo?
-
-    12. ¿Quiénes integran el consejo de administración y cuáles son su independencia,
-    experiencia y funciones de supervisión?
-
-    13. ¿Cuál es la fecha y composición del consenso de precio objetivo de 10,64 USD
-    reportado por DDD?
-
-    14. ¿Qué comparables de [[JPM]], [[C]], [[HSBC]], [[MUFG]] y [[MFG]] son adecuados
-    una vez ajustados por segmento, geografía, capital y exposición a mercados?
+    10. ¿Cuál es la fecha de los próximos resultados y qué métricas por segmento permitirían
+    evaluar la tesis?
 
 
-    **Estado de decisión:** AOIF registra la recomendación como **PENDIENTE_DECISION_BOARD**.
-    La evidencia suministrada no permite cerrar una conclusión de valoración ni confirmar
-    la tendencia financiera.
+    **Fuentes disponibles en los paquetes:** StockAnalysis, [estados financieros de
+    NMR](https://stockanalysis.com/stocks/nmr/financials/) y [estadísticas de NMR](https://stockanalysis.com/stocks/NMR/statistics/);
+    cotización y consenso de YFinance según las fechas indicadas en DDD. Las métricas
+    de AOIF se conservan como referencias no verificadas cuando el paquete no especifica
+    periodo, definición o fuente.
 
 
     ---
@@ -653,7 +575,10 @@ research_input_snapshot:
     [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPMorgan Chase
     & Co.]], [[KB|KB Financial Group Inc.]], [[LYG|Lloyds Banking Group plc]], [[MA|Mastercard
     Incorporated]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial
-    Group, Inc.]]'
+    Group, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S.
+    Bancorp]], [[V|Visa Inc.]], [[XP|XP Inc.]]
+
+    - **Same Industry**: [[XP|XP Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -687,7 +612,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-21T20:17:53.918514+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-22T12:07:09.117224+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -832,9 +757,9 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    0.0, "low": 0.0, "mean": 10.64, "median": 10.64, "observed_at": "2026-11-21T17:17:56.448189-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T17:17:56.448189-03:00",
-    "observed_date": "2026-11-21", "target_price": 10.642, "url": "https://finance.yahoo.com/quote/NMR/"}]},
+    0.0, "low": 0.0, "mean": 10.64, "median": 10.64, "observed_at": "2026-11-22T09:07:11.596371-03:00",
+    "sources": [{"as_of_date": "2026-11-22", "name": "yfinance", "observed_at": "2026-11-22T09:07:11.596371-03:00",
+    "observed_date": "2026-11-22", "target_price": 10.642, "url": "https://finance.yahoo.com/quote/NMR/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 9.380000114440918,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/NMR/"}]}}'
   sector: Financial Services
@@ -844,71 +769,80 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 282da87230aa42614ac00243e9fc51e88e655e5a47354a5a2b508e91b52b78ab
+    sha256: ad339dfffb842089301ad3e24b79c811ab3dae7bec016c2c22bb9ff20065cd34
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-21T17:18:25.267723-03:00'
+  triggered_at: '2026-11-22T09:07:38.483890-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observed: 1.5 al 2026-09-30
-  source: https://stockanalysis.com/stocks/NMR/statistics/
-  status: umbral no observado
+  observation: 1.5x para TTM hasta 2026-09-30; no cruza el umbral configurado.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/NMR/statistics/
   threshold: below 0.5
 - metric: dilution_yoy_pct
-  observed: No disponible
-  source: null
-  status: no evaluable
-  threshold: above 10 percent
+  observation: 'No evaluable: faltan acciones diluidas comparables entre dos períodos.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/NMR/statistics/
+  threshold: above 10%
 - metric: interest_coverage
-  observed: No disponible; EBIT n/a
-  source: https://stockanalysis.com/stocks/NMR/statistics/
-  status: no evaluable
+  observation: El proveedor reporta 0 para TTM hasta 2026-09-30, pero EBIT figura
+    como n/a; no es posible validar cobertura calculada como EBIT/gasto por intereses.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/NMR/statistics/
   threshold: below 2.0x
 - metric: negative_fcf_runway_months
-  observed: No calculable; no se proporciona burn mensual comparable
-  source: https://stockanalysis.com/stocks/NMR/statistics/
-  status: no evaluable
+  observation: 'No evaluable: falta una medida mensual comparable de burn y la definición
+    configurada exige cash_and_equivalents, que no está disponible como campo validado.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/nmr/financials/
   threshold: below 12 months
 - metric: net_debt_ebitda
-  observed: No disponible; EBITDA n/a
-  source: https://stockanalysis.com/stocks/NMR/statistics/
-  status: no evaluable
+  observation: 'No evaluable: EBITDA TTM reportado como n/a; el net cash actual reportado
+    no basta para calcular el ratio.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/NMR/statistics/
   threshold: above 4.0x
 - metric: share_count_cagr_3y_pct
-  observed: No disponible
-  source: null
-  status: no evaluable
-  threshold: above 5 percent
+  observation: 'No evaluable: falta una serie histórica de acciones para el período
+    de tres años.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/NMR/statistics/
+  threshold: above 5%
 scenario_analysis: null
 scenario_validation:
   errors:
   - scenario_analysis ausente
   status: invalid_pending_revision
-score_general: 38
+score_general: 42
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T17:17:56.448189-03:00'
+  calculado_at: '2026-11-22T09:07:11.596371-03:00'
   fuentes:
     yfinance: 10.642
   mediana: 10.64
   n_fuentes: 1
   promedio: 10.64
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-22'
     name: yfinance
-    observed_at: '2026-11-21T17:17:56.448189-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-22T09:07:11.596371-03:00'
+    observed_date: '2026-11-22'
     target_price: 10.642
     url: https://finance.yahoo.com/quote/NMR/
   target_high: 0.0
   target_low: 0.0
-tesis_inversion: La tesis a investigar es que los negocios de gestión patrimonial,
-  gestión de inversiones y wholesale de Nomura puedan sostener crecimiento rentable
-  mediante ingresos recurrentes y reinversión disciplinada. El paquete identifica
-  esos segmentos, pero no aporta datos suficientes sobre penetración de mercado, retornos
-  sobre capital, rentabilidad segmentaria, ventaja competitiva o asignación de capital
-  para validar la tesis.
+tesis_inversion: Nomura ofrece exposición a servicios de gestión patrimonial, gestión
+  de inversiones y wholesale. La evidencia disponible muestra crecimiento histórico
+  de ingresos y beneficio neto, pero no permite validar crecimiento sostenible, conversión
+  de caja, retornos sobre capital ni ventajas competitivas; la tesis requiere resultados
+  segmentados y datos financieros comparables.
 ticker: NMR
 version: '3.0'
