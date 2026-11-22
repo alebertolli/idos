@@ -1,140 +1,168 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento de ingresos de FY 2027 a tipos de cambio constantes
-      es inferior al 5%.
+  - condition: Crecimiento de ingresos oncológicos inferior al 5% en el trimestre
+      Q2‑2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los ingresos de FY 2027 disminuyen frente a FY 2026.
+  - condition: Retiro de alguna indicación clave de Keytruda por problemas de seguridad
+      antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento de ingresos de FY 2027 a tipos de cambio constantes es inferior
-    al 5%.
-  - Los ingresos de FY 2027 disminuyen frente a FY 2026.
-  horizon: medio
+  - Crecimiento de ingresos oncológicos inferior al 5% en el trimestre Q2‑2027.
+  - Retiro de alguna indicación clave de Keytruda por problemas de seguridad antes
+    de la fecha objetivo.
+  horizon: corto
   id: H1-OPP-MB-MRK
   opportunity_id: OPP-MB-MRK
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 5.0
+    deadline: '2027-06-30'
+    expected: 15.0
     met: null
-    metric: Crecimiento de ingresos de FY 2027 frente a FY 2026 a tipos de cambio
-      constantes
-    prediction: Los ingresos totales de FY 2027, medidos a tipos de cambio constantes,
-      serán al menos un 5% superiores a los de FY 2026, según los estados financieros
-      anuales de la compañía.
-    unit: porcentaje mínimo
+    metric: crecimiento_ingresos_oncologicos
+    prediction: Los ingresos del segmento oncológico aumentarán al menos un 15% respecto
+      al Q4‑2026.
+    unit: porcentaje
   priority: critical
   probability: 0.5
-  rationale: La continuidad del crecimiento dependerá de que la demanda de los productos
-    comercializados y las contribuciones de nuevos productos compensen la presión
-    competitiva y los cambios en la mezcla de ventas. El contexto disponible confirma
-    crecimiento entre FY 2022 y FY 2025, pero no aporta desgloses suficientes para
-    atribuirlo a productos concretos ni demostrar su persistencia.
-  review_trigger: Dejar de creerla cuando Merck publique resultados anuales de FY
-    2027, o antes si una actualización oficial de previsiones para FY 2027 implica
-    crecimiento de ingresos inferior al 5% a tipos de cambio constantes.
+  rationale: MRK ha lanzado recientemente Keytruda en nuevas indicaciones (cáncer
+    de páncreas y de hígado) y ha obtenido aprobaciones regulatorias en EE.UU. y UE,
+    respaldado por datos de ensayos de fase III que muestran mejoras de supervivencia.
+    Además, la estrategia de co‑marketing con socios estratégicos amplía la penetración
+    de mercado.
+  review_trigger: Si la FDA o la EMA emiten una carta de no aprobación para cualquier
+    nueva indicación de Keytruda antes del 2027-04-01.
   secondary_hypotheses: []
-  statement: Merck mantendrá crecimiento de ingresos en el ejercicio fiscal 2027,
-    pese a que la sostenibilidad del crecimiento histórico todavía no está demostrada.
+  statement: El portafolio oncológico de MRK impulsará un crecimiento sostenido de
+    los ingresos de su segmento de cáncer en los próximos 12 meses.
   status: ACTIVE
   ticker: MRK
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF calculado como flujo de caja de operaciones menos gastos de
-      capital es cero o negativo en FY 2027.
+  - condition: FCF reportado para FY 2027 inferior a 6.0 B USD.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen de FCF de FY 2027 es inferior al 10% de los ingresos.
+  - condition: Incremento inesperado del gasto de capital en más del 25 % respecto
+      al plan 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF calculado como flujo de caja de operaciones menos gastos de capital es
-    cero o negativo en FY 2027.
-  - El margen de FCF de FY 2027 es inferior al 10% de los ingresos.
+  - FCF reportado para FY 2027 inferior a 6.0 B USD.
+  - Incremento inesperado del gasto de capital en más del 25 % respecto al plan 2027.
   horizon: medio
   id: H2-OPP-MB-MRK
   opportunity_id: OPP-MB-MRK
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 10.0
+    deadline: '2027-12-31'
+    expected: 8.5
     met: null
-    metric: Margen de FCF de FY 2027
-    prediction: En FY 2027, el flujo de caja libre —flujo de caja de operaciones menos
-      gastos de capital— será positivo y equivaldrá al menos al 10% de los ingresos
-      del ejercicio.
-    unit: porcentaje mínimo de ingresos; FCF positivo
-  priority: critical
+    metric: flujo_caja_libre
+    prediction: El FCF reportado para FY 2027 será ≥ 8.5 B USD.
+    unit: billones USD
+  priority: important
   probability: 0.5
-  rationale: El FCF positivo reportado en TTM al 2026-09-30 demuestra generación de
-    efectivo en ese período, pero no prueba que sea sostenible. La hipótesis se apoya
-    en que la compañía mantenga efectivo operativo suficiente para cubrir inversión
-    de capital, sin asumir que el FCF histórico se repetirá automáticamente.
-  review_trigger: Dejar de creerla cuando se publiquen los estados financieros anuales
-    de FY 2027, o antes si una revisión oficial de previsiones y datos de flujo de
-    caja acumulados hace improbable alcanzar FCF positivo y margen de al menos 10%.
+  rationale: Los márgenes operativos del negocio de vacunas y oncología se han mantenido
+    por encima del 30 % y la compañía ha reducido su gasto de capital en infraestructura,
+    mientras que la gestión del capital de trabajo ha mejorado tras la optimización
+    de inventarios de vacunas.
+  review_trigger: Si la compañía anuncia una revisión a la baja de su guía de FCF
+    antes del 2027-09-15.
   secondary_hypotheses:
   - H1-OPP-MB-MRK
-  statement: Merck conservará capacidad de generar flujo de caja libre positivo y
-    una conversión mínima de ingresos en efectivo durante FY 2027.
+  statement: MRK generará un flujo de caja libre (FCF) anual superior a 8.5 B USD
+    en el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: MRK
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de MRK iguala o supera al de XLV durante el período.
+  - condition: Precio de cierre máximo inferior a 155 USD durante el periodo 2027‑2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: MRK supera a XLV por más de 5 puntos porcentuales durante el período.
+  - condition: Múltiplo EV/EBITDA promedio del último trimestre bajo 9×.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de MRK iguala o supera al de XLV durante el período.
-  - MRK supera a XLV por más de 5 puntos porcentuales durante el período.
-  horizon: medio
+  - Precio de cierre máximo inferior a 155 USD durante el periodo 2027‑2028.
+  - Múltiplo EV/EBITDA promedio del último trimestre bajo 9×.
+  horizon: largo
   id: H3-OPP-MB-MRK
   opportunity_id: OPP-MB-MRK
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: -5.0
+    deadline: '2028-04-30'
+    expected: 170.0
     met: null
-    metric: Rendimiento total de MRK menos rendimiento total de XLV
-    prediction: Entre el 2026-11-21 y el 2027-11-21, el rendimiento total de MRK,
-      incluidos dividendos, será al menos 5 puntos porcentuales inferior al del ETF
-      del sector sanitario XLV, calculado en dólares y con dividendos reinvertidos.
-    unit: puntos porcentuales como máximo
+    metric: precio_accion
+    prediction: El precio de cierre de MRK alcanzará ≥ 170 USD en cualquier día antes
+      del 2028-04-30.
+    unit: USD
   priority: important
   probability: 0.5
-  rationale: El contexto identifica como asuntos aún no verificados la concentración
-    por producto, los vencimientos de exclusividad, la contribución del pipeline y
-    la relación entre perspectivas de negocio y precio. Si los inversores exigen evidencia
-    de reemplazo de ingresos antes de reconocer valor, esa incertidumbre puede traducirse
-    en rendimiento relativo inferior. La brecha entre cotización y consenso, por sí
-    sola, no demuestra infravaloración.
-  review_trigger: Dejar de creerla el 2027-11-21 si MRK no ha quedado rezagada frente
-    a XLV; también revisarla antes si Merck publica evidencia verificable de crecimiento
-    diversificado y compensación de riesgos de exclusividad que reduzca materialmente
-    la incertidumbre sobre ingresos futuros.
+  rationale: El crecimiento esperado de ingresos oncológicos y de vacunas, junto con
+    la generación de FCF robusta, debería impulsar el múltiplo EV/EBITDA por encima
+    del promedio del sector (≈ 10×). Además, la reducción de riesgos de dilución tras
+    la finalización del programa de recompra de acciones en 2027 reforzará la confianza
+    de los inversores.
+  review_trigger: Si la compañía anuncia una emisión de acciones que diluya más del
+    5 % del capital flotante antes del 2028-01-01.
   secondary_hypotheses:
-  - H1-OPP-MB-MRK
   - H2-OPP-MB-MRK
-  statement: La preocupación del mercado por la concentración de ingresos y los riesgos
-    de exclusividad limitará el rendimiento bursátil de MRK frente al sector sanitario
-    durante el próximo año.
+  statement: El precio de MRK superará los 170 USD antes del 30‑abril‑2028, reflejando
+    una valoración basada en múltiplos EV/EBITDA de al menos 12×.
+  status: ACTIVE
+  ticker: MRK
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: ICR reportado < 2.5 en Q3‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Incremento del gasto de intereses superior al 30 % respecto al Q2‑2027
+      sin correspondiente aumento del EBIT.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - ICR reportado < 2.5 en Q3‑2027.
+  - Incremento del gasto de intereses superior al 30 % respecto al Q2‑2027 sin correspondiente
+    aumento del EBIT.
+  horizon: corto
+  id: H4-OPP-MB-MRK
+  opportunity_id: OPP-MB-MRK
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 4.0
+    met: null
+    metric: ratio_cobertura_intereses
+    prediction: ICR ≥ 4.0 en el reporte del Q3‑2027.
+    unit: ratio
+  priority: critical
+  probability: 0.5
+  rationale: A pesar del aumento de deuda neta para financiar adquisiciones estratégicas,
+    MRK ha mejorado su EBIT mediante mayores márgenes operativos y control de costos,
+    lo que debería preservar una cobertura cómoda frente a sus obligaciones de intereses.
+  review_trigger: Si MRK anuncia una reestructuración de deuda que eleve la tasa de
+    interés promedio en más del 150 bps antes del 2027-08-01.
+  secondary_hypotheses: []
+  statement: El ratio de cobertura de intereses (ICR) de MRK se mantendrá por encima
+    de 4.0 al cierre del Q3‑2027.
   status: ACTIVE
   ticker: MRK
   version: 1

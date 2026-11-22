@@ -1,0 +1,30 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No es posible concluir que exista un error de valoración con la evidencia
+  disponible.'
+- 'Thesis: Newmont es un productor de oro con exposición adicional a otros metales
+  y activos en varias regiones. Los datos reportados muestran crecimiento de ingresos
+  y FCF, junto con márgenes brutos elevados en'
+generated_at: '2026-11-22T09:07:07.420948-03:00'
+id: ass-76b8cfe4
+recommendation: REVIEW
+risks:
+- analisis: El resumen identifica a Newmont como productor de oro y otros metales,
+    pero el paquete no aporta precios de metales, volúmenes, costes unitarios ni sensibilidad
+    financiera.
+  riesgo: Sensibilidad económica no cuantificada
+- analisis: Los datos financieros muestran crecimiento de ingresos y FCF, pero no
+    permiten separar cambios de precios, volúmenes, adquisiciones, costes o capital
+    de trabajo.
+  riesgo: Evidencia insuficiente sobre calidad del crecimiento
+- analisis: El resumen enumera activos en múltiples países; no incluye datos para
+    evaluar riesgos específicos por jurisdicción, proyecto o mina.
+  riesgo: Exposición operativa y geográfica
+- analisis: La fuente informa interest_coverage_ratio de 0 para TTM al 2026-09-30,
+    pero no aporta EBIT e interest expense desglosados que permitan verificar el cálculo.
+  riesgo: Cobertura de intereses no interpretable
+score: 47
+status: COMPLETED
+version: '3.0'

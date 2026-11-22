@@ -1,133 +1,131 @@
 ## 1. Visión General de la Compañía
 
-Merck & Co., Inc. (MRK) es una compañía farmacéutica y de salud animal que investiga, desarrolla, fabrica y comercializa medicamentos, vacunas y soluciones veterinarias a escala mundial. Opera en una industria regulada, intensiva en investigación y desarrollo, donde los resultados dependen de la innovación clínica, la aprobación regulatoria, la protección de propiedad intelectual y la capacidad de comercializar productos a gran escala.
+Merck & Co., Inc. ([[MRK]]) es una compañía farmacéutica y de salud animal que descubre, desarrolla, fabrica y comercializa medicamentos, vacunas y otras soluciones de salud. Su cadena de valor abarca investigación propia y en colaboración, desarrollo preclínico y clínico, autorizaciones regulatorias, fabricación y comercialización. La información disponible describe capacidades globales de investigación y fabricación, pero no ofrece un desglose geográfico de ingresos o activos. [AOIF, análisis del negocio y de la posición competitiva]
 
-Su cadena de valor abarca investigación propia y colaborativa, ensayos clínicos, desarrollo regulatorio, fabricación y comercialización. Atiende a pacientes y profesionales sanitarios, además de hospitales, clínicas, farmacias, distribuidores y sistemas de salud. La división de salud animal ofrece cierta diversificación frente al negocio farmacéutico humano.
+Entre los productos y áreas mencionados en la investigación figuran:
 
-Entre los productos mencionados en la información disponible figuran Keytruda, Gardasil, Winrevair, Januvia y Janumet, así como vacunas, productos veterinarios y soluciones de inteligencia ganadera. No se dispone aquí de un desglose verificable de ingresos por producto, geografía o segmento.
+- **Oncología e inmunología:** Keytruda, Keytruda Qlex, Welireg y productos ADC en colaboración.
+- **Vacunas humanas:** Gardasil, ProQuad, M-M-R II, Varivax, Vaxneuvance, Capvaxive, RotaTeq y Pneumovax 23.
+- **Salud animal:** el análisis describe una cartera complementaria, pero no identifica productos concretos.
 
-**Lectura de la evidencia:** el paquete describe el negocio y algunos indicadores, pero no aporta datos primarios ni documentación corporativa que permita verificar de forma independiente sus afirmaciones sobre cartera, posición competitiva o resultados.
+Sus clientes y canales incluyen pacientes y profesionales sanitarios —a través de hospitales, clínicas, farmacias y sistemas de salud—, así como gobiernos y organismos de salud pública vinculados a programas de vacunación. [AOIF, análisis del negocio]
+
+MRK opera en un sector intensivo en investigación, capital y regulación. Entre las compañías relacionadas del sector figuran [[ABBV]], [[AMGN]], [[AZN]], [[BMY]], [[GILD]], [[GSK]], [[JNJ]], [[LLY]], [[NVS]] y [[PFE]].
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Drivers de ingresos
+**Drivers de ingresos identificados:** medicamentos de oncología e inmunología, vacunas humanas y productos de salud animal. La investigación destaca la posible expansión de indicaciones de Keytruda y el crecimiento de la línea de vacunas veterinarias como catalizadores, pero no proporciona un desglose de ventas por producto o segmento. [DDD, catalizadores; AOIF, productos y modelo de negocio]
 
-- Venta de medicamentos y vacunas en distintas áreas terapéuticas.
-- Desarrollo y comercialización de nuevos productos y candidatos.
-- Negocio de salud animal, que incluye productos para animales de compañía y soluciones ganaderas.
-- Colaboraciones de investigación y desarrollo.
+**Ventajas competitivas descritas:** marcas y patentes, evidencia clínica, escala de I+D y fabricación, relaciones con sistemas sanitarios y una cartera diversificada de medicamentos y vacunas. AOIF califica la amplitud del moat como «amplia» y la posición competitiva como «líder». Estas evaluaciones son conclusiones del análisis suministrado; no se aportan comparaciones cuantitativas frente a competidores. [AOIF, análisis competitivo]
 
-StockAnalysis reporta ingresos de **59.283 en FY 2022** y **65.011 en FY 2025**. El paquete no especifica en esta comparación la unidad ni moneda, ni separa crecimiento orgánico de adquisiciones, divisas u otros factores. Tampoco atribuye el crecimiento a productos o segmentos específicos.  
-Fuente: [StockAnalysis, financials](https://stockanalysis.com/stocks/mrk/financials/).
-
-### Moat y competencia
-
-El análisis AOIF describe ventajas potenciales basadas en propiedad intelectual, escala global, capacidades de I+D, experiencia regulatoria, reputación y relaciones con sistemas sanitarios. También caracteriza la posición competitiva como líder y el moat como amplio. Estas valoraciones son **inferencias del análisis**, no hechos verificados por la evidencia entregada: no se incluyen métricas de cuota de mercado, duración de patentes, retornos incrementales de I+D ni comparaciones frente a competidores.
-
-La industria combina largos ciclos de desarrollo, regulación estricta y competencia intensa por innovación y acceso al mercado. Por ello, la ventaja competitiva de un producto puede ser sensible a resultados clínicos, aprobaciones, competencia y vencimientos de exclusividad. Entre las compañías relacionadas del sector se encuentran [[ABBV]], [[AMGN]], [[AZN]], [[BMY]], [[GILD]], [[GSK]], [[JNJ]], [[LLY]], [[NVS]] y [[VRTX]].
+La industria depende de la innovación, los resultados clínicos, las autorizaciones regulatorias y el acceso y reembolso. MRK compite con grandes farmacéuticas y empresas de biotecnología, entre ellas [[ABBV]], [[AMGN]], [[AZN]], [[BMY]], [[GILD]], [[GSK]], [[JNJ]], [[LLY]], [[NVS]] y [[PFE]]. La pérdida de exclusividad y la entrada de genéricos o biosimilares pueden erosionar los ingresos y márgenes de productos relevantes. [AOIF, dinámica de industria y riesgos]
 
 ## 3. Perfil Financiero
 
-| Métrica | Valor reportado | Período / referencia | Fuente y limitaciones |
-|---|---:|---|---|
-| Ingresos | 59.283 | FY 2022 | [StockAnalysis](https://stockanalysis.com/stocks/mrk/financials/); unidad no especificada en el paquete |
-| Ingresos | 65.011 | FY 2025 | [StockAnalysis](https://stockanalysis.com/stocks/mrk/financials/); unidad no especificada en el paquete |
-| Margen bruto | 75,2% | TTM terminado el 2026-09-30 | [StockAnalysis, statistics](https://stockanalysis.com/stocks/MRK/statistics/) |
-| Flujo de caja libre (FCF) | 14.746 | TTM terminado el 2026-09-30 | Dato reportado en DDD; unidad y desglose no indicados |
-| Ingreso neto | 2.453 | TTM terminado el 2026-09-30 | Dato reportado en DDD; requiere reconciliación |
-| Ingreso neto | 18.254 | FY 2025 | Dato reportado en DDD; comparabilidad con el TTM no establecida |
-| Deuda total | 53.903 | 2026-09-30 | Dato reportado en DDD; unidad del proveedor no especificada |
-| Current ratio | 1,35x | TTM terminado el 2026-09-30 | [StockAnalysis, statistics](https://stockanalysis.com/stocks/MRK/statistics/); por encima del umbral de alerta configurado de 0,5x |
-| Crecimiento de ingresos | 4,89% | Período y metodología no especificados | AOIF; no comparable con la serie FY 2022–FY 2025 sin aclaraciones |
-| Margen operativo | 35,16% | Período y metodología no especificados | AOIF |
-| ROIC | 13,69% | Período y metodología no especificados | AOIF |
-| Cobertura de intereses | No validable | Dato reportado como 0 | DDD indica que el dato no permite validar cobertura EBIT/intereses |
-| Revenue CAGR a 3 años | No disponible | Período terminado el 2025-12-31 | Cálculo descartado por falta de referencias explícitas a los inputs |
-| Crecimiento del FCF | No disponible | Período terminado el 2025-12-31 | Cálculo descartado por falta de referencias explícitas a los inputs |
-| Dilución interanual | No disponible | — | Falta un dato comparable de acciones diluidas o en circulación |
+Las cifras siguientes reproducen los datos de investigación recibidos. No todas cuentan con fecha, metodología o series históricas suficientes para interpretarse como tendencias verificadas.
 
-El aumento de ingresos entre FY 2022 y FY 2025 y el FCF positivo reportado son compatibles con capacidad de autofinanciación, pero no demuestran la sostenibilidad del crecimiento ni retornos incrementales atractivos. La diferencia entre el ingreso neto TTM y el de FY 2025 requiere reconciliar períodos, partidas y metodología antes de proyectar resultados.
+| Métrica | Dato suministrado | Contexto y limitaciones |
+|---|---:|---|
+| Margen bruto | 75,2% | Dato citado en DDD; no se especifican fecha ni metodología. |
+| Crecimiento de ingresos | 4,89% | Métrica de AOIF; no se especifican periodo ni metodología. |
+| CAGR de ingresos a 3 años | 3,9% | Justificación de oportunidad en DDD; el cálculo investigado figura como **no disponible** por falta de referencias explícitas a sus inputs. No debe tratarse como una serie verificada. |
+| Margen operativo | 35,16% | AOIF; no se especifican fecha ni metodología. |
+| ROIC | 13,69% | AOIF; no se especifican fecha ni metodología. |
+| Crecimiento de FCF TTM | 13% | Dato reportado en DDD para el periodo terminado el 30-09-2026; se indica que es el único dato disponible y que no hay desglose anual. |
+| FCF y conversión de beneficios a FCF | No cuantificados de forma suficiente | DDD describe FCF positivo; AOIF señala que no hay una serie ni una conversión cuantificada. |
+| Deuda y cobertura de intereses | Cobertura reportada: 0 | DDD marca cobertura inferior al umbral de 2,0 como riesgo alto. La métrica requiere validación; no se proporcionan deuda, gasto por intereses ni cálculo subyacente. |
+| Dilución de acciones | No disponible | No puede evaluarse la variación interanual de acciones. |
+| PER | 135,24 | Dato de AOIF sin fecha ni metodología especificadas. |
+| EV/EBITDA | 12,68 | Dato de AOIF sin fecha ni metodología especificadas. |
+| FCF yield | 0 | Dato de AOIF; el propio análisis indica que debe verificarse antes de interpretarlo. |
+
+Fuentes financieras citadas en DDD: [Stock Analysis — estadísticas de MRK](https://stockanalysis.com/stocks/MRK/statistics/) y [Stock Analysis — estados financieros de MRK](https://stockanalysis.com/stocks/mrk/financials/). DDD marca el CAGR de ingresos a tres años como no disponible, aunque esas páginas aparecen como referencias consultadas. La fecha 30-09-2026 corresponde al periodo indicado para las métricas investigadas; el análisis de escenarios está fechado el 22-11-2026. [DDD; AOIF]
+
+**Lectura financiera:** AOIF caracteriza la tendencia como estable y destaca retornos y márgenes sólidos, pero advierte que faltan series comparables, desglose por segmento y datos suficientes sobre conversión de FCF, deuda y acciones. Por ello, la calidad y la tendencia financieras deben considerarse provisionales hasta verificar definiciones y periodos. [AOIF, análisis financiero]
 
 ## 4. Management y Gobierno Corporativo
 
-AOIF califica la calidad del liderazgo como buena, la asignación de capital como neutral y el alineamiento de insiders como moderado. Su análisis señala que la asignación de capital combina I+D, colaboraciones y adquisiciones, pero no aporta datos concretos para evaluar la rentabilidad de esas decisiones.
+AOIF califica la calidad del management como buena, la asignación de capital como neutral y el alineamiento de insiders como moderado. Como indicios favorables menciona la escala operativa, la cartera de productos y las colaboraciones estratégicas. También señala que la información disponible no permite evaluar los resultados históricos de ejecución con detalle. [AOIF, evaluación del management]
 
-No se proporcionan nombres de ejecutivos, remuneración, tenencia accionaria de insiders, composición o independencia del consejo, comités, historial de gobierno corporativo ni votaciones de accionistas. Por tanto, las calificaciones de AOIF deben tratarse como evaluaciones cualitativas no verificadas, no como conclusiones sobre el gobierno corporativo.
+No se aportan nombres de directivos o consejeros, composición del consejo, estructura de incentivos, porcentajes de participación de insiders ni historial de compras o ventas de acciones. Por tanto, no es posible realizar una evaluación independiente del liderazgo, la supervisión del consejo o la alineación económica con accionistas.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista — condicionado
+**Caso alcista planteado por la investigación:**
 
-- **Escala y cartera diversificada:** el negocio abarca medicamentos, vacunas y salud animal. La división veterinaria podría diversificar las fuentes de ingresos, aunque no se aportan cifras de contribución por segmento.
-- **Crecimiento histórico reportado:** StockAnalysis registra ingresos de 59.283 en FY 2022 y 65.011 en FY 2025. Sin un desglose, no puede determinarse cuánto corresponde a crecimiento orgánico ni qué productos lo impulsaron.
-- **Generación de caja:** se reporta FCF positivo de 14.746 para el TTM terminado el 2026-09-30. La cifra respalda la posibilidad de generación de caja, pero no se acompaña de flujo operativo, capex, conciliación contable ni atribución por negocio.
-- **Capacidades de I+D y regulación:** AOIF identifica propiedad intelectual, escala, experiencia regulatoria y relaciones con sistemas sanitarios como posibles ventajas. Esta tesis requiere validar productividad de I+D, hitos clínicos y retornos por producto.
-- **Potencial de renovación de cartera:** el desarrollo y la comercialización de nuevos productos podrían compensar la presión de exclusividad sobre productos establecidos. El material disponible no identifica fechas verificables, hitos ni magnitud esperada de esa sustitución.
+- La cartera de oncología, vacunas y salud animal, junto con capacidades de I+D y fabricación, ofrece varias fuentes potenciales de ingresos. [AOIF, análisis del negocio y competitivo]
+- Los márgenes suministrados son elevados: DDD cita un margen bruto de 75,2% y AOIF un margen operativo de 35,16%. La falta de fechas y metodologías comparables limita la precisión de esa lectura. [DDD; AOIF]
+- DDD informa un crecimiento de FCF TTM de 13%, aunque solo dispone de un dato y no presenta desglose anual. El FCF positivo también se menciona en la clasificación de oportunidad. [DDD]
+- La aprobación de nuevas indicaciones de Keytruda podría ampliar su oportunidad comercial; la investigación la identifica como catalizador, no como resultado ya confirmado. [DDD]
+- El escenario base de DDD supone un crecimiento de ingresos cercano al 3,9% y crecimiento de FCF de 13%, con un precio objetivo de 161,53 USD a 12 meses desde el 22-11-2026. Son supuestos de escenario, no una previsión verificada. [DDD, análisis de escenarios]
 
-**Conclusión provisional:** la información disponible permite formular una hipótesis de empresa farmacéutica de escala con crecimiento reportado y FCF positivo, pero no valida una tesis de crecimiento multibagger ni establece la sostenibilidad de los retornos.
+DDD asigna una puntuación general de 78 y clasifica la oportunidad como *Growth*. La tesis depende de que los productos clave mantengan su desempeño, que las nuevas indicaciones obtengan aprobación y que la generación de efectivo sea sostenible. La advertencia de cobertura de intereses y las limitaciones de los datos financieros impiden tratar la tesis alcista como concluyente.
 
 ## 6. Riesgos y Contra-Tesis
 
-- **Pérdida de exclusividad de Keytruda:** AOIF la identifica como un riesgo de impacto alto y probabilidad alta. La evidencia entregada no incluye una fecha de vencimiento, jurisdicciones afectadas ni una estimación de exposición de ingresos.
-- **Riesgo de reemplazo de ingresos:** nuevos productos podrían no compensar oportunamente la erosión de productos maduros o expuestos a competencia.
-- **Riesgo clínico y regulatorio:** resultados adversos o retrasos en ensayos y aprobaciones pueden afectar el valor comercial de los candidatos. AOIF lo clasifica como de impacto alto y probabilidad media.
-- **Variabilidad del beneficio:** el ingreso neto TTM reportado de 2.453 contrasta con 18.254 en FY 2025. Sin reconciliación de períodos y partidas, no se puede determinar si refleja elementos extraordinarios, cambios operativos u otra diferencia de medición.
-- **Deuda y costo financiero:** se reporta deuda total de 53.903; la cobertura de intereses aparece como 0 y no permite evaluar adecuadamente la capacidad de servicio de deuda.
-- **Concentración y composición de ingresos:** falta información por producto, geografía y negocio para evaluar exposición a productos individuales o la diversificación efectiva.
-- **Valoración no validada:** una cotización y un consenso de analistas no demuestran por sí solos infravaloración; faltan estimaciones de negocio y un método de valoración con supuestos verificables.
+**Riesgos identificados:**
 
-### Falsadores de la tesis
+1. **Pérdida de exclusividad y biosimilares:** la competencia de genéricos o biosimilares en mercados clave puede presionar ingresos y márgenes. AOIF califica como alto el impacto y alta la probabilidad de este riesgo. [AOIF, riesgos]
+2. **Riesgo clínico y regulatorio:** resultados desfavorables, retrasos de desarrollo o falta de aprobación de candidatos o nuevas indicaciones pueden reducir el potencial de crecimiento. [AOIF, riesgos]
+3. **Cobertura de intereses:** DDD reporta un valor de 0 frente a un umbral de 2,0 y lo marca como riesgo alto. El cálculo y sus inputs no están disponibles en el material, por lo que debe verificarse antes de inferir incapacidad de pago. [DDD, flags de riesgo]
+4. **Dilución:** no hay datos para medir la variación de acciones; el riesgo está señalado, pero no cuantificado. [DDD, flags de riesgo]
+5. **Calidad de datos financieros:** la discrepancia entre el crecimiento de ingresos de 4,89% en AOIF y el 3,9% citado en DDD, junto con la falta de periodo para varias métricas, limita la confianza en comparaciones y tendencias. [AOIF; DDD]
 
-- Ingresos futuros estancados o decrecientes en períodos comparables, sin evidencia de sustitución por nuevos productos.
-- FCF persistentemente menor, o desacoplado de un beneficio neto débil sin una reconciliación clara de partidas y períodos.
-- Incapacidad de demostrar que los productos en desarrollo o lanzamientos comerciales pueden compensar la pérdida de exclusividad de productos relevantes.
+**Contra-tesis:** la valoración podría no ser atractiva si los riesgos regulatorios o la competencia de biosimilares deterioran las ventas y los márgenes, o si la generación de FCF no respalda las obligaciones financieras. El FCF yield de 0 y la cobertura de intereses reportada como 0 requieren reconciliación; no es posible extraer conclusiones definitivas de ambos valores con la información disponible. [AOIF; DDD]
+
+**Triggers de falsación de la tesis favorable:** fallos regulatorios en nuevas indicaciones de Keytruda, entrada de biosimilares en mercados clave, deterioro significativo del margen bruto o incremento de deuda sin generación de efectivo. [DDD, falsadores y escenarios]
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia |
-|---|---|---|---|
-| Crecimiento de ingresos reportado entre FY 2022 y FY 2025 | Histórico; FY 2025 | Potencialmente positivo si se confirma su sostenibilidad y origen orgánico | Sin desglose de motores; [StockAnalysis](https://stockanalysis.com/stocks/mrk/financials/) |
-| FCF positivo reportado | TTM terminado el 2026-09-30 | Potencialmente positivo para autofinanciación y flexibilidad financiera | Sin conciliación ni desglose; fecha reportada en DDD |
-| Resultados, aprobaciones y adopción comercial de nuevos productos y candidatos | No especificada | Potencialmente positivo si contribuyen a reemplazar ingresos y sostener el crecimiento | AOIF los identifica como puntos de monitoreo; no se incluyen hitos fechados |
-| Pérdida de exclusividad de Keytruda y preparación de alternativas | Fecha no proporcionada | Potencialmente negativo si la erosión precede al reemplazo de ingresos | Riesgo señalado por AOIF; calendario y exposición no verificados |
+No se proporcionan fechas esperadas para eventos individuales. El horizonte explícito de los escenarios de DDD va del **22-11-2026 al 22-11-2027**; los catalizadores siguientes deben entenderse como eventos a vigilar, no como anuncios confirmados con fecha.
 
-DDD indica que no hay catalizadores corporativos fechados y verificables en la evidencia entregada. No debe interpretarse el consenso de analistas como un catalizador corporativo.
+| Evento | Fecha esperada disponible | Impacto potencial descrito |
+|---|---|---|
+| Aprobación de nuevas indicaciones de Keytruda | No especificada; horizonte de escenarios hasta el 22-11-2027 | Posible ampliación de la cartera comercial y apoyo al crecimiento. Un rechazo o retraso sería un riesgo para la tesis. |
+| Avances y comercialización de productos de la cartera propia y colaborativa | No especificada | Podrían contribuir al crecimiento; no se identifican candidatos, hitos ni fechas concretas en los datos suministrados. |
+| Crecimiento de la línea de vacunas veterinarias | No especificada | Catalizador señalado por DDD; no se aportan cifras, productos ni calendario. |
+| Evolución de ingresos, márgenes, productos principales y exposición a expiraciones de patentes | Seguimiento periódico; calendario no especificado | Permite evaluar la resiliencia del crecimiento y la presión competitiva. |
+| Cambios en deuda y generación de efectivo | Seguimiento periódico; calendario no especificado | Relevante para validar la alerta de cobertura de intereses y la sostenibilidad financiera. |
+
+Fuente: DDD, catalizadores y escenarios con fecha de análisis 22-11-2026; AOIF, puntos de monitoreo.
 
 ## 8. Marco de Valoración
 
-No es posible establecer un valor intrínseco fiable con la información disponible. AOIF reproduce un **EV/EBITDA de 12,68**, un **PER de 135,24** y una **rentabilidad FCF de 0**; el material no especifica cotización de referencia, período, metodología ni inputs, y advierte que el PER podría reflejar una base de beneficios atípica o una metodología distinta. Estos múltiplos no deben considerarse verificados ni suficientes para concluir que la acción está barata o cara.
+La información disponible no permite estimar con rigor un valor intrínseco: faltan una serie verificable de FCF, supuestos de descuento, datos de deuda y acciones, y una fecha y metodología claras para varias métricas. AOIF declara expresamente que el valor intrínseco no es determinable con los datos suministrados. [AOIF, análisis de valoración]
 
-DDD registra una cotización de **USD 149,52 al 2026-10-30** y un consenso medio de objetivos de **USD 161,53 observado el 2026-11-21**, con Yahoo Finance como fuente para esos datos en el paquete. La diferencia entre ambos valores no demuestra un error de valoración ni una oportunidad de inversión. El momentum de 12 meses reportado de **73,9009%** tampoco permite inferir valor intrínseco.
+Como referencia de escenarios —no como valoración independiente— DDD proporciona los siguientes objetivos en USD para el horizonte que termina el 22-11-2027:
 
-Para una valoración posterior convendría:
+| Escenario | Objetivo | Supuestos o racional |
+|---|---:|---|
+| Bajista | 105,00 | CAGR de ingresos inferior a 0% y crecimiento de FCF negativo; retrasos regulatorios y presión de biosimilares. |
+| Base | 161,53 | CAGR de ingresos cercano a 3,9% y crecimiento de FCF de 13%; crecimiento estable de ingresos y margen. |
 
-1. Estimar ingresos, márgenes y FCF por producto y segmento, distinguiendo crecimiento orgánico de otros efectos.
-2. Modelar por separado la erosión asociada a vencimientos de exclusividad y la contribución de productos nuevos.
-3. Reconciliar el beneficio neto TTM con FY 2025 y verificar el flujo de caja operativo, capex y conversión a FCF.
-4. Contrastar un DCF por escenarios con múltiplos comparables, ajustando por deuda, concentración de productos y riesgo de desarrollo.
-5. Presentar sensibilidad a crecimiento, márgenes, tasa de descuento, duración de exclusividad y éxito comercial de nuevos productos.
+DDD también cita un consenso de analistas con mínimo de 105,00 USD, media de 161,53 USD y máximo de 186,00 USD, y un precio actual de 149,52 USD. La fecha de referencia del precio actual y del consenso no queda especificada de forma independiente, por lo que no deben interpretarse como cotizaciones vigentes fuera del contexto del análisis. [DDD, error de mercado y escenarios]
 
-No hay base suficiente para cuantificar un margen de seguridad; AOIF califica el margen de seguridad como insuficiente.
+El escenario bajista y el base no incluyen un escenario alcista con objetivo propio. DDD describe una posible subvaloración moderada frente al precio objetivo bajo del consenso, pero esa conclusión es una hipótesis de valoración, no un hecho confirmado. [DDD]
+
+Para una valoración futura, sería necesario reconstruir FCF normalizado, vencimientos y coste de deuda, número de acciones y supuestos por producto. El análisis de sensibilidad debería probar, como mínimo, cambios en crecimiento, margen, duración de exclusividad y presión de biosimilares; el material actual no proporciona parámetros suficientes para cuantificar esas sensibilidades.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-- ¿Qué parte de los ingresos y del FCF corresponde a cada producto, geografía y negocio?
-- ¿Qué factores explican el aumento de ingresos entre FY 2022 y FY 2025, y cuánto fue crecimiento orgánico?
-- ¿Cómo se reconcilian el ingreso neto TTM de 2.453 y el ingreso neto FY 2025 de 18.254? ¿Qué períodos, partidas extraordinarias o diferencias metodológicas intervienen?
-- ¿Cuál es la composición de la deuda, su calendario de vencimientos y el gasto por intereses? ¿Cuál es la cobertura calculada a partir de EBIT e intereses verificables?
-- ¿Cuáles son las fechas de vencimiento de exclusividad relevantes, particularmente para Keytruda, por jurisdicción y tipo de protección?
-- ¿Qué candidatos, ensayos, aprobaciones e hitos comerciales podrían compensar la erosión de productos maduros, y en qué fechas se esperan?
-- ¿Qué evidencia cuantitativa respalda la productividad de I+D, el moat y las afirmaciones de liderazgo competitivo?
-- ¿Cuáles son la contribución, los márgenes y las necesidades de inversión de salud animal frente al negocio farmacéutico humano?
-- ¿Qué períodos y metodologías sustentan las cifras AOIF de crecimiento de ingresos, margen operativo, ROIC y múltiplos de valoración?
-- ¿Cómo se calculan el FCF, la rentabilidad FCF, el PER y el EV/EBITDA reportados?
-- ¿Qué datos verificables existen sobre remuneración ejecutiva, propiedad de insiders, composición del consejo y asignación histórica de capital?
+1. ¿Cuál es el periodo, la metodología y la fuente subyacente del crecimiento de ingresos de 4,89% de AOIF y del CAGR aproximado de 3,9% citado por DDD? ¿Qué explica la diferencia?
+2. ¿Qué inputs producen la cobertura de intereses de 0 reportada por DDD? ¿Es un valor real, una ausencia de datos o un problema de cálculo?
+3. ¿Cuál es el FCF histórico anual y qué proporción del beneficio se convierte en FCF? ¿Cómo evolucionan inversiones, adquisiciones y otras salidas de efectivo?
+4. ¿Cuáles son la deuda neta, el calendario de vencimientos y el coste de financiación?
+5. ¿Cuál es la evolución del número de acciones y existe dilución relevante? DDD indica que no hay datos disponibles para evaluarla.
+6. ¿Qué parte de los ingresos y beneficios corresponde a cada producto, área terapéutica y geografía? ¿Cuál es la exposición cuantificada a expiraciones de patentes y biosimilares?
+7. ¿Qué indicaciones de Keytruda están en evaluación y cuáles son sus hitos y fechas regulatorias esperadas? La investigación disponible identifica el catalizador, pero no detalla el calendario.
+8. ¿Qué productos y métricas sostienen la expectativa de crecimiento de vacunas veterinarias?
+9. ¿Cuáles son los datos de remuneración, propiedad accionaria de insiders, composición del consejo y desempeño histórico de asignación de capital?
+10. ¿Cuál es la fecha de referencia del precio de 149,52 USD, del consenso de objetivos y de las métricas de valoración citadas por AOIF?
+11. ¿Cómo se calculan el PER de 135,24, el EV/EBITDA de 12,68 y el FCF yield de 0? AOIF advierte que este último debe verificarse.
+12. ¿Qué fuentes sustentan los objetivos de los escenarios? En los datos de DDD, los campos de fuentes de los escenarios aparecen vacíos o nulos.
 
-**Estado de investigación:** inconcluso. La clasificación DDD es “Investigación requerida”; AOIF deja la recomendación pendiente de decisión.
+**Estado de decisión:** AOIF deja la recomendación como `PENDIENTE_DECISION_BOARD`. La oportunidad y la tesis requieren validación adicional de las métricas financieras, la cobertura de intereses, la valoración y el calendario de catalizadores.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[CAH|Cardinal Health, Inc.]], [[CVS|CVS Health Corporation]], [[DHR|Danaher Corporation]], [[GILD|Gilead Sciences, Inc.]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly and Company]], [[MDT|Medtronic plc]], [[NVS|Novartis AG]], [[TMO|Thermo Fisher Scientific Inc.]], [[UNH|UnitedHealth Group Incorporated]], [[VRTX|Vertex Pharmaceuticals Incorporated]]
-- **Same Industry**: [[ABBV|AbbVie Inc.]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[GILD|Gilead Sciences, Inc.]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly and Company]], [[NVS|Novartis AG]]
+- **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[CAH|Cardinal Health, Inc.]], [[CVS|CVS Health Corporation]], [[DHR|Danaher Corporation]], [[GILD|Gilead Sciences, Inc.]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly and Company]], [[MDT|Medtronic plc]], [[NVS|Novartis AG]], [[PFE|Pfizer Inc.]], [[TMO|Thermo Fisher Scientific Inc.]], [[UNH|UnitedHealth Group Incorporated]], [[VRTX|Vertex Pharmaceuticals Incorporated]]
+- **Same Industry**: [[ABBV|AbbVie Inc.]], [[AMGN|Amgen Inc.]], [[AZN|AstraZeneca PLC]], [[BIIB|Biogen Inc.]], [[BMY|Bristol-Myers Squibb Company]], [[GILD|Gilead Sciences, Inc.]], [[GSK|GSK plc]], [[JNJ|Johnson & Johnson]], [[LLY|Eli Lilly and Company]], [[NVS|Novartis AG]], [[PFE|Pfizer Inc.]]
