@@ -1,133 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Margen bruto reportado inferior al 61,0% en 2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Cancelación o retraso del lanzamiento de la línea premium en Asia antes
-      de junio de 2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Margen bruto reportado inferior al 61,0% en 2027.
-  - Cancelación o retraso del lanzamiento de la línea premium en Asia antes de junio
-    de 2027.
-  horizon: medio
-  id: H1-OPP-MB-CL
-  opportunity_id: OPP-MB-CL
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-12-31'
-    expected: 62.0
-    met: null
-    metric: Margen bruto
-    prediction: El margen bruto reportado en el reporte financiero de 2027 será de
-      al menos 62,0%.
-    unit: porcentaje
-  priority: critical
-  probability: 0.5
-  rationale: La empresa ha anunciado la expansión de su portafolio premium en China,
-    India y Sudeste Asiático, respaldada por inversiones en marketing y capacidad
-    de producción local. Historicamente, lanzamientos premium en mercados emergentes
-    han elevado el margen bruto en 1,2‑1,5 puntos porcentuales.
-  review_trigger: Si al 30 de junio de 2027 la empresa comunica la suspensión del
-    proyecto premium en Asia.
-  secondary_hypotheses: []
-  statement: Colgate-Palmolive incrementará su margen bruto anual al 62,0% al cerrar
-    2027 gracias al lanzamiento de una línea premium de cuidado oral en Asia que aprovecha
-    economías de escala y precios premium.
-  status: ACTIVE
-  ticker: CL
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: ROIC reportado inferior al 7,0% en 2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Incremento del gasto de capital sin aumento proporcional de EBIT.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - ROIC reportado inferior al 7,0% en 2027.
-  - Incremento del gasto de capital sin aumento proporcional de EBIT.
-  horizon: medio
-  id: H2-OPP-MB-CL
-  opportunity_id: OPP-MB-CL
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-12-31'
-    expected: 8.0
-    met: null
-    metric: ROIC
-    prediction: ROIC reportado en 2027 será ≥ 8,0%.
-    unit: porcentaje
-  priority: important
-  probability: 0.5
-  rationale: El FCF positivo y la política de reinversión en activos de alta rentabilidad
-    (p.ej., automatización de plantas) deberían elevar la rentabilidad del capital.
-    Además, la empresa ha reducido su deuda neta en un 10% en 2026, mejorando la base
-    de capital.
-  review_trigger: Si al 31 de marzo de 2027 la empresa anuncia una reducción del gasto
-    de capital que implique un deterioro del ROIC proyectado.
-  secondary_hypotheses:
-  - H1-OPP-MB-CL
-  statement: El retorno sobre capital invertido (ROIC) de Colgate-Palmolive superará
-    el 8,0% al cierre del ejercicio fiscal 2027, reflejando una mayor eficiencia en
-    la reinversión de flujos de caja.
-  status: ACTIVE
-  ticker: CL
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: P/E por debajo de 13,0x o por encima de 17,0x en esa fecha.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Rebaja de calificación crediticia que genere un descuento de valoración
-      mayor al 20%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - P/E por debajo de 13,0x o por encima de 17,0x en esa fecha.
-  - Rebaja de calificación crediticia que genere un descuento de valoración mayor
-    al 20%.
-  horizon: largo
-  id: H3-OPP-MB-CL
-  opportunity_id: OPP-MB-CL
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2028-06-30'
-    expected: 15.0
-    met: null
-    metric: P/E
-    prediction: El P/E de CL será entre 14,5x y 15,5x al 30 de junio de 2028.
-    unit: veces
-  priority: important
-  probability: 0.5
-  rationale: Los analistas del sector están subvaluando a CL debido a la falta de
-    datos claros sobre su crecimiento futuro. Si la empresa cumple con los objetivos
-    de margen y ROIC, los inversores ajustarán el múltiplo al nivel sectorial.
-  review_trigger: Si al 31 de diciembre de 2027 el P/E está fuera del rango 13‑17x
-    y la empresa publica una guía de ingresos que indique crecimiento inferior al
-    2% anual.
-  secondary_hypotheses:
-  - H2-OPP-MB-CL
-  statement: El múltiplo precio/ganancias (P/E) de Colgate-Palmolive convergirá al
-    promedio del sector Consumer Defensive (15,0x) para el 30 de junio de 2028, indicando
-    una revaluación del mercado basada en expectativas de crecimiento sostenido.
-  status: ACTIVE
-  ticker: CL
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: Costo variable por unidad superior al 1,00 del nivel 2026 en 2027.
     metric: ''
     threshold: 0.0
@@ -164,6 +37,150 @@ hypotheses:
   statement: La adopción de envases sostenibles reducirá el costo variable por unidad
     de producto en un 5% para el 30 de septiembre de 2027, mejorando la rentabilidad
     sin afectar precios al consumidor.
+  status: ACTIVE
+  ticker: CL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico de ventas de los doce meses terminados el 2027-09-30
+      es inferior al 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía reporta crecimiento orgánico negativo en dos trimestres
+      consecutivos antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico de ventas de los doce meses terminados el 2027-09-30 es
+    inferior al 3%.
+  - La compañía reporta crecimiento orgánico negativo en dos trimestres consecutivos
+    antes de la fecha objetivo.
+  horizon: medio
+  id: H1-OPP-MB-CL
+  opportunity_id: OPP-MB-CL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-22'
+    expected: 3.0
+    met: null
+    metric: Crecimiento de ventas orgánicas en doce meses
+    prediction: En los doce meses terminados el 2027-09-30, las ventas orgánicas reportadas
+      por la compañía crecerán al menos 3% frente a los doce meses anteriores.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La información disponible confirma que la compañía opera en varias categorías
+    de consumo, pero no aporta datos para validar crecimiento, volúmenes o precios.
+    La hipótesis es que la recurrencia de compra de estos productos permitirá sostener
+    el crecimiento; deberá comprobarse con resultados reportados, no inferirse únicamente
+    de la cartera de marcas o categorías.
+  review_trigger: Dejar de creerla si la compañía reporta dos trimestres consecutivos
+    de ventas orgánicas negativas antes del 2027-11-22, o si el dato acumulado de
+    doce meses a 2027-09-30 queda por debajo del 3%.
+  secondary_hypotheses: []
+  statement: Colgate-Palmolive mantendrá un crecimiento orgánico positivo, apoyado
+    por la demanda recurrente de sus categorías de cuidado oral, personal y del hogar,
+    y nutrición para mascotas.
+  status: ACTIVE
+  ticker: CL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón entre flujo de caja libre y beneficio neto atribuible en los
+      doce meses terminados el 2027-09-30 es inferior a 0,90.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La razón es inferior a 0,75 en dos periodos trimestrales consecutivos
+      disponibles antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón entre flujo de caja libre y beneficio neto atribuible en los doce meses
+    terminados el 2027-09-30 es inferior a 0,90.
+  - La razón es inferior a 0,75 en dos periodos trimestrales consecutivos disponibles
+    antes de la fecha objetivo.
+  horizon: medio
+  id: H2-OPP-MB-CL
+  opportunity_id: OPP-MB-CL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-22'
+    expected: 0.9
+    met: null
+    metric: Flujo de caja libre / beneficio neto atribuible
+    prediction: Para los doce meses terminados el 2027-09-30, el flujo de caja libre
+      será al menos 0,90 veces el beneficio neto atribuible a los accionistas.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: La información suministrada no contiene datos de flujo de caja, inversión
+    ni retornos sobre capital, por lo que no demuestra esta capacidad. La hipótesis
+    plantea que una operación de productos de consumo recurrentes puede sostener una
+    conversión de beneficios en caja elevada; la prueba requiere contrastar el flujo
+    de caja libre y el beneficio neto reportados.
+  review_trigger: Dejar de creerla si la razón de flujo de caja libre a beneficio
+    neto cae por debajo de 0,75 en dos trimestres consecutivos, o si el dato de doce
+    meses a 2027-09-30 es inferior a 0,90.
+  secondary_hypotheses:
+  - H1-OPP-MB-CL
+  statement: La generación de caja de Colgate-Palmolive será suficiente para convertir
+    la mayor parte de sus beneficios netos en flujo de caja libre.
+  status: ACTIVE
+  ticker: CL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de CL menos la rentabilidad total de XLP es inferior
+      a 5 puntos porcentuales en el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de CL es inferior a la de XLP en el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de CL menos la rentabilidad total de XLP es inferior a 5
+    puntos porcentuales en el periodo indicado.
+  - La rentabilidad total de CL es inferior a la de XLP en el periodo indicado.
+  horizon: medio
+  id: H3-OPP-MB-CL
+  opportunity_id: OPP-MB-CL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-22'
+    expected: 5.0
+    met: null
+    metric: Exceso de rentabilidad total de CL frente a XLP
+    prediction: Entre el cierre del 2026-11-22 y el cierre del 2027-11-22, la rentabilidad
+      total de CL, incluidos dividendos reinvertidos, superará la rentabilidad total
+      de XLP en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: 'El material disponible no permite determinar si el mercado subestima
+    o sobreestima el crecimiento, la reinversión o los retornos sobre capital de Colgate-Palmolive.
+    Por ello, esta es una hipótesis relativa de mercado, no una conclusión de infravaloración:
+    una mejora en crecimiento orgánico y conversión de caja podría respaldar un rendimiento
+    superior, pero la comparación con XLP permitirá evaluarla sin depender de una
+    estimación de valor intrínseco no proporcionada.'
+  review_trigger: Dejar de creerla el 2027-11-22 si la rentabilidad total relativa
+    de CL frente a XLP es inferior a 5 puntos porcentuales; también abandonar antes
+    la hipótesis si una actualización de resultados muestra ventas orgánicas negativas
+    durante dos trimestres consecutivos.
+  secondary_hypotheses:
+  - H1-OPP-MB-CL
+  - H2-OPP-MB-CL
+  statement: La rentabilidad total de la acción de Colgate-Palmolive superará la del
+    ETF Consumer Staples Select Sector SPDR (XLP) durante los doce meses siguientes
+    a la fecha de corte.
   status: ACTIVE
   ticker: CL
   version: 1

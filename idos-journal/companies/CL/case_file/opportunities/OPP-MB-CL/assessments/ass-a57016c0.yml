@@ -1,0 +1,28 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental incompleta'
+- 'Market error: No se valida un error de valoración con la evidencia disponible.'
+- 'Thesis: Colgate-Palmolive vende productos de consumo en los segmentos Oral, Personal
+  and Home Care y Pet Nutrition, según el resumen financiero del paquete (período
+  no indicado). La evidencia suministrada no '
+generated_at: '2026-11-22T08:04:38.647471-03:00'
+id: ass-a57016c0
+recommendation: REVIEW
+risks:
+- evidencia: trusted_source_urls está vacío; las observaciones financieras incluyen
+    URLs de origen, pero las instrucciones requieren URLs copiadas de trusted_source_urls
+    para citar ratios.
+  riesgo: Cobertura insuficiente de evidencia fundamental verificable para calcular
+    los ratios solicitados.
+- evidencia: El campo interest_coverage_ratio figura como 0 para TTM al 2026-09-30
+    en Stock Analysis; no se aportan EBIT e interés con detalle suficiente para reconciliar
+    esa observación.
+  riesgo: La cobertura del servicio de intereses no puede interpretarse con seguridad.
+- evidencia: El resumen describe segmentos y categorías, pero no incluye métricas
+    de mercado ni series operativas.
+  riesgo: No hay evidencia aportada sobre penetración, participación, dinámica competitiva
+    o erosión de marca.
+score: 35
+status: COMPLETED
+version: '3.0'
