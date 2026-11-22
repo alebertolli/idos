@@ -713,3 +713,112 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-22T09:09:08.127571'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-PBI
+    ticker: PBI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T09:16:13.770789'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PBI
+    ticker: PBI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T09:16:13.837195'
+- data:
+    classification: Investigación
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: ce93cd3f017dd4d43504bb95e03c8c99e7887386fca38dc09210cba129e2c092
+    opp_id: OPP-MB-PBI
+    original_status: SCREENED
+    score: 81.7
+    strategy_version: '1.5'
+    ticker: PBI
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T09:17:37.237170'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MULTIBAGGERS-SIEGY-0001
+    ticker: SIEGY
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T09:18:04.768511'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-SIEGY-0001
+    ticker: SIEGY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T09:18:04.837082'
+- data:
+    classification: Investigación requerida
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: afb4ef3269fa2007e87324d4ee9604f31ef93b0a8653ce56968c2ad529a2281c
+    opp_id: OPP-MULTIBAGGERS-SIEGY-0001
+    original_status: UNDER_RESEARCH
+    score: 60
+    strategy_version: '1.5'
+    ticker: SIEGY
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T09:19:28.841197'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MULTIBAGGERS-SNOW-0001
+    ticker: SNOW
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T09:20:03.225229'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-SNOW-0001
+    ticker: SNOW
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T09:20:03.295865'
+- data:
+    classification: 'Investigación requerida: crecimiento de plataforma con pérdidas
+      GAAP y valoración sensible a expectativas'
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 36751df7ec87877cf23afe1c76d9d980adab68398748157f68479fabbc83ad61
+    opp_id: OPP-MULTIBAGGERS-SNOW-0001
+    original_status: UNDER_RESEARCH
+    score: 48
+    strategy_version: '1.5'
+    ticker: SNOW
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T09:21:26.464899'
