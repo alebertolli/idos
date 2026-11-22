@@ -1,0 +1,33 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia fundamental incompleta'
+- 'Market error: La diferencia entre cotización y consenso es observable, pero no
+  demuestra infravaloración: no se aportan inputs suficientes para una valoración
+  intrínseca.'
+- 'Thesis: La tesis a investigar es que el crecimiento de ingresos y beneficios reportados
+  pueda sostener la creación de valor en una entidad financiera diversificada. La
+  evidencia disponible no permite confirma'
+generated_at: '2026-11-22T08:56:38.936754-03:00'
+id: ass-2b0fba53
+recommendation: REVIEW
+risks:
+- detalle: StockAnalysis reporta FCF TTM de -13.170 millones en la unidad reportada
+    por el proveedor al 2026-09-30; la interpretación económica exige aclarar escala
+    y metodología para una entidad bancaria.
+  fuente: https://stockanalysis.com/stocks/MFG/statistics/
+  periodo: TTM terminado el 2026-09-30
+  riesgo: FCF negativo
+- detalle: El paquete combina campos con valores y escalas reportadas distintas; varios
+    datos de estadísticas aparecen como cero o n/a y no permiten validar ratios.
+  fuente: https://stockanalysis.com/stocks/MFG/statistics/
+  periodo: TTM terminado el 2026-09-30
+  riesgo: Comparabilidad de métricas
+- detalle: La volatilidad a 90 días fue 32,77% para el período terminado el 2026-10-30;
+    es una observación de mercado, no una medida de riesgo fundamental.
+  fuente: https://finance.yahoo.com/quote/MFG/history/
+  periodo: 2025-10-31 a 2026-10-30
+  riesgo: Volatilidad del precio
+score: 55
+status: COMPLETED
+version: '3.0'

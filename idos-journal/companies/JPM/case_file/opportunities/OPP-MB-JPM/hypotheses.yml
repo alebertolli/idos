@@ -1,142 +1,143 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos netos del ejercicio fiscal 2027 crecen menos del 4% frente
-      al ejercicio fiscal 2026.
+  - condition: El crecimiento de ingresos netos totales de FY2027 frente a FY2026
+      es inferior al 3%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los estados financieros publicados muestran una caída interanual de
-      los ingresos netos en dos trimestres consecutivos del ejercicio fiscal 2027.
+  - condition: Una línea de negocio principal registra una caída que anula el crecimiento
+      del conjunto, según los resultados anuales de FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos netos del ejercicio fiscal 2027 crecen menos del 4% frente al ejercicio
-    fiscal 2026.
-  - Los estados financieros publicados muestran una caída interanual de los ingresos
-    netos en dos trimestres consecutivos del ejercicio fiscal 2027.
+  - El crecimiento de ingresos netos totales de FY2027 frente a FY2026 es inferior
+    al 3%.
+  - Una línea de negocio principal registra una caída que anula el crecimiento del
+    conjunto, según los resultados anuales de FY2027.
   horizon: medio
   id: H1-OPP-MB-JPM
   opportunity_id: OPP-MB-JPM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 4.0
+    deadline: '2028-02-20'
+    expected: 3.0
     met: null
-    metric: Crecimiento interanual de ingresos netos en el ejercicio fiscal 2027
-    prediction: En los resultados del ejercicio fiscal 2027, los ingresos netos anuales
-      de JPMorgan serán al menos un 4% superiores a los del ejercicio fiscal 2026,
-      medidos con una definición comparable y excluyendo el efecto de cambios contables.
+    metric: Variación interanual de ingresos netos totales en FY2027 frente a FY2026
+    prediction: Los ingresos netos totales reportados para FY2027 serán al menos un
+      3% superiores a los reportados para FY2026.
     unit: porcentaje mínimo
   priority: important
   probability: 0.5
-  rationale: El contexto disponible muestra crecimiento de ingresos entre los ejercicios
-    fiscales 2022 y 2025. La diversidad de líneas de negocio podría amortiguar la
-    debilidad de una actividad con ingresos de otras, aunque la información disponible
-    no permite confirmar que ese crecimiento sea sostenible.
-  review_trigger: Dejar de creerla si los resultados anuales del ejercicio fiscal
-    2027 muestran crecimiento de ingresos inferior al 4%, o antes si dos trimestres
-    consecutivos registran una caída interanual.
+  rationale: Los ingresos crecieron entre FY2022 y FY2025 según la información disponible,
+    y la diversificación de líneas de negocio podría amortiguar la debilidad de una
+    actividad con la fortaleza de otra. Sin datos comparables más recientes ni evidencia
+    sobre retornos incrementales, esta es una hipótesis de continuidad del crecimiento,
+    no una conclusión sobre su calidad o sostenibilidad.
+  review_trigger: Dejar de creerla si los resultados anuales de FY2027, o una actualización
+    oficial anterior que indique una contracción anual, muestran ingresos netos totales
+    inferiores en más de un 1% a FY2026.
   secondary_hypotheses: []
-  statement: La diversificación entre banca de consumo, banca comercial y de inversión,
-    y gestión de activos permitirá que JPMorgan mantenga crecimiento de ingresos en
-    el ejercicio fiscal 2027.
+  statement: JPMorgan aumentará sus ingresos netos totales en el ejercicio 2027 frente
+    al ejercicio 2026, gracias a la contribución conjunta de sus negocios de consumo,
+    banca comercial y de inversión, y gestión de activos y patrimonio.
   status: ACTIVE
   ticker: JPM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La ROTCE anual del ejercicio fiscal 2027 es inferior al 15%.
+  - condition: El ROTCE anual de FY2027 es igual o inferior al 15%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La ROTCE reportada cae por debajo del 15% durante dos trimestres consecutivos
-      del ejercicio fiscal 2027.
+  - condition: Dos trimestres consecutivos de FY2027 reportan ROTCE inferior al 12%
+      y la compañía no atribuye el descenso exclusivamente a partidas transitorias
+      identificadas.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La ROTCE anual del ejercicio fiscal 2027 es inferior al 15%.
-  - La ROTCE reportada cae por debajo del 15% durante dos trimestres consecutivos
-    del ejercicio fiscal 2027.
+  - El ROTCE anual de FY2027 es igual o inferior al 15%.
+  - Dos trimestres consecutivos de FY2027 reportan ROTCE inferior al 12% y la compañía
+    no atribuye el descenso exclusivamente a partidas transitorias identificadas.
   horizon: medio
   id: H2-OPP-MB-JPM
   opportunity_id: OPP-MB-JPM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
+    deadline: '2028-02-20'
     expected: 15.0
     met: null
-    metric: ROTCE anual del ejercicio fiscal 2027
-    prediction: La ROTCE anual reportada para el ejercicio fiscal 2027 será igual
-      o superior al 15%.
-    unit: porcentaje mínimo
+    metric: ROTCE anual de FY2027
+    prediction: El ROTCE anual reportado para FY2027 será superior al 15%.
+    unit: porcentaje mínimo, estrictamente superior
   priority: critical
   probability: 0.5
-  rationale: El crecimiento de ingresos y beneficio neto entre 2022 y 2025 no basta
-    para demostrar que la rentabilidad sea sostenible. La hipótesis plantea un umbral
-    cuantitativo para comprobar si la generación de beneficios sigue siendo sólida
-    respecto del capital tangible, sin asumir que el crecimiento histórico vaya a
-    repetirse.
-  review_trigger: Dejar de creerla si la ROTCE anual del ejercicio fiscal 2027 queda
-    por debajo del 15%, o si las publicaciones trimestrales muestran dos trimestres
-    consecutivos por debajo de ese nivel.
+  rationale: La escala y la diversidad de actividades podrían sostener la rentabilidad
+    agregada, pero la información disponible no demuestra que la reinversión genere
+    retornos incrementales atractivos. El ROTCE permite comprobar directamente si
+    la rentabilidad del capital tangible se mantiene en un nivel elevado; el umbral
+    es una predicción, no un dato confirmado para FY2027.
+  review_trigger: Dejar de creerla al publicarse el informe anual de FY2027 si el
+    ROTCE es igual o inferior al 15%, o antes si dos informes trimestrales consecutivos
+    cumplen el segundo criterio de falsación.
   secondary_hypotheses:
   - H1-OPP-MB-JPM
   statement: JPMorgan conservará una rentabilidad sobre el capital tangible (ROTCE)
-    de al menos el 15% en el ejercicio fiscal 2027.
+    superior al 15% durante FY2027, pese a posibles cambios en los ingresos, costes
+    y pérdidas crediticias.
   status: ACTIVE
   ticker: JPM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de JPM no supera la del índice KBW Nasdaq Bank
-      en al menos 5 puntos porcentuales durante el periodo especificado.
+  - condition: La diferencia entre el rendimiento total de JPM y el del BKX es inferior
+      a 5 puntos porcentuales al cierre del periodo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad total de JPM es inferior a la del índice durante el
-      periodo especificado.
+  - condition: JPM registra un rendimiento total inferior al del BKX al cierre del
+      periodo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de JPM no supera la del índice KBW Nasdaq Bank en al menos
-    5 puntos porcentuales durante el periodo especificado.
-  - La rentabilidad total de JPM es inferior a la del índice durante el periodo especificado.
+  - La diferencia entre el rendimiento total de JPM y el del BKX es inferior a 5 puntos
+    porcentuales al cierre del periodo.
+  - JPM registra un rendimiento total inferior al del BKX al cierre del periodo.
   horizon: medio
   id: H3-OPP-MB-JPM
   opportunity_id: OPP-MB-JPM
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-19'
+    deadline: '2027-11-22'
     expected: 5.0
     met: null
-    metric: Rentabilidad total de JPM menos rentabilidad total del índice KBW Nasdaq
-      Bank
-    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 19 de
-      noviembre de 2027, la rentabilidad total de JPM —incluidos dividendos— superará
-      en al menos 5 puntos porcentuales la rentabilidad total del índice KBW Nasdaq
-      Bank, usando el mismo periodo y una metodología comparable.
-    unit: puntos porcentuales mínimos
+    metric: Rendimiento total de JPM menos rendimiento total del BKX
+    prediction: El rendimiento total de JPM, incluidos los dividendos, superará al
+      rendimiento total del BKX en al menos 5 puntos porcentuales durante el periodo
+      comprendido entre 2026-11-22 y 2027-11-22.
+    unit: puntos porcentuales como mínimo
   priority: informational
   probability: 0.5
-  rationale: La expansión histórica de ingresos y beneficio neto y la diversificación
-    de actividades podrían favorecer la resiliencia de los resultados y sostener el
-    rendimiento bursátil relativo. Sin embargo, el contexto no proporciona datos de
-    valoración ni permite concluir que la acción esté infravalorada; por ello, esta
-    hipótesis prueba el desempeño relativo, no un error de valoración.
-  review_trigger: Dejar de creerla al cierre del 19 de noviembre de 2027 si la rentabilidad
-    total relativa acumulada es inferior a 5 puntos porcentuales.
+  rationale: La combinación de varias líneas de negocio podría favorecer la resiliencia
+    de resultados frente a bancos más expuestos a una sola actividad. Sin una valoración
+    fundamental defendible ni expectativas operativas comparables, la hipótesis se
+    limita a una predicción verificable de rendimiento relativo y no presupone expansión
+    de múltiplos ni infravaloración.
+  review_trigger: Dejar de creerla si, antes del 2027-11-22, JPM acumula un rendimiento
+    total inferior al BKX en 10 puntos porcentuales o más y no hay un ajuste pendiente
+    por dividendos o datos de mercado.
   secondary_hypotheses:
   - H1-OPP-MB-JPM
   - H2-OPP-MB-JPM
-  statement: La acción de JPMorgan obtendrá una rentabilidad total superior a la del
-    índice KBW Nasdaq Bank durante los próximos doce meses.
+  statement: Desde la fecha de corte hasta el 2027-11-22, JPMorgan obtendrá un rendimiento
+    total superior al del índice KBW Bank Index (BKX), aunque la información disponible
+    no permite afirmar que la acción esté infravalorada.
   status: ACTIVE
   ticker: JPM
   version: 1

@@ -1,98 +1,93 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - Los datos agregados disponibles no bastan para atribuir el crecimiento a una mejora
-    estructural de competitividad o a una reinversión con retornos atractivos.
-  - La métrica de FCF requiere cautela para interpretar una entidad bancaria; el paquete
-    no documenta su definición ni su comparabilidad económica.
-  - 'Ingresos reportados: 122.306 en FY 2022 y 168.235 en FY 2025; beneficio neto:
-    35.892 y 55.681, respectivamente. Fuente: StockAnalysis, estados financieros,
-    períodos FY 2022 y FY 2025.'
-  - 'Ingresos TTM de 190.733 y beneficio neto TTM de 64.527 al 2026-09-30. Fuente:
-    StockAnalysis, período TTM terminado el 2026-09-30.'
-  - 'El precio fue USD 337,04 al 2026-10-30 y el consenso de objetivos fue USD 373,48,
-    con rango USD 312–425, observado el 2026-11-21. Fuentes: Yahoo Finance y StockAnalysis.'
+  - El crecimiento histórico de ingresos no demuestra por sí mismo crecimiento rentable
+    o retornos atractivos sobre el capital.
+  - El FCF negativo requiere especial cautela al interpretarlo para una entidad bancaria
+    y no establece por sí solo un problema de liquidez.
+  - 'Ingresos reportados: 122.306 en FY2022 y 168.235 en FY2025; fuente StockAnalysis,
+    financials, períodos terminados 2022-12-31 y 2025-12-31.'
+  - 'Ingreso neto TTM reportado: 64.527; fuente StockAnalysis, financials, período
+    terminado 2026-09-30.'
+  - 'Precio observado: USD 337,04 al 2026-10-30; fuente yfinance, cotización incluida
+    en el resumen financiero.'
+  - 'Rango de objetivos de analistas: USD 312–425, media y mediana USD 373,48; fuentes
+    StockAnalysis y yfinance, observadas 2026-11-22.'
   preguntas_abiertas:
-  - ¿Cuáles son los retornos sobre capital y su evolución por segmento, calculados
-    con definiciones comparables?
-  - ¿Qué cuota de mercado, penetración y crecimiento potencial tiene cada actividad
-    en sus mercados relevantes?
-  - ¿Cómo evolucionan capital regulatorio, depósitos, calidad de activos, pérdidas
-    crediticias y sensibilidad a tipos?
-  - ¿Qué serie verificable de acciones diluidas y qué expectativas financieras consensuadas
-    corresponden a períodos comparables?
+  - ¿Cuáles son los retornos sobre capital, coste de capital y retornos incrementales
+    por segmento?
+  - ¿Qué expectativas de crecimiento, márgenes y pérdidas crediticias incorpora el
+    precio observado?
+  - ¿Cómo evolucionan capital regulatorio, calidad de activos, depósitos, acciones
+    diluidas y distribuciones a accionistas?
 catalizadores_previos: &id001
 - descripcion: ''
-  generated_at: '2026-11-20T16:11:03.087283-03:00'
+  generated_at: '2026-11-21T16:26:03.111771-03:00'
   horizonte: ''
   impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-JPM
   probabilidad_anterior: null
 - descripcion: ''
-  generated_at: '2026-11-20T16:11:03.087283-03:00'
+  generated_at: '2026-11-21T16:26:03.111771-03:00'
   horizonte: ''
   impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-JPM
   probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Research requerido; evidencia insuficiente para validar una tesis de
-    multibagger
-  justificacion: El paquete aporta métricas de mercado y datos financieros agregados,
-    pero no evidencia suficiente sobre retornos sobre capital, penetración de mercado,
-    ventaja competitiva o valoración intrínseca.
+  categoria: Investigación fundamental requerida; encaje multibagger no demostrado
+    con la evidencia disponible
+  justificacion: El paquete aporta algunos datos financieros históricos y señales
+    de mercado, pero no evidencia suficiente sobre retornos sobre capital, reinversión,
+    ventaja competitiva o crecimiento futuro para validar una tesis multibagger.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe una plataforma diversificada de banca, crédito, gestión
-    de efectivo e inversiones en varias regiones. Sin datos de retornos sobre capital,
-    costos, cuotas de mercado o retención de clientes, no es posible validar la calidad
-    económica, la reinversión productiva ni la resistencia de una ventaja competitiva.
-  rating: No concluyente
+  analisis: El banco opera en varias líneas de negocio y regiones según el resumen
+    financiero. Los datos entregados no permiten cuantificar retornos sobre capital,
+    necesidades de reinversión, penetración de mercado o resiliencia de la ventaja
+    competitiva; por tanto, no se valida calidad excepcional del negocio.
+  rating: Inconcluso
 dominio_catalizadores:
-- catalizador: Resultados financieros posteriores al período terminado el 2026-09-30.
-  hito: Comprobar si se mantiene el crecimiento de ingresos y beneficio neto; el paquete
-    no proporciona una fecha futura de publicación.
-- catalizador: Desglose de resultados por los tres segmentos descritos en el resumen
-    financiero.
-  hito: Permitiría evaluar qué actividades explican el crecimiento y si su contribución
-    es persistente; no se incluyen cifras por segmento.
+- catalizador: La publicación de resultados posteriores podría aportar una base comparable
+    para verificar ingresos, ingreso neto y generación de caja.
+  hito: No se proporciona calendario de resultados en el paquete.
+- catalizador: La evolución de los tres segmentos descritos podría aclarar qué actividades
+    impulsan el crecimiento y la rentabilidad.
+  hito: El paquete no incluye ingresos ni resultados desglosados por segmento.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- implicacion: Para una entidad bancaria, las métricas de flujo de caja libre pueden
-    no ser comparables con las de empresas no financieras; se requiere validar su
-    definición y utilidad.
-  riesgo: La conversión de flujo de caja libre a beneficio neto es negativa en el
-    TTM terminado el 2026-09-30, según los valores agregados de StockAnalysis.
-- implicacion: No se puede interpretar el cambio como riesgo de solvencia sin desglose
-    y contexto regulatorio y de balance.
-  riesgo: La deuda total reportada aumentó de 1.025.995 en FY 2025 a 1.335.692 al
-    2026-09-30; el paquete no especifica la moneda ni permite evaluar su comparabilidad
-    o composición.
-- implicacion: No se pueden validar dilución ni apalancamiento deuda/EBITDA.
-  riesgo: No hay historial de acciones diluidas ni EBITDA utilizable en las fuentes
-    aportadas.
-- implicacion: Quedan sin evaluar factores centrales para la exposición bancaria.
-  riesgo: El paquete no aporta datos verificables sobre capital regulatorio, calidad
-    crediticia, pérdidas de crédito o sensibilidad a tipos.
+- fuente: StockAnalysis, financials, período TTM terminado 2026-09-30.
+  riesgo: El FCF reportado es negativo en TTM al 2026-09-30, pero su interpretación
+    y comparabilidad como medida de liquidez para un banco son limitadas.
+- fuente: StockAnalysis, financials, FY2025 y período terminado 2026-09-30.
+  riesgo: La deuda total reportada subió de 1.025.995 en FY2025 a 1.335.692 al 2026-09-30;
+    el paquete no especifica moneda ni permite evaluar por sí solo su significado
+    económico para un banco.
+- fuente: Evidencia financiera por campo del paquete, período terminado 2026-09-30.
+  riesgo: No hay historial de acciones diluidas ni acciones en circulación para calcular
+    dilución o CAGR de acciones.
+- fuente: Resumen financiero y evidencia financiera por campo del paquete.
+  riesgo: La descripción disponible no aporta datos para medir erosión de márgenes,
+    calidad crediticia, concentración de depósitos o exposición regulatoria.
 error_mercado:
-  catalizador_cambio: Resultados financieros posteriores al 2026-09-30 podrían aportar
-    evidencia sobre ingresos, beneficios, efectivo y evolución de los segmentos; no
-    se incluyen previsiones ni hitos fechados en el paquete.
-  conclusion_error_valoracion: 'No validado: el paquete no contiene un método de valoración
-    con inputs suficientes ni una tesis cuantificada de expectativas frente a fundamentales.'
-  consenso_actual: 'El consenso de precio objetivo reportado es USD 373,48, con rango
-    USD 312–425; la cotización observada fue USD 337,04 al 2026-10-30. Fuentes: StockAnalysis
-    y Yahoo Finance, observadas el 2026-11-21.'
-  hipotesis_contraria: El rango de objetivos no demuestra por sí solo un error de
-    valoración ni permite establecer expectativas implícitas sobre crecimiento o retornos.
-  razonamiento: La cotización y los objetivos de analistas son observaciones de mercado,
-    no estimaciones intrínsecas. Los datos disponibles no permiten inferir qué expectativas
-    están incorporadas en el precio.
-generated_at: '2026-11-21T16:26:03.111771-03:00'
+  catalizador_cambio: Resultados financieros futuros que permitan evaluar crecimiento,
+    rentabilidad y calidad del flujo de caja; el paquete no identifica fechas de eventos
+    ni catalizadores concretos.
+  conclusion_error_valoracion: 'No validado: el rango de analistas es evidencia de
+    expectativas de mercado, no una estimación intrínseca.'
+  consenso_actual: El precio observado fue USD 337,04 al 2026-10-30; el consenso de
+    precio objetivo observado fue USD 373,48 al 2026-11-22, con rango USD 312–425.
+  hipotesis_contraria: 'La información disponible no permite establecer que el mercado
+    esté infravalorando o sobrevalorando el negocio: faltan una valoración fundamental
+    defendible y expectativas operativas comparables.'
+  razonamiento: Las cifras de ingresos e ingreso neto disponibles no bastan para evaluar
+    retornos sobre capital o sostenibilidad del crecimiento; las métricas de FCF también
+    requieren cautela en un banco.
+generated_at: '2026-11-22T08:53:07.391820-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-JPM
@@ -133,19 +128,10 @@ prompt_inputs:
   sector: Financial Services
   ticker: JPM
 ratios_investigados:
-- formula: (revenue_t / revenue_t-3)^(1/3) - 1
-  inputs:
-    revenue_history:
-    - period: TTM
-      period_end: '2026-09-30'
-      value: 190733.0
-    - period: FY 2023
-      period_end: '2023-12-31'
-      value: 145670.0
-  limitations: Falta revenue_t-3 comparable al TTM terminado el 2026-09-30; FY 2023
-    termina en otra fecha y no es un período comparable de tres años.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
-  period_end: '2026-09-30'
+  period_end: '2025-12-31'
   sources:
   - name: StockAnalysis
     url: https://stockanalysis.com/stocks/jpm/financials/
@@ -154,26 +140,12 @@ ratios_investigados:
   value: null
 - formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
   inputs:
-    fcf_history:
-    - period: TTM
-      period_end: '2026-09-30'
-      value: -84159.0
-    - period: FY 2025
-      period_end: '2025-12-31'
-      value: -147782.0
-    - period: FY 2024
-      period_end: '2024-12-31'
-      value: -42012.0
-    - period: FY 2023
-      period_end: '2023-12-31'
-      value: 12974.0
-    - period: FY 2022
-      period_end: '2022-12-31'
-      value: 107119.0
-  limitations: No hay dos períodos comparables y positivos consecutivos en la serie
-    disponible; los valores TTM y FY tampoco tienen períodos equivalentes.
+    fcf_history_FY_2023: 12974.0
+    fcf_history_FY_2024: -42012.0
+  limitations: No se calcula porque el FCF FY2024 es negativo y la definición exige
+    FCF positivo en ambos períodos; la fuente reporta además FCF negativo en FY2025.
   metric: fcf_growth_pct
-  period_end: '2026-09-30'
+  period_end: '2024-12-31'
   sources:
   - name: StockAnalysis
     url: https://stockanalysis.com/stocks/jpm/financials/
@@ -192,32 +164,29 @@ ratios_investigados:
   value: null
 - formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
-    ebitda: n/a
-    net_cash_history:
-      period: Current
-      period_end: '2026-09-30'
-      value: 256259.0
-    total_debt_history:
-      period: Current
-      period_end: '2026-09-30'
-      value: 1335692.0
-  limitations: EBITDA está reportado como n/a; no se puede calcular el denominador
-    requerido. Además, net cash y deuda no sustituyen EBITDA.
+    ebitda: null
+    net_cash_history_Current: 256259.0
+    total_debt_history_Current: 1335692.0
+  limitations: EBITDA figura como n/a en la fuente; no puede calcularse el denominador
+    requerido. La deuda y el net cash proceden de la serie financiera, pero la métrica
+    puede no ser adecuada para un banco.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
   - name: StockAnalysis
     url: https://stockanalysis.com/stocks/jpm/financials/
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/JPM/statistics/
+    url_statistics: https://stockanalysis.com/stocks/JPM/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
+    diluted_shares_history: null
     shares_outstanding: 2660000000.0
-  limitations: Sólo se aporta shares_outstanding para un período; falta una observación
-    comparable del período anterior y no se aporta historial de acciones diluidas.
+    shares_outstanding_history: null
+  limitations: Sólo hay un dato puntual de acciones en circulación; faltan dos períodos
+    comparables de acciones diluidas o acciones en circulación para calcular el cambio
+    interanual.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
@@ -257,7 +226,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-22'
   business_model: 'JPMorgan Chase & Co. operates as a bank and financial holding company
     in the United States, rest of North America, Europe, the Middle East, Africa,
     the Asia Pacific, Latin America, and the Caribbean. It operates in three segments:
@@ -291,304 +260,357 @@ research_input_snapshot:
   existing_wiki: '## 1. Visión General de la Compañía
 
 
-    JPMorgan Chase & Co. (JPM) es un banco y holding financiero diversificado. Opera
-    en banca de consumo y comunidad, banca comercial y de inversión, y gestión de
-    activos y patrimonio. Sus clientes abarcan consumidores, pequeñas empresas, corporaciones,
-    instituciones financieras, comerciantes y compañías de distintos tamaños.
+    JPMorgan Chase & Co. (JPM) es un banco universal diversificado que opera en banca
+    de consumo y comunitaria, banca comercial y de inversión, y gestión de activos
+    y patrimonios. Atiende a consumidores, pequeñas empresas y compañías medianas
+    y grandes.
 
 
-    Su actividad incluye captación de depósitos, préstamos y otros productos de crédito,
-    servicios de banca e inversión, y gestión de activos. La franquicia tiene presencia
-    en Estados Unidos y alcance internacional; los materiales aportados describen
-    una operación global, pero no proporcionan un desglose geográfico verificable
-    de ingresos o activos.
+    Su cadena de valor comprende la captación de depósitos y financiación mayorista,
+    la evaluación y gestión de riesgos, la originación de préstamos y otros productos
+    financieros, la ejecución de pagos y transacciones y la distribución de servicios
+    de inversión. La información disponible describe actividades en varias regiones,
+    pero no aporta un desglose geográfico cuantitativo.
 
 
-    La industria es madura, intensamente regulada y sensible al ciclo económico, los
-    tipos de interés, la competencia por depósitos y el coste del crédito. Entre las
-    compañías relacionadas del sector se encuentran [[C]], [[HSBC]], [[ING]], [[AIG]],
-    [[AXP]] y [[IBN]].
+    La compañía participa en un sector expuesto a los tipos de interés, el ciclo crediticio,
+    los requisitos de capital y liquidez, la regulación y la inversión tecnológica.
+    Entre compañías relacionadas del sector se encuentran [[C]], [[USB]], [[HSBC]],
+    [[MUFG]], [[SAN]], [[IBN]] e [[ING]]. También comparte algunas dinámicas de pagos
+    y servicios financieros con [[AXP]], [[MA]] y [[V]].
+
+
+    **Evaluación general:** la evidencia disponible sugiere una franquicia diversificada
+    y una posición competitiva destacada, pero no basta para validar una tesis de
+    inversión o determinar el valor intrínseco. La evaluación queda pendiente de una
+    decisión formal.
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    JPMorgan obtiene ingresos principalmente de:
+    ### Actividades y fuentes de ingresos
 
 
-    - **Intereses netos:** diferencia entre los intereses que recibe por préstamos
-    y activos financieros y los que paga por depósitos y otras fuentes de financiación.
-
-    - **Comisiones y servicios:** servicios bancarios y financieros, asesoramiento,
-    emisión y sindicación de deuda y acciones, corretaje, custodia y otros servicios.
-
-    - **Mercados y financiación:** creación de mercado, financiación y actividades
-    relacionadas con clientes institucionales.
-
-    - **Gestión de activos y patrimonio:** servicios de inversión y gestión para clientes.
+    El modelo combina ingresos por intereses sobre préstamos e inversiones con comisiones
+    y otros ingresos vinculados a banca de inversión, pagos, gestión de activos y
+    patrimonio. Entre los productos descritos figuran depósitos, préstamos, productos
+    de inversión, hipotecas, préstamos sobre el valor de la vivienda y servicios de
+    crédito.
 
 
-    La cadena de valor comprende captar depósitos y financiación, evaluar y suscribir
-    riesgo de crédito, asignar capital a préstamos, mercados y activos gestionados,
-    y distribuir productos y servicios a clientes.
+    El paquete identifica tres grandes segmentos —banca de consumo y comunitaria,
+    banca comercial y de inversión, y gestión de activos y patrimonios—, pero no proporciona
+    resultados ni contribuciones a ingresos por segmento.
 
 
-    **Posición competitiva.** El análisis AOIF caracteriza a JPMorgan como líder,
-    con un moat amplio basado en escala, marca, diversificación, relaciones con clientes,
-    base de depósitos, distribución, tecnología y presencia global. Son evaluaciones
-    cualitativas del análisis suministrado; no se acompañan de métricas comparables
-    que permitan cuantificar la ventaja o medir su durabilidad.
+    ### Ventajas competitivas
 
 
-    **Dinámica competitiva.** La digitalización puede facilitar eficiencias, pero
-    el negocio también está expuesto a la competencia por depósitos, cambios regulatorios
-    y variaciones en la actividad de crédito, mercados y banca de inversión. Comparables
-    y compañías relacionadas incluyen [[C]], [[HSBC]], [[ING]], [[BSBR]], [[ITUB]]
-    y [[AXP]].
+    El análisis AOIF caracteriza la posición competitiva como líder y el moat como
+    amplio. Las ventajas propuestas incluyen escala, marca, diversificación, relaciones
+    con clientes, red de pagos, capacidad tecnológica, acceso a financiación y amplitud
+    de productos. Estas características son una evaluación cualitativa del análisis
+    recibido; no se acompañan de datos de cuota de mercado, costos, retención de clientes
+    o retornos sobre capital que permitan verificarlas de forma independiente.
+
+
+    La competencia comprende bancos diversificados como [[C]], [[USB]], [[HSBC]],
+    [[MUFG]], [[SAN]] e [[ING]], además de proveedores especializados en pagos o servicios
+    financieros como [[AXP]], [[MA]] y [[V]]. No se proporcionan comparaciones cuantitativas
+    con estas compañías.
+
+
+    ### Dinámica de la industria
+
+
+    Los principales factores que pueden afectar el negocio son los tipos de interés,
+    la calidad crediticia, los requisitos regulatorios y de capital, la liquidez y
+    la inversión tecnológica. La digitalización puede modificar la competencia y la
+    distribución de productos, pero el material no cuantifica su efecto sobre JPM.
 
 
     ## 3. Perfil Financiero
 
 
-    Las métricas disponibles proceden de análisis con fechas, períodos o definiciones
-    no siempre especificados. Deben tratarse como datos reportados por los materiales,
-    no como una serie financiera plenamente conciliada.
+    Las métricas agregadas incluidas en AOIF indican crecimiento de ingresos del 14,06%,
+    margen operativo del 44,79% y ROIC del 17,39%. No se especifican en el material
+    las fórmulas, el período exacto ni los datos subyacentes de estos indicadores;
+    por tanto, no deben interpretarse como series comparables sin verificación adicional.
 
 
-    | Métrica | Dato reportado | Período o referencia | Observaciones |
+    | Métrica | Valor o estado reportado | Período / fuente | Limitación |
 
     |---|---:|---|---|
 
-    | Crecimiento de ingresos | 14,06% | Período no especificado en AOIF | No se puede
-    confirmar el método ni el intervalo de cálculo. |
+    | Crecimiento de ingresos | 14,06% | AOIF; período no especificado | Falta definición,
+    período comparable y desglose por segmento. |
 
-    | Margen operativo | 44,79% | Período no especificado en AOIF | Definición y comparabilidad
-    no verificadas. |
+    | Margen operativo | 44,79% | AOIF; período no especificado | Falta definición
+    y conciliación con estados financieros. |
 
-    | ROIC | 17,39% | Período no especificado en AOIF | Fuente y metodología no verificadas;
-    su interpretación debe considerar la naturaleza bancaria del negocio. |
+    | ROIC | 17,39% | AOIF; período no especificado | Falta metodología y comparación
+    histórica o sectorial. |
 
-    | PER | 13,45 | Fecha y período no verificados | Dato incorporado por AOIF; no
-    basta para estimar valor razonable. |
+    | Crecimiento de ingresos, últimos 3 años | No disponible | StockAnalysis, datos
+    consultados para el TTM terminado el 2026-09-30 | No hay un ingreso de hace tres
+    años comparable con ese TTM. |
 
-    | Ingresos y beneficio neto | Positivos en los períodos disponibles | Serie reportada
-    hasta FY 2025 y TTM al 2026-09-30 | No se proporcionan aquí importes ni conciliación
-    detallada. |
+    | Crecimiento del FCF | No disponible | StockAnalysis, datos consultados para
+    el TTM terminado el 2026-09-30 | No hay dos períodos comparables y positivos consecutivos.
+    |
 
-    | Flujo de caja libre (FCF) | Negativo | FY 2025 y TTM al 2026-09-30 | El FCF
-    no es directamente comparable para bancos; los flujos operativos reflejan movimientos
-    de préstamos, depósitos y activos financieros. |
+    | Ingresos y beneficio neto | Crecimiento descrito en el resumen de investigación
+    | Datos agregados; sin cifras ni período detallado en el material | No permite
+    identificar la fuente del crecimiento ni su persistencia. |
+
+    | Deuda total reportada | 1.025.995 en FY 2025; 1.335.692 al 2026-09-30 | StockAnalysis
+    | No se especifican la moneda, la composición ni la comparabilidad. |
+
+    | Conversión de FCF a beneficio neto | Negativa en el TTM | StockAnalysis, TTM
+    terminado el 2026-09-30 | FCF no es una medida especialmente informativa para
+    un banco y su definición no está documentada. |
 
 
-    **Fuentes citadas en los materiales:** [StockAnalysis, historial financiero](https://stockanalysis.com/stocks/jpm/financials/)
-    y [StockAnalysis, estadísticas](https://stockanalysis.com/stocks/JPM/statistics/).
-    Los datos de consenso y cotización se detallan en la sección 8.
+    En una entidad bancaria, los flujos asociados con préstamos, depósitos y valores
+    forman parte de la operación habitual. Por ello, el FCF y los múltiplos propios
+    de empresas no financieras pueden ser poco útiles si no se definen y adaptan correctamente.
+    La conversión negativa de FCF no basta por sí sola para concluir que exista deterioro
+    financiero.
 
 
-    No hay información suficiente para presentar una estructura de capital, ratios
-    de capital regulatorio, retorno sobre capital por segmento o evolución comparable
-    de activos y pasivos. El crecimiento histórico reportado, por sí solo, no demuestra
-    crecimiento orgánico sostenible ni creación de valor.
+    **Fuente financiera indicada:** [StockAnalysis — Financials de JPM](https://stockanalysis.com/stocks/jpm/financials/).
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    El análisis AOIF califica la calidad de la dirección como buena, el alineamiento
-    de insiders como moderado y la asignación de capital como creadora de valor. Estas
-    son evaluaciones cualitativas de los materiales suministrados; no se aportan datos
-    que permitan contrastarlas mediante compensación, propiedad accionaria, rendimiento
-    frente a objetivos o historial detallado de decisiones de capital.
+    El análisis AOIF califica la calidad del management como buena, la asignación
+    de capital como creadora de valor y el alineamiento de insiders como moderado.
+    Estas conclusiones son valoraciones cualitativas y no vienen acompañadas de métricas,
+    ejemplos de decisiones de capital o datos de propiedad accionaria.
 
 
-    No se proporcionan nombres, composición, independencia o experiencia del board,
-    ni detalles sobre incentivos ejecutivos e insider ownership. Por tanto, no es
-    posible realizar una evaluación factual completa del gobierno corporativo.
+    No se proporcionan nombres ni evaluación del equipo directivo, composición del
+    consejo, independencia de sus miembros, estructura de comités, remuneración, tenencia
+    accionaria de insiders ni historial de sucesión. Por tanto, la calidad del gobierno
+    corporativo no puede verificarse con el material disponible.
 
 
     ## 5. Tesis de Inversión
 
 
-    **Caso alcista — hipótesis que requiere seguimiento, no conclusión de valoración:**
+    ### Caso alcista
 
 
-    - JPMorgan combina varias franquicias financieras —consumo, banca comercial y
-    de inversión, y gestión de activos y patrimonio—, lo que podría diversificar sus
-    fuentes de ingresos.
+    - **Diversificación:** JPM opera en banca de consumo y comunitaria, banca comercial
+    y de inversión, y gestión de activos y patrimonios, con productos para consumidores,
+    pequeñas empresas y compañías de distinto tamaño.
 
-    - La escala, la marca, la base de depósitos, la distribución, la tecnología y
-    las relaciones con clientes pueden respaldar una posición competitiva difícil
-    de replicar.
+    - **Escala y amplitud de servicios:** AOIF atribuye a la compañía ventajas potenciales
+    derivadas de escala, marca, relaciones con clientes, capacidad tecnológica, acceso
+    a financiación y variedad de productos. El análisis la clasifica como líder competitivo
+    y asigna un moat amplio, aunque estas valoraciones requieren validación cuantitativa.
 
-    - La serie disponible muestra ingresos y beneficio neto positivos en los períodos
-    reportados hasta FY 2025 y TTM al 2026-09-30. Esto confirma desempeño positivo
-    en esos datos, pero no acredita por sí solo su sostenibilidad.
+    - **Indicadores financieros favorables en el análisis recibido:** AOIF reporta
+    crecimiento de ingresos del 14,06%, margen operativo del 44,79% y ROIC del 17,39%.
+    La falta de definiciones y período limita la interpretación.
 
-    - El análisis AOIF reporta crecimiento de ingresos del 14,06%, margen operativo
-    del 44,79% y ROIC del 17,39%. Como faltan fechas, períodos y metodologías verificables,
-    estas métricas sirven como referencias pendientes de validación, no como prueba
-    concluyente de calidad o rentabilidad estructural.
+    - **Crecimiento agregado:** el paquete de investigación describe crecimiento de
+    ingresos y beneficio neto, pero no aporta cifras por segmento ni evidencia suficiente
+    para establecer que el crecimiento sea estructural.
 
-    - Resultados futuros con divulgación comparable por segmento, capital, crédito
-    y retornos permitirían evaluar si la franquicia mantiene su desempeño.
+    - **Posible resiliencia de la franquicia:** la combinación de actividades puede
+    diversificar las fuentes de ingresos. El material no cuantifica, sin embargo,
+    las correlaciones entre segmentos ni el comportamiento a través de distintos ciclos.
 
 
-    No se puede concluir que la acción esté infravalorada ni que exista un error de
-    valoración con la evidencia disponible.
+    **Conclusión:** el caso alcista se apoya en la diversificación y en ventajas competitivas
+    propuestas por AOIF, junto con métricas agregadas favorables. No queda validado
+    sin datos comparables de retornos sobre capital, desempeño por segmento y evolución
+    histórica.
 
 
     ## 6. Riesgos y Contra-Tesis
 
 
-    **Riesgos principales**
+    ### Riesgos clave
 
 
-    | Riesgo | Mecanismo de impacto | Evidencia disponible |
+    | Riesgo | Evidencia disponible | Implicación |
 
     |---|---|---|
 
-    | Recesión o deterioro del empleo | Puede elevar impagos en tarjetas, crédito
-    al consumo, empresas y bienes raíces comerciales. | AOIF: impacto alto y probabilidad
-    media; estimación cualitativa, no pronóstico verificado. |
+    | Deterioro macroeconómico y crediticio | AOIF califica este riesgo de impacto
+    alto y probabilidad media; señala posibles impagos en consumo, tarjetas, préstamos
+    comerciales e inmobiliarios. | Podría aumentar pérdidas crediticias y reservas,
+    y reducir beneficios. |
 
-    | Tipos de interés y curva de rendimientos | Los movimientos de tipos y la competencia
-    por depósitos pueden presionar el margen de intereses. | Identificado como riesgo
-    financiero en AOIF; no se proporcionan sensibilidades cuantitativas. |
+    | Cambios en tipos de interés | AOIF califica el riesgo de impacto medio y probabilidad
+    alta. | Puede presionar el margen financiero, el valor de activos o la demanda
+    de préstamos. |
 
-    | Calidad crediticia y capital | Un deterioro en pérdidas crediticias, calidad
-    de activos o capital regulatorio podría debilitar la capacidad de absorber pérdidas
-    y la rentabilidad. | El paquete no incluye datos verificables de morosidad, pérdidas
-    crediticias ni capital regulatorio. |
-
-    | Interpretación de FCF | Un FCF negativo podría interpretarse erróneamente como
-    deterioro si no se considera la mecánica de los flujos bancarios. | Reportado
-    para FY 2025 y TTM al 2026-09-30; no constituye por sí solo evidencia de deterioro.
+    | Crecimiento no persistente | No hay desglose por segmento ni evidencia de cuota
+    de mercado, penetración o retornos sobre capital comparables. | El crecimiento
+    agregado podría no reflejar una mejora estructural o una reinversión de alto retorno.
     |
 
-    | Sostenibilidad del crecimiento | El crecimiento histórico no demuestra por sí
-    mismo crecimiento orgánico sostenible, mayor penetración ni creación de valor.
-    | Limitación explícita del análisis DDD. |
+    | Interpretación de FCF | La conversión de FCF a beneficio neto es negativa en
+    el TTM terminado el 2026-09-30, pero la definición y comparabilidad del FCF no
+    están documentadas. | El indicador no permite inferir por sí solo la calidad económica
+    o solvencia del banco. |
+
+    | Variación de deuda reportada | La deuda total pasa de 1.025.995 en FY 2025 a
+    1.335.692 al 2026-09-30, según StockAnalysis; no se indica moneda ni composición.
+    | No permite concluir que haya cambiado el riesgo de solvencia sin contexto de
+    balance, financiación y regulación. |
+
+    | Incertidumbre sobre la posición competitiva | El moat amplio y la posición de
+    liderazgo son evaluaciones cualitativas sin datos comparables de cuota, costos
+    o retornos. | La ventaja competitiva puede estar sobreestimada. |
 
 
-    **Contra-tesis.** La diversificación y escala pueden coexistir con sensibilidad
-    a tipos, depósitos, ciclo crediticio y regulación. Sin datos comparables por segmento,
-    capital, calidad de activos y coste del crédito, no se puede determinar si la
-    rentabilidad reportada compensa adecuadamente esos riesgos.
+    Los indicadores de current ratio y dilución interanual no son evaluables con el
+    material recibido: el primero aparece reportado como 0 sin validación de activos
+    y pasivos corrientes para una entidad bancaria; para el segundo falta una serie
+    comparable de acciones diluidas. No se usan aquí como señales confirmadas de riesgo.
 
 
-    **Falsadores de una lectura favorable**
+    ### Contra-tesis
 
 
-    - Una serie financiera comparable que muestre deterioro sostenido de ingresos
-    o beneficio neto debilitaría la hipótesis de continuidad del desempeño observado.
+    La diversificación y el crecimiento agregado no demuestran por sí solos una mejora
+    sostenible de competitividad o creación de valor. Si el crecimiento se revierte,
+    los datos por segmento no identifican fuentes recurrentes o los retornos sobre
+    capital se deterioran, la tesis de calidad y persistencia perdería respaldo. El
+    aumento reportado de deuda tampoco demuestra por sí solo un deterioro de solvencia,
+    pero exige una revisión de su composición y del contexto regulatorio.
 
-    - Evidencia posterior de deterioro material de calidad crediticia, capital regulatorio
-    o retornos sobre capital debilitaría una lectura favorable del negocio.
 
-    - La falta de confirmación de los datos y períodos detrás del crecimiento, margen
-    operativo o ROIC reportados reduciría su utilidad como respaldo de la tesis.
+    ### Falsadores
+
+
+    - Períodos posteriores muestran una reversión del crecimiento de ingresos o beneficio
+    neto, sin que el desglose por segmentos identifique una fuente recurrente.
+
+    - Datos futuros verificables muestran un deterioro material de la calidad crediticia
+    o del capital regulatorio frente a períodos comparables.
+
+    - Retornos sobre capital comparables muestran una caída sostenida o no respaldan
+    la hipótesis de una franquicia de alta calidad.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    | Catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia |
+    | Hito | Fecha esperada | Impacto potencial | Estado |
 
     |---|---|---|---|
 
-    | Próximos resultados financieros | No especificada en los materiales | Permitirían
-    comprobar la continuidad de ingresos y beneficios, así como la evolución de márgenes
-    y riesgos. | El paquete no incluye calendario de resultados ni guía futura. |
+    | Resultados posteriores al período terminado el 2026-09-30 | Sin fecha futura
+    de publicación indicada | Permitirían comprobar la persistencia del crecimiento
+    de ingresos y beneficio neto, y revisar efectivo, calidad crediticia y evolución
+    de los segmentos. | Pendiente; no se proporcionó calendario. |
 
-    | Divulgación comparable por segmento, capital y calidad crediticia | Sin fecha
-    especificada | Ayudaría a contrastar ejecución, resiliencia y retornos con las
-    expectativas. | Los datos necesarios no están incluidos. |
+    | Desglose de resultados por los tres segmentos descritos | Próxima divulgación
+    segmentada; sin fecha indicada | Ayudaría a identificar qué actividades explican
+    el crecimiento y si su contribución es persistente. | No incluido en el material
+    disponible. |
 
-    | Cambios en tipos de interés, curva y competencia por depósitos | Sin fecha especificada
-    | Podrían afectar el margen de intereses, la retención de depósitos y los costes
-    de financiación. | No se aportan escenarios cuantitativos. |
+    | Evolución de pérdidas crediticias, morosidad y reservas | Próximas divulgaciones
+    financieras; sin fecha indicada | Aportaría evidencia sobre la exposición al ciclo
+    económico y la calidad de las carteras. | Variable a monitorear. |
 
-
-    No se debe inferir una fecha de evento a partir de la información disponible.
+    | Sensibilidad del margen financiero a los tipos de interés | Próximas divulgaciones
+    financieras; sin fecha indicada | Permitiría evaluar el efecto de cambios de tipos
+    sobre ingresos, valor de activos y demanda de préstamos. | Variable a monitorear.
+    |
 
 
     ## 8. Marco de Valoración
 
 
-    Para un banco diversificado, el análisis debería centrarse en beneficios normalizados,
-    valor contable tangible, rentabilidad sobre capital y capacidad de distribución
-    de capital, junto con las restricciones de capital regulatorio y la calidad de
-    los activos. Una valoración por flujo de caja libre convencional requiere cautela
-    porque los flujos de caja operativos de un banco incorporan movimientos propios
-    de préstamos, depósitos y activos financieros.
+    El paquete no permite estimar de forma robusta el valor intrínseco ni validar
+    un error de valoración. AOIF reporta un PER de 13,04, pero no especifica fecha,
+    beneficio utilizado ni metodología. El mismo análisis marca EV/EBITDA y FCF yield
+    como 0 y advierte que esas métricas suelen ser poco aplicables a un banco; no
+    deben interpretarse como valoraciones económicas.
 
 
-    El PER de **13,45** reportado por AOIF carece de fecha, período de beneficios
-    y fuente verificables. AOIF indica que el valor intrínseco no es determinable
-    con la información suministrada y que el margen de seguridad es insuficiente.
-    Los valores reportados de EV/EBITDA y FCF yield son 0; no hay base para interpretarlos
-    como múltiplos válidos o como evidencia de valoración.
+    Para una valoración bancaria, la investigación pendiente debería priorizar métodos
+    basados en beneficios y capital, como una valoración de patrimonio mediante beneficios
+    normalizados y retorno sobre capital, o una comparación de precio respecto al
+    valor contable tangible, siempre que se obtengan datos consistentes. El material
+    recibido no incluye los inputs necesarios para aplicar esos métodos —por ejemplo,
+    valor contable tangible, costo de capital, beneficios normalizados o retornos
+    por segmento—, por lo que no se formula una estimación.
 
 
-    El DDD reporta:
+    ### Observaciones de mercado incluidas
 
 
-    - Consenso de analistas: **USD 373,48**, con rango de **USD 312–425**, observado
-    el **2026-11-20**.
+    - Precio observado: **USD 337,04 al 2026-10-30**.
 
-    - Cotización: **USD 337,04**, observada el **2026-10-30**.
+    - Consenso de precio objetivo reportado: **USD 373,48**, con rango de **USD 312–425**.
 
-
-    Las observaciones tienen fechas distintas y el horizonte de los objetivos de analistas
-    no está informado. Por ello, no permiten establecer una brecha de valoración ni
-    una recomendación.
+    - Fuentes indicadas: StockAnalysis y Yahoo Finance; la observación no incluye
+    enlaces específicos para cada dato.
 
 
-    **Supuestos y sensibilidad pendientes:** beneficios normalizados; coste de crédito;
-    retorno sobre capital; crecimiento y composición de ingresos; capital regulatorio;
-    necesidades de capital y distribución; tipo de interés y coste de depósitos. Sin
-    estos datos y un horizonte definido, no es posible construir escenarios fiables
-    de valor razonable ni cuantificar sensibilidades.
+    Los objetivos de analistas y la cotización son observaciones de mercado, no estimaciones
+    intrínsecas. Su diferencia no demuestra por sí sola que exista un error de valoración
+    ni permite inferir las expectativas de crecimiento o retorno incorporadas en el
+    precio.
+
+
+    **Conclusión de valoración:** margen de seguridad insuficiente según AOIF; valoración
+    no validada con la información disponible.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    1. ¿Cuáles son los ingresos, beneficios y retornos sobre capital por segmento
-    y período, usando una serie comparable?
+    1. ¿Cuáles son los retornos sobre capital por segmento y cómo evolucionan bajo
+    definiciones comparables?
 
-    2. ¿Qué período, definición y fuente corresponden al crecimiento de ingresos del
-    14,06%, margen operativo del 44,79%, ROIC del 17,39% y PER de 13,45%?
+    2. ¿Qué cuota de mercado, penetración y crecimiento potencial tiene cada actividad
+    en sus mercados relevantes?
 
-    3. ¿Cómo evolucionan el margen de intereses, los saldos y el coste de depósitos,
-    la retención de clientes y la sensibilidad a cambios de tipos?
+    3. ¿Qué segmentos explican el crecimiento de ingresos y beneficio neto, y cuánto
+    de esa contribución parece recurrente?
 
-    4. ¿Cuáles son los niveles y tendencias de capital regulatorio, calidad de activos,
-    morosidad, reservas y pérdidas crediticias?
+    4. ¿Cómo se definen y calculan el crecimiento de ingresos, el margen operativo
+    y el ROIC de AOIF, y a qué períodos corresponden?
 
-    5. ¿Qué necesidades de reinversión y distribución de capital tiene el banco, y
-    cómo se evalúan respecto de sus retornos?
+    5. ¿Cuál es la definición de FCF utilizada por StockAnalysis para JPM y qué utilidad
+    tiene frente a medidas más apropiadas para bancos?
 
-    6. ¿Qué supuestos de beneficios, capital y horizonte sustentan el consenso de
-    analistas observado el 2026-11-20?
+    6. ¿Cuál es la moneda, composición y clasificación de la deuda reportada, y cómo
+    se relaciona con depósitos, financiación mayorista y balance?
 
-    7. ¿Cuál es la composición del board, el grado de independencia, el esquema de
-    incentivos ejecutivos y el insider ownership?
+    7. ¿Cómo evolucionan morosidad, pérdidas crediticias, reservas y capital regulatorio
+    por segmento y en distintos escenarios macroeconómicos?
 
-    8. ¿Qué elementos de la tesis de asignación de capital y de la ventaja competitiva
-    pueden comprobarse con resultados y datos históricos?
+    8. ¿Cuál es la sensibilidad del margen financiero a distintos escenarios de tipos
+    de interés?
 
-    9. ¿Qué períodos y definiciones respaldan la serie de ingresos y beneficios positivos,
-    y cómo se reconcilian con los estados financieros reportados?
+    9. ¿Qué evidencia cuantitativa respalda las evaluaciones de AOIF sobre moat, liderazgo
+    competitivo y asignación de capital?
 
-    10. ¿Qué efecto tienen la competencia y los cambios regulatorios sobre la franquicia,
-    en comparación con entidades como [[C]], [[HSBC]] e [[ING]]?
+    10. ¿Qué métricas de valoración bancaria —incluidos beneficios normalizados, valor
+    contable tangible, costo de capital y retornos sobre capital— son apropiadas para
+    estimar el valor intrínseco?
+
+    11. ¿Cuáles son la propiedad accionaria de insiders, los incentivos de la dirección
+    y la composición e independencia del consejo?
+
+    12. ¿Cuándo se publicarán los próximos resultados y el desglose actualizado por
+    segmentos?
 
 
-    **Estado de investigación:** evidencia insuficiente para una conclusión de valoración
-    o recomendación. El score de descubrimiento de 74,41 y la clasificación «MULTIBAGGERS»
-    mencionados en el paquete no equivalen a una conclusión de inversión. AOIF indica
-    «PENDIENTE_DECISION_BOARD»; el DDD clasifica el caso como «RESEARCH_REQUIRED».
+    **Estado de investigación:** se requiere trabajo adicional; la evidencia actual
+    es insuficiente para validar una tesis de multibagger, cuantificar valor intrínseco
+    o concluir que la cotización está mal valorada.
 
 
     ---
@@ -600,10 +622,15 @@ research_input_snapshot:
     - **Same Sector**: [[AEG|Aegon Ltd.]], [[AIG|American International Group, Inc.]],
     [[AXP|American Express Company]], [[BSBR|Banco Santander (Brasil) S.A.]], [[BX|Blackstone
     Inc.]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[IBN|ICICI Bank Limited]],
-    [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]]
+    [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[KB|KB Financial
+    Group Inc.]], [[LYG|Lloyds Banking Group plc]], [[MA|Mastercard Incorporated]],
+    [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]],
+    [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global
+    Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[XP|XP Inc.]]
 
     - **Same Industry**: [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[ING|ING
-    Groep N.V.]]'
+    Groep N.V.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[SAN|Banco Santander,
+    S.A.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "cash_and_investments_history":
@@ -635,7 +662,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-21T19:25:33.380174+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-22T11:52:39.230094+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -780,12 +807,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    425.0, "low": 312.0, "mean": 373.48, "median": 373.48, "observed_at": "2026-11-21T16:25:36.274866-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
-    "2026-11-21T16:25:36.274866-03:00", "observed_date": "2026-11-21", "target_price":
+    425.0, "low": 312.0, "mean": 373.48, "median": 373.48, "observed_at": "2026-11-22T08:52:42.457406-03:00",
+    "sources": [{"as_of_date": "2026-11-22", "name": "stockanalysis", "observed_at":
+    "2026-11-22T08:52:42.457406-03:00", "observed_date": "2026-11-22", "target_price":
     373.48, "url": "https://stockanalysis.com/stocks/jpm/forecast/"}, {"as_of_date":
-    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T16:25:36.274866-03:00",
-    "observed_date": "2026-11-21", "target_price": 373.47827, "url": "https://finance.yahoo.com/quote/JPM/"}]},
+    "2026-11-22", "name": "yfinance", "observed_at": "2026-11-22T08:52:42.457406-03:00",
+    "observed_date": "2026-11-22", "target_price": 373.47827, "url": "https://finance.yahoo.com/quote/JPM/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 337.0400085449219,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/JPM/"}]}}'
   sector: Financial Services
@@ -795,60 +822,33 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: a4f73bb0a26d4c0156d814de0b99cda3d2606e0eb36929c3e82c201197ad2fef
+    sha256: 26846859639ae2e189e74c0b6a543b6cd05ff5bdcc001cac394f8c1964cb4352
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-21T16:26:03.111771-03:00'
+  triggered_at: '2026-11-22T08:53:07.391820-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: 'No evaluable: el campo reporta 0 en StockAnalysis, pero no se proporcionan
-    activos corrientes y pasivos corrientes ni validación de esa cifra para una entidad
-    bancaria.'
-  period_end: '2026-09-30'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/JPM/statistics/
-  threshold: below 0.5
+  observation: La fuente reporta 0 para el período terminado 2026-09-30, pero el paquete
+    no proporciona activos corrientes y pasivos corrientes compatibles para validar
+    el ratio; requiere revisión y cautela en un banco.
+  source: https://stockanalysis.com/stocks/JPM/statistics/
+  threshold: below 0.5x
 - metric: dilution_yoy_pct
-  observation: 'No evaluable: falta una serie comparable de acciones diluidas.'
-  period_end: '2026-09-30'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/JPM/statistics/
-  threshold: above 10 percent
+  observation: 'No evaluable: falta una serie de acciones comparable.'
+  source: https://stockanalysis.com/stocks/JPM/statistics/
+  threshold: above 10%
 - metric: interest_coverage
-  observation: 'No evaluable: EBIT e interest coverage no están disponibles como valores
-    válidos en la fuente; no se sustituye EBIT por EBITDA.'
-  period_end: '2026-09-30'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/JPM/statistics/
+  observation: 'No evaluable: EBIT figura como n/a y no se aporta un gasto por intereses
+    compatible.'
+  source: https://stockanalysis.com/stocks/JPM/statistics/
   threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: 'No evaluable: aunque se reporta FCF TTM negativo, no hay un burn mensual
-    comparable ni un campo de efectivo y equivalentes utilizable para calcular runway.'
-  period_end: '2026-09-30'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/jpm/financials/
-  threshold: below 12 months
 - metric: net_debt_ebitda
-  observation: 'No evaluable: EBITDA está reportado como n/a.'
-  period_end: '2026-09-30'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/JPM/statistics/
+  observation: 'No evaluable: EBITDA figura como n/a; no convertir la observación
+    en decisión de inversión.'
+  source: https://stockanalysis.com/stocks/JPM/statistics/
   threshold: above 4.0x
-- metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: no se proporciona historial de acciones para el cálculo
-    de CAGR de tres años.'
-  period_end: '2026-09-30'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/JPM/statistics/
-  threshold: above 5 percent
 scenario_analysis: null
 scenario_validation:
   errors:
@@ -857,7 +857,7 @@ scenario_validation:
 score_general: 58
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T16:25:36.274866-03:00'
+  calculado_at: '2026-11-22T08:52:42.457406-03:00'
   fuentes:
     stockanalysis: 373.48
     yfinance: 373.47827
@@ -865,25 +865,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 373.48
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-22'
     name: stockanalysis
-    observed_at: '2026-11-21T16:25:36.274866-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-22T08:52:42.457406-03:00'
+    observed_date: '2026-11-22'
     target_price: 373.48
     url: https://stockanalysis.com/stocks/jpm/forecast/
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-22'
     name: yfinance
-    observed_at: '2026-11-21T16:25:36.274866-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-22T08:52:42.457406-03:00'
+    observed_date: '2026-11-22'
     target_price: 373.47827
     url: https://finance.yahoo.com/quote/JPM/
   target_high: 425.0
   target_low: 312.0
-tesis_inversion: JPMorgan Chase opera en banca de consumo y comunitaria, banca comercial
-  y de inversión, y gestión de activos y patrimonios. El paquete muestra crecimiento
-  de ingresos y beneficio neto entre los ejercicios fiscales 2022 y 2025, pero no
-  aporta datos suficientes para validar la sostenibilidad del crecimiento, la reinversión,
-  los retornos sobre capital ni una ventaja competitiva duradera; por ello, la tesis
-  de crecimiento de largo plazo permanece abierta.
+tesis_inversion: JPMorgan Chase & Co. combina banca de consumo y comunitaria, banca
+  comercial y de inversión, y gestión de activos y patrimonio, según la descripción
+  del modelo de negocio del resumen financiero. La evidencia disponible muestra crecimiento
+  de ingresos entre FY2022 y FY2025, pero no permite demostrar que la reinversión
+  produzca retornos incrementales atractivos ni que exista una ventaja competitiva
+  sostenible; la tesis queda pendiente de validación.
 ticker: JPM
 version: '3.0'

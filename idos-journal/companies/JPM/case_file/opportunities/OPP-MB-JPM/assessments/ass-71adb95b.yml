@@ -1,0 +1,30 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida; encaje multibagger no demostrado
+  con la evidencia disponible'
+- 'Market error: No validado: el rango de analistas es evidencia de expectativas de
+  mercado, no una estimación intrínseca.'
+- 'Thesis: JPMorgan Chase & Co. combina banca de consumo y comunitaria, banca comercial
+  y de inversión, y gestión de activos y patrimonio, según la descripción del modelo
+  de negocio del resumen financiero. La ev'
+generated_at: '2026-11-22T08:54:29.605302-03:00'
+id: ass-71adb95b
+recommendation: REVIEW
+risks:
+- fuente: StockAnalysis, financials, período TTM terminado 2026-09-30.
+  riesgo: El FCF reportado es negativo en TTM al 2026-09-30, pero su interpretación
+    y comparabilidad como medida de liquidez para un banco son limitadas.
+- fuente: StockAnalysis, financials, FY2025 y período terminado 2026-09-30.
+  riesgo: La deuda total reportada subió de 1.025.995 en FY2025 a 1.335.692 al 2026-09-30;
+    el paquete no especifica moneda ni permite evaluar por sí solo su significado
+    económico para un banco.
+- fuente: Evidencia financiera por campo del paquete, período terminado 2026-09-30.
+  riesgo: No hay historial de acciones diluidas ni acciones en circulación para calcular
+    dilución o CAGR de acciones.
+- fuente: Resumen financiero y evidencia financiera por campo del paquete.
+  riesgo: La descripción disponible no aporta datos para medir erosión de márgenes,
+    calidad crediticia, concentración de depósitos o exposición regulatoria.
+score: 58
+status: COMPLETED
+version: '3.0'

@@ -1,0 +1,533 @@
+calidad_evidencia:
+  hechos_verificados: 12
+  inferencias_llm: 6
+  preguntas_abiertas: 2
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Growth
+  justificacion: Ingresos modestos con CAGR de 1.2% y fuerte generación de flujo de
+    caja libre (74% de conversión) respaldan potencial de expansión, aunque la alta
+    volatilidad y riesgos regulatorios limitan la calificación.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Liquidez robusta (current ratio 2.08) y posición neta de efectivo, pero
+    cobertura de intereses nula (0x) y crecimiento de ingresos limitado.
+  rating: Medium
+dominio_catalizadores:
+- catalizador: Expansión internacional
+  detalle: Apertura a nuevos mercados fuera de Asia podría impulsar ingresos.
+- catalizador: Mejora de monetización
+  detalle: Incremento en ingresos por publicidad y compras dentro de la app.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- detalle: Posibles restricciones en China sobre contenido de streaming que afectarían
+    Bigo Live.
+  risk: Regulatorio
+- detalle: Presión de plataformas internacionales y locales que pueden erosionar la
+    cuota de mercado.
+  risk: Competencia
+- detalle: Volatilidad 90‑d de 24% indica sensibilidad a cambios macro y sentimentales.
+  risk: Volatilidad de mercado
+error_mercado:
+  catalizador_cambio: Una restricción regulatoria en China sobre plataformas de streaming
+    en vivo podría reducir ingresos y desplazar el precio hacia el extremo bajo del
+    consenso.
+  conclusion_error_valoracion: Existe una brecha entre la valoración de mercado y
+    el potencial de generación de efectivo, lo que sugiere una posible sobrevaloración
+    bajo escenarios de deterioro regulatorio.
+  consenso_actual:
+    currency: USD
+    high: 125.0
+    low: 74.0
+    mean: 94.26
+    source:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/joyy/forecast/
+    - as_of_date: '2026-11-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/JOYY/
+  hipotesis_contraria: El precio actual de $80.32 refleja una valoración conservadora
+    frente al rango superior del consenso, indicando posible sobrevaloración si el
+    crecimiento de usuarios se desacelera.
+  razonamiento: El consenso alto (125) asume expansión continua, pero la evidencia
+    de crecimiento de ingresos limitado y riesgos regulatorios hacen plausible que
+    el mercado esté sobrevalorando la acción.
+generated_at: '2026-11-22T08:51:18.874176-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-JOYY
+prompt_inputs:
+  business_model: JOYY Inc., together with its subsidiaries, engages in the provision
+    of social product matrix and communication technology. It operates through two
+    segments, BIGO and All Other. The company operates Bigo Live, a social live streaming
+    platform that provides an interactive online stage for users to host and watch
+    live streaming sessions, share their life moments, showcase their talents, and
+    interact with people; imo, an instant messenger platform that provides audio and
+    video communication services; and Likee, a short video social platform, which
+    enables users to discover, create, and share short videos, with video creation
+    tools and personalized feeds. It also provides Hago, a social networking platform
+    that offers casual games integrating social features, such as audio and video
+    multi-user chatrooms and 3D virtual interactive party games; Bigo Ads, an AI-powered
+    programmatic advertising platform, which provides one-stop marketing and monetization
+    solutions; and Shopline, a smart commerce platform that provides solutions and
+    services to enable merchants in creating and growing their brands online and reach
+    customers through various sales channels, including e-commerce platforms, social
+    commerce, and physical retail stores. The company operates in North America, Europe,
+    the Middle East, Southeast Asia, and internationally. The company was formerly
+    known as YY Inc. and changed its name to JOYY Inc. in December 2019. JOYY Inc.
+    was founded in 2005 and is headquartered in Singapore.
+  ceo_tenure: 0
+  debt_to_equity: 0.01
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: JOYY Inc.
+  operating_margin: 2.6
+  pe_ratio: 17.24
+  products: ''
+  revenue: 2350000000.0
+  revenue_growth: 12.48
+  roic: 1.18
+  sector: Communication Services
+  ticker: JOYY
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-22'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/JOYY/statistics/
+  - as_of_date: '2026-11-22'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/joyy/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs:
+    FCF_FY_2024: 224.94
+    FCF_FY_2025: 159.21
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2025-12-31'
+  sources:
+  - as_of_date: '2026-11-22'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/joyy/financials/
+  status: reported
+  unit: percent
+  value: -29.22
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-22'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/JOYY/statistics/
+  - as_of_date: '2026-11-22'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/joyy/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-22'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/joyy/financials/
+  - as_of_date: '2026-11-22'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/JOYY/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (Diluted_Shares_t / Diluted_Shares_t-1) - 1
+  inputs: {}
+  limitations: Falta historial de acciones diluidas; no se dispone de datos de shares_outstanding
+    históricos.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-22'
+  business_model: JOYY Inc., together with its subsidiaries, engages in the provision
+    of social product matrix and communication technology. It operates through two
+    segments, BIGO and All Other. The company operates Bigo Live, a social live streaming
+    platform that provides an interactive online stage for users to host and watch
+    live streaming sessions, share their life moments, showcase their talents, and
+    interact with people; imo, an instant messenger platform that provides audio and
+    video communication services; and Likee, a short video social platform, which
+    enables users to discover, create, and share short videos, with video creation
+    tools and personalized feeds. It also provides Hago, a social networking platform
+    that offers casual games integrating social features, such as audio and video
+    multi-user chatrooms and 3D virtual interactive party games; Bigo Ads, an AI-powered
+    programmatic advertising platform, which provides one-stop marketing and monetization
+    solutions; and Shopline, a smart commerce platform that provides solutions and
+    services to enable merchants in creating and growing their brands online and reach
+    customers through various sales channels, including e-commerce platforms, social
+    commerce, and physical retail stores. The company operates in North America, Europe,
+    the Middle East, Southeast Asia, and internationally. The company was formerly
+    known as YY Inc. and changed its name to JOYY Inc. in December 2019. JOYY Inc.
+    was founded in 2005 and is headquartered in Singapore.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 80.31999969482422
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.01
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-22T11:51:02.506117+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: JOYY Inc.
+  operating_margin: 2.6
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: JOYY Inc., together with its subsidiaries, engages in the provision
+    of social product matrix and communication technology. It operates through two
+    segments, BIGO and All Other. The company operates Bigo Live, a social live streaming
+    platform that provides an interactive online stage for users to host and watch
+    live streaming sessions, share their life moments, showcase their talents, and
+    interact with people; imo, an instant messenger platform that provides audio and
+    video communication services
+  revenue: 2350000000.0
+  revenue_growth: 12.48
+  roic: 1.18
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/joyy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JOYY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JOYY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JOYY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JOYY/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/joyy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/joyy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/joyy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JOYY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/joyy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JOYY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/joyy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/joyy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/joyy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JOYY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/JOYY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/joyy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    125.0, "low": 74.0, "mean": 94.26, "median": 94.26, "observed_at": "2026-11-22T08:51:06.483290-03:00",
+    "sources": [{"as_of_date": "2026-11-22", "name": "stockanalysis", "observed_at":
+    "2026-11-22T08:51:06.483290-03:00", "observed_date": "2026-11-22", "target_price":
+    94.26, "url": "https://stockanalysis.com/stocks/joyy/forecast/"}, {"as_of_date":
+    "2026-11-22", "name": "yfinance", "observed_at": "2026-11-22T08:51:06.483290-03:00",
+    "observed_date": "2026-11-22", "target_price": 94.26429, "url": "https://finance.yahoo.com/quote/JOYY/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 80.31999969482422,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/JOYY/"}]}}'
+  sector: Communication Services
+  ticker: JOYY
+research_trigger:
+  discovery_snapshot_hash: c6b5171c4f12f402e607147a16f997f3744f8176d6d8626e2a055afd55c06577
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: c050d94c501e9149483f94c65fd43dd7947d64f523df41c5e9f82d1d418228e7
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-22T08:51:18.874176-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- Interest coverage below threshold (0 < 2.0)
+scenario_analysis:
+  as_of_date: '2026-11-22'
+  currency: USD
+  horizon_date: '2027-10-30'
+  scenarios:
+  - falsifiers:
+    - Anuncio de expansión regulatoria favorable
+    - Crecimiento de ingresos superior al 5% anual
+    id: BEAR
+    key_assumptions:
+    - Regulaciones restrictivas en China
+    - Crecimiento de ingresos <0% anual
+    - Mantenimiento de alta volatilidad
+    rationale: Impacto negativo de regulaciones chinas y desaceleración del crecimiento
+      de usuarios lleva el precio al extremo bajo del consenso.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/joyy/forecast/
+    - as_of_date: '2026-11-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/JOYY/
+    target_price: 74.0
+  - falsifiers:
+    - Caída abrupta del FCF
+    - Incremento sustancial de deuda neta
+    id: BASE
+    key_assumptions:
+    - CAGR de ingresos ~1.2%
+    - FCF conversion ~74%
+    - Sin cambios regulatorios significativos
+    rationale: Escenario medio basado en el consenso promedio, asumiendo crecimiento
+      estable de ingresos y ausencia de eventos regulatorios mayores.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/joyy/forecast/
+    - as_of_date: '2026-11-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/JOYY/
+    target_price: 94.26
+  - falsifiers:
+    - Regulación restrictiva inesperada
+    - Pérdida de usuarios clave
+    id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos >5% anual
+    - Margen bruto >38%
+    - Mantención de cobertura de intereses positiva
+    rationale: Supuestos de expansión internacional exitosa y mejora de monetización
+      que impulsan ingresos y margen, superando el rango alto del consenso.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/joyy/forecast/
+    - as_of_date: '2026-11-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/JOYY/
+    target_price: 125.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-22T08:51:06.483290-03:00'
+  fuentes:
+    stockanalysis: 94.26
+    yfinance: 94.26429
+  mediana: 94.26
+  n_fuentes: 2
+  promedio: 94.26
+  source_references:
+  - as_of_date: '2026-11-22'
+    name: stockanalysis
+    observed_at: '2026-11-22T08:51:06.483290-03:00'
+    observed_date: '2026-11-22'
+    target_price: 94.26
+    url: https://stockanalysis.com/stocks/joyy/forecast/
+  - as_of_date: '2026-11-22'
+    name: yfinance
+    observed_at: '2026-11-22T08:51:06.483290-03:00'
+    observed_date: '2026-11-22'
+    target_price: 94.26429
+    url: https://finance.yahoo.com/quote/JOYY/
+  target_high: 125.0
+  target_low: 74.0
+tesis_inversion: JOYY combina un sólido flujo de caja libre con una posición de efectivo
+  neto, pero su crecimiento de ingresos es bajo y enfrenta riesgos regulatorios que
+  podrían limitar la valoración futura.
+ticker: JOYY
+version: '3.0'
