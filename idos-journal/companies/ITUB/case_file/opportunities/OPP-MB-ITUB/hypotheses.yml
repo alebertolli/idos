@@ -1,128 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento anual del portafolio digital sea ≤ 8% al cierre de 2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El valor total del portafolio digital sea ≤ USD 27 mil millones al
-      31-12-2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El crecimiento anual del portafolio digital sea ≤ 8% al cierre de 2027.
-  - El valor total del portafolio digital sea ≤ USD 27 mil millones al 31-12-2027.
-  horizon: medio
-  id: H1-OPP-MB-ITUB
-  opportunity_id: OPP-MB-ITUB
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-12-31'
-    expected: 12.0
-    met: null
-    metric: Crecimiento del portafolio digital
-    prediction: El valor total del portafolio de préstamos digitales superará los
-      USD 30 mil millones al 31 de diciembre de 2027.
-    unit: '%'
-  priority: critical
-  probability: 0.5
-  rationale: ITUB ha invertido significativamente en canales digitales y ha lanzado
-    nuevos productos de crédito online, lo que ha aumentado la captación de clientes
-    jóvenes y la eficiencia de costos, evidenciado por un crecimiento del 8% en el
-    Q4 2026.
-  review_trigger: Si el reporte financiero del Q3 2027 muestra una caída del 5% o
-    más en la cartera digital respecto al Q2 2027.
-  secondary_hypotheses: []
-  statement: El portafolio de préstamos digitales de ITUB crecerá a una tasa anual
-    compuesta superior al 12% durante 2027.
-  status: ACTIVE
-  ticker: ITUB
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: LCR < 110% en el reporte de junio 2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Reducción del nivel de activos líquidos de alta calidad en más del
-      5% respecto a diciembre 2026.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - LCR < 110% en el reporte de junio 2027.
-  - Reducción del nivel de activos líquidos de alta calidad en más del 5% respecto
-    a diciembre 2026.
-  horizon: corto
-  id: H2-OPP-MB-ITUB
-  opportunity_id: OPP-MB-ITUB
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-06-30'
-    expected: 115.0
-    met: null
-    metric: Liquidity Coverage Ratio
-    prediction: El LCR reportado en el informe de gestión de junio 2027 será ≥ 115%.
-    unit: '%'
-  priority: important
-  probability: 0.5
-  rationale: La política de gestión de liquidez del banco ha reforzado los activos
-    de alta calidad y reducido pasivos a corto plazo tras la reciente volatilidad
-    del mercado, como lo indica el LCR de 112% en diciembre 2026 y la compra de bonos
-    soberanos de alta calificación.
-  review_trigger: Si el Banco Central de Brasil publica una normativa que eleve el
-    requisito mínimo de LCR a 120% antes del 30-06-2027.
-  secondary_hypotheses: []
-  statement: El Liquidity Coverage Ratio (LCR) de ITUB se mantendrá por encima del
-    115% al cierre del primer semestre de 2027.
-  status: ACTIVE
-  ticker: ITUB
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: Precio de cierre > USD 9.0 el 30-09-2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El P/E del banco se mantiene > 1.1× el promedio sectorial al cierre
-      del tercer trimestre 2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Precio de cierre > USD 9.0 el 30-09-2027.
-  - El P/E del banco se mantiene > 1.1× el promedio sectorial al cierre del tercer
-    trimestre 2027.
-  horizon: corto
-  id: H3-OPP-MB-ITUB
-  opportunity_id: OPP-MB-ITUB
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-09-30'
-    expected: 8.5
-    met: null
-    metric: Precio objetivo
-    prediction: El precio de cierre de la acción será ≤ USD 8.5 el 30-09-2027.
-    unit: USD
-  priority: important
-  probability: 0.5
-  rationale: El precio actual (USD 9.44) supera el promedio de consenso (USD 8.80)
-    y el múltiplo P/E está 15% por encima del sector; además, la expectativa de mayores
-    costos de cobertura de intereses y riesgos de liquidez generan presión bajista.
-  review_trigger: Si el banco anuncia una recompra de acciones de al menos USD 500
-    millones antes del 30-09-2027, impulsando el precio por encima de USD 9.0.
-  secondary_hypotheses: []
-  statement: El precio de la acción de ITUB caerá al menos un 10% y se situará por
-    debajo de USD 8.5 antes del 30 de septiembre de 2027.
-  status: ACTIVE
-  ticker: ITUB
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: Interest Coverage Ratio ≥ 3.5x en el reporte de diciembre 2027.
     metric: ''
     threshold: 0.0
@@ -159,6 +37,161 @@ hypotheses:
   - H2-OPP-MB-ITUB
   statement: La cobertura de intereses (Interest Coverage Ratio) de ITUB caerá por
     debajo de 3.0x en el reporte financiero de diciembre 2027.
+  status: ACTIVE
+  ticker: ITUB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual nominal de la cartera de crédito total al
+      2027-12-31 es inferior al 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La razón de préstamos vencidos por más de 90 días supera en más de
+      0,3 puntos porcentuales su nivel en el último reporte disponible al 2026-11-22.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual nominal de la cartera de crédito total al 2027-12-31
+    es inferior al 8%.
+  - La razón de préstamos vencidos por más de 90 días supera en más de 0,3 puntos
+    porcentuales su nivel en el último reporte disponible al 2026-11-22.
+  horizon: medio
+  id: H1-OPP-MB-ITUB
+  opportunity_id: OPP-MB-ITUB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual nominal de la cartera de crédito total
+    prediction: Al 2027-12-31, la cartera de crédito total crecerá al menos un 8%
+      interanual en términos nominales y la razón de préstamos vencidos por más de
+      90 días no superará en más de 0,3 puntos porcentuales el nivel del último reporte
+      disponible al 2026-11-22.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La actividad minorista, mayorista y de mercado ofrece vías para ampliar
+    el crédito, pero la información disponible no identifica el origen del crecimiento
+    histórico ni permite confirmar su rentabilidad. La hipótesis se apoya en que una
+    expansión sostenible debería reflejarse simultáneamente en crecimiento de la cartera
+    y morosidad controlada.
+  review_trigger: Dejar de creerla si dos reportes trimestrales consecutivos publicados
+    antes del 2027-12-31 muestran morosidad por más de 90 días superior en más de
+    0,3 puntos porcentuales al nivel de referencia, o si el crecimiento de la cartera
+    cae por debajo del 8% interanual en el reporte anual de 2027.
+  secondary_hypotheses: []
+  statement: Itaú podrá expandir su cartera de crédito sin deteriorar materialmente
+    la calidad de los activos.
+  status: ACTIVE
+  ticker: ITUB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad sobre el patrimonio recurrente promedio de FY 2027
+      es inferior al 18%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La entidad deja de divulgar una medida recurrente comparable y la rentabilidad
+      sobre el patrimonio reportada, calculada de forma consistente con el último
+      dato disponible al 2026-11-22, queda por debajo del 18%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad sobre el patrimonio recurrente promedio de FY 2027 es inferior
+    al 18%.
+  - La entidad deja de divulgar una medida recurrente comparable y la rentabilidad
+    sobre el patrimonio reportada, calculada de forma consistente con el último dato
+    disponible al 2026-11-22, queda por debajo del 18%.
+  horizon: medio
+  id: H2-OPP-MB-ITUB
+  opportunity_id: OPP-MB-ITUB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 18.0
+    met: null
+    metric: Rentabilidad sobre el patrimonio recurrente promedio de FY 2027
+    prediction: La rentabilidad sobre el patrimonio recurrente promedio para FY 2027
+      será de al menos el 18%, calculada con la definición divulgada por Itaú y sobre
+      los cuatro trimestres de 2027.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El aumento de ingresos entre FY 2022 y FY 2025, por sí solo, no demuestra
+    creación de valor ni permite atribuir el resultado a volúmenes, precios o retornos
+    sobre capital. Una rentabilidad sobre el patrimonio consistente sería evidencia
+    observable de que el crecimiento y la actividad financiera se traducen en resultados
+    para los accionistas.
+  review_trigger: Dejar de creerla cuando el informe anual de FY 2027 muestre una
+    rentabilidad sobre el patrimonio recurrente inferior al 18%, o antes si dos reportes
+    trimestrales consecutivos publicados en 2027 informan una rentabilidad recurrente
+    inferior al 16%.
+  secondary_hypotheses:
+  - H1-OPP-MB-ITUB
+  statement: Itaú mantendrá una rentabilidad sobre el patrimonio elevada durante el
+    ejercicio 2027, en vez de sacrificar rentabilidad para sostener el crecimiento.
+  status: ACTIVE
+  ticker: ITUB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ITUB en dólares estadounidenses no supera
+      en al menos 5 puntos porcentuales la del MSCI Brazil Financials Index en el
+      período definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El índice de referencia deja de estar disponible o no permite calcular
+      una rentabilidad total comparable en dólares; en ese caso, la hipótesis no se
+      considera confirmada.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ITUB en dólares estadounidenses no supera en al menos
+    5 puntos porcentuales la del MSCI Brazil Financials Index en el período definido.
+  - El índice de referencia deja de estar disponible o no permite calcular una rentabilidad
+    total comparable en dólares; en ese caso, la hipótesis no se considera confirmada.
+  horizon: medio
+  id: H3-OPP-MB-ITUB
+  opportunity_id: OPP-MB-ITUB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-22'
+    expected: 5.0
+    met: null
+    metric: Exceso de rentabilidad total de ITUB frente al MSCI Brazil Financials
+      Index
+    prediction: Entre el cierre del 2026-11-22 y el cierre del 2027-11-22, la rentabilidad
+      total de ITUB en dólares estadounidenses, incluidos dividendos, superará en
+      al menos 5 puntos porcentuales la rentabilidad total en dólares estadounidenses
+      del MSCI Brazil Financials Index.
+    unit: puntos porcentuales mínimos en dólares estadounidenses
+  priority: important
+  probability: 0.5
+  rationale: La información disponible no incluye estimaciones de analistas, expectativas
+    incorporadas en el precio ni datos para juzgar la valoración relativa. Por ello,
+    la hipótesis es una predicción de mercado que deberá evaluarse contra un índice
+    sectorial definido de antemano, no una afirmación de que la acción está barata.
+    La rentabilidad y la calidad de activos de H1 y H2 serían posibles catalizadores,
+    pero no garantizan la revalorización.
+  review_trigger: Abandonar la hipótesis si, al cierre del 2027-05-22, ITUB acumula
+    una rentabilidad total en dólares al menos 10 puntos porcentuales inferior a la
+    del índice de referencia y los resultados publicados no muestran mejora en rentabilidad
+    o calidad de activos; evaluar definitivamente el 2027-11-22.
+  secondary_hypotheses:
+  - H1-OPP-MB-ITUB
+  - H2-OPP-MB-ITUB
+  statement: La acción ITUB generará una rentabilidad total superior a la del sector
+    financiero brasileño durante los próximos doce meses.
   status: ACTIVE
   ticker: ITUB
   version: 1

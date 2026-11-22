@@ -1,107 +1,69 @@
 calidad_evidencia:
-  hechos_verificados: []
-  inferencias_llm:
-  - La combinación de pérdida neta TTM, menor margen bruto y FCF decreciente eleva
-    la necesidad de comprobar una recuperación operativa antes de sostener una tesis
-    de crecimiento.
-  - El paquete no permite afirmar que el mercado esté subestimando o sobrestimando
-    el valor intrínseco.
-  - La cotización fue USD 31,22 al 2026-10-30; momentum a 12 meses de 15,7153% y volatilidad
-    a 90 días de 37,5753%, según Yahoo Finance para los períodos indicados en el paquete.
-  - Al 2026-09-30, el FCF TTM reportado fue USD 311,94 millones y el beneficio neto
-    TTM fue -USD 131,96 millones.
-  - El consenso observado de objetivo de precio fue USD 31,50; rango observado USD
-    19,00–40,00, con fecha de observación 2026-11-21.
-  preguntas_abiertas:
-  - ¿Qué explica la caída de ingresos y margen bruto, y qué parte es temporal frente
-    a estructural?
-  - ¿Cuáles son los retornos incrementales sobre capital, la inversión de mantenimiento
-    y el destino del capital?
-  - ¿Cuál es el mercado direccionable, la penetración por categoría y la evolución
-    de la posición competitiva?
-  - ¿Qué expectativas de ingresos, márgenes y beneficios están incorporadas en el
-    consenso?
-catalizadores_previos: &id001 []
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-21T15:55:53.421676-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-HOG
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-21T15:55:53.421676-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-HOG
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
-    de crecimiento compuesto
-  justificacion: La evidencia disponible muestra contracción de ingresos, pérdida
-    neta TTM y menor flujo de caja libre, aunque la cotización registró momentum positivo
-    a 12 meses. El paquete no aporta datos suficientes para medir reinversión, retornos
-    sobre capital, mercado direccionable o penetración.
+  categoria: Desafiante
+  justificacion: Evidencia de alta volatilidad (37.6% 90d) y deterioro de métricas
+    clave como margen bruto y crecimiento de ingresos.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El paquete identifica tres segmentos y varias categorías de motocicletas,
-    pero no ofrece evidencia cuantitativa para evaluar ventaja competitiva, retención,
-    poder de precios, reinversión o retornos sobre capital. La contracción de ingresos,
-    el margen bruto menor y la pérdida neta TTM son señales adversas; no bastan por
-    sí solas para establecer una tendencia estructural.
-  rating: No concluyente; señales financieras recientes débiles
+  analisis: Modelo de negocio diversificado pero altamente cíclico; margen bruto en
+    descenso y rentabilidad operativa negativa.
+  rating: Media
 dominio_catalizadores:
-- observacion: La recuperación sostenida de ingresos y margen bruto sería evidencia
-    relevante de estabilización; el paquete no aporta guía ni fechas de hitos corporativos.
-  tipo: hito a monitorear
-- fuente:
-    name: Stock Analysis
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/hog/financials/
-  observacion: La mejora del FCF frente a su caída de 20,39% reportada para TTM al
-    2026-09-30 sería una señal operativa relevante, pero no hay desglose de sus impulsores.
-  tipo: hito a monitorear
+- descripcion: Crecimiento de ventas LiveWire y expansión internacional.
+  impacto: Positivo
+- descripcion: Mejora del margen bruto mediante reducción de costos.
+  impacto: Positivo
+- descripcion: Reestructuración de deuda o emisión de capital.
+  impacto: Positivo
+- descripcion: Recuperación del gasto de consumo discrecional en EE.UU.
+  impacto: Positivo
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente:
-    name: Stock Analysis
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/hog/financials/
-  observacion: Los ingresos bajaron de USD 5.836 millones en FY 2023 a USD 3.982 millones
-    TTM al 2026-09-30; los períodos no son comparables como serie anual completa.
-  tipo: hecho
-- fuente:
-    name: Stock Analysis
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/hog/financials/
-  observacion: El beneficio neto TTM fue -USD 131,96 millones al 2026-09-30, frente
-    a USD 338,74 millones en FY 2025.
-  tipo: hecho
-- fuente:
-    name: Stock Analysis
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/hog/financials/
-  observacion: El margen bruto TTM fue 19,68% al 2026-09-30, frente a 29,84% en FY
-    2025; el paquete no explica las causas.
-  tipo: hecho
-- fuente:
-    name: Resumen financiero de contexto
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/HOG/statistics/
-  observacion: La mezcla de negocio incluye servicios financieros y motocicletas;
-    sin datos segmentarios suficientes no puede aislarse el riesgo crediticio ni el
-    desempeño de cada segmento.
-  tipo: pregunta abierta
+- descripcion: Cobertura de intereses insuficiente (0x).
+  impacto: Alto
+- descripcion: Elevado apalancamiento neto/EBITDA (≈467x).
+  impacto: Alto
+- descripcion: Crecimiento negativo de flujo de caja libre (-20.4%).
+  impacto: Medio
+- descripcion: Volatilidad de precio 90d >30%.
+  impacto: Medio
 error_mercado:
-  catalizador_cambio: Una mejora verificable en ingresos, márgenes y beneficio neto
-    en períodos posteriores podría cambiar la lectura; el paquete no incluye guía
-    de la compañía ni calendario de catalizadores.
-  conclusion_error_valoracion: 'No puede validarse un error de valoración: faltan
-    expectativas financieras de consenso, múltiplos comparables y un método de valoración
-    con inputs fechados.'
-  consenso_actual: 'El consenso observado de precio objetivo es USD 31,50, frente
-    a una cotización de USD 31,22 al 2026-10-30. Fuentes: Stock Analysis y Yahoo Finance,
-    observadas el 2026-11-21.'
-  hipotesis_contraria: 'La evidencia financiera disponible es más débil que lo que
-    sugeriría una tesis de crecimiento acelerado: ingresos TTM de USD 3.982 millones
-    y beneficio neto TTM de -USD 131,96 millones al 2026-09-30. Esto no prueba que
-    el mercado espere crecimiento acelerado; no hay datos de expectativas operativas
-    para contrastarlo.'
-  razonamiento: La cotización está cerca del objetivo medio observado, mientras que
-    los datos TTM muestran deterioro frente a los ejercicios fiscales recientes. La
-    evidencia no permite determinar qué parte de ese deterioro está incorporada en
-    el precio.
-generated_at: '2026-11-21T15:55:53.421676-03:00'
+  catalizador_cambio: Lanzamiento exitoso de la línea eléctrica LiveWire y mejora
+    de la rentabilidad operativa.
+  conclusion_error_valoracion: La brecha entre el precio actual (31.22 USD) y el rango
+    bajo sugiere posible sobrevaloración si persisten los problemas estructurales.
+  consenso_actual:
+    currency: USD
+    high: 40.0
+    low: 19.0
+    mean: 31.5
+    median: 31.5
+  hipotesis_contraria: El mercado subestima la capacidad de recuperación de Harley-Davidson
+    tras la caída de ingresos y la alta carga de deuda.
+  razonamiento: Los analistas mantienen un rango amplio; la evidencia de deterioro
+    financiero respalda una valoración más cercana al extremo bajo.
+generated_at: '2026-11-22T08:39:00.155080-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-HOG
@@ -137,77 +99,73 @@ prompt_inputs:
   sector: Consumer Cyclical
   ticker: HOG
 ratios_investigados:
-- formula: (revenue_t / revenue_t-3)^(1/3) - 1
-  inputs:
-    revenue_history: Hay ingresos FY 2023 y TTM al 2026-09-30, pero no una observación
-      FY comparable al 2026-09-30 tres años antes.
-  limitations: No hay ingresos reportados para períodos comparables separados exactamente
-    por tres años; no se mezcla un TTM con un ejercicio fiscal para calcular CAGR.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - as_of_date: '2026-11-22'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/HOG/statistics/
+  - as_of_date: '2026-11-22'
+    name: stockanalysis
     url: https://stockanalysis.com/stocks/hog/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: 'Valor de crecimiento de FCF reportado por la fuente; definición de referencia:
-    (FCF_t / FCF_t-1) - 1'
+- formula: Valor reportado en fcf_growth_history (TTM)
   inputs:
-    fcf_growth_history: 'TTM: -20.39%'
-  limitations: Se conserva el valor reportado por el proveedor; el paquete no expone
-    los períodos comparables exactos usados por la fuente para esta tasa TTM.
+    fcf_growth_TTM: -20.39
+  limitations: null
   metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - as_of_date: '2026-11-22'
+    name: stockanalysis
     url: https://stockanalysis.com/stocks/hog/financials/
   status: reported
   unit: percent
   value: -20.39
-- formula: FCF / net_income * 100; no significativo si net_income <= 0
+- formula: FCF / net_income * 100
   inputs:
-    fcf: 311.94 millones, TTM al 2026-09-30
-    net_income_history: -131.96 millones, TTM al 2026-09-30
-  limitations: El beneficio neto TTM es negativo; por definición la conversión de
-    FCF no es significativa y no se informa un porcentaje.
+    fcf_TTM: 311.94
+    net_income_TTM: -131.96
+  limitations: Net income es negativo; la conversión de FCF no es significativa.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - as_of_date: '2026-11-22'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/hog/financials/
+  - as_of_date: '2026-11-22'
+    name: stockanalysis
     url: https://stockanalysis.com/stocks/hog/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs:
-    cash_and_investments_history: 1.436,0, unidad monetaria reportada por la fuente,
-      al 2026-09-30
-    net_cash_history: -966,7, unidad monetaria reportada por la fuente, al 2026-09-30
-    total_debt_history: 2.403,0, unidad monetaria reportada por la fuente, al 2026-09-30
-  limitations: 'No se calcula: el EBITDA reportado en statistics no tiene unidad monetaria
-    explícita en el paquete y no puede verificarse su compatibilidad de escala con
-    deuda y efectivo.'
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - as_of_date: '2026-11-22'
+    name: stockanalysis
     url: https://stockanalysis.com/stocks/hog/financials/
-  - name: Stock Analysis
+  - as_of_date: '2026-11-22'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/hog/financials/
+  - as_of_date: '2026-11-22'
+    name: stockanalysis
     url: https://stockanalysis.com/stocks/HOG/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs:
-    shares_outstanding: 100.990.000 al 2026-09-30
-  limitations: Falta una serie de acciones diluidas o en circulación para el período
-    comparable anterior; una observación puntual no permite calcular dilución interanual.
+  inputs: {}
+  limitations: Datos de acciones diluidas no proporcionados en el paquete.
   metric: dilution_yoy_pct
-  period_end: '2026-09-30'
-  sources:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/HOG/statistics/
+  period_end: null
+  sources: []
   status: unavailable
   unit: percent
   value: null
@@ -242,7 +200,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-22'
   business_model: 'Harley-Davidson, Inc. manufactures and sells motorcycles in the
     United States and internationally. The company operates in three segments: Harley-Davidson
     Motor Company, LiveWire, and Harley-Davidson Financial Services. The Harley-Davidson
@@ -268,7 +226,335 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.79
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Harley-Davidson, Inc. ([[HOG]]) diseña, fabrica y vende motocicletas en Estados
+    Unidos y otros mercados internacionales. Su actividad también incluye productos
+    y servicios relacionados, financiación a clientes y ventas mediante concesionarios
+    independientes y canales digitales.
+
+
+    La oferta descrita en los materiales incluye motocicletas de combustión —cruiser,
+    trike, touring, standard, sportbike, adventure touring y dual sport—, así como
+    motocicletas eléctricas y bicicletas eléctricas. Los clientes incluyen compradores
+    de motocicletas nuevas y usadas, además de propietarios que adquieren repuestos,
+    accesorios, ropa y servicios.
+
+
+    La información disponible identifica tres segmentos, pero no proporciona sus nombres,
+    ingresos ni contribución a resultados. Por ello, no es posible caracterizar aquí
+    su composición financiera.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    - Volumen de motocicletas vendidas y mezcla de modelos y regiones.
+
+    - Precio medio, promociones e incentivos al consumidor.
+
+    - Demanda de repuestos, accesorios, ropa y servicios relacionados.
+
+    - Actividad de financiación a clientes, cuya contribución no está cuantificada
+    en los materiales disponibles.
+
+
+    La cadena de valor abarca diseño e ingeniería, abastecimiento y fabricación, gestión
+    de inventario y logística, y distribución mediante concesionarios y canales digitales.
+
+
+    ### Moat y posición competitiva
+
+
+    La marca, la identidad cultural, la comunidad de propietarios y la red de concesionarios
+    podrían favorecer fidelidad, poder de precios y ventas complementarias. El análisis
+    AOIF caracteriza la amplitud del moat como **estrecha** y la posición competitiva
+    como líder, pero no aporta métricas que permitan verificar retención, cuota de
+    mercado, precios relativos o rentabilidad incremental. Estas valoraciones deben
+    considerarse indicativas, no hechos cuantitativamente confirmados.
+
+
+    La compañía compite en una industria sensible al gasto discrecional, la disponibilidad
+    de crédito, las preferencias demográficas y los cambios tecnológicos y regulatorios.
+    La información disponible menciona competencia en precio, sin identificar competidores
+    directos ni comparar sus resultados. Entre las compañías relacionadas por exposición
+    a consumo discrecional, vehículos o productos de marca se encuentran [[HMC]],
+    [[GM]] y [[RACE]]; la relación no implica equivalencia de negocio.
+
+
+    ## 3. Perfil Financiero
+
+
+    Los datos financieros cuantificados proceden de Stock Analysis, según las observaciones
+    fechadas en los materiales de investigación. Los períodos fiscal anual y TTM no
+    son directamente comparables como una serie anual uniforme.
+
+
+    | Métrica | Valor | Período / fecha | Observación |
+
+    |---|---:|---|---|
+
+    | Ingresos | USD 5.836 millones | FY 2023 | Cifra reportada por Stock Analysis
+    |
+
+    | Ingresos | USD 3.982 millones | TTM al 2026-09-30 | No equivale a un ejercicio
+    fiscal completo comparable |
+
+    | Beneficio neto | USD 338,74 millones | FY 2025 | Cifra reportada por Stock Analysis
+    |
+
+    | Beneficio neto | -USD 131,96 millones | TTM al 2026-09-30 | Resultado neto negativo
+    |
+
+    | Crecimiento de FCF | -20,39% | TTM al 2026-09-30 | Tasa reportada por el proveedor;
+    el paquete no detalla los períodos exactos de comparación |
+
+    | Current ratio | 1,97x | 2026-09-30 | No cruza el umbral de riesgo de 0,5x indicado
+    en el análisis |
+
+    | Precio objetivo medio observado | USD 31,50 | Observado el 2026-11-21 | Fuentes
+    citadas: Stock Analysis y Yahoo Finance |
+
+    | Cotización | USD 31,22 | 2026-10-30 | Fecha de observación indicada en el análisis
+    |
+
+
+    El paquete también contiene valores de crecimiento de ingresos de **-14,64%**,
+    margen operativo de **-4,26%**, ROIC de **-4,14%** y EV/EBITDA de **2.056,59**.
+    AOIF advierte que no se especifican período, metodología ni fuente para esos valores;
+    deben verificarse antes de utilizarlos en conclusiones o comparaciones.
+
+
+    No se proporcionan datos suficientes para evaluar deuda neta, vencimientos, flujo
+    de caja operativo, inversión de capital, conversión de beneficios en efectivo
+    o dilución interanual. Stock Analysis no ofrecía en el paquete una cifra comparable
+    de acciones para evaluar dilución.
+
+
+    **Fuentes:** [Stock Analysis — Financials](https://stockanalysis.com/stocks/hog/financials/)
+    (datos citados al 2026-09-30); [Stock Analysis — Statistics](https://stockanalysis.com/stocks/HOG/statistics/)
+    (current ratio citado al 2026-09-30). El consenso y el precio objetivo se atribuyen
+    también a Yahoo Finance, observados el 2026-11-21; no se proporcionó un enlace
+    específico a esa observación.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación AOIF califica la calidad del management como **regular**, la asignación
+    de capital como **neutral** y el alineamiento de insiders como **moderado**. Sin
+    embargo, los materiales no incluyen resultados detallados de iniciativas estratégicas,
+    historial cuantificado de asignación de capital, remuneración ejecutiva, tenencia
+    accionarial de insiders ni información sobre la composición del board.
+
+
+    Estas valoraciones no pueden verificarse con la evidencia suministrada. No hay
+    base suficiente para concluir si los incentivos directivos están alineados con
+    la creación de valor por acción o si las decisiones de capital han generado retornos
+    atractivos.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista, sujeto a confirmación
+
+
+    - La marca Harley-Davidson, su comunidad de propietarios y su red de concesionarios
+    podrían sostener fidelidad y ventas de productos complementarios.
+
+    - Una recuperación de volumen, precios o mezcla de modelos podría contribuir a
+    estabilizar ingresos y márgenes.
+
+    - La expansión o recuperación de repuestos, accesorios, ropa, servicios y financiación
+    podría diversificar la actividad respecto de la venta inicial de motocicletas.
+    Los materiales no cuantifican esta contribución.
+
+    - La cotización observada de USD 31,22 estaba cerca del precio objetivo medio
+    de USD 31,50 citado en el paquete. Esa proximidad no valida por sí sola una oportunidad
+    de valoración: faltan los supuestos del consenso y una valoración independiente.
+
+
+    La tesis es **de investigación pendiente**, no una conclusión de crecimiento compuesto.
+    La evidencia financiera disponible muestra ingresos TTM inferiores a los ingresos
+    de FY 2023 y una pérdida neta TTM, pero las ventanas de tiempo no son plenamente
+    comparables. No se dispone de información suficiente para confirmar que la compañía
+    haya iniciado una recuperación.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Caso bajista y riesgos clave
+
+
+    - **Deterioro financiero:** ingresos de USD 3.982 millones TTM al 2026-09-30 y
+    pérdida neta de USD 131,96 millones en ese período, según Stock Analysis.
+
+    - **Flujo de caja:** el FCF reportado cayó 20,39% en TTM. El paquete no presenta
+    el desglose de sus impulsores ni los importes subyacentes.
+
+    - **Demanda discrecional:** una reducción del gasto de los consumidores, cambios
+    demográficos o variaciones en preferencias puede reducir la demanda de motocicletas.
+
+    - **Concesionarios e inventario:** la dependencia de concesionarios, los niveles
+    de inventario y el uso de incentivos pueden afectar el volumen y los precios.
+
+    - **Crédito:** la industria depende de la confianza del consumidor y del acceso
+    a financiación; el impacto específico sobre Harley-Davidson no está cuantificado.
+
+    - **Competencia y transición tecnológica:** la competencia en precio, los cambios
+    tecnológicos y los requisitos regulatorios pueden presionar la posición de la
+    compañía.
+
+    - **Incertidumbre de valoración:** el paquete no permite determinar si el mercado
+    subestima o sobrestima el valor intrínseco. Faltan expectativas de consenso detalladas,
+    comparables y supuestos verificables.
+
+
+    ### Triggers de falsación
+
+
+    La hipótesis de recuperación se debilitaría si:
+
+
+    1. Los ingresos y márgenes continúan deteriorándose en períodos posteriores que
+    sean comparables.
+
+    2. La compañía no recupera un beneficio neto positivo ni estabiliza el FCF en
+    períodos posteriores.
+
+    3. Una recuperación de ventas depende de incentivos que erosionen precios o márgenes,
+    una posibilidad que requiere comprobar con datos futuros.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador o hito a monitorear | Fecha esperada | Impacto potencial |
+
+    |---|---|---|
+
+    | Próximos resultados financieros comparables | No especificada en los materiales
+    | La recuperación sostenida de ingresos, márgenes y beneficio neto podría respaldar
+    una estabilización; nuevos deterioros reforzarían la contra-tesis |
+
+    | Evolución del FCF frente a la caída reportada de 20,39% | Próxima actualización
+    financiera; fecha no especificada | Una mejora sería una señal favorable, pero
+    será necesario identificar si proviene de operaciones sostenibles, capital de
+    trabajo u otros factores |
+
+    | Ventas, precios, mezcla de modelos, inventario e incentivos por región | Seguimiento
+    continuo; no hay fechas ni hitos corporativos identificados | Permitiría distinguir
+    una recuperación de demanda de un aumento de ventas impulsado principalmente por
+    descuentos |
+
+    | Cambios en guía o anuncios corporativos | No disponibles en el paquete | Podrían
+    modificar las expectativas si aportan objetivos cuantificados y verificables |
+
+
+    No se proporcionan fechas de resultados, guía de la compañía ni un calendario
+    de eventos específicos. Por tanto, los puntos anteriores son indicadores a vigilar,
+    no catalizadores confirmados con fecha.
+
+
+    ## 8. Marco de Valoración
+
+
+    No es posible estimar responsablemente un valor intrínseco con la información
+    disponible. El paquete carece de precio y capitalización fechados para construir
+    una valoración completa, deuda neta, flujo de caja libre y resultados normalizados,
+    así como supuestos de crecimiento y rentabilidad a largo plazo.
+
+
+    ### Enfoques posibles para una investigación posterior
+
+
+    - **DCF basado en flujo de caja libre:** apropiado solo después de normalizar
+    resultados y separar capital de trabajo, inversión de mantenimiento y otros componentes
+    del FCF.
+
+    - **Múltiplos comparables:** requeriría seleccionar empresas realmente comparables,
+    normalizar métricas y confirmar períodos y definiciones de EV/EBITDA y otros múltiplos.
+
+    - **Escenarios de recuperación:** comparar casos de estabilización, recuperación
+    y deterioro usando supuestos explícitos sobre volumen, precios, mezcla, márgenes
+    y conversión a efectivo.
+
+
+    ### Supuestos y sensibilidades que deben modelarse
+
+
+    La valoración sería especialmente sensible a la trayectoria de ventas y márgenes,
+    la intensidad de los incentivos, la recuperación del beneficio neto, la conversión
+    de efectivo y la inversión de mantenimiento. AOIF etiqueta el margen de seguridad
+    como **insuficiente**, pero la falta de inputs verificables impide reconstruir
+    ese juicio.
+
+
+    El precio objetivo medio observado de USD 31,50 frente a una cotización de USD
+    31,22 (datos observados en las fechas citadas en la sección 3) indica proximidad
+    entre ambas cifras, no una estimación independiente del valor intrínseco. No hay
+    evidencia suficiente para afirmar un error de valoración del mercado.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué explica la caída de ingresos y margen bruto, y qué parte es temporal frente
+    a estructural?
+
+    2. ¿Cuáles son los ingresos, márgenes y beneficios por segmento, región y categoría
+    de producto?
+
+    3. ¿Qué retornos incrementales sobre capital obtiene la compañía? ¿Cuál es la
+    inversión de mantenimiento necesaria y cómo se asigna el capital?
+
+    4. ¿Cuáles son los importes y componentes del flujo de caja operativo, la inversión
+    de capital y el FCF? ¿Qué explica su caída reportada?
+
+    5. ¿Cómo evolucionan las ventas minoristas frente a los envíos a concesionarios,
+    los inventarios, los precios y los incentivos?
+
+    6. ¿Qué proporción de la demanda depende de financiación y cómo cambian las aprobaciones,
+    los impagos y la rentabilidad de esa actividad?
+
+    7. ¿Qué deuda, vencimientos, obligaciones financieras y compromisos de capital
+    tiene la compañía?
+
+    8. ¿Cómo se sustentan y definen los valores de crecimiento de ingresos (-14,64%),
+    margen operativo (-4,26%), ROIC (-4,14%) y EV/EBITDA (2.056,59) aportados por
+    AOIF?
+
+    9. ¿Qué muestran los datos comparables de acciones en circulación, remuneración
+    ejecutiva, propiedad de insiders y composición del board?
+
+    10. ¿Qué expectativas financieras sustentan el precio objetivo medio de USD 31,50,
+    y con qué fechas, analistas y supuestos se calculó?
+
+    11. ¿Qué evidencia cuantitativa confirma la fuerza de marca, la fidelidad, el
+    poder de precios y la posición competitiva?
+
+    12. ¿Existe guía corporativa o un calendario de hitos que permita evaluar de forma
+    anticipada la recuperación?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ABNB|Airbnb, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[AVY|Avery
+    Dennison Corporation]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation
+    Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[EBAY|eBay Inc.]], [[ETSY|Etsy,
+    Inc.]], [[GM|General Motors Company]], [[HMC|Honda Motor Co., Ltd.]], [[RACE|Ferrari
+    N.V.]], [[ROST|Ross Stores, Inc.]], [[SBUX|Starbucks Corporation]], [[TJX|The
+    TJX Companies, Inc.]], [[URBN|Urban Outfitters, Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -303,7 +589,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-21T18:55:23.973652+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-22T11:38:45.370390+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -464,12 +750,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    40.0, "low": 19.0, "mean": 31.5, "median": 31.5, "observed_at": "2026-11-21T15:55:27.339732-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
-    "2026-11-21T15:55:27.339732-03:00", "observed_date": "2026-11-21", "target_price":
+    40.0, "low": 19.0, "mean": 31.5, "median": 31.5, "observed_at": "2026-11-22T08:38:48.436375-03:00",
+    "sources": [{"as_of_date": "2026-11-22", "name": "stockanalysis", "observed_at":
+    "2026-11-22T08:38:48.436375-03:00", "observed_date": "2026-11-22", "target_price":
     31.5, "url": "https://stockanalysis.com/stocks/hog/forecast/"}, {"as_of_date":
-    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T15:55:27.339732-03:00",
-    "observed_date": "2026-11-21", "target_price": 31.5, "url": "https://finance.yahoo.com/quote/HOG/"}]},
+    "2026-11-22", "name": "yfinance", "observed_at": "2026-11-22T08:38:48.436375-03:00",
+    "observed_date": "2026-11-22", "target_price": 31.5, "url": "https://finance.yahoo.com/quote/HOG/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 31.219999313354492,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/HOG/"}]}}'
   sector: Consumer Cyclical
@@ -479,52 +765,66 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: bc7988f75134b8c55d1350fba013da86d382c17c9d695f5b6bd89ba2c0b3d8f4
+    sha256: 1b9b84d1ef2f482417d232f7dc3ab825c8c075232c9402ce60a2a0547b8cfe4a
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-21T15:55:53.421676-03:00'
+  triggered_at: '2026-11-22T08:39:00.155080-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: 1.97x al 2026-09-30; no cruza el umbral.
-  source:
-    name: Stock Analysis
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/HOG/statistics/
-  threshold: below 0.5
-- metric: dilution_yoy_pct
-  observation: 'No evaluable: falta el dato comparable de acciones del período anterior.'
-  threshold: above 10%
-- metric: interest_coverage
-  observation: 0 reportado al 2026-09-30; cruza el umbral configurado, sujeto a confirmar
-    definición y cálculo del proveedor.
-  source:
-    name: Stock Analysis
-    period_end: '2026-09-30'
-    url: https://stockanalysis.com/stocks/HOG/statistics/
-  threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: No aplica al FCF TTM reportado, que es positivo en el período terminado
-    el 2026-09-30.
-  threshold: below 12 months
-- metric: net_debt_ebitda
-  observation: 'No evaluable: las unidades del EBITDA no están verificadas como compatibles
-    con deuda y efectivo al 2026-09-30.'
-  threshold: above 4.0x
-- metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: falta una serie de acciones con observaciones comparables
-    de tres años.'
-  threshold: above 5%
-scenario_analysis: null
+- Interest coverage ratio 0 below threshold 2.0
+- Net debt/EBITDA 467 above threshold 4.0
+- Dilution YoY data unavailable
+- Share count CAGR data unavailable
+scenario_analysis:
+  as_of_date: '2026-11-22'
+  currency: USD
+  horizon_date: '2027-11-22'
+  scenarios:
+  - falsifiers:
+    - Ingresos anuales >5,000 millones USD
+    - Cobertura de intereses >2x
+    id: BEAR
+    key_assumptions:
+    - Revenue CAGR -12% anual
+    - FCF growth -20% continuo
+    - Net debt/EBITDA >400x
+    rationale: Continúa la caída de ingresos, margen bruto bajo 19%, deuda alta y
+      sin mejora de cobertura de intereses.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/hog/forecast/
+    - as_of_date: '2026-11-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/HOG/
+    target_price: 19.0
+  - falsifiers:
+    - Margen bruto <20% sostenido
+    - Deuda neta >2,000 millones USD
+    id: BULL
+    key_assumptions:
+    - Revenue CAGR +5% anual
+    - FCF crecimiento +10% anual
+    - Net debt/EBITDA <5x
+    rationale: Recuperación de ingresos, margen bruto mejora al 25%, reducción de
+      deuda y cobertura de intereses >2x.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/hog/forecast/
+    - as_of_date: '2026-11-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/HOG/
+    target_price: 40.0
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 48
+  errors: []
+  status: valid_pending_decision_board
+score_general: 73
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T15:55:27.339732-03:00'
+  calculado_at: '2026-11-22T08:38:48.436375-03:00'
   fuentes:
     stockanalysis: 31.5
     yfinance: 31.5
@@ -532,25 +832,22 @@ target_consensus:
   n_fuentes: 2
   promedio: 31.5
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-22'
     name: stockanalysis
-    observed_at: '2026-11-21T15:55:27.339732-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-22T08:38:48.436375-03:00'
+    observed_date: '2026-11-22'
     target_price: 31.5
     url: https://stockanalysis.com/stocks/hog/forecast/
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-22'
     name: yfinance
-    observed_at: '2026-11-21T15:55:27.339732-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-22T08:38:48.436375-03:00'
+    observed_date: '2026-11-22'
     target_price: 31.5
     url: https://finance.yahoo.com/quote/HOG/
   target_high: 40.0
   target_low: 19.0
-tesis_inversion: 'Tesis a investigar: la capacidad de Harley-Davidson para estabilizar
-  su negocio de motocicletas y recuperar rentabilidad podría contrarrestar la contracción
-  reciente, pero los datos disponibles no acreditan todavía un mecanismo de crecimiento
-  sostenido, reinversión productiva ni retornos atractivos sobre capital. La información
-  proporcionada describe sus segmentos, pero no permite cuantificar mercado direccionable,
-  penetración, moat, erosión competitiva ni calidad de la asignación de capital.'
+tesis_inversion: Harley-Davidson enfrenta presión de ingresos y alta deuda, pero una
+  posible reorientación hacia vehículos eléctricos y mejora de márgenes podría revertir
+  la tendencia.
 ticker: HOG
 version: '3.0'

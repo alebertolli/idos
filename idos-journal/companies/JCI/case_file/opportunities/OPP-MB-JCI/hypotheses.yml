@@ -1,225 +1,208 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior
-      a 4%.
+  - condition: El crecimiento orgánico de ventas del ejercicio fiscal 2027 es inferior
+      a 3%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen bruto reportado del ejercicio fiscal 2027 aumenta menos de
-      50 puntos básicos frente al ejercicio fiscal 2026.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La compañía deja de divulgar datos comparables que permitan comprobar
-      ambos umbrales.
+  - condition: La empresa deja de reportar una medida comparable de crecimiento orgánico
+      y no publica datos suficientes para calcularla.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior a 4%.
-  - El margen bruto reportado del ejercicio fiscal 2027 aumenta menos de 50 puntos
-    básicos frente al ejercicio fiscal 2026.
-  - La compañía deja de divulgar datos comparables que permitan comprobar ambos umbrales.
+  - El crecimiento orgánico de ventas del ejercicio fiscal 2027 es inferior a 3%.
+  - La empresa deja de reportar una medida comparable de crecimiento orgánico y no
+    publica datos suficientes para calcularla.
   horizon: medio
   id: H1-OPP-MB-JCI
   opportunity_id: OPP-MB-JCI
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-30'
-    expected: 4.0
+    deadline: '2027-09-30'
+    expected: 3.0
     met: null
-    metric: Crecimiento orgánico de ingresos del ejercicio fiscal 2027 y variación
-      interanual del margen bruto
-    prediction: En el ejercicio fiscal 2027, los ingresos orgánicos crecerán al menos
-      4% interanual y el margen bruto reportado aumentará al menos 50 puntos básicos
-      frente al ejercicio fiscal 2026, usando en ambos casos las definiciones de la
-      compañía.
-    unit: '% de crecimiento orgánico mínimo; expansión del margen bruto mínima de
-      50 puntos básicos'
-  priority: critical
+    metric: Crecimiento orgánico de ventas del ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal que termina el 2027-09-30, JCI reportará crecimiento
+      orgánico de ventas de al menos 3% interanual, según la definición que utilice
+      la empresa para esa métrica.
+    unit: '% interanual o más'
+  priority: important
   probability: 0.5
-  rationale: La tesis señala una mejora observada del margen bruto, pero no aporta
-    evidencia suficiente sobre su persistencia. El crecimiento orgánico acompañado
-    de expansión del margen permitiría comprobar si la combinación de ventas, precios
-    y ejecución operativa está generando apalancamiento bruto.
-  review_trigger: Dejar de creerla si los resultados del segundo trimestre del ejercicio
-    fiscal 2027 muestran crecimiento orgánico interanual inferior a 2% y margen bruto
-    interanual sin mejora, o si el resultado anual incumple cualquiera de los dos
-    umbrales.
+  rationale: El contexto indica que los ingresos han mejorado y que JCI opera en varias
+    regiones y categorías de soluciones para edificios. Esa amplitud podría sostener
+    el crecimiento, aunque la información disponible no permite confirmar el tamaño
+    del mercado direccionable ni la penetración de JCI.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
+    crecimiento orgánico inferior a 3%, o si antes del 2027-09-30 la empresa reduce
+    su perspectiva anual de crecimiento orgánico por debajo de ese nivel.
   secondary_hypotheses: []
-  statement: Johnson Controls mantendrá crecimiento orgánico de ingresos y ampliará
-    el margen bruto durante el ejercicio fiscal 2027, lo que indicaría que la mejora
-    operativa no depende únicamente de factores transitorios.
+  statement: JCI mantendrá crecimiento orgánico de ingresos en el ejercicio fiscal
+    2027, señal de que la demanda por sus productos, servicios y soluciones para edificios
+    continúa expandiéndose.
   status: ACTIVE
   ticker: JCI
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El flujo de caja libre del ejercicio fiscal 2027 es cero o negativo.
+  - condition: La expansión del margen bruto frente al ejercicio fiscal 2026 es inferior
+      a 0,3 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La razón entre flujo de caja libre y utilidad neta ajustada es inferior
-      a 80%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La conversión superior al umbral depende de una liberación puntual
-      de capital de trabajo que la compañía identifica como no recurrente.
+  - condition: La comparación no puede hacerse de forma consistente por cambios de
+      presentación contable o de perímetro que JCI no cuantifique.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El flujo de caja libre del ejercicio fiscal 2027 es cero o negativo.
-  - La razón entre flujo de caja libre y utilidad neta ajustada es inferior a 80%.
-  - La conversión superior al umbral depende de una liberación puntual de capital
-    de trabajo que la compañía identifica como no recurrente.
+  - La expansión del margen bruto frente al ejercicio fiscal 2026 es inferior a 0,3
+    puntos porcentuales.
+  - La comparación no puede hacerse de forma consistente por cambios de presentación
+    contable o de perímetro que JCI no cuantifique.
   horizon: medio
   id: H2-OPP-MB-JCI
   opportunity_id: OPP-MB-JCI
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-30'
-    expected: 80.0
+    deadline: '2027-09-30'
+    expected: 0.3
     met: null
-    metric: Conversión de utilidad neta ajustada en FCF durante el ejercicio fiscal
-      2027
-    prediction: En el ejercicio fiscal 2027, el flujo de caja libre reportado será
-      positivo y equivaldrá al menos al 80% de la utilidad neta ajustada del mismo
-      periodo, utilizando las definiciones y conciliaciones publicadas por JCI.
-    unit: '% mínimo; FCF positivo'
-  priority: critical
+    metric: Cambio del margen bruto del ejercicio fiscal 2027 frente al ejercicio
+      fiscal 2026
+    prediction: El margen bruto reportado para el ejercicio fiscal que termina el
+      2027-09-30 será al menos 0,3 puntos porcentuales superior al del ejercicio fiscal
+      2026, calculado con criterios contables comparables.
+    unit: puntos porcentuales o más
+  priority: important
   probability: 0.5
-  rationale: La tesis identifica el FCF TTM como un indicador favorable, pero no acredita
-    su persistencia. Una conversión de caja sostenida permitiría distinguir una mejora
-    económica real de efectos temporales de capital de trabajo, pagos o inversiones.
-  review_trigger: Dejar de creerla si, al cierre de un trimestre del ejercicio fiscal
-    2027, el FCF acumulado de los últimos doce meses es negativo o si la conversión
-    acumulada de FCF a utilidad neta ajustada es inferior a 60%; reconsiderar definitivamente
-    con la publicación anual.
+  rationale: El contexto señala una expansión del margen bruto observada recientemente.
+    Si esa mejora refleja una combinación de ventas favorable, eficiencias operativas
+    o disciplina de precios y costos, podría continuar; no obstante, la evidencia
+    disponible no identifica qué factores la impulsan ni si son recurrentes.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
+    que el margen bruto no aumenta al menos 0,3 puntos porcentuales frente al ejercicio
+    fiscal 2026, o si antes de esa fecha la empresa comunica que espera una contracción
+    anual.
   secondary_hypotheses:
   - H1-OPP-MB-JCI
-  statement: 'La mejora operativa se convertirá en generación de caja recurrente:
-    JCI producirá flujo de caja libre positivo y una conversión elevada de utilidad
-    ajustada en el ejercicio fiscal 2027.'
+  statement: La mejora de ingresos y margen bruto se traducirá en expansión adicional
+    del margen bruto durante el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: JCI
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de JCI durante el periodo no supera al del S&P
-      500 Industrials.
+  - condition: La razón entre flujo de caja libre acumulado y utilidad neta atribuible
+      acumulada es inferior a 90%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad relativa de JCI frente al índice es inferior a 8 puntos
-      porcentuales.
+  - condition: La empresa no permite conciliar su cifra de flujo de caja libre con
+      los estados financieros, o una definición revisada impide una comparación consistente.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad relativa solo supera el umbral por un ajuste corporativo
-      o error de datos, y no por el cálculo de precios y dividendos.
+  - condition: El flujo de caja libre acumulado es negativo durante los cuatro trimestres
+      terminados en la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de JCI durante el periodo no supera al del S&P 500 Industrials.
-  - La rentabilidad relativa de JCI frente al índice es inferior a 8 puntos porcentuales.
-  - La rentabilidad relativa solo supera el umbral por un ajuste corporativo o error
-    de datos, y no por el cálculo de precios y dividendos.
+  - La razón entre flujo de caja libre acumulado y utilidad neta atribuible acumulada
+    es inferior a 90%.
+  - La empresa no permite conciliar su cifra de flujo de caja libre con los estados
+    financieros, o una definición revisada impide una comparación consistente.
+  - El flujo de caja libre acumulado es negativo durante los cuatro trimestres terminados
+    en la fecha objetivo.
   horizon: medio
   id: H3-OPP-MB-JCI
   opportunity_id: OPP-MB-JCI
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 8.0
+    deadline: '2027-09-30'
+    expected: 90.0
     met: null
-    metric: Rendimiento total relativo de JCI frente al S&P 500 Industrials
-    prediction: Entre el 2026-11-21 y el 2027-11-21, el rendimiento total de JCI,
-      incluidos dividendos, superará al del S&P 500 Industrials en al menos 8 puntos
-      porcentuales.
-    unit: puntos porcentuales de exceso de rendimiento en doce meses
-  priority: important
+    metric: Flujo de caja libre acumulado dividido por utilidad neta atribuible acumulada,
+      cuatro trimestres
+    prediction: Para los cuatro trimestres consecutivos terminados el 2027-09-30,
+      el flujo de caja libre acumulado será al menos 90% de la utilidad neta atribuible
+      acumulada del mismo periodo, usando la definición de flujo de caja libre reportada
+      por JCI y conciliándola con los estados financieros.
+    unit: '% o más'
+  priority: critical
   probability: 0.5
-  rationale: 'Si el crecimiento y la expansión del margen se traducen en FCF recurrente,
-    los inversores podrían asignar una prima relativa a la acción. Esta hipótesis
-    no presupone que el mercado esté equivocado hoy: requiere comprobar una mejora
-    observable de rendimiento frente a un referente sectorial.'
-  review_trigger: Dejar de creerla si al 2027-08-21 la rentabilidad total relativa
-    acumulada de JCI es de -8 puntos porcentuales o peor y no hay una revisión al
-    alza de la previsión de FCF para el ejercicio fiscal 2027; evaluación final el
-    2027-11-21.
+  rationale: El contexto advierte que el crecimiento reportado del flujo de caja libre
+    parte de una base FY 2025 mucho menor y no demuestra por sí solo recurrencia.
+    La persistencia del crecimiento de ingresos y del margen bruto sería favorable,
+    pero la conversión efectiva también depende del capital de trabajo, las inversiones
+    y otros flujos operativos.
+  review_trigger: Dejar de creerla si la razón de conversión para los cuatro trimestres
+    terminados el 2027-09-30 es inferior a 90%, o si JCI anticipa antes de esa fecha
+    que el flujo de caja libre anual será negativo.
   secondary_hypotheses:
   - H1-OPP-MB-JCI
   - H2-OPP-MB-JCI
-  statement: La generación de caja y la ejecución operativa reducirán la percepción
-    de riesgo del mercado y permitirán que la acción de JCI supere el rendimiento
-    total del índice S&P 500 Industrials durante los próximos doce meses.
+  statement: JCI convertirá la mejora operativa en generación recurrente de flujo
+    de caja libre, en vez de depender de un único aumento desde la base comparativa
+    de 2025.
   status: ACTIVE
   ticker: JCI
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El aumento del múltiplo EV/EBITDA futuro es inferior a 1,0 vuelta al
-      2027-11-21.
+  - condition: El rendimiento total de JCI menos el rendimiento total de XLI durante
+      el periodo es inferior a 5 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El múltiplo aumenta únicamente por una caída de las estimaciones de
-      EBITDA, sin aumento del valor empresarial, en cuyo caso no se considera confirmada
-      la hipótesis de revalorización por mejora de calidad.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: No es posible obtener observaciones comparables del múltiplo y de las
-      estimaciones para ambas fechas.
+  - condition: No se dispone de datos de precios ajustados por dividendos para comparar
+      ambos instrumentos de forma consistente.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El aumento del múltiplo EV/EBITDA futuro es inferior a 1,0 vuelta al 2027-11-21.
-  - El múltiplo aumenta únicamente por una caída de las estimaciones de EBITDA, sin
-    aumento del valor empresarial, en cuyo caso no se considera confirmada la hipótesis
-    de revalorización por mejora de calidad.
-  - No es posible obtener observaciones comparables del múltiplo y de las estimaciones
-    para ambas fechas.
+  - El rendimiento total de JCI menos el rendimiento total de XLI durante el periodo
+    es inferior a 5 puntos porcentuales.
+  - No se dispone de datos de precios ajustados por dividendos para comparar ambos
+    instrumentos de forma consistente.
   horizon: medio
   id: H4-OPP-MB-JCI
   opportunity_id: OPP-MB-JCI
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 1.0
+    deadline: '2027-11-22'
+    expected: 5.0
     met: null
-    metric: Variación del múltiplo EV/EBITDA estimado a doce meses
-    prediction: Al 2027-11-21, el múltiplo EV/EBITDA de JCI sobre EBITDA estimado
-      para los siguientes doce meses será al menos 1,0 vuelta superior al observado
-      al cierre del 2026-11-21, calculado con la misma fuente de estimaciones y metodología
-      en ambas fechas.
-    unit: vuelta de expansión mínima
+    metric: Rendimiento total de JCI menos rendimiento total de XLI
+    prediction: Entre el 2026-11-22 y el 2027-11-22, el rendimiento total de JCI,
+      incluidos dividendos, superará en al menos 5 puntos porcentuales el rendimiento
+      total de XLI, en dólares estadounidenses.
+    unit: puntos porcentuales o más
   priority: informational
   probability: 0.5
-  rationale: La tesis identifica la falta de validación del moat, la escala de mercado
-    y los retornos sobre capital. Sin atribuir una prima estructural, el mercado podría
-    elevar la valoración relativa si los resultados aportan evidencia verificable
-    de crecimiento y generación de caja superiores a lo que reflejaba la valoración
-    inicial.
-  review_trigger: Dejar de creerla si al 2027-08-21 el múltiplo permanece igual o
-    por debajo del nivel inicial y las estimaciones consensuadas de EBITDA de los
-    siguientes doce meses han sido revisadas a la baja al menos 5%; evaluación final
-    el 2027-11-21.
+  rationale: Si el crecimiento operativo se acompaña de expansión del margen bruto
+    y conversión recurrente de flujo de caja libre, podría mejorar la confianza del
+    mercado en la calidad de las ganancias y respaldar una valoración relativa más
+    alta. El contexto no permite establecer la valoración actual ni confirmar una
+    ventaja competitiva, por lo que esta hipótesis se limita a un resultado observable
+    de mercado.
+  review_trigger: Dejar de creerla el 2027-11-22 si JCI no supera a XLI por al menos
+    5 puntos porcentuales en rendimiento total; antes de esa fecha, reconsiderarla
+    si JCI comunica que no espera cumplir sus perspectivas de crecimiento o flujo
+    de caja libre para el ejercicio fiscal 2027.
   secondary_hypotheses:
+  - H1-OPP-MB-JCI
   - H2-OPP-MB-JCI
   - H3-OPP-MB-JCI
-  statement: La valoración relativa de JCI mejorará si los resultados confirman una
-    conversión de caja sostenible, reflejada en una expansión de su múltiplo EV/EBITDA
-    futuro.
+  statement: La evidencia de crecimiento y conversión de caja permitirá que la acción
+    de JCI supere el rendimiento total del ETF Industrial Select Sector SPDR (XLI)
+    durante los siguientes doce meses.
   status: ACTIVE
   ticker: JCI
   version: 1
