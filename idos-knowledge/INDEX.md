@@ -31,7 +31,7 @@ Total: 165 companies tracked
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
 - 📄 [[EA|Electronic Arts Inc]]
 - 📄 [[GOOGL|Alphabet Inc.]]
-- ⏳ [[JOYY|JOYY Inc.]]
+- 📄 [[JOYY|JOYY Inc.]]
 - 📄 [[PSO|Pearson plc]]
 - 📄 [[ROKU|Roku, Inc.]]
 - 📄 [[TEO|Telecom Argentina S.A.]]

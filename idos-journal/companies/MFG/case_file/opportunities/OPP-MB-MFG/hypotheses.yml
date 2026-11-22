@@ -1,188 +1,200 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de Mizuho menos el rendimiento total del TOPIX
-      Banks es inferior a 5 puntos porcentuales.
+  - condition: El crecimiento interanual divulgado para los ingresos netos por intereses
+      bancarios domésticos es inferior al 10%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El rendimiento total de Mizuho es inferior al del TOPIX Banks.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El rendimiento total de Mizuho menos el rendimiento total del TOPIX Banks es inferior
-    a 5 puntos porcentuales.
-  - El rendimiento total de Mizuho es inferior al del TOPIX Banks.
-  horizon: medio
-  id: H4-OPP-MB-MFG
-  opportunity_id: OPP-MB-MFG
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
-    met: null
-    metric: Rendimiento total relativo de Mizuho frente al TOPIX Banks
-    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de Mizuho,
-      incluidos dividendos y expresado en yenes, superará al del índice TOPIX Banks
-      en al menos 5 puntos porcentuales.
-    unit: puntos porcentuales
-  priority: informational
-  probability: 0.5
-  rationale: 'Si el crecimiento operativo se convierte en mayores beneficios y se
-    sostiene la rentabilidad sobre el capital, el mercado podría reconocer esa mejora
-    en el precio y los dividendos. Sin datos de valoración actuales, esta hipótesis
-    no presupone que la acción esté barata: contrasta directamente su rendimiento
-    con un referente sectorial.'
-  review_trigger: Dejar de creerla el 2027-11-20 si el rendimiento total relativo
-    acumulado desde el 2026-11-20 es inferior a 5 puntos porcentuales.
-  secondary_hypotheses:
-  - H2-OPP-MB-MFG
-  - H3-OPP-MB-MFG
-  statement: La acción de Mizuho tendrá un rendimiento total superior al del índice
-    TOPIX Banks durante los doce meses siguientes al corte de investigación.
-  status: ACTIVE
-  ticker: MFG
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: Los ingresos operativos consolidados de FY2028 son iguales o inferiores
-      a los de FY2026.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La comparación entre ambos ejercicios no puede reconciliarse por cambios
-      contables, perímetro o moneda, impidiendo verificar el crecimiento del 3%.
+  - condition: Mizuho no divulga datos comparables y no es posible verificar la predicción
+      con sus estados financieros o presentaciones oficiales.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos operativos consolidados de FY2028 son iguales o inferiores a los
-    de FY2026.
-  - La comparación entre ambos ejercicios no puede reconciliarse por cambios contables,
-    perímetro o moneda, impidiendo verificar el crecimiento del 3%.
-  horizon: medio
+  - El crecimiento interanual divulgado para los ingresos netos por intereses bancarios
+    domésticos es inferior al 10%.
+  - Mizuho no divulga datos comparables y no es posible verificar la predicción con
+    sus estados financieros o presentaciones oficiales.
+  horizon: corto
   id: H1-OPP-MB-MFG
   opportunity_id: OPP-MB-MFG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-06-30'
-    expected: 3.0
+    deadline: '2027-05-15'
+    expected: 10.0
     met: null
-    metric: Variación de ingresos operativos consolidados frente a FY2026
-    prediction: Los ingresos operativos consolidados de FY2028 serán al menos un 3%
-      superiores a los de FY2026, comparados con la misma definición contable y moneda
-      de presentación.
-    unit: porcentaje mínimo
-  priority: important
+    metric: Crecimiento interanual de los ingresos netos por intereses bancarios domésticos
+    prediction: A más tardar el 2027-05-15, los ingresos netos por intereses bancarios
+      domésticos del ejercicio fiscal terminado el 2027-03-31 serán al menos un 10%
+      superiores a los del ejercicio fiscal terminado el 2026-03-31, usando la misma
+      definición y perímetro de reporte.
+    unit: '%'
+  priority: critical
   probability: 0.5
-  rationale: El paquete indica crecimiento de ingresos entre FY2023 y FY2026. La combinación
-    de banca, banca fiduciaria, valores y otros servicios podría sostener ese avance
-    mediante varias fuentes de actividad; sin embargo, no hay datos desglosados para
-    atribuirlo a un negocio concreto.
-  review_trigger: Dejar de creerla si los resultados auditados de FY2027 muestran
-    ingresos operativos inferiores a FY2026 y la dirección no identifica factores
-    temporales cuantificados que reviertan esa caída.
+  rationale: Un mayor rendimiento de los préstamos y de los activos remunerados puede
+    elevar los ingresos por intereses más deprisa que el coste de los depósitos. La
+    hipótesis depende de que la competencia por depósitos y el coste de financiación
+    no absorban ese beneficio. El contexto disponible no aporta cifras verificables
+    de sensibilidad a tipos ni de ingresos por intereses; por tanto, esta predicción
+    debe contrastarse con los resultados publicados por Mizuho.
+  review_trigger: Dejar de creerla si los resultados oficiales del ejercicio fiscal
+    terminado el 2027-03-31 muestran un crecimiento inferior al 10%, o si al 2027-05-15
+    no existe información comparable que permita verificarlo.
   secondary_hypotheses: []
-  statement: Mizuho mantendrá el crecimiento de sus ingresos operativos en el ejercicio
-    fiscal que termina el 31 de marzo de 2028.
+  statement: La normalización de los tipos de interés en Japón y el repricing de los
+    préstamos permitirán que Mizuho aumente los ingresos netos por intereses de sus
+    operaciones bancarias domésticas durante el ejercicio fiscal que termina el 31
+    de marzo de 2027.
   status: ACTIVE
   ticker: MFG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El ROE de FY2028 es inferior al 8%.
+  - condition: El ROE anual divulgado es inferior al 8,5%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Mizuho no publica datos suficientes para calcular o reconciliar su
-      ROE de FY2028 con la definición usada en FY2026.
+  - condition: El ROE supera el umbral únicamente mediante un cambio metodológico
+      o de perímetro que impida una comparación consistente con las divulgaciones
+      anteriores.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El ROE de FY2028 es inferior al 8%.
-  - Mizuho no publica datos suficientes para calcular o reconciliar su ROE de FY2028
-    con la definición usada en FY2026.
-  horizon: medio
+  - El ROE anual divulgado es inferior al 8,5%.
+  - El ROE supera el umbral únicamente mediante un cambio metodológico o de perímetro
+    que impida una comparación consistente con las divulgaciones anteriores.
+  horizon: corto
   id: H2-OPP-MB-MFG
   opportunity_id: OPP-MB-MFG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-06-30'
-    expected: 8.0
+    deadline: '2027-05-15'
+    expected: 8.5
     met: null
-    metric: ROE de FY2028
-    prediction: La rentabilidad sobre el patrimonio (ROE), calculada con la definición
-      publicada por Mizuho y aplicada consistentemente, será de al menos el 8% en
-      FY2028.
-    unit: porcentaje mínimo
+    metric: ROE anual
+    prediction: A más tardar el 2027-05-15, el ROE del ejercicio fiscal terminado
+      el 2027-03-31, calculado según la metodología divulgada por Mizuho, será igual
+      o superior al 8,5%.
+    unit: '%'
   priority: critical
   probability: 0.5
-  rationale: El paquete señala que el beneficio neto creció entre FY2023 y FY2026,
-    pero no aporta retornos sobre capital ni permite evaluar la conversión de ese
-    crecimiento en rentabilidad. La hipótesis somete esa conversión a una métrica
-    financiera observable, sin asumir que el crecimiento histórico vaya a continuar
-    automáticamente.
-  review_trigger: Dejar de creerla si la divulgación de resultados de FY2027 presenta
-    un ROE inferior al 7% y no identifica medidas cuantificadas que, según la propia
-    dirección, permitan alcanzar el 8% en FY2028.
+  rationale: Si los ingresos por intereses y otros ingresos crecen sin que los costes
+    operativos, las provisiones crediticias y los impuestos aumenten en una proporción
+    equivalente, el beneficio atribuible puede crecer y elevar el ROE. La información
+    de partida no confirma la rentabilidad bancaria ni la conversión de beneficios
+    en creación de valor, de modo que el ROE publicado es una prueba central de la
+    tesis.
+  review_trigger: Dejar de creerla cuando Mizuho publique los resultados del ejercicio
+    terminado el 2027-03-31 si el ROE comparable es inferior al 8,5%, o si al 2027-05-15
+    no publica datos suficientes para calcularlo de forma verificable.
   secondary_hypotheses:
   - H1-OPP-MB-MFG
-  statement: El crecimiento de beneficios de Mizuho se traducirá en una rentabilidad
-    sobre el patrimonio de al menos el 8% en FY2028.
+  statement: El crecimiento de ingresos se traducirá en una rentabilidad sobre el
+    capital propio superior al 8,5% en el ejercicio fiscal terminado el 31 de marzo
+    de 2027.
   status: ACTIVE
   ticker: MFG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de Mizuho menos la del TOPIX es inferior a 5
-      puntos porcentuales en la fecha objetivo.
+  - condition: El rendimiento total de MFG menos el rendimiento total del TOPIX es
+      inferior a 5 puntos porcentuales al cierre del 2027-11-22.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: No es posible verificar una comparación en yenes que incluya dividendos
-      para ambos instrumentos durante el periodo.
+  - condition: No es posible calcular el rendimiento total de ambos instrumentos con
+      datos de precios y dividendos ajustados verificables.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de Mizuho menos la del TOPIX es inferior a 5 puntos porcentuales
-    en la fecha objetivo.
-  - No es posible verificar una comparación en yenes que incluya dividendos para ambos
-    instrumentos durante el periodo.
-  horizon: corto
+  - El rendimiento total de MFG menos el rendimiento total del TOPIX es inferior a
+    5 puntos porcentuales al cierre del 2027-11-22.
+  - No es posible calcular el rendimiento total de ambos instrumentos con datos de
+    precios y dividendos ajustados verificables.
+  horizon: medio
   id: H3-OPP-MB-MFG
   opportunity_id: OPP-MB-MFG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
+    deadline: '2027-11-22'
     expected: 5.0
     met: null
-    metric: Rentabilidad total de Mizuho menos rentabilidad total del TOPIX
-    prediction: Entre el cierre del 2026-11-21 y el cierre del 2027-11-21, la rentabilidad
-      total de Mizuho, incluidos dividendos y medida en yenes, superará la del TOPIX
-      en al menos 5 puntos porcentuales.
-    unit: puntos porcentuales mínimos
-  priority: informational
+    metric: Rendimiento total de MFG menos rendimiento total del TOPIX
+    prediction: Entre el cierre del 2026-11-22 y el cierre del 2027-11-22, el rendimiento
+      total de MFG, incluidos dividendos, superará el rendimiento total del TOPIX
+      en al menos 5 puntos porcentuales. Si el 2026-11-22 no es una sesión bursátil,
+      se utilizará el último cierre disponible anterior como base.
+    unit: puntos porcentuales
+  priority: important
   probability: 0.5
-  rationale: El paquete describe crecimiento de ingresos y beneficio neto entre FY2023
-    y FY2026, lo que podría respaldar la percepción de los inversores si se mantiene.
-    No se dispone de estimaciones de consenso, valoración relativa ni evidencia suficiente
-    para afirmar que el mercado esté infravalorando ese crecimiento; por tanto, esta
-    hipótesis se limita a una predicción relativa verificable.
-  review_trigger: Dejar de creerla si, antes del 2027-08-21, Mizuho ha quedado rezagada
-    frente al TOPIX en al menos 10 puntos porcentuales y su última comunicación de
-    resultados reduce la previsión de beneficio neto para el ejercicio en curso.
+  rationale: La mejora verificable de ingresos y ROE podría reducir la incertidumbre
+    sobre la capacidad de generar beneficios y respaldar una revaloración relativa.
+    Sin embargo, no hay evidencia disponible sobre valoración, ventaja competitiva
+    ni expectativas ya incorporadas en el precio; por ello, el rendimiento relativo
+    es una hipótesis de mercado, no una consecuencia asegurada de mejores resultados.
+  review_trigger: Dejar de creerla si el diferencial de rendimiento total observado
+    al cierre del 2027-11-22 es inferior a 5 puntos porcentuales; si los datos ajustados
+    no están disponibles para esa fecha, dejar de considerarla confirmada.
   secondary_hypotheses:
   - H1-OPP-MB-MFG
   - H2-OPP-MB-MFG
-  statement: La acción de Mizuho ofrecerá una rentabilidad total superior a la del
-    TOPIX durante los doce meses posteriores a la fecha de corte.
+  statement: Si Mizuho demuestra crecimiento de ingresos y rentabilidad suficiente,
+    su acción obtendrá un rendimiento total superior al del TOPIX durante los 12 meses
+    siguientes a la fecha de corte.
+  status: ACTIVE
+  ticker: MFG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio CET1 divulgado al cierre del ejercicio es inferior al 9%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Mizuho modifica la definición o el tratamiento de ajustes de forma
+      que no se pueda verificar el umbral con una serie comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio CET1 divulgado al cierre del ejercicio es inferior al 9%.
+  - Mizuho modifica la definición o el tratamiento de ajustes de forma que no se pueda
+    verificar el umbral con una serie comparable.
+  horizon: corto
+  id: H4-OPP-MB-MFG
+  opportunity_id: OPP-MB-MFG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-15'
+    expected: 9.0
+    met: null
+    metric: Ratio CET1 al cierre del ejercicio
+    prediction: En los resultados del ejercicio terminado el 2027-03-31, publicados
+      a más tardar el 2027-05-15, el ratio CET1 divulgado por Mizuho será igual o
+      superior al 9%, utilizando la definición regulatoria y los ajustes que la entidad
+      reporte.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La capacidad de sostener crecimiento y retornos al accionista depende
+    de que las pérdidas crediticias, la evolución de los activos ponderados por riesgo
+    y las distribuciones no erosionen excesivamente el capital. La información disponible
+    no verifica la asignación de capital ni su suficiencia; el ratio CET1 ofrece una
+    medida observable, aunque deben respetarse la definición y los ajustes divulgados
+    por Mizuho.
+  review_trigger: Dejar de creerla si la divulgación oficial del cierre del 2027-03-31
+    sitúa el ratio CET1 por debajo del 9%, o si al 2027-05-15 no permite verificarlo
+    de manera comparable.
+  secondary_hypotheses: []
+  statement: Mizuho mantendrá una posición de capital regulatorio suficiente para
+    financiar su actividad y distribuciones sin que su ratio CET1 caiga por debajo
+    del 9% al cierre del ejercicio fiscal terminado el 31 de marzo de 2027.
   status: ACTIVE
   ticker: MFG
   version: 1

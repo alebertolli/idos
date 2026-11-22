@@ -493,3 +493,113 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-22T08:44:18.533545'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-JOYY
+    ticker: JOYY
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:51:18.830500'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-JOYY
+    ticker: JOYY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:51:18.862020'
+- data:
+    classification: Growth
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: c050d94c501e9149483f94c65fd43dd7947d64f523df41c5e9f82d1d418228e7
+    opp_id: OPP-MB-JOYY
+    original_status: SCREENED
+    score: 78
+    strategy_version: '1.5'
+    ticker: JOYY
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:52:37.942176'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-JPM
+    ticker: JPM
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:53:07.346554'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-JPM
+    ticker: JPM
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:53:07.379466'
+- data:
+    classification: Investigación fundamental requerida; encaje multibagger no demostrado
+      con la evidencia disponible
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 26846859639ae2e189e74c0b6a543b6cd05ff5bdcc001cac394f8c1964cb4352
+    opp_id: OPP-MB-JPM
+    original_status: UNDER_RESEARCH
+    score: 58
+    strategy_version: '1.5'
+    ticker: JPM
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:54:29.697052'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-MFG
+    ticker: MFG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:55:05.518120'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-MFG
+    ticker: MFG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:55:05.554143'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 7e1032400e03966f47399b1d3db13d5d4029984426b994263854033a8ad69330
+    opp_id: OPP-MB-MFG
+    original_status: UNDER_RESEARCH
+    score: 55
+    strategy_version: '1.5'
+    ticker: MFG
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:56:39.045429'
