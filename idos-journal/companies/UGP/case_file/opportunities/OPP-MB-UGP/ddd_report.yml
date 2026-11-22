@@ -1,81 +1,90 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El crecimiento de ingresos TTM frente a FY 2025 no identifica por sí solo sus
-    impulsores ni demuestra crecimiento orgánico.
-  - La variabilidad de FCF entre períodos aconseja no asumir que el crecimiento reportado
-    sea recurrente.
-  - Ingresos reportados de 160656 para TTM al 2026-09-30 y 142370 para FY 2025; fuente
-    stockanalysis, https://stockanalysis.com/stocks/ugp/financials/.
-  - Margen bruto reportado de 9,96% para TTM al 2026-09-30 y 6,57% para FY 2025; fuente
-    stockanalysis, https://stockanalysis.com/stocks/ugp/financials/.
-  - Momentum de precio a 12 meses de 46,7172% y drawdown de 27,1016%, ambos al 2026-10-30;
-    fuente yfinance, https://finance.yahoo.com/quote/UGP/history/.
+  - La mejora TTM de margen y FCF podría ser un catalizador si persiste, pero los
+    datos aportados no identifican sus causas.
+  - La deuda neta negativa reportada puede ser una restricción financiera; su magnitud
+    relativa a EBITDA no se valida con inputs conciliables.
+  - 'El margen bruto reportado fue 9.96% TTM al 2026-09-30 y 6.57% en FY2025; fuente:
+    StockAnalysis, estados financieros.'
+  - 'El FCF reportado fue 6504 en TTM al 2026-09-30 y 3447 en FY2025, en unidades
+    reportadas por la fuente; fuente: StockAnalysis, estados financieros.'
+  - 'La cotización fue USD 5.81 al 2026-10-30; el rango de objetivos observado fue
+    USD 5.60–9.00 al 2026-11-22; fuentes: Yahoo Finance y StockAnalysis.'
   preguntas_abiertas:
-  - ¿Qué segmentos explican el crecimiento y qué retornos generan sobre el capital
-    invertido?
-  - ¿Cuál es el mercado direccionable y la penetración por segmento y geografía?
-  - ¿Qué inversiones, adquisiciones, dividendos y recompras explican la asignación
-    de capital y la evolución de acciones?
-catalizadores_previos: &id001 []
+  - ¿Qué explica la mejora de margen y FCF TTM y cuánto corresponde a factores recurrentes?
+  - ¿Cuáles son los retornos sobre capital y las necesidades de reinversión por segmento?
+  - ¿Qué evidencia respalda la cuota de mercado, la ventaja competitiva y la asignación
+    de capital de la dirección?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-21T18:44:53.548404-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-UGP
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-21T18:44:53.548404-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-UGP
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida
-  justificacion: El paquete identifica UGP para análisis multibagger, pero la evidencia
-    disponible no permite validar todos los ratios requeridos ni construir escenarios
-    de negocio fechados.
+  categoria: Investigación requerida; evidencia incompleta para una valoración fundamental
+    concluyente
+  justificacion: El paquete muestra crecimiento reciente del FCF y mejora del margen
+    bruto, pero también deuda neta reportada, volatilidad en la trayectoria del FCF
+    y faltantes o incompatibilidades que impiden validar varios ratios. El score de
+    65.66 es una señal de priorización del paquete, no una probabilidad de retorno
+    ni una recomendación.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo descrito cubre energía, movilidad e infraestructura logística,
-    con operaciones mediante Ultragaz, Ipiranga, Ultracargo e Hidrovias; no se aportan
-    datos de mercado direccionable, penetración, cuota, retornos sobre capital, reinversión
-    o ventajas competitivas. La mejora observada en margen bruto TTM frente a FY 2025
-    es una señal agregada, no evidencia suficiente de calidad estructural.
-  rating: No concluyente
+  analisis: El negocio descrito comprende distribución de energía, movilidad e infraestructura
+    logística, con varias subsidiarias y presencia internacional. El paquete no aporta
+    evidencia verificable sobre cuota de mercado, barreras de entrada, retornos sobre
+    capital, reinversión, gobierno corporativo o asignación de capital; por ello no
+    se valida una ventaja competitiva duradera ni su erosión.
+  rating: Mixta; confianza limitada por cobertura
 dominio_catalizadores:
-- estado: Pendiente; el paquete no aporta esos desgloses.
-  hito: Publicación de resultados comparables por segmento que permita separar crecimiento
-    orgánico, precios, volúmenes y adquisiciones.
-- estado: Pendiente; los datos agregados disponibles no permiten atribuir las variaciones
-    ni validar sostenibilidad.
-  hito: Confirmación de generación de FCF y de su conversión en beneficio neto a través
-    de períodos comparables.
+- analisis: El margen bruto reportado subió a 9.96% TTM al 2026-09-30 desde 6.57%
+    en FY2025; hacen falta períodos posteriores comparables para confirmar continuidad.
+  catalizador: Persistencia de la mejora de margen
+- analisis: El FCF TTM reportado es positivo al 2026-09-30; no hay evidencia suficiente
+    aquí para atribuir la mejora a operaciones recurrentes o a factores temporales.
+  catalizador: Conversión sostenida de operaciones en caja
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: https://stockanalysis.com/stocks/ugp/financials/
-  implicacion: No puede calcularse de forma fiable deuda neta/EBITDA con estos datos.
-  riesgo: El endeudamiento neto reportado es negativo en la serie de caja neta y deuda
-    neta, pero la escala/unidad de esos importes no es conciliable con el EBITDA aportado.
-- fuente: Resumen financiero de contexto; business_model, sin URL proporcionada.
-  implicacion: La posible erosión de márgenes y la resiliencia del modelo requieren
-    análisis adicional.
-  riesgo: La actividad incluye distribución y venta de productos petrolíferos y combustibles,
-    pero el paquete no cuantifica exposición a precios, regulación, transición energética
-    ni competencia.
-- fuente: https://stockanalysis.com/stocks/ugp/financials/
-  implicacion: La persistencia del crecimiento y su conversión en resultados no queda
-    establecida.
-  riesgo: La serie de crecimiento de FCF es variable entre ejercicios, pese al crecimiento
-    reportado para FY 2025.
+- analisis: La serie reportada de net cash es negativa en los períodos disponibles;
+    no se calcula net debt/EBITDA porque las magnitudes y escalas de los campos disponibles
+    no son conciliables.
+  riesgo: Apalancamiento
+- analisis: El crecimiento del FCF reportado cambia de signo entre ejercicios; la
+    fila TTM más reciente no establece por sí sola una tendencia estructural.
+  riesgo: Variabilidad de caja
+- analisis: El modelo incluye distribución y venta de productos petrolíferos, biocombustibles
+    y logística en diversas regiones; el paquete no cuantifica exposiciones ni sensibilidades.
+  riesgo: Exposición sectorial y geográfica
 error_mercado:
-  catalizador_cambio: Resultados financieros futuros comparables por segmento y evidencia
-    verificable de mejora sostenida en flujo de caja y rentabilidad permitirían revisar
-    la hipótesis.
-  conclusion_error_valoracion: No se valida un error de valoración con la evidencia
-    disponible; el rango de analistas es una referencia de mercado, no una valoración
-    intrínseca.
-  consenso_actual: 'La cotización reportada es USD 5,81 al 2026-10-30; el consenso
-    de precio objetivo observado es USD 7,18, con rango USD 5,60–9,00 al 2026-11-21.
-    Fuentes: yfinance, https://finance.yahoo.com/quote/UGP/; stockanalysis, https://stockanalysis.com/stocks/ugp/forecast/.'
-  hipotesis_contraria: 'El rango de objetivos no demuestra por sí mismo infravaloración:
-    faltan supuestos del consenso y evidencia segmentada para contrastar crecimiento,
-    márgenes y retornos sobre capital.'
-  razonamiento: El precio y el rango de objetivos están expresados en USD, pero el
-    paquete no aporta metodología de valoración ni supuestos operativos detrás de
-    esos objetivos.
-generated_at: '2026-11-21T18:44:53.548404-03:00'
+  catalizador_cambio: La evidencia de varios períodos sobre generación de FCF, márgenes
+    y balance permitiría comprobar si la mejora TTM es persistente o transitoria.
+  conclusion_error_valoracion: 'No se puede verificar un error de valoración: el consenso
+    es una referencia observada, no una valoración intrínseca, y el paquete no aporta
+    un método de valoración con inputs suficientes.'
+  consenso_actual: El consenso de precio objetivo reportado es USD 7.18 (rango USD
+    5.60–9.00), frente a una cotización de USD 5.81 al 2026-10-30; ambos datos constan
+    en el resumen financiero.
+  hipotesis_contraria: La cotización puede reflejar riesgos de apalancamiento, márgenes
+    estrechos y variabilidad del FCF que los datos disponibles no permiten cuantificar
+    suficientemente.
+  razonamiento: La cotización y el rango de objetivos están expresados en USD, pero
+    faltan datos comparables y verificables para justificar una conclusión propia
+    sobre valor intrínseco.
+generated_at: '2026-11-22T09:32:23.573207-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-UGP
@@ -118,61 +127,72 @@ ratios_investigados:
   metric: revenue_cagr_3y_pct
   period_end: '2025-12-31'
   sources:
-  - name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/ugp/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: Crecimiento FCF reportado por la fuente para FY 2025
+- formula: Crecimiento de FCF reportado por la fuente para TTM
   inputs:
     fcf_growth_history:
-      FY 2025: 76.93
-  limitations: Se conserva el porcentaje reportado por la fuente; no se recalcula.
-    El paquete no especifica su método de cálculo.
+      TTM: 98.37
+  limitations: El paquete no detalla la base comparativa exacta del crecimiento TTM;
+    se reproduce como dato reportado, sin recalcularlo.
   metric: fcf_growth_pct
-  period_end: '2025-12-31'
+  period_end: '2026-09-30'
   sources:
-  - name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/ugp/financials/
   status: reported
   unit: percent
-  value: 76.93
-- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
-    a sus inputs de evidencia.
+  value: 98.37
+- formula: FCF / net_income * 100
+  inputs:
+    fcf_history:
+      TTM: 6504
+    net_income_history:
+      TTM: 5368
+  limitations: No se puede verificar que las unidades, moneda y escala de FCF y net
+    income sean compatibles; por ello no se calcula el cociente.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/ugp/financials/
   status: unavailable
   unit: percent
   value: null
 - formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
+    cash_and_investments_history:
+      Current: 6328
     ebitda: 2280000000
     net_cash_history:
-      Current al 2026-09-30: -13629
-  limitations: La unidad/escalado de net_cash_history no es compatible de forma verificable
-    con EBITDA reportado en provider_financial_currency; no se calcula el ratio.
+      Current: -13629
+    total_debt_history:
+      Current: 19958
+  limitations: La deuda, efectivo y net cash se reportan en importes cuya escala no
+    queda especificada en el paquete, mientras EBITDA está reportado como 2.28 mil
+    millones; no se pueden conciliar unidades y escala para calcular un múltiplo verificable.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/ugp/financials/
-  - name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/UGP/statistics/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/ugp/financials/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
     shares_outstanding: 1070000000.0000001
-  limitations: Falta una observación histórica comparable de acciones diluidas o en
-    circulación para el período anterior.
+  limitations: Falta una serie histórica comparable de acciones diluidas o en circulación
+    para calcular la variación interanual.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
-  - name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/UGP/statistics/
   status: unavailable
   unit: percent
@@ -208,7 +228,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-22'
   business_model: Ultrapar Participações S.A., through its subsidiaries, operates
     in the energy, mobility, and logistics infrastructure sectors in Brazil, the rest
     of Europe, the United States, Canada, other Latin American countries, Oceania,
@@ -236,7 +256,327 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.93
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Ultrapar Participações S.A. (UGP) es un grupo diversificado con actividades en
+    energía, movilidad e infraestructura logística. Opera mediante Ultragaz, Ipiranga,
+    Ultracargo e Hidrovias. El negocio incluye abastecimiento, distribución y venta
+    de combustibles, gases, biocombustibles y otros productos, además de transporte
+    e infraestructura logística.
+
+
+    La información disponible describe principalmente operaciones en Brasil, pero
+    no aporta una delimitación completa de las geografías atendidas por cada segmento.
+    La wiki existente menciona operaciones en Brasil y Europa, aunque el contexto
+    de investigación proporcionado no permite confirmar ni precisar esa cobertura.
+
+
+    Las actividades de UGP comparten exposición a combustibles, demanda económica,
+    regulación y costos logísticos con empresas del sector como [[PBR]], [[PSX]],
+    [[YPF]], [[BP]], [[SHEL]] y [[TTE]]. La comparación con esas compañías requiere
+    considerar las diferencias de modelo de negocio y geografía.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Cadena de valor:** compra o abastecimiento de combustibles, gases, biocombustibles
+    y otros productos; distribución mediante redes comerciales y de transporte; venta
+    a estaciones, revendedores, minoristas y otros clientes. El portafolio descrito
+    incluye gasolina, diésel, etanol, fueloil, queroseno, biocombustibles, productos
+    aditivados y GLP a granel o envasado.
+
+
+    **Drivers de ingresos potenciales identificados:**
+
+    - Volúmenes distribuidos y vendidos a transportistas, revendedores, minoristas
+    y usuarios de estaciones.
+
+    - Actividad de las redes comerciales y de transporte.
+
+    - Uso de la infraestructura logística.
+
+    - Precios de productos e insumos y capacidad de trasladar variaciones a clientes.
+
+
+    El paquete no desglosa cuánto aporta cada driver ni separa crecimiento orgánico,
+    precios, volúmenes y adquisiciones.
+
+
+    **Ventajas y límites competitivos:** la escala, las marcas Ipiranga y Ultragaz,
+    la red de distribución y la infraestructura logística podrían aportar alcance,
+    conveniencia y acceso al mercado. AOIF caracteriza el moat como estrecho y la
+    posición competitiva como retadora. No se proporcionan datos de participación
+    de mercado, costos unitarios, retención de clientes ni retornos por segmento que
+    permitan validar estas ventajas.
+
+
+    La industria se describe como intensiva en capital y competitiva, con sensibilidad
+    a precios de materias primas, demanda económica, regulación y costos logísticos.
+    La transición energética y la electrificación pueden alterar la demanda y la composición
+    del negocio, pero el paquete no cuantifica su impacto. Riesgos y dinámicas similares
+    son relevantes para compañías como [[E]], [[EQNR]], [[PBR]] y [[XOM]].
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes se reproducen tal como fueron aportadas. En varios casos
+    no se especifican período, unidad, metodología o base de comparación; no deben
+    interpretarse como series directamente comparables.
+
+
+    | Métrica | Valor reportado | Período o referencia | Limitación |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos | 14,9% | No especificado | No se identifica base de
+    comparación ni contribución de precios, volúmenes o adquisiciones. |
+
+    | Margen operativo | 6,41% | No especificado | No se especifican período ni metodología.
+    |
+
+    | ROIC | 21,41% | No especificado | No se aportan cálculo, período ni serie histórica
+    para validar sostenibilidad. |
+
+    | PER | 6,12 | No especificado | Faltan fecha y datos subyacentes para verificar
+    el cálculo. |
+
+    | EV/EBITDA | 3,65 | No especificado | Faltan fecha, moneda y componentes de valor
+    empresarial y EBITDA. |
+
+    | FCF yield | 0 | No especificado | AOIF advierte que podría representar un dato
+    real o falta de información; no hay definición ni cifras subyacentes. |
+
+    | Crecimiento de FCF | 76,93% | FY 2025 | Porcentaje reportado por la fuente;
+    no se proporciona el método de cálculo. |
+
+    | Current ratio | 1,56 | 2026-09-30 | El dato reportado no cruza el umbral de
+    riesgo indicado de menos de 0,5. |
+
+    | Cotización reportada | USD 5,81 | 2026-10-30 | Referencia de mercado, no valoración
+    intrínseca. |
+
+
+    No se dispone de cifras suficientes de flujo de caja operativo, capex y FCF para
+    evaluar la conversión de beneficios en caja. La variabilidad de FCF entre períodos
+    aconseja no asumir que un crecimiento reportado sea recurrente.
+
+
+    DDD señala que no pudo calcular de forma fiable la deuda neta/EBITDA: los importes
+    de caja neta y deuda neta disponibles no son conciliables en escala o unidad con
+    el EBITDA aportado. Tampoco hay una serie comparable de acciones para evaluar
+    dilución interanual.
+
+
+    **Fuentes citadas en el paquete:** [Stock Analysis — Financials](https://stockanalysis.com/stocks/ugp/financials/)
+    y [Stock Analysis — Statistics](https://stockanalysis.com/stocks/UGP/statistics/).
+    Los datos financieros necesitan verificación directa de períodos, unidades y definiciones
+    antes de utilizarlos en una valoración.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF clasifica la calidad del management como regular, la asignación de capital
+    como neutral y el alineamiento de insiders como débil. Sin embargo, el propio
+    análisis indica que no recibió historial de desempeño directivo, información sobre
+    incentivos, propiedad accionaria ni decisiones de asignación de capital. Por tanto,
+    estas etiquetas son provisionales y no constituyen conclusiones respaldadas por
+    evidencia detallada.
+
+
+    El paquete no incluye información sobre composición, independencia, experiencia
+    o supervisión del board. Tampoco permite evaluar remuneración, sucesión directiva,
+    operaciones con partes relacionadas o el historial de decisiones de inversión
+    y distribución de capital.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Hipótesis de inversión por investigar:** la escala de Ultrapar en distribución
+    energética, movilidad e infraestructura logística podría sostener crecimiento
+    rentable y generación de caja si la empresa logra combinar volúmenes, productividad
+    y reinversión con retornos verificables.
+
+
+    Elementos que justifican continuar la investigación:
+
+
+    - La empresa opera en varias etapas de distribución y logística y cuenta con marcas
+    y redes comerciales que podrían ofrecer ventajas de alcance y acceso.
+
+    - AOIF reporta crecimiento de ingresos de 14,9%, margen operativo de 6,41% y ROIC
+    de 21,41%; faltan períodos y bases comparables para establecer su significado
+    y persistencia.
+
+    - Stock Analysis reporta un crecimiento de FCF de 76,93% para FY 2025, pero no
+    se aporta su método de cálculo y no hay una serie que permita verificar recurrencia
+    o conversión de beneficios.
+
+    - El grupo combina negocios de combustibles y gases con activos logísticos y exposición
+    a segmentos vinculados con la transición energética. El paquete no cuantifica
+    la contribución de cada actividad.
+
+
+    **Estado de la tesis:** investigación requerida. La evidencia disponible no permite
+    validar crecimiento orgánico, rentabilidad sostenida por segmento, conversión
+    de caja ni ventaja competitiva duradera.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    - **Precios y márgenes:** la volatilidad de combustibles e insumos puede reducir
+    márgenes si los cambios de costos no se trasladan oportunamente a clientes. AOIF
+    evalúa este riesgo como de impacto alto y probabilidad alta.
+
+    - **Regulación y fiscalidad:** cambios regulatorios, fiscales o de política de
+    precios en energía, combustibles, transporte y operaciones portuarias. AOIF evalúa
+    el impacto como alto y la probabilidad como media.
+
+    - **Intensidad de capital y competencia:** las redes y activos logísticos requieren
+    capital y operan en mercados competitivos. No hay datos de retornos incrementales
+    por segmento para determinar si el crecimiento crea valor.
+
+    - **Transición energética y electrificación:** podrían modificar la demanda y
+    la mezcla de productos; el paquete no cuantifica exposición ni capacidad de adaptación.
+
+    - **Calidad de la información financiera:** la deuda neta no puede conciliarse
+    con el EBITDA aportado y faltan bases comparables para varias métricas. Esto impide
+    evaluar con fiabilidad apalancamiento y valoración.
+
+    - **Persistencia del flujo de caja:** el crecimiento de FCF reportado para FY
+    2025 no basta para establecer una tendencia recurrente.
+
+    - **Dilución:** no evaluable por falta de una serie comparable de acciones.
+
+
+    **Falsadores de la tesis identificados en DDD:**
+
+    1. Resultados comparables muestran deterioro persistente de márgenes o de FCF.
+
+    2. La empresa no logra sostener crecimiento rentable mediante volumen, productividad
+    o reinversión con retornos verificables.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    No se aportan eventos corporativos con fechas de publicación o realización confirmadas.
+    Los hitos siguientes son necesidades de evidencia, no catalizadores fechados.
+
+
+    | Hito por monitorear | Fecha esperada | Impacto potencial |
+
+    |---|---|---|
+
+    | Publicación de resultados comparables por segmento que separen crecimiento orgánico,
+    precios, volúmenes y adquisiciones | Sin fecha disponible | Permitiría atribuir
+    el crecimiento y evaluar la rentabilidad de cada negocio. |
+
+    | Evidencia de generación de FCF y conversión de beneficios en caja en períodos
+    comparables | Sin fecha disponible | Ayudaría a determinar si el crecimiento de
+    FCF reportado para FY 2025 es sostenible. |
+
+    | Conciliación de deuda neta, caja, EBITDA, vencimientos y unidades financieras
+    | Sin fecha disponible | Mejoraría la evaluación de apalancamiento y riesgo financiero.
+    |
+
+    | Datos comparables de márgenes y retornos sobre capital por segmento | Sin fecha
+    disponible | Permitirían evaluar calidad del crecimiento, necesidades de reinversión
+    y resiliencia. |
+
+
+    ## 8. Marco de Valoración
+
+
+    No puede estimarse un valor intrínseco riguroso con la información disponible.
+    Faltan una fecha y precio de referencia coherentes, acciones diluidas, deuda neta
+    conciliada, FCF normalizado, proyecciones por segmento y supuestos explícitos
+    de crecimiento, márgenes e inversión.
+
+
+    El consenso de precio objetivo citado por DDD es **USD 7,18**, con un rango de
+    **USD 5,60–9,00** al **2026-11-21**; la cotización reportada es **USD 5,81** al
+    **2026-10-30**. La fuente indicada es yfinance, mediante el enlace recogido en
+    el paquete de investigación. El paquete no aporta la metodología ni los supuestos
+    detrás de esos objetivos. Por ello, el rango es una referencia de mercado y no
+    demuestra infravaloración.
+
+
+    **Metodología a desarrollar cuando haya datos suficientes:**
+
+    - Valoración por segmentos, con supuestos separados para distribución energética,
+    movilidad e infraestructura logística.
+
+    - Flujo de caja descontado basado en FCF normalizado, incluyendo necesidades de
+    capital de trabajo y capex.
+
+    - Múltiplos comparables, contrastando diferencias de mix de negocio, geografía,
+    apalancamiento y riesgos frente a compañías como [[PBR]], [[PSX]], [[BP]] y [[SHEL]].
+
+
+    **Supuestos que requieren investigación:** volúmenes, precios y márgenes por segmento;
+    inversión y retornos sobre capital; costo de capital; crecimiento terminal; deuda
+    neta y acciones diluidas. No hay base para presentar un análisis de sensibilidad
+    cuantitativo sin estos inputs.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué segmentos explican el crecimiento de ingresos y cuánto corresponde a precios,
+    volúmenes, adquisiciones y crecimiento orgánico?
+
+    2. ¿Qué márgenes, retornos sobre capital y necesidades de inversión tiene cada
+    segmento?
+
+    3. ¿Cuál es el mercado direccionable y la penetración por segmento y geografía?
+
+    4. ¿Cuál es el FCF de períodos comparables, cómo se calcula y qué parte es recurrente?
+
+    5. ¿Cómo se concilian caja, deuda neta y EBITDA, y cuáles son los vencimientos
+    y costos de financiación?
+
+    6. ¿Existe una serie histórica comparable de acciones diluidas y cuál ha sido
+    la dilución?
+
+    7. ¿Qué exposición tienen los negocios a precios de combustibles, regulación,
+    impuestos, políticas de precios y costos logísticos?
+
+    8. ¿Qué impacto cuantificable tienen la electrificación y la transición energética
+    sobre demanda, activos y necesidades de inversión?
+
+    9. ¿Qué evidencia hay sobre la ejecución del management, incentivos, propiedad
+    accionaria y asignación de capital?
+
+    10. ¿Qué supuestos operativos y de valoración sustentan el rango de objetivos
+    de analistas?
+
+
+    **Conclusión de investigación:** la clasificación disponible es **“Investigación
+    requerida”** y la recomendación de AOIF queda como **PENDIENTE_DECISION_BOARD**.
+    El paquete no valida un error de valoración ni permite construir escenarios fechados
+    con rigor.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]],
+    [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton
+    Company]], [[OXY|Occidental Petroleum Corporation]], [[PBR|Petróleo Brasileiro
+    S.A. - Petrobras]], [[PSX|Phillips 66]], [[SHEL|Shell plc]], [[SLB|SLB N.V.]],
+    [[TS|Tenaris S.A.]], [[TTE|TotalEnergies SE]], [[VIST|Vista Energy, S.A.B. de
+    C.V.]], [[XOM|ExxonMobil Holdings Corporation]], [[YPF|YPF Sociedad Anónima]]
+
+    - **Same Industry**: [[PSX|Phillips 66]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -271,7 +611,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-21T21:44:21.472249+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-22T12:31:51.278442+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -432,12 +772,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    9.0, "low": 5.6, "mean": 7.18, "median": 7.18, "observed_at": "2026-11-21T18:44:24.750747-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
-    "2026-11-21T18:44:24.750747-03:00", "observed_date": "2026-11-21", "target_price":
+    9.0, "low": 5.6, "mean": 7.18, "median": 7.18, "observed_at": "2026-11-22T09:31:54.793459-03:00",
+    "sources": [{"as_of_date": "2026-11-22", "name": "stockanalysis", "observed_at":
+    "2026-11-22T09:31:54.793459-03:00", "observed_date": "2026-11-22", "target_price":
     7.18, "url": "https://stockanalysis.com/stocks/ugp/forecast/"}, {"as_of_date":
-    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T18:44:24.750747-03:00",
-    "observed_date": "2026-11-21", "target_price": 7.1775, "url": "https://finance.yahoo.com/quote/UGP/"}]},
+    "2026-11-22", "name": "yfinance", "observed_at": "2026-11-22T09:31:54.793459-03:00",
+    "observed_date": "2026-11-22", "target_price": 7.1775, "url": "https://finance.yahoo.com/quote/UGP/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 5.809999942779541,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/UGP/"}]}}'
   sector: Energy
@@ -447,48 +787,99 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 7cb95d63842290544a468aba0be99bcd18377c79f4f34c0adafd832fa8c75f0a
+    sha256: 502109695f62e67a975d057204078122f8f2b87296e2941283f4837065da00d2
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-21T18:44:53.548404-03:00'
+  triggered_at: '2026-11-22T09:32:23.573207-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: 1.56 al 2026-09-30; no cruza el umbral.
-  source: https://stockanalysis.com/stocks/UGP/statistics/
+- assessment_note: No cruza el umbral configurado; observación para Assessment.
+  metric: current_ratio
+  observation: '1.56 al 2026-09-30; fuente: https://stockanalysis.com/stocks/UGP/statistics/'
   threshold: below 0.5
-- metric: dilution_yoy_pct
-  observation: 'No evaluable: falta una serie comparable de acciones.'
-  source: https://stockanalysis.com/stocks/UGP/statistics/
-  threshold: above 10%
-- metric: interest_coverage
-  observation: La fuente reporta 0 al 2026-09-30, pero no hay desglose que permita
-    validar EBIT e intereses; señal para revisión, no conclusión.
-  source: https://stockanalysis.com/stocks/UGP/statistics/
+- assessment_note: No puede evaluarse frente al umbral.
+  metric: dilution_yoy_pct
+  observation: 'No disponible: falta serie comparable de acciones.'
+  threshold: above 10 percent
+- assessment_note: Dato reportado que requiere validación; no se interpreta como cobertura
+    calculada.
+  metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30; no se aportan EBIT y gasto por intereses
+    conciliables para verificar el ratio.
   threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: No aplicable al FCF positivo reportado para TTM al 2026-09-30.
-  source: https://stockanalysis.com/stocks/UGP/statistics/
+- assessment_note: El paquete no informa un runway de FCF negativo.
+  metric: negative_fcf_runway_months
+  observation: 'No aplicable a los datos aportados: el FCF TTM reportado es positivo
+    al 2026-09-30.'
   threshold: below 12 months
-- metric: net_debt_ebitda
-  observation: No evaluable por incompatibilidad verificable de unidades entre deuda
-    neta/caja neta y EBITDA.
-  source: https://stockanalysis.com/stocks/ugp/financials/
+- assessment_note: No puede evaluarse frente al umbral.
+  metric: net_debt_ebitda
+  observation: No disponible por incompatibilidad verificable de escala entre deuda/net
+    cash y EBITDA.
   threshold: above 4.0x
-- metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: falta una serie histórica comparable de acciones.'
-  source: https://stockanalysis.com/stocks/UGP/statistics/
-  threshold: above 5%
-scenario_analysis: null
+- assessment_note: No puede evaluarse frente al umbral.
+  metric: share_count_cagr_3y_pct
+  observation: 'No disponible: falta serie histórica de acciones para un período de
+    tres años.'
+  threshold: above 5 percent
+scenario_analysis:
+  as_of_date: '2026-11-22'
+  currency: USD
+  horizon_date: '2027-11-22'
+  scenarios:
+  - falsifiers:
+    - Una serie posterior comparable que confirme mejora sostenida de márgenes y FCF
+      debilitaría este escenario.
+    - Información financiera conciliada que muestre menor apalancamiento debilitaría
+      este escenario.
+    id: BEAR
+    key_assumptions:
+    - El consenso bajo observado se usa como resultado de escenario, no como predicción
+      garantizada.
+    - No se presume crecimiento futuro ni se cuantifican sus impulsores por falta
+      de evidencia.
+    rationale: Ancla baja del rango de objetivos de analistas observado, no valoración
+      intrínseca propia. Es consistente con que la mejora reciente de margen y caja
+      no se sostenga y con que la deuda neta y la volatilidad histórica de FCF pesen
+      sobre la valoración.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/ugp/forecast/
+    - as_of_date: '2026-09-30'
+      name: StockAnalysis, estados financieros
+      url: https://stockanalysis.com/stocks/ugp/financials/
+    target_price: 5.6
+  - falsifiers:
+    - Un deterioro posterior de margen bruto o FCF debilitaría este escenario.
+    - Un aumento del apalancamiento que limite la generación de caja debilitaría este
+      escenario.
+    id: BULL
+    key_assumptions:
+    - El consenso alto observado se usa como resultado de escenario, no como predicción
+      garantizada.
+    - La mejora TTM de margen y FCF persiste, sin asignar cifras de crecimiento adicionales.
+    rationale: Ancla alta del rango de objetivos de analistas observado, no valoración
+      intrínseca propia. Es consistente con que la mejora reportada de margen bruto
+      y FCF TTM se mantenga; la evidencia disponible no permite verificar que ese
+      resultado vaya a ocurrir.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/ugp/forecast/
+    - as_of_date: '2026-09-30'
+      name: StockAnalysis, estados financieros
+      url: https://stockanalysis.com/stocks/ugp/financials/
+    target_price: 9.0
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 58
+  errors: []
+  status: valid_pending_decision_board
+score_general: 65.66
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T18:44:24.750747-03:00'
+  calculado_at: '2026-11-22T09:31:54.793459-03:00'
   fuentes:
     stockanalysis: 7.18
     yfinance: 7.1775
@@ -496,25 +887,24 @@ target_consensus:
   n_fuentes: 2
   promedio: 7.18
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-22'
     name: stockanalysis
-    observed_at: '2026-11-21T18:44:24.750747-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-22T09:31:54.793459-03:00'
+    observed_date: '2026-11-22'
     target_price: 7.18
     url: https://stockanalysis.com/stocks/ugp/forecast/
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-22'
     name: yfinance
-    observed_at: '2026-11-21T18:44:24.750747-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-22T09:31:54.793459-03:00'
+    observed_date: '2026-11-22'
     target_price: 7.1775
     url: https://finance.yahoo.com/quote/UGP/
   target_high: 9.0
   target_low: 5.6
-tesis_inversion: La tesis a investigar es si la escala de Ultrapar en distribución
-  energética, movilidad e infraestructura logística puede sostener crecimiento rentable
-  y conversión de caja. La evidencia agregada muestra crecimiento de ingresos en el
-  TTM terminado el 2026-09-30 frente al FY 2025, pero no basta para atribuirlo a volumen,
-  precio, adquisiciones o mejoras de retorno sobre capital; tampoco documenta penetración
-  de mercado o ventajas competitivas.
+tesis_inversion: Ultrapar combina distribución de combustibles, movilidad e infraestructura
+  logística en varios mercados. La evidencia disponible apunta a una mejora reciente
+  de margen bruto y FCF, pero no basta para determinar si es sostenible ni para establecer
+  retornos sobre capital; la tesis depende de que la generación de caja se mantenga
+  y de que el endeudamiento no limite la reinversión.
 ticker: UGP
 version: '3.0'
