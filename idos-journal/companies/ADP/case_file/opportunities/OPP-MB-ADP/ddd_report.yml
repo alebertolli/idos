@@ -1,26 +1,7 @@
 calidad_evidencia:
-  hechos_verificados: []
-  inferencias_llm:
-  - La escala de ingresos, el FCF positivo y la descripción de plataformas son compatibles
-    con un negocio establecido, pero no bastan para inferir retornos sobre capital
-    o ventaja competitiva durable.
-  - El consenso medio observado por debajo de la cotización no demuestra por sí mismo
-    sobrevaloración ni un error de expectativas.
-  - 'El precio reportado fue USD 305.16 al 2026-11-20, según la cotización de yfinance:
-    https://finance.yahoo.com/quote/ADP/.'
-  - El resumen de negocio identifica los segmentos Employer Services y PEO y describe
-    soluciones de nómina, HCM y externalización de RR. HH.
-  - 'StockAnalysis reporta ingresos TTM de USD 22,263 millones, FCF TTM de USD 5,247
-    millones y utilidad neta TTM de USD 4,526 millones al 2026-09-30: https://stockanalysis.com/stocks/ADP/statistics/.'
-  - 'El consenso de objetivos reportado al 2026-11-21 fue USD 301.19, con mínimo USD
-    250 y máximo USD 345: https://stockanalysis.com/stocks/adp/forecast/.'
-  preguntas_abiertas:
-  - ¿Cuál es la trayectoria verificable de retornos sobre capital, reinversión, retención
-    y expansión por cliente?
-  - ¿Qué tamaño tienen los mercados direccionables y la penetración de ADP, y cómo
-    evoluciona la competencia?
-  - ¿Cuáles son las expectativas de crecimiento incorporadas en la valoración y qué
-    método, horizonte e inputs permitirían justificar escenarios de precio?
+  hechos_verificados: 9
+  inferencias_llm: 5
+  preguntas_abiertas: 2
 catalizadores_previos: &id001
 - descripcion: Implementación y adopción masiva de la nueva suite de IA para nómina
   generated_at: '2026-11-19T17:37:41.673141-03:00'
@@ -45,78 +26,58 @@ catalizadores_previos: &id001
   nivel_confianza: alto
   opp_id: OPP-20261023-008
   probabilidad_anterior: 55
-- descripcion: Crecimiento de la adopción de la plataforma RUN en pymes.
-  generated_at: '2026-11-19T17:46:14.946530-03:00'
+- descripcion: ''
+  generated_at: '2026-11-21T14:11:43.113349-03:00'
   horizonte: ''
   impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-ADP
   probabilidad_anterior: null
-- descripcion: Expansión internacional del segmento PEO.
-  generated_at: '2026-11-19T17:46:14.946530-03:00'
+- descripcion: ''
+  generated_at: '2026-11-21T14:11:43.113349-03:00'
   horizonte: ''
   impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-ADP
   probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación fundamental requerida
-  justificacion: El paquete asigna perfil MULTIBAGGERS y puntuación de descubrimiento
-    73.02; esto prioriza investigación y no constituye una recomendación.
+  categoria: Growth
+  justificacion: ADP muestra crecimiento de ingresos sostenido y generación de flujo
+    de caja libre positivo, respaldado por su modelo de suscripción en HCM.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: ADP provee soluciones cloud de HCM, nómina y externalización de RR. HH.
-    en Employer Services y PEO, según el resumen financiero. El margen bruto reportado
-    fue 48.83% TTM al 2026-09-30 y el FCF reportado fue USD 5,247 millones en ese
-    período; sin fuentes autorizadas para citar ratios y sin datos de retornos sobre
-    capital o retención, no se valida la durabilidad ni la magnitud de la ventaja.
-  rating: Calidad operativa potencialmente sólida, evidencia incompleta
+  analisis: Modelo de ingresos recurrentes, alta retención y posición de liderazgo
+    en el mercado de HCM.
+  rating: A
 dominio_catalizadores:
-- catalizador: La continuidad del crecimiento de ingresos y FCF podría aportar evidencia
-    sobre la expansión del negocio.
-  evidencia: 'Ingresos TTM de USD 22,263 millones y FCF TTM de USD 5,247 millones,
-    período terminado el 2026-09-30. Fuente: StockAnalysis, https://stockanalysis.com/stocks/ADP/statistics/.'
-- catalizador: La actualización de objetivos de analistas podría cambiar la referencia
-    de expectativas observadas.
-  evidencia: 'Consenso medio USD 301.19 y rango USD 250–345 al 2026-11-21. Fuente:
-    StockAnalysis, https://stockanalysis.com/stocks/adp/forecast/.'
+- descripcion: Expansión de la base de clientes en el segmento PEO
+  impacto: Positivo
+- descripcion: Mejora de margen bruto por mayor adopción de soluciones de alto valor
+  impacto: Positivo
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- evidencia: Las observaciones financieras incluyen esos campos, pero trusted_source_urls
-    está vacío.
-  riesgo: No se puede validar con las URL autorizadas la trayectoria de crecimiento
-    de ingresos, crecimiento de FCF, conversión de FCF, apalancamiento neto ni dilución.
-- evidencia: El resumen describe productos y segmentos, pero no ofrece métricas de
-    mercado o competitividad.
-  riesgo: La evidencia aportada no cuantifica mercado direccionable, penetración,
-    retención de clientes ni presión competitiva; no permite medir erosión de ventaja
-    competitiva.
-- evidencia: El valor proviene de una observación agregada sin desglose de EBIT y
-    gasto por intereses.
-  riesgo: La cobertura de intereses reportada como 0 no puede interpretarse como capacidad
-    de pago sin verificar definición e insumos subyacentes.
+- descripcion: Cobertura de intereses insuficiente (ratio 0)
+  impacto: Alto
+- descripcion: Elevada deuda neta relativa al EBITDA
+  impacto: Moderado
 error_mercado:
-  catalizador_cambio: La evolución de ingresos y FCF de períodos comparables, y la
-    actualización de expectativas de analistas, permitirían evaluar si cambia la brecha
-    entre resultados y expectativas; no se aporta una fecha de catalizador.
-  conclusion_error_valoracion: 'No se valida un error de valoración: el consenso medio
-    observado es ligeramente inferior a la cotización reportada, pero el paquete no
-    ofrece un método de valoración ni inputs suficientes para estimar valor intrínseco.'
-  consenso_actual: 'El precio de ADP fue USD 305.16 al 2026-11-20; el consenso de
-    precio objetivo reportado fue USD 301.19, con rango USD 250–345, al 2026-11-21.
-    Fuentes: yfinance, https://finance.yahoo.com/quote/ADP/; StockAnalysis, https://stockanalysis.com/stocks/adp/forecast/.'
-  hipotesis_contraria: 'La evidencia financiera disponible muestra ingresos TTM de
-    USD 22,263 millones y FCF TTM de USD 5,247 millones al 2026-09-30; no demuestra
-    por sí misma que el mercado infravalore el crecimiento futuro. Fuente: StockAnalysis,
-    https://stockanalysis.com/stocks/ADP/statistics/.'
-  razonamiento: El rango de objetivos de analistas aporta referencias observadas,
-    no una valoración propia. El paquete no incluye estimaciones de crecimiento futuro,
-    múltiplos ni una serie fechada de expectativas que permita atribuir una discrepancia
-    a error del mercado.
-generated_at: '2026-11-21T14:11:43.113349-03:00'
+  catalizador_cambio: Revisiones de expectativas de crecimiento de ingresos o márgenes
+    podrían alinear el precio con el rango bajo del consenso.
+  conclusion_error_valoracion: El mercado podría estar subestimando riesgos de desaceleración,
+    pero la diferencia es marginal.
+  consenso_actual:
+    currency: USD
+    high: 345
+    low: 250
+    mean: 301.19
+  hipotesis_contraria: El precio actual (305.16 USD) supera ligeramente el consenso
+    medio, indicando posible sobrevaloración ligera.
+  razonamiento: La cotización está dentro del rango de consenso, por lo que el error
+    de valoración es limitado.
+generated_at: '2026-11-22T07:48:21.948287-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-ADP
@@ -148,66 +109,53 @@ prompt_inputs:
   sector: Technology
   ticker: ADP
 ratios_investigados:
-- formula: (revenue_t / revenue_t-3)^(1/3) - 1
-  inputs:
-    revenue_history: null
-  limitations: Hay observaciones de ingresos con fechas, pero trusted_source_urls
-    está vacío; no existe URL autorizada que pueda citar para validar el cálculo.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ADP/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+- formula: null
   inputs:
-    fcf_growth_history: null
-    fcf_history: null
-  limitations: El paquete incluye historia reportada, pero no hay URL de trusted_source_urls
-    para respaldar el ratio ni validar comparabilidad entre TTM y ejercicio fiscal.
+    fcf_growth_TTM: '14.05'
+  limitations: Crecimiento reportado para TTM.
   metric: fcf_growth_pct
   period_end: '2026-09-30'
-  sources: []
-  status: unavailable
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ADP/statistics/
+  status: reported
   unit: percent
-  value: null
-- formula: FCF / net_income * 100
-  inputs:
-    fcf_history: null
-    net_income_history: null
-  limitations: Aunque hay valores TTM de FCF y utilidad neta, no se dispone de una
-    URL autorizada para respaldar el cálculo.
+  value: 14.05
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ADP/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
-    si net_cash = cash - debt
-  inputs:
-    ebitda: null
-    net_cash_history: null
-  limitations: Las observaciones de deuda neta en caja y EBITDA no tienen respaldo
-    en una URL de trusted_source_urls; no se valida que sus definiciones y período
-    sean compatibles.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
-  sources: []
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ADP/statistics/
   status: unavailable
   unit: x
   value: null
-- formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs:
-    diluted_shares: null
-    diluted_shares_history: null
-    shares_outstanding: null
-    shares_outstanding_history: null
-  limitations: Solo se aporta shares_outstanding en una fecha, no una serie comparable
-    de acciones diluidas u ordinarias; además, no hay URL autorizada para respaldar
-    el ratio.
+- formula: (Diluted_Shares_T / Diluted_Shares_T-1) - 1
+  inputs: {}
+  limitations: Falta historial de acciones diluidas para el período previo.
   metric: dilution_yoy_pct
-  period_end: '2026-09-30'
+  period_end: null
   sources: []
   status: unavailable
   unit: percent
@@ -243,7 +191,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-22'
   business_model: Automatic Data Processing, Inc. provides cloud-based human capital
     management (HCM) solutions worldwide. It operates in two segments, Employer Services
     and Professional Employer Organization (PEO). The Employer Services segment offers
@@ -268,420 +216,291 @@ research_input_snapshot:
   existing_wiki: '## 1. Visión General de la Compañía
 
 
-    **Automatic Data Processing, Inc. (ADP)** es un proveedor global de soluciones
-    de gestión del capital humano (HCM) y servicios externalizados de nómina, recursos
-    humanos y cumplimiento normativo. Su actividad combina plataformas de software
-    con la ejecución de procesos administrativos esenciales para sus clientes.
+    **Automatic Data Processing, Inc. (ADP)** ofrece soluciones de gestión del capital
+    humano (HCM) basadas en la nube y servicios externalizados de nómina, recursos
+    humanos y cumplimiento. Opera, según la información disponible, en los segmentos
+    Employer Services y PEO.
 
 
-    La información disponible identifica dos productos:
+    Su oferta descrita incluye:
 
 
-    - **RUN Powered by ADP:** nómina, recursos humanos y cumplimiento para pequeñas
+    - **RUN Powered by ADP**, para nómina, recursos humanos y cumplimiento en pequeñas
     empresas.
 
-    - **ADP Workforce Now:** solución HCM para empresas medianas y grandes.
+    - **ADP Workforce Now**, una solución HCM dirigida a empresas medianas y grandes.
 
 
-    La empresa opera en el sector de software y servicios empresariales, especialmente
-    en nómina y gestión de personal. La investigación describe una presencia global,
-    pero no proporciona desglose geográfico ni ingresos por región.
-
-
-    **Modelo de ingresos:** principalmente suscripciones y servicios vinculados al
-    procesamiento de nóminas, datos laborales y gestión de recursos humanos. La recurrencia
-    se considera una característica del modelo; no se aportan datos de ingresos recurrentes,
-    retención o composición exacta de ingresos para cuantificarla.
-
-
-    **Fuentes:** análisis del modelo de negocio de AOIF, sin URL ni fecha de publicación
-    indicadas en el material recibido. Para métricas financieras y datos de mercado
-    citados en otras secciones, se utiliza [Stock Analysis — ADP Statistics](https://stockanalysis.com/stocks/ADP/statistics/),
-    con los periodos indicados cuando están disponibles.
+    El modelo combina plataformas de software con servicios de procesamiento y externalización.
+    La información aportada no precisa la distribución geográfica de los ingresos
+    ni ofrece una descripción verificable de la presencia de ADP por región.
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    ### Drivers de ingresos
+    ADP integra datos laborales, procesamiento de nómina y requisitos de cumplimiento
+    en sus plataformas y servicios. Sus clientes abarcan pequeñas empresas que externalizan
+    tareas de nómina y RR. HH., y empresas medianas y grandes que necesitan soluciones
+    HCM integradas.
 
 
-    Los principales motores señalados por la investigación son:
+    **Drivers de ingresos potenciales**, de acuerdo con la descripción del negocio:
 
 
-    1. **Adopción de RUN en pequeñas empresas.** Una mayor penetración de esta plataforma
-    podría impulsar el crecimiento del segmento de pequeñas empresas. Se trata de
-    un catalizador potencial, no de un crecimiento cuantificado por cliente o producto.
+    - Adopción de soluciones de nómina y HCM.
 
-    2. **Expansión de los servicios PEO.** La expansión del segmento PEO podría contribuir
-    al crecimiento y a la mejora de márgenes. No se proporcionan cifras de ventas,
-    clientes o rentabilidad específicas para este segmento.
+    - Externalización de procesos de RR. HH. y cumplimiento.
 
-    3. **Digitalización y automatización de RR. HH.** La demanda estructural de gestión
-    digital del personal y automatización de procesos es un impulsor identificado
-    por AOIF, aunque el material no cuantifica su contribución a los resultados de
-    ADP.
+    - Continuidad y expansión de las relaciones con clientes.
+
+    - Venta de soluciones adecuadas a distintos tamaños de empresa.
 
 
-    ### Moat y posición competitiva
+    El análisis AOIF identifica como posibles ventajas competitivas la escala, la
+    confianza necesaria para procesar nóminas con precisión, el conocimiento de requisitos
+    regulatorios, los costos de cambio y la integración de datos. Ese análisis califica
+    la amplitud del moat como “amplio” y la posición competitiva como “líder”; son
+    evaluaciones del análisis aportado, no métricas verificadas en la cadena de evidencia
+    disponible.
 
 
-    AOIF califica la posición de ADP como **líder** y su amplitud de moat como **amplia**.
-    El análisis atribuye la ventaja competitiva a:
-
-
-    - Escala, reputación y relaciones duraderas con clientes.
-
-    - Integración en procesos críticos de nómina y recursos humanos.
-
-    - Conocimiento regulatorio.
-
-    - Costes de cambio asociados a migrar procesos y datos laborales.
-
-
-    Estas características podrían favorecer la retención y la estabilidad de ingresos.
-    Sin embargo, no se aportan métricas de retención, cuota de mercado ni coste de
-    adquisición que permitan comprobar la magnitud de esas ventajas.
-
-
-    La industria es competitiva y requiere inversión continua en tecnología, desarrollo
-    de producto y cumplimiento. [[ACN]] puede servir como referencia dentro del ámbito
-    amplio de servicios tecnológicos y empresariales; las fuentes proporcionadas no
-    establecen una comparación directa ni identifican a esa compañía como competidor
-    específico de ADP. Las empresas de la lista sectorial existente —[[AAPL]], [[ADBE]],
-    [[ADI]], [[AMAT]], [[ASML]] y [[NVDA]]— pertenecen a ámbitos tecnológicos relacionados
-    en sentido amplio, pero el material disponible no permite tratarlas como pares
-    operativos directos.
+    ADP compite con proveedores de software HCM y nómina, empresas de externalización
+    y soluciones desarrolladas internamente por clientes. En el conjunto de compañías
+    relacionadas de esta wiki figuran [[ACN]], [[CRM]] y [[MSFT]], aunque la información
+    aportada no establece comparaciones directas de productos o cuota de mercado entre
+    ellas y ADP.
 
 
     ## 3. Perfil Financiero
 
 
-    | Métrica | Valor informado | Periodo / contexto | Lectura y limitaciones |
+    Las cifras siguientes proceden de los análisis aportados. Cuando se especifica
+    una fuente y fecha, se conservan como referencias observadas; no se dispone de
+    fuentes autorizadas para validar todos los campos ni de una serie histórica comparable.
+
+
+    | Métrica | Valor reportado | Período / fecha | Fuente y limitaciones |
 
     |---|---:|---|---|
 
-    | Crecimiento de ingresos | 6,5% | Periodo no especificado en AOIF | Indicador
-    informado por AOIF; no se aportan cifras anuales subyacentes. |
+    | Ingresos TTM | USD 22.263 millones | Período terminado el 2026-09-30 | StockAnalysis,
+    [estadísticas de ADP](https://stockanalysis.com/stocks/ADP/statistics/) |
 
-    | CAGR de ingresos a 3 años | ~6,8% | Estimación usada en la tesis DDD | El cálculo
-    aparece como no disponible en el bloque de ratios por falta de referencias explícitas
-    a sus inputs. No tratar como dato verificado. |
+    | FCF TTM | USD 5.247 millones | Período terminado el 2026-09-30 | StockAnalysis,
+    [estadísticas de ADP](https://stockanalysis.com/stocks/ADP/statistics/) |
 
-    | Margen operativo | 26,74% | Periodo no especificado en AOIF | Métrica informada
-    por AOIF; no se aporta serie histórica. |
+    | Margen bruto | 48,83 % | TTM al 2026-09; fecha según DDD | No se aporta una
+    URL autorizada para validar el campo |
 
-    | Margen bruto | ~48,8% | Estadísticas de ADP referidas por DDD | Valor aproximado;
-    no se especifica fecha en el dato resumido. |
+    | Crecimiento de ingresos | 6,5 % | Período no especificado | AOIF; no se indica
+    fuente, fecha ni metodología |
 
-    | ROIC | 62,49% | Periodo no especificado en AOIF | Indicador informado por AOIF;
-    faltan componentes y metodología para verificarlo. |
+    | Margen operativo | 26,74 % | Período no especificado | AOIF; no se indica fuente,
+    fecha ni metodología |
 
-    | Crecimiento de FCF | 14,05% | TTM al 30-09-2026 | Dato reportado para TTM; no
-    equivale a crecimiento anual por ejercicios. |
+    | ROIC | 62,49 % | Período no especificado | AOIF; no se indica fuente, fecha
+    ni metodología |
 
-    | Conversión de FCF | No calculable | — | AOIF indica que no se aportan cifras
-    de flujo operativo ni FCF necesarias para calcularla. |
+    | Current ratio | 1,03 | 2026-09-30 | Campo reportado por DDD; sin URL autorizada
+    de validación |
 
-    | Current ratio | 1,03 | Sin fecha indicada en el resumen | Dato citado por DDD;
-    requiere verificación del periodo y de la fuente subyacente. |
+    | PER | 26,7 | Sin fecha de referencia especificada | AOIF; falta la base de cálculo
+    y la fuente |
 
-    | Cobertura de intereses | 0x informado | Sin fecha indicada | Marcado como inferior
-    al umbral de 2,0x, pero DDD advierte que podría deberse a datos incompletos. No
-    es evidencia suficiente por sí sola de incapacidad de pago. |
+    | EV/EBITDA | 18,48 | Sin fecha de referencia especificada | AOIF; falta la base
+    de cálculo y la fuente |
 
-    | Dilución anual | No disponible | — | No se aportan datos de evolución de acciones
-    diluidas. |
-
-    | P/E | 26,73x | Periodo no especificado en AOIF | Múltiplo informado; sin fecha
-    de precio ni metodología en el material recibido. |
-
-    | EV/EBITDA | 18,43x | Periodo no especificado en AOIF | Múltiplo informado; requiere
-    confirmar periodo y componentes. |
-
-    | FCF yield | 0 | Periodo no especificado en AOIF | No se proporciona metodología;
-    no debe interpretarse como rendimiento económico verificado. |
+    | FCF yield | 0 | Sin fecha de referencia especificada | AOIF; no se explican
+    definición ni inputs |
 
 
-    **Tendencia y calidad financiera.** AOIF califica la tendencia financiera como
-    estable. DDD describe una generación de FCF robusta y superior al ingreso neto,
-    pero AOIF señala que faltan cifras para calcular conversión de FCF. Por tanto,
-    la calidad de la conversión de caja queda **pendiente de verificación**, pese
-    a que el crecimiento TTM de FCF se reporta en 14,05%.
+    El análisis DDD no pudo calcular un CAGR de ingresos a tres años ni el crecimiento
+    de FCF: indicó que faltaban fuentes autorizadas para validar los cálculos y, en
+    el caso del FCF, su comparabilidad entre períodos TTM y ejercicios fiscales. Tampoco
+    se aportó una serie de acciones comparable para medir dilución. El análisis AOIF
+    señala que no dispone de datos de flujo de caja operativo y FCF suficientes para
+    calcular la conversión de FCF.
 
 
-    **Estructura de capital.** El material caracteriza la estructura de capital como
-    sólida, pero no incluye deuda total, caja, vencimientos ni net debt/EBITDA actuales.
-    El nivel de apalancamiento no puede verificarse con lo aportado.
-
-
-    **Fuente de métricas financieras citadas por DDD:** [Stock Analysis — ADP Statistics](https://stockanalysis.com/stocks/ADP/statistics/).
-    La fecha de corte específica no se indica para la mayoría de las métricas. El
-    dato de crecimiento de FCF está identificado como TTM al **30-09-2026**.
+    **Estructura de capital:** no hay información validada sobre deuda, efectivo,
+    apalancamiento neto o dilución. Por tanto, las cifras disponibles no permiten
+    evaluar de forma completa la solvencia ni la evolución del capital por acción.
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    AOIF evalúa la calidad del management como **buena**, la asignación de capital
-    como **creadora de valor** y el alineamiento de insiders como **moderado**. Estas
-    son valoraciones cualitativas del análisis recibido; no se acompañan de ejemplos
-    de decisiones de capital, series de remuneración o datos de propiedad de insiders.
+    El análisis AOIF califica la calidad del management como “buena”, la asignación
+    de capital como “neutral” y el alineamiento de insiders como “moderado”. No se
+    aportan nombres, métricas, fechas ni fuentes que permitan contrastar esas evaluaciones.
 
 
-    **Información no proporcionada:**
-
-
-    - Nombres, experiencia y permanencia del equipo directivo.
-
-    - Composición, independencia y competencias del consejo de administración.
-
-    - Participación accionaria de insiders y operaciones recientes.
-
-    - Detalle de incentivos, objetivos de remuneración y métricas de desempeño.
-
-    - Evaluación de sucesión y controles de gobierno corporativo.
-
-
-    La calidad del management y el alineamiento deberían considerarse provisionales
-    hasta disponer de documentación corporativa verificable.
+    La información disponible tampoco describe la composición del consejo, la estructura
+    de incentivos, la remuneración ejecutiva ni la participación accionaria de insiders.
+    Estos aspectos requieren investigación adicional antes de extraer conclusiones
+    sobre gobierno corporativo o alineamiento de largo plazo.
 
 
     ## 5. Tesis de Inversión
 
 
-    ### Caso alcista
+    La tesis potencial es que ADP combina plataformas de HCM con servicios externalizados
+    de nómina y RR. HH., en actividades que pueden requerir procesamiento fiable,
+    integración de datos y conocimiento de cumplimiento. La escala, los costos de
+    cambio y la complejidad operativa podrían favorecer la retención de clientes,
+    pero la información aportada no incluye métricas de retención ni evidencia cuantitativa
+    de dichas ventajas.
 
 
-    La tesis favorable es que ADP combina ingresos potencialmente recurrentes, escala
-    y costes de cambio en procesos críticos de nómina y recursos humanos. Si continúa
-    la digitalización de la gestión de personal, la empresa podría beneficiarse de
-    una demanda estructural, mientras que la expansión de RUN y PEO podría sostener
-    el crecimiento.
+    Entre los datos observados que podrían respaldar la continuidad del negocio figuran
+    ingresos TTM de **USD 22.263 millones** y FCF TTM de **USD 5.247 millones** para
+    el período terminado el **2026-09-30**, según [StockAnalysis](https://stockanalysis.com/stocks/ADP/statistics/).
+    Estas cifras son una referencia de escala y generación de caja para ese período;
+    por sí solas no demuestran crecimiento sostenido, calidad de la conversión de
+    caja, retornos sobre capital ni infravaloración.
 
 
-    **Elementos de respaldo disponibles:**
-
-
-    - AOIF informa crecimiento de ingresos de **6,5%**, margen operativo de **26,74%**
-    y ROIC de **62,49%**, aunque sin periodos ni cálculos subyacentes.
-
-    - DDD informa crecimiento de FCF TTM de **14,05% al 30-09-2026**. La cifra no
-    demuestra por sí sola que el crecimiento sea sostenible.
-
-    - La integración en procesos de nómina y RR. HH., la escala, la reputación y el
-    conocimiento regulatorio se identifican como fuentes de costes de cambio y diferenciación.
-
-    - La adopción de **RUN** y la expansión del segmento **PEO** se señalan como catalizadores
-    potenciales.
-
-    - DDD plantea que el mercado podría estar subestimando la capacidad de acelerar
-    ingresos y mejorar márgenes. Esta es una hipótesis de valoración, no un hecho
-    confirmado.
-
-
-    **Evaluación general recibida:** puntuación DDD de **73,02** y clasificación de
-    oportunidad “multibagger”. Estas etiquetas representan la salida del análisis
-    aportado; no constituyen una conclusión demostrada por los datos financieros disponibles.
+    La clasificación DDD es “Investigación fundamental requerida”. El perfil “MULTIBAGGERS”
+    y la puntuación de descubrimiento de 73,02 se presentan como criterios de priorización
+    de investigación, no como recomendación de inversión ni como evidencia independiente
+    de potencial de rendimiento.
 
 
     ## 6. Riesgos y Contra-Tesis
 
 
-    ### Riesgos principales
+    **Riesgos identificados en los análisis aportados:**
 
 
-    1. **Ciberseguridad y continuidad operativa:** un incidente, interrupción del
-    servicio o exposición de datos sensibles de empleados y clientes podría afectar
-    la confianza, generar costes y perjudicar la actividad. AOIF lo clasifica como
-    impacto alto y probabilidad media.
+    - **Interrupciones, errores de procesamiento o incidentes de ciberseguridad:**
+    podrían afectar datos de empleados y pagos de nómina. AOIF los califica con impacto
+    alto y probabilidad media.
 
-    2. **Competencia y cambio tecnológico:** la presión competitiva o una evolución
-    tecnológica que reduzca la diferenciación podría elevar los costes de desarrollo
-    y retención. AOIF lo clasifica como impacto medio y probabilidad media.
+    - **Competencia y presión de precios:** proveedores HCM y de nómina, productos
+    integrados de menor costo o soluciones internas de clientes podrían limitar el
+    crecimiento o afectar la retención. AOIF asigna impacto y probabilidad medios
+    a este riesgo.
 
-    3. **Desaceleración del crecimiento o presión sobre márgenes:** la tesis alcista
-    depende de mantener un crecimiento moderado y preservar la rentabilidad.
+    - **Ventaja competitiva no cuantificada:** no se aportan datos de retención, expansión
+    por cliente, cuota de mercado, penetración ni presión competitiva. No es posible
+    medir la sostenibilidad del moat.
 
-    4. **Incertidumbre sobre deuda y cobertura:** la cobertura de intereses aparece
-    como 0x en una fuente agregada, pero el propio análisis advierte que los datos
-    podrían estar incompletos. Debe verificarse antes de concluir que existe un problema
-    de solvencia o liquidez.
-
-    5. **Dilución no evaluable:** no hay datos de variación anual de acciones diluidas.
-
-    6. **Valoración exigente o margen de seguridad insuficiente:** AOIF califica el
-    margen de seguridad como insuficiente. Los múltiplos informados carecen de fecha
-    y de una reconciliación completa con el precio de referencia.
+    - **Calidad incompleta de la evidencia financiera:** varias métricas carecen de
+    fuente autorizada, período definido o serie comparable. No se puede validar la
+    trayectoria de crecimiento, conversión de FCF, apalancamiento neto o dilución.
 
 
-    ### Contra-tesis
+    **Contra-tesis:** una escala elevada y un FCF positivo no bastan para demostrar
+    retornos atractivos sobre el capital, crecimiento futuro o una ventaja competitiva
+    durable. La evidencia aportada tampoco permite determinar si el precio de mercado
+    incorpora expectativas demasiado optimistas o pesimistas.
 
 
-    ADP podría no acelerar su crecimiento si la adopción de RUN o la expansión de
-    PEO resultan menores de lo esperado. También podría sufrir presión en márgenes
-    por competencia, costes tecnológicos o inversión en seguridad y cumplimiento.
-    En ese escenario, la recurrencia y los costes de cambio podrían sostener el negocio,
-    pero no necesariamente justificar una expansión de múltiplos.
+    **Triggers de falsación a vigilar:**
 
 
-    ### Triggers de falsación indicados
+    - Deterioro persistente de ingresos o FCF frente a períodos históricos comparables.
 
+    - Evidencia verificable de pérdida de clientes, presión de precios o sustitución
+    de las plataformas.
 
-    - Caída sostenida de los ingresos anuales superior al **10% anual**.
-
-    - Aumento de **net debt/EBITDA por encima de 4x**.
-
-
-    Estos umbrales proceden de DDD; no se aportan datos actuales que permitan determinar
-    la distancia de ADP respecto a ellos. En el escenario bajista también se plantean
-    como señales de refutación ingresos TTM superiores a **23.000 millones USD** o
-    margen bruto superior al **46%**; el material no incluye una base verificable
-    para compararlos con resultados actuales.
+    - Datos que muestren erosión de retención, menor expansión por cliente o deterioro
+    de la posición competitiva.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    | Catalizador | Fecha esperada | Impacto potencial | Evidencia y estado |
+    | Catalizador o evento | Fecha esperada | Impacto potencial | Evidencia disponible
+    |
 
     |---|---|---|---|
 
-    | Mayor adopción de RUN en pequeñas empresas | Sin fecha indicada | Positivo si
-    impulsa clientes, ingresos y retención | Catalizador señalado por DDD; no se aportan
-    métricas de adopción. [Stock Analysis — estadísticas de ADP](https://stockanalysis.com/stocks/ADP/statistics/).
+    | Evolución de ingresos y FCF en períodos comparables | Sin fecha especificada;
+    revisar con cada nueva publicación financiera | Puede aportar evidencia sobre
+    continuidad o deterioro del negocio | DDD señala ingresos y FCF TTM al 2026-09-30;
+    [StockAnalysis](https://stockanalysis.com/stocks/ADP/statistics/) |
+
+    | Actualización de objetivos de analistas | Sin fecha especificada | Puede modificar
+    la referencia de expectativas observadas, pero no determina valor intrínseco |
+    Al 2026-11-21, consenso medio de USD 301,19 y rango de USD 250–345; [StockAnalysis](https://stockanalysis.com/stocks/adp/forecast/)
     |
 
-    | Expansión del segmento PEO | Sin fecha indicada | Positivo si contribuye al
-    crecimiento y a la mezcla de ingresos | Catalizador señalado por DDD; no se aportan
-    datos de crecimiento del segmento. [Stock Analysis — estadísticas de ADP](https://stockanalysis.com/stocks/ADP/statistics/).
-    |
-
-    | Digitalización y automatización de RR. HH. | Tendencia estructural, sin fecha
-    concreta | Puede sostener la demanda de soluciones HCM | Evaluación cualitativa
-    de AOIF; no cuantificada. |
-
-    | Comprobación de escenarios bajista y alcista | Horizonte al **19-11-2027** |
-    Permitir contrastar crecimiento y márgenes con las hipótesis de valoración | Escenarios
-    preparados con fecha de análisis **19-11-2026**; no son eventos corporativos programados.
-    |
+    | Cambios en retención, crecimiento orgánico o ingresos por segmento | Sin fecha
+    especificada; requiere nuevas divulgaciones verificables | Ayudaría a evaluar
+    expansión, demanda y fortaleza competitiva | Identificado como punto de monitoreo
+    por AOIF; no se aportan métricas actuales |
 
 
-    No se proporcionan fechas de resultados, lanzamientos, cambios regulatorios ni
-    hitos corporativos específicos.
+    Las fechas de publicación de resultados, eventos de producto y revisiones de objetivos
+    no están especificadas en los materiales de entrada.
 
 
     ## 8. Marco de Valoración
 
 
-    ### Datos de referencia disponibles
+    La información disponible no permite calcular un valor intrínseco defendible.
+    AOIF considera insuficiente el margen de seguridad, pero no aporta una estimación
+    de valor ni los supuestos necesarios para replicarla. También indica que faltan
+    precio y fecha de referencia, acciones diluidas, proyecciones de flujos de caja,
+    tasa de descuento y supuestos de crecimiento.
 
 
-    - **Precio actual informado:** 301,58 USD, sin fecha independiente en el dato
-    de DDD; el análisis está fechado **19-11-2026**.
-
-    - **Precio objetivo medio de analistas informado:** 299,73 USD, descrito como
-    cercano al precio actual. La fuente y fecha exactas del consenso no están especificadas.
-
-    - **P/E:** 26,73x y **EV/EBITDA:** 18,43x, según AOIF; faltan fecha, periodo y
-    reconciliación de cifras.
-
-    - **Margen de seguridad:** evaluado como insuficiente por AOIF.
-
-    - **Valor intrínseco:** AOIF indica que no puede estimarse rigurosamente con los
-    datos disponibles, por falta de FCF verificable, precio de referencia fechado
-    y supuestos explícitos de descuento y crecimiento.
+    Una valoración futura debería considerar:
 
 
-    ### Metodología apropiada
+    1. **Flujos de caja descontados:** normalizar FCF y proyectar crecimiento, márgenes,
+    reinversión y tasa de descuento con datos comparables y verificables.
+
+    2. **Valoración relativa:** comparar múltiplos de beneficios, EV/EBITDA y FCF
+    con pares pertinentes, verificando períodos y metodologías homogéneos.
+
+    3. **Valor por acción:** incorporar acciones diluidas, deuda y efectivo para traducir
+    el valor de la empresa a valor patrimonial por acción.
+
+    4. **Sensibilidad:** evaluar escenarios de crecimiento, márgenes, retención, conversión
+    de FCF y tasa de descuento. No hay inputs suficientes para cuantificar rangos
+    de sensibilidad.
 
 
-    Para un negocio de servicios y software con ingresos potencialmente recurrentes,
-    conviene contrastar:
-
-
-    1. **Flujo de caja descontado**, con supuestos explícitos sobre crecimiento, márgenes,
-    conversión de caja, reinversión y tasa de descuento.
-
-    2. **Múltiplos relativos**, como P/E y EV/EBITDA, comparados con pares realmente
-    comparables y con la propia historia de ADP.
-
-    3. **Rendimiento de FCF**, una vez verificados el FCF, la capitalización y el
-    periodo de cálculo.
-
-
-    No hay datos suficientes para construir una valoración independiente fiable ni
-    para fijar un precio objetivo propio.
-
-
-    ### Escenarios suministrados
-
-
-    Escenarios DDD para el horizonte **19-11-2027**, con fecha de análisis **19-11-2026**:
-
-
-    | Escenario | Precio objetivo | Supuestos clave |
-
-    |---|---:|---|
-
-    | Bajista | **250 USD** | CAGR de ingresos de 3 años cae a 4%; margen bruto desciende
-    a 44%. |
-
-    | Alcista | **345 USD** | CAGR de ingresos de 3 años se mantiene en torno a 6,8%;
-    margen bruto sube a 51%, con expansión de PEO. |
-
-
-    Estos objetivos son resultados de escenarios, no estimaciones verificadas. Los
-    escenarios no incluyen las fuentes de los supuestos (`sources` aparece como nulo)
-    y el CAGR usado no es verificable en el bloque de ratios de DDD.
-
-
-    **Sensibilidad cualitativa:** la valoración depende especialmente de que ADP mantenga
-    el crecimiento de ingresos y preserve o expanda márgenes. Un descenso del crecimiento
-    hacia 4% y una caída del margen bruto apoyarían el escenario bajista; crecimiento
-    cercano a 7% y margen bruto superior al 50% serían necesarios para respaldar el
-    escenario alcista descrito.
+    Como referencias de mercado, DDD reporta un precio de **USD 305,16 al 2026-11-20**
+    y un objetivo medio de analistas de **USD 301,19**, con rango de **USD 250–345
+    al 2026-11-21**. Fuentes: [yfinance](https://finance.yahoo.com/quote/ADP/) y [StockAnalysis](https://stockanalysis.com/stocks/adp/forecast/).
+    La diferencia entre cotización y consenso no demuestra por sí sola sobrevaloración
+    ni infravaloración: el consenso no equivale a una valoración independiente.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    1. **Verificar los estados financieros:** obtener ingresos, margen bruto, margen
-    operativo, flujo operativo y FCF por ejercicio y TTM, con periodos comparables.
+    - ¿Cómo han evolucionado ingresos, FCF, márgenes y conversión de caja en períodos
+    comparables y con fuentes verificables?
 
-    2. **Resolver la discrepancia sobre FCF:** comprobar la afirmación de DDD de que
-    el FCF supera el ingreso neto frente a la ausencia de cifras de conversión de
-    FCF señalada por AOIF.
+    - ¿Cuál es la trayectoria de ROIC y cómo se calcula el valor reportado de 62,49
+    %?
 
-    3. **Validar el crecimiento:** determinar el periodo exacto del crecimiento de
-    ingresos de 6,5% de AOIF y reconstruir el CAGR de tres años; DDD declara que este
-    último no está disponible por falta de referencias explícitas a los inputs.
+    - ¿Qué niveles de retención, pérdida de clientes y expansión por cliente registra
+    ADP, y cómo varían por segmento?
 
-    4. **Confirmar deuda y liquidez:** revisar deuda, caja, vencimientos, net debt/EBITDA
-    y cobertura de intereses. Aclarar si el valor de cobertura de 0x es real o una
-    limitación de datos.
+    - ¿Cuál es el tamaño de los mercados direccionables, la penetración de ADP y su
+    evolución?
 
-    5. **Medir la dilución:** obtener la evolución de acciones básicas y diluidas
-    y el efecto de compensación basada en acciones.
+    - ¿Cómo se comparan sus soluciones, precios y resultados con los de competidores
+    y alternativas internas de los clientes?
 
-    6. **Examinar RUN y PEO:** recopilar crecimiento de clientes, retención, ingresos,
-    márgenes y contribución al crecimiento consolidado.
+    - ¿Qué exposición existe a deuda, efectivo, apalancamiento neto y dilución?
 
-    7. **Verificar el moat:** buscar métricas de retención, renovación, cuota de mercado
-    y costes de cambio, además de comparar soluciones y competencia directa.
+    - ¿Qué proporción de los ingresos y resultados procede de cada segmento y geografía?
 
-    8. **Investigar ciberseguridad:** revisar incidentes, gastos de seguridad, controles
-    operativos y exposición a interrupciones.
+    - ¿Qué información verificable permite evaluar la calidad del liderazgo, la asignación
+    de capital, los incentivos y el alineamiento de insiders?
 
-    9. **Completar el análisis de management y gobierno:** identificar equipo directivo,
-    consejo, propiedad de insiders, remuneración y asignación de capital.
+    - ¿Qué supuestos de crecimiento, margen, reinversión y descuento sustentan una
+    valoración propia?
 
-    10. **Actualizar la valoración:** fechar el precio, verificar los múltiplos, identificar
-    la fuente del consenso de 299,73 USD y modelar FCF con supuestos explícitos.
-
-    11. **Revisar escenarios y falsadores:** confirmar si los umbrales de ingresos,
-    márgenes y apalancamiento propuestos por DDD son coherentes con los estados financieros
-    y con la evolución futura del negocio.
+    - ¿Cómo se traducen los riesgos de ciberseguridad, interrupciones y errores de
+    nómina en controles, costos o pérdidas observables?
 
 
     ---
@@ -691,10 +510,18 @@ research_input_snapshot:
 
 
     - **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]],
-    [[ADI|Analog Devices, Inc.]], [[AMAT|Applied Materials, Inc.]], [[ASML|ASML Holding
-    N.V.]], [[NVDA|NVIDIA Corporation]]
+    [[ADI|Analog Devices, Inc.]], [[ALAB|Astera Labs, Inc.]], [[AMAT|Applied Materials,
+    Inc.]], [[AMD|Advanced Micro Devices, Inc.]], [[ARM|Arm Holdings plc]], [[ASML|ASML
+    Holding N.V.]], [[AVGO|Broadcom Inc.]], [[BB|BlackBerry Limited]], [[CLS|Celestica
+    Inc.]], [[CRM|Salesforce, Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco
+    Systems, Inc.]], [[DOCU|DocuSign, Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]],
+    [[MSFT|Microsoft Corporation]], [[MSI|Motorola Solutions, Inc.]], [[NVDA|NVIDIA
+    Corporation]], [[PANW|Palo Alto Networks, Inc.]], [[SNOW|Snowflake Inc.]], [[TSM|Taiwan
+    Semiconductor Manufacturing Company Limited]], [[TWLO|Twilio Inc.]], [[TXN|Texas
+    Instruments Incorporated]], [[VRSN|VeriSign, Inc.]]
 
-    - **Same Industry**: [[ADBE|Adobe Inc.]]'
+    - **Same Industry**: [[ADBE|Adobe Inc.]], [[CRM|Salesforce, Inc.]], [[DOCU|DocuSign,
+    Inc.]], [[SNOW|Snowflake Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
     {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
@@ -924,12 +751,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    345.0, "low": 250.0, "mean": 301.19, "median": 301.19, "observed_at": "2026-11-21T14:11:21.356763-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
-    "2026-11-21T14:11:21.356763-03:00", "observed_date": "2026-11-21", "target_price":
+    345.0, "low": 250.0, "mean": 301.19, "median": 301.19, "observed_at": "2026-11-22T07:48:12.395702-03:00",
+    "sources": [{"as_of_date": "2026-11-22", "name": "stockanalysis", "observed_at":
+    "2026-11-22T07:48:12.395702-03:00", "observed_date": "2026-11-22", "target_price":
     301.19, "url": "https://stockanalysis.com/stocks/adp/forecast/"}, {"as_of_date":
-    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T14:11:21.356763-03:00",
-    "observed_date": "2026-11-21", "target_price": 301.1875, "url": "https://finance.yahoo.com/quote/ADP/"}]},
+    "2026-11-22", "name": "yfinance", "observed_at": "2026-11-22T07:48:12.395702-03:00",
+    "observed_date": "2026-11-22", "target_price": 301.1875, "url": "https://finance.yahoo.com/quote/ADP/"}]},
     "current_quote": {"as_of_date": "2026-11-20", "currency": "USD", "price": 305.1600036621094,
     "sources": [{"as_of_date": "2026-11-20", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ADP/"}]}}'
   sector: Technology
@@ -939,39 +766,67 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 0b666d6094fa9bfa3494fbfea4d1124603db397cdb9d4e509cf577c9835d9bfa
+    sha256: 7fe0417b234ae8ad7cdbb96cef0fb7079c0b3797568c5c184f37394d635b5ad7
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-21T14:11:43.113349-03:00'
+  triggered_at: '2026-11-22T07:48:21.948287-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: El campo reporta 1.03 al 2026-09-30; no está incluido entre los ratios
-    requeridos y no se valida con una URL de trusted_source_urls.
-  threshold: below 0.5
-- metric: dilution_yoy_pct
-  observation: 'No disponible: falta una serie comparable de acciones y una URL autorizada.'
-  threshold: above 10 percent
 - metric: interest_coverage
-  observation: El campo reporta 0 al 2026-09-30; faltan insumos verificables para
-    interpretar o validar el dato.
-  threshold: below 2.0x
-- metric: net_debt_ebitda
-  observation: 'Los tres indicadores no se validan: faltan respaldo URL autorizado
-    y, para runway, evidencia de FCF negativo; la serie necesaria para CAGR de acciones
-    no está disponible.'
-  threshold: above 4.0x; negative FCF runway below 12 months; share_count_cagr_3y
-    above 5 percent
-scenario_analysis: null
+  observed_value: 0
+  source:
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/ADP/statistics/
+  status: below_threshold
+  threshold: 2.0
+scenario_analysis:
+  as_of_date: '2026-11-22'
+  currency: USD
+  horizon_date: '2027-11-22'
+  scenarios:
+  - falsifiers:
+    - Ingresos TTM > 23,000 millones
+    - Margen bruto > 48%
+    id: BEAR
+    key_assumptions:
+    - CAGR de ingresos 3 años <5%
+    - Margen bruto estancado en 47%
+    rationale: Desaceleración del crecimiento de ingresos y presión en márgenes por
+      competencia intensificada.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/adp/forecast
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ADP/
+    target_price: 250
+  - falsifiers:
+    - Crecimiento de ingresos TTM <21,000 millones
+    - Margen bruto <48%
+    id: BULL
+    key_assumptions:
+    - CAGR de ingresos 3 años >9%
+    - Margen bruto >49%
+    rationale: Continuación del crecimiento de ingresos y expansión de margen bruto
+      mediante venta cruzada de servicios premium.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/adp/forecast
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ADP/
+    target_price: 345
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 50
+  errors: []
+  status: valid_pending_decision_board
+score_general: 73
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T14:11:21.356763-03:00'
+  calculado_at: '2026-11-22T07:48:12.395702-03:00'
   fuentes:
     stockanalysis: 301.19
     yfinance: 301.1875
@@ -979,25 +834,22 @@ target_consensus:
   n_fuentes: 2
   promedio: 301.19
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-22'
     name: stockanalysis
-    observed_at: '2026-11-21T14:11:21.356763-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-22T07:48:12.395702-03:00'
+    observed_date: '2026-11-22'
     target_price: 301.19
     url: https://stockanalysis.com/stocks/adp/forecast/
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-22'
     name: yfinance
-    observed_at: '2026-11-21T14:11:21.356763-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-22T07:48:12.395702-03:00'
+    observed_date: '2026-11-22'
     target_price: 301.1875
     url: https://finance.yahoo.com/quote/ADP/
   target_high: 345.0
   target_low: 250.0
-tesis_inversion: ADP ofrece plataformas de nómina, HCM y externalización de RR. HH.
-  en los segmentos Employer Services y PEO, según la descripción del modelo de negocio
-  del resumen financiero. Los ingresos y el FCF reportados al 2026-09-30 respaldan
-  la existencia de escala y generación de caja, pero faltan datos verificables en
-  las URL autorizadas para validar los ratios solicitados, así como evidencia sobre
-  penetración, retornos sobre capital, retención, reinversión y asignación de capital.
+tesis_inversion: ADP está bien posicionada para capitalizar la transición a soluciones
+  HCM basadas en la nube, con flujos de caja robustos y margen estable, aunque la
+  exposición a deuda y cobertura de intereses son vulnerabilidades.
 ticker: ADP
 version: '3.0'

@@ -1,92 +1,88 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La variabilidad observada de resultados y FCF impide tratar un único período TTM
-    como medida de desempeño normalizado.
-  - Sin datos de capital empleado, primas, reservas, persistencia de pólizas o rentabilidad
-    por segmento, no se puede establecer el mecanismo de crecimiento ni los retornos
-    sobre capital.
-  - 'El precio reportado fue 8,18 USD al 2026-10-30; el consenso de objetivos fue
-    9,15–10,60 USD, con media de 9,88 USD observada el 2026-11-19. Fuentes: https://finance.yahoo.com/quote/AEG/
-    y https://stockanalysis.com/stocks/aeg/forecast/.'
-  - 'La serie financiera reporta ingresos de 12.193 millones en FY 2025 y 14.287 millones
-    en FY 2022, con período final 2025-12-31 y 2022-12-31 respectivamente. Fuente:
-    https://stockanalysis.com/stocks/aeg/financials/.'
-  - 'Al 2026-06-30, Stock Analysis reporta deuda total de 3.835 millones, net cash
-    de -320 millones, beneficio neto TTM de 936 millones y FCF TTM de 1.741 millones
-    en su serie financiera. Fuente: https://stockanalysis.com/stocks/aeg/financials/.'
+  - La variabilidad observada del FCF limita la confianza en extrapolar la mejora
+    TTM.
+  - La reducción de deuda reportada podría apoyar flexibilidad financiera, pero no
+    prueba por sí sola creación de valor.
+  - 'FCF reportado de 1.741 para TTM al 2026-06-30 y 393 para FY 2025; fuente: StockAnalysis
+    financials, https://stockanalysis.com/stocks/aeg/financials/.'
+  - 'Ingresos reportados de 12.193 en FY 2025 y 14.287 en FY 2022; fuente: StockAnalysis
+    financials, https://stockanalysis.com/stocks/aeg/financials/.'
+  - 'Cotización de 8,18 USD al 2026-10-30; fuente: yfinance, https://finance.yahoo.com/quote/AEG/.'
+  - 'Rango de objetivos de analistas de 9,15–10,60 USD al 2026-11-22; fuente: StockAnalysis,
+    https://stockanalysis.com/stocks/aeg/forecast/.'
   preguntas_abiertas:
-  - ¿Cuál es la moneda y la definición contable de cada serie financiera, y cómo se
-    concilia el FCF TTM de 1.741 millones con los 1.910 millones reportados en estadísticas?
-  - ¿Qué tendencias de primas, clientes, productos, márgenes y capital respaldan crecimiento,
-    reinversión y ventaja competitiva?
-  - ¿Cuáles son el horizonte y los supuestos de negocio detrás de los objetivos de
-    analistas?
-catalizadores_previos: &id001 []
+  - ¿Qué parte del cambio de ingresos y FCF proviene de operaciones recurrentes, movimientos
+    de cartera, divisas u otros factores?
+  - ¿Cuáles son el crecimiento, la rentabilidad y los retornos sobre capital por segmento?
+  - ¿Qué inversiones, dividendos o recompras explican la asignación de capital y la
+    evolución de acciones?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-19T17:48:15.316492-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-AEG
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-19T17:48:15.316492-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-AEG
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; calidad de evidencia fundamental incompleta
-  justificacion: El paquete identifica AEG como oportunidad del perfil multibaggers,
-    pero no aporta evidencia suficiente sobre retornos sobre capital, reinversión,
-    mercado direccionable o ventaja competitiva para validar esa clasificación.
+  categoria: Investigación requerida; evidencia fundamental incompleta
+  justificacion: El paquete muestra mejora reciente en FCF y deuda reportada menor,
+    pero también ingresos decrecientes en los ejercicios comparables disponibles y
+    faltan datos para validar varios ratios clave.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe un proveedor de seguros y productos de jubilación
-    con actividad en América, Países Bajos, Reino Unido e internacionalmente, y menciona
-    las marcas Transamerica y World Financial Group. No aporta datos suficientes para
-    evaluar retornos sobre capital, reinversión, penetración de mercado, moat, erosión
-    competitiva ni calidad de la asignación de capital.
+  analisis: Aegon ofrece seguros, rentas vitalicias, productos de inversión y planes
+    de retiro bajo las marcas Transamerica y World Financial Group, según el resumen
+    financiero. La evidencia proporcionada no permite evaluar cuota de mercado, diferenciación,
+    retención, rentabilidad por segmento ni retornos sobre capital.
   rating: No concluyente
 dominio_catalizadores:
-- analisis: La publicación de nuevos datos comparables podría aclarar si el FCF TTM
-    reportado al 2026-06-30 se sostiene; el paquete no proporciona una fecha de publicación
-    futura.
-  catalizador: Actualización de resultados y conversión de caja
-- analisis: El consenso observado al 2026-11-19 tiene rango de 9,15–10,60 USD y media
-    de 9,88 USD; el paquete no identifica supuestos ni horizonte de esos objetivos.
-  catalizador: Evolución del consenso de analistas
-  fuentes:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/aeg/forecast/
-  - name: Yahoo Finance
-    url: https://finance.yahoo.com/quote/AEG/
+- catalizador: Confirmación en reportes futuros de que la generación de FCF TTM se
+    mantiene sobre una base comparable.
+  hito: FCF reportado para períodos posteriores con definición y período comparables.
+- catalizador: Continuidad de la reducción de deuda reportada.
+  hito: Deuda total y caja actualizadas para un período financiero posterior.
+- catalizador: Estabilización o recuperación de ingresos en los negocios de seguros
+    y retiro descritos en el resumen financiero.
+  hito: Ingresos segmentados y comparables que permitan identificar tendencias por
+    negocio y geografía.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- analisis: Los valores TTM y anuales no siempre son comparables; además, el FCF TTM
-    aparece como 1.741 millones en la serie financiera y como 1.910 millones en estadísticas.
-    No se informan moneda ni conciliación para esas cifras.
-  fuentes:
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/aeg/financials/
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/AEG/statistics/
-  riesgo: Comparabilidad y calidad de métricas financieras
-- analisis: La serie reporta net cash de -320 millones y deuda total de 3.835 millones
-    al 2026-06-30; el EBITDA figura como n/a, por lo que no se puede calcular deuda
-    neta/EBITDA.
-  fuente: https://stockanalysis.com/stocks/aeg/financials/
-  riesgo: Apalancamiento y capacidad de servicio de deuda
-- analisis: La serie muestra beneficio neto negativo en FY 2022 y FY 2023, seguido
-    de cifras positivas en FY 2024, FY 2025 y TTM a 2026-06-30; el FCF anual reportado
-    también varía entre períodos.
-  fuente: https://stockanalysis.com/stocks/aeg/financials/
-  riesgo: Resultados y flujos variables
+- fuente: StockAnalysis, financials; períodos FY 2022 y FY 2025.
+  riesgo: Los ingresos reportados descendieron de 14.287 en FY 2022 a 12.193 en FY
+    2025; la serie no explica las causas ni su composición.
+- fuente: StockAnalysis, financials; FY 2022, FY 2025 y TTM al 2026-06-30.
+  riesgo: El FCF reportado varió ampliamente entre FY 2022 y FY 2025; el aumento TTM
+    requiere confirmación de comparabilidad y persistencia.
+- fuente: El paquete no aporta métricas ni evidencia específica para estos aspectos.
+  riesgo: No hay evidencia del paquete para medir ventaja competitiva, penetración
+    de mercado, retornos sobre capital o disciplina de reinversión.
 error_mercado:
-  catalizador_cambio: No hay en el paquete hitos operativos o financieros futuros
-    fechados que permitan identificar un catalizador verificable.
-  conclusion_error_valoracion: 'No se valida un error de valoración: el consenso de
-    analistas es una referencia observada, no evidencia de valor intrínseco.'
-  consenso_actual: 'El precio observado fue 8,18 USD al 2026-10-30; el consenso de
-    precio objetivo reportado fue 9,88 USD al 2026-11-19, con rango de 9,15–10,60
-    USD. Fuentes: https://finance.yahoo.com/quote/AEG/ y https://stockanalysis.com/stocks/aeg/forecast/.'
-  hipotesis_contraria: La evidencia disponible no permite determinar si el mercado
-    subestima el crecimiento sostenible, la generación de caja o los riesgos de Aegon.
-  razonamiento: 'El momentum de precio a 12 meses fue 8,0581% para 2025-10-31/2026-10-30,
-    frente a un drawdown de 14,1658% en ese período; ninguna de esas métricas demuestra
-    por sí sola una brecha de valoración. Fuente: https://finance.yahoo.com/quote/AEG/history/.'
-generated_at: '2026-11-19T17:48:15.316492-03:00'
+  catalizador_cambio: Una actualización financiera comparable que confirme crecimiento
+    de ingresos, generación de FCF y reducción de deuda permitiría revisar la brecha
+    entre evidencia operativa y consenso.
+  conclusion_error_valoracion: 'No se valida un error de valoración: hay cotización
+    y consenso observado, pero no un método de valoración intrínseca con inputs suficientes.'
+  consenso_actual: El consenso de precio objetivo reportado es 9,88 USD (media y mediana),
+    con rango de 9,15–10,60 USD, observado el 2026-11-22.
+  hipotesis_contraria: La mejora del FCF y la reducción de deuda reportada podrían
+    no ser sostenibles; los datos disponibles no permiten atribuirlas a crecimiento
+    recurrente ni medir retornos sobre capital.
+  razonamiento: El precio de 8,18 USD corresponde al 2026-10-30 y el consenso al 2026-11-22;
+    el desfase temporal y la falta de valoración propia limitan la comparación.
+generated_at: '2026-11-22T07:50:32.551817-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-AEG
@@ -102,7 +98,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Aegon Ltd.
   operating_margin: 4.31
-  pe_ratio: 12.33
+  pe_ratio: 11.96
   products: ''
   revenue: 13340000000.0
   revenue_growth: -4.21
@@ -115,71 +111,62 @@ ratios_investigados:
   metric: revenue_cagr_3y_pct
   period_end: '2025-12-31'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/aeg/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+- formula: Variación porcentual de FCF reportada por el proveedor para TTM
   inputs:
     fcf_growth_history:
-      TTM 2026-06-30: 343.0
-    fcf_history:
-      FY 2025: 393.0
-      TTM 2026-06-30: 1741.0
-  limitations: No hay FCF del período TTM comparable anterior; el crecimiento TTM
-    reportado no incluye su base en los campos disponibles y TTM no es comparable
-    directamente con FY 2025.
+      TTM: 343.0
+  limitations: El período comparativo y la base de cálculo del crecimiento reportado
+    no están especificados en la evidencia.
   metric: fcf_growth_pct
   period_end: '2026-06-30'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/aeg/financials/
-  status: unavailable
+  status: reported
   unit: percent
-  value: null
+  value: 343.0
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-06-30'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/aeg/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; si la fuente reporta net_cash
-    = cash - debt, equivale a -net_cash / EBITDA
+- formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
     ebitda: n/a
     net_cash_history:
-      Current 2026-06-30: -320.0
+      Current: -320.0
     total_debt_history:
-      Current 2026-06-30: 3835.0
-  limitations: EBITDA no está disponible como valor numérico; no se puede calcular
-    un múltiplo de deuda neta sobre EBITDA.
+      Current: 3835.0
+  limitations: EBITDA está reportado como n/a; no puede calcularse el ratio. La URL
+    financiera citada respalda los datos históricos disponibles, pero no aporta un
+    EBITDA utilizable.
   metric: net_debt_ebitda
   period_end: '2026-06-30'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/aeg/financials/
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/AEG/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    diluted_shares_history: null
     shares_outstanding: 1480000000.0
-    shares_outstanding_history: null
-  limitations: Sólo se proporciona una observación de acciones en circulación; falta
-    un valor comparable del período anterior y no se proporciona historial de acciones
-    diluidas.
+  limitations: Falta un recuento de acciones para el período comparable anterior y
+    no se proporciona una serie histórica de acciones diluidas.
   metric: dilution_yoy_pct
   period_end: '2026-06-30'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/AEG/statistics/
   status: unavailable
   unit: percent
@@ -215,7 +202,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-19'
+  analysis_as_of_date: '2026-11-22'
   business_model: Aegon Ltd. provides insurance services in the Americas, the Netherlands,
     the United Kingdom, and internationally. It offers retirement plans, mutual funds,
     and unit-linked products; and annuities, life, and health insurance. The company
@@ -229,7 +216,300 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.43
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Aegon Ltd. (AEG) es un proveedor de seguros y productos de ahorro para la jubilación.
+    Opera en América, los Países Bajos, el Reino Unido y otros mercados internacionales,
+    y cuenta con marcas como Transamerica. Los productos mencionados incluyen planes
+    de jubilación y fondos mutuos.
+
+
+    Su modelo combina la distribución de productos financieros y aseguradores con
+    la administración de pólizas y activos. La información disponible describe el
+    negocio a nivel general, pero no aporta datos suficientes para medir la contribución
+    de cada región, segmento o producto.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Fuentes potenciales de ingresos:** primas de seguros, comisiones por administración
+    y distribución, rendimientos de inversiones y resultados de suscripción. La importancia
+    relativa de cada fuente no está documentada en los datos disponibles.
+
+
+    **Cadena de valor:** diseño y tarificación de productos; distribución mediante
+    canales propios, asesores y socios; suscripción y evaluación de riesgos; cobro
+    e inversión de primas y aportaciones; administración de pólizas y pago de prestaciones.
+
+
+    **Posición competitiva:** el análisis proporcionado caracteriza a Aegon como un
+    retador en una industria madura y regulada, con competencia en precio y distribución.
+    Las marcas, la escala, las relaciones de distribución, la experiencia actuarial
+    y los datos de pólizas podrían contribuir a ventajas competitivas o costes de
+    cambio. Sin embargo, no hay evidencia cuantitativa de que estas capacidades produzcan
+    retornos superiores o una ventaja sostenible.
+
+
+    **Moat:** provisionalmente estrecho. La evaluación no está respaldada por datos
+    comparables de cuota de mercado, retención de clientes, márgenes por producto
+    o rentabilidad por segmento. No se identificaron compañías comparables en la información
+    suministrada.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las métricas siguientes proceden de los materiales de investigación y no incluyen,
+    en todos los casos, definiciones contables, moneda o referencias temporales suficientes
+    para una comparación robusta.
+
+
+    | Métrica | Valor reportado | Fecha o período | Observaciones |
+
+    |---|---:|---|---|
+
+    | ROIC | 3,7% | No especificado | Definición y período no aportados. |
+
+    | Margen operativo | 4,31% | No especificado | Definición y período no aportados.
+    |
+
+    | Crecimiento de ingresos | -4,21% | No especificado | La base de comparación
+    no está identificada. |
+
+    | PER | 12,33x | No especificado | Faltan fecha y precio de referencia, así como
+    beneficio normalizado. |
+
+    | FCF | 393 millones | FY 2025 | Moneda y definición no especificadas. |
+
+    | FCF | 1.741 millones | TTM al 30-06-2026 | No se proporcionan la serie comparable
+    anterior ni una conciliación. |
+
+    | FCF | 1.910 millones | Estadísticas, fecha no precisada en el dato | Difiere
+    del FCF TTM de 1.741 millones; requiere conciliación. |
+
+    | Deuda total | 3.835 millones | 30-06-2026 | Moneda y composición no especificadas
+    en el resumen. |
+
+    | Net cash | -320 millones | 30-06-2026 | La cifra implica una posición neta de
+    caja negativa según la serie citada; debe verificarse su definición. |
+
+    | EBITDA | n/a | 30-06-2026 | No permite calcular deuda neta/EBITDA. |
+
+    | Current ratio | 1,16x | 30-06-2026 | No está por debajo del umbral de 0,5 citado
+    en el análisis. |
+
+
+    **Lectura de tendencia:** el análisis financiero señala deterioro, con crecimiento
+    de ingresos negativo y ROIC y margen operativo modestos. No obstante, los períodos
+    y métodos de cálculo de esos indicadores no están especificados. La divergencia
+    entre cifras de FCF y la falta de una serie comparable impiden interpretar con
+    confianza la generación de caja o su tendencia. El crecimiento de ingresos a tres
+    años y el crecimiento comparable del FCF no pudieron calcularse con la evidencia
+    disponible.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación disponible califica la calidad del management como regular, la asignación
+    de capital como neutral y el alineamiento de insiders como débil. Son valoraciones
+    provisionales: no se aportan datos detallados sobre cumplimiento de objetivos,
+    remuneración variable, participación accionarial de directivos, operaciones de
+    capital ni composición del consejo.
+
+
+    No hay información suficiente para evaluar individualmente a los miembros del
+    board, la independencia de sus integrantes o la eficacia de la supervisión. La
+    calidad de la asignación de capital y el alineamiento con accionistas requieren
+    verificación adicional antes de extraer conclusiones firmes.
+
+
+    ## 5. Tesis de Inversión
+
+
+    La hipótesis de inversión planteada es que la generación de caja y la evolución
+    de resultados podrían respaldar la creación de valor. El negocio combina seguros
+    y ahorro para la jubilación, y podría beneficiarse de sus marcas, relaciones de
+    distribución y capacidades actuariales.
+
+
+    La evidencia actual no permite confirmar que esa hipótesis se esté materializando:
+
+
+    - El paquete incluye cifras de FCF positivas, pero no son conciliables entre sí
+    ni están acompañadas de una serie comparable que permita evaluar sostenibilidad.
+
+    - Se reportan crecimiento de ingresos de -4,21% y ROIC de 3,7%, aunque faltan
+    período y definiciones.
+
+    - No se proporcionan tendencias de primas, clientes, persistencia de pólizas,
+    márgenes por segmento, capital empleado o retornos por negocio.
+
+    - El consenso de analistas observado es una referencia de mercado, no una estimación
+    independiente del valor intrínseco.
+
+
+    **Conclusión provisional:** caso de investigación pendiente, con calidad de evidencia
+    fundamental incompleta. La información disponible no basta para establecer crecimiento
+    sostenible, retornos atractivos sobre capital o una ventaja competitiva defendible.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    **Riesgos identificados**
+
+
+    | Riesgo | Descripción y relevancia |
+
+    |---|---|
+
+    | Mercados, tipos y descalce de activos y pasivos | Movimientos en tipos de interés
+    o mercados financieros podrían generar pérdidas de inversión o presionar la solvencia.
+    El análisis asigna impacto alto y probabilidad media; no aporta pruebas para cuantificar
+    la exposición. |
+
+    | Regulación y capital | Cambios regulatorios, mayores requerimientos de capital
+    o intervención supervisora podrían afectar la rentabilidad y la distribución de
+    capital. Impacto alto y probabilidad media según el análisis suministrado. |
+
+    | Apalancamiento y servicio de deuda | Se reportan deuda total de 3.835 millones
+    y net cash de -320 millones al 30-06-2026, pero no hay EBITDA disponible para
+    evaluar el apalancamiento con ese indicador. |
+
+    | Calidad y comparabilidad de métricas | Los datos anuales y TTM no son necesariamente
+    comparables. El FCF TTM figura como 1.741 millones en una serie y 1.910 millones
+    en estadísticas. |
+
+    | Competencia y rentabilidad | La industria se describe como madura y competitiva,
+    expuesta a presión sobre precios y distribución, además de riesgos actuariales,
+    de longevidad, siniestralidad e inflación. |
+
+
+    **Contra-tesis:** la información disponible no permite determinar si el mercado
+    subestima el crecimiento sostenible, la generación de caja o los riesgos de Aegon.
+    El momentum de precio citado —8,0581% entre el 31-10-2025 y el 30-10-2026— y un
+    drawdown de 14,1658% durante ese período no demuestran por sí mismos una discrepancia
+    de valoración.
+
+
+    **Falsadores de la hipótesis de inversión**
+
+
+    - Una serie financiera comparable que muestre deterioro persistente de caja o
+    resultados debilitaría la hipótesis de creación de valor mediante generación de
+    caja.
+
+    - Evidencia de que la deuda o las necesidades de capital restringen la continuidad
+    operativa o la reinversión debilitaría la tesis.
+
+    - Datos de segmentos que confirmen un deterioro persistente de márgenes, resultados
+    técnicos o retención de clientes también reducirían su plausibilidad.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Evento o catalizador | Fecha esperada | Impacto potencial | Estado de la evidencia
+    |
+
+    |---|---|---|---|
+
+    | Actualización de resultados y conversión de caja | No especificada | Podría
+    aclarar si el FCF reportado para el TTM al 30-06-2026 es sostenible y reconciliar
+    las cifras disponibles. | No se proporciona una fecha futura de publicación. |
+
+    | Evolución del consenso de analistas | Observaciones al 19-11-2026 | Puede mostrar
+    cambios en expectativas del mercado, pero no establece valor intrínseco. | Stock
+    Analysis reportó un rango de objetivos de USD 9,15–10,60 y una media de USD 9,88.
+    No se indican aquí los supuestos ni el horizonte. |
+
+
+    No se identifican hitos operativos o financieros futuros fechados en los materiales
+    recibidos.
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración intrínseca no puede estimarse con rigor con la información disponible.
+    El único múltiplo indicado es un PER de 12,33x, pero faltan su fecha de referencia,
+    el precio asociado y la definición de beneficio utilizado. También se reportan
+    EV/EBITDA y FCF yield de 0, pero no se aporta información suficiente para tratarlos
+    como métricas de valoración válidas.
+
+
+    Para una aseguradora diversificada, el análisis debería apoyarse en resultados
+    y capital normalizados, generación de valor por segmento y sensibilidad a mercados
+    y pasivos, además de múltiplos basados en beneficios ajustados. En este caso faltan
+    datos para construir esos análisis.
+
+
+    **Referencias de mercado proporcionadas:**
+
+
+    - Precio observado: USD 8,18 al 30-10-2026, según el paquete de investigación.
+
+    - Consenso observado al 19-11-2026: media de USD 9,88; rango de USD 9,15–10,60.
+
+    - El consenso es una referencia de expectativas de analistas, no evidencia de
+    valor intrínseco ni de un error de valoración.
+
+
+    No es posible realizar un análisis de sensibilidad defendible sin supuestos verificables
+    sobre beneficios normalizados, crecimiento, retornos sobre capital, costes de
+    capital, capital regulatorio y conversión de caja.
+
+
+    **Fuentes de mercado y finanzas citadas en la investigación:**
+
+
+    - [Stock Analysis — previsiones](https://stockanalysis.com/stocks/aeg/forecast/)
+
+    - [Yahoo Finance — cotización y datos de mercado](https://finance.yahoo.com/quote/AEG/)
+
+    - [Stock Analysis — estados financieros](https://stockanalysis.com/stocks/aeg/financials/)
+
+    - [Stock Analysis — estadísticas](https://stockanalysis.com/stocks/AEG/statistics/)
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es la moneda y la definición contable de cada serie financiera?
+
+    2. ¿Cómo se concilian el FCF TTM de 1.741 millones con los 1.910 millones de las
+    estadísticas?
+
+    3. ¿Cuál es la serie histórica comparable de FCF, resultados e ingresos, y qué
+    parte de la variación responde a factores de mercado, operaciones o partidas no
+    recurrentes?
+
+    4. ¿Qué tendencias muestran las primas, los clientes, la persistencia de pólizas,
+    los productos y los resultados técnicos por segmento y región?
+
+    5. ¿Qué capital empleado y retornos sobre capital corresponden a cada negocio?
+    ¿Cómo han evolucionado esos retornos?
+
+    6. ¿Cuál es la composición y el vencimiento de la deuda, y qué métricas apropiadas
+    permiten evaluar la capacidad de servicio y la posición de solvencia?
+
+    7. ¿Qué exposición tiene Aegon a tipos de interés, mercados financieros, longevidad,
+    siniestralidad y descalces entre activos y pasivos?
+
+    8. ¿Qué datos respaldan la evaluación de la calidad del management, la alineación
+    de insiders y la asignación de capital?
+
+    9. ¿Qué supuestos y horizonte sustentan los objetivos de precio de los analistas
+    citados?
+
+
+    **Agenda prioritaria:** verificar las definiciones y períodos de las métricas;
+    reconciliar el FCF; obtener series históricas comparables; y analizar resultados,
+    capital y riesgos por segmento antes de emitir una conclusión de valoración o
+    inversión.'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -263,7 +543,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-19T20:47:43.133789+00:00", "period_end": "2026-06-30",
+    "observed_at": "2026-11-22T10:50:02.528891+00:00", "period_end": "2026-06-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -406,12 +686,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    10.6, "low": 9.15, "mean": 9.88, "median": 9.88, "observed_at": "2026-11-19T17:47:46.109591-03:00",
-    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
-    "2026-11-19T17:47:46.109591-03:00", "observed_date": "2026-11-19", "target_price":
+    10.6, "low": 9.15, "mean": 9.88, "median": 9.88, "observed_at": "2026-11-22T07:50:05.723264-03:00",
+    "sources": [{"as_of_date": "2026-11-22", "name": "stockanalysis", "observed_at":
+    "2026-11-22T07:50:05.723264-03:00", "observed_date": "2026-11-22", "target_price":
     9.88, "url": "https://stockanalysis.com/stocks/aeg/forecast/"}, {"as_of_date":
-    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T17:47:46.109591-03:00",
-    "observed_date": "2026-11-19", "target_price": 9.875, "url": "https://finance.yahoo.com/quote/AEG/"}]},
+    "2026-11-22", "name": "yfinance", "observed_at": "2026-11-22T07:50:05.723264-03:00",
+    "observed_date": "2026-11-22", "target_price": 9.875, "url": "https://finance.yahoo.com/quote/AEG/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 8.180000305175781,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AEG/"}]}}'
   sector: Financial Services
@@ -421,49 +701,97 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: c4eb1d4a49ac45b934685bd4032bf34dfefd788c42338797f7b1e4c1f310a50f
+    sha256: a91d6a1008549048a6cbaf6f0f7c46110b617d2c1cba84cf9aeaa261481227db
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-19T17:48:15.316492-03:00'
+  triggered_at: '2026-11-22T07:50:32.551817-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: 1,16x al 2026-06-30; no está por debajo del umbral configurado.
-  source: https://stockanalysis.com/stocks/AEG/statistics/
+  observation: 1.16 al 2026-06-30; no cruza el umbral configurado.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/AEG/statistics/
   threshold: below 0.5
-- metric: dilution_yoy_pct
-  observation: 'No evaluable: falta historial comparable de acciones.'
-  source: https://stockanalysis.com/stocks/AEG/statistics/
-  threshold: above 10%
 - metric: interest_coverage
-  observation: La fuente reporta 0 al 2026-06-30; no se dispone de detalle de EBIT
-    y gasto por intereses para validar el cálculo.
-  source: https://stockanalysis.com/stocks/AEG/statistics/
-  threshold: below 2.0x
-- metric: negative_fcf_runway_months
-  observation: No aplica a la observación FCF TTM positiva de 1.741 millones al 2026-06-30;
-    la discrepancia con estadísticas requiere conciliación.
-  source: https://stockanalysis.com/stocks/aeg/financials/
-  threshold: below 12 months
+  observation: El proveedor reporta 0 al 2026-06-30; debe verificarse la definición
+    y el dato fuente antes de interpretarlo.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/AEG/statistics/
+  threshold: below 2.0
 - metric: net_debt_ebitda
-  observation: 'No evaluable: EBITDA figura como n/a.'
-  source: https://stockanalysis.com/stocks/AEG/statistics/
-  threshold: above 4.0x
+  observation: 'No evaluable: EBITDA reportado como n/a.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/AEG/statistics/
+  threshold: above 4.0
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta el recuento comparable de acciones diluidas.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/AEG/financials/
+  threshold: above 10%
 - metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: falta historial de acciones para un cálculo de tres
-    años.'
-  source: https://stockanalysis.com/stocks/AEG/statistics/
+  observation: 'No evaluable: no hay serie histórica de acciones para tres años.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/AEG/financials/
   threshold: above 5%
-scenario_analysis: null
+- metric: negative_fcf_runway_months
+  observation: No aplica a los valores FCF reportados como positivos para los períodos
+    disponibles.
+  threshold: below 12 months when FCF is negative
+scenario_analysis:
+  as_of_date: '2026-11-22'
+  currency: USD
+  horizon_date: '2027-11-22'
+  scenarios:
+  - falsifiers:
+    - FCF comparable que confirme generación sostenida y reducción adicional de deuda.
+    id: BEAR
+    key_assumptions:
+    - La mejora reciente del FCF no se confirma como tendencia.
+    - El extremo inferior del consenso observado sirve únicamente como ancla de escenario.
+    rationale: Ancla inferior del rango de consenso observado, no valoración intrínseca
+      propia. Es el extremo adverso de las anclas disponibles; la caída de ingresos
+      entre FY 2022 y FY 2025 y la variabilidad del FCF respaldan cautela, pero no
+      permiten derivar un precio inferior defendible.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: StockAnalysis, consenso de analistas
+      url: https://stockanalysis.com/stocks/aeg/forecast/
+    - as_of_date: '2026-06-30'
+      name: StockAnalysis, estados financieros
+      url: https://stockanalysis.com/stocks/aeg/financials/
+    target_price: 9.15
+  - falsifiers:
+    - Deterioro de FCF o reversión de la reducción de deuda en datos financieros posteriores.
+    id: BULL
+    key_assumptions:
+    - La generación de FCF mejora o se mantiene en períodos comparables.
+    - La deuda reportada continúa descendiendo.
+    rationale: Ancla superior del rango de consenso observado, no valoración intrínseca
+      propia. Representa el mejor extremo de las anclas disponibles si se sostienen
+      la mejora reciente del FCF y la reducción de deuda reportada; el paquete no
+      prueba que esos avances sean recurrentes.
+    sources:
+    - as_of_date: '2026-11-22'
+      name: StockAnalysis, consenso de analistas
+      url: https://stockanalysis.com/stocks/aeg/forecast/
+    - as_of_date: '2026-06-30'
+      name: StockAnalysis, estados financieros
+      url: https://stockanalysis.com/stocks/aeg/financials/
+    target_price: 10.6
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - scenario_analysis ausente
-  status: invalid_pending_revision
-score_general: 38
+  errors: []
+  status: valid_pending_decision_board
+score_general: 48
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-19T17:47:46.109591-03:00'
+  calculado_at: '2026-11-22T07:50:05.723264-03:00'
   fuentes:
     stockanalysis: 9.88
     yfinance: 9.875
@@ -471,24 +799,23 @@ target_consensus:
   n_fuentes: 2
   promedio: 9.88
   source_references:
-  - as_of_date: '2026-11-19'
+  - as_of_date: '2026-11-22'
     name: stockanalysis
-    observed_at: '2026-11-19T17:47:46.109591-03:00'
-    observed_date: '2026-11-19'
+    observed_at: '2026-11-22T07:50:05.723264-03:00'
+    observed_date: '2026-11-22'
     target_price: 9.88
     url: https://stockanalysis.com/stocks/aeg/forecast/
-  - as_of_date: '2026-11-19'
+  - as_of_date: '2026-11-22'
     name: yfinance
-    observed_at: '2026-11-19T17:47:46.109591-03:00'
-    observed_date: '2026-11-19'
+    observed_at: '2026-11-22T07:50:05.723264-03:00'
+    observed_date: '2026-11-22'
     target_price: 9.875
     url: https://finance.yahoo.com/quote/AEG/
   target_high: 10.6
   target_low: 9.15
-tesis_inversion: La hipótesis de investigación es que la generación de caja y la evolución
-  de resultados podrían respaldar la creación de valor; sin embargo, los datos proporcionados
-  no permiten separar generación sostenible de variación temporal ni evaluar retornos
-  sobre capital, reinversión o ventajas competitivas. La tesis queda sin validar hasta
-  contar con evidencia operativa, financiera y de asignación de capital comparable.
+tesis_inversion: La tesis a investigar es si Aegon puede sostener la mejora reciente
+  de FCF y continuar reduciendo deuda mientras estabiliza ingresos. La evidencia disponible
+  no valida la duración de esa mejora, la reinversión necesaria ni los retornos sobre
+  capital.
 ticker: AEG
 version: '3.0'

@@ -5,7 +5,14 @@ calidad_evidencia:
   inferencias_llm: []
   preguntas_abiertas:
   - ¿La señal persistirá hasta el próximo rebalanceo?
-catalizadores_previos: &id001 []
+catalizadores_previos: &id001
+- descripcion: Persistencia del ranking relativo hasta el próximo rebalanceo
+  generated_at: '2026-11-20T21:04:31.172581-03:00'
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: ''
+  opp_id: OPP-20261001-MOM-XLF
+  probabilidad_anterior: null
 clasificacion_oportunidad:
   categoria: systematic_momentum
   categorias_descartadas:
@@ -47,7 +54,7 @@ error_mercado:
   hipotesis_contraria: La persistencia del momentum puede romperse antes del próximo
     rebalanceo.
   razonamiento: La señal cuantitativa y sus límites son la evidencia primaria.
-generated_at: '2026-11-20T21:04:31.172581-03:00'
+generated_at: '2026-11-21T23:53:32.571133-03:00'
 integridad_tesis:
   reason: Señal dentro del rango configurado.
   thesis_active: true
@@ -75,7 +82,7 @@ prompt_inputs:
   ticker: XLF
 ratios_investigados: []
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-20'
+  analysis_as_of_date: '2026-11-21'
   business_model: 'The fund generally invests substantially all, but at least 95%,
     of its total assets in the securities comprising the index. The index includes
     companies that have been identified as Financial companies by the Global Industry
@@ -121,16 +128,16 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: f39fd70cd05a4ad1a95d07a690a361579279febe1f07a193a58aa89eb2a2969f
+    sha256: f4e42e1e4fd088ee48824ca2ea705424c1ddd55c13a0cf62cd5e4aa40a594953
   strategy_id: MOMENTUM_ETF
   strategy_version: '1.0'
   trigger_type: monthly
-  triggered_at: '2026-11-20T21:04:31.172581-03:00'
+  triggered_at: '2026-11-21T23:53:32.571133-03:00'
 resumen_ejecutivo: Momentum mensual 0.96; rango configurado 0.6–2.7; índice descriptivo
   36/100. Riesgo y probabilidad no evaluados.
 risk_flags: []
 scenario_analysis:
-  as_of_date: '2026-11-20'
+  as_of_date: '2026-11-21'
   currency: USD
   horizon_date: '2026-12-01'
   quantification_status: not_calibrated

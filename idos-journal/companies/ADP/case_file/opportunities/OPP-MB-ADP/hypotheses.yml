@@ -1,178 +1,191 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La tasa de retención sea inferior al 92% al cierre de FY2028.
+  - condition: El crecimiento de ingresos del ejercicio fiscal 2027 es inferior al
+      6%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El churn de clientes corporativos supere el 5% en FY2028.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - La tasa de retención sea inferior al 92% al cierre de FY2028.
-  - El churn de clientes corporativos supere el 5% en FY2028.
-  horizon: medio
-  id: H4-OPP-MB-ADP
-  opportunity_id: OPP-MB-ADP
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2028-12-31'
-    expected: 95.0
-    met: null
-    metric: Tasa de retención de clientes
-    prediction: La tasa de retención de clientes corporativos será de 95% o más al
-      31 de diciembre de 2028.
-    unit: '%'
-  priority: informational
-  probability: 0.5
-  rationale: La capacidad de conectar sistemas de recursos humanos mediante APIs reduce
-    la fricción y aumenta la dependencia del cliente, mientras que la IA mejora la
-    experiencia y la eficiencia operativa, factores que históricamente elevan la retención.
-  review_trigger: Si el reporte de churn trimestral muestra un aumento sostenido superior
-    al 5% en cualquier trimestre de FY2028, la hipótesis se invalida.
-  secondary_hypotheses:
-  - H1-OPP-MB-ADP
-  statement: ADP mejorará su tasa de retención de clientes corporativos a al menos
-    95% al cierre del FY2028, gracias a la integración de APIs y servicios de IA.
-  status: ACTIVE
-  ticker: ADP
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: Los ingresos TTM publicados para el periodo terminado el 2027-09-30
-      son inferiores a USD 23.376 millones.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La empresa informa una contracción interanual de ingresos en dos trimestres
-      consecutivos antes de la fecha objetivo.
+  - condition: ADP informa una contracción interanual de ingresos en dos trimestres
+      consecutivos del ejercicio fiscal 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos TTM publicados para el periodo terminado el 2027-09-30 son inferiores
-    a USD 23.376 millones.
-  - La empresa informa una contracción interanual de ingresos en dos trimestres consecutivos
-    antes de la fecha objetivo.
+  - El crecimiento de ingresos del ejercicio fiscal 2027 es inferior al 6%.
+  - ADP informa una contracción interanual de ingresos en dos trimestres consecutivos
+    del ejercicio fiscal 2027.
   horizon: medio
   id: H1-OPP-MB-ADP
   opportunity_id: OPP-MB-ADP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-15'
-    expected: 5.0
+    deadline: '2027-09-30'
+    expected: 6.0
     met: null
-    metric: Crecimiento interanual de ingresos TTM
-    prediction: Los ingresos TTM al 2027-09-30 serán al menos un 5% superiores a los
-      USD 22.263 millones reportados al 2026-09-30.
+    metric: Crecimiento interanual de ingresos del ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2027, ADP reportará un crecimiento de ingresos
+      de al menos 6% frente al ejercicio fiscal 2026, según sus resultados anuales
+      publicados antes de la fecha objetivo.
     unit: '%'
   priority: important
   probability: 0.5
-  rationale: ADP combina servicios de nómina y gestión de capital humano con externalización
-    de RR. HH. en Employer Services y PEO. Los ingresos TTM reportados de USD 22.263
-    millones al 2026-09-30 confirman escala, aunque por sí solos no prueban crecimiento
-    futuro ni retención de clientes.
-  review_trigger: Dejar de creerla si un informe trimestral oficial muestra ingresos
-    interanuales decrecientes durante dos trimestres consecutivos, o si los ingresos
-    TTM al 2027-09-30 no alcanzan USD 23.376 millones.
+  rationale: La migración de procesos de nómina y gestión de capital humano hacia
+    plataformas integradas en la nube puede elevar la adopción de servicios y los
+    ingresos recurrentes. La tesis proporcionada identifica esa transición como un
+    motor de crecimiento; la predicción se limita al crecimiento consolidado para
+    que pueda comprobarse con los resultados publicados.
+  review_trigger: Dejar de creerla si ADP reduce su previsión de crecimiento de ingresos
+    para el ejercicio fiscal 2027 por debajo del 6%, o si los resultados anuales publicados
+    antes del 2027-09-30 muestran un crecimiento inferior a ese umbral.
   secondary_hypotheses: []
-  statement: La escala de ADP y su oferta de nómina, HCM y externalización de RR.
-    HH. permitirán que el crecimiento de ingresos se mantenga en un dígito medio durante
-    los próximos doce meses.
+  statement: La demanda de soluciones HCM en la nube permitirá a ADP mantener crecimiento
+    de ingresos en el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: ADP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen de FCF TTM publicado para el periodo terminado el 2027-09-30
-      es inferior al 22%.
+  - condition: El margen operativo ajustado del ejercicio fiscal 2027 cae más de 0,3
+      puntos porcentuales frente al del ejercicio fiscal 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF TTM disminuye interanualmente mientras los ingresos TTM aumentan.
+  - condition: ADP recorta su previsión de margen operativo ajustado para el ejercicio
+      fiscal 2027 en más de 0,3 puntos porcentuales respecto de la comparación con
+      el ejercicio fiscal 2026.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen de FCF TTM publicado para el periodo terminado el 2027-09-30 es inferior
-    al 22%.
-  - El FCF TTM disminuye interanualmente mientras los ingresos TTM aumentan.
+  - El margen operativo ajustado del ejercicio fiscal 2027 cae más de 0,3 puntos porcentuales
+    frente al del ejercicio fiscal 2026.
+  - ADP recorta su previsión de margen operativo ajustado para el ejercicio fiscal
+    2027 en más de 0,3 puntos porcentuales respecto de la comparación con el ejercicio
+    fiscal 2026.
   horizon: medio
   id: H2-OPP-MB-ADP
   opportunity_id: OPP-MB-ADP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-15'
-    expected: 22.0
+    deadline: '2027-09-30'
+    expected: -0.3
     met: null
-    metric: Margen de FCF TTM
-    prediction: El margen de FCF TTM al 2027-09-30 será al menos del 22%, calculado
-      como FCF TTM dividido por ingresos TTM.
-    unit: '%'
-  priority: critical
+    metric: Variación interanual del margen operativo ajustado
+    prediction: El margen operativo ajustado del ejercicio fiscal 2027 no disminuirá
+      más de 0,3 puntos porcentuales frente al margen operativo ajustado del ejercicio
+      fiscal 2026.
+    unit: puntos porcentuales como caída máxima
+  priority: important
   probability: 0.5
-  rationale: Al 2026-09-30 se reportaron ingresos TTM de USD 22.263 millones y FCF
-    TTM de USD 5.247 millones, equivalentes a un margen aproximado del 23,6%. Esa
-    cifra establece una referencia, pero no demuestra que el margen sea sostenible.
-  review_trigger: Dejar de creerla si el margen de FCF TTM cae por debajo del 22%
-    en dos publicaciones trimestrales consecutivas o si queda por debajo de ese umbral
-    al 2027-09-30.
+  rationale: La tesis señala flujos de caja robustos y margen estable. La escala de
+    ADP y la naturaleza recurrente de sus servicios podrían compensar los costes de
+    tecnología, ventas y desarrollo de productos. La comparación con el ejercicio
+    fiscal 2026 permite evaluar el cambio sin presuponer un nivel de margen no proporcionado.
+  review_trigger: Dejar de creerla si una previsión formal de ADP anticipa una caída
+    superior a 0,3 puntos porcentuales, o si los resultados anuales del ejercicio
+    fiscal 2027 confirman una caída de esa magnitud.
   secondary_hypotheses:
   - H1-OPP-MB-ADP
-  statement: ADP conservará una conversión elevada de ingresos en flujo de caja libre,
-    manteniendo el margen de FCF TTM por encima del 22% hasta septiembre de 2027.
+  statement: ADP conservará la estabilidad de sus márgenes operativos ajustados durante
+    el ejercicio fiscal 2027, pese a las inversiones para sostener el crecimiento.
   status: ACTIVE
   ticker: ADP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de ADP durante el periodo es igual o inferior
-      a la del S&P 500 más 5 puntos porcentuales.
+  - condition: La cobertura de intereses de los últimos doce meses cae por debajo
+      de 12 veces en dos informes trimestrales consecutivos.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad total de ADP es inferior a la del S&P 500.
+  - condition: La cobertura de intereses del ejercicio fiscal 2027 es inferior a 12
+      veces.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de ADP durante el periodo es igual o inferior a la del S&P
-    500 más 5 puntos porcentuales.
-  - La rentabilidad total de ADP es inferior a la del S&P 500.
+  - La cobertura de intereses de los últimos doce meses cae por debajo de 12 veces
+    en dos informes trimestrales consecutivos.
+  - La cobertura de intereses del ejercicio fiscal 2027 es inferior a 12 veces.
   horizon: medio
   id: H3-OPP-MB-ADP
   opportunity_id: OPP-MB-ADP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 5.0
+    deadline: '2027-09-30'
+    expected: 12.0
     met: null
-    metric: Exceso de rentabilidad total de ADP frente al S&P 500
-    prediction: Entre el cierre del 2026-11-21 y el cierre del 2027-11-21, la rentabilidad
-      total de ADP, incluidos dividendos, superará la rentabilidad total del S&P 500
-      en al menos 5 puntos porcentuales.
-    unit: puntos porcentuales
+    metric: Cobertura de intereses (resultado operativo / gasto por intereses)
+    prediction: La cobertura de intereses, calculada como resultado operativo dividido
+      por gasto por intereses, será de al menos 12 veces en el ejercicio fiscal 2027.
+    unit: veces como mínimo
+  priority: important
+  probability: 0.5
+  rationale: La exposición a deuda y la cobertura de intereses se identifican como
+    vulnerabilidades en la tesis. La prueba más directa es comparar el resultado operativo
+    con el gasto por intereses en los estados financieros; un umbral sostenido permite
+    evaluar si esa vulnerabilidad se convierte en una restricción financiera material.
+  review_trigger: Dejar de creerla si la cobertura calculada con datos de los últimos
+    doce meses cae por debajo de 12 veces en dos trimestres consecutivos, o si los
+    resultados anuales del ejercicio fiscal 2027 confirman un valor inferior a 12
+    veces.
+  secondary_hypotheses: []
+  statement: La cobertura de intereses de ADP se mantendrá por encima de un umbral
+    prudencial durante el ejercicio fiscal 2027, limitando el impacto de la deuda
+    sobre su capacidad de pago.
+  status: ACTIVE
+  ticker: ADP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ADP iguala o supera la del S&P 500 en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de ADP queda menos de 5 puntos porcentuales por
+      debajo de la del S&P 500.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ADP iguala o supera la del S&P 500 en el periodo.
+  - La rentabilidad total de ADP queda menos de 5 puntos porcentuales por debajo de
+    la del S&P 500.
+  horizon: medio
+  id: H4-OPP-MB-ADP
+  opportunity_id: OPP-MB-ADP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-22'
+    expected: -5.0
+    met: null
+    metric: Rentabilidad total relativa de ADP frente al S&P 500
+    prediction: Entre el 2026-11-22 y el 2027-11-22, la rentabilidad total de ADP
+      será al menos 5 puntos porcentuales inferior a la rentabilidad total del S&P
+      500.
+    unit: puntos porcentuales como máximo
   priority: informational
   probability: 0.5
-  rationale: La escala de ingresos y la generación de FCF reportadas pueden respaldar
-    la resiliencia del negocio. Sin datos verificables sobre valoración, crecimiento
-    futuro y retornos sobre capital, no hay base suficiente para afirmar que el múltiplo
-    actual sea atractivo; por ello, la tesis se limita a una predicción relativa y
-    verificable de mercado.
-  review_trigger: Dejar de creerla si, al cierre del 2027-08-21, ADP acumula un rendimiento
-    total inferior al del S&P 500 en más de 10 puntos porcentuales; evaluar definitivamente
-    la predicción al 2027-11-21.
+  rationale: El contexto indica que el precio de referencia supera ligeramente el
+    consenso medio, lo que limita el potencial relativo si los resultados no exceden
+    las expectativas. La comparación de rentabilidad total, incluidos dividendos,
+    frente a un índice amplio es una prueba observable de esa hipótesis de valoración
+    y evita depender de un múltiplo objetivo no especificado.
+  review_trigger: Dejar de creerla si, al 2027-11-22, la rentabilidad total de ADP
+    no queda al menos 5 puntos porcentuales por debajo de la del S&P 500; antes de
+    esa fecha, reconsiderarla si el consenso de analistas deja de situarse por debajo
+    del precio de mercado de forma persistente.
   secondary_hypotheses:
   - H1-OPP-MB-ADP
   - H2-OPP-MB-ADP
-  statement: La acción de ADP obtendrá una rentabilidad total superior a la del S&P
-    500 durante los doce meses posteriores a la fecha de corte; esta hipótesis es
-    una predicción de rendimiento relativo y no presupone que ADP esté infravalorada.
+  statement: Desde el precio de referencia de 305,16 USD, ADP tendrá una rentabilidad
+    total inferior a la del S&P 500 durante los siguientes doce meses, consistente
+    con una valoración ligeramente exigente.
   status: ACTIVE
   ticker: ADP
   version: 1

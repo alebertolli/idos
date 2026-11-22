@@ -1,191 +1,196 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos consolidados del ejercicio fiscal 2027 crecen menos de
-      un 3% interanual.
+  - condition: El crecimiento interanual de esas ventas es inferior a 10% en cualquiera
+      de los dos trimestres consecutivos evaluados.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa informa una caída interanual de los ingresos consolidados
-      del ejercicio fiscal 2027.
+  - condition: La compañía deja de divulgar una métrica comparable y no ofrece datos
+      suficientes para verificar la predicción.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos consolidados del ejercicio fiscal 2027 crecen menos de un 3% interanual.
-  - La empresa informa una caída interanual de los ingresos consolidados del ejercicio
-    fiscal 2027.
+  - El crecimiento interanual de esas ventas es inferior a 10% en cualquiera de los
+    dos trimestres consecutivos evaluados.
+  - La compañía deja de divulgar una métrica comparable y no ofrece datos suficientes
+    para verificar la predicción.
   horizon: medio
   id: H1-OPP-MB-WMT
   opportunity_id: OPP-MB-WMT
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-05-31'
-    expected: 3.0
+    deadline: '2027-08-31'
+    expected: 10.0
     met: null
-    metric: crecimiento interanual de ingresos consolidados del ejercicio fiscal 2027
-    prediction: En los resultados del ejercicio fiscal 2027, los ingresos consolidados
-      reportados serán al menos un 3% superiores a los del ejercicio fiscal 2026.
-    unit: porcentaje mínimo
+    metric: Crecimiento interanual de ventas de comercio electrónico de Walmart en
+      EE. UU.
+    prediction: En los dos trimestres consecutivos más recientes cuyos resultados
+      estén publicados al 2027-08-31, las ventas de comercio electrónico de Walmart
+      en EE. UU. registrarán un crecimiento interanual de al menos 10% en cada trimestre.
+    unit: '%'
   priority: important
   probability: 0.5
-  rationale: La evidencia disponible hasta la fecha de corte indica crecimiento de
-    ingresos. La combinación de tiendas, clubes y canales digitales puede sostener
-    ventas en distintos canales, aunque la información proporcionada no permite validar
-    la penetración de mercado ni la magnitud de la contribución de cada segmento.
-  review_trigger: Dejar de creerla si los ingresos acumulados de los primeros tres
-    trimestres reportados del ejercicio fiscal 2027 crecen menos de un 2% interanual,
-    o si la compañía reduce su previsión anual de ingresos por debajo de ese umbral.
+  rationale: La escala y la posición de Walmart en retail pueden favorecer la captación
+    de demanda digital. Sin embargo, el crecimiento de ventas por sí solo no demuestra
+    que los costos de cumplimiento y entrega estén mejorando; por eso, la hipótesis
+    se limita a una predicción de crecimiento observable.
+  review_trigger: Dejar de creerla si los resultados publicados hasta el 2027-08-31
+    muestran crecimiento inferior a 10% en cualquiera de los dos trimestres consecutivos
+    evaluados.
   secondary_hypotheses: []
-  statement: Walmart mantendrá crecimiento positivo de ingresos consolidados durante
-    el ejercicio fiscal 2027, sin depender de una aceleración extraordinaria.
+  statement: 'La expansión digital de Walmart continuará, pero no se traducirá necesariamente
+    en una mejora proporcional de la rentabilidad: las ventas de comercio electrónico
+    de Walmart en EE. UU. crecerán a doble dígito interanual durante dos trimestres
+    consecutivos.'
   status: ACTIVE
   ticker: WMT
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen bruto consolidado del ejercicio fiscal 2027 es igual o inferior
-      al del ejercicio fiscal 2026.
+  - condition: En cualquiera de los dos trimestres consecutivos evaluados, el margen
+      operativo consolidado iguala o supera el margen del trimestre comparable del
+      año anterior.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía informa que el deterioro del margen bruto se debe a presiones
-      persistentes de costos o mezcla, sin compensación suficiente en los períodos
-      restantes.
+  - condition: La compañía modifica la presentación de sus segmentos o métricas de
+      modo que no sea posible establecer una comparación razonable.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen bruto consolidado del ejercicio fiscal 2027 es igual o inferior al del
-    ejercicio fiscal 2026.
-  - La compañía informa que el deterioro del margen bruto se debe a presiones persistentes
-    de costos o mezcla, sin compensación suficiente en los períodos restantes.
+  - En cualquiera de los dos trimestres consecutivos evaluados, el margen operativo
+    consolidado iguala o supera el margen del trimestre comparable del año anterior.
+  - La compañía modifica la presentación de sus segmentos o métricas de modo que no
+    sea posible establecer una comparación razonable.
   horizon: medio
   id: H2-OPP-MB-WMT
   opportunity_id: OPP-MB-WMT
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-05-31'
-    expected: 0.1
+    deadline: '2027-08-31'
+    expected: -10.0
     met: null
-    metric: variación interanual del margen bruto consolidado
-    prediction: El margen bruto consolidado del ejercicio fiscal 2027 será al menos
-      0,10 puntos porcentuales superior al del ejercicio fiscal 2026.
-    unit: puntos porcentuales
-  priority: important
+    metric: Variación interanual del margen operativo consolidado
+    prediction: En los dos trimestres consecutivos más recientes cuyos resultados
+      estén publicados al 2027-08-31, el margen operativo consolidado será al menos
+      10 puntos básicos inferior al del mismo trimestre del año anterior en cada período.
+    unit: puntos básicos o más de contracción
+  priority: critical
   probability: 0.5
-  rationale: Los datos resumidos señalan una mejora del margen bruto en períodos reportados.
-    Sin información desglosada sobre precios, mezcla de productos, costos o contribución
-    de los segmentos, la hipótesis es que al menos parte de esa mejora persistirá,
-    no que exista una ventaja estructural ya demostrada.
-  review_trigger: Dejar de creerla si el margen bruto acumulado de los primeros tres
-    trimestres reportados del ejercicio fiscal 2027 queda por debajo del margen comparable
-    del ejercicio fiscal 2026 y la dirección no prevé una recuperación que permita
-    cerrar el año con una mejora de 0,10 puntos porcentuales.
-  secondary_hypotheses:
-  - H1-OPP-MB-WMT
-  statement: La mejora reciente del margen bruto no se revertirá por completo y el
-    margen bruto del ejercicio fiscal 2027 superará al del ejercicio fiscal 2026.
+  rationale: La tesis plantea que la compresión de márgenes podría moderar el potencial
+    de crecimiento. Si promociones, mezcla de ventas o costos de operación absorben
+    parte de los ingresos incrementales, el margen operativo puede deteriorarse incluso
+    con ventas en expansión. Esta relación deberá comprobarse con resultados publicados,
+    no asumirse como un hecho.
+  review_trigger: Dejar de creerla si los resultados de cualquiera de los dos trimestres
+    consecutivos evaluados al 2027-08-31 muestran un margen operativo consolidado
+    igual o superior interanualmente.
+  secondary_hypotheses: []
+  statement: 'La presión sobre márgenes limitará la conversión del crecimiento de
+    ventas en beneficios: el margen operativo consolidado de Walmart será menor interanualmente
+    en dos trimestres consecutivos.'
   status: ACTIVE
   ticker: WMT
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF TTM en la fecha objetivo es inferior al nivel TTM disponible
-      al 2026-11-20.
+  - condition: El FCF del ejercicio fiscal 2027 es igual o superior al del ejercicio
+      fiscal 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF TTM aumenta, pero en menos de un 10% frente al nivel base definido
-      en la fecha de corte.
+  - condition: La empresa no publica cifras comparables de FCF para ambos ejercicios
+      y no es posible reconciliarlas con información divulgada.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF TTM en la fecha objetivo es inferior al nivel TTM disponible al 2026-11-20.
-  - El FCF TTM aumenta, pero en menos de un 10% frente al nivel base definido en la
-    fecha de corte.
+  - El FCF del ejercicio fiscal 2027 es igual o superior al del ejercicio fiscal 2026.
+  - La empresa no publica cifras comparables de FCF para ambos ejercicios y no es
+    posible reconciliarlas con información divulgada.
   horizon: medio
   id: H3-OPP-MB-WMT
   opportunity_id: OPP-MB-WMT
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 10.0
+    deadline: '2027-05-31'
+    expected: -5.0
     met: null
-    metric: variación del FCF TTM frente al nivel disponible al 2026-11-20
-    prediction: A más tardar el 2027-11-20, el FCF TTM calculado con los cuatro trimestres
-      más recientes reportados será al menos un 10% superior al FCF TTM más reciente
-      disponible al 2026-11-20.
-    unit: porcentaje mínimo
+    metric: Variación interanual del flujo de caja libre
+    prediction: El flujo de caja libre del ejercicio fiscal 2027, según la definición
+      divulgada por Walmart, será al menos 5% inferior al del ejercicio fiscal 2026,
+      de acuerdo con los resultados anuales disponibles al 2027-05-31.
+    unit: '% como mínimo de descenso'
   priority: critical
   probability: 0.5
-  rationale: La evidencia señala que el FCF TTM es inferior al del ejercicio fiscal
-    2026, lo que hace observable una posible recuperación, pero no permite identificar
-    su causa ni asegurar una mejora estructural. La hipótesis solo exige una recuperación
-    parcial y medible.
-  review_trigger: Dejar de creerla si, en dos publicaciones trimestrales consecutivas
-    posteriores a la fecha de corte, el FCF TTM permanece por debajo del nivel base
-    del 2026-11-20 o si la empresa reduce su perspectiva de flujo de caja anual.
+  rationale: La tesis identifica la caída del FCF como un riesgo para la apreciación
+    de la acción. Si la inversión necesaria para sostener operaciones y expansión
+    digital, junto con la conversión de beneficios en efectivo, continúa presionando
+    la caja, el FCF anual podría permanecer por debajo del ejercicio previo. La dirección
+    y magnitud deben verificarse en las cifras anuales.
+  review_trigger: Dejar de creerla cuando Walmart publique los resultados del ejercicio
+    fiscal 2027 o, como máximo, el 2027-05-31, si el FCF comparable es igual o superior
+    al del ejercicio fiscal 2026.
   secondary_hypotheses:
-  - H1-OPP-MB-WMT
-  statement: El flujo de caja libre de Walmart se recuperará frente al nivel TTM disponible
-    en la fecha de corte, aunque no se presupone que supere el resultado del ejercicio
-    fiscal 2026.
+  - H2-OPP-MB-WMT
+  statement: La generación de flujo de caja libre no se recuperará con suficiente
+    rapidez y el flujo de caja libre del ejercicio fiscal 2027 será inferior al del
+    ejercicio fiscal 2026.
   status: ACTIVE
   ticker: WMT
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de WMT supera al del S&P 500 en más de 5 puntos
-      porcentuales durante el período definido.
+  - condition: El rendimiento total de WMT supera al de XLP o queda menos de 5 puntos
+      porcentuales por debajo durante el período definido.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La acción registra un rendimiento relativo superior a 5 puntos porcentuales
-      antes de la fecha objetivo y mantiene esa ventaja al cierre del período.
+  - condition: No se pueden obtener precios de cierre y dividendos ajustados comparables
+      para calcular los rendimientos totales.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de WMT supera al del S&P 500 en más de 5 puntos porcentuales
-    durante el período definido.
-  - La acción registra un rendimiento relativo superior a 5 puntos porcentuales antes
-    de la fecha objetivo y mantiene esa ventaja al cierre del período.
-  horizon: medio
+  - El rendimiento total de WMT supera al de XLP o queda menos de 5 puntos porcentuales
+    por debajo durante el período definido.
+  - No se pueden obtener precios de cierre y dividendos ajustados comparables para
+    calcular los rendimientos totales.
+  horizon: largo
   id: H4-OPP-MB-WMT
   opportunity_id: OPP-MB-WMT
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-20'
-    expected: 5.0
+    deadline: '2027-11-21'
+    expected: -5.0
     met: null
-    metric: rendimiento total de WMT menos rendimiento total del S&P 500
-    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
-      total de WMT, incluidos dividendos, será como máximo 5 puntos porcentuales superior
-      al rendimiento total del S&P 500.
-    unit: puntos porcentuales como límite superior
-  priority: informational
+    metric: Rendimiento total de WMT menos rendimiento total de XLP
+    prediction: Entre el cierre del 2026-11-21 y el cierre del 2027-11-21, el rendimiento
+      total de WMT, incluidos dividendos, será al menos 5 puntos porcentuales inferior
+      al rendimiento total del ETF Consumer Staples Select Sector SPDR (XLP).
+    unit: puntos porcentuales o menos
+  priority: important
   probability: 0.5
-  rationale: La información disponible describe crecimiento de ingresos y mejora del
-    margen bruto, pero no demuestra retornos sobre capital, moat, capacidad de reinversión
-    de largo plazo ni una valoración atractiva. Por ello, no basta para justificar
-    una expectativa de rendimiento relativo ampliamente superior; la hipótesis es
-    una postura prudente y falsable, no una estimación de valor intrínseco.
-  review_trigger: Dejar de creerla si antes del 2027-11-20 WMT supera al S&P 500 en
-    más de 5 puntos porcentuales en rendimiento total y la diferencia se mantiene
-    durante al menos 30 días naturales.
+  rationale: La posición defensiva y el potencial digital pueden sostener el interés
+    inversor, pero una valoración exigente frente a un referente sectorial sería vulnerable
+    si el crecimiento no mejora la rentabilidad o la generación de efectivo. La tesis
+    señala precisamente ese riesgo; la comparación de rendimientos permite evaluarlo
+    sin presuponer un precio objetivo.
+  review_trigger: Dejar de creerla el 2027-11-21 si el rendimiento total de WMT no
+    queda al menos 5 puntos porcentuales por debajo del de XLP.
   secondary_hypotheses:
-  - H1-OPP-MB-WMT
   - H2-OPP-MB-WMT
   - H3-OPP-MB-WMT
-  statement: Durante los doce meses posteriores a la fecha de corte, la acción de
-    Walmart no superará al S&P 500 en más de 5 puntos porcentuales de rendimiento
-    total.
+  statement: El rendimiento bursátil de Walmart quedará rezagado frente al de un referente
+    amplio de consumo básico durante los próximos doce meses, si la valoración no
+    se acompaña de una mejora verificable en márgenes y FCF.
   status: ACTIVE
   ticker: WMT
   version: 1

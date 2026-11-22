@@ -1,138 +1,124 @@
 ## 1. Visión General de la Compañía
 
-ExxonMobil Holdings Corporation (XOM) es una compañía energética integrada que participa en la exploración y producción de petróleo y gas, el transporte y almacenamiento de materias primas, y la fabricación y comercialización de combustibles, productos químicos y productos especializados.
+ExxonMobil Holdings Corporation (XOM) es una compañía energética integrada que participa en la exploración y producción de petróleo y gas, el transporte y comercialización de materias primas, la refinación y la fabricación de productos energéticos y químicos. La información disponible identifica los segmentos Upstream, Energy Products, Chemical Products y Specialty Products. Sus productos incluyen crudo, gas natural, combustibles, aromáticos y catalizadores.
 
-Su cadena de valor abarca desde la adquisición y desarrollo de recursos hasta la producción, transformación y comercialización. Atiende, entre otros, a refinerías, distribuidores y comercializadores de energía, así como a empresas de transporte, aviación y logística. La información disponible describe operaciones en Estados Unidos, Canadá e internacionalmente, pero no aporta un desglose geográfico verificable por ingresos o activos.
+Su cadena de valor conecta producción de hidrocarburos con logística, transformación y venta a refinerías, distribuidores, comercializadores de energía, empresas industriales y fabricantes de productos químicos. La exposición abarca distintas geografías, aunque los materiales suministrados no especifican países, activos ni el desglose regional de ingresos.
 
-Opera en una industria intensiva en capital y cíclica, expuesta a los precios de los hidrocarburos, la oferta y demanda, la geopolítica, los márgenes de transformación y la transición energética. Entre las compañías relacionadas del sector se encuentran [[CVX]], [[COP]], [[BP]], [[SHEL]], [[TTE]], [[OXY]] y [[EQNR]].
+XOM opera en una industria intensiva en capital y cíclica, cuyos resultados dependen, entre otros factores, de los precios de los hidrocarburos, los volúmenes de producción y los márgenes de refinación y productos químicos. Entre las compañías del mismo sector se encuentran [[CVX]], [[BP]], [[SHEL]], [[TTE]], [[COP]], [[E]], [[EQNR]], [[OXY]], [[PBR]], [[BKR]], [[HAL]], [[SLB]], [[PSX]] y [[TS]].
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Drivers de ingresos
+**Drivers de ingresos identificados:**
+- Volúmenes de producción y ventas.
+- Precios del crudo, el gas y los productos refinados.
+- Márgenes de refinación y de productos químicos, cuya relevancia se desprende de la exposición a esas actividades; no se aportan series para medir su contribución.
 
-Los principales factores que pueden afectar los ingresos, márgenes y flujo de caja son:
+La integración de producción, logística, transformación y comercialización puede dar a XOM escala y flexibilidad operativa a lo largo de la cadena de hidrocarburos. AOIF caracteriza su posición competitiva como líder y su moat como amplio, atribuyéndolo a la integración, la escala de activos y la experiencia operativa. Estas son evaluaciones del análisis suministrado, no conclusiones verificadas con datos comparativos sobre costos, cuotas de mercado o retornos.
 
-- Precios de petróleo crudo y gas natural.
-- Volúmenes de producción y desempeño de los yacimientos.
-- Márgenes de refinación, combustibles y productos químicos.
-- Costos de producción y eficiencia operativa.
-- Demanda de combustibles y productos especializados.
-
-La integración de actividades upstream, transporte, refinación y comercialización puede contribuir a compensar parcialmente los ciclos de cada eslabón; no se proporcionan datos suficientes para cuantificar esa compensación.
-
-### Moat y competencia
-
-El análisis AOIF caracteriza la posición competitiva como líder y el moat como amplio, apoyado en escala global, integración de la cadena, activos de larga vida, experiencia técnica, infraestructura y marcas reconocidas. Estas características podrían favorecer eficiencias y resiliencia relativa, aunque su magnitud no puede verificarse con los datos aportados.
-
-La industria sigue siendo cíclica y competitiva. XOM comparte exposición a precios energéticos y riesgos regulatorios con compañías como [[CVX]], [[BP]], [[SHEL]], [[TTE]], [[COP]] y [[OXY]]. El desarrollo de nuevas tecnologías, la transición energética y los cambios en la demanda pueden alterar la competencia y la rentabilidad del sector.
+La calidad económica de la ventaja competitiva no es concluyente: faltan datos de retornos por segmento, rentabilidad incremental, costos de extracción, reservas e intensidad de capital. La exposición cíclica es compartida por competidores integrados como [[CVX]], [[BP]], [[SHEL]] y [[TTE]]; compañías más concentradas en producción, como [[COP]] y [[OXY]], también están expuestas a los precios de hidrocarburos, aunque con perfiles de negocio distintos.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes se reproducen de los inputs de investigación. No todas incluyen periodo, metodología o fuente verificable; deben interpretarse con cautela.
+Las métricas siguientes se reproducen según los materiales recibidos. No se proporcionan fuentes identificables ni definiciones completas para varias de ellas, por lo que deben validarse antes de compararlas con otros períodos o compañías.
 
-| Métrica | Valor reportado | Contexto y limitaciones |
-|---|---:|---|
-| Crecimiento de ingresos | 19,48% | AOIF; no se especifican periodo ni serie histórica. |
-| Crecimiento de ingresos CAGR a 3 años | No disponible | DDD indica que no se pudo calcular por falta de referencias explícitas para los inputs. |
-| Margen operativo | 12,88% | AOIF; fecha y base de cálculo no especificadas. |
-| ROIC | 12,73% | AOIF; fecha y base de cálculo no especificadas. |
-| PER | 16,49x | AOIF; dato suministrado sin fecha de referencia ni verificación independiente. |
-| EV/EBITDA | 8,71x | AOIF; dato suministrado sin fecha de referencia ni verificación independiente. |
-| FCF yield | 0 | AOIF; el valor se conserva como informado, pero no se puede validar su significado o cálculo. |
-| Crecimiento de FCF | 80,71% | Reportado por DDD para el periodo terminado el 30-09-2026; fuente indicada: [Stock Analysis](https://stockanalysis.com/stocks/xom/financials/). |
-| Flujo de caja libre | 42.964 M | DDD lo describe como robusto; no se especifican moneda, periodo ni cálculo. |
-| Ratio corriente | 1,19 | DDD; fecha de referencia indicada: 30-09-2026. |
-| Cobertura de intereses | 0 | Indicador señalado por DDD como riesgo; fuente indicada: [Stock Analysis](https://stockanalysis.com/stocks/XOM/statistics/). Debe verificarse el dato y su definición antes de inferir vulnerabilidad financiera. |
+| Métrica | Valor reportado | Período / fecha | Observaciones |
+|---|---:|---|---|
+| Crecimiento de ingresos | 19,48% | Sin período especificado | AOIF; no se suministra la serie histórica ni la base de cálculo. |
+| Margen operativo | 12,88% | Sin período especificado | AOIF; definición y período no especificados. |
+| ROIC | 12,76% | Sin período especificado | AOIF; definición, período y comparabilidad pendientes. |
+| P/E | 16,49 | Sin fecha de referencia | AOIF; requiere validar precio, período de beneficios y metodología. |
+| EV/EBITDA | 8,65 | Sin fecha de referencia | AOIF; requiere validar período y componentes del cálculo. |
+| FCF yield | 0 | Sin fecha de referencia | AOIF; no se proporcionan cálculo ni datos de flujo de caja que permitan verificarlo. |
+| Crecimiento del FCF | 80,71% | TTM al 2026-09-30 | Tasa reportada; falta el FCF del TTM comparable anterior y el detalle de los componentes. |
+| FCF TTM frente a FY 2025 | TTM reportado como mayor | TTM al 2026-09-30 frente a FY 2025 | Períodos no comparables directamente; el aumento no demuestra una mejora estructural. |
+| Current ratio | 1,19 | 2026-09-30 | No cruza el umbral de alerta configurado de 0,5. |
+| Dilución interanual | No evaluable | — | Falta el dato comparable del período anterior. |
 
-El material presenta señales de generación de efectivo y rentabilidad, pero carece de series temporales consistentes para comprobar tendencias de ingresos, márgenes, retornos y flujo de caja. Tampoco permite establecer de forma fiable la estructura de deuda, el costo de capital o la conversión de flujo de caja operativo en FCF.
+No hay información suficiente para reconstruir una tendencia histórica comparable de ingresos, márgenes, ROIC o FCF. Tampoco se aportan cifras de flujo de caja operativo, capex, deuda, caja o vencimientos; por ello, no es posible evaluar la conversión de beneficios en efectivo ni describir con rigor la estructura de capital.
 
 ## 4. Management y Gobierno Corporativo
 
-La evaluación AOIF califica provisionalmente la calidad del management como buena, la asignación de capital como neutral y el alineamiento de insiders como moderado. El propio análisis advierte que no se aportaron antecedentes de decisiones de capital, resultados de proyectos, remuneración ni tenencia accionarial actual.
+AOIF califica la calidad del management como buena, la asignación de capital como neutral y el alineamiento de insiders como moderado. El propio análisis indica que no hay información suficiente sobre resultados frente a objetivos, remuneración o propiedad accionarial de insiders para sustentar esas evaluaciones en detalle.
 
-No hay información suficiente en los inputs para evaluar la composición del board, independencia de sus miembros, políticas de incentivos, sucesión ejecutiva o participación accionarial de directivos. Por tanto, estas calificaciones son preliminares y no constituyen una evaluación verificable de gobierno corporativo.
+Los materiales no incluyen composición del board, independencia de sus integrantes, experiencia relevante, estructura de comités, políticas de remuneración ni historial de decisiones de inversión. Por tanto, no es posible formular una evaluación independiente del gobierno corporativo o de la calidad de la asignación de capital.
 
 ## 5. Tesis de Inversión
 
-### Caso alcista
+**Caso favorable — elementos respaldados por la información suministrada:**
 
-- **Integración y escala:** la presencia en varios eslabones de la cadena energética y los activos de larga vida podrían apoyar la competitividad y amortiguar parcialmente las fluctuaciones entre segmentos. El análisis AOIF describe a XOM como líder del sector, con un moat amplio; esta conclusión es cualitativa y no está acompañada de comparaciones cuantitativas.
-- **Generación de efectivo:** DDD reporta FCF de 42.964 M y crecimiento de FCF de 80,71% para el periodo que termina el 30-09-2026. La cifra de crecimiento procede de [Stock Analysis](https://stockanalysis.com/stocks/xom/financials/); el periodo exacto y la consistencia de la serie deben comprobarse.
-- **Eficiencia operativa:** la mejora de eficiencia y reducción de costos de producción se identifica como catalizador en DDD, con referencia a [estadísticas de Stock Analysis](https://stockanalysis.com/stocks/XOM/statistics/) al 30-09-2026.
-- **Escenario alcista condicionado:** el análisis de escenarios fechado el 01-11-2026 proyecta un precio objetivo de 213 USD a un horizonte del 01-11-2027, bajo supuestos de crudo por encima de 80 USD/barril, margen bruto de 33%, crecimiento del FCF superior al 100% y reducción de deuda neta. Es un escenario hipotético, no una previsión confirmada.
-- **Sensibilidad favorable a los hidrocarburos:** una recuperación sostenida del precio del crudo podría elevar ingresos y márgenes. DDD identifica como referencia de cambio una recuperación por encima de 70 USD/barril.
+- El modelo integrado abarca producción, logística, refinación, comercialización y productos químicos, lo que ofrece exposición a varios eslabones de la cadena energética.
+- AOIF caracteriza a XOM como líder y atribuye su posible ventaja a escala, integración y experiencia. La evidencia facilitada no incluye comparaciones que permitan cuantificar o confirmar esa ventaja.
+- El FCF TTM reportado al 2026-09-30 fue mayor que el FCF de FY 2025, y la fuente citada en DDD reportó un crecimiento del FCF TTM del 80,71%. Sin valores comparables ni desglose trimestral, este dato no demuestra que la mejora sea estructural.
+- DDD registra un rendimiento de la acción de 63,7373% durante los 12 meses terminados el 2026-10-30. Es un dato de desempeño pasado, no evidencia suficiente sobre valor intrínseco o perspectivas futuras.
 
-DDD asigna una puntuación general de 88 y clasifica la oportunidad como «Multibagger», principalmente por un impulso de precio a 12 meses de 63,7% y un crecimiento de ingresos cercano al 5%. Esta clasificación es una interpretación del análisis aportado, no una garantía de rendimiento. El mismo input indica que el precio de 187,25 USD supera ligeramente el consenso medio de 184,18 USD.
+**Contexto de mercado reportado:** DDD recoge una cotización de USD 187,25 al 2026-10-30 y un consenso de precio objetivo observado de USD 184,18 al 2026-11-21. El material también registra un rango de objetivos de analistas de USD 160–213. Estos datos son referencias de mercado y no una valoración independiente.
+
+**Síntesis:** la combinación de integración y escala constituye una hipótesis favorable, pero la tesis requiere validar retornos sobre capital, sostenibilidad del FCF y contribución de los segmentos. La clasificación de DDD es “Investigación requerida; evidencia fundamental incompleta”; AOIF deja la recomendación pendiente de decisión del board.
 
 ## 6. Riesgos y Contra-Tesis
 
-- **Ciclo de precios de petróleo y gas:** una caída o volatilidad de los precios puede reducir ingresos, márgenes y flujo de caja. AOIF califica este riesgo como de impacto alto y probabilidad alta.
-- **Regulación y transición energética:** cambios regulatorios, litigios o políticas climáticas podrían elevar costos, limitar proyectos o afectar la demanda. AOIF asigna impacto alto y probabilidad media.
-- **Valoración y expectativas:** a 187,25 USD, el precio reportado supera el consenso medio de 184,18 USD. DDD señala que el precio actual podría incorporar expectativas de precios energéticos superiores a los sugeridos por los indicadores actuales de margen y crecimiento. El consenso indicado, consultado el 20-11-2026, presenta un rango de 160 a 213 USD, según [Stock Analysis](https://stockanalysis.com/stocks/xom/forecast/) y [Yahoo Finance](https://finance.yahoo.com/quote/XOM/).
-- **Indicadores financieros que requieren validación:** la cobertura de intereses reportada como cero constituye una señal de alerta si el dato y su definición son correctos. El FCF yield de cero y otras métricas financieras también necesitan verificación.
-- **Riesgo de márgenes:** el escenario bajista asume compresión del margen bruto a 28%, crecimiento negativo de FCF y aumento de deuda neta; estos supuestos no son resultados observados.
-- **Volatilidad de mercado:** DDD reporta volatilidad a 90 días de 23,85%, atribuida a sensibilidad a los precios de energía, con referencia a [Yahoo Finance](https://finance.yahoo.com/quote/XOM/history/) al 30-10-2026.
+- **Ciclicidad y materias primas:** caídas en los precios del crudo o el gas, o deterioro de los márgenes de refinación y productos químicos, pueden afectar los resultados. AOIF califica este riesgo macro como de impacto y probabilidad altos.
+- **Sostenibilidad del FCF:** el mayor FCF TTM reportado frente a FY 2025 no permite distinguir entre cambios de ciclo, precios, volúmenes, operaciones o capital de trabajo. No se aportan datos suficientes para juzgar la persistencia de la mejora.
+- **Retornos e intensidad de capital:** faltan datos de capex, reservas, costos de extracción y retornos por segmento. No puede determinarse si el crecimiento observado genera retornos adecuados sobre el capital invertido.
+- **Regulación, emisiones y litigios:** cambios regulatorios, impuestos, restricciones de emisiones o litigios relacionados con el clima y las operaciones son riesgos identificados por AOIF. AOIF asigna impacto alto y probabilidad media.
+- **Valoración no demostrada:** el consenso de analistas y sus extremos no establecen valor intrínseco ni prueban un error de valoración. La información disponible no permite construir una estimación independiente con margen de seguridad.
+- **Calidad de los datos:** varias métricas financieras carecen de período, definición o fecha de referencia; pueden no ser comparables entre sí.
 
-### Triggers de falsación
+**Triggers de falsación de la tesis favorable:**
+1. Resultados operativos y FCF posteriores que no sostengan la mejora TTM reportada al 2026-09-30.
+2. Datos segmentarios que indiquen que el crecimiento no se traduce en retornos adecuados sobre el capital invertido.
+3. Evidencia de que los resultados dependen principalmente de condiciones favorables de precios o márgenes, sin mejora operativa persistente.
 
-La tesis alcista se debilitaría si:
-
-- Los precios del crudo se mantienen por debajo de 60 USD/barril.
-- Los márgenes se comprimen de forma sostenida y no se materializan mejoras de eficiencia.
-- La deuda neta aumenta mientras el crecimiento del FCF se deteriora.
-- Se imponen regulaciones restrictivas a la producción de hidrocarburos.
-
-En el análisis de escenarios, un precio sostenido por encima de 70 USD/barril y una mejora del margen bruto figuran como falsadores del escenario bajista; un precio por debajo de 60 USD/barril o la compresión de márgenes figuran como falsadores del alcista.
+Los riesgos cíclicos y regulatorios son pertinentes también para pares del sector como [[CVX]], [[BP]], [[SHEL]], [[TTE]] y productores como [[COP]] y [[OXY]], aunque la magnitud depende de su mezcla de actividades y activos.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Fecha o horizonte indicado | Impacto potencial | Evidencia y condiciones |
+| Evento o posible catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
 |---|---|---|---|
-| Recuperación sostenida del precio del crudo | Sin fecha; DDD utiliza >70 USD/barril como umbral de cambio | Positivo si eleva ingresos y márgenes; negativo si los precios permanecen débiles | Catalizador descrito por DDD; sin estimación cuantitativa del impacto. |
-| Mejora de eficiencia operativa y reducción de costos | Sin fecha; referencia de datos al 30-09-2026 | Positivo si se traduce en menores costos unitarios y mejores márgenes | [Stock Analysis, estadísticas de XOM](https://stockanalysis.com/stocks/XOM/statistics/). |
-| Escenario alcista de precios y márgenes | Horizonte al 01-11-2027 | Precio objetivo hipotético de 213 USD | Supone crudo >80 USD/barril, margen bruto de 33%, crecimiento de FCF >100% y reducción de deuda neta. |
-| Escenario bajista de precios y márgenes | Horizonte al 01-11-2027 | Precio objetivo hipotético de 160 USD | Supone crudo <60 USD/barril, margen bruto de 28%, crecimiento negativo de FCF y aumento de deuda neta. |
+| Publicación de resultados posteriores al TTM terminado el 2026-09-30 | No especificada | Permitiría comprobar si se sostienen la mejora de FCF y los resultados operativos. | No hay calendario ni datos futuros en los materiales. |
+| Información segmentaria sobre Upstream, Energy Products, Chemical Products y Specialty Products | No especificada | Ayudaría a evaluar contribución, márgenes y retornos por segmento. | La descripción de segmentos está disponible, pero no sus objetivos ni contribuciones detalladas. |
+| Cambios en precios de crudo y gas, o en márgenes de refinación y productos químicos | Continuo; sin fecha concreta | Pueden alterar ingresos, márgenes y FCF. | Catalizador cíclico; no se ofrecen pronósticos de precios ni hitos fechados. |
+| Hitos regulatorios o de emisiones relevantes para las operaciones | No especificada | Podrían afectar costos, permisos, inversiones o exposición a litigios. | Riesgo identificado, sin evento concreto fechado. |
 
-Los escenarios fueron registrados el 01-11-2026. Sus precios objetivo son resultados de supuestos condicionados y no constituyen eventos corporativos programados ni estimaciones verificadas.
+No se identifica en la evidencia un catalizador fechado que permita validar un cambio de expectativas del mercado. No deben inferirse fechas de resultados u otros eventos sin información adicional.
 
 ## 8. Marco de Valoración
 
-Para una compañía integrada y cíclica como XOM, la valoración debería combinar métodos basados en beneficios y flujo de caja normalizados a través del ciclo, con comparaciones de múltiplos y análisis por segmento. La evaluación debe prestar atención a precios de hidrocarburos, márgenes de refinación y química, inversión de capital, deuda y generación de efectivo.
+Con la información recibida no puede estimarse con rigor un valor intrínseco ni un margen de seguridad: faltan una base de beneficios y FCF normalizados, precio y capitalización con fecha coherente, deuda neta, capex, supuestos de producción y retornos por segmento. Los múltiplos reportados por AOIF —P/E de 16,49 y EV/EBITDA de 8,65— requieren validación de fecha, período y definición antes de usarse.
 
-### Datos disponibles
+**Metodologías apropiadas para investigar:**
+- **Suma de partes:** valorar separadamente Upstream, Energy Products, Chemical Products y Specialty Products, con supuestos explícitos de precios, volúmenes, márgenes, capex y retornos.
+- **Flujo de caja descontado de ciclo completo:** utilizar FCF normalizado a través de condiciones distintas de precios y márgenes, en vez de extrapolar un único TTM.
+- **Múltiplos comparables:** contrastar métricas calculadas con definiciones y períodos uniformes frente a compañías integradas como [[CVX]], [[BP]], [[SHEL]] y [[TTE]], y considerar las diferencias con productores como [[COP]] y [[OXY]].
 
-| Referencia | Valor | Interpretación y limitaciones |
+DDD presenta escenarios a 12 meses, con fecha de análisis 2026-11-21 y horizonte al 2027-11-21:
+
+| Escenario | Precio objetivo | Interpretación reportada |
 |---|---:|---|
-| Precio reportado | 187,25 USD | Fecha asociada al análisis DDD; debe confirmarse contra una cotización histórica. |
-| Consenso medio | 184,18 USD | Consulta indicada al 20-11-2026. |
-| Rango de consenso | 160–213 USD | Fuentes: [Stock Analysis](https://stockanalysis.com/stocks/xom/forecast/) y [Yahoo Finance](https://finance.yahoo.com/quote/XOM/). |
-| PER | 16,49x | Dato AOIF sin fecha ni verificación independiente. |
-| EV/EBITDA | 8,71x | Dato AOIF sin fecha ni verificación independiente. |
-| FCF yield | 0 | Dato AOIF no validado; no debe utilizarse como estimación fiable sin aclarar su cálculo. |
-| Objetivo de escenario bajista / alcista | 160 / 213 USD | Horizonte al 01-11-2027; objetivos dependientes de supuestos sobre crudo, márgenes, FCF y deuda. |
+| Bajista | USD 160 | Ancla en el extremo bajo del rango de objetivos de analistas observado; no es una valoración intrínseca propia. |
+| Alcista | USD 213 | Ancla en el extremo alto del rango observado; no es una valoración intrínseca propia. |
 
-La conclusión DDD es que el precio de 187,25 USD está ligeramente por encima del consenso medio de 184,18 USD, lo que podría indicar una valoración momentáneamente elevada. Como hipótesis contraria, el análisis plantea que el crecimiento de FCF de 80,7% y el margen bruto de 29,8% podrían respaldar un precio superior al promedio del consenso. Estas cifras y su comparabilidad temporal deben verificarse.
-
-No es posible estimar de forma independiente el valor intrínseco con la información disponible: faltan datos verificables y consistentes de FCF por periodo, deuda, acciones en circulación, inversión de capital y supuestos de largo plazo. La sensibilidad debe enfocarse, como mínimo, en precios del crudo, márgenes, crecimiento del FCF y deuda neta.
+Estos escenarios reflejan extremos de objetivos de analistas, no supuestos financieros independientes. La sensibilidad adecuada debería analizar cómo cambian el FCF y el valor ante variaciones en precios de hidrocarburos, márgenes de refinación y químicos, volúmenes, costos, capex y tasa de descuento. No hay datos suficientes para cuantificar esa sensibilidad.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuál es el periodo, la fuente primaria y la definición de las cifras de crecimiento de ingresos, margen operativo, ROIC, FCF y margen bruto?
-2. ¿Puede verificarse el crecimiento de FCF de 80,71% y reconciliarse con la cifra de FCF de 42.964 M?
-3. ¿Qué representa exactamente la cobertura de intereses reportada como cero? ¿Es un dato real, un problema de cobertura de la fuente o una métrica mal calculada?
-4. ¿Cómo se calcula el FCF yield de cero reportado por AOIF, y por qué no coincide necesariamente con la descripción de generación robusta de FCF?
-5. ¿Cuál es la evolución histórica de deuda neta, vencimientos, costo de deuda y liquidez?
-6. ¿Qué proporción de resultados y flujo de caja procede de cada segmento y región?
-7. ¿Cómo han variado volúmenes de producción, costos unitarios y márgenes de refinación y productos químicos a lo largo del ciclo?
-8. ¿Qué decisiones de asignación de capital, proyectos y retornos al accionista sustentan la evaluación del management?
-9. ¿Cuál es la composición actual del board, su independencia y la estructura de incentivos ejecutivos?
-10. ¿Qué supuestos de precio de hidrocarburos, inversión y crecimiento sustentan el consenso de 160–213 USD y los escenarios de 160/213 USD?
-11. ¿Cómo cambia la valoración bajo precios sostenidos del crudo por debajo de 60 USD/barril o por encima de 80 USD/barril?
-12. ¿Qué exposición económica concreta tiene XOM a litigios, regulación climática y cambios en la demanda durante la transición energética?
+1. ¿Cuál es la definición, el período y la fuente de las métricas reportadas de crecimiento de ingresos, margen operativo, ROIC, P/E, EV/EBITDA y FCF yield?
+2. ¿Cuáles son los ingresos, márgenes, capex, flujo de caja operativo, FCF y retornos sobre capital por segmento?
+3. ¿Qué explica el crecimiento de FCF TTM de 80,71% reportado al 2026-09-30? ¿Qué valor tuvo el FCF del TTM comparable anterior y cómo se comparan las bases de período con FY 2025?
+4. ¿Qué retornos sobre capital e incrementales producen los proyectos y segmentos, y cómo se comparan con el costo de capital?
+5. ¿Qué supuestos de producción, precios, costos y reinversión sustentan los objetivos de analistas y los resultados financieros esperados?
+6. ¿Cuáles son las reservas, los costos de extracción, la vida útil de los activos y las necesidades de inversión de mantenimiento y crecimiento?
+7. ¿Cuál es la deuda neta, el perfil de vencimientos, la liquidez disponible y la política de distribución de capital?
+8. ¿Qué evidencia respalda la evaluación de moat amplio y posición de liderazgo frente a pares como [[CVX]], [[BP]], [[SHEL]] y [[TTE]]?
+9. ¿Cómo se evalúan el desempeño del management frente a objetivos, la remuneración, la propiedad de insiders y la independencia del board?
+10. ¿Qué eventos regulatorios, climáticos, fiscales o litigiosos concretos podrían afectar las operaciones y con qué fechas o probabilidades?
+11. ¿Cuál es la fuente y metodología de la cotización al 2026-10-30 y del consenso de objetivos observado al 2026-11-21, y qué cobertura representa ese consenso?
+
+**Fuentes de esta entrada:** outputs de investigación DDD y AOIF suministrados para XOM. Los materiales no proporcionan referencias bibliográficas o enlaces verificables; las cifras se mantienen como datos reportados y no se complementan con fuentes externas.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton Company]], [[OXY|Occidental Petroleum Corporation]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]], [[PSX|Phillips 66]], [[SHEL|Shell plc]], [[SLB|SLB N.V.]], [[TS|Tenaris S.A.]], [[TTE|TotalEnergies SE]], [[UGP|Ultrapar Participações S.A.]], [[VIST|Vista Energy, S.A.B. de C.V.]]
-- **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]], [[SHEL|Shell plc]], [[TTE|TotalEnergies SE]]
+- **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[HAL|Halliburton Company]], [[OXY|Occidental Petroleum Corporation]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]], [[PSX|Phillips 66]], [[SHEL|Shell plc]], [[SLB|SLB N.V.]], [[TS|Tenaris S.A.]], [[TTE|TotalEnergies SE]], [[UGP|Ultrapar Participações S.A.]], [[VIST|Vista Energy, S.A.B. de C.V.]], [[YPF|YPF Sociedad Anónima]]
+- **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[EQNR|Equinor ASA]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]], [[SHEL|Shell plc]], [[TTE|TotalEnergies SE]], [[YPF|YPF Sociedad Anónima]]
