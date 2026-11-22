@@ -99,3 +99,95 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-22T07:54:20.447155'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MULTIBAGGERS-BKR-0001
+    ticker: BKR
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-22T08:01:23.927233'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-BKR-0001
+    ticker: BKR
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:01:23.936320'
+- data:
+    classification: Neutral
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 296b5ab8ae693d98c3b5027f034a4c0481066ead13ec00f1bdc9e8de273926cb
+    opp_id: OPP-MULTIBAGGERS-BKR-0001
+    original_status: UNDER_RESEARCH
+    score: 66
+    strategy_version: '1.5'
+    ticker: BKR
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:02:44.915469'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CL
+    ticker: CL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:03:09.402589'
+- data:
+    classification: Investigación fundamental incompleta
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: ee1401848083148759df2f2c3280687506172419186850f5d694d3f17b6cf3c8
+    opp_id: OPP-MB-CL
+    original_status: UNDER_RESEARCH
+    score: 35
+    strategy_version: '1.5'
+    ticker: CL
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:04:38.718438'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CSCO
+    ticker: CSCO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-22T08:05:07.187093'
+- data:
+    classification: Research requerido; evidencia financiera incompleta para una evaluación
+      de crecimiento de largo plazo
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 386612a5eb3bb4969aae2ff742abc518a5e1139890ed90f99d670d3aa27a8b15
+    opp_id: OPP-MB-CSCO
+    original_status: UNDER_RESEARCH
+    score: 42
+    strategy_version: '1.5'
+    ticker: CSCO
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-22T08:06:38.057652'

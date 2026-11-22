@@ -1,0 +1,28 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; evidencia financiera incompleta para una evaluación
+  de crecimiento de largo plazo'
+- 'Market error: No validado: el consenso disponible no es una estimación independiente
+  de valor intrínseco y no hay un método de valoración con inputs suficientes.'
+- 'Thesis: Cisco ofrece una exposición a tecnologías de redes, seguridad y conectividad
+  empresarial, según la descripción del modelo de negocio del resumen financiero.
+  La evidencia reporta FCF TTM positivo y mar'
+generated_at: '2026-11-22T08:06:37.976936-03:00'
+id: ass-9ec9ac65
+recommendation: REVIEW
+risks:
+- evidencia: 'Resumen financiero, evidencia financiera por campo: current_ratio; https://stockanalysis.com/stocks/CSCO/statistics/.'
+  riesgo: La liquidez corriente reportada fue 0.93x al 2026-07-25, por debajo del
+    umbral configurado de 0.5x no está; no alcanza ese umbral de alerta.
+- evidencia: 'Resumen financiero, evidencia financiera por campo: total_debt_history
+    y net_cash_history; https://stockanalysis.com/stocks/CSCO/statistics/.'
+  riesgo: La deuda total reportada fue USD 31,185 millones y el net cash fue negativo
+    USD 15,267 millones al 2026-07-25; no se valida aquí una razón deuda/EBITDA.
+- evidencia: El resumen describe productos y regiones de manera general, pero no contiene
+    métricas o series sobre estos riesgos.
+  riesgo: No hay evidencia suficiente en el paquete para cuantificar erosión competitiva,
+    concentración de clientes, exposición a ciclos de inversión o presión de precios.
+score: 42
+status: COMPLETED
+version: '3.0'

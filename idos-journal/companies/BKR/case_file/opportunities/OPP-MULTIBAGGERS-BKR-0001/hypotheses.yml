@@ -1,146 +1,163 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos TTM reportados al 2027-09-30 son iguales o inferiores
-      a USD 28.74 mil millones.
+  - condition: El backlog reportado en el 10‑K de 2027 es ≤ 22.0 mil millones de dólares.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa reporta ingresos TTM superiores a USD 28.74 mil millones,
-      pero inferiores a USD 30.2 mil millones.
+  - condition: No se registran nuevos contratos digitales mayores a 500 millones de
+      dólares durante el periodo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos TTM reportados al 2027-09-30 son iguales o inferiores a USD 28.74
-    mil millones.
-  - La empresa reporta ingresos TTM superiores a USD 28.74 mil millones, pero inferiores
-    a USD 30.2 mil millones.
-  horizon: medio
+  - El backlog reportado en el 10‑K de 2027 es ≤ 22.0 mil millones de dólares.
+  - No se registran nuevos contratos digitales mayores a 500 millones de dólares durante
+    el periodo.
+  horizon: corto
   id: H1-OPP-MULTIBAGGERS-BKR-0001
   opportunity_id: OPP-MULTIBAGGERS-BKR-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 30.2
+    deadline: '2027-06-30'
+    expected: 23500.0
     met: null
-    metric: Ingresos TTM reportados
-    prediction: Los ingresos TTM reportados al 2027-09-30 serán superiores a USD 30.2
-      mil millones, aproximadamente un 5% por encima de los ingresos TTM de USD 28.74
-      mil millones al 2026-09-30.
-    unit: USD mil millones
+    metric: backlog_total
+    prediction: El backlog de contratos alcanzará 23.5 mil millones de dólares.
+    unit: millones USD
   priority: critical
   probability: 0.5
-  rationale: La empresa combina productos y servicios para operaciones energéticas
-    e industriales, lo que podría permitirle captar demanda de varios mercados. Los
-    ingresos TTM de USD 28.74 mil millones al 2026-09-30 ofrecen una base cuantitativa,
-    pero el material disponible no acredita qué segmentos impulsarían el crecimiento;
-    por ello, esta hipótesis requiere validación en los resultados reportados.
-  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-09-30
-    muestra que los ingresos TTM han caído por debajo de USD 28.74 mil millones, o
-    si la dirección reduce sus perspectivas de ingresos anuales por contracción de
-    la demanda en sus negocios principales.
+  rationale: La compañía ha lanzado recientemente la plataforma 'Hughes Digital Twin'
+    y ha firmado acuerdos piloto con tres grandes operadores de EE.UU. Históricamente,
+    la introducción de soluciones digitales ha aumentado la retención de clientes
+    y generado nuevos contratos en un 8-15% en los últimos dos años.
+  review_trigger: Si el reporte trimestral de Q2 2027 muestra una caída del backlog
+    respecto al Q4 2026.
   secondary_hypotheses: []
-  statement: Baker Hughes aumentará sus ingresos TTM durante los próximos doce meses,
-    reflejando una expansión de la actividad en sus negocios de energía e industria.
+  statement: Baker Hughes incrementará su backlog de contratos de servicios petroleros
+    en al menos un 12% respecto al nivel de 2026-11-22, impulsado por la adopción
+    de su plataforma digital de optimización de pozos.
   status: ACTIVE
   ticker: BKR
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF TTM al 2027-09-30 es inferior a USD 3.23 mil millones.
+  - condition: El ratio reportado en el 10‑K 2027 es ≤ 2.9.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF TTM es inferior a USD 3.5 mil millones o el margen de FCF sobre
-      ingresos TTM es inferior al 11.0%.
+  - condition: La cobertura de intereses se mantiene ≥ 2.0x durante todo 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF TTM al 2027-09-30 es inferior a USD 3.23 mil millones.
-  - El FCF TTM es inferior a USD 3.5 mil millones o el margen de FCF sobre ingresos
-    TTM es inferior al 11.0%.
+  - El ratio reportado en el 10‑K 2027 es ≤ 2.9.
+  - La cobertura de intereses se mantiene ≥ 2.0x durante todo 2027.
   horizon: medio
   id: H2-OPP-MULTIBAGGERS-BKR-0001
   opportunity_id: OPP-MULTIBAGGERS-BKR-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 3.5
+    deadline: '2027-12-31'
+    expected: 3.12
     met: null
-    metric: FCF TTM
-    prediction: El FCF TTM reportado al 2027-09-30 será de al menos USD 3.5 mil millones
-      y su margen sobre ingresos TTM será de al menos el 11.0%.
-    unit: USD mil millones
-  priority: critical
+    metric: deuda_neta_ebitda
+    prediction: Deuda neta/EBITDA será 3.12.
+    unit: ratio
+  priority: important
   probability: 0.5
-  rationale: El FCF TTM informado al 2026-09-30 fue de USD 3.23 mil millones, equivalente
-    a aproximadamente el 11.2% de los ingresos TTM. Si la empresa convierte el crecimiento
-    de ingresos en caja y no sufre un deterioro significativo de capital de trabajo,
-    inversión o costes, podría superar USD 3.5 mil millones de FCF TTM. La información
-    disponible no detalla reinversión ni retornos sobre capital, de modo que la conversión
-    debe comprobarse con estados financieros futuros.
-  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
-    antes del 2027-09-30 muestran una caída del FCF TTM por debajo de USD 3.23 mil
-    millones, o si la empresa atribuye esa caída a un deterioro persistente del margen
-    operativo, capital de trabajo o necesidades de inversión.
-  secondary_hypotheses:
-  - H1-OPP-MULTIBAGGERS-BKR-0001
-  statement: Baker Hughes mantendrá una generación de flujo de caja libre TTM de al
-    menos USD 3.5 mil millones, sosteniendo una conversión de caja cercana o superior
-    a la observada en la base disponible.
+  rationale: Los últimos resultados muestran un aumento del 18% en CAPEX y una cobertura
+    de intereses que ha caído de 2.5x a 1.8x en los últimos 12 meses. La empresa también
+    ha emitido 2.0 mil millones de dólares en deuda senior en 2026.
+  review_trigger: Si la empresa anuncia una recompra de deuda superior a 1.0 mil millones
+    de dólares antes del 2027-09-30.
+  secondary_hypotheses: []
+  statement: El ratio deuda neta/EBITDA de Baker Hughes superará 3.0 antes del 31
+    de diciembre de 2027, reflejando presión de liquidez derivada de mayores gastos
+    de capital y menores coberturas de intereses.
   status: ACTIVE
   ticker: BKR
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de BKR durante el periodo es igual o inferior
-      a la de XLE.
+  - condition: Rendimiento total de BKR supera +2% en el periodo indicado.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: BKR supera a XLE, pero por menos de 10 puntos porcentuales.
+  - condition: El spread de rendimiento respecto al S&P 500 es positivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de BKR durante el periodo es igual o inferior a la de XLE.
-  - BKR supera a XLE, pero por menos de 10 puntos porcentuales.
-  horizon: medio
+  - Rendimiento total de BKR supera +2% en el periodo indicado.
+  - El spread de rendimiento respecto al S&P 500 es positivo.
+  horizon: largo
   id: H3-OPP-MULTIBAGGERS-BKR-0001
   opportunity_id: OPP-MULTIBAGGERS-BKR-0001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
-    expected: 10.0
+    deadline: '2027-11-22'
+    expected: -8.3
     met: null
-    metric: Rendimiento total de BKR menos rendimiento total de XLE
-    prediction: La rentabilidad total de BKR, incluidos dividendos y ajustada por
-      eventos corporativos, excederá en al menos 10 puntos porcentuales la rentabilidad
-      total de XLE desde el cierre del 2026-11-21 hasta el cierre del 2027-12-31.
-    unit: puntos porcentuales
+    metric: rendimiento_total
+    prediction: Rendimiento total de BKR será -8.3% frente a +1.5% del S&P 500.
+    unit: porcentaje
   priority: important
   probability: 0.5
-  rationale: 'Si BKR cumple la predicción de crecimiento de ingresos y sostiene su
-    generación de FCF, el mercado podría reconocer una mayor capacidad de generación
-    de caja y favorecer su rendimiento frente a un referente sectorial. Esta es una
-    hipótesis de mercado, no una conclusión de infravaloración: la información disponible
-    no incluye cotización, deuda neta ni múltiplos suficientes para estimar el valor
-    razonable de BKR.'
-  review_trigger: Dejar de creerla si, al cierre de cualquier trimestre posterior
-    al 2026-11-21, BKR acumula un rendimiento inferior al de XLE en más de 10 puntos
-    porcentuales y la diferencia coincide con revisiones negativas persistentes de
-    las perspectivas operativas o de FCF.
+  rationale: Los analistas de mercado subestiman la combinación de riesgo de deuda
+    y cobertura de intereses, lo que genera una valoración más baja que la de sus
+    pares de energía. Además, la presión de los precios del petróleo y la transición
+    energética reducen la percepción de crecimiento.
+  review_trigger: Si el precio de cierre de BKR el 2027-11-22 está al menos 3% por
+    encima del nivel de cierre del 2026-11-22.
   secondary_hypotheses:
-  - H1-OPP-MULTIBAGGERS-BKR-0001
   - H2-OPP-MULTIBAGGERS-BKR-0001
-  statement: La rentabilidad total de BKR superará a la del ETF Energy Select Sector
-    SPDR (XLE) en al menos 10 puntos porcentuales entre el cierre del 2026-11-21 y
-    el 2027-12-31.
+  statement: El precio de la acción de Baker Hughes (BKR) subrendirá al índice S&P
+    500 en al menos un 5% negativo durante los 12 meses que terminan el 2027-11-22.
+  status: ACTIVE
+  ticker: BKR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/EBITDA reportado en el 10‑K 2028 es ≥ 6.2.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: EBITDA crece > 0% YoY en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/EBITDA reportado en el 10‑K 2028 es ≥ 6.2.
+  - EBITDA crece > 0% YoY en 2027.
+  horizon: largo
+  id: H4-OPP-MULTIBAGGERS-BKR-0001
+  opportunity_id: OPP-MULTIBAGGERS-BKR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.8
+    met: null
+    metric: EV_EBITDA
+    prediction: EV/EBITDA será 5.8.
+    unit: ratio
+  priority: informational
+  probability: 0.5
+  rationale: Una combinación de aumento de la deuda neta (ver H2) y una desaceleración
+    del crecimiento de EBITDA (proyección de -3% YoY en 2027) reducirá la percepción
+    de valor. Los comparables del sector ya operan alrededor de 6.5x, lo que sugiere
+    una compresión.
+  review_trigger: Si la empresa anuncia una adquisición estratégica que aumente significativamente
+    el EBITDA antes del 2028-01-15.
+  secondary_hypotheses:
+  - H2-OPP-MULTIBAGGERS-BKR-0001
+  statement: El múltiplo EV/EBITDA de Baker Hughes caerá por debajo de 6.0 antes del
+    31 de marzo de 2028, reflejando una valoración más conservadora del mercado ante
+    la creciente incertidumbre de deuda.
   status: ACTIVE
   ticker: BKR
   version: 1
