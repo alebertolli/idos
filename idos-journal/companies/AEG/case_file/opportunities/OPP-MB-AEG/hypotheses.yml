@@ -1,168 +1,153 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El beneficio subyacente por acción comparable de 2027 crece menos del
-      5% frente a 2026.
+  - condition: La cifra comparable de resultado operativo subyacente cae más de 5%
+      respecto de la base disponible al 2026-11-22.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El beneficio subyacente por acción comparable de 2027 es igual o inferior
-      al de 2026.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La empresa no proporciona información suficiente para reconciliar moneda,
-      perímetro y partidas excepcionales.
+  - condition: Aegon deja de publicar información suficiente para construir una comparación
+      de doce meses con definición y perímetro consistentes.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El beneficio subyacente por acción comparable de 2027 crece menos del 5% frente
-    a 2026.
-  - El beneficio subyacente por acción comparable de 2027 es igual o inferior al de
-    2026.
-  - La empresa no proporciona información suficiente para reconciliar moneda, perímetro
-    y partidas excepcionales.
+  - La cifra comparable de resultado operativo subyacente cae más de 5% respecto de
+    la base disponible al 2026-11-22.
+  - Aegon deja de publicar información suficiente para construir una comparación de
+    doce meses con definición y perímetro consistentes.
   horizon: medio
   id: H1-OPP-MB-AEG
   opportunity_id: OPP-MB-AEG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 5.0
+    deadline: '2027-11-22'
+    expected: 0.0
     met: null
-    metric: Crecimiento interanual del beneficio subyacente por acción en moneda constante
-      y perímetro comparable
-    prediction: En los resultados de 2027, publicados a más tardar el 2028-03-31,
-      el beneficio subyacente por acción de 2027 será al menos un 5% superior al de
-      2026, calculado en moneda constante y con perímetro comparable; si la empresa
-      no publica una serie comparable, la hipótesis no quedará confirmada.
-    unit: porcentaje mínimo
+    metric: Variación porcentual interanual del resultado operativo subyacente comparable
+      de doce meses
+    prediction: A más tardar el 2027-11-22, la última cifra de doce meses de resultado
+      operativo subyacente publicada por Aegon estará dentro de un rango de -5% a
+      +5% respecto de la cifra comparable de doce meses más reciente disponible al
+      2026-11-22, usando la misma definición y perímetro.
+    unit: porcentaje; rango aceptable de -5% a +5%
   priority: important
   probability: 0.5
-  rationale: La tesis plantea que la evolución de resultados podría respaldar la creación
-    de valor, pero la información disponible no permite distinguir crecimiento sostenible
-    de variaciones temporales. La hipótesis se somete a prueba mediante una métrica
-    de resultados comunicada por la empresa y comparable entre ejercicios.
-  review_trigger: Dejar de creerla cuando la publicación de resultados de 2027 muestre
-    crecimiento comparable inferior al 5%, o el 2028-03-31 si para entonces no existe
-    una serie verificable y comparable.
+  rationale: La tesis requiere que la mejora reciente de FCF se acompañe de ingresos
+    operativos sostenidos. No hay evidencia suficiente para atribuir esa mejora a
+    crecimiento recurrente; por ello, esta hipótesis contrasta la estabilidad del
+    resultado operativo con la información más reciente disponible al corte.
+  review_trigger: Dejar de creerla si un reporte financiero publicado antes del 2027-11-22
+    muestra una caída interanual superior al 5% en el resultado operativo subyacente
+    comparable.
   secondary_hypotheses: []
-  statement: El negocio de Aegon mostrará crecimiento operativo positivo en 2027,
-    pero esta hipótesis se considerará provisional hasta disponer de cifras comparables
-    y explicaciones de cambios de perímetro y tipo de cambio.
+  statement: Aegon estabilizará sus resultados operativos subyacentes durante los
+    próximos doce meses, sin que la mejora de caja dependa de una contracción significativa
+    del negocio.
   status: ACTIVE
   ticker: AEG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La generación de capital operativo comparable de 2027 crece menos del
-      5% frente a 2026.
+  - condition: El FCF acumulado de los cuatro trimestres más recientes reportados
+      es cero o negativo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La métrica comparable disminuye interanualmente.
+  - condition: La deuda neta comparable al 2027-11-22 es igual o superior a la base
+      disponible al 2026-11-22.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El aumento reportado depende de cambios de definición, perímetro o
-      elementos extraordinarios que impiden atribuirlo a generación recurrente.
+  - condition: Los cambios de definición o perímetro impiden comprobar ambos resultados
+      de forma comparable.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La generación de capital operativo comparable de 2027 crece menos del 5% frente
-    a 2026.
-  - La métrica comparable disminuye interanualmente.
-  - El aumento reportado depende de cambios de definición, perímetro o elementos extraordinarios
-    que impiden atribuirlo a generación recurrente.
+  - El FCF acumulado de los cuatro trimestres más recientes reportados es cero o negativo.
+  - La deuda neta comparable al 2027-11-22 es igual o superior a la base disponible
+    al 2026-11-22.
+  - Los cambios de definición o perímetro impiden comprobar ambos resultados de forma
+    comparable.
   horizon: medio
   id: H2-OPP-MB-AEG
   opportunity_id: OPP-MB-AEG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 5.0
+    deadline: '2027-11-22'
+    expected: 1.0
     met: null
-    metric: Crecimiento interanual de la generación de capital operativo comparable
-    prediction: La generación de capital operativo que Aegon reporte para 2027 será
-      al menos un 5% superior a la de 2026, usando la misma definición y excluyendo,
-      cuando la empresa lo permita, efectos extraordinarios identificados por separado.
-      La comparación deberá estar disponible a más tardar el 2028-03-31.
-    unit: porcentaje mínimo
+    metric: FCF acumulado de cuatro trimestres y variación de deuda neta comparable
+    prediction: A más tardar el 2027-11-22, la suma del FCF de los cuatro trimestres
+      más recientes reportados será superior a cero y la deuda neta, calculada con
+      una definición comparable a la última divulgada al 2026-11-22, será al menos
+      1% inferior a esa base.
+    unit: FCF superior a cero y reducción de deuda neta de al menos 1%
   priority: critical
   probability: 0.5
-  rationale: La tesis propone que la generación de caja podría respaldar la creación
-    de valor, pero no hay datos suficientes para separar generación sostenible de
-    variaciones temporales. La generación de capital operativo, si se comunica con
-    una definición estable, permite contrastar esa posibilidad sin asumir que toda
-    generación del periodo sea recurrente.
-  review_trigger: Dejar de creerla cuando los resultados de 2027 muestren crecimiento
-    comparable inferior al 5%, o el 2028-03-31 si la empresa no aporta una definición
-    y conciliación que permitan comparar ambos ejercicios.
-  secondary_hypotheses: []
-  statement: La generación de capital operativo de Aegon aumentará en 2027 frente
-    a 2026, lo que aportaría evidencia favorable sobre la capacidad de generar recursos
-    recurrentes.
+  rationale: La tesis plantea que la mejora reciente de FCF y la reducción de deuda
+    podrían no ser duraderas. Un periodo futuro completo permite comprobar si la generación
+    de caja se repite y si se traduce en menor deuda, sin asumir que la tendencia
+    reciente continuará automáticamente.
+  review_trigger: Dejar de creerla si un reporte publicado antes del 2027-11-22 muestra
+    FCF acumulado de cuatro trimestres no positivo o deuda neta comparable que no
+    haya disminuido frente a la base del corte.
+  secondary_hypotheses:
+  - H1-OPP-MB-AEG
+  statement: Aegon mantendrá generación positiva de FCF y reducirá deuda neta durante
+    los doce meses posteriores al corte, aunque la sostenibilidad de esa mejora seguirá
+    pendiente de confirmación.
   status: ACTIVE
   ticker: AEG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de Aegon supera al índice por menos de 5 puntos
-      porcentuales.
+  - condition: La rentabilidad total de Aegon no supera la del índice en al menos
+      5 puntos porcentuales al 2027-11-22.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La rentabilidad total de Aegon iguala o queda por debajo de la del
-      índice.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La comparación no puede calcularse de forma consistente incluyendo
-      dividendos y utilizando la misma moneda.
+  - condition: No se puede calcular una comparación consistente de rentabilidad total
+      en euros para ambas series.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de Aegon supera al índice por menos de 5 puntos porcentuales.
-  - La rentabilidad total de Aegon iguala o queda por debajo de la del índice.
-  - La comparación no puede calcularse de forma consistente incluyendo dividendos
-    y utilizando la misma moneda.
+  - La rentabilidad total de Aegon no supera la del índice en al menos 5 puntos porcentuales
+    al 2027-11-22.
+  - No se puede calcular una comparación consistente de rentabilidad total en euros
+    para ambas series.
   horizon: medio
   id: H3-OPP-MB-AEG
   opportunity_id: OPP-MB-AEG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-19'
+    deadline: '2027-11-22'
     expected: 5.0
     met: null
-    metric: Rentabilidad total relativa frente al MSCI World Financials
-    prediction: Entre el 2026-11-19 y el 2027-11-19, la rentabilidad total para el
-      accionista de Aegon, incluidos dividendos, superará en al menos 5 puntos porcentuales
-      la del índice MSCI World Financials, medida en una misma moneda. La condición
-      de resultados favorables se evaluará con las hipótesis H1 y H2 cuando sus datos
-      estén disponibles.
-    unit: puntos porcentuales de exceso mínimo
+    metric: Rentabilidad total relativa de Aegon frente al MSCI Europe Financials
+    prediction: Entre el 2026-11-22 y el 2027-11-22, la rentabilidad total de Aegon,
+      incluidos dividendos y medida en euros, superará en al menos 5 puntos porcentuales
+      la rentabilidad total del índice MSCI Europe Financials, también en euros.
+    unit: puntos porcentuales de exceso de rentabilidad
   priority: informational
   probability: 0.5
-  rationale: La tesis contempla que el mercado podría estar subestimando el crecimiento
-    sostenible o la generación de caja, pero la evidencia disponible no permite afirmarlo.
-    La predicción convierte esa posibilidad en una prueba de mercado relativa y condiciona
-    la interpretación a que haya evidencia operativa y financiera favorable.
-  review_trigger: Dejar de creerla el 2027-11-19 si la rentabilidad total relativa
-    acumulada es inferior a 5 puntos porcentuales; si H1 y H2 se falsan antes, dejar
-    de atribuir cualquier posible rendimiento superior a la tesis de crecimiento sostenible
-    y generación recurrente.
+  rationale: 'La estabilidad operativa y la menor deuda podrían reducir la percepción
+    de riesgo y respaldar la valoración. Sin embargo, no se presupone una revalorización:
+    la comparación futura de rentabilidad total permitirá comprobar si esos factores
+    se traducen en un resultado observable de mercado.'
+  review_trigger: Dejar de creerla al 2027-11-22 si la rentabilidad total de Aegon
+    queda por debajo del índice o lo supera por menos de 5 puntos porcentuales.
   secondary_hypotheses:
   - H1-OPP-MB-AEG
   - H2-OPP-MB-AEG
-  statement: Si Aegon confirma crecimiento de resultados y generación de capital operativo,
-    su rentabilidad total para el accionista superará a la del sector financiero global
-    durante los doce meses posteriores a la fecha de corte.
+  statement: Si Aegon sostiene resultados operativos y reduce deuda, su rentabilidad
+    para el accionista superará la de un índice amplio del sector financiero europeo
+    en el horizonte de doce meses.
   status: ACTIVE
   ticker: AEG
   version: 1
