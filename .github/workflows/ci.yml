@@ -44,9 +44,6 @@ jobs:
         python-version: ["3.11", "3.12"]
     permissions:
       contents: read
-      issues: write
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v4
@@ -67,8 +64,49 @@ jobs:
         run: |
           set -o pipefail
           python -m pytest idos-core/tests/ -v 2>&1 | tee /tmp/ci_test_output.log
-      - name: 🐛 Report failure as GitHub Issue
+      - name: Stage CI failure log
         if: failure()
         run: |
+          if [ -f /tmp/ci_test_output.log ]; then
+            cp /tmp/ci_test_output.log "/tmp/ci_test_output-${{ matrix.python-version }}.log"
+          else
+            printf '%s\n' "CI failed before test output was captured." > "/tmp/ci_test_output-${{ matrix.python-version }}.log"
+          fi
+      - name: Upload CI failure log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-failure-log-${{ matrix.python-version }}
+          path: /tmp/ci_test_output-${{ matrix.python-version }}.log
+          if-no-files-found: error
+
+  report-failure:
+    name: Report CI failure once
+    needs: test
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install reporter dependencies
+        run: pip install -e idos-core
+      - name: Download matrix failure logs
+        uses: actions/download-artifact@v4
+        with:
+          pattern: ci-failure-log-*
+          path: /tmp/ci-failure-logs
+          merge-multiple: true
+        continue-on-error: true
+      - name: 🐛 Report failure as GitHub Issue
+        run: |
+          find /tmp/ci-failure-logs -type f -name '*.log' -print0 2>/dev/null | sort -z | xargs -0 -r cat > /tmp/ci_test_output.log
           export IDOS_ERROR_SUMMARY="$(tail -200 /tmp/ci_test_output.log 2>/dev/null || true)"
           python -m idos.workers.automation.gha_error_reporter
