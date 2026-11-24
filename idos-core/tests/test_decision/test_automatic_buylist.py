@@ -1,5 +1,5 @@
 from pathlib import Path
-from datetime import date, timedelta
+from datetime import datetime, timedelta
 
 import yaml
 
@@ -8,12 +8,13 @@ from idos.decision.automatic_buylist import (
     revoke_buylist_on_thesis_invalidation,
 )
 from idos.decision.scenarios import scenario_fingerprint
+from idos.timezone import AR_TZ
 
 
 def _seed_candidate(root: Path):
     opp_dir = root / "idos-journal/companies/NVDA/case_file/opportunities/OPP-NVDA"
     opp_dir.mkdir(parents=True)
-    today = date.today()
+    today = datetime.now(AR_TZ).date()
     source_date = (today - timedelta(days=1)).isoformat()
     analysis = {
         "schema_version": "bear_bull_v2",
