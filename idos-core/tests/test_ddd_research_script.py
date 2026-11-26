@@ -765,9 +765,10 @@ def test_scheduled_results_pr_requires_a_published_commit():
 
     assert publish["id"] == "publish-results"
     assert "gh pr list --base main --head codex/ddd-research-results --state open" in publish_pr["run"]
-    assert "PREVIOUS_RUN_LOOKUP_OK=true" in publish_pr["run"]
-    assert 'Could not establish the previous scheduled results CI run' in publish_pr["run"]
-    assert 'if ! gh workflow run ci.yml --ref codex/ddd-research-results; then' in publish_pr["run"]
+    assert 'DISPATCH_OUTPUT=$(gh workflow run ci.yml --ref codex/ddd-research-results 2>&1)' in publish_pr["run"]
+    assert 'actions/runs/([0-9]+)' in publish_pr["run"]
+    assert 'headSha ==' in publish_pr["run"]
+    assert 'createdAt >=' in publish_pr["run"]
     assert 'gh pr view "$OPEN_PR_NUMBER" --json headRefOid --jq' in publish_pr["run"]
     assert 'gh run view "$RUN_ID" --json event,headSha,status,conclusion' in publish_pr["run"]
     assert '"$CI_EVENT" != "workflow_dispatch"' in publish_pr["run"]
@@ -804,3 +805,22 @@ def test_scheduled_results_pr_requires_a_published_commit():
     results_branch = next(step for step in steps if step.get("name") == "Resume scheduled results branch")
     assert results_branch["run"] == "python scripts/sync_ddd_results_branch.py"
 
+
+
+ 
+def test_resume_queue_prunes_quarantined_candidates_and_keeps_other_work(tmp_path, monkeypatch):
+    queue_path = tmp_path / "cache" / "ddd_research_resume.json"
+    quarantine_path = tmp_path / "cache" / "ddd_research_quarantine.json"
+    monkeypatch.setattr(ddd_research, "RESUME_QUEUE_PATH", queue_path)
+    monkeypatch.setattr(ddd_research, "QUARANTINE_PATH", quarantine_path)
+    pending = [
+        {"ticker": "XLF", "opp_id": "OPP-XLF", "next_attempt_date": "2026-11-23"},
+        {"ticker": "ASML", "opp_id": "OPP-ASML", "next_attempt_date": "2026-11-23"},
+    ]
+    ddd_research._save_resume_queue(pending)
+    ddd_research._save_quarantine([{"ticker": "XLF", "opp_id": "OPP-XLF"}])
+
+    eligible = ddd_research._clean_resume_queue()
+
+    assert eligible == [pending[1]]
+    assert ddd_research._load_resume_queue() == [pending[1]]
