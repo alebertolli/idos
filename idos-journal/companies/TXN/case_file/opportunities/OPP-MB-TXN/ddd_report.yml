@@ -1,100 +1,111 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La recuperación de FCF y margen puede ser relevante para la tesis, pero los datos
-    aportados no prueban su sostenibilidad.
-  - Los extremos de escenario usan el rango observado de analistas como anclas, no
-    como valoración propia ni resultado garantizado.
-  - El negocio se describe como diseñador, fabricante y vendedor de semiconductores,
-    con segmentos Analog y Embedded Processing; el resumen financiero no especifica
-    período de vigencia.
-  - Al 2026-09-30, la fuente reporta ingresos TTM de 20,766 millones, FCF de 7,318
-    millones, beneficio neto de 7,072 millones y margen bruto de 60.24%; los importes
-    históricos aparecen en unidades reportadas por el proveedor.
-  - La cotización observada fue USD 300.84 al 2026-10-30; el rango de objetivos de
-    analistas observado al 2026-11-21 fue USD 250–422, con media USD 338.79.
-  - El precio mostró momentum de 12 meses de 86.3248% durante 2025-10-31/2026-10-30,
-    según la evidencia de yfinance.
+  - El patrón de ingresos, márgenes y FCF es compatible con recuperación reciente,
+    pero no demuestra que sea sostenible ni permite atribuirla a un mecanismo concreto.
+  - Los extremos de analistas pueden servir como anclas de escenario por estar denominados
+    en USD; no son valoraciones intrínsecas.
+  - 'El resumen financiero describe dos segmentos: Analog y Embedded Processing, y
+    ventas internacionales. [Resumen financiero, análisis al 2026-11-26]'
+  - StockAnalysis reporta ingresos TTM de USD 20,766 millones y margen bruto TTM de
+    60.24% al 2026-09-30. [StockAnalysis, período TTM terminado el 2026-09-30]
+  - La cotización reportada fue USD 300.84 al 2026-10-30; el consenso de objetivos
+    reportado al 2026-11-26 fue USD 339.66, rango USD 250–422. [Yahoo Finance, 2026-10-30;
+    StockAnalysis, 2026-11-26]
   preguntas_abiertas:
-  - ¿Cuál es el TAM y la penetración por producto, segmento y mercado final, y qué
-    evidencia respalda su evolución?
-  - ¿Qué retornos sobre capital y retornos incrementales produce la reinversión, incluyendo
-    el efecto de inversión fabril?
-  - ¿Qué factores explican los cambios históricos de margen y FCF, y qué evidencia
-    permite separar efectos cíclicos de estructurales?
-  - ¿Qué historial verificable existe de gestión, compensación, recompras, dividendos,
-    adquisiciones y asignación de capital?
-catalizadores_previos: &id001 []
+  - ¿Qué tamaño de mercado, penetración, cuota y crecimiento por segmento respaldan
+    el potencial de expansión?
+  - ¿Cuáles son ROIC, retornos incrementales, capex, capacidad fabril y rendimiento
+    de la reinversión por período?
+  - ¿Qué historial de acciones diluidas y datos de deuda/intereses permiten evaluar
+    dilución y apalancamiento con ratios comparables?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-21T18:42:34.873792-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-TXN
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-21T18:42:34.873792-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-TXN
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-21T18:42:34.873792-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-TXN
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: RESEARCH_REQUIRED
-  justificacion: El paquete registra un discovery_score de 79.46 para el perfil multibaggers,
-    pero no aporta suficiente evidencia sobre mercado direccionable, retornos incrementales
-    sobre capital ni asignación de capital para validar una tesis de crecimiento de
-    largo plazo. La evaluación describe evidencia y vacíos; no es una recomendación
-    de inversión.
+  categoria: Investigación requerida
+  justificacion: El paquete clasifica TXN con perfil multibaggers y prioridad de investigación
+    79.46; esa puntuación es una señal de selección, no una conclusión sobre el potencial
+    de retorno.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo reportado combina diseño, fabricación y venta de semiconductores,
-    con segmentos Analog y Embedded Processing. Los márgenes brutos y el FCF observados
-    son relevantes para evaluar calidad económica, pero faltan datos de cuota de mercado,
-    mercado direccionable, intensidad de capital, retornos sobre capital, diferenciación,
-    clientes, gestión y asignación de capital; por tanto, no se valida el moat ni
-    su durabilidad.
-  rating: Evidencia incompleta
+  analisis: El modelo descrito abarca semiconductores analógicos y de procesamiento
+    integrado, con fabricación y venta internacional. El margen bruto TTM de 60.24%
+    y la conversión de FCF calculada respaldan capacidad económica observada, pero
+    el paquete no contiene ROIC, cuota de mercado, evidencia de moat, dependencia
+    de clientes ni detalle de reinversión; no es posible juzgar retornos incrementales
+    sobre capital.
+  rating: Mixta; evidencia insuficiente para una valoración concluyente
 dominio_catalizadores:
-- catalizador: Confirmación de que los ingresos y el FCF TTM al 2026-09-30 se sostienen
-    o crecen en reportes posteriores, utilizando períodos comparables.
-  fuente: Stock Analysis, https://stockanalysis.com/stocks/txn/financials/, TTM al
-    2026-09-30.
-- catalizador: Evidencia futura de expansión de margen bruto frente al 60.24% TTM
-    al 2026-09-30, junto con explicación de sus impulsores.
-  fuente: Stock Analysis, https://stockanalysis.com/stocks/txn/financials/, TTM al
-    2026-09-30.
-- catalizador: La cotización observada de USD 300.84 y el rango de objetivos de analistas
-    de USD 250–422 ofrecen referencias observables para revisar expectativas, pero
-    no son catalizadores operativos.
-  fuente: yfinance, https://finance.yahoo.com/quote/TXN/, 2026-10-30; Stock Analysis,
-    https://stockanalysis.com/stocks/txn/forecast/, 2026-11-21.
+- analisis: El ingreso TTM reportado al 2026-09-30 supera el ingreso FY 2025, aunque
+    la comparación no enfrenta períodos equivalentes. [StockAnalysis, TTM al 2026-09-30
+    y FY 2025]
+  catalizador: Confirmación de crecimiento de ingresos
+- analisis: El margen bruto TTM al 2026-09-30 fue superior al de FY 2025, pero inferior
+    al de FY 2022. [StockAnalysis, períodos indicados]
+  catalizador: Persistencia de la recuperación de márgenes
+- analisis: El FCF TTM al 2026-09-30 fue positivo y el ratio FCF/net income calculado
+    es superior a 100%; la comparabilidad del TTM con ejercicios fiscales exige cautela.
+    [StockAnalysis, TTM al 2026-09-30]
+  catalizador: Conversión de resultados a caja
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: Stock Analysis, https://stockanalysis.com/stocks/txn/financials/, FY2023–FY2025.
-  riesgo: 'La variación del FCF es marcada entre períodos anuales: pasó de 1,349 en
-    FY2023 a 1,498 en FY2024 y 2,603 en FY2025, en unidades reportadas por la fuente.'
-- fuente: Stock Analysis, https://stockanalysis.com/stocks/txn/financials/, FY2022
-    y TTM al 2026-09-30.
-  riesgo: El margen bruto TTM fue 60.24% al 2026-09-30, frente a 68.76% en FY2022;
-    el historial aportado no explica las causas ni permite aislar ciclo y cambios
-    estructurales.
-- fuente: Stock Analysis, https://stockanalysis.com/stocks/txn/financials/ y https://stockanalysis.com/stocks/TXN/statistics/,
-    al 2026-09-30.
-  riesgo: El historial reporta net cash de -5,413 al 2026-09-30 y deuda total de 13,555,
-    en unidades reportadas por la fuente; una discrepancia de escala entre estas cifras
-    y EBITDA impide calcular net debt/EBITDA de forma verificable.
-- fuente: yfinance, https://finance.yahoo.com/quote/TXN/history/, período 2025-10-31/2026-10-30.
-  riesgo: La volatilidad de 90 días observada fue 36.6888% y el drawdown del período
-    anual informado fue 9.4619%; son medidas históricas, no estimaciones de riesgo
-    futuro.
+- analisis: Los ingresos cayeron de USD 20,028 millones en FY 2022 a USD 17,682 millones
+    en FY 2025, mientras que el dato TTM al 2026-09-30 fue USD 20,766 millones. [StockAnalysis,
+    FY 2022, FY 2025 y TTM al 2026-09-30]
+  riesgo: Ciclicidad y sostenibilidad del repunte
+- analisis: El FCF reportado fue USD 1,498 millones en FY 2024, USD 2,603 millones
+    en FY 2025 y USD 7,318 millones TTM al 2026-09-30; el dato TTM no equivale a un
+    ejercicio fiscal completo. [StockAnalysis, períodos indicados]
+  riesgo: Volatilidad del flujo de caja libre
+- analisis: El margen bruto fue 68.76% en FY 2022, 57.02% en FY 2025 y 60.24% TTM
+    al 2026-09-30; no hay evidencia suficiente para atribuir las variaciones a causas
+    específicas. [StockAnalysis, períodos indicados]
+  riesgo: Erosión del margen
+- analisis: El paquete no proporciona tamaño o penetración de mercado, ROIC, inversiones
+    de capital desglosadas, recompra/dividendos ni datos históricos de acciones diluidas
+    para evaluar esas dimensiones.
+  riesgo: Evidencia incompleta de mercado y asignación de capital
 error_mercado:
-  catalizador_cambio: La actualización de resultados financieros posteriores al 2026-09-30
-    permitiría evaluar si ingresos, margen bruto y FCF mantienen la recuperación observada;
-    el paquete no proporciona calendario de resultados.
-  conclusion_error_valoracion: 'No se puede validar que exista un error de valoración:
-    hay cotización y objetivos de analistas comparables en USD, pero no una valoración
-    intrínseca sustentada en supuestos operativos suficientes.'
-  consenso_actual: 'El precio observado fue USD 300.84 al 2026-10-30; el consenso
-    de precio objetivo observado al 2026-11-21 fue USD 338.79, con rango USD 250–422.
-    Fuentes: yfinance, https://finance.yahoo.com/quote/TXN/; Stock Analysis, https://stockanalysis.com/stocks/txn/forecast/.'
-  hipotesis_contraria: La evidencia financiera disponible muestra recuperación de
-    FCF TTM y margen bruto frente a FY2025, pero no demuestra que el crecimiento reciente
-    sea sostenible ni que mejore los retornos sobre el capital invertido.
-  razonamiento: El precio de mercado y el promedio del consenso son observaciones
-    distintas, no estimaciones propias de valor intrínseco. El desempeño de precio
-    a 12 meses fue fuerte, pero por sí solo no prueba que las expectativas incorporadas
-    sean erróneas.
-generated_at: '2026-11-21T18:42:34.873792-03:00'
+  catalizador_cambio: La evidencia financiera de los períodos posteriores al 2026-09-30
+    permitirá comprobar si el crecimiento TTM de ingresos y FCF y la recuperación
+    del margen bruto continúan.
+  conclusion_error_valoracion: 'No se puede validar un error de valoración con la
+    evidencia disponible: el rango de objetivos de analistas es amplio y no se proporcionan
+    estimaciones futuras de negocio ni un método de valoración con inputs fechados.'
+  consenso_actual: El consenso de precio objetivo reportado al 2026-11-26 es USD 339.66,
+    con rango USD 250–422; la cotización observada al 2026-10-30 fue USD 300.84. [StockAnalysis,
+    2026-11-26; Yahoo Finance, 2026-10-30]
+  hipotesis_contraria: 'La mejora de FCF y margen bruto TTM podría no sostenerse:
+    los ingresos FY 2025 fueron inferiores a FY 2022 y el margen bruto FY 2025 también
+    estuvo por debajo de FY 2022. [StockAnalysis, período FY 2022–FY 2025]'
+  razonamiento: El precio objetivo medio reportado supera la cotización observada,
+    pero no constituye evidencia de valor intrínseco. Las trayectorias históricas
+    de ingresos, margen y FCF son mixtas y no bastan para inferir qué expectativas
+    incorpora el mercado.
+generated_at: '2026-11-26T13:12:55.584489-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-TXN
@@ -126,11 +137,11 @@ prompt_inputs:
   insider_ownership: 0
   name: Texas Instruments Incorporated
   operating_margin: 41.09
-  pe_ratio: 34.19
+  pe_ratio: 35.02
   products: ''
   revenue: 20770000000.0
   revenue_growth: 20.27
-  roic: 30.07
+  roic: 29.82
   sector: Technology
   ticker: TXN
 ratios_investigados:
@@ -139,7 +150,7 @@ ratios_investigados:
   metric: revenue_cagr_3y_pct
   period_end: '2025-12-31'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/txn/financials/
   status: unavailable
   unit: percent
@@ -149,7 +160,7 @@ ratios_investigados:
   metric: fcf_growth_pct
   period_end: '2025-12-31'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/txn/financials/
   status: unavailable
   unit: percent
@@ -159,39 +170,40 @@ ratios_investigados:
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/txn/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalent to -net_cash /
-    EBITDA only when units are comparable
+- formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
-    ebitda: 10710000000
-    net_cash_history: -5413
-  limitations: 'No se calcula: net_cash_history está reportado como -5413 en unidades
-    de fuente no especificadas, mientras que EBITDA figura como 10,710,000,000; la
-    compatibilidad de escala no puede verificarse.'
+    ebitda: null
+    net_cash_history:
+      Current: -5413.0
+  limitations: La fuente informa net cash para Current, pero la URL financiera de
+    fuentes confiables no proporciona EBITDA; las estadísticas de EBITDA no tienen
+    una URL incluida entre trusted_source_urls, por lo que no se puede validar el
+    ratio con una fuente permitida.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/txn/financials/
-  - name: Stock Analysis
-    url: https://stockanalysis.com/stocks/TXN/statistics/
   status: unavailable
   unit: x
   value: null
-- formula: (diluted_shares_t / diluted_shares_t-1) - 1; × 100
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    shares_outstanding: 913770000
-  limitations: Falta una observación comparable de diluted_shares o shares_outstanding
-    para el período anterior; una cifra de acciones actual no permite calcular variación
-    interanual.
+    diluted_shares_history: null
+    shares_outstanding: 913770000.0
+    shares_outstanding_history: null
+  limitations: Sólo se proporciona un dato actual de acciones en circulación; faltan
+    dos períodos comparables de acciones diluidas o acciones en circulación históricas
+    para calcular variación interanual.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
-  - name: Stock Analysis
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/TXN/statistics/
   status: unavailable
   unit: percent
@@ -227,7 +239,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-26'
   business_model: Texas Instruments Incorporated designs, manufactures, and sells
     semiconductors to electronics designers and manufacturers in the United States,
     China, the rest of Asia, Europe, the Middle East, Africa, Japan, and internationally.
@@ -257,7 +269,383 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.71
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Texas Instruments Incorporated ([[TXN]]) diseña, fabrica y comercializa semiconductores.
+    La información disponible identifica dos segmentos: **Analog** y **Embedded Processing**.
+    Su oferta incluye semiconductores analógicos para gestión de energía y procesamiento
+    de señales, además de microcontroladores, procesadores y productos de conectividad
+    inalámbrica.
+
+
+    El negocio combina diseño de productos con fabricación propia de obleas e inversión
+    en capacidad de producción. Los mercados finales mencionados en la investigación
+    incluyen los sectores industrial y automotriz. No se aportaron datos suficientes
+    para describir la distribución geográfica de ingresos, fabricación o clientes.
+
+
+    **Base de evidencia:** descripción del negocio en los análisis DDD y AOIF. Las
+    métricas financieras y evaluaciones sin fuente o período explícitos se identifican
+    como tales en las secciones correspondientes.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    Los factores de demanda señalados en la investigación son:
+
+
+    - Volumen de producción de los clientes y contenido de semiconductores por equipo.
+
+    - Demanda de los mercados industrial y automotriz.
+
+    - Demanda de los productos analógicos y de procesamiento integrado de TXN.
+
+
+    Estos factores pueden exponer los resultados a ciclos de producción e inventario
+    de los clientes. La investigación no aporta datos cuantitativos sobre ventas por
+    producto, segmento o mercado final.
+
+
+    ### Moat y posición competitiva
+
+
+    AOIF caracteriza la posición de TXN como líder y su moat como amplio, atribuyéndolo
+    a la amplitud de su catálogo analógico, la experiencia de diseño y fabricación
+    y la reputación de fiabilidad. Estas son **evaluaciones del análisis AOIF**, no
+    conclusiones verificadas con métricas comparativas o fuentes independientes en
+    el paquete recibido.
+
+
+    La manufactura propia puede ofrecer control sobre fabricación y suministro. A
+    la vez, requiere inversión de capital y utilización suficiente de las instalaciones
+    para generar retornos adecuados. El sector se describe como cíclico, intensivo
+    en capital y tecnología, y con competencia intensa.
+
+
+    Entre las compañías relacionadas del sector figuran [[ADI]], [[AMAT]], [[AMD]],
+    [[ARM]], [[ASML]] y [[AVGO]]. La información disponible no permite comparar cuantitativamente
+    su posición frente a TXN.
+
+
+    ## 3. Perfil Financiero
+
+
+    ### Métricas reportadas
+
+
+    | Métrica | Valor informado | Período / fecha | Fuente y limitaciones |
+
+    |---|---:|---|---|
+
+    | Ingresos | No se incluye cifra | TTM al 2026-09-30 | DDD cita Stock Analysis,
+    [financials](https://stockanalysis.com/stocks/txn/financials/), pero el paquete
+    no transcribe el valor |
+
+    | Margen bruto | 60.24% | TTM al 2026-09-30 | Stock Analysis, [financials](https://stockanalysis.com/stocks/txn/financials/)
+    |
+
+    | Margen bruto | 68.76% | FY2022 | Stock Analysis, [financials](https://stockanalysis.com/stocks/txn/financials/)
+    |
+
+    | Flujo de caja libre (FCF) | 1,349 | FY2023 | Stock Analysis, [financials](https://stockanalysis.com/stocks/txn/financials/);
+    unidad no especificada en el paquete |
+
+    | FCF | 1,498 | FY2024 | Misma fuente; unidad no especificada |
+
+    | FCF | 2,603 | FY2025 | Misma fuente; unidad no especificada |
+
+    | Current ratio | 5.59 | 2026-09-30 | Stock Analysis, [statistics](https://stockanalysis.com/stocks/TXN/statistics/);
+    no cruza el umbral de alerta configurado de 0.5 |
+
+    | Crecimiento de ingresos | 20.27% | Período no indicado | Métrica aportada por
+    AOIF; sin fuente ni período verificable |
+
+    | Margen operativo | 41.09% | Período no indicado | Métrica aportada por AOIF;
+    sin fuente ni período verificable |
+
+    | ROIC | 30.07% | Período no indicado | Métrica aportada por AOIF; sin fuente
+    ni período verificable |
+
+    | PER | 34.19 | Período y precio de referencia no indicados | Métrica aportada
+    por AOIF; faltan fuente y fecha |
+
+    | EV/EBITDA | 23.0 | Período y fecha no indicados | Métrica aportada por AOIF;
+    faltan fuente y fecha |
+
+    | FCF yield | 0 | Período y método no indicados | Métrica aportada por AOIF; no
+    puede interpretarse sin datos subyacentes |
+
+
+    Las cifras de FCF muestran un aumento entre FY2023 y FY2025, pero la información
+    disponible no establece si los valores son comparables en unidades, ni explica
+    sus componentes. DDD también señala recuperación del FCF TTM al 2026-09-30, aunque
+    no transcribe la cifra. Por tanto, no se puede cuantificar ni establecer la sostenibilidad
+    de esa recuperación con el paquete recibido.
+
+
+    El margen bruto TTM de 60.24% al 2026-09-30 es inferior al 68.76% de FY2022. La
+    causa y la trayectoria entre esos períodos no están documentadas en la evidencia
+    suministrada.
+
+
+    ### Estructura de capital y calidad de datos
+
+
+    No se aportan cifras de deuda, efectivo, vencimientos, acciones en circulación
+    ni flujo de caja operativo e inversión de capital comparables. DDD informa que
+    la dilución interanual no es evaluable por falta del dato comparable de acciones.
+    Tampoco se calcula crecimiento de ingresos a tres años ni crecimiento de FCF:
+    ambos ratios figuran como no disponibles porque no se identificaron referencias
+    explícitas para sus insumos.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF califica la calidad del management como buena, la asignación de capital como
+    neutral y el alineamiento de insiders como moderado. Estas valoraciones no vienen
+    acompañadas de nombres, datos de propiedad accionaria, historial detallado de
+    decisiones de capital ni referencias de evidencia en el material recibido.
+
+
+    La estrategia de inversión en capacidad propia podría reforzar el control sobre
+    fabricación y suministro, pero también eleva la necesidad de capital y la importancia
+    de alcanzar una utilización y retornos suficientes. No se proporcionaron datos
+    sobre compensación ejecutiva, incentivos, composición del consejo, independencia
+    de sus integrantes o estructura de gobierno corporativo.
+
+
+    **Conclusión:** la evaluación de liderazgo y gobierno permanece incompleta y debe
+    tratarse como una valoración preliminar del análisis AOIF.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista: hipótesis por validar
+
+
+    - TXN participa en los mercados de semiconductores analógicos y de procesamiento
+    integrado, con productos destinados, entre otros, a aplicaciones industriales
+    y automotrices.
+
+    - La amplitud del catálogo, la experiencia de diseño y fabricación y la reputación
+    de fiabilidad podrían sostener ventajas competitivas; esta caracterización proviene
+    de AOIF y no está respaldada aquí por comparaciones cuantitativas.
+
+    - La manufactura propia podría mejorar el control de suministro y capacidad. La
+    tesis depende de que las inversiones fabriles generen retornos suficientes.
+
+    - DDD informa una recuperación del FCF TTM al 2026-09-30 y margen bruto TTM de
+    60.24%. La recuperación sería relevante para la tesis si se confirma en períodos
+    posteriores, pero la evidencia disponible no demuestra su sostenibilidad.
+
+
+    ### Observación de mercado, no valoración propia
+
+
+    Al 2026-10-30 se reporta un precio de acción de **USD 300.84**. Al 2026-11-21,
+    el consenso de precio objetivo observado fue **USD 338.79**. Son observaciones
+    de mercado distintas y no constituyen una estimación propia de valor intrínseco.
+    DDD concluye que no se puede validar un error de valoración con los datos disponibles.
+
+
+    La clasificación de oportunidad indicada en DDD es **RESEARCH_REQUIRED**, con
+    score general de 56. El paquete no permite convertir la hipótesis alcista en una
+    conclusión de inversión.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos clave
+
+
+    - **Ciclicidad:** una desaceleración industrial o automotriz, o la acumulación
+    de inventario de clientes, podría afectar producción, ingresos y márgenes. AOIF
+    califica el impacto como alto y la probabilidad como media; se trata de una evaluación,
+    no de una probabilidad cuantificada.
+
+    - **Inversión fabril y retornos:** inversiones elevadas en capacidad podrían no
+    alcanzar suficiente utilización o rentabilidad. AOIF evalúa este riesgo con impacto
+    alto y probabilidad media.
+
+    - **Presión sobre el margen bruto:** el margen TTM de 60.24% al 2026-09-30 se
+    sitúa por debajo del 68.76% de FY2022. El paquete no explica la variación ni demuestra
+    estabilización.
+
+    - **Volatilidad del FCF:** el FCF anual reportado varía de 1,349 en FY2023 a 1,498
+    en FY2024 y 2,603 en FY2025. La unidad no está especificada y faltan detalles
+    sobre inversión de capital y conversión a caja.
+
+    - **Valoración no establecida:** las métricas de PER y EV/EBITDA aportadas por
+    AOIF carecen de período y fuente verificables. No permiten concluir si la acción
+    está cara o barata.
+
+
+    ### Contra-tesis
+
+
+    La recuperación de FCF y margen que DDD identifica podría no sostenerse. Asimismo,
+    una posición competitiva descrita como fuerte no garantiza retornos atractivos
+    si la competencia, la ciclicidad o las necesidades de capital reducen el rendimiento
+    de las inversiones. La evidencia disponible no aporta TAM, penetración por producto
+    ni retornos incrementales que permitan resolver estas cuestiones.
+
+
+    ### Triggers de falsación
+
+
+    DDD identifica los siguientes criterios de seguimiento:
+
+
+    1. Reportes financieros comparables posteriores contradicen la recuperación del
+    FCF TTM al 2026-09-30.
+
+    2. El margen bruto continúa deteriorándose frente al 60.24% TTM informado, sin
+    evidencia de estabilización.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Evento o catalizador | Fecha esperada | Impacto potencial | Evidencia y condición
+    de seguimiento |
+
+    |---|---|---|---|
+
+    | Nuevos reportes financieros posteriores al TTM terminado el 2026-09-30 | Fecha
+    no especificada | Alto para validar o debilitar la tesis de recuperación | Comparar
+    ingresos, margen bruto y FCF con períodos equivalentes. DDD, Stock Analysis, [financials](https://stockanalysis.com/stocks/txn/financials/)
+    |
+
+    | Confirmación de la trayectoria del margen bruto | Fecha no especificada | Potencialmente
+    positivo si se estabiliza o expande; negativo si sigue deteriorándose | Comparar
+    con 60.24% TTM al 2026-09-30 y explicar los impulsores. DDD, misma fuente |
+
+    | Evolución de demanda e inventarios industrial y automotriz | Fecha no especificada
+    | Potencialmente relevante para volúmenes y utilización fabril | AOIF recomienda
+    vigilar ingresos, márgenes, pedidos y cambios en inventarios de clientes |
+
+
+    No se proporcionaron fechas de próximos resultados ni objetivos cuantificados
+    para estos catalizadores; no se presupone un calendario concreto.
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración intrínseca **no es estimable de forma responsable** con la información
+    disponible. AOIF indica que faltan precio y fecha de referencia para sus métricas
+    y que no hay cifras comparables suficientes de flujo de caja operativo, inversión
+    de capital y beneficio neto para verificar la conversión a FCF.
+
+
+    ### Metodología apropiada para investigación adicional
+
+
+    - **DCF basado en FCF normalizado:** requiere series comparables de ingresos,
+    márgenes, impuestos, inversión de capital, capital de trabajo y FCF, además de
+    supuestos explícitos de crecimiento y tasa de descuento.
+
+    - **Valoración relativa:** PER y EV/EBITDA podrían utilizarse como referencias,
+    pero solo con fecha, períodos, metodología y comparables definidos. Los valores
+    de 34.19 y 23.0 aportados por AOIF no cumplen esas condiciones en el paquete actual.
+
+    - **Retornos sobre capital:** evaluar ROIC y retornos incrementales frente al
+    costo y calendario de las inversiones fabriles antes de asumir que la expansión
+    de capacidad crea valor.
+
+
+    ### Escenarios observados por DDD
+
+
+    DDD presenta escenarios a un horizonte del **2027-11-21**, con fecha de análisis
+    **2026-11-21**. Los precios son anclas del rango observado de objetivos de analistas,
+    **no valoraciones intrínsecas propias ni resultados garantizados**.
+
+
+    | Escenario | Precio objetivo | Interpretación |
+
+    |---|---:|---|
+
+    | Bear | USD 250 | Ancla del extremo bajo del rango de objetivos observado |
+
+    | Bull | USD 422 | Ancla del extremo alto del rango de objetivos observado |
+
+
+    La sensibilidad principal de la tesis está en la persistencia de la recuperación
+    de FCF, la estabilización o expansión del margen bruto, la demanda industrial
+    y automotriz y los retornos de la capacidad fabril.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es el TAM y la penetración por producto, segmento y mercado final, y
+    qué evidencia respalda su evolución?
+
+    2. ¿Qué retornos sobre capital e incrementales produce la reinversión, incluyendo
+    el efecto de la inversión fabril?
+
+    3. ¿Cuáles son las cifras comparables de ingresos, FCF, flujo operativo e inversión
+    de capital para establecer la tendencia y la conversión a caja?
+
+    4. ¿Qué explica el descenso del margen bruto desde 68.76% en FY2022 hasta 60.24%
+    TTM al 2026-09-30?
+
+    5. ¿Se confirma en reportes posteriores la recuperación de FCF TTM señalada por
+    DDD?
+
+    6. ¿Cómo evolucionan pedidos, producción e inventarios de clientes en los mercados
+    industrial y automotriz?
+
+    7. ¿Qué deuda, efectivo, vencimientos y evolución de acciones en circulación presenta
+    la compañía?
+
+    8. ¿Qué período, fuente y metodología corresponden a las cifras de crecimiento
+    de ingresos de 20.27%, margen operativo de 41.09%, ROIC de 30.07%, PER de 34.19,
+    EV/EBITDA de 23.0 y FCF yield de 0 reportadas por AOIF?
+
+    9. ¿Qué datos respaldan las evaluaciones de calidad del management, alineamiento
+    de insiders, asignación de capital, posición de liderazgo y amplitud del moat?
+
+    10. ¿Cuál es el consenso de analistas por número de participantes y rango completo,
+    y cómo se relaciona con estimaciones financieras comparables? Los valores disponibles
+    —USD 300.84 al 2026-10-30 y consenso de USD 338.79 al 2026-11-21— no bastan para
+    validar un error de valoración.
+
+
+    [[TXN]] está clasificada como **RESEARCH_REQUIRED** hasta que estas lagunas de
+    evidencia se resuelvan.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]],
+    [[ADI|Analog Devices, Inc.]], [[ADP|Automatic Data Processing, Inc.]], [[ALAB|Astera
+    Labs, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|Advanced Micro Devices,
+    Inc.]], [[ARM|Arm Holdings plc]], [[ASML|ASML Holding N.V.]], [[AVGO|Broadcom
+    Inc.]], [[BB|BlackBerry Limited]], [[CLS|Celestica Inc.]], [[CRM|Salesforce, Inc.]],
+    [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign,
+    Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[MSFT|Microsoft Corporation]],
+    [[MSI|Motorola Solutions, Inc.]], [[NVDA|NVIDIA Corporation]], [[PANW|Palo Alto
+    Networks, Inc.]], [[SNOW|Snowflake Inc.]], [[TSM|Taiwan Semiconductor Manufacturing
+    Company Limited]], [[TWLO|Twilio Inc.]], [[VRSN|VeriSign, Inc.]]
+
+    - **Same Industry**: [[ADI|Analog Devices, Inc.]], [[ALAB|Astera Labs, Inc.]],
+    [[AMD|Advanced Micro Devices, Inc.]], [[ARM|Arm Holdings plc]], [[AVGO|Broadcom
+    Inc.]], [[NVDA|NVIDIA Corporation]], [[TSM|Taiwan Semiconductor Manufacturing
+    Company Limited]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -292,7 +680,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-21T21:41:56.812837+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-26T16:12:25.412863+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -312,7 +700,7 @@ research_input_snapshot:
     and conve
   revenue: 20770000000.0
   revenue_growth: 20.27
-  roic: 30.07
+  roic: 29.82
   scenario_financial_evidence:
     source_observations:
       cash_and_investments_history:
@@ -453,12 +841,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    422.0, "low": 250.0, "mean": 338.79, "median": 338.79, "observed_at": "2026-11-21T18:42:00.008400-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
-    "2026-11-21T18:42:00.008400-03:00", "observed_date": "2026-11-21", "target_price":
-    338.79, "url": "https://stockanalysis.com/stocks/txn/forecast/"}, {"as_of_date":
-    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T18:42:00.008400-03:00",
-    "observed_date": "2026-11-21", "target_price": 338.7931, "url": "https://finance.yahoo.com/quote/TXN/"}]},
+    422.0, "low": 250.0, "mean": 339.66, "median": 339.66, "observed_at": "2026-11-26T13:12:28.741218-03:00",
+    "sources": [{"as_of_date": "2026-11-26", "name": "stockanalysis", "observed_at":
+    "2026-11-26T13:12:28.741218-03:00", "observed_date": "2026-11-26", "target_price":
+    339.66, "url": "https://stockanalysis.com/stocks/txn/forecast/"}, {"as_of_date":
+    "2026-11-26", "name": "yfinance", "observed_at": "2026-11-26T13:12:28.741218-03:00",
+    "observed_date": "2026-11-26", "target_price": 339.65518, "url": "https://finance.yahoo.com/quote/TXN/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 300.8399963378906,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/TXN/"}]}}'
   sector: Technology
@@ -468,123 +856,123 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 35b906a316dc588867c1521c9fb104299821431da5c870242cf55b7164754190
+    sha256: 651d542f552aadbbaa2309a96db1fcf188807c1ee7c497ea3854f8202a8c0d06
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-21T18:42:34.873792-03:00'
+  triggered_at: '2026-11-26T13:12:55.584489-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: 5.59 al 2026-09-30; no cruza el umbral configurado.
-  source: Stock Analysis, https://stockanalysis.com/stocks/TXN/statistics/
+  observation: 5.59x reportado al 2026-09-30; no está en ratios_to_review.
+  period_end: '2026-09-30'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TXN/statistics/
   threshold: below 0.5
 - metric: dilution_yoy_pct
-  observation: 'No evaluable: falta el dato de acciones del período comparable anterior.'
-  source: Stock Analysis, https://stockanalysis.com/stocks/TXN/statistics/
+  observation: 'No evaluable: faltan datos históricos comparables de acciones diluidas.'
+  period_end: '2026-09-30'
   threshold: above 10 percent
 - metric: interest_coverage
-  observation: La fuente reporta 0 al 2026-09-30, pero no se dispone de EBIT e interest_expense
-    verificables para interpretar o validar la cobertura; observación no concluyente.
-  source: Stock Analysis, https://stockanalysis.com/stocks/TXN/statistics/
+  observation: El proveedor reporta 0 al 2026-09-30, pero no se dispone de EBIT y
+    gasto por intereses verificables mediante una URL permitida para validar el ratio.
+  period_end: '2026-09-30'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TXN/statistics/
   threshold: below 2.0x
 - metric: negative_fcf_runway_months
-  observation: 'No aplicable a los datos disponibles: el FCF TTM al 2026-09-30 es
-    positivo, por lo que no se calcula runway de quema.'
-  source: Stock Analysis, https://stockanalysis.com/stocks/TXN/statistics/
+  observation: 'No aplicable a la evidencia disponible: FCF TTM reportado positivo
+    al 2026-09-30.'
   threshold: below 12 months
 - metric: net_debt_ebitda
-  observation: 'No evaluable: la escala de net_cash_history y EBITDA no es comparable
-    de forma verificable.'
-  source: Stock Analysis, https://stockanalysis.com/stocks/txn/financials/; https://stockanalysis.com/stocks/TXN/statistics/
+  observation: 'No evaluable: falta EBITDA respaldado por una URL permitida para calcular
+    el ratio al período reportado.'
+  period_end: '2026-09-30'
   threshold: above 4.0x
 - metric: share_count_cagr_3y_pct
-  observation: 'No evaluable: falta historial de acciones para los períodos necesarios.'
-  source: Stock Analysis, https://stockanalysis.com/stocks/TXN/statistics/
+  observation: 'No evaluable: no se proporcionan datos históricos de acciones para
+    tres años.'
   threshold: above 5 percent
 scenario_analysis:
-  as_of_date: '2026-11-21'
+  as_of_date: '2026-11-26'
   currency: USD
-  horizon_date: '2027-11-21'
+  horizon_date: '2027-11-26'
   scenarios:
   - falsifiers:
-    - Reportes posteriores muestran FCF comparable sostenido o creciente.
-    - Reportes posteriores muestran recuperación persistente del margen bruto.
+    - Ingresos y margen bruto continúan mejorando en períodos posteriores comparables.
     id: BEAR
     key_assumptions:
-    - El FCF TTM de 7,318 al 2026-09-30 no se mantiene en períodos posteriores.
-    - El margen bruto no recupera el nivel de FY2022; el paquete no permite atribuir
-      ni proyectar su evolución.
-    rationale: Ancla del extremo bajo del rango de objetivos de analistas observado,
-      no valoración intrínseca propia. Es compatible con un resultado adverso en que
-      no se sostenga la recuperación de FCF TTM y continúe la presión sobre el margen
-      frente a FY2022.
+    - Los ingresos y márgenes no mantienen la mejora TTM observada al 2026-09-30.
+    - El extremo bajo de los objetivos publicados es una ancla comparable en USD,
+      no una estimación fundamental del modelo.
+    rationale: 'Ancla observada: extremo bajo del rango de objetivos de analistas.
+      Representa el resultado menos favorable del rango disponible si la recuperación
+      reciente no se sostiene; no es una valoración intrínseca propia ni un resultado
+      garantizado.'
     sources:
-    - as_of_date: '2026-11-21'
-      name: Stock Analysis
+    - as_of_date: '2026-11-26'
+      name: StockAnalysis, consenso de objetivos
       url: https://stockanalysis.com/stocks/txn/forecast/
     - as_of_date: '2026-09-30'
-      name: Stock Analysis
+      name: StockAnalysis, estados financieros
       url: https://stockanalysis.com/stocks/txn/financials/
     target_price: 250
   - falsifiers:
-    - Reportes posteriores muestran deterioro sostenido del FCF comparable.
-    - Reportes posteriores muestran contracción del margen bruto frente al nivel TTM
-      informado.
+    - Los ingresos, márgenes o FCF retroceden en períodos posteriores comparables.
     id: BULL
     key_assumptions:
-    - El FCF TTM y los ingresos al 2026-09-30 son sostenibles en períodos posteriores
-      comparables.
-    - La mejora del margen bruto TTM frente a FY2025 se mantiene; no hay evidencia
-      aportada sobre el mecanismo o la duración.
-    rationale: Ancla del extremo alto del rango de objetivos de analistas observado,
-      no valoración intrínseca propia. Es compatible con un resultado favorable en
-      que se sostenga la recuperación de FCF y margen bruto reflejada en los datos
-      TTM, aunque el paquete no demuestra que ocurra.
+    - La mejora TTM de ingresos y margen bruto frente a FY 2025 persiste en períodos
+      posteriores.
+    - El extremo alto de los objetivos publicados es una ancla comparable en USD,
+      no una estimación fundamental del modelo.
+    rationale: 'Ancla observada: extremo alto del rango de objetivos de analistas.
+      Representa el resultado más favorable del rango disponible si la recuperación
+      de ingresos, margen y FCF observada se mantiene; no es una valoración intrínseca
+      propia ni un resultado garantizado.'
     sources:
-    - as_of_date: '2026-11-21'
-      name: Stock Analysis
+    - as_of_date: '2026-11-26'
+      name: StockAnalysis, consenso de objetivos
       url: https://stockanalysis.com/stocks/txn/forecast/
     - as_of_date: '2026-09-30'
-      name: Stock Analysis
+      name: StockAnalysis, estados financieros
       url: https://stockanalysis.com/stocks/txn/financials/
     target_price: 422
   schema_version: bear_bull_v2
 scenario_validation:
   errors: []
   status: valid_pending_decision_board
-score_general: 56
+score_general: 68
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T18:42:00.008400-03:00'
+  calculado_at: '2026-11-26T13:12:28.741218-03:00'
   fuentes:
-    stockanalysis: 338.79
-    yfinance: 338.7931
-  mediana: 338.79
+    stockanalysis: 339.66
+    yfinance: 339.65518
+  mediana: 339.66
   n_fuentes: 2
-  promedio: 338.79
+  promedio: 339.66
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-26'
     name: stockanalysis
-    observed_at: '2026-11-21T18:42:00.008400-03:00'
-    observed_date: '2026-11-21'
-    target_price: 338.79
+    observed_at: '2026-11-26T13:12:28.741218-03:00'
+    observed_date: '2026-11-26'
+    target_price: 339.66
     url: https://stockanalysis.com/stocks/txn/forecast/
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-26'
     name: yfinance
-    observed_at: '2026-11-21T18:42:00.008400-03:00'
-    observed_date: '2026-11-21'
-    target_price: 338.7931
+    observed_at: '2026-11-26T13:12:28.741218-03:00'
+    observed_date: '2026-11-26'
+    target_price: 339.65518
     url: https://finance.yahoo.com/quote/TXN/
   target_high: 422.0
   target_low: 250.0
 tesis_inversion: TXN diseña, fabrica y vende semiconductores en los segmentos Analog
-  y Embedded Processing. La evidencia TTM al 2026-09-30 muestra ingresos de 20,766
-  millones en las unidades reportadas por la fuente, FCF de 7,318 millones y margen
-  bruto de 60.24%; no identifica los mercados finales, el TAM, penetración, capacidad
-  de reinversión ni retornos incrementales sobre capital. La recuperación financiera
-  observada podría sostener una tesis de crecimiento si se confirma en períodos comparables,
-  pero el paquete no permite concluir que sea durable ni que constituya una ventaja
-  competitiva no erosionable.
+  y Embedded Processing. La evidencia financiera muestra recuperación de ingresos,
+  margen bruto y FCF TTM frente a FY 2025, pero el historial FY 2022–FY 2025 presenta
+  descensos en ingresos y margen bruto y volatilidad del FCF. La continuidad de la
+  recuperación y sus retornos sobre el capital no pueden establecerse con los datos
+  disponibles.
 ticker: TXN
 version: '3.0'

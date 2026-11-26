@@ -295,3 +295,109 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-26T13:02:29.615865'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-MDLZ
+    ticker: MDLZ
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T13:09:54.584101'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-MDLZ
+    ticker: MDLZ
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T13:09:54.607775'
+- data:
+    classification: Investigación fundamental requerida; perfil multibaggers no validado
+      por la evidencia disponible
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 5
+    input_snapshot_sha256: 7276dd592ed116ae7431f4ec952525d154dfa63a745598969338dcc6a7ffa2ca
+    opp_id: OPP-MB-MDLZ
+    score: 48
+    strategy_version: '1.5'
+    ticker: MDLZ
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-26T13:10:43.747712'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-PBI
+    ticker: PBI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T13:11:18.499593'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PBI
+    ticker: PBI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T13:11:18.524990'
+- data:
+    classification: RESEARCH_REQUIRED
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: dcc88959665e3ca13e4e4c02b61aca9a1111aa7224be5a754f7a9b9e19ca971a
+    opp_id: OPP-MB-PBI
+    score: 72
+    strategy_version: '1.5'
+    ticker: PBI
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-26T13:12:24.096975'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-TXN
+    ticker: TXN
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T13:12:55.546689'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TXN
+    ticker: TXN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T13:12:55.574287'
+- data:
+    classification: Investigación requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 651d542f552aadbbaa2309a96db1fcf188807c1ee7c497ea3854f8202a8c0d06
+    opp_id: OPP-MB-TXN
+    score: 68
+    strategy_version: '1.5'
+    ticker: TXN
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-26T13:14:27.414253'

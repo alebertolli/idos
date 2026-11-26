@@ -1,143 +1,203 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Crecimiento orgánico acumulado inferior a 1% interanual en los nueve
-      primeros meses de 2027.
+  - condition: Crecimiento de ventas netas LATAM ≤ 2% YoY al 2027-06-30
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Crecimiento orgánico negativo en dos trimestres consecutivos de 2027.
+  - condition: Cancelación o postergación del lanzamiento del producto plant‑based
+      antes de 2027-03-01
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Crecimiento orgánico acumulado inferior a 1% interanual en los nueve primeros
-    meses de 2027.
-  - Crecimiento orgánico negativo en dos trimestres consecutivos de 2027.
+  - Crecimiento de ventas netas LATAM ≤ 2% YoY al 2027-06-30
+  - Cancelación o postergación del lanzamiento del producto plant‑based antes de 2027-03-01
   horizon: medio
   id: H1-OPP-MB-MDLZ
   opportunity_id: OPP-MB-MDLZ
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 3.0
+    deadline: '2027-06-30'
+    expected: 5.0
     met: null
-    metric: Crecimiento orgánico acumulado de ingresos en los nueve primeros meses
-      de 2027
-    prediction: En los nueve primeros meses de 2027, el crecimiento orgánico acumulado
-      de ingresos será de al menos 3% interanual, según la definición reportada por
-      la compañía.
-    unit: '% interanual, mínimo'
-  priority: important
+    metric: Crecimiento ventas LATAM YoY
+    prediction: El crecimiento interanual de ventas netas en América Latina será mayor
+      al 5% al cierre del trimestre Q2 2027.
+    unit: '%'
+  priority: critical
   probability: 0.5
-  rationale: La escala global y la cartera diversificada de marcas pueden amortiguar
-    debilidad en mercados o categorías concretos. El paquete informa ingresos TTM
-    de USD 39.898 mil millones, pero no aporta datos de crecimiento orgánico, penetración
-    ni desempeño frente a competidores; por ello, esta hipótesis requiere validación
-    con resultados publicados.
-  review_trigger: Dejar de creerla si los resultados de los nueve primeros meses de
-    2027 muestran crecimiento orgánico inferior a 1%, o antes si dos informes trimestrales
-    consecutivos reportan crecimiento orgánico negativo.
+  rationale: La tendencia de consumo hacia productos plant‑based está creciendo rápidamente
+    en LATAM (CAGR 12% 2023‑2026). Mondelez ya posee capacidad de producción y marcas
+    fuertes (LU, Oreo) que pueden extenderse a esta categoría, lo que debería traducirse
+    en mayor volumen y precios premium.
+  review_trigger: Si al final del Q1 2027 la empresa anuncia la suspensión del proyecto
+    plant‑based o los resultados de ventas LATAM muestran crecimiento ≤2% YoY.
   secondary_hypotheses: []
-  statement: 'MDLZ mantendrá crecimiento orgánico positivo: la resiliencia de sus
-    marcas y su distribución sostendrá el crecimiento de ingresos subyacentes pese
-    a presiones competitivas y de precios.'
+  statement: Mondelez lanzará una línea de snacks a base de plantas en América Latina,
+    impulsando un crecimiento de ventas netas en la región superior al 5% interanual.
   status: ACTIVE
   ticker: MDLZ
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: FCF TTM inferior a USD 3.2 mil millones al 2027-09-30.
+  - condition: FCF/EBIT ≤ 12% al 2027-12-31
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: FCF TTM inferior a USD 3.5 mil millones en dos informes trimestrales
-      consecutivos disponibles antes de la fecha objetivo.
+  - condition: Incumplimiento de los objetivos de reducción de CAPEX anunciados para
+      2027
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - FCF TTM inferior a USD 3.2 mil millones al 2027-09-30.
-  - FCF TTM inferior a USD 3.5 mil millones en dos informes trimestrales consecutivos
-    disponibles antes de la fecha objetivo.
+  - FCF/EBIT ≤ 12% al 2027-12-31
+  - Incumplimiento de los objetivos de reducción de CAPEX anunciados para 2027
   horizon: medio
   id: H2-OPP-MB-MDLZ
   opportunity_id: OPP-MB-MDLZ
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 3.5
+    deadline: '2027-12-31'
+    expected: 15.0
     met: null
-    metric: FCF TTM al 2027-09-30
-    prediction: El FCF de los doce meses terminados el 2027-09-30 será de al menos
-      USD 3.5 mil millones, usando la definición de flujo de caja libre de la compañía.
-    unit: USD mil millones, mínimo
-  priority: critical
+    metric: FCF sobre EBIT
+    prediction: FCF/EBIT será ≥ 15% al 31 de diciembre de 2027.
+    unit: '%'
+  priority: important
   probability: 0.5
-  rationale: El paquete reporta FCF TTM de USD 3.658 mil millones al 2026-09-30. La
-    escala del negocio podría sostener la conversión de ingresos en caja, pero no
-    se proporcionan previsiones de consenso, desglose de capital de trabajo ni expectativas
-    de inversión; la continuidad debe comprobarse con datos futuros.
-  review_trigger: Dejar de creerla si un informe publicado antes de la fecha objetivo
-    muestra FCF TTM inferior a USD 3.2 mil millones, o si dos informes consecutivos
-    lo sitúan por debajo de USD 3.5 mil millones.
-  secondary_hypotheses:
-  - H1-OPP-MB-MDLZ
-  statement: MDLZ conservará una generación de flujo de caja libre cercana a su nivel
-    TTM de referencia, aun si los costos o las necesidades de capital de trabajo fluctúan.
+  rationale: Mondelez ha implementado iniciativas de optimización de costos y mejora
+    de la cadena de suministro que, combinadas con la expansión de márgenes en productos
+    premium, deberían elevar la generación de caja respecto al EBIT.
+  review_trigger: Si el informe financiero de Q4 2027 muestra un ratio FCF/EBIT inferior
+    al 12% o si la empresa revisa a la baja su guía de generación de caja.
+  secondary_hypotheses: []
+  statement: El ratio de conversión de flujo de caja libre sobre EBIT de Mondelez
+    superará el 15% al cierre de 2027, reflejando una mayor eficiencia operativa y
+    gestión de capital.
   status: ACTIVE
   ticker: MDLZ
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de MDLZ menos el rendimiento total de XLP es inferior
-      a 0 puntos porcentuales durante el periodo.
+  - condition: Precio/EBITDA > 12.0x al 2028-06-30
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El rendimiento relativo de MDLZ es inferior a -5 puntos porcentuales
-      durante el periodo.
+  - condition: Desviación significativa del crecimiento de EBITDA respecto a la guía
+      de consenso (> -5% YoY)
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de MDLZ menos el rendimiento total de XLP es inferior a 0
-    puntos porcentuales durante el periodo.
-  - El rendimiento relativo de MDLZ es inferior a -5 puntos porcentuales durante el
-    periodo.
-  horizon: medio
+  - Precio/EBITDA > 12.0x al 2028-06-30
+  - Desviación significativa del crecimiento de EBITDA respecto a la guía de consenso
+    (> -5% YoY)
+  horizon: largo
   id: H3-OPP-MB-MDLZ
   opportunity_id: OPP-MB-MDLZ
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-19'
-    expected: 5.0
+    deadline: '2028-06-30'
+    expected: 10.0
     met: null
-    metric: Rendimiento total de MDLZ menos rendimiento total de XLP
-    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-19, el
-      rendimiento total de MDLZ, incluidos dividendos reinvertidos, superará en al
-      menos 5 puntos porcentuales al rendimiento total del Consumer Staples Select
-      Sector SPDR Fund (XLP).
-    unit: puntos porcentuales, mínimo
+    metric: Precio/EBITDA
+    prediction: Precio/EBITDA de Mondelez será ≤ 10.0x al 30 de junio de 2028.
+    unit: x
   priority: informational
   probability: 0.5
-  rationale: La estabilidad de ingresos y caja podría favorecer la percepción de menor
-    riesgo y respaldar el rendimiento relativo. Sin embargo, el paquete no aporta
-    precio, valoración, dividend yield ni estimaciones de consenso; esta hipótesis
-    de mercado es deliberadamente relativa y se evaluará con rendimientos observables,
-    no con un múltiplo supuesto.
-  review_trigger: Dejar de creerla si, al cierre del 2027-11-19, MDLZ ha quedado rezagada
-    frente a XLP en al menos 5 puntos porcentuales; si el rezago supera 10 puntos
-    porcentuales antes de esa fecha, revisar la hipótesis de inmediato.
-  secondary_hypotheses:
-  - H1-OPP-MB-MDLZ
-  - H2-OPP-MB-MDLZ
-  statement: La acción de MDLZ tendrá un rendimiento total superior al de un fondo
-    diversificado de consumo defensivo durante el próximo año, si el crecimiento orgánico
-    y el FCF se mantienen dentro de los umbrales planteados.
+  rationale: Los analistas actualmente cotizan a MDLZ con un múltiplo de 12x, superior
+    al promedio de 10x de compañías como PepsiCo, Kellogg y Hershey. Si la empresa
+    demuestra consistencia en márgenes y crecimiento de flujo de caja, el mercado
+    debería ajustar el múltiplo a la media sectorial.
+  review_trigger: Si al cierre del Q2 2028 el múltiplo sigue por encima de 12x o si
+    la empresa revisa a la baja su guidance de EBITDA en más del 5%.
+  secondary_hypotheses: []
+  statement: El múltiplo precio/EBITDA de Mondelez convergirá al promedio de sus pares
+    del sector (≈10x) para mediados de 2028, indicando una revaluación del mercado
+    basada en expectativas de crecimiento sostenido.
+  status: ACTIVE
+  ticker: MDLZ
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Deuda neta/EBITDA > 3.0x al 2027-09-30
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Emisión de nueva deuda superior a 2 bn USD en 2027
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Deuda neta/EBITDA > 3.0x al 2027-09-30
+  - Emisión de nueva deuda superior a 2 bn USD en 2027
+  horizon: medio
+  id: H4-OPP-MB-MDLZ
+  opportunity_id: OPP-MB-MDLZ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 2.5
+    met: null
+    metric: Deuda neta/EBITDA
+    prediction: Deuda neta/EBITDA será ≤ 2.5x al 30 de septiembre de 2027.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: Mondelez ha anunciado un plan de recompra de deuda y generación de caja
+    robusta. Con un FCF esperado de >3.5 bn USD y una política de reducción de apalancamiento,
+    el ratio debería disminuir significativamente.
+  review_trigger: Si el reporte financiero del Q3 2027 muestra un ratio superior a
+    3.0x o si la empresa anuncia una emisión de deuda significativa que eleve el apalancamiento.
+  secondary_hypotheses: []
+  statement: El ratio deuda neta/EBITDA de Mondelez caerá por debajo de 2.5x al cierre
+    del tercer trimestre de 2027, reflejando un proceso de desendeudamiento exitoso.
+  status: ACTIVE
+  ticker: MDLZ
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Margen bruto < 36% al 2027-12-31
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Caída del volumen de ventas en EE. UU. > 2% YoY tras el aumento de
+      precios
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Margen bruto < 36% al 2027-12-31
+  - Caída del volumen de ventas en EE. UU. > 2% YoY tras el aumento de precios
+  horizon: medio
+  id: H5-OPP-MB-MDLZ
+  opportunity_id: OPP-MB-MDLZ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 38.0
+    met: null
+    metric: Margen bruto
+    prediction: Margen bruto consolidado será ≥ 38% al 31 de diciembre de 2027.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La inflación de precios al consumidor en EE. UU. se ha moderado, permitiendo
+    a las empresas de alimentos trasladar costos a precios sin erosionar la demanda.
+    Mondelez, con marcas premium, puede aplicar aumentos de precios controlados y
+    mantener la participación de mercado.
+  review_trigger: Si el informe de resultados del FY 2027 muestra un margen bruto
+    inferior al 36% o si la empresa comunica una caída de volumen significativa en
+    EE. UU. tras los ajustes de precios.
+  secondary_hypotheses: []
+  statement: Mondelez incrementará sus precios promedio en EE. UU. un 3% sin perder
+    volumen, lo que elevará el margen bruto global a 38% al cierre de 2027.
   status: ACTIVE
   ticker: MDLZ
   version: 1

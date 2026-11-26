@@ -1,19 +1,27 @@
 {
-  "total": 2,
+  "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-HPQ",
-      "ticker": "HPQ",
+      "opp_id": "OPP-MB-MDLZ",
+      "ticker": "MDLZ",
       "status": "completed",
-      "score": 68,
+      "score": 48,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-JOYY",
-      "ticker": "JOYY",
+      "opp_id": "OPP-MB-PBI",
+      "ticker": "PBI",
       "status": "completed",
-      "score": 55,
+      "score": 72,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-MB-TXN",
+      "ticker": "TXN",
+      "status": "completed",
+      "score": 68,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
@@ -21,19 +29,68 @@
   "skipped": [],
   "assessments": [
     {
-      "ticker": "HPQ",
-      "opp_id": "OPP-MB-HPQ",
+      "ticker": "MDLZ",
+      "opp_id": "OPP-MB-MDLZ",
       "status": "completed",
-      "conviction_score": 59,
+      "conviction_score": 53,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "automatic_block_reason": "authorization_rules_not_all_passed",
       "assessments": {
-        "BusinessAssessmentEngine": 60,
+        "BusinessAssessmentEngine": 50,
         "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 58,
+        "RecoveryAssessmentEngine": 50,
+        "RiskAssessmentEngine": 60,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 50/70",
+        "RULE-003": "Rerating: 50/50",
+        "RULE-004": "Risk: 60/50",
+        "RULE-005": "Conviction: 53/65",
+        "RULE-008": "B/R 0.8:1 \u274c (Bull +13.6% / Bear -17.4%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    },
+    {
+      "ticker": "PBI",
+      "opp_id": "OPP-MB-PBI",
+      "status": "completed",
+      "conviction_score": 63,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "automatic_block_reason": "authorization_rules_not_all_passed",
+      "assessments": {
+        "BusinessAssessmentEngine": 59,
+        "ValuationAssessmentEngine": 75,
+        "RecoveryAssessmentEngine": 56,
         "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 50
       },
@@ -48,11 +105,11 @@
         "RULE-008"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 60/70",
-        "RULE-003": "Rerating: 58/50",
+        "RULE-001": "Business quality: 59/70",
+        "RULE-003": "Rerating: 56/50",
         "RULE-004": "Risk: 70/50",
-        "RULE-005": "Conviction: 59/65",
-        "RULE-008": "B/R 0.2:1 \u274c (Bull +7.2% / Bear -35.8%)",
+        "RULE-005": "Conviction: 63/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual",
         "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
       },
       "data_quality": "good",
@@ -61,7 +118,7 @@
         "core_metric_coverage": "5/5",
         "missing_core_metrics": [],
         "source": "stockanalysis.com",
-        "as_of_date": "2026-10-31",
+        "as_of_date": "2026-09-30",
         "as_of_basis": "period_end_date",
         "as_of_date_source": "stockanalysis.com",
         "missing_provenance": [],
@@ -70,38 +127,37 @@
       }
     },
     {
-      "ticker": "JOYY",
-      "opp_id": "OPP-MB-JOYY",
-      "status": "completed",
-      "conviction_score": 54,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": null,
-      "decision_id": null,
-      "automatic_block_reason": "authorization_rules_not_all_passed",
+      "ticker": "TXN",
+      "opp_id": "OPP-MB-TXN",
+      "status": "auto_approved",
+      "conviction_score": 66,
+      "recommendation": "APPROVE",
+      "board_approved": true,
+      "decision_type": "BUY_LIST_ADMISSION",
+      "decision_id": "AUTO-ffdd77e3ec6406c7",
+      "automatic_block_reason": null,
       "assessments": {
-        "BusinessAssessmentEngine": 36,
+        "BusinessAssessmentEngine": 76,
         "ValuationAssessmentEngine": 65,
-        "RecoveryAssessmentEngine": 51,
-        "RiskAssessmentEngine": 80,
+        "RecoveryAssessmentEngine": 56,
+        "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 50
       },
       "rules_passed": [
+        "RULE-001",
         "RULE-003",
         "RULE-004",
+        "RULE-005",
         "RULE-008",
         "RULE-010"
       ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-005"
-      ],
+      "rules_failed": [],
       "rules_details": {
-        "RULE-001": "Business quality: 36/70",
-        "RULE-003": "Rerating: 51/50",
-        "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 54/65",
-        "RULE-008": "B/R 10.8:1 \u2705 (Bull +59.6% / Bear -5.5%)",
+        "RULE-001": "Business quality: 76/70",
+        "RULE-003": "Rerating: 56/50",
+        "RULE-004": "Risk: 70/50",
+        "RULE-005": "Conviction: 66/65",
+        "RULE-008": "B/R 7.5:1 \u2705 (Bull +56.2% / Bear -7.5%)",
         "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
       },
       "data_quality": "good",
@@ -121,7 +177,7 @@
   ],
   "errors": [],
   "status": "partial_deferred",
-  "deferred_count": 8,
+  "deferred_count": 5,
   "quarantined_count": 15,
   "capacity_failure": null,
   "event_type": "monthly",

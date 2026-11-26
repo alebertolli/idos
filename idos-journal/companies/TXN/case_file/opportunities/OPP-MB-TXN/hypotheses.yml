@@ -1,141 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos TTM al 30 de septiembre de 2027 son iguales o inferiores
-      a 20.766 millones de dólares.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Los ingresos TTM al 30 de septiembre de 2027 son inferiores a 21.800
-      millones de dólares.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Los ingresos TTM al 30 de septiembre de 2027 son iguales o inferiores a 20.766
-    millones de dólares.
-  - Los ingresos TTM al 30 de septiembre de 2027 son inferiores a 21.800 millones
-    de dólares.
-  horizon: medio
-  id: H1-OPP-MB-TXN
-  opportunity_id: OPP-MB-TXN
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-09-30'
-    expected: 21800.0
-    met: null
-    metric: Ingresos TTM
-    prediction: Los ingresos de los cuatro trimestres terminados el 30 de septiembre
-      de 2027 serán superiores a 21.800 millones de dólares, un aumento de al menos
-      aproximadamente el 5% frente al TTM de referencia.
-    unit: millones de dólares
-  priority: important
-  probability: 0.5
-  rationale: Los ingresos TTM reportados al 30 de septiembre de 2026 fueron de 20.766
-    millones de dólares. Si la recuperación financiera observada se traduce en crecimiento
-    de ventas, los ingresos acumulados deberían aumentar; sin embargo, la información
-    disponible no identifica qué mercados finales impulsan esa evolución, por lo que
-    esta hipótesis requiere validación en los resultados futuros.
-  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 30
-    de septiembre de 2027 muestra que los ingresos acumulados de los cuatro trimestres
-    más recientes son iguales o inferiores a 20.766 millones de dólares.
-  secondary_hypotheses: []
-  statement: La recuperación de la demanda y de las ventas de TXN continuará, y los
-    ingresos TTM superarán los 21.800 millones de dólares para el 30 de septiembre
-    de 2027.
-  status: ACTIVE
-  ticker: TXN
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: El margen de FCF TTM al 30 de septiembre de 2027 es inferior al 30%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El FCF TTM al 30 de septiembre de 2027 es inferior a 6.000 millones
-      de dólares.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El margen de FCF TTM al 30 de septiembre de 2027 es inferior al 30%.
-  - El FCF TTM al 30 de septiembre de 2027 es inferior a 6.000 millones de dólares.
-  horizon: medio
-  id: H2-OPP-MB-TXN
-  opportunity_id: OPP-MB-TXN
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-09-30'
-    expected: 30.0
-    met: null
-    metric: Margen de FCF TTM
-    prediction: El margen de FCF TTM al 30 de septiembre de 2027 será igual o superior
-      al 30%, calculado como FCF TTM dividido por ingresos TTM.
-    unit: porcentaje mínimo
-  priority: critical
-  probability: 0.5
-  rationale: El FCF TTM reportado al 30 de septiembre de 2026 fue de 7.318 millones
-    de dólares, equivalente a aproximadamente el 35,2% de los ingresos TTM. La hipótesis
-    plantea que la recuperación no se revertirá por completo, aunque la inversión
-    de capital, el ciclo de demanda y el capital de trabajo pueden afectar el resultado.
-  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 30
-    de septiembre de 2027 informa un margen de FCF TTM inferior al 30%.
-  secondary_hypotheses:
-  - H1-OPP-MB-TXN
-  statement: TXN sostendrá una generación de flujo de caja libre significativa, con
-    margen de FCF TTM de al menos el 30% al 30 de septiembre de 2027.
-  status: ACTIVE
-  ticker: TXN
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: El margen bruto TTM al 30 de septiembre de 2027 es inferior al 58%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El margen bruto TTM cae por debajo del 58% en dos informes trimestrales
-      consecutivos publicados antes de la fecha objetivo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El margen bruto TTM al 30 de septiembre de 2027 es inferior al 58%.
-  - El margen bruto TTM cae por debajo del 58% en dos informes trimestrales consecutivos
-    publicados antes de la fecha objetivo.
-  horizon: medio
-  id: H3-OPP-MB-TXN
-  opportunity_id: OPP-MB-TXN
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-09-30'
-    expected: 58.0
-    met: null
-    metric: Margen bruto TTM
-    prediction: El margen bruto TTM divulgado por TXN al 30 de septiembre de 2027
-      será igual o superior al 58%.
-    unit: porcentaje mínimo
-  priority: important
-  probability: 0.5
-  rationale: El margen bruto TTM reportado al 30 de septiembre de 2026 fue del 60,24%.
-    Mantenerlo por encima del umbral propuesto sería compatible con una recuperación
-    que conserva una economía de producto sólida; no demostraría por sí solo una ventaja
-    competitiva duradera ni retornos incrementales superiores sobre el capital.
-  review_trigger: Dejar de creerla al publicarse un informe que muestre margen bruto
-    TTM inferior al 58%; la confirmación en un segundo trimestre consecutivo reforzaría
-    la falsación.
-  secondary_hypotheses:
-  - H1-OPP-MB-TXN
-  statement: 'La mejora del FCF no se logrará a costa de una caída marcada del margen
-    bruto: TXN mantendrá un margen bruto TTM de al menos el 58% al 30 de septiembre
-    de 2027.'
-  status: ACTIVE
-  ticker: TXN
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: La rentabilidad total de TXN iguala o supera la de SOXX en el período
       definido.
     metric: ''
@@ -182,6 +47,136 @@ hypotheses:
   statement: Durante los 12 meses posteriores a la fecha de corte, TXN obtendrá una
     rentabilidad total inferior a la del ETF iShares Semiconductor (SOXX), incluso
     si sus métricas operativas se mantienen resilientes.
+  status: ACTIVE
+  ticker: TXN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Menos de tres de esos cuatro trimestres registran crecimiento interanual
+      de ingresos de al menos 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos interanuales disminuyen en dos o más de esos cuatro trimestres.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Menos de tres de esos cuatro trimestres registran crecimiento interanual de ingresos
+    de al menos 5%.
+  - Los ingresos interanuales disminuyen en dos o más de esos cuatro trimestres.
+  horizon: medio
+  id: H1-OPP-MB-TXN
+  opportunity_id: OPP-MB-TXN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ingresos trimestrales
+    prediction: Al menos tres de los cuatro trimestres desde Q4 de 2026 hasta Q3 de
+      2027 mostrarán ingresos superiores en al menos 5% a los del mismo trimestre
+      del año anterior.
+    unit: porcentaje mínimo en al menos 3 de 4 trimestres
+  priority: critical
+  probability: 0.5
+  rationale: Los ingresos TTM y los márgenes se recuperaron frente a FY 2025, pero
+    los ingresos de FY 2025 quedaron por debajo de FY 2022. La hipótesis plantea que
+    la recuperación puede persistir y debe comprobarse con resultados trimestrales
+    futuros.
+  review_trigger: Dejar de creer esta hipótesis cuando TXN publique los resultados
+    de Q3 de 2027, o antes si dos trimestres consecutivos del período registran una
+    caída interanual de ingresos.
+  secondary_hypotheses: []
+  statement: La recuperación de ingresos de TXN continuará durante los próximos cuatro
+    trimestres, aunque la evidencia disponible no permite darla por establecida.
+  status: ACTIVE
+  ticker: TXN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM de Q3 de 2027 es inferior al de Q3 de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento interanual del FCF TTM de Q3 de 2027 es inferior a 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM de Q3 de 2027 es inferior al de Q3 de 2026.
+  - El crecimiento interanual del FCF TTM de Q3 de 2027 es inferior a 10%.
+  horizon: medio
+  id: H2-OPP-MB-TXN
+  opportunity_id: OPP-MB-TXN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-15'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual del FCF TTM
+    prediction: El FCF TTM reportado con los resultados de Q3 de 2027 será al menos
+      10% superior al FCF TTM reportado con los resultados de Q3 de 2026.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM mostró una mejora frente a FY 2025, pero su historial entre
+    FY 2022 y FY 2025 fue volátil. Por ello, la hipótesis exige crecimiento interanual
+    medible y no supone que la recuperación observada vaya a sostenerse automáticamente.
+  review_trigger: Dejar de creer esta hipótesis cuando TXN publique los resultados
+    de Q3 de 2027; revisarla antes si un informe trimestral muestra una caída interanual
+    del FCF TTM.
+  secondary_hypotheses:
+  - H1-OPP-MB-TXN
+  statement: El flujo de caja libre TTM de TXN aumentará frente al flujo de caja libre
+    TTM informado para el mismo período un año antes.
+  status: ACTIVE
+  ticker: TXN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de TXN no supera la del SOX en el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de TXN supera la del SOX por menos de 5 puntos
+      porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de TXN no supera la del SOX en el período.
+  - La rentabilidad total de TXN supera la del SOX por menos de 5 puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-MB-TXN
+  opportunity_id: OPP-MB-TXN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-26'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de TXN frente al SOX
+    prediction: Entre el cierre del 2026-11-26 y el cierre del 2027-11-26, la rentabilidad
+      total de TXN superará en al menos 5 puntos porcentuales la rentabilidad total
+      del SOX.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: important
+  probability: 0.5
+  rationale: La continuidad de la recuperación operativa y financiera podría respaldar
+    una rentabilidad relativa favorable, pero los datos disponibles no permiten establecer
+    una valoración objetivo ni asegurar que el mercado ya haya reconocido esa recuperación.
+    La hipótesis se limita a una comparación de rentabilidad observable.
+  review_trigger: Dejar de creer esta hipótesis al cierre del 2027-11-26, o antes
+    si una revisión del cálculo con datos de precios y distribuciones ajustados confirma
+    que TXN ya no aventaja al SOX en el período acumulado.
+  secondary_hypotheses:
+  - H1-OPP-MB-TXN
+  - H2-OPP-MB-TXN
+  statement: Durante los 12 meses posteriores a la fecha de corte, la rentabilidad
+    total de TXN superará la del índice PHLX Semiconductor Sector (SOX).
   status: ACTIVE
   ticker: TXN
   version: 1

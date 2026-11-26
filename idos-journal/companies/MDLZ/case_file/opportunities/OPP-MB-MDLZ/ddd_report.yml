@@ -1,88 +1,96 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - La generación positiva de FCF respalda la capacidad observada de generar caja,
-    pero no demuestra por sí sola retornos atractivos sobre capital ni crecimiento
-    futuro.
-  - La amplitud del rango de objetivos refleja dispersión entre analistas, pero el
-    paquete no aporta sus modelos ni supuestos.
-  - Ingresos TTM de 39.898 y FCF TTM de 3.658 al 2026-09-30; Stockanalysis, https://stockanalysis.com/stocks/mdlz/financials/.
-  - Precio de USD 64.94 al 2026-10-30; yfinance, https://finance.yahoo.com/quote/MDLZ/.
-  - Rango de objetivos de analistas USD 56–77 y media USD 70.64 observados al 2026-11-21;
-    stockanalysis, https://stockanalysis.com/stocks/mdlz/forecast/.
+  - Los cálculos de crecimiento, conversión de FCF y deuda neta/EBITDA utilizan los
+    períodos e importes de StockAnalysis, suponiendo consistencia interna de unidades
+    dentro de cada serie.
+  - Los extremos de objetivos de analistas se usan únicamente como anclas observadas
+    para escenarios, no como valores intrínsecos.
+  - Ingresos TTM de 39,898 millones en importe reportado y FCF TTM de 3,658 millones
+    al 2026-09-30, según StockAnalysis; el paquete no especifica la moneda de esas
+    series.
+  - Deuda total reportada de 22,334 millones y efectivo/inversiones de 1,628 millones
+    al 2026-09-30, según StockAnalysis; el paquete no especifica la moneda de esas
+    series.
+  - Precio USD 64.94 al 2026-10-30 y consenso de objetivos USD 56-77, media USD 70.64
+    al 2026-11-26, según las fuentes citadas.
   preguntas_abiertas:
-  - ¿Qué explican los cambios del margen bruto y qué parte es recurrente?
-  - ¿Cuáles son los retornos sobre capital, necesidades de reinversión y evolución
-    de acciones diluidas?
-  - ¿Qué cuota, penetración y dinámica competitiva tienen los productos y regiones
-    relevantes?
-catalizadores_previos: &id001 []
+  - ¿Qué parte del crecimiento de ingresos proviene de volumen, precio, mezcla, adquisiciones
+    o divisas?
+  - ¿Cuáles son los retornos sobre capital y los retornos incrementales de la reinversión?
+  - ¿Qué evidencia sostiene la ventaja competitiva, la penetración de mercado y la
+    resistencia de las marcas?
+  - ¿Cómo se explican las variaciones de margen y cuáles son las prioridades y resultados
+    de asignación de capital de management?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-21T16:48:19.148263-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-MDLZ
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-21T16:48:19.148263-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-MDLZ
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; calidad de evidencia financiera parcial
-  justificacion: El paquete documenta crecimiento de ingresos y FCF positivo, pero
-    no aporta evidencia suficiente sobre penetración de mercado, retornos sobre capital,
-    ventaja competitiva ni asignación de capital.
+  categoria: Investigación fundamental requerida; perfil multibaggers no validado
+    por la evidencia disponible
+  justificacion: El paquete registra momentum de precio positivo, pero no aporta evidencia
+    directa sobre penetración, retornos sobre capital, crecimiento orgánico o reinversión
+    que permita validar una tesis de compounder.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo descrito incluye productos de snacks y bebidas, marcas como
-    Oreo, Ritz, LU, CLIF Bar y Tate's Bake Shop, y operaciones en varias regiones.
-    El resumen no proporciona cuota de mercado, precios, volúmenes, retornos sobre
-    capital, inversión en crecimiento ni métricas para evaluar erosión competitiva
-    o calidad de la asignación de capital.
-  rating: Evidencia insuficiente para una calificación concluyente
+  analisis: El resumen describe un portafolio de snacks y marcas reconocibles, y la
+    evidencia aporta ingresos y FCF positivos para el TTM terminado el 2026-09-30.
+    No hay información verificable en el paquete sobre cuota de mercado, poder de
+    fijación de precios, retornos incrementales sobre capital o erosión competitiva;
+    tampoco sobre incentivos o decisiones concretas de management.
+  rating: No concluyente
 dominio_catalizadores:
-- catalizador: Seguimiento del crecimiento de ingresos y FCF en próximos períodos
-    reportados.
-  evidencia: Ingresos TTM de 39.898 y FCF TTM de 3.658 al 2026-09-30, según Stockanalysis.
-  hito: Comparar los siguientes datos reportados con esas bases; el paquete no proporciona
-    una fecha de publicación futura.
-- catalizador: Clarificación de la variación reciente del margen bruto.
-  evidencia: Margen bruto de 28,38% en FY 2025 y 34,26% TTM al 2026-09-30, según Stockanalysis.
-  hito: Evaluar su evolución y los factores explicativos cuando se disponga de información
-    corporativa verificable.
+- catalizador: Resultados financieros futuros
+  observacion: Nuevos períodos comparables de ingresos, FCF y márgenes permitirían
+    comprobar si las tendencias reportadas continúan; el paquete no especifica fechas.
+- catalizador: Evolución de la conversión de caja
+  observacion: El FCF TTM reportado es positivo y el FCF como proporción del ingreso
+    neto TTM se calcula en aproximadamente 89.7% al 2026-09-30.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- evidencia: Stockanalysis, TTM al 2026-09-30; estadística de cobertura de intereses
-    reportada como 0.
-  implicacion: La capacidad de servicio de deuda no puede evaluarse con confianza
-    a partir de esta observación.
-  riesgo: La cobertura de intereses figura como 0 en la fuente, pero no se proporciona
-    el gasto por intereses para comprobar el dato ni interpretarlo.
-- evidencia: Stockanalysis, financials, período actual al 2026-09-30.
-  implicacion: No se usa esta serie para derivar apalancamiento relativo a EBITDA.
-  riesgo: El efectivo e inversiones reportados son 1.628 y la deuda total 22.334 para
-    el período actual al 2026-09-30; las unidades monetarias de esas series no están
-    explicitadas en el paquete.
-- evidencia: Stockanalysis, ejercicios terminados el 2025-12-31 y 2024-12-31.
-  implicacion: El paquete no desglosa los factores que explican la variación ni permite
-    evaluar su persistencia.
-  riesgo: El margen bruto reportado varía entre 28,38% en FY 2025 y 39,12% en FY 2024.
-- evidencia: Stockanalysis reporta acciones en circulación para el período TTM al
-    2026-09-30, pero no una serie histórica utilizable.
-  implicacion: No puede verificarse la evolución del número de acciones.
-  riesgo: No hay en el paquete historia de acciones diluidas u ordinarias que permita
-    medir dilución.
+- observacion: La deuda neta/EBITDA calculada es aproximadamente 2.88x al 2026-09-30;
+    está por debajo del umbral configurado de 4.0x, sin que ello determine una decisión.
+  riesgo: Apalancamiento
+- observacion: El current ratio reportado es 0.62x al 2026-09-30, superior al umbral
+    de observación de 0.5x.
+  riesgo: Liquidez corriente
+- observacion: El margen bruto TTM reportado es 34.26% al 2026-09-30; la serie aportada
+    presenta variaciones entre períodos, pero no explica sus causas.
+  riesgo: Márgenes y comparabilidad
+- observacion: No hay datos aportados sobre cuota, penetración, retornos sobre capital,
+    asignación de capital ni dilución histórica suficiente para evaluar esos riesgos.
+  riesgo: Evidencia estratégica incompleta
 error_mercado:
-  catalizador_cambio: Una actualización verificable de resultados sobre crecimiento,
-    márgenes y FCF podría cambiar la lectura; el paquete no identifica fechas de resultados
-    ni catalizadores corporativos concretos.
-  conclusion_error_valoracion: 'No se valida un error de valoración: el precio objetivo
-    de consenso está por encima de la cotización observada, pero no se aportan un
-    método intrínseco ni expectativas operativas detalladas.'
-  consenso_actual: 'La cotización observada fue USD 64.94 al 2026-10-30; el consenso
-    de precio objetivo observado al 2026-11-21 fue USD 70.64, con rango USD 56–77.
-    Fuentes: yfinance y stockanalysis.'
-  hipotesis_contraria: La resiliencia de ingresos y la generación positiva de FCF
-    podrían no compensar una compresión de márgenes o un desempeño operativo peor
-    que el supuesto por analistas; el paquete no contiene estimaciones operativas
-    de consenso para contrastar.
-  razonamiento: La evidencia permite comparar cotización y objetivos publicados, no
-    concluir que el mercado esté equivocado. El rango de analistas es una referencia
-    observada, no una valoración propia.
-generated_at: '2026-11-21T16:48:19.148263-03:00'
+  catalizador_cambio: La publicación de resultados comparables que aclare crecimiento,
+    márgenes y flujo de caja podría modificar la lectura; no se proporcionan fechas
+    ni previsiones de resultados.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el precio y el
+    consenso son observaciones de mercado, y el material no contiene una valoración
+    intrínseca ni expectativas operativas detalladas.'
+  consenso_actual: El precio observado fue USD 64.94 al 2026-10-30. El consenso de
+    precio objetivo observado al 2026-11-26 fue USD 70.64, con rango USD 56-77.
+  hipotesis_contraria: La hipótesis contraria es que el rango de analistas no refleja
+    adecuadamente riesgos de márgenes, deuda o generación futura de caja; el paquete
+    no aporta estimaciones de esos factores.
+  razonamiento: La evidencia disponible permite comparar precio y objetivos observados,
+    pero no identificar qué expectativas fundamentales están incorporadas ni si están
+    equivocadas.
+generated_at: '2026-11-26T13:09:54.616772-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-MDLZ
@@ -111,11 +119,11 @@ prompt_inputs:
   insider_ownership: 0
   name: Mondelez International, Inc.
   operating_margin: 14.57
-  pe_ratio: 20.85
+  pe_ratio: 21.33
   products: ''
   revenue: 39900000000.0
   revenue_growth: 5.99
-  roic: 9.39
+  roic: 9.41
   sector: Consumer Defensive
   ticker: MDLZ
 ratios_investigados:
@@ -129,20 +137,16 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1
-  inputs:
-    fcf_growth_history:
-      TTM al 2026-09-30: 59.74
-  limitations: Cifra de crecimiento reportada por el proveedor; el paquete no detalla
-    los valores comparativos que la sustentan ni su período comparador.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_growth_pct
-  period_end: '2026-09-30'
+  period_end: '2025-12-31'
   sources:
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/mdlz/financials/
-  status: reported
+  status: unavailable
   unit: percent
-  value: 59.74
+  value: null
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: fcf_conversion_pct
@@ -153,31 +157,23 @@ ratios_investigados:
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs:
-    cash_and_investments_history: null
-    ebitda: null
-    total_debt_history: null
-  limitations: El paquete no establece unidades monetarias compatibles entre deuda,
-    efectivo e inversiones y EBITDA; no se deriva el ratio.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
   - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/MDLZ/statistics/
-  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/mdlz/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MDLZ/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    diluted_shares: null
-    diluted_shares_history: null
     shares_outstanding: 1270000000
-    shares_outstanding_history: null
-  limitations: Sólo se proporciona una observación de acciones en circulación; falta
-    una observación comparable de período anterior o una serie de acciones diluidas.
+  limitations: Sólo se aporta una observación de acciones en circulación; falta una
+    serie histórica comparable o acciones diluidas para calcular el cambio interanual.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
@@ -217,7 +213,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-26'
   business_model: Mondelez International, Inc., through its subsidiaries, manufactures,
     markets, and sells snack food and beverage products in Latin America, North America,
     Asia, the Middle East, Africa, and Europe. The company provides biscuits and baked
@@ -244,7 +240,357 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.84
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    [[MDLZ]] —Mondelez International, Inc.— es un fabricante y comercializador global
+    de snacks y alimentos envasados. Su cartera incluye galletas, snacks horneados
+    y chocolate; las marcas mencionadas en la información disponible incluyen Oreo,
+    Ritz, LU, CLIF Bar y Tate’s Bake Shop.
+
+
+    La compañía obtiene ingredientes y materiales de empaque, fabrica y envasa productos,
+    y gestiona marcas y desarrollo de productos. Vende a cadenas de supermercados,
+    mayoristas, supercentros, clubes de compra, tiendas de conveniencia y estaciones
+    de servicio. La información aportada describe operaciones en varias regiones,
+    pero no detalla la distribución de ingresos por geografía o segmento.
+
+
+    El sector de snacks y alimentos envasados es maduro y competitivo. La demanda
+    puede ser relativamente recurrente, aunque está expuesta a cambios en preferencias
+    de consumo, presión de costos y competencia de marcas propias y otros fabricantes.
+    Entre las compañías relacionadas por sector o canales de consumo están [[CL]],
+    [[COST]], [[SYY]], [[TGT]] y [[WMT]]; también forman parte del conjunto sectorial
+    indicado [[ABEV]], [[DEO]], [[FMX]], [[KO]], [[MO]] y [[PM]].
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    Los ingresos provienen principalmente de la venta de productos de marca en distintas
+    categorías de snacks. Entre los factores que pueden influir en su evolución están:
+
+
+    - Volúmenes vendidos, precios y mezcla de productos.
+
+    - Distribución y desempeño por región y canal.
+
+    - Preferencias de los consumidores y aceptación de productos.
+
+    - Capacidad para trasladar cambios de costos a los precios.
+
+
+    La información disponible no desglosa la contribución cuantitativa de estos factores
+    ni las ventas por categoría o región.
+
+
+    ### Moat y dinámica competitiva
+
+
+    El análisis disponible identifica marcas globales reconocidas, escala de distribución,
+    presencia en múltiples canales y capacidad de comercialización como fuentes de
+    ventaja competitiva. La amplitud del moat se califica como **estrecha** y la posición
+    competitiva como **líder** en el análisis AOIF; estas son evaluaciones analíticas,
+    no métricas verificadas en los datos aportados.
+
+
+    La industria enfrenta competencia de otros fabricantes y de marcas propias, además
+    de cambios en preferencias hacia productos percibidos como más saludables. Entre
+    las compañías del conjunto sectorial con exposición a canales minoristas relevantes
+    están [[COST]], [[TGT]] y [[WMT]]. La información disponible no compara cuota
+    de mercado, crecimiento o rentabilidad de Mondelez con competidores específicos.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las métricas financieras disponibles proceden de fuentes y cortes distintos. No
+    deben combinarse como si fueran una serie homogénea sin verificar períodos, definiciones
+    y unidades.
+
+
+    | Métrica | Valor reportado | Período / fecha | Fuente o limitación |
+
+    |---|---:|---|---|
+
+    | Ingresos | USD 39.898 mil millones | TTM al 2026-09-30 | Stockanalysis, según
+    el paquete DDD |
+
+    | Flujo de caja libre (FCF) | USD 3.658 mil millones | TTM al 2026-09-30 | Stockanalysis,
+    según el paquete DDD |
+
+    | Crecimiento del FCF | 59,74% | Al 2026-09-30 | Cifra reportada por el proveedor;
+    no se proporcionan valores comparativos ni período detallado |
+
+    | Margen bruto | 28,38% | FY 2025 | Stockanalysis, según el paquete DDD |
+
+    | Margen bruto | 34,26% | TTM al 2026-09-30 | Stockanalysis, según el paquete
+    DDD; no se explica la diferencia frente a FY 2025 |
+
+    | Crecimiento de ingresos | 5,99% | Período no especificado | Indicador del análisis
+    AOIF; período y definición no detallados |
+
+    | Margen operativo | 14,57% | Período no especificado | Indicador del análisis
+    AOIF; período y definición no detallados |
+
+    | ROIC | 9,39% | Período no especificado | Indicador del análisis AOIF; metodología
+    no detallada |
+
+    | Efectivo e inversiones | USD 1.628 mil millones | Período actual al 2026-09-30
+    | Unidades indicadas en el paquete DDD |
+
+    | Deuda total | USD 22.334 mil millones | Período actual al 2026-09-30 | Unidades
+    indicadas en el paquete DDD |
+
+    | Current ratio | 0,62x | TTM al 2026-09-30 | [Stockanalysis](https://stockanalysis.com/stocks/MDLZ/statistics/)
+    |
+
+    | Cobertura de intereses | 0x | TTM al 2026-09-30 | [Stockanalysis](https://stockanalysis.com/stocks/MDLZ/statistics/);
+    dato no validable con EBIT y gasto por intereses disponibles |
+
+    | P/E | 20,85x | Fecha no especificada | Análisis AOIF |
+
+    | EV/EBITDA | 14,52x | Fecha no especificada | Análisis AOIF |
+
+    | FCF yield | 0 | Fecha y unidad no especificadas | Análisis AOIF; no se proporcionan
+    inputs para interpretarlo |
+
+
+    El FCF positivo observado respalda que la compañía generó caja en el período reportado,
+    pero por sí solo no demuestra la calidad de los retornos ni la sostenibilidad
+    de esa generación. Tampoco se aportan cifras de flujo de caja operativo o inversión
+    de capital para evaluar la conversión de beneficios en FCF.
+
+
+    La cifra de cobertura de intereses reportada como cero es una señal que requiere
+    comprobación; sin EBIT ni gasto por intereses no puede evaluarse con confianza
+    la capacidad de servicio de deuda. El paquete también advierte que no se debe
+    derivar apalancamiento relativo a EBITDA a partir de los datos disponibles.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    El análisis AOIF califica la calidad del management como **buena** y la asignación
+    de capital como **neutral**. Describe la escala y continuidad operativa como compatibles
+    con una ejecución consolidada, pero no proporciona evidencia específica para atribuir
+    resultados a decisiones concretas del equipo directivo.
+
+
+    El alineamiento de insiders se califica como **débil** en ese análisis. No se
+    aportan datos sobre propiedad accionaria de insiders, remuneración, incentivos
+    de largo plazo, composición del consejo, independencia de sus miembros ni historial
+    de asignación de capital. Por tanto, no es posible evaluar estos aspectos de forma
+    independiente con la evidencia disponible.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista — hipótesis apoyada parcialmente por los datos disponibles:**
+
+
+    - Mondelez cuenta con marcas reconocidas, escala de distribución y presencia en
+    múltiples canales, características que podrían favorecer la visibilidad y la comercialización
+    de sus productos.
+
+    - Los ingresos TTM reportados fueron de USD 39.898 mil millones y el FCF TTM de
+    USD 3.658 mil millones al 2026-09-30, lo que documenta ventas de gran escala y
+    generación positiva de caja en ese período.
+
+    - El análisis AOIF reporta crecimiento de ingresos de 5,99%, margen operativo
+    de 14,57% y ROIC de 9,39%. Como no se detallan períodos ni métodos, estas cifras
+    son indicativas y requieren validación antes de usarse para evaluar tendencias.
+
+    - La continuidad del crecimiento de ventas y la generación de FCF serían señales
+    favorables si se confirman en períodos posteriores y junto con información sobre
+    volúmenes, precios, mezcla y márgenes.
+
+
+    Estos puntos no permiten concluir que la acción esté infravalorada. El análisis
+    DDD señala una cotización observada de USD 64,94 al 2026-10-30 y un precio objetivo
+    de consenso de USD 70,60 al 2026-11-21. Esa comparación refleja datos de mercado
+    y expectativas publicadas, pero no demuestra un error de valoración: no se aportan
+    los modelos ni los supuestos de los analistas. El score general de 58 y la clasificación
+    de **investigación requerida; calidad de evidencia financiera parcial** son evaluaciones
+    del paquete, no hechos contables.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    - **Costos de insumos y operación:** el análisis AOIF identifica exposición a
+    aumentos en cacao, azúcar, aceites, trigo, empaques y transporte. Estos costos
+    podrían presionar márgenes o requerir aumentos de precios. El mismo análisis califica
+    este riesgo macro como de impacto y probabilidad altos; no se aportan cuantificaciones.
+
+    - **Presión competitiva y cambios de preferencias:** el crecimiento de marcas
+    propias y el desplazamiento hacia productos percibidos como más saludables podrían
+    limitar volúmenes, precios o mezcla. El análisis AOIF los presenta como riesgos
+    de negocio de impacto y probabilidad medios.
+
+    - **Incertidumbre sobre márgenes:** el margen bruto reportado pasa de 28,38% en
+    FY 2025 a 34,26% TTM al 2026-09-30. El paquete no explica los factores que causan
+    la diferencia ni qué parte podría ser recurrente.
+
+    - **Deuda y liquidez:** al 2026-09-30 se reportan efectivo e inversiones de USD
+    1.628 mil millones y deuda total de USD 22.334 mil millones. Sin definiciones
+    adicionales, conciliación de unidades e indicadores de EBITDA, no debe derivarse
+    de estas cifras una conclusión completa sobre apalancamiento. La cobertura de
+    intereses reportada como 0x también requiere verificación.
+
+    - **Calidad de la generación de caja:** el FCF positivo no basta para establecer
+    retornos sobre capital, necesidades de reinversión o sostenibilidad.
+
+
+    **Falsadores de la tesis a vigilar:**
+
+
+    1. Ingresos o FCF futuros que contradigan la continuidad de la generación de caja
+    observada en el TTM al 2026-09-30.
+
+    2. Un deterioro persistente del margen bruto que no pueda conciliarse con una
+    explicación verificable y con la economía del negocio.
+
+
+    La contra-tesis es que la resiliencia de ingresos y el FCF positivo podrían no
+    compensar una compresión de márgenes, un desempeño débil de volúmenes o una evolución
+    desfavorable de los costos. No hay información suficiente para asignar probabilidades
+    a estos escenarios.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Fecha esperada | Evento o indicador | Evidencia disponible | Impacto potencial
+    |
+
+    |---|---|---|---|
+
+    | Próximo período de resultados; fecha no proporcionada | Actualización de ingresos
+    y FCF frente a las bases TTM | Ingresos de USD 39.898 mil millones y FCF de USD
+    3.658 mil millones al 2026-09-30, según Stockanalysis | Confirmar o debilitar
+    la hipótesis de continuidad del crecimiento y la generación de caja |
+
+    | Próximo período de resultados; fecha no proporcionada | Evolución del margen
+    bruto y explicación de sus cambios | 28,38% en FY 2025 y 34,26% TTM al 2026-09-30,
+    según Stockanalysis | Aclarar si la variación es recurrente y qué factores la
+    explican |
+
+    | Próximos reportes; fecha no proporcionada | Desglose de ventas orgánicas, volúmenes,
+    precios y mezcla por región | Indicador de seguimiento propuesto por AOIF; no
+    se aportan datos detallados | Ayudar a distinguir crecimiento por volumen, precio
+    y mezcla |
+
+    | Próximos reportes; fecha no proporcionada | Márgenes operativos y efecto de
+    costos de insumos, empaques y transporte | Riesgos cualitativos identificados
+    por AOIF | Evaluar presión de costos y capacidad de trasladarlos a precios |
+
+
+    No se proporciona una fecha futura confirmada para estos hitos. Tampoco se identifican
+    eventos corporativos fechados que puedan tratarse como catalizadores ciertos.
+
+
+    ## 8. Marco de Valoración
+
+
+    El valor intrínseco **no es estimable con la información disponible**. El análisis
+    AOIF señala que faltan un precio de referencia fechado, FCF normalizado y supuestos
+    de crecimiento y descuento. También indica margen de seguridad insuficiente.
+
+
+    Los múltiplos reportados —P/E de 20,85x y EV/EBITDA de 14,52x— pueden servir como
+    referencias relativas, pero no bastan por sí solos para concluir que la acción
+    está barata o cara. La cifra de FCF yield reportada como cero carece de unidad,
+    fecha e inputs suficientes para interpretarla.
+
+
+    El análisis de escenarios DDD, fechado al 2026-11-21 y con horizonte al 2027-11-21,
+    utiliza objetivos de analistas como anclas, no una valoración intrínseca propia:
+
+
+    | Escenario | Precio objetivo | Interpretación del paquete |
+
+    |---|---:|---|
+
+    | Bajista | USD 56 | Extremo inferior del rango de objetivos de analistas observado
+    |
+
+    | Alcista | USD 77 | Extremo superior del rango de objetivos de analistas observado
+    |
+
+
+    El paquete no proporciona los modelos detrás de estos objetivos ni supuestos verificables
+    de crecimiento, márgenes o valoración. Por ello, el rango debe entenderse como
+    una referencia de expectativas publicadas, no como un rango de valor fundamental
+    calculado de forma independiente.
+
+
+    Una valoración futura debería analizar escenarios de crecimiento de ingresos,
+    márgenes, conversión de FCF, reinversión, retornos sobre capital y evolución de
+    acciones diluidas. La sensibilidad tendría que mostrar cómo cambian los resultados
+    ante variaciones en estos supuestos y en la tasa de descuento. Ninguno de esos
+    inputs está suficientemente documentado aquí.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué explica la diferencia entre el margen bruto de FY 2025 y el TTM al 2026-09-30?
+    ¿Qué parte responde a factores temporales y qué parte es recurrente?
+
+    2. ¿Cómo evolucionan ventas orgánicas, volúmenes, precios y mezcla por categoría,
+    canal y región?
+
+    3. ¿Cuáles son los retornos sobre capital a lo largo del tiempo, las necesidades
+    de reinversión y la evolución de las acciones diluidas?
+
+    4. ¿Cómo se reconcilian las cifras reportadas de efectivo, deuda y cobertura de
+    intereses? ¿Cuál es el EBIT y el gasto por intereses utilizados en el cálculo?
+
+    5. ¿Qué componentes explican el crecimiento del FCF reportado de 59,74% y cuáles
+    son sus valores comparativos?
+
+    6. ¿Cuál es la conversión de flujo de caja operativo a FCF y cuánto requiere la
+    inversión de capital para sostener el negocio?
+
+    7. ¿Qué parte de la exposición a cacao, azúcar, aceites, trigo, empaques y transporte
+    puede mitigarse mediante precios, contratos u otras acciones?
+
+    8. ¿Cómo se comparan el crecimiento, los márgenes, los retornos y la posición
+    competitiva de Mondelez con fabricantes y alternativas relevantes, incluidos [[CL]]
+    y [[KO]]?
+
+    9. ¿Cuál es la distribución de ingresos y rentabilidad por región, categoría y
+    marca?
+
+    10. ¿Qué información respalda las evaluaciones de calidad del management, alineamiento
+    de insiders y asignación de capital?
+
+    11. ¿Qué supuestos y modelos sustentan los objetivos de analistas de USD 56 a
+    USD 77 y el consenso de USD 70,60 observado al 2026-11-21?
+
+
+    **Estado de la evidencia:** parcial. Los datos disponibles documentan escala de
+    ingresos, FCF positivo y algunas métricas financieras, pero no bastan para establecer
+    tendencias comparables, evaluar con confianza la estructura de capital ni estimar
+    valor intrínseco.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ABEV|Ambev S.A.]], [[CL|Colgate-Palmolive Company]], [[COST|Costco
+    Wholesale Corporation]], [[DEO|Diageo plc]], [[FMX|Fomento Económico Mexicano,
+    S.A.B. de C.V.]], [[KO|The Coca-Cola Company]], [[MO|Altria Group, Inc.]], [[PM|Philip
+    Morris International Inc.]], [[SYY|Sysco Corporation]], [[TGT|Target Corporation]],
+    [[WMT|Walmart Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -279,7 +625,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-21T19:47:41.732205+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-26T16:09:21.129212+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -299,7 +645,7 @@ research_input_snapshot:
     Bar, Tate''s Bake Shop '
   revenue: 39900000000.0
   revenue_growth: 5.99
-  roic: 9.39
+  roic: 9.41
   scenario_financial_evidence:
     source_observations:
       cash_and_investments_history:
@@ -440,12 +786,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    77.0, "low": 56.0, "mean": 70.64, "median": 70.64, "observed_at": "2026-11-21T16:47:45.154321-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
-    "2026-11-21T16:47:45.154321-03:00", "observed_date": "2026-11-21", "target_price":
+    77.0, "low": 56.0, "mean": 70.64, "median": 70.64, "observed_at": "2026-11-26T13:09:25.311363-03:00",
+    "sources": [{"as_of_date": "2026-11-26", "name": "stockanalysis", "observed_at":
+    "2026-11-26T13:09:25.311363-03:00", "observed_date": "2026-11-26", "target_price":
     70.64, "url": "https://stockanalysis.com/stocks/mdlz/forecast/"}, {"as_of_date":
-    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T16:47:45.154321-03:00",
-    "observed_date": "2026-11-21", "target_price": 70.63636, "url": "https://finance.yahoo.com/quote/MDLZ/"}]},
+    "2026-11-26", "name": "yfinance", "observed_at": "2026-11-26T13:09:25.311363-03:00",
+    "observed_date": "2026-11-26", "target_price": 70.63636, "url": "https://finance.yahoo.com/quote/MDLZ/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 64.94000244140625,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/MDLZ/"}]}}'
   sector: Consumer Defensive
@@ -455,87 +801,92 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 6e7f4e1bb0bf1d6f5115f38bc85b828eb28acb103e360a8e59b63b6f4d44c547
+    sha256: 7276dd592ed116ae7431f4ec952525d154dfa63a745598969338dcc6a7ffa2ca
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-21T16:48:19.148263-03:00'
+  triggered_at: '2026-11-26T13:09:54.616772-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- assessment_observation: El valor reportado para TTM al 2026-09-30 está por encima
-    del umbral configurado.
+- assessment_observation: El valor reportado no está por debajo del umbral; no constituye
+    una decisión de compra.
+  configured_threshold: below 0.5
   metric: current_ratio
   observed_value: 0.62
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/MDLZ/statistics/
-  threshold: below 0.5
+  period_end: '2026-09-30'
   unit: x
-- assessment_observation: La cifra reportada para TTM al 2026-09-30 queda bajo el
-    umbral, pero el paquete no proporciona EBIT e interés para validarla independientemente.
-  metric: interest_coverage
-  observed_value: 0
-  source:
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/MDLZ/statistics/
-  threshold: below 2.0
-  unit: x
-- assessment_observation: No evaluable con unidades compatibles verificadas; no se
-    infiere cruce del umbral.
-  metric: net_debt_ebitda
-  observed_value: null
-  threshold: above 4.0
-  unit: x
-- assessment_observation: No evaluable por ausencia de acciones comparables entre
-    períodos.
+- assessment_observation: 'No evaluable: falta una observación histórica comparable
+    de acciones.'
+  configured_threshold: above 10
   metric: dilution_yoy_pct
   observed_value: null
-  threshold: above 10
+  period_end: '2026-09-30'
   unit: percent
-- assessment_observation: No evaluable por ausencia de historia de acciones para un
-    período de tres años.
+- assessment_observation: El proveedor reporta cero, pero el paquete no aporta EBIT
+    e interés con los que validar el cálculo; tratar como dato no aclarado, no como
+    cobertura económica confirmada.
+  configured_threshold: below 2.0
+  metric: interest_coverage
+  observed_value: 0
+  period_end: '2026-09-30'
+  unit: x
+- assessment_observation: No aplicable a partir del FCF TTM positivo reportado; no
+    se calcula runway.
+  configured_threshold: below 12
+  metric: negative_fcf_runway_months
+  observed_value: null
+  period_end: '2026-09-30'
+  unit: months
+- assessment_observation: El cálculo está por debajo del umbral; la moneda de los
+    importes no está explicitada en el paquete.
+  configured_threshold: above 4.0
+  metric: net_debt_ebitda
+  observed_value: 2.88
+  period_end: '2026-09-30'
+  unit: x
+- assessment_observation: 'No evaluable: no hay serie histórica de acciones para tres
+    años.'
+  configured_threshold: above 5
   metric: share_count_cagr_3y_pct
   observed_value: null
-  threshold: above 5
+  period_end: '2026-09-30'
   unit: percent
 scenario_analysis:
-  as_of_date: '2026-11-21'
+  as_of_date: '2026-11-26'
   currency: USD
-  horizon_date: '2027-11-21'
+  horizon_date: '2027-11-26'
   scenarios:
   - falsifiers:
-    - Un objetivo de consenso actualizado que deje de incluir USD 56.
-    - Resultados operativos futuros que permitan identificar y contrastar los supuestos
-      detrás del rango.
+    - Un rango actualizado de objetivos comparable que deje de incluir USD 56.
     id: BEAR
     key_assumptions:
-    - Se mantiene el extremo inferior publicado por analistas como ancla de escenario.
-    - No se dispone de supuestos de consenso sobre ventas, márgenes o múltiplos que
-      expliquen ese extremo.
-    rationale: 'Ancla observada: extremo inferior del rango de objetivos de analistas
-      al 2026-11-21, no valoración intrínseca propia. Representa el resultado adverso
-      dentro del rango publicado; el paquete no permite atribuirlo a un supuesto operativo
-      específico.'
+    - El extremo bajo observado sigue siendo una referencia pertinente al horizonte
+      del escenario.
+    - No se dispone de evidencia suficiente para asignar el extremo a una previsión
+      concreta de ventas, márgenes o FCF.
+    rationale: Ancla observada en el extremo bajo del rango de objetivos de analistas,
+      no valoración intrínseca propia. Representa el extremo adverso del rango disponible;
+      el paquete no aporta supuestos de negocio de analistas que expliquen específicamente
+      ese precio.
     sources:
-    - as_of_date: '2026-11-21'
+    - as_of_date: '2026-11-26'
       name: stockanalysis
       url: https://stockanalysis.com/stocks/mdlz/forecast/
     target_price: 56
   - falsifiers:
-    - Un objetivo de consenso actualizado que deje de incluir USD 77.
-    - Resultados operativos futuros que permitan identificar y contrastar los supuestos
-      detrás del rango.
+    - Un rango actualizado de objetivos comparable que deje de incluir USD 77.
     id: BULL
     key_assumptions:
-    - Se mantiene el extremo superior publicado por analistas como ancla de escenario.
-    - No se dispone de supuestos de consenso sobre ventas, márgenes o múltiplos que
-      expliquen ese extremo.
-    rationale: 'Ancla observada: extremo superior del rango de objetivos de analistas
-      al 2026-11-21, no valoración intrínseca propia. Representa el resultado favorable
-      dentro del rango publicado; el paquete no permite atribuirlo a un supuesto operativo
-      específico.'
+    - El extremo alto observado sigue siendo una referencia pertinente al horizonte
+      del escenario.
+    - No se dispone de evidencia suficiente para asignar el extremo a una previsión
+      concreta de ventas, márgenes o FCF.
+    rationale: Ancla observada en el extremo alto del rango de objetivos de analistas,
+      no valoración intrínseca propia. Representa el extremo favorable del rango disponible;
+      el paquete no aporta supuestos de negocio de analistas que expliquen específicamente
+      ese precio.
     sources:
-    - as_of_date: '2026-11-21'
+    - as_of_date: '2026-11-26'
       name: stockanalysis
       url: https://stockanalysis.com/stocks/mdlz/forecast/
     target_price: 77
@@ -543,10 +894,10 @@ scenario_analysis:
 scenario_validation:
   errors: []
   status: valid_pending_decision_board
-score_general: 58
+score_general: 48
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T16:47:45.154321-03:00'
+  calculado_at: '2026-11-26T13:09:25.311363-03:00'
   fuentes:
     stockanalysis: 70.64
     yfinance: 70.63636
@@ -554,24 +905,26 @@ target_consensus:
   n_fuentes: 2
   promedio: 70.64
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-26'
     name: stockanalysis
-    observed_at: '2026-11-21T16:47:45.154321-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-26T13:09:25.311363-03:00'
+    observed_date: '2026-11-26'
     target_price: 70.64
     url: https://stockanalysis.com/stocks/mdlz/forecast/
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-26'
     name: yfinance
-    observed_at: '2026-11-21T16:47:45.154321-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-26T13:09:25.311363-03:00'
+    observed_date: '2026-11-26'
     target_price: 70.63636
     url: https://finance.yahoo.com/quote/MDLZ/
   target_high: 77.0
   target_low: 56.0
-tesis_inversion: MDLZ opera marcas de snacks y bebidas en varias regiones y el paquete
-  muestra ingresos TTM de USD 39.898 mil millones y FCF TTM de USD 3.658 mil millones
-  al 2026-09-30. La tesis depende de que esa escala y generación de caja se mantengan;
-  no hay datos en el paquete para validar penetración, retornos incrementales sobre
-  capital, fortaleza de marca frente a competidores o reinversión futura.
+tesis_inversion: Mondelez vende snacks y productos de confitería en varias regiones
+  y cuenta con marcas como Oreo, Ritz, LU y CLIF Bar, según el resumen financiero.
+  La evidencia financiera muestra ingresos TTM de USD 39,898 millones y FCF TTM de
+  USD 3,658 millones al 2026-09-30, pero no permite atribuir el crecimiento a volumen,
+  precio, adquisiciones o expansión de mercado. Sin datos de retornos sobre capital,
+  reinversión, penetración y ventajas competitivas, no queda validada una tesis de
+  crecimiento compuesto.
 ticker: MDLZ
 version: '3.0'
