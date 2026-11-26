@@ -1,0 +1,33 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida'
+- 'Market error: No se puede validar un error de valoración con la evidencia disponible:
+  el rango de objetivos de analistas es amplio y no se proporcionan estimaciones futuras
+  de negocio ni un método de valoración con inputs fechados.'
+- 'Thesis: TXN diseña, fabrica y vende semiconductores en los segmentos Analog y Embedded
+  Processing. La evidencia financiera muestra recuperación de ingresos, margen bruto
+  y FCF TTM frente a FY 2025, pero el hi'
+generated_at: '2026-11-26T13:14:27.307207-03:00'
+id: ass-0cbe5a00
+recommendation: REVIEW
+risks:
+- analisis: Los ingresos cayeron de USD 20,028 millones en FY 2022 a USD 17,682 millones
+    en FY 2025, mientras que el dato TTM al 2026-09-30 fue USD 20,766 millones. [StockAnalysis,
+    FY 2022, FY 2025 y TTM al 2026-09-30]
+  riesgo: Ciclicidad y sostenibilidad del repunte
+- analisis: El FCF reportado fue USD 1,498 millones en FY 2024, USD 2,603 millones
+    en FY 2025 y USD 7,318 millones TTM al 2026-09-30; el dato TTM no equivale a un
+    ejercicio fiscal completo. [StockAnalysis, períodos indicados]
+  riesgo: Volatilidad del flujo de caja libre
+- analisis: El margen bruto fue 68.76% en FY 2022, 57.02% en FY 2025 y 60.24% TTM
+    al 2026-09-30; no hay evidencia suficiente para atribuir las variaciones a causas
+    específicas. [StockAnalysis, períodos indicados]
+  riesgo: Erosión del margen
+- analisis: El paquete no proporciona tamaño o penetración de mercado, ROIC, inversiones
+    de capital desglosadas, recompra/dividendos ni datos históricos de acciones diluidas
+    para evaluar esas dimensiones.
+  riesgo: Evidencia incompleta de mercado y asignación de capital
+score: 68
+status: COMPLETED
+version: '3.0'

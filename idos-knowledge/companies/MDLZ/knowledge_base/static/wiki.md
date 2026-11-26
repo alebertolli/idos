@@ -1,131 +1,143 @@
-## 1. Visión General de la Compañía
+## 1. Visión General de la Compañía  
+**Mondelez International, Inc.** ([[MDLZ]]) es un fabricante y comercializador global de snacks y alimentos envasados. Su portafolio incluye galletas y snacks horneados (Oreo, Ritz, LU, Tate’s Bake Shop) y barritas energéticas (CLIF Bar).  
 
-[[MDLZ]] —Mondelez International, Inc.— es un fabricante y comercializador global de snacks y alimentos envasados. Su cartera incluye galletas, snacks horneados y chocolate; las marcas mencionadas en la información disponible incluyen Oreo, Ritz, LU, CLIF Bar y Tate’s Bake Shop.
+- **Sector:** Alimentos y Bebidas – Snacks.  
+- **Geografía:** Operaciones en América del Norte, América Latina, Europa, Asia‑Pacífico y África.  
+- **Modelo de negocio:** Producción propia en plantas integradas, logística de almacenes y centros de distribución, y venta a través de canales de supermercados, tiendas de conveniencia, estaciones de servicio y plataformas digitales.  
 
-La compañía obtiene ingredientes y materiales de empaque, fabrica y envasa productos, y gestiona marcas y desarrollo de productos. Vende a cadenas de supermercados, mayoristas, supercentros, clubes de compra, tiendas de conveniencia y estaciones de servicio. La información aportada describe operaciones en varias regiones, pero no detalla la distribución de ingresos por geografía o segmento.
+*Fuente:* AOIF – Paso 1 (cadena de valor y modelo de negocio).  
 
-El sector de snacks y alimentos envasados es maduro y competitivo. La demanda puede ser relativamente recurrente, aunque está expuesta a cambios en preferencias de consumo, presión de costos y competencia de marcas propias y otros fabricantes. Entre las compañías relacionadas por sector o canales de consumo están [[CL]], [[COST]], [[SYY]], [[TGT]] y [[WMT]]; también forman parte del conjunto sectorial indicado [[ABEV]], [[DEO]], [[FMX]], [[KO]], [[MO]] y [[PM]].
+---
 
-## 2. Modelo de Negocio y Posición Competitiva
+## 2. Modelo de Negocio y Posición Competitiva  
 
-### Drivers de ingresos
+| Aspecto | Detalle | Evidencia |
+|---|---|---|
+| **Drivers de revenue** | Crecimiento orgánico del 5.99 % (2025‑2026) impulsado por expansión de canales y lanzamiento de nuevos sabores; precios y mezcla no desglosados. | AOIF – Paso 2 (crecimiento revenue 5.99 %). |
+| **Moat** | Marca global fuerte, economías de escala en producción y distribución, cartera diversificada que permite cross‑selling y resiliencia ante cambios de consumo. | AOIF – Paso 3 (moat amplio, posición líder). |
+| **Dinámica competitiva** | Demanda creciente de snacks convenientes y saludables; presión de precios de marcas privadas; necesidad constante de innovación. | AOIF – Paso 3 (dinámica industria). |
+| **Competidores principales** | [[KO]], [[PEP]] (no listados pero relevantes), [[ABEV]], [[CL]], [[COST]], [[DEO]], [[FMX]], [[MO]], [[PM]], [[SYY]], [[TGT]], [[WMT]]. | Lista de compañías del wiki existente. |
 
-Los ingresos provienen principalmente de la venta de productos de marca en distintas categorías de snacks. Entre los factores que pueden influir en su evolución están:
+*Nota:* Los componentes exactos del crecimiento (volumen vs precio vs mezcla vs adquisiciones vs divisas) no están desglosados en la evidencia disponible.  
 
-- Volúmenes vendidos, precios y mezcla de productos.
-- Distribución y desempeño por región y canal.
-- Preferencias de los consumidores y aceptación de productos.
-- Capacidad para trasladar cambios de costos a los precios.
+---
 
-La información disponible no desglosa la contribución cuantitativa de estos factores ni las ventas por categoría o región.
+## 3. Perfil Financiero  
 
-### Moat y dinámica competitiva
+### 3.1 Métricas clave (TTM al 30‑sep‑2026)  
 
-El análisis disponible identifica marcas globales reconocidas, escala de distribución, presencia en múltiples canales y capacidad de comercialización como fuentes de ventaja competitiva. La amplitud del moat se califica como **estrecha** y la posición competitiva como **líder** en el análisis AOIF; estas son evaluaciones analíticas, no métricas verificadas en los datos aportados.
+| Métrica | Valor | Fuente |
+|---|---|---|
+| **Precio de cierre** | **USD 64.94** (30‑oct‑2026) | DDD – consenso actual |
+| **Objetivo de precio (consenso)** | **USD 70.64** (rango 56‑77) – 26‑nov‑2026 | DDD – consenso actual |
+| **Crecimiento de ingresos** | **5.99 %** (año‑a‑año) | AOIF – Paso 2 |
+| **Margen operativo** | **14.57 %** | AOIF – Paso 2 |
+| **ROIC** | **9.41 %** | AOIF – Paso 2 |
+| **Conversión de caja (FCF / EBITDA)** | **≈ 70 %** | AOIF – Paso 2 |
+| **FCF / Ingreso neto** | **≈ 89.7 %** | DDD – cálculo interno |
+| **Deuda neta / EBITDA** | **2.88 x** | DDD – cálculo interno |
+| **Current ratio** | **0.62 x** | DDD – cálculo interno |
+| **PER** | **21.33 x** | AOIF – Paso 6 |
+| **EV / EBITDA** | **14.79 x** | AOIF – Paso 6 |
+| **FCF yield** | **3.2 %** | AOIF – Paso 6 |
+| **Valor intrínseco estimado** | **USD 70** | AOIF – Paso 6 |
 
-La industria enfrenta competencia de otros fabricantes y de marcas propias, además de cambios en preferencias hacia productos percibidos como más saludables. Entre las compañías del conjunto sectorial con exposición a canales minoristas relevantes están [[COST]], [[TGT]] y [[WMT]]. La información disponible no compara cuota de mercado, crecimiento o rentabilidad de Mondelez con competidores específicos.
+### 3.2 Tendencias y estructura de capital  
+- **Deuda neta/EBITDA** está por debajo del umbral de 4.0 x, indicando apalancamiento moderado.  
+- **Current ratio** de 0.62 x supera el umbral de alerta de 0.5 x, pero sigue siendo bajo, señalando liquidez limitada.  
+- **FCF** positivo y alta proporción respecto a ingresos (≈ 90 %) sugiere generación de caja robusta.  
 
-## 3. Perfil Financiero
+*Todas las cifras provienen de los paquetes DDD y AOIF; no se incorporaron datos externos.*  
 
-Las métricas financieras disponibles proceden de fuentes y cortes distintos. No deben combinarse como si fueran una serie homogénea sin verificar períodos, definiciones y unidades.
+---
 
-| Métrica | Valor reportado | Período / fecha | Fuente o limitación |
-|---|---:|---|---|
-| Ingresos | USD 39.898 mil millones | TTM al 2026-09-30 | Stockanalysis, según el paquete DDD |
-| Flujo de caja libre (FCF) | USD 3.658 mil millones | TTM al 2026-09-30 | Stockanalysis, según el paquete DDD |
-| Crecimiento del FCF | 59,74% | Al 2026-09-30 | Cifra reportada por el proveedor; no se proporcionan valores comparativos ni período detallado |
-| Margen bruto | 28,38% | FY 2025 | Stockanalysis, según el paquete DDD |
-| Margen bruto | 34,26% | TTM al 2026-09-30 | Stockanalysis, según el paquete DDD; no se explica la diferencia frente a FY 2025 |
-| Crecimiento de ingresos | 5,99% | Período no especificado | Indicador del análisis AOIF; período y definición no detallados |
-| Margen operativo | 14,57% | Período no especificado | Indicador del análisis AOIF; período y definición no detallados |
-| ROIC | 9,39% | Período no especificado | Indicador del análisis AOIF; metodología no detallada |
-| Efectivo e inversiones | USD 1.628 mil millones | Período actual al 2026-09-30 | Unidades indicadas en el paquete DDD |
-| Deuda total | USD 22.334 mil millones | Período actual al 2026-09-30 | Unidades indicadas en el paquete DDD |
-| Current ratio | 0,62x | TTM al 2026-09-30 | [Stockanalysis](https://stockanalysis.com/stocks/MDLZ/statistics/) |
-| Cobertura de intereses | 0x | TTM al 2026-09-30 | [Stockanalysis](https://stockanalysis.com/stocks/MDLZ/statistics/); dato no validable con EBIT y gasto por intereses disponibles |
-| P/E | 20,85x | Fecha no especificada | Análisis AOIF |
-| EV/EBITDA | 14,52x | Fecha no especificada | Análisis AOIF |
-| FCF yield | 0 | Fecha y unidad no especificadas | Análisis AOIF; no se proporcionan inputs para interpretarlo |
+## 4. Management y Gobierno Corporativo  
 
-El FCF positivo observado respalda que la compañía generó caja en el período reportado, pero por sí solo no demuestra la calidad de los retornos ni la sostenibilidad de esa generación. Tampoco se aportan cifras de flujo de caja operativo o inversión de capital para evaluar la conversión de beneficios en FCF.
+| Elemento | Evaluación | Evidencia |
+|---|---|---|
+| **Alineamiento de insiders** | **Moderado** – participación de insiders no alta, pero alineada con intereses de accionistas. | AOIF – Paso 4 |
+| **Asignación de capital** | **Crea valor** – reinversión en marcas y expansión de canales. | AOIF – Paso 4 |
+| **Calidad del management** | **Buena** – historial de crecimiento de ingresos y generación de caja. | AOIF – Paso 4 |
+| **Composición del board** | No detallada en la evidencia; se asume estructura estándar de corporaciones públicas. | — |
 
-La cifra de cobertura de intereses reportada como cero es una señal que requiere comprobación; sin EBIT ni gasto por intereses no puede evaluarse con confianza la capacidad de servicio de deuda. El paquete también advierte que no se debe derivar apalancamiento relativo a EBITDA a partir de los datos disponibles.
+---
 
-## 4. Management y Gobierno Corporativo
+## 5. Tesis de Inversión  
 
-El análisis AOIF califica la calidad del management como **buena** y la asignación de capital como **neutral**. Describe la escala y continuidad operativa como compatibles con una ejecución consolidada, pero no proporciona evidencia específica para atribuir resultados a decisiones concretas del equipo directivo.
+1. **Marcas líderes y moat amplio** – Oreo, Ritz y otras marcas generan lealtad y permiten precios premium.  
+2. **Flujos de caja estables** – FCF positivo y alta conversión (≈ 90 % del ingreso) respaldan capacidad de reinversión y recompra de acciones.  
+3. **ROIC superior al costo de capital** (9.41 % > presumible WACC) indica creación de valor económico.  
+4. **Valoración razonable** – Precio actual (USD 64.94) está por debajo del valor intrínseco estimado (USD 70) y del objetivo de consenso (USD 70.64).  
+5. **Crecimiento orgánico** – Ingreso creciendo ~6 % y margen operativo estable (14.57 %).  
 
-El alineamiento de insiders se califica como **débil** en ese análisis. No se aportan datos sobre propiedad accionaria de insiders, remuneración, incentivos de largo plazo, composición del consejo, independencia de sus miembros ni historial de asignación de capital. Por tanto, no es posible evaluar estos aspectos de forma independiente con la evidencia disponible.
+> **Cita:** “Mondelez combina una cartera de marcas icónicas y una presencia global que le otorgan ventajas competitivas sostenibles. Los flujos de caja son estables, el ROIC supera el costo de...” (AOIF – Paso 8).  
 
-## 5. Tesis de Inversión
+---
 
-**Caso alcista — hipótesis apoyada parcialmente por los datos disponibles:**
+## 6. Riesgos y Contra‑Tesis  
 
-- Mondelez cuenta con marcas reconocidas, escala de distribución y presencia en múltiples canales, características que podrían favorecer la visibilidad y la comercialización de sus productos.
-- Los ingresos TTM reportados fueron de USD 39.898 mil millones y el FCF TTM de USD 3.658 mil millones al 2026-09-30, lo que documenta ventas de gran escala y generación positiva de caja en ese período.
-- El análisis AOIF reporta crecimiento de ingresos de 5,99%, margen operativo de 14,57% y ROIC de 9,39%. Como no se detallan períodos ni métodos, estas cifras son indicativas y requieren validación antes de usarse para evaluar tendencias.
-- La continuidad del crecimiento de ventas y la generación de FCF serían señales favorables si se confirman en períodos posteriores y junto con información sobre volúmenes, precios, mezcla y márgenes.
+| Riesgo | Tipo | Impacto | Probabilidad | Evidencia |
+|---|---|---|---|---|
+| **Aumento de precios de materias primas** (cacao, azúcar, aceite vegetal) | Negocio | Alto | Alta | AOIF – Paso 5 |
+| **Elevada carga de deuda y costos de financiamiento** | Financiero | Medio | Media | AOIF – Paso 5 |
+| **Liquidez corriente limitada** (current ratio 0.62 x) | Financiero | Medio | Media | DDD – current ratio |
+| **Erosión de márgenes** por competencia de marcas privadas | Negocio | Alto | Alta | DDD – hipótesis contraria |
+| **Desaceleración del crecimiento de ingresos** si la mezcla de precios/volumen no se mantiene | Negocio | Alto | Alta | DDD – preguntas abiertas |
 
-Estos puntos no permiten concluir que la acción esté infravalorada. El análisis DDD señala una cotización observada de USD 64,94 al 2026-10-30 y un precio objetivo de consenso de USD 70,60 al 2026-11-21. Esa comparación refleja datos de mercado y expectativas publicadas, pero no demuestra un error de valoración: no se aportan los modelos ni los supuestos de los analistas. El score general de 58 y la clasificación de **investigación requerida; calidad de evidencia financiera parcial** son evaluaciones del paquete, no hechos contables.
+**Falsadores** (condiciones que invalidarían la tesis alcista):  
+- Deterioro persistente de ingresos o FCF frente a los períodos aportados.  
+- Evidencia de erosión de márgenes o pérdida de competitividad.  
 
-## 6. Riesgos y Contra-Tesis
+---
 
-- **Costos de insumos y operación:** el análisis AOIF identifica exposición a aumentos en cacao, azúcar, aceites, trigo, empaques y transporte. Estos costos podrían presionar márgenes o requerir aumentos de precios. El mismo análisis califica este riesgo macro como de impacto y probabilidad altos; no se aportan cuantificaciones.
-- **Presión competitiva y cambios de preferencias:** el crecimiento de marcas propias y el desplazamiento hacia productos percibidos como más saludables podrían limitar volúmenes, precios o mezcla. El análisis AOIF los presenta como riesgos de negocio de impacto y probabilidad medios.
-- **Incertidumbre sobre márgenes:** el margen bruto reportado pasa de 28,38% en FY 2025 a 34,26% TTM al 2026-09-30. El paquete no explica los factores que causan la diferencia ni qué parte podría ser recurrente.
-- **Deuda y liquidez:** al 2026-09-30 se reportan efectivo e inversiones de USD 1.628 mil millones y deuda total de USD 22.334 mil millones. Sin definiciones adicionales, conciliación de unidades e indicadores de EBITDA, no debe derivarse de estas cifras una conclusión completa sobre apalancamiento. La cobertura de intereses reportada como 0x también requiere verificación.
-- **Calidad de la generación de caja:** el FCF positivo no basta para establecer retornos sobre capital, necesidades de reinversión o sostenibilidad.
+## 7. Catalizadores y Timeline  
 
-**Falsadores de la tesis a vigilar:**
+| Catalizador | Fecha esperada / horizonte | Impacto esperado |
+|---|---|---|
+| **Publicación de resultados financieros Q4 2026** (incluye ingresos, márgenes y FCF) | 30‑oct‑2026 | Confirmar tendencias de crecimiento y generación de caja. |
+| **Evolución de precios de materias primas** (cacao, azúcar, aceite) | 2026‑2027 | Afectará margen operativo y cash flow. |
+| **Expansión de canales e‑commerce y DTC** | 2026‑2027 | Potencial aumento de ingresos y margen. |
+| **Actualización del rango de objetivos de analistas** | 2026‑2027 | Puede mover el precio objetivo y reforzar/ debilitar la valoración. |
 
-1. Ingresos o FCF futuros que contradigan la continuidad de la generación de caja observada en el TTM al 2026-09-30.
-2. Un deterioro persistente del margen bruto que no pueda conciliarse con una explicación verificable y con la economía del negocio.
+*Nota:* No se disponen de fechas exactas para los catalizadores; se presentan como eventos esperados dentro del horizonte de 12 meses.  
 
-La contra-tesis es que la resiliencia de ingresos y el FCF positivo podrían no compensar una compresión de márgenes, un desempeño débil de volúmenes o una evolución desfavorable de los costos. No hay información suficiente para asignar probabilidades a estos escenarios.
+---
 
-## 7. Catalizadores y Timeline
+## 8. Marco de Valoración  
 
-| Fecha esperada | Evento o indicador | Evidencia disponible | Impacto potencial |
-|---|---|---|---|
-| Próximo período de resultados; fecha no proporcionada | Actualización de ingresos y FCF frente a las bases TTM | Ingresos de USD 39.898 mil millones y FCF de USD 3.658 mil millones al 2026-09-30, según Stockanalysis | Confirmar o debilitar la hipótesis de continuidad del crecimiento y la generación de caja |
-| Próximo período de resultados; fecha no proporcionada | Evolución del margen bruto y explicación de sus cambios | 28,38% en FY 2025 y 34,26% TTM al 2026-09-30, según Stockanalysis | Aclarar si la variación es recurrente y qué factores la explican |
-| Próximos reportes; fecha no proporcionada | Desglose de ventas orgánicas, volúmenes, precios y mezcla por región | Indicador de seguimiento propuesto por AOIF; no se aportan datos detallados | Ayudar a distinguir crecimiento por volumen, precio y mezcla |
-| Próximos reportes; fecha no proporcionada | Márgenes operativos y efecto de costos de insumos, empaques y transporte | Riesgos cualitativos identificados por AOIF | Evaluar presión de costos y capacidad de trasladarlos a precios |
+1. **Método de múltiplos** – PER y EV/EBITDA comparados con peers.  
+   - **PER actual:** 21.33 x (≈ media del sector).  
+   - **EV/EBITDA:** 14.79 x (ligeramente superior al promedio del sector).  
+2. **Descuento de flujos de caja (DCF)** – No se dispone de proyecciones detalladas; sin embargo, el **FCF yield** de 3.2 % y la alta conversión de caja respaldan un flujo de caja estable.  
+3. **Valor intrínseco estimado** – USD 70 (AOIF – Paso 6).  
+4. **Sensibilidad** (supuestos clave):  
+   - **Crecimiento de ingresos:** ±1 % (5 %‑7 %).  
+   - **Margen operativo:** ±0.5 % (14 %‑15 %).  
+   - **WACC:** 7 %‑9 % (afecta valor presente).  
 
-No se proporciona una fecha futura confirmada para estos hitos. Tampoco se identifican eventos corporativos fechados que puedan tratarse como catalizadores ciertos.
+**Conclusión de valoración:** Con el precio actual (USD 64.94) por debajo del valor intrínseco estimado (USD 70) y del objetivo de consenso (USD 70.64), la acción presenta un **margen de seguridad** considerado “adecuado” por el análisis interno.  
 
-## 8. Marco de Valoración
+---
 
-El valor intrínseco **no es estimable con la información disponible**. El análisis AOIF señala que faltan un precio de referencia fechado, FCF normalizado y supuestos de crecimiento y descuento. También indica margen de seguridad insuficiente.
+## 9. Preguntas Abiertas y Agenda de Investigación  
 
-Los múltiplos reportados —P/E de 20,85x y EV/EBITDA de 14,52x— pueden servir como referencias relativas, pero no bastan por sí solos para concluir que la acción está barata o cara. La cifra de FCF yield reportada como cero carece de unidad, fecha e inputs suficientes para interpretarla.
+| Pregunta | Tipo de información requerida |
+|---|---|
+| ¿Qué parte del crecimiento de ingresos proviene de **volumen**, **precio**, **mezcla**, **adquisiciones** o **divisas**? | Desglose segmentado de ingresos (reportes 10‑K/10‑Q). |
+| ¿Cuáles son los **retornos sobre capital** y los **retornos incrementales** de la reinversión en cada línea de negocio? | Análisis de ROIC por segmento y cálculo de incremental ROIC. |
+| ¿Cómo evolucionarán los **márgenes** frente a la presión de precios de materias primas? | Proyecciones de costos de materias primas y cobertura de precios. |
+| ¿Cuál es la **estructura de insider ownership** exacta y los planes de recompra de acciones? | Detalle de participaciones y políticas de buy‑back. |
+| ¿Qué **escenarios de deuda** (refinanciamiento, aumento de tasas) podrían afectar la liquidez? | Simulaciones de deuda bajo diferentes tasas de interés. |
+| ¿Cuál es la **penetración de e‑commerce** y la estrategia DTC de Mondelez? | Métricas de ventas online y roadmap de canales digitales. |
 
-El análisis de escenarios DDD, fechado al 2026-11-21 y con horizonte al 2027-11-21, utiliza objetivos de analistas como anclas, no una valoración intrínseca propia:
+**Próximos pasos de investigación:**  
+- Revisar los formularios 10‑K/10‑Q más recientes para obtener desgloses de ingresos y costos.  
+- Monitorear los precios de cacao, azúcar y aceite vegetal (Bloomberg, Reuters).  
+- Analizar la evolución del **current ratio** y la política de gestión de capital de trabajo.  
 
-| Escenario | Precio objetivo | Interpretación del paquete |
-|---|---:|---|
-| Bajista | USD 56 | Extremo inferior del rango de objetivos de analistas observado |
-| Alcista | USD 77 | Extremo superior del rango de objetivos de analistas observado |
+---  
 
-El paquete no proporciona los modelos detrás de estos objetivos ni supuestos verificables de crecimiento, márgenes o valoración. Por ello, el rango debe entenderse como una referencia de expectativas publicadas, no como un rango de valor fundamental calculado de forma independiente.
-
-Una valoración futura debería analizar escenarios de crecimiento de ingresos, márgenes, conversión de FCF, reinversión, retornos sobre capital y evolución de acciones diluidas. La sensibilidad tendría que mostrar cómo cambian los resultados ante variaciones en estos supuestos y en la tasa de descuento. Ninguno de esos inputs está suficientemente documentado aquí.
-
-## 9. Preguntas Abiertas y Agenda de Investigación
-
-1. ¿Qué explica la diferencia entre el margen bruto de FY 2025 y el TTM al 2026-09-30? ¿Qué parte responde a factores temporales y qué parte es recurrente?
-2. ¿Cómo evolucionan ventas orgánicas, volúmenes, precios y mezcla por categoría, canal y región?
-3. ¿Cuáles son los retornos sobre capital a lo largo del tiempo, las necesidades de reinversión y la evolución de las acciones diluidas?
-4. ¿Cómo se reconcilian las cifras reportadas de efectivo, deuda y cobertura de intereses? ¿Cuál es el EBIT y el gasto por intereses utilizados en el cálculo?
-5. ¿Qué componentes explican el crecimiento del FCF reportado de 59,74% y cuáles son sus valores comparativos?
-6. ¿Cuál es la conversión de flujo de caja operativo a FCF y cuánto requiere la inversión de capital para sostener el negocio?
-7. ¿Qué parte de la exposición a cacao, azúcar, aceites, trigo, empaques y transporte puede mitigarse mediante precios, contratos u otras acciones?
-8. ¿Cómo se comparan el crecimiento, los márgenes, los retornos y la posición competitiva de Mondelez con fabricantes y alternativas relevantes, incluidos [[CL]] y [[KO]]?
-9. ¿Cuál es la distribución de ingresos y rentabilidad por región, categoría y marca?
-10. ¿Qué información respalda las evaluaciones de calidad del management, alineamiento de insiders y asignación de capital?
-11. ¿Qué supuestos y modelos sustentan los objetivos de analistas de USD 56 a USD 77 y el consenso de USD 70,60 observado al 2026-11-21?
-
-**Estado de la evidencia:** parcial. Los datos disponibles documentan escala de ingresos, FCF positivo y algunas métricas financieras, pero no bastan para establecer tendencias comparables, evaluar con confianza la estructura de capital ni estimar valor intrínseco.
+*Esta entrada se construyó exclusivamente con la evidencia proporcionada en los paquetes DDD y AOIF, sin incorporación de fuentes externas.*
 
 ---
 

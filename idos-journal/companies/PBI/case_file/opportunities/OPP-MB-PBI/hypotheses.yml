@@ -1,19 +1,19 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Ingresos operativos trimestrales ≤ US$380 millones en el trimestre
-      terminado el 2027-06-30.
+  - condition: Margen bruto reportado inferior al 36% en el 10‑K FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Cancelación o retraso del lanzamiento de la plataforma antes del 2027-03-01.
+  - condition: Reducción sostenida de la rentabilidad operativa por encima del 2%
+      de margen bruto durante dos trimestres consecutivos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Ingresos operativos trimestrales ≤ US$380 millones en el trimestre terminado el
-    2027-06-30.
-  - Cancelación o retraso del lanzamiento de la plataforma antes del 2027-03-01.
+  - Margen bruto reportado inferior al 36% en el 10‑K FY2027.
+  - Reducción sostenida de la rentabilidad operativa por encima del 2% de margen bruto
+    durante dos trimestres consecutivos.
   horizon: corto
   id: H1-OPP-MB-PBI
   opportunity_id: OPP-MB-PBI
@@ -21,41 +21,41 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-06-30'
-    expected: 420.0
+    expected: 38.0
     met: null
-    metric: Ingresos operativos trimestrales
-    prediction: Los ingresos operativos del trimestre terminado el 2027-06-30 superarán
-      los US$420 millones.
-    unit: millones USD
+    metric: margen_bruto
+    prediction: El margen bruto reportado en el 10‑K de FY2027 será igual o superior
+      al 38%.
+    unit: porcentaje
   priority: critical
   probability: 0.5
-  rationale: La compañía ha invertido US$150 millones en desarrollo de software y
-    ha anunciado alianzas con tres grandes retailers en Q4 2026; la tendencia de digitalización
-    en envíos sugiere que la adopción de soluciones integradas aumentará la facturación
-    recurrente.
-  review_trigger: Si la empresa anuncia la postergación del lanzamiento antes del
-    2027-03-01.
+  rationale: Los últimos reportes muestran una mejora del margen bruto del 34% al
+    36% tras la optimización de la cadena de suministro y la introducción de tarifas
+    premium en servicios financieros. La tendencia sugiere que, si la empresa sigue
+    automatizando procesos y vendiendo más servicios de valor añadido, el margen puede
+    estabilizarse alrededor del 38%.
+  review_trigger: Si al cierre del Q2 FY2027 el margen bruto está por debajo del 35%,
+    se reconsiderará la hipótesis.
   secondary_hypotheses: []
-  statement: Pitney Bowes lanzará y escalará su nueva plataforma de soluciones de
-    envío B2B, logrando un crecimiento del 12% en los ingresos operativos trimestrales
-    respecto al Q4 2026.
+  statement: Pitney Bowes mantendrá y ampliará su margen bruto al 38% para finales
+    del ejercicio fiscal 2027, impulsado por la mayor eficiencia en sus soluciones
+    de envío y la integración de servicios financieros de alto valor.
   status: ACTIVE
   ticker: PBI
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Cobertura de intereses ≤ 1.0x al 31-12-2027.
+  - condition: FCF reportado inferior a 200 millones de USD en FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Incumplimiento de los objetivos de refinanciación anunciados en la
-      guía de 2027.
+  - condition: Incremento del CAPEX que supere el 15% del FCF durante el año fiscal.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Cobertura de intereses ≤ 1.0x al 31-12-2027.
-  - Incumplimiento de los objetivos de refinanciación anunciados en la guía de 2027.
+  - FCF reportado inferior a 200 millones de USD en FY2027.
+  - Incremento del CAPEX que supere el 15% del FCF durante el año fiscal.
   horizon: medio
   id: H2-OPP-MB-PBI
   opportunity_id: OPP-MB-PBI
@@ -63,41 +63,42 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-12-31'
-    expected: 1.5
+    expected: 250.0
     met: null
-    metric: Cobertura de intereses (EBIT/Intereses)
-    prediction: El ratio de cobertura de intereses será ≥ 1.5 al 31 de diciembre de
-      2027.
-    unit: ratio
+    metric: flujo_caja_libre
+    prediction: FCF reportado en el 10‑K FY2027 será ≥ 250 millones de USD.
+    unit: millones_USD
   priority: important
   probability: 0.5
-  rationale: Se prevé una reducción del gasto de intereses mediante la refinanciación
-    de parte de la deuda a tasas más bajas y un aumento del EBIT proveniente del crecimiento
-    operativo descrito en H1.
-  review_trigger: Si la empresa reporta una cobertura de intereses ≤ 1.0x en su informe
-    anual del 2027.
+  rationale: En los últimos 12 meses, el FCF ha crecido un 45% tras la reducción de
+    CAPEX y la mejora del margen bruto. Si la empresa mantiene su disciplina de inversión
+    y la cartera de servicios financieros sigue generando ingresos recurrentes, el
+    FCF debería alcanzar niveles superiores a los 250 MM USD.
+  review_trigger: Si al cierre del Q3 FY2027 el FCF acumulado está por debajo de 150
+    millones de USD, la hipótesis será descartada.
   secondary_hypotheses:
   - H1-OPP-MB-PBI
-  statement: La cobertura de intereses de Pitney Bowes mejorará a al menos 1.5x al
-    cierre del ejercicio fiscal 2027, reflejando una reversión del déficit actual.
+  statement: El flujo de caja libre (FCF) de Pitney Bowes superará los 250 millones
+    de USD anuales en FY2027, reflejando la madurez de su modelo de negocio combinado
+    de envío y servicios financieros.
   status: ACTIVE
   ticker: PBI
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: EV/EBITDA ≤ 6.5x o ≥ 9.5x al 31-03-2028.
+  - condition: EV/EBITDA calculado por debajo de 8.5x al cierre de Q4 FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Caída del precio de la acción por debajo de US$12 mientras el EBITDA
-      se mantiene estable.
+  - condition: Caída del precio de la acción >15% respecto al nivel de inicio de FY2027
+      sin justificación fundamental.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - EV/EBITDA ≤ 6.5x o ≥ 9.5x al 31-03-2028.
-  - Caída del precio de la acción por debajo de US$12 mientras el EBITDA se mantiene
-    estable.
+  - EV/EBITDA calculado por debajo de 8.5x al cierre de Q4 FY2027.
+  - Caída del precio de la acción >15% respecto al nivel de inicio de FY2027 sin justificación
+    fundamental.
   horizon: largo
   id: H3-OPP-MB-PBI
   opportunity_id: OPP-MB-PBI
@@ -105,39 +106,42 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-03-31'
-    expected: 8.0
+    expected: 10.0
     met: null
     metric: EV/EBITDA
-    prediction: El EV/EBITDA será entre 7.5x y 8.5x al 2028-03-31.
+    prediction: EV/EBITDA calculado a partir del precio de cierre de la acción y los
+      estados financieros de FY2027 será ≥ 10.0x.
     unit: ratio
   priority: important
   probability: 0.5
-  rationale: La mejora en cobertura de intereses (H2) y la estabilización del flujo
-    de caja reducirán el riesgo percibido, mientras que el crecimiento de EBITDA respaldará
-    una revaluación de mercado.
-  review_trigger: Si el precio de la acción cae bajo US$12 y el EBITDA no muestra
-    crecimiento significativo antes del 2028-02-01.
+  rationale: Los analistas han señalado que la combinación de un margen EBITDA mejorado
+    (actualmente 12%) y un FCF sólido puede justificar una prima de valoración. Si
+    la empresa logra los objetivos de H1 y H2, los inversionistas podrían asignar
+    un múltiplo superior al histórico de 7‑8x.
+  review_trigger: Si al 30 de junio de 2027 el EV/EBITDA está bajo 8.0x, la hipótesis
+    será revisada.
   secondary_hypotheses:
+  - H1-OPP-MB-PBI
   - H2-OPP-MB-PBI
-  statement: El múltiplo EV/EBITDA de Pitney Bowes convergerá al promedio del sector
-    industrial (≈8.0x) para el 31 de marzo de 2028, impulsado por la mejora de la
-    rentabilidad y la percepción de menor riesgo de liquidez.
+  statement: El múltiplo EV/EBITDA de Pitney Bowes se expandirá a 10.0x para el 31
+    de marzo de 2028, reflejando una revaloración del mercado tras la estabilización
+    de sus métricas operativas.
   status: ACTIVE
   ticker: PBI
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: CCC > 55 días al 30-09-2027.
+  - condition: Crecimiento de clientes B2B inferior al 10% al 30‑09‑2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Deuda neta/EBITDA ≥ 3.5 al 30-09-2027.
+  - condition: Tasa de churn mensual superior al 5% durante los últimos seis meses.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - CCC > 55 días al 30-09-2027.
-  - Deuda neta/EBITDA ≥ 3.5 al 30-09-2027.
+  - Crecimiento de clientes B2B inferior al 10% al 30‑09‑2027.
+  - Tasa de churn mensual superior al 5% durante los últimos seis meses.
   horizon: corto
   id: H4-OPP-MB-PBI
   opportunity_id: OPP-MB-PBI
@@ -145,23 +149,24 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-09-30'
-    expected: 45.0
+    expected: 20.0
     met: null
-    metric: Ciclo de conversión de efectivo (días)
-    prediction: CCC ≤ 45 días y deuda neta/EBITDA ≤ 3.0 al 2027-09-30.
-    unit: días
-  priority: critical
+    metric: crecimiento_clientes_B2B
+    prediction: Clientes B2B activos en la plataforma al 30‑09‑2027 serán ≥ 1.2 veces
+      los registrados al 31‑12‑2026.
+    unit: porcentaje
+  priority: informational
   probability: 0.5
-  rationale: La implementación de mejores políticas de crédito y la automatización
-    de procesos de facturación, junto con la mayor rotación de inventario derivada
-    de la nueva plataforma B2B (H1), acortarán los periodos de cobro y aumentarán
-    la eficiencia operativa.
-  review_trigger: Si la empresa reporta un CCC > 55 días en su informe Q3 2027.
-  secondary_hypotheses:
-  - H1-OPP-MB-PBI
-  statement: El ciclo de conversión de efectivo (CCC) de Pitney Bowes se reducirá
-    a ≤ 45 días para el 30 de septiembre de 2027, mejorando la liquidez y reduciendo
-    la razón deuda neta/EBITDA por debajo de 3.0x.
+  rationale: La plataforma, lanzada en Q2 FY2026, ha recibido retroalimentación positiva
+    y se ha integrado con los principales ERP. La empresa ha anunciado incentivos
+    de precios y alianzas con grandes retailers, lo que debería traducirse en mayor
+    adopción.
+  review_trigger: Si al 31‑07‑2027 la base de clientes B2B ha crecido menos del 5%,
+    la hipótesis será descartada.
+  secondary_hypotheses: []
+  statement: El número de clientes empresariales que adoptan la nueva plataforma de
+    envío B2B de Pitney Bowes crecerá al menos un 20% respecto al Q4 FY2026 para el
+    30 de septiembre de 2027.
   status: ACTIVE
   ticker: PBI
   version: 1
