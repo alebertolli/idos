@@ -91,3 +91,67 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-26T12:25:00.448971'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T12:32:04.083969'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T12:32:04.095682'
+- data:
+    classification: multibaggers
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 554e1a950a7d6298e73faee7f3027ba70af8f18cb02fee43d1e6ade8aa93ae51
+    opp_id: OPP-MB-ASML
+    original_status: UNDER_RESEARCH
+    score: 68.68
+    strategy_version: '1.5'
+    ticker: ASML
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-26T12:33:24.025861'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DOW
+    ticker: DOW
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T12:33:50.159079'
+- data:
+    classification: RESEARCH_REQUIRED
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: e7e26707c62b163b534090fbd17002d9aa93f77778084ce2fb23ce16f4f77327
+    opp_id: OPP-MB-DOW
+    original_status: UNDER_RESEARCH
+    score: 58
+    strategy_version: '1.5'
+    ticker: DOW
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-26T12:35:18.560490'

@@ -1,147 +1,133 @@
 ## 1. Visión General de la Compañía
 
-**Dow Inc.** es una compañía global de ciencia de materiales que fabrica y comercializa productos químicos y materiales para clientes industriales y de consumo. Transforma materias primas —incluidos hidrocarburos, sal y otros insumos químicos— en productos intermedios y materiales utilizados en distintos mercados.
+**Dow Inc. (DOW)** es una compañía global de ciencia de materiales que desarrolla y fabrica productos químicos y materiales para clientes industriales y comerciales. Su modelo parte de adquirir hidrocarburos, energía y otros insumos, procesarlos en instalaciones químicas integradas y vender los productos resultantes a distintos mercados finales.
 
-Su portafolio incluye etileno, propileno, polietileno, aromáticos y derivados; elastómeros de poliolefina, EVA y caucho EPDM; y productos de poliuretano, como óxido de propileno, propilenglicol, polioles de poliéter e isocianatos aromáticos. Entre sus clientes se encuentran fabricantes y convertidores de envases, y empresas de construcción e infraestructura.
+Entre los productos mencionados en la investigación figuran etileno, propileno, polietileno, aromáticos, elastómeros de poliolefina, EVA y caucho EPDM. Sus clientes incluyen fabricantes de envases y embalajes, y empresas de construcción e infraestructura. La investigación también describe segmentos de Packaging & Specialty Plastics e Industrial Intermediates & Infrastructure, pero no aporta una descripción completa y verificada de todos los segmentos ni un desglose geográfico de ingresos.
 
-La compañía opera en una industria global, intensiva en capital y energía, cuyos resultados están expuestos a la demanda económica, la utilización de capacidad, los precios de materias primas y energía, y los spreads entre insumos y productos. El análisis disponible clasifica a Dow principalmente como una compañía **cíclica**.
-
-**Cobertura y fuentes:** esta entrada sintetiza los outputs DDD y AOIF recibidos. El material no aporta enlaces ni referencias primarias verificables; por tanto, las cifras y afirmaciones se atribuyen a esos análisis y no se presentan como datos contrastados independientemente. La cotización indicada corresponde al 30-10-2026 y el consenso al 20-11-2026, fechas distintas. Los análisis están fechados al 20-11-2026.
+La compañía opera en una industria global y cíclica, expuesta a los precios de materias primas y energía, a la oferta y demanda, y a la utilización de capacidad. La información disponible no permite cuantificar la contribución de cada región o mercado final.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Drivers de ingresos y resultados
+Los ingresos dependen de la venta de materiales y productos químicos a clientes industriales. Los principales factores económicos identificados son:
 
-Los resultados dependen, entre otros factores, de:
+- Volúmenes vendidos y utilización de las plantas.
+- Precios de productos y capacidad de trasladar cambios de costos a los clientes.
+- Costos y disponibilidad de hidrocarburos, materias primas y energía.
+- Condiciones de demanda y oferta en los mercados finales.
 
-- Volúmenes de venta y demanda en mercados industriales, de packaging, construcción, infraestructura, movilidad y consumo.
-- Precios de productos y spreads frente a materias primas, energía y transporte.
-- Utilización de capacidad y absorción de costos fijos.
-- Disponibilidad y precios de insumos, con posible exposición a diferencias regionales.
+La investigación caracteriza a Dow como un **líder competitivo**, con un **moat estrecho**. La escala global, la integración de operaciones, la experiencia en procesos químicos y las relaciones con clientes podrían ofrecer ventajas operativas y comerciales. No se aportan datos comparativos suficientes para medir la duración o magnitud de esas ventajas frente a competidores.
 
-Los mercados y productos enumerados describen la exposición del negocio, pero los inputs no aportan un desglose cuantitativo de ingresos o márgenes por segmento, producto o geografía.
+La ciclicidad de la industria puede limitar la estabilidad de márgenes y retornos: la debilidad de la demanda o el exceso de oferta pueden presionar precios, volúmenes y utilización; los aumentos de costos pueden reducir márgenes si el traspaso a precios es incompleto.
 
-### Ventajas y moat
-
-La escala global, la integración de activos, la experiencia de proceso, la tecnología y las relaciones con clientes pueden favorecer la competitividad. El análisis AOIF caracteriza la posición competitiva como **líder**, pero califica la amplitud del moat como **estrecha**. No se proporcionan métricas segmentadas que permitan comprobar la persistencia de ventajas en costos, precios o retornos.
-
-### Dinámica competitiva
-
-La industria es global, intensiva en capital y energía, y sensible al ciclo económico. Exceso de capacidad y spreads deprimidos pueden presionar los márgenes. Entre las compañías relacionadas para seguimiento sectorial figuran [[DD]], [[CX]], [[AEM]], [[B]], [[BHP]] y [[CDE]]; los materiales disponibles no documentan comparaciones operativas directas con ellas.
+Como referencias de compañías relacionadas dentro del universo sectorial existente en la wiki pueden consultarse [[DD]], [[IFF]] y [[ECL]]. La información aportada no establece comparaciones directas de cuota de mercado o costos entre estas compañías y Dow.
 
 ## 3. Perfil Financiero
 
-| Métrica | Valor o evaluación disponible | Alcance y limitación |
-|---|---:|---|
-| Crecimiento de ingresos | 4,15% | Cifra del análisis AOIF; período y metodología no especificados en el input. |
-| Margen operativo | 4,29% | Cifra del análisis AOIF; período y metodología no especificados. |
-| ROIC | 5,65% | Cifra del análisis AOIF; período y metodología no especificados. |
-| EV/EBITDA | 8,72× | Cifra del análisis AOIF; no se indica fecha de referencia ni componentes del cálculo. |
-| FCF TTM | Aproximadamente USD 2,05 mil millones | DDD indica que el período terminó el 30-09-2026. No se aportan componentes ni conciliación. |
-| Conversión de FCF | No verificable | AOIF indica que faltan cifras comparables de flujo operativo, capex y FCF para comprobarla. |
-| Tendencia financiera | Estable | Evaluación cualitativa de AOIF; no se adjunta serie temporal. |
-| Salud financiera | Adecuada | Evaluación cualitativa de DDD. |
-| Deuda bruta y neta | No disponible | No se incluyen saldos, calendario de vencimientos, costo ni liquidez disponible. |
+Las métricas de esta tabla provienen de los inputs de investigación. Cuando no se proporciona período, metodología o fuente primaria, se indica expresamente: no deben interpretarse como cifras plenamente comparables o verificadas de forma independiente.
 
-Las métricas de AOIF no vienen acompañadas de período, fecha de referencia o metodología detallados. No deben interpretarse como una serie comparable ni combinarse directamente con el FCF TTM fechado por DDD.
+| Métrica | Valor reportado | Período o limitación |
+|---|---:|---|
+| Ingresos: crecimiento | 4,15% | El input AOIF no especifica período, fuente ni metodología |
+| Margen operativo | 4,29% | El input AOIF no especifica período ni definición |
+| ROIC | 5,65% | El input AOIF no especifica período ni metodología |
+| EV/EBITDA | 8,72x | El input AOIF no incluye fecha ni componentes de cálculo |
+| FCF yield | 0 | Período y definición no especificados; no es posible interpretarlo con confianza |
+| PER | 0 | Período y definición no especificados; no es posible interpretarlo con confianza |
+| Current ratio | 1,76 | Al 2026-09-30; dato reportado por StockAnalysis |
+| Interest coverage | 0 | Al 2026-09-30; dato reportado por StockAnalysis, pendiente de verificar definición y dato fuente |
+
+La serie de flujo de caja libre (FCF) reportada muestra variaciones importantes. Los importes se presentan en millones de USD, según el paquete de investigación:
+
+| Período | FCF reportado |
+|---|---:|
+| FY 2023 | 2.504 |
+| FY 2024 | -229 |
+| FY 2025 | -1.604 |
+| TTM al 2026-09-30 | Positivo; el importe no figura en el input disponible |
+
+También se reporta **net income TTM de -USD 905 millones al 2026-09-30**. La fuente citada para el net income y las cifras de FCF es StockAnalysis, aunque el paquete no aporta una URL específica para cada cifra. La página de estadísticas citada para algunos ratios es [StockAnalysis – DOW Statistics](https://stockanalysis.com/stocks/DOW/statistics/).
+
+**Lectura de tendencia:** AOIF califica la tendencia financiera como deteriorándose, pero no aporta fechas ni fuentes que permitan reconciliar esa evaluación con las métricas puntuales de la tabla. El FCF TTM positivo, sin importe disponible, no basta por sí solo para establecer una recuperación duradera, especialmente frente al FCF negativo reportado en FY 2024 y FY 2025 y a la pérdida neta TTM.
+
+La investigación no aporta deuda neta, calendario de vencimientos, intereses pagados, dividendos, capex detallado ni una serie comparable de flujo de caja operativo. Por ello, no es posible evaluar aquí la estructura de capital o la conversión de beneficios en caja con suficiente precisión.
 
 ## 4. Management y Gobierno Corporativo
 
-La información disponible es insuficiente para evaluar de forma concluyente el liderazgo y el gobierno corporativo.
+El input AOIF califica la calidad del management como **regular**, el alineamiento de insiders como **moderado** y la asignación de capital como **neutral**. Estas son evaluaciones del paquete de investigación, no conclusiones respaldadas por datos detallados sobre remuneración, compras o ventas de insiders, objetivos de gestión o historial de asignación de capital.
 
-- **Calidad de gestión:** DDD la califica como regular; AOIF también califica la calidad del management como regular.
-- **Asignación de capital:** AOIF la describe como neutral. DDD señala que no hay datos primarios suficientes sobre decisiones recientes de asignación de capital, remuneración, recompras o adquisiciones.
-- **Alineamiento de insiders:** AOIF lo califica como débil, sin cifras de propiedad accionaria ni detalle de incentivos.
-- **Composición del board:** no se aporta información sobre miembros, independencia, experiencia, comités o renovación.
-- **Ventas de activos y deuda:** una reducción de deuda neta mediante ventas de activos no estratégicos aparece como posibilidad heredada en la tesis previa, no como una iniciativa o resultado verificado.
+No se incluyen nombres de ejecutivos, composición del board, porcentaje de propiedad de insiders, estructura de incentivos ni objetivos cuantificados de rentabilidad o reinversión. Por tanto, no es posible emitir una evaluación independiente del liderazgo o del gobierno corporativo.
 
 ## 5. Tesis de Inversión
 
-La tesis es la de una **recuperación cíclica potencial**, no la de un compounder de crecimiento probado ni una oportunidad de deep value demostrada.
+**Caso favorable, sujeto a verificación:** Dow ofrece exposición a una cartera amplia de materiales y productos químicos utilizados en mercados industriales relevantes. La escala global, la integración de operaciones, la experiencia en procesos y las relaciones con clientes podrían contribuir a su posición competitiva y a la eficiencia de sus instalaciones.
 
-### Caso alcista
+El input AOIF reporta crecimiento de ingresos de 4,15%, margen operativo de 4,29% y ROIC de 5,65%, aunque no especifica sus períodos ni fuentes. Esos valores no bastan para confirmar una tendencia estructural. El paquete también reporta FCF TTM positivo al 2026-09-30, pero no proporciona su importe y registra FCF negativo en FY 2024 y FY 2025. La tesis favorable dependería de que el FCF positivo se mantenga y de que la rentabilidad neta se recupere.
 
-- Una recuperación de la demanda, los volúmenes y la utilización podría mejorar la absorción de costos fijos.
-- Mejores spreads entre productos y materias primas podrían sostener una recuperación de márgenes.
-- La escala, la integración de activos, la experiencia de proceso y las relaciones con clientes pueden ayudar a la compañía a competir durante distintas fases del ciclo.
-- Packaging, infraestructura, movilidad y aplicaciones de consumo son áreas de demanda potencial, aunque los inputs no cuantifican su contribución ni su crecimiento esperado.
-- DDD registra FCF TTM aproximado de USD 2,05 mil millones para el período terminado el 30-09-2026. Sin una serie histórica y una conciliación de caja, esta cifra no basta para establecer la sostenibilidad del flujo.
+La mejora de precio a 12 meses y el consenso de analistas son referencias de mercado, no evidencia de una recuperación fundamental. El paquete indica un avance del precio de 45,49% en los 12 meses terminados el 2026-10-30 y un consenso de USD 34,39. Esos datos no demuestran por sí mismos que exista una infravaloración o un error de valoración.
 
-**Condición de confirmación:** la recuperación debería aparecer en resultados trimestrales mediante mejores márgenes, volúmenes o utilización, y ser atribuible a una mejora de spreads y demanda, no solo a factores temporales.
+**Clasificación del paquete:** *RESEARCH_REQUIRED*. La evidencia disponible no valida todavía una recuperación integral de rentabilidad ni la sostenibilidad del FCF reciente.
 
 ## 6. Riesgos y Contra-Tesis
 
-### Caso bajista
+La contra-tesis es que la recuperación aparente del FCF no sea duradera y que la debilidad de la rentabilidad continúe. Los principales riesgos identificados son:
 
-La recuperación puede retrasarse o no materializarse si persisten el exceso de capacidad, los spreads deprimidos o una demanda industrial y de packaging débil. Menor utilización dificultaría la absorción de costos fijos. Además, la información financiera incompleta impide evaluar adecuadamente la resiliencia del balance y la capacidad para sostener el FCF.
+- **Ciclo y demanda:** debilidad de la actividad o exceso de oferta que presione precios, volúmenes y utilización de capacidad. AOIF califica este riesgo como de impacto alto y probabilidad alta.
+- **Costos de insumos:** volatilidad o aumento de hidrocarburos, materias primas y energía, con traspaso incompleto a precios. AOIF también lo califica como de impacto alto y probabilidad alta.
+- **Rentabilidad:** net income TTM de -USD 905 millones al 2026-09-30, según la investigación basada en StockAnalysis.
+- **Variabilidad del FCF:** FCF negativo reportado en FY 2024 y FY 2025, frente a una cifra TTM positiva cuyo importe no se proporciona.
+- **Cobertura de intereses:** el valor reportado de 0 al 2026-09-30 está por debajo del umbral de 2,0 indicado por el paquete, pero requiere comprobar la definición y el dato de origen. No debe interpretarse como una medida confirmada sin esa validación.
+- **Datos financieros incompletos:** las métricas de AOIF carecen de períodos y fuentes en el material recibido, y algunos ratios de valoración no tienen definiciones claras.
 
-### Riesgos principales
+**Falsadores de la tesis de recuperación:**
 
-| Riesgo | Impacto estimado | Probabilidad estimada | Fundamento disponible |
-|---|---|---|---|
-| Exceso de oferta o spreads deprimidos en químicos y polímeros | Alto | Media en DDD; alta en AOIF para debilidad de demanda/exceso de capacidad | Puede prolongar la debilidad cíclica. |
-| Demanda industrial o de packaging menor de lo esperado | Alto | Media | Puede reducir volúmenes, utilización y absorción de costos fijos. |
-| Volatilidad en precio o disponibilidad de materias primas, energía y transporte | Alto | Media | Puede comprimir márgenes y generar diferencias regionales. |
-| Efectos ambientales, de energía, seguridad de procesos y residuos | No cuantificado | No cuantificada | Exposición potencial asociada a la fabricación de químicos y plásticos; el análisis DDD la califica como riesgo ESG/supply chain medio. |
-| Balance y vencimientos poco transparentes en los inputs | No evaluable | No evaluable | No se aportan deuda bruta o neta, calendario, costo ni cobertura de intereses. |
+1. El FCF positivo TTM no se mantiene en períodos financieros posteriores.
+2. La pérdida neta TTM persiste o se amplía en nuevas publicaciones.
+3. Los márgenes o la utilización de capacidad se deterioran ante debilidad de demanda, exceso de oferta o presión de costos.
 
-### Triggers de falsación
-
-- Márgenes, volúmenes o utilización que no mejoren pese a una recuperación esperada de demanda o spreads.
-- Persistencia de exceso de oferta o compresión de spreads que impida una recuperación sostenida de resultados.
-- Deterioro del FCF o aumento de la deuda neta que contradiga la expectativa de resiliencia financiera.
-- Falta de evidencia de mejora en resultados trimestrales atribuible a los factores que sustentan la tesis.
-
-El análisis DDD indica que la tesis sigue activa y que no se identificaron flags de vulneración en las categorías de integridad revisadas. Esto no elimina los riesgos económicos descritos.
+La evidencia disponible no permite afirmar que haya un error de valoración. La pérdida neta y la variación del FCF impiden tratar el avance del precio o el FCF TTM positivo como prueba suficiente de recuperación.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Horizonte indicado | Probabilidad estimada | Impacto potencial | Estado de la evidencia |
-|---|---|---:|---|---|
-| Recuperación sostenida de márgenes por mejores spreads, utilización y demanda, confirmada en resultados | Medio plazo | 40% | Alto | Hipótesis de DDD, con confianza baja; aún debe confirmarse en resultados. |
-| Mejora de márgenes brutos por encima del 12% histórico | No especificado | 40% | No especificado | Catalizador heredado en DDD; el input no incluye observaciones comparables que validen el nivel histórico. |
-| Reducción de deuda neta mediante ventas de activos no estratégicos | Medio plazo | 25% | Medio | Posibilidad heredada; no hay datos de ventas de activos, deuda neta ni reducción efectiva. |
+| Catalizador o hito | Fecha esperada disponible | Impacto potencial y condición de seguimiento |
+|---|---|---|
+| Publicación de nuevos resultados financieros | No especificada en el paquete | Comprobar si el FCF positivo se mantiene y si la pérdida neta TTM se reduce o se revierte. |
+| Continuidad del FCF positivo | Sin fecha definida | Sería evidencia favorable si se confirma en períodos posteriores; el paquete no incluye guía ni un calendario de publicaciones. |
+| Recuperación de la rentabilidad neta | Sin fecha definida | Observar si Dow pasa de pérdida neta TTM a beneficio reportado en períodos posteriores. No se proporcionan objetivos de management. |
+| Evolución de ingresos, márgenes y utilización de plantas | Sin fecha definida | Comparar precios, volúmenes y utilización con los costos de materias primas y energía; no se aportan hitos corporativos concretos. |
 
-El horizonte del análisis de escenarios de DDD es el 20-11-2027, con fecha de referencia del 20-11-2026. No se proporcionan fechas concretas para resultados, transacciones u otros eventos corporativos.
+No se han identificado en los inputs eventos corporativos fechados, objetivos de management ni catalizadores con impacto cuantificado.
 
 ## 8. Marco de Valoración
 
-### Lectura disponible
+La información disponible no permite estimar de forma independiente el valor intrínseco de Dow. AOIF califica el margen de seguridad como **insuficiente** y declara que no puede estimarlo de manera independiente por falta de precio de referencia, cifras financieras fechadas y supuestos completos.
 
-- DDD clasifica la valoración como **justa** y el posible error de valoración como **incierto**.
-- La cotización indicada es **USD 34,33 al 30-10-2026**.
-- DDD señala que el consenso observado el **20-11-2026** tiene un objetivo medio y mediano próximos a la cotización disponible. Como las fechas de observación difieren y no se aportan los valores completos del consenso, esa proximidad no demuestra infravaloración.
-- El escenario DDD fija un objetivo bajista de **USD 30** y uno alcista de **USD 41** al **20-11-2027**. Son anclas basadas en los límites observados del rango de objetivos de analistas, no valoraciones independientes.
-- AOIF informa un múltiplo EV/EBITDA de **8,72×**, pero no proporciona fecha, EBITDA utilizado, deuda neta o cálculo reproducible. También señala que el valor intrínseco no puede estimarse con la información disponible y que el margen de seguridad es insuficiente.
+El paquete ofrece las siguientes referencias de mercado:
 
-### Metodología apropiada
+| Referencia | Valor | Fecha o limitación |
+|---|---:|---|
+| Cotización | USD 34,33 | Al 2026-10-30, según DDD |
+| Consenso de analistas | USD 34,39 | Fecha de referencia no especificada |
+| Extremo bajo del rango de consenso | USD 29 | Ancla del escenario bajista, no estimación intrínseca |
+| Extremo alto del rango de consenso | USD 41 | Ancla del escenario alcista, no estimación intrínseca |
 
-Para una compañía química cíclica como Dow, la valoración debería contrastar varios métodos:
+El análisis de escenarios, fechado el **2026-11-26**, usa USD 29 como escenario bajista y USD 41 como escenario alcista. Ambos valores se describen como anclas tomadas de los extremos del consenso de analistas, no como resultados de un modelo financiero independiente.
 
-1. **EV/EBITDA y múltiplos normalizados:** usar EBITDA a través del ciclo, no solo el de un año potencialmente deprimido o favorable.
-2. **Flujo de caja descontado por escenarios:** modelar volúmenes, spreads, utilización, precios de insumos, capex, capital de trabajo y costo de capital.
-3. **Análisis de balance:** incorporar deuda neta, vencimientos, intereses y liquidez para pasar del valor empresarial al valor del patrimonio.
-4. **Comparación sectorial:** contrastar múltiplos con pares relevantes, usando períodos y definiciones consistentes.
-
-### Sensibilidades clave
-
-La valoración sería especialmente sensible a los spreads, los volúmenes, la utilización de capacidad, los precios de materias primas y energía, el capex y la deuda neta. No hay datos suficientes para cuantificar estas sensibilidades ni para construir un valor intrínseco independiente.
+Para una valoración posterior sería necesario normalizar los beneficios y el FCF a través del ciclo, aclarar deuda neta y necesidades de inversión, y comprobar la sostenibilidad de márgenes y retornos. El múltiplo EV/EBITDA reportado de 8,72x carece de fecha y datos de cálculo; el FCF yield de 0 y el PER de 0 tampoco son interpretables sin conocer sus definiciones y períodos. No se reportan sensibilidades cuantitativas a precios de productos, insumos, volúmenes o márgenes.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cómo evolucionaron por segmento los volúmenes, precios, utilización, márgenes y spreads, frente a períodos comparables?
-2. ¿Cuál es la deuda bruta y neta, su calendario de vencimientos, costo, liquidez disponible y cobertura de intereses?
-3. ¿Qué conceptos y supuestos explican el FCF TTM aproximado de USD 2,05 mil millones al 30-09-2026, y cómo se compara con períodos previos?
-4. ¿A qué período y metodología corresponden el crecimiento de ingresos del 4,15%, el margen operativo del 4,29%, el ROIC del 5,65% y el EV/EBITDA de 8,72×?
-5. ¿Qué parte de la demanda proviene de packaging, infraestructura, movilidad y aplicaciones de consumo, y cómo varía por segmento y región?
-6. ¿Qué datos verificables respaldan la posibilidad de ventas de activos no estratégicos o una reducción de deuda neta?
-7. ¿Cómo se comparan los márgenes, la utilización, el balance y la valoración de Dow con pares relevantes como [[DD]] y otras compañías relacionadas del universo industrial y de materiales?
-8. ¿Qué métricas y series comparables respaldan la referencia a un margen bruto histórico superior al 12%?
-9. ¿Cuál es el detalle de remuneración, propiedad de insiders, incentivos de largo plazo, recompras, adquisiciones y composición del board?
-10. ¿Qué exposición cuantificada tiene la compañía a emisiones, consumo energético, seguridad de procesos y gestión de residuos?
+1. ¿Cuál es el importe exacto del FCF TTM al 2026-09-30 y cómo se reconcilia con el FCF anual negativo de FY 2024 y FY 2025?
+2. ¿Qué factores explican la pérdida neta TTM de USD 905 millones y cuánto depende de elementos cíclicos o no recurrentes?
+3. ¿Qué períodos, fuentes y definiciones respaldan el crecimiento de ingresos de 4,15%, el margen operativo de 4,29%, el ROIC de 5,65% y el EV/EBITDA de 8,72x?
+4. ¿Cuál es la deuda neta, el calendario de vencimientos y el costo efectivo de financiación? ¿Cómo se calcula el dato reportado de cobertura de intereses igual a 0?
+5. ¿Qué objetivos cuantificados ha establecido management para márgenes, FCF, retornos sobre capital, reinversión y asignación de capital?
+6. ¿Qué porcentaje de ingresos, beneficios y activos corresponde a cada segmento, región y mercado final?
+7. ¿Cómo se comparan la utilización de capacidad, los costos de producción y la evolución de márgenes de Dow con competidores relevantes, incluida [[DD]]?
+8. ¿Cuál es la metodología y fecha detrás del consenso de USD 34,39 y del rango de USD 29–41?
+9. ¿Cuál es el desglose de incentivos, propiedad de insiders y composición del board necesario para validar las evaluaciones de gobierno corporativo del input AOIF?
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]], [[BHP|BHP Group Limited]], [[CDE|Coeur Mining, Inc.]], [[CX|CEMEX, S.A.B. de C.V.]], [[DD|DuPont de Nemours, Inc.]]
+- **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]], [[BHP|BHP Group Limited]], [[CDE|Coeur Mining, Inc.]], [[CX|CEMEX, S.A.B. de C.V.]], [[DD|DuPont de Nemours, Inc.]], [[ECL|Ecolab Inc.]], [[FCX|Freeport-McMoRan Inc.]], [[GGB|Gerdau S.A.]], [[HL|Hecla Mining Company]], [[IFF|International Flavors & Fragrances Inc.]], [[NEM|Newmont Corporation]], [[NUE|Nucor Corporation]], [[SCCO|Southern Copper Corporation]], [[TX|Ternium S.A.]]
