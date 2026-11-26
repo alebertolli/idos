@@ -81,7 +81,7 @@ def has_due_work(
     today = current.date().isoformat()
     return any(item.get("next_attempt_date", "") <= today for item in pending)
 
- 
+
 def exclude_quarantined(
     pending: list[dict[str, Any]], quarantined: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
