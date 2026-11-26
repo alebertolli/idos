@@ -155,3 +155,39 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-26T12:35:18.560490'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-E
+    ticker: E
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T12:42:30.728263'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-E
+    ticker: E
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T12:42:30.744521'
+- data:
+    classification: Neutral
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: ab425b486053ad1a4e53987ed7341f88a97f1917d5c23e4ac79c86f789bff225
+    opp_id: OPP-MB-E
+    original_status: UNDER_RESEARCH
+    score: 86
+    strategy_version: '1.5'
+    ticker: E
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-26T12:43:59.432787'
