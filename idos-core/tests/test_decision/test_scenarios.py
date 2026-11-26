@@ -4,6 +4,7 @@ from zoneinfo import ZoneInfo
 
 from idos.decision.scenarios import (
     canonicalize_scenario_ids,
+    canonicalize_missing_scenario_horizon,
     calculate_scenario_asymmetry,
     scenario_fingerprint,
     scenario_source_urls_from_evidence,
@@ -35,6 +36,28 @@ def scenario_set():
             {"id": "BULL", "target_price": 150, "rationale": "La adopción acelera y sostiene márgenes.", "key_assumptions": ["Demanda superior"], "falsifiers": ["Cancelaciones y menor utilización"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": SOURCE_DATE}]},
         ],
     }
+
+
+def test_missing_scenario_horizon_uses_disclosed_one_year_convention():
+    analysis = scenario_set()
+    analysis["horizon_date"] = None
+
+    corrected = canonicalize_missing_scenario_horizon(analysis)
+
+    assert corrected["horizon_date"] == (TODAY + timedelta(days=365)).isoformat()
+    assert corrected["horizon_basis"] == "idos_default_365_days"
+    assert validate_scenario_analysis(corrected, today=TODAY) == []
+    assert analysis["horizon_date"] is None
+
+
+def test_invalid_explicit_horizon_is_not_repaired():
+    analysis = scenario_set()
+    analysis["horizon_date"] = "not-a-date"
+
+    corrected = canonicalize_missing_scenario_horizon(analysis)
+
+    assert corrected["horizon_date"] == "not-a-date"
+    assert corrected is analysis
 
 
 def test_valid_bear_bull_contract_calculates_unweighted_extreme_asymmetry():
