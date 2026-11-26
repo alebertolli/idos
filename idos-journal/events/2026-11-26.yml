@@ -191,3 +191,37 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-26T12:43:59.432787'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-HOG
+    ticker: HOG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T12:50:59.490308'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HOG
+    ticker: HOG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T12:50:59.503790'
+- data:
+    classification: Neutral
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 9ae2762acbf095117565e15a17aed5fe7d521fb1990dec326b88b9e0a15ccb98
+    opp_id: OPP-MB-HOG
+    score: 73
+    strategy_version: '1.5'
+    ticker: HOG
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-26T12:52:16.519603'
