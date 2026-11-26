@@ -1,32 +1,33 @@
 {
   "selected": [
     {
-      "ticker": "NVDA",
-      "opp_id": "OPP-MB-NVDA",
-      "reason": "configured event trigger: quarterly_results (status=SCREENED)",
+      "ticker": "WMT",
+      "opp_id": "OPP-MB-WMT",
+      "reason": "configured event trigger: quarterly_results (status=UNDER_RESEARCH)",
       "force_reprocess": true,
       "trigger_type": "quarterly_results",
       "event_evidence": {
         "event_type": "quarterly_results",
-        "ticker": "NVDA",
-        "occurred_at": "2026-11-17",
+        "ticker": "WMT",
+        "occurred_at": "2026-11-19",
         "source_name": "Yahoo Finance earnings calendar via yfinance",
-        "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=NVDA",
-        "summary": "El calendario de resultados indica la fecha 2026-11-17. La fecha no confirma por s\u00ed sola la publicaci\u00f3n del reporte; Research debe verificar el resultado en una fuente primaria.",
-        "observed_at": "2026-11-19T19:16:25.558095+00:00",
-        "event_id": "0584b6da41a4ffeb4e44939ab03d02b68b83fd6e26e02b6b57fcd853166e713d"
+        "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=WMT",
+        "summary": "El calendario de resultados indica la fecha 2026-11-19. La fecha no confirma por s\u00ed sola la publicaci\u00f3n del reporte; Research debe verificar el resultado en una fuente primaria.",
+        "observed_at": "2026-11-26T19:56:44.297958+00:00",
+        "event_id": "3257dbd66e1a843e748a2cd18e5e3a62149c3095981bf7854e40ef3a52a46c21"
       }
     }
   ],
   "skipped": [],
-  "screened": [
+  "screened": [],
+  "stale": [],
+  "fresh": [
     {
-      "ticker": "NVDA",
-      "opp_id": "OPP-MB-NVDA",
-      "score": 0
+      "ticker": "WMT",
+      "opp_id": "OPP-MB-WMT",
+      "score": 0,
+      "days": 4
     }
   ],
-  "stale": [],
-  "fresh": [],
   "excluded_count": 0
 }
