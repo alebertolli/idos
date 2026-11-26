@@ -51,7 +51,7 @@ def _load_pending(path: Path) -> list[dict[str, Any]]:
     except (OSError, ValueError, AttributeError, TypeError):
         return []
 
- 
+
 def _load_quarantine(path: Path) -> list[dict[str, Any]]:
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
