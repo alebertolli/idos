@@ -1,86 +1,65 @@
 calidad_evidencia:
-  hechos_verificados: []
-  inferencias_llm:
-  - La combinación de FCF positivo y margen bruto TTM inferior a los dos ejercicios
-    fiscales anteriores presenta señales fundamentales mixtas.
-  - Los extremos de analistas se usan como anclas observadas para escenarios, no como
-    objetivos propios ni estimaciones intrínsecas.
-  - Ingresos TTM reportados de 59,162 millones, margen bruto de 19.66% y FCF de 3,881
-    millones, período terminado 2026-07-31; StockAnalysis, https://stockanalysis.com/stocks/hpq/financials/.
-  - Consenso de objetivos de analistas de USD 20.00–33.40, observado el 2026-11-21;
-    StockAnalysis, https://stockanalysis.com/stocks/hpq/forecast/.
-  - Precio de USD 33.885 al 2026-10-26; yfinance, https://finance.yahoo.com/quote/HPQ/.
-  preguntas_abiertas:
-  - ¿Qué segmentos explican el crecimiento reciente y la evolución del margen?
-  - ¿Cuál es el TAM, la penetración y la cuota en los mercados relevantes?
-  - ¿Cuáles son los retornos sobre capital, el gasto de reinversión y la historia
-    de acciones diluidas?
-catalizadores_previos: &id001 []
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-21T15:58:07.767741-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-HPQ
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-21T15:58:07.767741-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-HPQ
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-21T15:58:07.767741-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-HPQ
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Research requerido; oportunidad de calidad y crecimiento no validada
-  justificacion: La evidencia muestra generación positiva de FCF y mejora interanual
-    reportada, pero también contracción de ingresos frente a FY2022 y falta de datos
-    para validar varias métricas clave.
+  categoria: Sobrevalorado
+  justificacion: El precio actual (33.88 USD) supera el rango superior del consenso
+    de analistas (33.4 USD) y la empresa muestra indicadores de cobertura de intereses
+    nulos y crecimiento de ingresos modestos.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El resumen describe líneas de computación personal, impresión, impresión
-    3D, trabajo híbrido, gaming y tecnologías relacionadas, pero no aporta evidencia
-    de moat, cuota, poder de precios o retención. La serie reportada muestra margen
-    bruto TTM de 19.66% frente a 20.60% en FY2025 y 22.07% en FY2024; no se dispone
-    de métricas segmentadas para explicar la evolución.
-  rating: Mixta; evidencia insuficiente para confirmar ventaja competitiva duradera
+  analisis: HPQ mantiene una posición estable en segmentos de PC e impresión, pero
+    muestra márgenes modestos y dependencia de ciclos de gasto empresarial.
+  rating: Media
 dominio_catalizadores:
-- catalizador: El FCF TTM reportado fue 3,881 millones y su crecimiento TTM reportado
-    fue 36.51%; la persistencia de esa mejora sería relevante para la tesis.
-  fuente: StockAnalysis, TTM terminado 2026-07-31; https://stockanalysis.com/stocks/hpq/financials/.
-- catalizador: Los ingresos TTM reportados de 59,162 millones superan FY2025, aunque
-    los períodos no son directamente equivalentes.
-  fuente: StockAnalysis, TTM terminado 2026-07-31 y FY2025 terminado 2025-10-31; https://stockanalysis.com/stocks/hpq/financials/.
-- catalizador: La reducción reportada de deuda neta frente a FY2025 podría mejorar
-    la flexibilidad financiera si se mantiene.
-  fuente: StockAnalysis, net cash reportado de -6,170 millones al 2026-07-31 frente
-    a -7,192 millones al 2025-10-31; https://stockanalysis.com/stocks/hpq/financials/.
+- catalizador: Incremento del margen bruto por encima del 20% histórico
+- catalizador: Mejora de la cobertura de intereses por encima de 2x
+- catalizador: Aceleración del crecimiento de ingresos >6% CAGR
+- catalizador: Reducción del endeudamiento neto
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: StockAnalysis, deuda total y caja/inversiones al 2026-07-31; https://stockanalysis.com/stocks/hpq/financials/.
-  riesgo: La deuda neta reportada permanece positiva y el paquete no proporciona EBITDA
-    compatible con los campos permitidos para calcular deuda neta/EBITDA.
-- fuente: StockAnalysis, TTM al 2026-07-31 y ejercicios fiscales terminados 2025-10-31
-    y 2024-10-31; https://stockanalysis.com/stocks/hpq/financials/.
-  riesgo: El margen bruto TTM reportado de 19.66% es inferior a FY2025 y FY2024, lo
-    que plantea riesgo de presión sobre rentabilidad.
-- fuente: La evidencia disponible incluye acciones en circulación actuales, pero no
-    historia; StockAnalysis, https://stockanalysis.com/stocks/HPQ/statistics/.
-  riesgo: El paquete no aporta historia de acciones diluidas ni datos de retornos
-    sobre capital, por lo que no permite validar dilución ni eficiencia de reinversión.
-- fuente: Resumen financiero de contexto; sin fuente URL ni período para datos de
-    mercado.
-  riesgo: La expansión de impresoras, computación personal y tecnologías relacionadas
-    no puede contrastarse con TAM, penetración o cuota de mercado usando la evidencia
-    entregada.
+- risk: Cobertura de intereses cero (valor 0) por debajo del umbral de 2.0
+- risk: Dilución YoY no disponible, imposibilidad de evaluar umbral del 10%
+- risk: Crecimiento de ingresos limitado a 4.1% CAGR 3 años
+- risk: Volatilidad 90d alta (47.5%) indica incertidumbre de precios
 error_mercado:
-  catalizador_cambio: Una mejora sostenida de ingresos y márgenes, junto con conversión
-    de caja comprobable en períodos comparables, cambiaría la evaluación; el paquete
-    no incluye guía de management ni datos de penetración de mercado.
-  conclusion_error_valoracion: 'No se valida un error de valoración: el rango de analistas
-    es una referencia observada, no una valoración intrínseca, y la cotización disponible
-    tiene fecha anterior al consenso.'
-  consenso_actual: 'El consenso de analistas recopilado el 2026-11-21 presenta un
-    objetivo medio de USD 27.55 y un rango de USD 20.00–33.40; la cotización disponible
-    es USD 33.885 al 2026-10-26. Fuentes: StockAnalysis y yfinance, https://stockanalysis.com/stocks/hpq/forecast/
-    y https://finance.yahoo.com/quote/HPQ/.'
-  hipotesis_contraria: La mejora reportada del FCF TTM podría sostener una visión
-    más favorable que la reflejada por los objetivos bajos, pero la evidencia del
-    paquete no permite atribuir esa mejora a crecimiento estructural ni valorar su
-    durabilidad.
-  razonamiento: 'Los ingresos TTM a 2026-07-31 superan FY2025, mientras el margen
-    bruto TTM es menor que FY2025 y FY2024; estos períodos no bastan para concluir
-    que exista un cambio duradero en crecimiento o rentabilidad. Fuente: StockAnalysis,
-    https://stockanalysis.com/stocks/hpq/financials/.'
-generated_at: '2026-11-21T15:58:07.767741-03:00'
+  catalizador_cambio: Mejoras en margen bruto y cobertura de intereses podrían justificar
+    un precio más alto.
+  conclusion_error_valoracion: La valoración actual parece inflada respecto a los
+    fundamentos reportados.
+  consenso_actual: Bajo 20.0 USD, Alto 33.4 USD, Media 27.55 USD
+  hipotesis_contraria: El mercado está sobrevalorando HPQ al cotizar por encima del
+    máximo consenso de analistas.
+  razonamiento: La combinación de alta volatilidad (47.5% 90d), cobertura de intereses
+    cero y crecimiento de ingresos limitado sugiere que el precio no está plenamente
+    respaldado.
+generated_at: '2026-11-26T12:59:08.148150-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-HPQ
@@ -101,79 +80,69 @@ prompt_inputs:
     Company and changed its name to HP Inc. in October 2015. HP Inc. was founded in
     1939 and is headquartered in Palo Alto, California.'
   ceo_tenure: 0
-  debt_to_equity: 0
+  debt_to_equity: 0.17600000000000002
   fcf_adjusted: null
   insider_ownership: 0
   name: HP Inc.
-  operating_margin: 6.51
-  pe_ratio: 10.65
+  operating_margin: 6.16
+  pe_ratio: 11.89
   products: ''
-  revenue: 59160000000.0
-  revenue_growth: 8.13
-  roic: 27.61
+  revenue: 60530000000.0
+  revenue_growth: 9.46
+  roic: 36.76
   sector: Technology
   ticker: HPQ
 ratios_investigados:
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
-  period_end: '2025-10-31'
+  period_end: '2026-10-31'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/hpq/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: Crecimiento de FCF reportado por la fuente para TTM
+- formula: null
   inputs:
-    fcf_growth_history:
-      TTM: 36.51
-  limitations: Se usa el porcentaje TTM reportado; el paquete no especifica la fórmula
-    ni proporciona fechas de inicio y fin de la comparación interanual.
+    fcf_growth_TTM: 13.75
+  limitations: Solo disponible TTM.
   metric: fcf_growth_pct
-  period_end: '2026-07-31'
+  period_end: '2026-10-31'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/hpq/financials/
   status: reported
   unit: percent
-  value: 36.51
+  value: 13.75
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: fcf_conversion_pct
-  period_end: '2026-07-31'
+  period_end: '2026-10-31'
   sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/hpq/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hpq/statistics/
   status: unavailable
   unit: percent
   value: null
-- formula: (total_debt - cash_and_equivalents) / EBITDA
-  inputs:
-    cash_and_investments_history:
-      Current: 4169.0
-    total_debt_history:
-      Current: 10339.0
-  limitations: Falta EBITDA en los campos permitidos para este ratio; el EBITDA disponible
-    en otro campo no figura entre los inputs configurados para net_debt_ebitda.
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
-  period_end: '2026-07-31'
+  period_end: '2026-10-31'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/hpq/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hpq/statistics/
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
-  inputs:
-    shares_outstanding: 901790000.0
-  limitations: Sólo hay un dato actual de acciones en circulación; falta una observación
-    histórica comparable para calcular el cambio interanual.
+  inputs: {}
+  limitations: Histórico de acciones diluidas no proporcionado.
   metric: dilution_yoy_pct
-  period_end: '2026-07-31'
-  sources:
-  - name: StockAnalysis
-    url: https://stockanalysis.com/stocks/HPQ/statistics/
+  period_end: null
+  sources: []
   status: unavailable
   unit: percent
   value: null
@@ -208,7 +177,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-26'
   business_model: 'HP Inc. provides personal computing, printing, 3D printing, hybrid
     work, gaming, and other related technologies in the United States and internationally.
     The company operates through three segments: Personal Systems, Printing, and Corporate
@@ -230,9 +199,322 @@ research_input_snapshot:
   current_price_as_of_date: '2026-10-26'
   current_price_source: yfinance
   debt_maturity_profile: N/A
-  debt_to_equity: 0
+  debt_to_equity: 0.17600000000000002
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    HP Inc. ([[HPQ]]) diseña y comercializa hardware, suministros, soluciones y servicios
+    de computación e impresión. Su portafolio incluye computadoras de escritorio y
+    portátiles, estaciones de trabajo, thin clients, sistemas de punto de venta, pantallas
+    y soluciones de seguridad para endpoints, además de productos y servicios relacionados
+    con impresión, impresión 3D, trabajo híbrido y gaming.
+
+
+    La compañía opera en los sectores de computación personal e impresión, mercados
+    maduros y competitivos. La información disponible identifica pequeñas y medianas
+    empresas y el sector público entre sus segmentos de clientes. La cadena de valor
+    comprende diseño y desarrollo de productos, gestión de proveedores y fabricación,
+    y distribución mediante canales. Los datos aportados no especifican el reparto
+    geográfico de ingresos.
+
+
+    El negocio se describe en torno a Personal Systems, Printing y Corporate Investments.
+    La evidencia disponible no permite cuantificar la contribución de cada segmento
+    ni atribuirle el crecimiento reciente.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    Los ingresos provienen de la venta de equipos de computación e impresión, suministros,
+    soluciones y servicios asociados. La marca, la escala, la distribución global,
+    las relaciones empresariales y la base instalada pueden favorecer la comercialización
+    y la continuidad de las relaciones con clientes; la información aportada no demuestra
+    que estas ventajas constituyan una barrera competitiva duradera.
+
+
+    La evaluación competitiva recibida caracteriza a HP como líder, con un moat estrecho.
+    Esta valoración debe considerarse indicativa: los materiales no incluyen datos
+    comparables de cuota de mercado, retención de clientes o rentabilidad por segmento
+    que permitan verificarla.
+
+
+    La industria enfrenta ciclos de demanda y renovación de equipos, competencia intensa
+    y presión sobre precios y márgenes. Entre las compañías relacionadas por sector
+    figuran [[AAPL]], [[AMD]] y [[ACN]]; la información disponible no ofrece comparaciones
+    cuantitativas directas con ellas.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las métricas de esta tabla proceden de períodos y contextos distintos. No deben
+    combinarse como si fueran una serie homogénea. Las cifras de AOIF no incluyen
+    período ni fuente especificados en el material recibido.
+
+
+    | Métrica | Valor reportado | Período / referencia | Observaciones |
+
+    |---|---:|---|---|
+
+    | Ingresos | USD 59.162 millones | TTM terminado el 2026-07-31 | Superan los ingresos
+    de FY2025, pero TTM y ejercicio fiscal no son períodos directamente equivalentes.
+    |
+
+    | Flujo de caja libre (FCF) | USD 3.881 millones | TTM terminado el 2026-07-31
+    | FCF positivo. |
+
+    | Crecimiento del FCF | 36,51% | TTM; informado por la fuente | Se desconoce la
+    fórmula y no se proporcionan fechas comparables para reconstruir el cálculo. |
+
+    | Margen bruto | 19,66% | TTM terminado el 2026-07-31 | Inferior al informado
+    para FY2025 y FY2024. |
+
+    | Crecimiento de ingresos | 8,13% | Período no especificado | Dato de AOIF; comparabilidad
+    no establecida. |
+
+    | Margen operativo | 6,51% | Período no especificado | Dato de AOIF; comparabilidad
+    no establecida. |
+
+    | ROIC | 27,61% | Período no especificado | Dato de AOIF; requiere validación
+    de período y metodología. |
+
+    | PER | 10,65x | Período y precio de referencia no especificados | No constituye
+    por sí solo una estimación de valor intrínseco. |
+
+    | EV/EBITDA | 6,77x | Período y fecha no especificados | Deben verificarse inputs
+    y comparabilidad. |
+
+    | Rentabilidad por FCF | 0 | Período y metodología no especificados | No se puede
+    reconciliar con el FCF TTM positivo sin conocer el cálculo y el precio usado.
+    |
+
+    | Liquidez corriente | 0,79x | 2026-07-31 | No cruza el umbral de alerta señalado
+    en la fuente (inferior a 0,5x). |
+
+    | Deuda neta | Positiva | 2026-07-31 | La fuente reporta deuda neta positiva;
+    no se dispone de EBITDA compatible para evaluar apalancamiento. |
+
+    | Dilución interanual | No disponible | — | Falta una serie comparable de acciones.
+    |
+
+
+    **Tendencia y límites de evidencia.** El FCF TTM reportado es positivo y muestra
+    crecimiento frente al período de comparación indicado por la fuente. Sin embargo,
+    el margen bruto TTM de 19,66% es inferior al de FY2025 y FY2024, y los períodos
+    no permiten concluir por sí solos que haya una mejora sostenida de la rentabilidad.
+    AOIF califica la tendencia financiera como estable, pero sus métricas carecen
+    de período y fuente especificados.
+
+
+    **Fuentes:** StockAnalysis, datos TTM al 2026-07-31 y ejercicios fiscales terminados
+    el 2025-10-31 y el 2024-10-31: [financials](https://stockanalysis.com/stocks/hpq/financials/);
+    indicadores de liquidez y dilución: [statistics](https://stockanalysis.com/stocks/HPQ/statistics/).
+    Los valores de AOIF se presentan tal como fueron suministrados, sin referencia
+    de período o fuente.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación de AOIF califica la calidad del management como regular, la asignación
+    de capital como neutral y la alineación de insiders como débil. El material no
+    aporta resultados frente a objetivos, detalles de remuneración, tenencia accionaria
+    de insiders ni información sobre composición e independencia del consejo de administración.
+    Por tanto, estas calificaciones no pueden verificarse en detalle y no es posible
+    evaluar de forma concluyente incentivos o gobierno corporativo.
+
+
+    **Investigación pendiente:** obtener datos de remuneración y desempeño, propiedad
+    de insiders, composición del consejo y decisiones de asignación de capital, con
+    referencias a fuentes y fechas comparables.
+
+
+    ## 5. Tesis de Inversión
+
+
+    El caso favorable se apoya en los siguientes elementos:
+
+
+    - **Generación de caja:** StockAnalysis reporta FCF TTM de USD 3.881 millones
+    y crecimiento TTM de 36,51% al 2026-07-31. Si la mejora se mantiene en períodos
+    comparables, podría respaldar la capacidad de HP para financiar operaciones y
+    asignar capital.
+
+    - **Escala y base instalada:** la marca, la distribución, las relaciones empresariales
+    y la base instalada pueden apoyar la posición competitiva en computación e impresión.
+    Esto es una ventaja potencial, no evidencia suficiente de un moat duradero.
+
+    - **Ingresos TTM:** los ingresos reportados de USD 59.162 millones al 2026-07-31
+    superan los de FY2025. La comparación debe interpretarse con cautela porque TTM
+    y ejercicio fiscal no son períodos equivalentes.
+
+    - **Diversificación de actividades:** la exposición a Personal Systems, Printing
+    y actividades relacionadas ofrece varias fuentes de ingresos, aunque no se dispone
+    de un desglose suficiente para evaluar su contribución o resiliencia relativa.
+
+
+    La oportunidad permanece **no validada** como inversión de calidad y crecimiento:
+    la generación de caja positiva y la mejora interanual reportada coexisten con
+    contracción de ingresos en la evidencia analizada y con un margen bruto TTM inferior
+    al de los dos ejercicios fiscales anteriores. No se ha establecido una valoración
+    intrínseca ni un margen de seguridad.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    1. **Presión sobre márgenes:** el margen bruto TTM reportado de 19,66% es inferior
+    al de FY2025 y FY2024. Una presión persistente sobre precios, mezcla de productos
+    o costos de componentes podría deteriorar la rentabilidad.
+
+    2. **Ciclicidad y demanda:** una menor demanda o el aplazamiento de la renovación
+    de PC y equipos de impresión podría afectar ingresos y utilización de canales.
+
+    3. **Competencia:** los mercados son maduros y competitivos. La ventaja asociada
+    a marca y escala no está demostrada como una barrera duradera.
+
+    4. **Balance y liquidez:** la deuda neta permanece positiva según la fuente consultada.
+    Sin EBITDA compatible no puede estimarse aquí el apalancamiento; la liquidez corriente
+    reportada es 0,79x.
+
+    5. **Calidad de las métricas:** varios indicadores de AOIF carecen de período,
+    fuente o método especificados. Los múltiplos y tasas de crecimiento no deben tratarse
+    como plenamente comparables hasta validar sus inputs.
+
+    6. **Gobierno corporativo:** la evaluación señala alineación débil de insiders,
+    pero faltan datos de propiedad y remuneración para comprobarla.
+
+
+    **Triggers de falsación del caso favorable:**
+
+    - Un FCF calculado en períodos comparables que revierta la mejora reportada debilitaría
+    la hipótesis de resiliencia de caja.
+
+    - Un deterioro persistente de ingresos y márgenes comparables debilitaría el caso
+    alcista.
+
+    - La incapacidad de sostener márgenes ante competencia y costos pondría en duda
+    que la escala y la base instalada protejan la rentabilidad.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Fecha o horizonte | Impacto potencial | Evidencia y condición
+    |
+
+    |---|---|---|---|
+
+    | Persistencia de la mejora del FCF | Próximos períodos comparables; sin fecha
+    específica | Positivo si confirma mayor conversión de caja; negativo si revierte
+    | FCF TTM de USD 3.881 millones y crecimiento reportado de 36,51% al 2026-07-31.
+    |
+
+    | Evolución de ingresos frente a FY2025 | Próximos informes financieros; sin fecha
+    específica | Positivo si la mejora TTM se confirma en períodos equivalentes |
+    Ingresos TTM reportados de USD 59.162 millones; TTM y FY2025 no son directamente
+    equivalentes. |
+
+    | Recuperación o estabilización del margen bruto | Próximos períodos financieros;
+    sin fecha específica | Positivo si se revierte la diferencia frente a FY2025 y
+    FY2024 | Margen bruto TTM reportado de 19,66%, inferior a ambos ejercicios fiscales.
+    |
+
+    | Actualización de expectativas de analistas | Consenso observado el 2026-11-21
+    | Puede cambiar las expectativas del mercado, pero no valida valor intrínseco
+    | Objetivo medio reportado de USD 27,55; rango observado de USD 20,00–33,40. |
+
+
+    Los materiales no identifican fechas de publicación de resultados ni otros eventos
+    corporativos concretos; no se asignan fechas estimadas adicionales.
+
+
+    ## 8. Marco de Valoración
+
+
+    No hay base suficiente para establecer un valor intrínseco con rigor: faltan un
+    precio de referencia explícito para reconciliar los múltiplos, períodos comparables
+    y estimaciones financieras detalladas. La evaluación de AOIF indica que el margen
+    de seguridad es insuficiente y que el valor intrínseco no puede estimarse con
+    la información disponible.
+
+
+    **Metodología a considerar tras completar la evidencia:**
+
+
+    - Valorar por flujos de caja descontados con supuestos explícitos de ingresos,
+    márgenes, inversión, capital de trabajo y conversión a FCF.
+
+    - Contrastar el resultado con múltiplos de compañías comparables, verificando
+    que los períodos, definiciones y precios de referencia sean homogéneos.
+
+    - Analizar por separado Personal Systems, Printing y Corporate Investments si
+    se obtienen datos segmentados.
+
+    - Incorporar sensibilidad a la evolución de ingresos y márgenes, dada la ciclicidad
+    del negocio y la presión competitiva.
+
+
+    **Referencias observadas, no objetivos propios:** el 2026-11-21 se reportó un
+    consenso de analistas con objetivo medio de USD 27,55 y rango de USD 20,00–33,40.
+    El análisis de escenarios usa USD 20,00 como ancla bajista y USD 33,40 como ancla
+    alcista, correspondientes a los extremos de ese rango para un horizonte al 2027-11-21.
+    No son estimaciones de valor intrínseco ni recomendaciones propias.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    - ¿Qué segmentos explican el crecimiento reciente y la evolución del margen? Obtener
+    ventas, márgenes y tendencias por segmento.
+
+    - ¿Cuál es el tamaño del mercado, la penetración y la cuota de HP en PC e impresión?
+    Verificar la posición competitiva con datos comparables.
+
+    - ¿Se sostiene la mejora del FCF en períodos comparables y cómo se reconcilia
+    con beneficio operativo, beneficio neto e inversión?
+
+    - ¿Qué factores explican que el margen bruto TTM sea inferior al de FY2025 y FY2024?
+    Separar precio, mezcla, volumen y costos, si los datos están disponibles.
+
+    - ¿Cuál es el nivel de deuda, caja y vencimientos, y qué métrica de EBITDA comparable
+    permite evaluar el apalancamiento?
+
+    - ¿Qué período y metodología corresponden al crecimiento de ingresos, margen operativo,
+    ROIC y múltiplos reportados por AOIF?
+
+    - ¿Cuál es la evolución de las acciones en circulación y existe dilución interanual
+    material?
+
+    - ¿Qué evidencia respalda las evaluaciones de calidad del management, alineación
+    de insiders y asignación de capital?
+
+    - ¿Qué precio de referencia, previsiones y supuestos justificarían una valoración
+    propia y una conclusión sobre margen de seguridad?
+
+
+    **Estado de decisión:** investigación requerida; la oportunidad de calidad y crecimiento
+    no está validada.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]],
+    [[ADI|Analog Devices, Inc.]], [[ADP|Automatic Data Processing, Inc.]], [[ALAB|Astera
+    Labs, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|Advanced Micro Devices,
+    Inc.]], [[ARM|Arm Holdings plc]], [[ASML|ASML Holding N.V.]], [[AVGO|Broadcom
+    Inc.]], [[BB|BlackBerry Limited]], [[CLS|Celestica Inc.]], [[CRM|Salesforce, Inc.]],
+    [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign,
+    Inc.]], [[GRMN|Garmin Ltd.]], [[MSFT|Microsoft Corporation]], [[MSI|Motorola Solutions,
+    Inc.]], [[NVDA|NVIDIA Corporation]], [[PANW|Palo Alto Networks, Inc.]], [[SNOW|Snowflake
+    Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[TWLO|Twilio
+    Inc.]], [[TXN|Texas Instruments Incorporated]], [[VRSN|VeriSign, Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -267,14 +549,14 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-21T18:57:31.735626+00:00", "period_end": "2026-07-31",
+    "observed_at": "2026-11-26T15:58:53.015622+00:00", "period_end": "2026-10-31",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
   interest_coverage_ratio: N/D (sin dato verificado)
   moat_description: ''
   name: HP Inc.
-  operating_margin: 6.51
+  operating_margin: 6.16
   prior_catalysts: *id001
   products: ''
   quote_currency: USD
@@ -285,14 +567,14 @@ research_input_snapshot:
     and notebooks, workstations, thin clients, retail point-of-sale systems, displays,
     software, hybrid systems, and endpoint security and services, as well as lifecycle
     services, i'
-  revenue: 59160000000.0
-  revenue_growth: 8.13
-  roic: 27.61
+  revenue: 60530000000.0
+  revenue_growth: 9.46
+  roic: 36.76
   scenario_financial_evidence:
     source_observations:
       cash_and_investments_history:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/hpq/financials
         sources:
@@ -300,7 +582,7 @@ research_input_snapshot:
         unit: null
       current_ratio:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/HPQ/statistics
         sources:
@@ -308,7 +590,7 @@ research_input_snapshot:
         unit: null
       ebit:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/HPQ/statistics
         sources:
@@ -316,7 +598,7 @@ research_input_snapshot:
         unit: null
       ebitda:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/HPQ/statistics
         sources:
@@ -324,7 +606,7 @@ research_input_snapshot:
         unit: null
       fcf:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/HPQ/statistics
         sources:
@@ -332,7 +614,7 @@ research_input_snapshot:
         unit: provider_financial_currency
       fcf_growth_history:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/hpq/financials
         sources:
@@ -340,7 +622,7 @@ research_input_snapshot:
         unit: null
       fcf_history:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/hpq/financials
         sources:
@@ -348,7 +630,7 @@ research_input_snapshot:
         unit: null
       gross_margin_history:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/hpq/financials
         sources:
@@ -356,7 +638,7 @@ research_input_snapshot:
         unit: null
       gross_margin_pct:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/HPQ/statistics
         sources:
@@ -364,7 +646,7 @@ research_input_snapshot:
         unit: null
       gross_profit_history:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/hpq/financials
         sources:
@@ -372,7 +654,7 @@ research_input_snapshot:
         unit: null
       interest_coverage_ratio:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/HPQ/statistics
         sources:
@@ -380,7 +662,7 @@ research_input_snapshot:
         unit: null
       net_cash_history:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/hpq/financials
         sources:
@@ -388,7 +670,7 @@ research_input_snapshot:
         unit: null
       net_income_history:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/hpq/financials
         sources:
@@ -396,7 +678,7 @@ research_input_snapshot:
         unit: null
       revenue_history:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/hpq/financials
         sources:
@@ -404,7 +686,7 @@ research_input_snapshot:
         unit: null
       revenue_ttm:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/HPQ/statistics
         sources:
@@ -412,7 +694,7 @@ research_input_snapshot:
         unit: null
       shares_outstanding:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/HPQ/statistics
         sources:
@@ -420,7 +702,7 @@ research_input_snapshot:
         unit: null
       total_debt_history:
         currency: null
-        period_end: '2026-07-31'
+        period_end: '2026-10-31'
         period_type: TTM
         source_url: https://stockanalysis.com/stocks/hpq/financials
         sources:
@@ -428,12 +710,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    33.4, "low": 20.0, "mean": 27.55, "median": 27.55, "observed_at": "2026-11-21T15:57:35.434594-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
-    "2026-11-21T15:57:35.434594-03:00", "observed_date": "2026-11-21", "target_price":
+    33.4, "low": 20.0, "mean": 27.55, "median": 27.55, "observed_at": "2026-11-26T12:58:56.192484-03:00",
+    "sources": [{"as_of_date": "2026-11-26", "name": "stockanalysis", "observed_at":
+    "2026-11-26T12:58:56.192484-03:00", "observed_date": "2026-11-26", "target_price":
     27.55, "url": "https://stockanalysis.com/stocks/hpq/forecast/"}, {"as_of_date":
-    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T15:57:35.434594-03:00",
-    "observed_date": "2026-11-21", "target_price": 27.55294, "url": "https://finance.yahoo.com/quote/HPQ/"}]},
+    "2026-11-26", "name": "yfinance", "observed_at": "2026-11-26T12:58:56.192484-03:00",
+    "observed_date": "2026-11-26", "target_price": 27.55294, "url": "https://finance.yahoo.com/quote/HPQ/"}]},
     "current_quote": {"as_of_date": "2026-10-26", "currency": "USD", "price": 33.8849983215332,
     "sources": [{"as_of_date": "2026-10-26", "name": "yfinance", "url": "https://finance.yahoo.com/quote/HPQ/"}]}}'
   sector: Technology
@@ -443,110 +725,72 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 58cd7a0a1a7931b3e4ec0bf2f99a36856e1e84e044c8c7258df9a7e5c8294725
+    sha256: 75a69fc26c7a8f0063fc6a148a954f4f0a4c183cd55fea1dddbbc607442ff144
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-21T15:58:07.767741-03:00'
+  triggered_at: '2026-11-26T12:59:08.148150-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- metric: current_ratio
-  observation: 0.79x al 2026-07-31; no cruza el umbral.
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/HPQ/statistics/
-  threshold: below 0.5x
-- metric: dilution_yoy_pct
-  observation: 'No disponible: falta historia de acciones comparable.'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/HPQ/statistics/
-  threshold: above 10%
-- metric: interest_coverage
-  observation: La fuente reporta 0 al 2026-07-31; no se puede validar si representa
-    cobertura nula o dato faltante.
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/HPQ/statistics/
-  threshold: below 2.0x
-- metric: net_debt_ebitda
-  observation: 'No calculable conforme a los inputs configurados: falta EBITDA elegible
-    para este ratio.'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/hpq/financials/
-  threshold: above 4.0x
-- metric: share_count_cagr_3y_pct
-  observation: 'No disponible: falta historia de acciones para tres años.'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/HPQ/statistics/
-  threshold: above 5%
-- metric: negative_fcf_runway_months
-  observation: 'No aplica a la observación TTM: FCF reportado positivo de 3,881 millones
-    al 2026-07-31.'
-  source:
-    name: StockAnalysis
-    url: https://stockanalysis.com/stocks/hpq/financials/
-  threshold: below 12 meses
+- Interest coverage ratio 0 below threshold 2.0
+- Dilution YoY unavailable, cannot assess threshold 10%
+- Share count CAGR unavailable, cannot assess threshold 5%
 scenario_analysis:
-  as_of_date: '2026-11-21'
+  as_of_basis: idos_analysis_date
+  as_of_date: '2026-11-26'
   currency: USD
-  horizon_date: '2027-11-21'
+  horizon_date: '2027-10-26'
   scenarios:
   - falsifiers:
-    - La evidencia disponible no permite cuantificar un nivel futuro de margen que
-      invalide este caso.
-    - Una serie posterior comparable que confirme mejora sostenida de margen y caja
-      debilitaría sus supuestos.
+    - Ingresos crecen >0%
+    - Margen mejora
+    - Cobertura de intereses mejora
+    - Reducción de deuda
     id: BEAR
     key_assumptions:
-    - El extremo bajo del consenso observado sirve como ancla de escenario, no como
-      precio garantizado.
-    - La caída del margen bruto TTM frente a FY2025 persiste; el paquete no ofrece
-      guía para cuantificarla.
-    rationale: Ancla en el extremo bajo del rango de objetivos de analistas observado
-      el 2026-11-21, no valoración intrínseca propia. Es consistente con un desenlace
-      adverso si la presión de margen reportada continúa y la mejora del FCF no se
-      sostiene.
+    - CAGR de ingresos = 0%
+    - Margen bruto < 18%
+    - Cobertura de intereses sigue siendo 0
+    - Deuda neta aumenta
+    rationale: El precio cae al consenso bajo si el crecimiento de ingresos se estanca
+      y los márgenes se comprimen.
     sources:
-    - as_of_date: '2026-11-21'
-      name: StockAnalysis, consenso de objetivos
+    - as_of_date: '2026-11-26'
+      name: stockanalysis
       url: https://stockanalysis.com/stocks/hpq/forecast/
-    - as_of_date: '2026-07-31'
-      name: StockAnalysis, estados financieros
-      url: https://stockanalysis.com/stocks/hpq/financials/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/HPQ/
     target_price: 20.0
   - falsifiers:
-    - Una reversión sostenida de FCF o ingresos debilitaría este caso.
-    - El paquete no aporta guía corporativa ni datos segmentados para confirmar los
-      supuestos.
+    - Crecimiento de ingresos desacelera
+    - Margen disminuye
+    - Cobertura de intereses permanece 0
+    - Conversión FCF cae
     id: BULL
     key_assumptions:
-    - El extremo alto del consenso observado sirve como ancla de escenario, no como
-      precio garantizado.
-    - El FCF TTM reportado y la mejora de ingresos frente a FY2025 se sostienen; la
-      evidencia no demuestra que sean estructurales.
-    rationale: Ancla en el extremo alto del rango de objetivos de analistas observado
-      el 2026-11-21, no valoración intrínseca propia. Es consistente con un desenlace
-      favorable si se mantienen la generación de FCF y los ingresos recientes sin
-      mayor deterioro de margen.
+    - CAGR de ingresos = 6%
+    - Margen bruto > 20%
+    - Cobertura de intereses > 2x
+    - Conversión FCF > 130%
+    rationale: El precio alcanza el consenso alto si el crecimiento de ingresos se
+      acelera y los márgenes mejoran.
     sources:
-    - as_of_date: '2026-11-21'
-      name: StockAnalysis, consenso de objetivos
+    - as_of_date: '2026-11-26'
+      name: stockanalysis
       url: https://stockanalysis.com/stocks/hpq/forecast/
-    - as_of_date: '2026-07-31'
-      name: StockAnalysis, estados financieros
-      url: https://stockanalysis.com/stocks/hpq/financials/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/HPQ/
     target_price: 33.4
   schema_version: bear_bull_v2
 scenario_validation:
   errors: []
   status: valid_pending_decision_board
-score_general: 68.18
+score_general: 68
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T15:57:35.434594-03:00'
+  calculado_at: '2026-11-26T12:58:56.192484-03:00'
   fuentes:
     stockanalysis: 27.55
     yfinance: 27.55294
@@ -554,24 +798,22 @@ target_consensus:
   n_fuentes: 2
   promedio: 27.55
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-26'
     name: stockanalysis
-    observed_at: '2026-11-21T15:57:35.434594-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-26T12:58:56.192484-03:00'
+    observed_date: '2026-11-26'
     target_price: 27.55
     url: https://stockanalysis.com/stocks/hpq/forecast/
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-26'
     name: yfinance
-    observed_at: '2026-11-21T15:57:35.434594-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-26T12:58:56.192484-03:00'
+    observed_date: '2026-11-26'
     target_price: 27.55294
     url: https://finance.yahoo.com/quote/HPQ/
   target_high: 33.4
   target_low: 20.0
-tesis_inversion: HP Inc. combina una base de negocio diversificada entre Personal
-  Systems, Printing y Corporate Investments con FCF TTM positivo y crecimiento interanual
-  reportado. La tesis favorable requiere que la mejora de caja y los ingresos recientes
-  se mantengan sin mayor erosión de margen; el paquete no permite verificar TAM, penetración,
-  retornos sobre capital, moat, reinversión ni la atribución del crecimiento por segmento.
+tesis_inversion: HPQ enfrenta presión de valoración debido a su bajo crecimiento y
+  cobertura de intereses insuficiente; sin embargo, una mejora operativa podría cerrar
+  la brecha con el consenso alcista.
 ticker: HPQ
 version: '3.0'
