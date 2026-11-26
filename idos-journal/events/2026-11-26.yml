@@ -401,3 +401,63 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-26T13:14:27.414253'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-UGP
+    ticker: UGP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T13:21:35.883904'
+- data:
+    classification: neutral
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: bbd136d5e2256f28d26de2928a0af964deca35eb54a90dee8f824d39ce98c510
+    opp_id: OPP-MB-UGP
+    score: 65.66
+    strategy_version: '1.5'
+    ticker: UGP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-26T13:23:08.161301'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-UNP
+    ticker: UNP
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T13:23:35.149024'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-UNP
+    ticker: UNP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T13:23:35.188573'
+- data:
+    classification: Investigación requerida; negocio ferroviario establecido con crecimiento
+      y retornos financieros observables en los datos disponibles.
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b147957d2a9a3dff08d7f381ad2942d98e54d5a921c829d3a347d5718d96ab7a
+    opp_id: OPP-MB-UNP
+    score: 67
+    strategy_version: '1.5'
+    ticker: UNP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-26T13:24:57.047501'
