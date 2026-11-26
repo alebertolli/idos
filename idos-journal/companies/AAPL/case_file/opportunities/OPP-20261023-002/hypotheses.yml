@@ -1,176 +1,199 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Apple reporta menos de 800,000 unidades enviadas en su informe financiero
-      Q4 2027.
+  - condition: El crecimiento interanual de los ingresos por Servicios en los cuatro
+      trimestres acumulados terminados el 2027-09-25 es inferior al 12%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los analistas de la cadena de suministro confirman una reducción permanente
-      de la capacidad de producción antes de Q3 2027.
+  - condition: La empresa deja de informar ingresos por Servicios y no existe una
+      serie comparable verificable para evaluar la predicción.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Apple reporta menos de 800,000 unidades enviadas en su informe financiero Q4 2027.
-  - Los analistas de la cadena de suministro confirman una reducción permanente de
-    la capacidad de producción antes de Q3 2027.
-  horizon: corto
+  - El crecimiento interanual de los ingresos por Servicios en los cuatro trimestres
+    acumulados terminados el 2027-09-25 es inferior al 12%.
+  - La empresa deja de informar ingresos por Servicios y no existe una serie comparable
+    verificable para evaluar la predicción.
+  horizon: medio
   id: H1-OPP-20261023-002
   opportunity_id: OPP-20261023-002
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
-    expected: 1000000.0
+    deadline: '2027-10-31'
+    expected: 12.0
     met: null
-    metric: unidades enviadas
-    prediction: Se reportará al menos 1,000,000 de unidades Vision Pro enviadas acumuladas
-      al 31 de diciembre de 2027.
-    unit: unidades
+    metric: Crecimiento interanual de ingresos acumulados por Servicios en cuatro
+      trimestres
+    prediction: En los cuatro trimestres fiscales consecutivos terminados el 2027-09-25,
+      los ingresos acumulados por Servicios serán al menos un 12% superiores a los
+      de los cuatro trimestres fiscales inmediatamente anteriores.
+    unit: '%'
   priority: critical
   probability: 0.5
-  rationale: El ecosistema integrado de Apple y la reciente expansión de contenido
-    de realidad mixta, junto con alianzas estratégicas con desarrolladores de software,
-    impulsarán la adopción temprana. Los informes de la cadena de suministro indican
-    una capacidad de producción de 150,000 unidades por trimestre a partir del Q2
-    2027.
-  review_trigger: Si en el reporte financiero Q3 2027 Apple indica una producción
-    anual inferior a 800,000 unidades.
+  rationale: Una base instalada amplia y la integración de servicios en dispositivos
+    Apple pueden favorecer la conversión a suscripciones, la retención y el gasto
+    recurrente. La hipótesis quedaría respaldada si el crecimiento se mantiene incluso
+    sin depender de una aceleración extraordinaria de las ventas de hardware.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes del 2027-09-25 muestran crecimiento interanual de Servicios inferior al
+    8%, o si Apple comunica una contracción material de sus ingresos por suscripciones.
   secondary_hypotheses: []
-  statement: Apple Vision Pro superará el millón de unidades enviadas a nivel global
-    antes de finales de 2027.
+  statement: Los ingresos por Servicios de Apple crecerán más deprisa de lo que implica
+    una trayectoria de crecimiento de un dígito alto, gracias a la expansión de suscripciones
+    y a una mayor monetización del ecosistema.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Apple reporta un ARR de servicios inferior a 27,000 millones de dólares
-      en su reporte Q2 2028.
+  - condition: Las estimaciones acumuladas de dos firmas independientes quedan por
+      debajo de 1,5 millones de unidades para el periodo indicado.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Una caída sostenida de la tasa de retención por debajo del 85% durante
-      dos trimestres consecutivos.
+  - condition: Apple confirma la descontinuación de Vision Pro sin un producto sucesor
+      de computación espacial disponible comercialmente antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Apple reporta un ARR de servicios inferior a 27,000 millones de dólares en su
-    reporte Q2 2028.
-  - Una caída sostenida de la tasa de retención por debajo del 85% durante dos trimestres
-    consecutivos.
-  horizon: medio
+  - Las estimaciones acumuladas de dos firmas independientes quedan por debajo de
+    1,5 millones de unidades para el periodo indicado.
+  - Apple confirma la descontinuación de Vision Pro sin un producto sucesor de computación
+    espacial disponible comercialmente antes de la fecha objetivo.
+  horizon: largo
   id: H2-OPP-20261023-002
   opportunity_id: OPP-20261023-002
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-06-30'
-    expected: 30000.0
+    deadline: '2028-11-26'
+    expected: 1500000.0
     met: null
-    metric: ARR servicios
-    prediction: El ARR de servicios será de al menos 30,000 millones de dólares al
-      30 de junio de 2028.
-    unit: millones USD
+    metric: Dispositivos Vision Pro vendidos acumulados durante el periodo
+    prediction: Entre el 2026-11-26 y el 2028-11-26 se venderán al menos 1,5 millones
+      de dispositivos Vision Pro, según estimaciones agregadas de al menos dos firmas
+      independientes de seguimiento de envíos o ventas, ajustadas para evitar contar
+      dos veces las mismas unidades.
+    unit: unidades
   priority: important
   probability: 0.5
-  rationale: El crecimiento continuo de Apple Music, Apple TV+, iCloud, Fitness+ y
-    la incorporación de nuevos servicios de IA premium aumentarán la base de suscriptores.
-    La tasa de retención histórica supera el 90% y se espera una expansión del 12%
-    anual en nuevos usuarios.
-  review_trigger: Si en el reporte Q2 2028 el ARR de servicios está por debajo de
-    27,000 millones de dólares.
+  rationale: La utilidad de la plataforma puede aumentar a medida que crecen el catálogo
+    de aplicaciones y contenidos espaciales y las experiencias optimizadas para el
+    dispositivo. Esa mayor utilidad podría impulsar la demanda; sin embargo, el precio,
+    la comodidad y la disponibilidad de contenido son riesgos centrales.
+  review_trigger: Dejar de creerla si, antes del 2028-05-26, dos firmas independientes
+    estiman conjuntamente menos de 750.000 unidades vendidas durante el periodo, o
+    si Apple cancela públicamente la línea sin anunciar un sucesor comercial.
   secondary_hypotheses:
   - H1-OPP-20261023-002
-  statement: Los ingresos recurrentes anuales (ARR) de los servicios de suscripción
-    de Apple alcanzarán los 30 mil millones de dólares para mediados de 2028.
+  statement: La plataforma Vision Pro y el ecosistema de computación espacial alcanzarán
+    una escala comercial medible, en lugar de permanecer como un producto de nicho
+    sin tracción creciente.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El precio de cierre de AAPL está por debajo de 230 USD el 30 de septiembre
-      de 2027.
+  - condition: El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior
+      al 23%, calculado con cifras reportadas por Apple.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El múltiplo P/E cae por debajo de 25x en el mismo periodo.
+  - condition: La empresa no publica información suficiente para calcular de forma
+      comparable el flujo de caja libre y los ingresos del ejercicio.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El precio de cierre de AAPL está por debajo de 230 USD el 30 de septiembre de
-    2027.
-  - El múltiplo P/E cae por debajo de 25x en el mismo periodo.
-  horizon: corto
+  - El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior al 23%,
+    calculado con cifras reportadas por Apple.
+  - La empresa no publica información suficiente para calcular de forma comparable
+    el flujo de caja libre y los ingresos del ejercicio.
+  horizon: medio
   id: H3-OPP-20261023-002
   opportunity_id: OPP-20261023-002
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 250.0
+    deadline: '2027-10-31'
+    expected: 23.0
     met: null
-    metric: precio acción
-    prediction: El precio de cierre de AAPL será ≥ 250 USD el 30 de septiembre de
-      2027.
-    unit: USD
-  priority: important
+    metric: Margen de flujo de caja libre del ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal que termine en 2027, el margen de flujo de
+      caja libre —flujo de caja operativo menos gastos de capital, dividido por ingresos—
+      será igual o superior al 23%.
+    unit: '%'
+  priority: critical
   probability: 0.5
-  rationale: El mercado reconocerá el impulso de los servicios y la adopción de Vision
-    Pro, mejorando las proyecciones de flujo de caja libre. Además, la presión regulatoria
-    se mantendrá contenida, permitiendo que los inversores mantengan una valoración
-    optimista.
-  review_trigger: Si el precio de cierre el 30/09/2027 es menor a 230 USD.
+  rationale: 'La combinación de escala, márgenes de producto y cobros recurrentes
+    puede sostener una generación de caja libre sólida. La predicción no presupone
+    que los ingresos crezcan a un ritmo específico: pone a prueba si Apple mantiene
+    la conversión de ingresos en caja frente a inversiones, capital circulante y gastos
+    de capital.'
+  review_trigger: Dejar de creerla si los resultados anuales del ejercicio fiscal
+    2027 muestran un margen inferior al 23%, o si dos informes trimestrales consecutivos
+    antes del cierre fiscal indican que el margen acumulado se sitúa por debajo del
+    20%.
   secondary_hypotheses:
   - H1-OPP-20261023-002
-  - H2-OPP-20261023-002
-  statement: El precio de la acción de Apple cotizará por encima de 250 dólares antes
-    del 30 de septiembre de 2027, reflejando una revaloración del múltiplo P/E a más
-    de 30x.
+  statement: Apple conservará una conversión elevada de ingresos en caja libre, respaldando
+    la tesis de calidad financiera incluso mientras invierte en nuevos productos y
+    servicios.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen de FCF reportado en el año fiscal 2028 es inferior al 26%.
+  - condition: El rendimiento total de AAPL menos el rendimiento total del Nasdaq-100
+      durante el periodo es inferior a 10 puntos porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Un aumento inesperado de gastos de capital que reduzca el FCF por debajo
-      del 27% del ingreso.
+  - condition: La comparación no puede calcularse con precios ajustados por dividendos
+      y una serie verificable del Nasdaq-100 para ambas fechas.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen de FCF reportado en el año fiscal 2028 es inferior al 26%.
-  - Un aumento inesperado de gastos de capital que reduzca el FCF por debajo del 27%
-    del ingreso.
+  - El rendimiento total de AAPL menos el rendimiento total del Nasdaq-100 durante
+    el periodo es inferior a 10 puntos porcentuales.
+  - La comparación no puede calcularse con precios ajustados por dividendos y una
+    serie verificable del Nasdaq-100 para ambas fechas.
   horizon: largo
   id: H4-OPP-20261023-002
   opportunity_id: OPP-20261023-002
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-12-31'
-    expected: 28.0
+    deadline: '2028-11-24'
+    expected: 10.0
     met: null
-    metric: margen FCF
-    prediction: El FCF representará ≥ 28% de los ingresos consolidados en el reporte
-      anual 2028.
-    unit: porcentaje
-  priority: informational
+    metric: Rendimiento total relativo de AAPL frente al Nasdaq-100
+    prediction: Entre el cierre del 2026-11-26 y el cierre del 2028-11-24, el rendimiento
+      total de AAPL, incluidos dividendos, superará al del Nasdaq-100 en al menos
+      10 puntos porcentuales.
+    unit: puntos porcentuales de exceso de rendimiento
+  priority: important
   probability: 0.5
-  rationale: El mayor mix de ingresos hacia servicios de alta rentabilidad y la mejora
-    de la eficiencia operativa mediante IA en la cadena de suministro reducirán los
-    costos operativos. Históricamente, el margen de FCF ha sido del 24% y se ha mantenido
-    estable.
-  review_trigger: Si en el reporte anual 2028 el margen de FCF está bajo 26%.
+  rationale: Si el mercado está subestimando la duración del crecimiento de Servicios
+    y la capacidad de Apple para convertir ingresos en caja, una revisión al alza
+    de las expectativas podría favorecer el rendimiento relativo de la acción. La
+    hipótesis depende también de que la valoración inicial no se contraiga de manera
+    suficiente para neutralizar el crecimiento.
+  review_trigger: Revisar y dejar de creer la hipótesis si al cierre del 2027-11-26
+    AAPL acumula un rendimiento total al menos 10 puntos porcentuales inferior al
+    Nasdaq-100 y, además, el crecimiento interanual de Servicios en los dos últimos
+    trimestres publicados es inferior al 8%.
   secondary_hypotheses:
-  - H2-OPP-20261023-002
-  statement: El margen de flujo de caja libre (FCF) de Apple alcanzará el 28% de los
-    ingresos totales para finales de 2028.
+  - H1-OPP-20261023-002
+  - H3-OPP-20261023-002
+  statement: La combinación de crecimiento recurrente de Servicios y generación de
+    caja permitirá que la acción de Apple supere al Nasdaq-100 en rendimiento total
+    durante los próximos dos años.
   status: ACTIVE
   ticker: AAPL
   version: 1
