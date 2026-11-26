@@ -58,6 +58,8 @@ user_prompt: >
   `dominio_business_quality` objeto {{"rating": string, "analisis": string}};
   `scenario_analysis` objeto con `schema_version: bear_bull_v2`, `as_of_date`,
   `horizon_date`, `currency` y `scenarios`, o null si no hay evidencia suficiente;
+  si existe el escenario pero no hay horizonte explícito, usa 365 días después de `as_of_date`;
+  IDOS lo identificará como convención del sistema, no como evidencia de mercado.
   `falsadores` lista de strings; `calidad_evidencia` objeto con
   `hechos_verificados`, `inferencias_llm`, `preguntas_abiertas`;
   `ratios_investigados` lista exacta de ratios configurados; `risk_flags` lista.
