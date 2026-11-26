@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 import hashlib
 import json
 import math
@@ -259,6 +259,23 @@ def canonicalize_scenario_ticker_url_case(
                     source["url"] = trusted_url
                     break
     return result
+
+
+def canonicalize_missing_scenario_horizon(value: Any) -> Any:
+    """Apply IDOS's disclosed one-year convention when a model omits the horizon.
+
+    This only repairs a missing horizon on an otherwise structured scenario.
+    Invalid explicit dates remain invalid and are rejected by the validator.
+    """
+    if not isinstance(value, dict) or value.get("horizon_date") not in (None, ""):
+        return value
+    as_of = _parse_date(value.get("as_of_date"))
+    if as_of is None:
+        return value
+    canonical = dict(value)
+    canonical["horizon_date"] = (as_of + timedelta(days=365)).isoformat()
+    canonical["horizon_basis"] = "idos_default_365_days"
+    return canonical
 
 
 def validate_scenario_analysis(

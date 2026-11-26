@@ -121,7 +121,10 @@ user_prompt: >
   (condiciones observables que invalidarían el caso). No asignes probabilidades
   ni retorno esperado; no existe una calibración validada. El gestor revisa una
   sola vez el análisis junto con el expediente completo en Decision Board.
-  horizon_date debe ser posterior a la fecha actual del análisis. No uses escenarios
+  horizon_date debe ser posterior a la fecha actual del análisis. Si produces un
+  escenario pero no recibes un horizonte explícito, usa el horizonte convencional de 365 días
+  posteriores a as_of_date; IDOS lo marcará como convención del sistema, no como evidencia.
+  No uses escenarios
   con horizontes ya vencidos ni identificadores ficticios en URLs (por ejemplo,
   CIKs compuestos por ceros). Si no puedes verificar los precios, fechas o fuentes,
   devuelve scenario_analysis como null.
