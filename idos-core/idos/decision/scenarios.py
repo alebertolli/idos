@@ -261,21 +261,36 @@ def canonicalize_scenario_ticker_url_case(
     return result
 
 
-def canonicalize_missing_scenario_horizon(value: Any) -> Any:
-    """Apply IDOS's disclosed one-year convention when a model omits the horizon.
+def canonicalize_scenario_reference_dates(
+    value: Any,
+    *,
+    analysis_as_of_date: str | date | None = None,
+) -> Any:
+    """Anchor scenario dates to the trusted analysis date and disclose defaults.
 
-    This only repairs a missing horizon on an otherwise structured scenario.
-    Invalid explicit dates remain invalid and are rejected by the validator.
+    A model cannot choose an earlier analysis date than the run context. A missing
+    horizon uses the documented one-year convention; explicit invalid horizons
+    remain untouched for validation.
     """
-    if not isinstance(value, dict) or value.get("horizon_date") not in (None, ""):
+    if not isinstance(value, dict):
         return value
-    as_of = _parse_date(value.get("as_of_date"))
-    if as_of is None:
+    trusted_as_of = _parse_date(analysis_as_of_date) if analysis_as_of_date is not None else None
+    model_as_of = _parse_date(value.get("as_of_date"))
+    reference_date = trusted_as_of or model_as_of
+    if reference_date is None:
         return value
+
     canonical = dict(value)
-    canonical["horizon_date"] = (as_of + timedelta(days=365)).isoformat()
-    canonical["horizon_basis"] = "idos_default_365_days"
-    return canonical
+    changed = False
+    if trusted_as_of is not None and value.get("as_of_date") != trusted_as_of.isoformat():
+        canonical["as_of_date"] = trusted_as_of.isoformat()
+        canonical["as_of_basis"] = "idos_analysis_date"
+        changed = True
+    if value.get("horizon_date") in (None, ""):
+        canonical["horizon_date"] = (reference_date + timedelta(days=365)).isoformat()
+        canonical["horizon_basis"] = "idos_default_365_days"
+        changed = True
+    return canonical if changed else value
 
 
 def validate_scenario_analysis(
