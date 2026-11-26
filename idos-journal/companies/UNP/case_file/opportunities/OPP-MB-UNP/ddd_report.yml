@@ -1,78 +1,102 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El FCF TTM positivo permite revisar conversión de caja, pero no demuestra sostenibilidad
-    ni retornos sobre capital.
-  - Los objetivos de analistas pueden funcionar como anclas de escenarios de mercado,
-    no como valoración intrínseca.
+  - La combinación de margen bruto y FCF positivo indica rentabilidad y generación
+    de caja observadas, pero no establece una ventaja competitiva sostenible.
+  - Los extremos de consenso pueden usarse como anclas de escenarios, no como estimaciones
+    de valor intrínseco.
+  - UNP opera un negocio ferroviario en Estados Unidos y transporta diversas categorías
+    de carga (Resumen financiero de contexto, fecha de corte del resumen 2026-11-26;
+    no se aporta período operativo).
   - Ingresos TTM de 26.363 millones y FCF TTM de 6.694 millones al 2026-09-30, según
     StockAnalysis.
-  - FCF reportado de 5.499 millones en FY 2025 y 5.742 millones en FY 2022, según
-    StockAnalysis.
-  - Precio de USD 304,00 al 2026-10-30 y rango de objetivos de analistas de USD 245–375
-    observado el 2026-11-21.
+  - Precio observado de USD 304,00 al 2026-10-30 y rango de objetivos de analistas
+    USD 245–375 al 2026-11-26, según las fuentes del resumen financiero.
   preguntas_abiertas:
-  - ¿Qué volumen, precios y mezcla de mercancías explican el crecimiento y qué tamaño
-    tiene el mercado direccionable?
-  - ¿Cuáles son los retornos incrementales sobre capital y las necesidades de reinversión?
-  - ¿Qué evidencia operativa respalda la durabilidad de la ventaja competitiva y la
-    asignación de capital?
-catalizadores_previos: &id001 []
+  - ¿Qué parte del crecimiento depende de volúmenes, precios, mezcla de carga o cambios
+    de costos?
+  - ¿Cuál es el retorno sobre capital y qué rendimiento obtiene UNP de la reinversión?
+  - ¿Cómo evolucionan participación, capacidad, servicio, capex, dividendos y recompras?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-21T18:47:02.580289-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-UNP
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-21T18:47:02.580289-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-UNP
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-21T18:47:02.580289-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-UNP
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Investigación requerida; evidencia financiera parcial
-  justificacion: El paquete aporta métricas financieras históricas y evidencia de
-    mercado, pero no documenta suficientemente reinversión, retornos sobre capital,
-    penetración del mercado, ventaja competitiva ni asignación de capital para validar
-    una tesis de multibagger.
+  categoria: Investigación requerida; negocio ferroviario establecido con crecimiento
+    y retornos financieros observables en los datos disponibles.
+  justificacion: La evidencia respalda rentabilidad y generación positiva de FCF,
+    pero no proporciona datos suficientes para valorar la reinversión, el mercado
+    direccionable, la penetración ni los retornos sobre capital.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: El modelo descrito presta transporte ferroviario de diversas mercancías
-    en Estados Unidos. El margen bruto TTM reportado fue 55,77% al 2026-09-30, pero
-    no hay evidencia suficiente sobre ventaja competitiva, retorno sobre capital,
-    reinversión, penetración de mercado o erosión del moat.
-  rating: No concluyente
+  analisis: El negocio descrito presta servicios ferroviarios en Estados Unidos para
+    diversas categorías de carga. Al 2026-09-30, margen bruto TTM reportado de 55,77%
+    y FCF positivo respaldan rentabilidad observada, pero no permiten concluir sobre
+    moat, retornos sobre capital o sostenibilidad.
+  rating: Rentable y generadora de caja; calidad competitiva no determinada
 dominio_catalizadores:
-- catalizador: La confirmación de crecimiento de ingresos y FCF en períodos futuros
-    permitiría evaluar si el avance TTM continúa.
-  hito: Comparar futuros resultados reportados con TTM al 2026-09-30.
-- catalizador: Datos operativos sobre volumen, rendimiento, eficiencia y necesidades
-    de inversión ayudarían a comprobar el mecanismo de crecimiento.
-  hito: No se proporcionan metas ni fechas en el paquete.
-- catalizador: El consenso de analistas observado ofrece una referencia de mercado,
-    no un catalizador corporativo ni una valoración propia.
-  hito: Objetivos observados el 2026-11-21.
+- catalizador: Seguimiento del FCF
+  observacion: El FCF TTM reportado fue 6.694 millones al 2026-09-30, frente a 5.499
+    millones en FY 2025; la comparación mezcla TTM y ejercicio fiscal.
+- catalizador: Seguimiento del crecimiento de ingresos
+  observacion: Los ingresos reportados fueron 26.363 millones TTM al 2026-09-30 y
+    24.510 millones en FY 2025; la evidencia no aporta guía ni desglose de impulsores.
+- catalizador: Revisión del consenso
+  observacion: El consenso de objetivos observado al 2026-11-26 presenta un rango
+    USD 245–375; no se proporcionan revisiones históricas ni fundamentos de los analistas.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- fuente: StockAnalysis, estados financieros, período finalizado 2026-09-30.
-  riesgo: La deuda neta reportada fue 28.026 millones en valor de fuente al 2026-09-30;
-    no puede calcularse deuda neta/EBITDA con unidades verificablemente compatibles.
-- fuente: StockAnalysis, estadísticas, período finalizado 2026-09-30.
-  riesgo: No hay serie de acciones diluidas ni de acciones en circulación histórica
-    suficiente para medir dilución interanual.
-- fuente: Evidencia no disponible en el paquete.
-  riesgo: El paquete no aporta datos para evaluar concentración de clientes, sensibilidad
-    por mercancía, necesidades de capital, seguridad ferroviaria o exposición regulatoria.
-- fuente: StockAnalysis, estados financieros, períodos indicados en cada ratio.
-  riesgo: La información financiera y de mercado es insuficiente para evaluar retornos
-    incrementales sobre capital o determinar si el crecimiento de FCF es sostenible.
+- observacion: La deuda total reportada fue 31.112 millones al 2026-09-30; no se calcula
+    deuda neta/EBITDA por incompatibilidad de escala entre los campos disponibles.
+  riesgo: Endeudamiento
+- observacion: El CAGR de ingresos FY 2022–FY 2025 calculado con datos reportados
+    es ligeramente negativo; el período TTM posterior muestra ingresos superiores
+    a FY 2025, pero no es una comparación anual equivalente.
+  riesgo: Crecimiento
+- observacion: El paquete no contiene datos de participación, capacidad, tarifas,
+    costos unitarios, inversión de capital ni retornos sobre capital para medir ventaja,
+    erosión o productividad de reinversión.
+  riesgo: Ventaja competitiva y reinversión
+- observacion: No se aportan datos sobre recompras, dividendos, adquisiciones, capex
+    histórico o decisiones de dirección que permitan evaluar asignación de capital.
+  riesgo: Asignación de capital
 error_mercado:
-  catalizador_cambio: Resultados futuros que acrediten crecimiento sostenido de ingresos
-    y FCF, junto con mejoras operativas cuantificables, podrían cambiar la evaluación;
-    el paquete no proporciona previsiones corporativas ni hitos fechados.
-  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
-    disponible; los objetivos de analistas son referencias observadas, no valor intrínseco.
-  consenso_actual: UNP cerró a USD 304,00 el 2026-10-30; el consenso de precio objetivo
-    observado el 2026-11-21 fue USD 329,96, con rango USD 245–375.
-  hipotesis_contraria: El rango amplio de objetivos y el crecimiento de FCF TTM no
-    demuestran por sí solos una infravaloración; falta evidencia del crecimiento estructural,
-    retornos incrementales sobre capital y valoración basada en fundamentales.
-  razonamiento: El precio y los objetivos están expresados en USD, pero el paquete
-    no contiene un método de valoración ni previsiones operativas que permitan evaluar
-    la brecha frente al consenso.
-generated_at: '2026-11-21T18:47:02.580289-03:00'
+  catalizador_cambio: La evidencia disponible no identifica un catalizador corporativo
+    fechado; el seguimiento de resultados y FCF podría modificar la evaluación, pero
+    no se aporta calendario.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el consenso ofrece
+    anclas observadas, no una valoración intrínseca.'
+  consenso_actual: El precio observado fue USD 304,00 al 2026-10-30; el consenso de
+    precio objetivo informado fue USD 329,96, con rango USD 245–375 al 2026-11-26.
+  hipotesis_contraria: El avance de precio a 12 meses coexistió con un FCF TTM superior
+    al FCF de FY 2025, pero esos datos no prueban que las expectativas del mercado
+    subestimen el crecimiento futuro.
+  razonamiento: UNP reportó ingresos TTM de USD 26.363 millones y FCF TTM de USD 6.694
+    millones al 2026-09-30. No hay previsiones operativas, datos de volumen/precios
+    ni método de valoración con inputs suficientes para contrastar esas cifras con
+    el precio.
+generated_at: '2026-11-26T13:23:35.203449-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-UNP
@@ -92,11 +116,11 @@ prompt_inputs:
   insider_ownership: 0
   name: Union Pacific Corporation
   operating_margin: 40.75
-  pe_ratio: 22.41
+  pe_ratio: 23.27
   products: ''
   revenue: 26360000000.0
   revenue_growth: 7.4
-  roic: 16.54
+  roic: 16.61
   sector: Industrials
   ticker: UNP
 ratios_investigados:
@@ -105,21 +129,20 @@ ratios_investigados:
   metric: revenue_cagr_3y_pct
   period_end: '2025-12-31'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/unp/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: Crecimiento de FCF TTM reportado por la fuente; la definición detallada
-    del proveedor no está incluida.
+- formula: Variación de FCF reportada por el proveedor para TTM
   inputs:
-    fcf_growth_history_TTM: 11.33
-  limitations: Se reproduce el crecimiento TTM reportado; el paquete no detalla el
-    período comparativo ni permite verificar la metodología del proveedor.
+    fcf_growth_history: 11.33
+  limitations: Se conserva la cifra reportada por el proveedor; el paquete no especifica
+    el período comparativo exacto usado para calcular el crecimiento TTM.
   metric: fcf_growth_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/unp/financials/
   status: reported
   unit: percent
@@ -129,25 +152,27 @@ ratios_investigados:
   metric: fcf_conversion_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/UNP/statistics/
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/unp/financials/
   status: unavailable
   unit: percent
   value: null
 - formula: (total_debt - cash_and_equivalents) / EBITDA
   inputs:
-    cash_and_investments_history_Current: 3086.0
+    cash_and_equivalents: 3086.0
     ebitda: 13280000000.0
-    total_debt_history_Current: 31112.0
-  limitations: 'No se puede validar la compatibilidad de unidades: deuda y efectivo
-    están expresados como importes reportados sin escala explícita en el paquete,
-    mientras EBITDA está expresado en moneda del proveedor.'
+    total_debt: 31112.0
+  limitations: Deuda y efectivo están reportados en source_reported_amount, mientras
+    que EBITDA está en provider_financial_currency; la incompatibilidad de escala
+    impide un cociente validado.
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/unp/financials/
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/UNP/statistics/
   status: unavailable
   unit: x
@@ -155,12 +180,12 @@ ratios_investigados:
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
     shares_outstanding: 594250000.0
-  limitations: Falta una observación comparable de acciones diluidas o acciones en
-    circulación para el período interanual anterior.
+  limitations: El paquete aporta acciones en circulación para un solo período y no
+    incluye acciones diluidas ni una observación comparable del período anterior.
   metric: dilution_yoy_pct
   period_end: '2026-09-30'
   sources:
-  - name: StockAnalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/UNP/statistics/
   status: unavailable
   unit: percent
@@ -196,7 +221,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-26'
   business_model: Union Pacific Corporation, through its subsidiary, Union Pacific
     Railroad Company, operates in the railroad business in the United States. It offers
     transportation services for grain and grain products, fertilizers, food and refrigerated
@@ -214,7 +239,305 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.0141
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Union Pacific Corporation (UNP) opera una red ferroviaria de carga en Estados
+    Unidos. A través de su infraestructura ferroviaria, transporta mercancías de clientes
+    y coordina el uso de vías, locomotoras, vagones, patios y terminales. Su actividad
+    pertenece al sector del transporte ferroviario de mercancías y requiere una inversión
+    significativa en activos físicos y mantenimiento. [AOIF, análisis del negocio;
+    fecha no especificada]
+
+
+    Entre los productos y clientes mencionados en la investigación figuran granos
+    y productos derivados, fertilizantes, procesadores de granos y productores de
+    alimentos para animales. La información disponible no desglosa los ingresos por
+    mercancía, cliente ni geografía concreta dentro de Estados Unidos. [AOIF, análisis
+    del negocio; fecha no especificada]
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    Los ingresos dependen del transporte de mercancías. Para evaluar sus impulsores
+    con mayor precisión hacen falta datos de volúmenes, precios o rendimiento por
+    unidad, mezcla de productos y utilización de la red; esos datos no están incluidos
+    en el material proporcionado. [DDD, preguntas abiertas; fecha del análisis no
+    especificada]
+
+
+    La investigación de AOIF caracteriza la red ferroviaria de gran escala, los costes
+    y plazos de construir infraestructura alternativa y las economías de escala como
+    fuentes de barreras de entrada y de una ventaja competitiva amplia. También describe
+    a UNP como líder de su posición competitiva. Son valoraciones cualitativas del
+    análisis, no medidas cuantificadas de la ventaja ni pruebas sobre su duración.
+    [AOIF, análisis competitivo; fecha no especificada]
+
+
+    La industria es intensiva en capital y sensible a ciclos industriales, agrícolas
+    y energéticos. La contracción de esos sectores puede reducir los volúmenes de
+    carga y la utilización de la red. UNP comparte exposición general a la demanda
+    de transporte y logística con compañías como [[FDX]], aunque el material disponible
+    no establece que sean competidores directos. La exposición a productos agrícolas
+    e industriales también puede ser relevante al comparar con [[DE]], sin que ello
+    implique que sus modelos de negocio sean equivalentes.
+
+
+    ## 3. Perfil Financiero
+
+
+    | Métrica | Valor reportado | Período / observación | Fuente y limitaciones |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos | 7,4 % | Período no especificado | AOIF; no se aporta
+    la serie histórica ni la definición del período. |
+
+    | Margen operativo | 40,75 % | Período no especificado | AOIF; metodología y período
+    no detallados. |
+
+    | ROIC | 16,54 % | Período no especificado | AOIF; no se incluyen cálculo ni componentes.
+    |
+
+    | Margen bruto | No especificado | TTM, según DDD | DDD indica que hay un margen
+    bruto reportado, pero no proporciona su valor en el extracto recibido. |
+
+    | FCF | Positivo | TTM; período finalizado el 30-09-2026 | DDD; el valor absoluto
+    no está incluido. |
+
+    | Crecimiento del FCF | 11,33 % | TTM; período finalizado el 30-09-2026 | StockAnalysis,
+    según DDD. La definición y el período comparativo no están detallados; no se puede
+    verificar el cálculo. |
+
+    | Deuda neta | 28.026 millones en la unidad de valor de la fuente | 30-09-2026
+    | StockAnalysis, según DDD. No se proporciona EBITDA comparable para calcular
+    deuda neta/EBITDA. |
+
+    | Current ratio | 1,16x | 30-09-2026 | StockAnalysis, según DDD; por encima del
+    umbral de alerta de 0,5x usado en ese análisis. |
+
+    | Acciones diluidas / dilución interanual | No disponible | — | DDD señala que
+    falta una serie histórica comparable para medir la dilución. |
+
+
+    AOIF califica la tendencia financiera como «estable», pero el material no incluye
+    datos suficientes para contrastar esa valoración de forma independiente. Tampoco
+    aporta flujo de caja operativo ni capex para calcular conversión de FCF, ni datos
+    de reinversión que permitan evaluar la sostenibilidad del crecimiento o los retornos
+    incrementales sobre capital. [AOIF, análisis financiero; DDD, preguntas abiertas]
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF evalúa la calidad del management como «regular», la asignación de capital
+    como «neutral» y el alineamiento de insiders como «débil». El paquete no identifica
+    directivos, transacciones de insiders, participaciones accionariales, remuneración
+    ni composición del consejo. Por tanto, esas valoraciones no pueden desarrollarse
+    ni comprobarse con la evidencia disponible. [AOIF, evaluación del management;
+    fecha no especificada]
+
+
+    No hay información suficiente para valorar de manera específica la independencia
+    del consejo, la experiencia de sus miembros o la correspondencia entre incentivos
+    de gestión y creación de valor por acción.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista sujeto a verificación:**
+
+
+    - La red ferroviaria de escala y las dificultades de replicar su infraestructura
+    podrían ofrecer barreras de entrada y economías de escala. AOIF caracteriza el
+    moat como amplio y a UNP como líder; estas conclusiones son cualitativas y requieren
+    validación con datos operativos y competitivos. [AOIF, análisis competitivo]
+
+    - El FCF TTM se reporta positivo y su crecimiento TTM se cifra en 11,33 % al 30-09-2026.
+    Esto justifica investigar la generación de caja, pero no demuestra que el crecimiento
+    sea sostenible ni permite evaluar su conversión desde el beneficio o los retornos
+    sobre el capital. [DDD, StockAnalysis, 30-09-2026]
+
+    - AOIF reporta un margen operativo de 40,75 % y un ROIC de 16,54 %. Sin período,
+    metodología ni serie histórica, esas cifras sirven como referencias iniciales,
+    no como evidencia suficiente de mejora o estabilidad duradera. [AOIF, análisis
+    financiero]
+
+
+    La tesis se fortalecería si futuros resultados confirmaran crecimiento sostenido
+    de ingresos y FCF, acompañado de datos operativos que mostraran volumen, rendimiento,
+    eficiencia y necesidades de inversión favorables. [DDD, catalizadores; AOIF, puntos
+    de monitoreo]
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    **Caso bajista:** el material no permite concluir que UNP esté infravalorada ni
+    que el crecimiento de FCF sea sostenible. Las métricas financieras citadas carecen
+    de algunas definiciones y series comparables, y no se conocen aquí los retornos
+    incrementales sobre capital ni las necesidades de reinversión. El rango de objetivos
+    de analistas tampoco constituye por sí mismo una valoración intrínseca. [DDD,
+    calidad de evidencia y análisis de valoración]
+
+
+    Riesgos principales identificados:
+
+
+    - **Ciclo económico y volúmenes:** una contracción económica o el debilitamiento
+    de sectores industriales, agrícolas o energéticos podría reducir la carga transportada
+    y la utilización de la red. [AOIF, evaluación de riesgos]
+
+    - **Operaciones y seguridad:** interrupciones, accidentes o problemas de seguridad
+    podrían generar daños, costes, sanciones o pérdida de servicio. [AOIF, evaluación
+    de riesgos]
+
+    - **Capital y deuda:** la deuda neta reportada fue de 28.026 millones al 30-09-2026;
+    sin EBITDA comparable no puede estimarse aquí el apalancamiento relativo. La naturaleza
+    intensiva en capital del ferrocarril hace relevante investigar reinversión y mantenimiento.
+    [DDD, StockAnalysis; AOIF, dinámica de industria]
+
+    - **Evidencia incompleta:** no hay datos suficientes para medir dilución interanual
+    ni para reconstruir crecimiento de ingresos a tres años. [DDD, riesgos y ratios
+    investigados]
+
+
+    **Falsadores de la tesis:**
+
+
+    1. Contracción persistente de ingresos o FCF en resultados futuros. [DDD, falsadores]
+
+    2. Evidencia operativa de deterioro estructural de márgenes, eficiencia, servicio
+    o seguridad. [DDD, falsadores; AOIF, riesgos]
+
+    3. Datos de reinversión que indiquen que la caja reportada no se traduce en retornos
+    incrementales adecuados. Esta cuestión queda abierta en la investigación actual.
+    [DDD, preguntas abiertas]
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Hito | Fecha esperada | Impacto potencial | Estado de la evidencia |
+
+    |---|---|---|---|
+
+    | Comparar nuevos resultados con los datos TTM al 30-09-2026 | En futuros resultados;
+    fecha no especificada | Confirmar o debilitar la continuidad del crecimiento de
+    ingresos y FCF | DDD propone la comparación, pero no identifica una fecha de publicación.
+    |
+
+    | Obtener datos operativos de volumen, rendimiento, eficiencia y necesidades de
+    inversión | Sin fecha especificada | Aclarar qué explica el crecimiento y si puede
+    sostenerse | No se proporcionan metas ni calendario. |
+
+    | Evaluar cambios en mezcla de mercancías y costes laborales, de combustible y
+    mantenimiento | Seguimiento en futuros períodos; fecha no especificada | Medir
+    exposición cíclica y evolución de márgenes operativos | Señalado por AOIF como
+    punto de monitoreo; sin objetivos cuantificados. |
+
+
+    No se documentan eventos corporativos o hitos fechados adicionales en el material
+    recibido.
+
+
+    ## 8. Marco de Valoración
+
+
+    La evidencia disponible no permite estimar un valor intrínseco con precisión:
+    faltan previsiones operativas, un FCF normalizado, datos suficientes sobre deuda
+    y reinversión y una metodología verificable para las métricas reportadas. DDD
+    concluye que no puede validarse un error de valoración con la información disponible.
+
+
+    | Referencia | Valor | Interpretación y limitaciones |
+
+    |---|---:|---|
+
+    | Precio de cierre | USD 304,00 | Cierre del 30-10-2026, según DDD. |
+
+    | Objetivo medio de analistas | USD 329,96 | Consenso observado el 21-11-2026,
+    según DDD; referencia de mercado, no valor intrínseco. |
+
+    | Rango de objetivos de analistas | USD 245–375 | Extremos usados como anclas
+    de escenarios de mercado, no como estimaciones propias de valor. |
+
+    | PER | 22,41x | Reportado por AOIF; fecha, definición y base de beneficios no
+    especificadas. |
+
+    | EV/EBITDA | 14,96x | Reportado por AOIF; fecha y metodología no especificadas.
+    |
+
+    | Rentabilidad por FCF | 0 | Reportada por AOIF; no se aclara la unidad ni cómo
+    concuerda con el FCF TTM positivo informado por DDD. |
+
+
+    DDD plantea USD 245 como escenario adverso y USD 375 como escenario favorable
+    para el horizonte al 21-11-2027, utilizando los extremos observados del rango
+    de objetivos de analistas. No son escenarios construidos a partir de previsiones
+    propias de ingresos, márgenes, FCF o múltiplos fundamentales. [DDD, análisis de
+    escenarios, 21-11-2026]
+
+
+    **Sensibilidad que debe investigarse:** una valoración fundamental debería examinar,
+    como mínimo, los cambios en volúmenes, precios o rendimiento, mezcla de mercancías,
+    márgenes, reinversión y coste de capital. No hay supuestos cuantitativos suficientes
+    en el paquete para calcular esa sensibilidad. El margen de seguridad fue calificado
+    como insuficiente por AOIF, pero su estimación de valor intrínseco figura como
+    no determinable con los datos proporcionados. [AOIF, valoración; DDD, análisis
+    de valoración]
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué volúmenes, precios o rendimiento y mezcla de mercancías explican el crecimiento
+    de ingresos y qué mercado direccionable aborda UNP? [DDD, preguntas abiertas]
+
+    2. ¿Cómo evolucionan los retornos incrementales sobre capital y qué inversión
+    se requiere para mantenimiento, capacidad y crecimiento? [DDD, preguntas abiertas]
+
+    3. ¿Cuál es el valor absoluto y la trayectoria histórica del flujo de caja operativo,
+    capex y FCF, y cómo se reconcilian con la rentabilidad por FCF reportada por AOIF?
+
+    4. ¿Cuál es el período y la metodología de las cifras de crecimiento de ingresos,
+    margen operativo, ROIC, PER y EV/EBITDA presentadas por AOIF?
+
+    5. ¿Qué EBITDA comparable permite calcular deuda neta/EBITDA y evaluar la capacidad
+    de servicio de la deuda?
+
+    6. ¿Cómo han evolucionado el volumen, el rendimiento, la puntualidad, la productividad,
+    los costes y la seguridad de la red?
+
+    7. ¿Qué proporción de ingresos y volumen depende de categorías cíclicas, clientes
+    relevantes o regiones concretas?
+
+    8. ¿Cuál es la evolución de las acciones diluidas y de la propiedad de insiders,
+    y qué incentivos componen la remuneración del management?
+
+    9. ¿Qué sustenta la evaluación cualitativa de moat amplio y liderazgo, y cómo
+    se compara con alternativas de transporte y logística, incluidas compañías como
+    [[FDX]]?
+
+    10. ¿Qué resultados futuros permitirían confirmar o falsar la continuidad del
+    crecimiento de ingresos y FCF después del período finalizado el 30-09-2026?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]],
+    [[CAAP|Corporación América Airports S.A.]], [[CAR|Avis Budget Group, Inc.]], [[CAT|Caterpillar
+    Inc.]], [[DAL|Delta Air Lines, Inc.]], [[DE|Deere & Company]], [[EFX|Equifax Inc.]],
+    [[FDX|FedEx Corporation]], [[JCI|Johnson Controls International plc]], [[LMT|Lockheed
+    Martin Corporation]], [[MMM|3M Company]], [[PAM|Pampa Energía S.A.]], [[PBI|Pitney
+    Bowes Inc.]], [[RTX|RTX Corporation]], [[SIEGY|Siemens Aktiengesellschaft]], [[SNA|Snap-on
+    Incorporated]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -249,7 +572,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-21T21:46:31.549854+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-26T16:23:09.505564+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -269,7 +592,7 @@ research_input_snapshot:
     petroleum gas
   revenue: 26360000000.0
   revenue_growth: 7.4
-  roic: 16.54
+  roic: 16.61
   scenario_financial_evidence:
     source_observations:
       cash_and_investments_history:
@@ -410,12 +733,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    375.0, "low": 245.0, "mean": 329.96, "median": 329.96, "observed_at": "2026-11-21T18:46:34.632361-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
-    "2026-11-21T18:46:34.632361-03:00", "observed_date": "2026-11-21", "target_price":
+    375.0, "low": 245.0, "mean": 329.96, "median": 329.96, "observed_at": "2026-11-26T13:23:12.574955-03:00",
+    "sources": [{"as_of_date": "2026-11-26", "name": "stockanalysis", "observed_at":
+    "2026-11-26T13:23:12.574955-03:00", "observed_date": "2026-11-26", "target_price":
     329.96, "url": "https://stockanalysis.com/stocks/unp/forecast/"}, {"as_of_date":
-    "2026-11-21", "name": "yfinance", "observed_at": "2026-11-21T18:46:34.632361-03:00",
-    "observed_date": "2026-11-21", "target_price": 329.95834, "url": "https://finance.yahoo.com/quote/UNP/"}]},
+    "2026-11-26", "name": "yfinance", "observed_at": "2026-11-26T13:23:12.574955-03:00",
+    "observed_date": "2026-11-26", "target_price": 329.95834, "url": "https://finance.yahoo.com/quote/UNP/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 304.0,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/UNP/"}]}}'
   sector: Industrials
@@ -425,82 +748,84 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 31e07a491fdbb2068c7fe47de7f8f66057d792d54e355cfee2eaee0311793938
+    sha256: b147957d2a9a3dff08d7f381ad2942d98e54d5a921c829d3a347d5718d96ab7a
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-21T18:47:02.580289-03:00'
+  triggered_at: '2026-11-26T13:23:35.203449-03:00'
 resumen_ejecutivo: ''
 risk_flags:
 - metric: current_ratio
-  observation: 1.16x al 2026-09-30; no cruza el umbral.
-  source: StockAnalysis, estadísticas, período finalizado 2026-09-30.
-  threshold: below 0.5x
+  observation: 1.16x al 2026-09-30; no cruza el umbral configurado.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/UNP/statistics/
+  threshold: below 0.5
 - metric: dilution_yoy_pct
-  observation: No disponible; falta dato histórico comparable.
-  source: StockAnalysis, estadísticas; período actual 2026-09-30.
-  threshold: above 10%
+  observation: 'No disponible: falta una observación comparable de acciones para el
+    período anterior.'
+  threshold: above 10 percent
 - metric: interest_coverage
-  observation: El paquete reporta 0, pero no permite validar su significado; no se
-    interpreta como cobertura confirmada.
-  source: StockAnalysis, estadísticas, período TTM finalizado 2026-09-30.
+  observation: El proveedor reporta 0 al 2026-09-30, pero el paquete no permite validar
+    si es una cifra económica o un valor faltante codificado; requiere revisión.
   threshold: below 2.0x
 - metric: negative_fcf_runway_months
-  observation: 'No aplicable: FCF TTM reportado positivo al 2026-09-30.'
-  source: StockAnalysis, estadísticas, período TTM finalizado 2026-09-30.
-  threshold: below 12 meses
+  observation: 'No aplica a la observación disponible: FCF TTM positivo de 6.690 millones
+    al 2026-09-30, sujeto a la limitación de escala reportada.'
+  threshold: below 12 months
 - metric: net_debt_ebitda
-  observation: No disponible por incompatibilidad verificable de unidades entre los
-    inputs.
-  source: StockAnalysis, estados financieros y estadísticas, período finalizado 2026-09-30.
+  observation: No disponible por incompatibilidad de escala entre deuda/efectivo y
+    EBITDA.
   threshold: above 4.0x
 - metric: share_count_cagr_3y_pct
-  observation: No disponible; falta serie histórica de acciones.
-  source: La evidencia histórica de acciones no está disponible en el paquete.
-  threshold: above 5%
+  observation: 'No disponible: faltan observaciones históricas comparables de acciones
+    en circulación o acciones diluidas.'
+  threshold: above 5 percent
 scenario_analysis:
-  as_of_date: '2026-11-21'
+  as_of_date: '2026-11-26'
   currency: USD
-  horizon_date: '2027-11-21'
+  horizon_date: '2027-11-26'
   scenarios:
   - falsifiers:
-    - Resultados operativos futuros que acrediten crecimiento sostenido de ingresos
-      y FCF podrían debilitar la lectura adversa.
+    - Resultados futuros que muestren crecimiento y generación de FCF sostenidos podrían
+      refutar la premisa de deterioro.
     id: BEAR
     key_assumptions:
-    - El objetivo bajo observado sigue siendo una referencia pertinente para el horizonte
-      indicado; el paquete no ofrece previsiones que justifiquen una cifra alternativa.
-    rationale: 'Ancla de consenso observada: extremo inferior del rango de objetivos.
-      Se usa como escenario adverso de mercado, no como valoración intrínseca; el
-      paquete no aporta evidencia para atribuirlo a un resultado operativo específico.'
+    - El objetivo bajo observado es una referencia de escenario, no una valoración
+      intrínseca.
+    - No se dispone de previsiones operativas para cuantificar el impacto de una desaceleración.
+    rationale: Ancla observada en el extremo bajo del rango de objetivos de analistas;
+      representa un resultado adverso plausible si el crecimiento reciente de ingresos
+      y FCF no se sostiene y el mercado se acerca a ese extremo.
     sources:
-    - as_of_date: '2026-11-21'
-      name: StockAnalysis, consenso de objetivos
+    - as_of_date: '2026-11-26'
+      name: stockanalysis
       url: https://stockanalysis.com/stocks/unp/forecast/
     target_price: 245.0
   - falsifiers:
-    - Deterioro futuro de ingresos o FCF frente a la evidencia TTM al 2026-09-30 podría
-      debilitar la lectura favorable.
+    - Una caída sostenida de ingresos o FCF sería incompatible con la premisa de continuidad.
     id: BULL
     key_assumptions:
-    - El objetivo alto observado sigue siendo una referencia pertinente para el horizonte
-      indicado; no se dispone de previsiones corporativas para validar sus supuestos.
-    rationale: 'Ancla de consenso observada: extremo superior del rango de objetivos.
-      Se usa como escenario favorable de mercado, no como valoración intrínseca; el
-      paquete no aporta supuestos operativos que demuestren ese resultado.'
+    - El objetivo alto observado es una referencia de escenario, no una valoración
+      intrínseca.
+    - La continuidad de ingresos y FCF es una condición de escenario, no una previsión
+      respaldada por guía.
+    rationale: Ancla observada en el extremo alto del rango de objetivos de analistas;
+      representa un resultado favorable plausible si el mercado mantiene una valoración
+      próxima a ese extremo junto con la continuidad de ingresos y FCF observados.
     sources:
-    - as_of_date: '2026-11-21'
-      name: StockAnalysis, consenso de objetivos
+    - as_of_date: '2026-11-26'
+      name: stockanalysis
       url: https://stockanalysis.com/stocks/unp/forecast/
     target_price: 375.0
   schema_version: bear_bull_v2
 scenario_validation:
   errors: []
   status: valid_pending_decision_board
-score_general: 58
+score_general: 67
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T18:46:34.632361-03:00'
+  calculado_at: '2026-11-26T13:23:12.574955-03:00'
   fuentes:
     stockanalysis: 329.96
     yfinance: 329.95834
@@ -508,24 +833,24 @@ target_consensus:
   n_fuentes: 2
   promedio: 329.96
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-26'
     name: stockanalysis
-    observed_at: '2026-11-21T18:46:34.632361-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-26T13:23:12.574955-03:00'
+    observed_date: '2026-11-26'
     target_price: 329.96
     url: https://stockanalysis.com/stocks/unp/forecast/
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-26'
     name: yfinance
-    observed_at: '2026-11-21T18:46:34.632361-03:00'
-    observed_date: '2026-11-21'
+    observed_at: '2026-11-26T13:23:12.574955-03:00'
+    observed_date: '2026-11-26'
     target_price: 329.95834
     url: https://finance.yahoo.com/quote/UNP/
   target_high: 375.0
   target_low: 245.0
-tesis_inversion: UNP opera servicios ferroviarios de mercancías en Estados Unidos
-  y presenta FCF TTM positivo y margen bruto reportado superior al 55% al 2026-09-30.
-  La evidencia disponible no basta para establecer el tamaño del mercado direccionable,
-  penetración, retornos sobre el capital reinvertido, resiliencia de la ventaja competitiva
-  o potencial de crecimiento de largo plazo.
+tesis_inversion: La tesis a contrastar es que la operación ferroviaria estadounidense
+  de UNP puede sostener generación de caja y rentabilidad mientras transporta productos
+  de múltiples categorías. Los datos muestran crecimiento de ingresos TTM frente a
+  FY 2025 y FCF positivo, pero no bastan para establecer crecimiento estructural,
+  rendimiento incremental de la reinversión ni resiliencia competitiva.
 ticker: UNP
 version: '3.0'

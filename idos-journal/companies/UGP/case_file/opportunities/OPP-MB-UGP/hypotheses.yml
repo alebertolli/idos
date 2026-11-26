@@ -1,187 +1,191 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El volumen combinado del primer semestre de 2027 crece menos del 2%
-      interanual.
+  - condition: Los ingresos acumulados de los últimos doce meses publicados hasta
+      la fecha objetivo crecen menos del 5% interanual.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El volumen combinado cae respecto al primer semestre de 2026.
+  - condition: La compañía informa una contracción interanual de ingresos en dos publicaciones
+      trimestrales consecutivas disponibles antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El volumen combinado del primer semestre de 2027 crece menos del 2% interanual.
-  - El volumen combinado cae respecto al primer semestre de 2026.
+  - Los ingresos acumulados de los últimos doce meses publicados hasta la fecha objetivo
+    crecen menos del 5% interanual.
+  - La compañía informa una contracción interanual de ingresos en dos publicaciones
+    trimestrales consecutivas disponibles antes de la fecha objetivo.
   horizon: medio
   id: H1-OPP-MB-UGP
   opportunity_id: OPP-MB-UGP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-08-15'
-    expected: 2.0
+    deadline: '2027-06-30'
+    expected: 5.0
     met: null
-    metric: Crecimiento interanual del volumen combinado de combustibles y GLP en
-      el primer semestre de 2027
-    prediction: En el informe del segundo trimestre de 2027, el volumen combinado
-      de ventas de combustibles y GLP de los negocios reportados por Ultrapar en Brasil
-      habrá aumentado al menos un 2% interanual en el primer semestre de 2027.
+    metric: Crecimiento interanual de ingresos acumulados de los últimos doce meses
+    prediction: En la información financiera más reciente publicada hasta 2027-06-30,
+      los ingresos acumulados de los últimos doce meses serán al menos un 5% superiores
+      a los de los doce meses comparables anteriores, medidos en la moneda de presentación
+      de la compañía.
     unit: '%'
   priority: important
   probability: 0.5
-  rationale: Una expansión de los volúmenes en los negocios de distribución y movilidad
-    aumentaría la utilización de la red y respaldaría la generación de resultados.
-    La información disponible no permite confirmar que la mejora reciente de márgenes
-    se traduzca también en crecimiento de actividad, por lo que esta hipótesis requiere
-    validación con datos segmentados.
-  review_trigger: Dejar de creerla si el informe del segundo trimestre de 2027 muestra
-    crecimiento interanual inferior al 2% en el volumen combinado del primer semestre.
+  rationale: La tesis plantea crecimiento de ingresos. La exposición de Ultrapar a
+    negocios de energía y distribución puede sostener el crecimiento nominal, pero
+    la volatilidad de precios y márgenes limita la certeza de que ese crecimiento
+    se traduzca en mejores resultados.
+  review_trigger: Dejar de creerla si una publicación financiera disponible antes
+    de 2027-06-30 muestra crecimiento interanual de ingresos inferior al 5% en los
+    últimos doce meses.
   secondary_hypotheses: []
-  statement: El volumen de ventas de combustibles y GLP de Ultrapar crecerá en el
-    primer semestre de 2027, señal de que la actividad operativa no depende únicamente
-    de cambios de precios.
+  statement: Los ingresos de Ultrapar crecerán moderadamente durante los próximos
+    doce meses, aunque la expansión no bastará por sí sola para eliminar los riesgos
+    de rentabilidad.
   status: ACTIVE
   ticker: UGP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El flujo de caja libre de los doce meses hasta el 30 de septiembre
-      de 2027 es inferior a R$ 500 millones.
+  - condition: El flujo de caja libre calculado como flujo de caja operativo menos
+      inversiones en activos fijos es cero o negativo en la información más reciente
+      disponible a la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El flujo de caja libre acumulado en ese período es negativo.
+  - condition: El flujo de caja libre de los últimos doce meses es negativo en dos
+      publicaciones trimestrales consecutivas.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El flujo de caja libre de los doce meses hasta el 30 de septiembre de 2027 es
-    inferior a R$ 500 millones.
-  - El flujo de caja libre acumulado en ese período es negativo.
+  - El flujo de caja libre calculado como flujo de caja operativo menos inversiones
+    en activos fijos es cero o negativo en la información más reciente disponible
+    a la fecha objetivo.
+  - El flujo de caja libre de los últimos doce meses es negativo en dos publicaciones
+    trimestrales consecutivas.
   horizon: medio
   id: H2-OPP-MB-UGP
   opportunity_id: OPP-MB-UGP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-15'
-    expected: 500.0
+    deadline: '2027-09-30'
+    expected: 0.0
     met: null
-    metric: Flujo de caja libre acumulado de doce meses hasta el 30 de septiembre
-      de 2027
-    prediction: El flujo de caja libre acumulado en los doce meses hasta el 30 de
-      septiembre de 2027 será de al menos R$ 500 millones, calculado como flujo de
-      caja operativo menos inversiones de capital.
-    unit: millones de R$
+    metric: Flujo de caja libre de los últimos doce meses
+    prediction: En los estados financieros publicados hasta 2027-09-30, el flujo de
+      caja operativo acumulado de los últimos doce meses, menos las inversiones en
+      activos fijos del mismo periodo, será superior a cero.
+    unit: BRL; estrictamente positivo
   priority: critical
   probability: 0.5
-  rationale: La tesis requiere que la generación de caja permita financiar inversiones
-    y atender obligaciones sin depender de nueva deuda. La evidencia disponible apunta
-    a una mejora reciente del FCF, pero no establece su sostenibilidad; medir el flujo
-    acumulado reduce el efecto de la estacionalidad de un trimestre aislado.
-  review_trigger: Dejar de creerla si los resultados del tercer trimestre de 2027
-    muestran FCF de doce meses inferior a R$ 500 millones, usando flujo operativo
-    menos inversiones de capital y sin excluir partidas recurrentes.
-  secondary_hypotheses: []
-  statement: Ultrapar mantendrá flujo de caja libre positivo durante los doce meses
-    que terminen el 30 de septiembre de 2027, lo que indicaría que la mejora reciente
-    de generación de caja es reproducible.
+  rationale: La tesis identifica una recuperación del flujo de caja. La generación
+    positiva después de inversiones sería evidencia observable de que el crecimiento
+    operativo se convierte en efectivo disponible; el resultado dependerá de capital
+    de trabajo, inversiones y condiciones de los negocios.
+  review_trigger: Dejar de creerla si una publicación trimestral disponible antes
+    de 2027-09-30 muestra flujo de caja libre negativo en los últimos doce meses y
+    atribuye el resultado a una debilidad persistente, no a una variación temporal
+    identificada.
+  secondary_hypotheses:
+  - H1-OPP-MB-UGP
+  statement: La recuperación del flujo de caja se confirmará si Ultrapar genera flujo
+    de caja libre positivo en un periodo móvil de doce meses.
   status: ACTIVE
   ticker: UGP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La razón deuda neta/EBITDA ajustado supera 2,0 veces al 31 de diciembre
-      de 2027.
+  - condition: La cobertura calculada con cifras de los últimos doce meses es inferior
+      a 1,25 veces en la publicación más reciente disponible a la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La deuda neta aumenta interanualmente al 31 de diciembre de 2027 sin
-      un incremento proporcional del EBITDA ajustado.
+  - condition: La cobertura cae por debajo de 1,0 vez en cualquier publicación financiera
+      disponible antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La razón deuda neta/EBITDA ajustado supera 2,0 veces al 31 de diciembre de 2027.
-  - La deuda neta aumenta interanualmente al 31 de diciembre de 2027 sin un incremento
-    proporcional del EBITDA ajustado.
+  - La cobertura calculada con cifras de los últimos doce meses es inferior a 1,25
+    veces en la publicación más reciente disponible a la fecha objetivo.
+  - La cobertura cae por debajo de 1,0 vez en cualquier publicación financiera disponible
+    antes de la fecha objetivo.
   horizon: medio
   id: H3-OPP-MB-UGP
   opportunity_id: OPP-MB-UGP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 2.0
+    deadline: '2027-09-30'
+    expected: 1.25
     met: null
-    metric: Deuda neta/EBITDA ajustado de los últimos doce meses
-    prediction: La deuda neta dividida por EBITDA ajustado de los últimos doce meses
-      será igual o inferior a 2,0 veces al 31 de diciembre de 2027, según las definiciones
-      reportadas por la compañía.
-    unit: veces o menos
+    metric: Cobertura de intereses de los últimos doce meses
+    prediction: En la información financiera más reciente publicada hasta 2027-09-30,
+      la cobertura de intereses de los últimos doce meses, calculada como EBIT dividido
+      por gasto financiero por intereses, será de al menos 1,25 veces.
+    unit: veces
   priority: critical
   probability: 0.5
-  rationale: La conversión sostenida de caja en reducción de deuda disminuiría el
-    riesgo financiero y dejaría más capacidad para inversiones y otras asignaciones
-    de capital. La tesis identifica el endeudamiento como un riesgo, pero la información
-    disponible no permite cuantificar su nivel ni su trayectoria futura.
-  review_trigger: Dejar de creerla si los resultados del cuarto trimestre de 2027
-    muestran deuda neta/EBITDA ajustado superior a 2,0 veces o si la compañía modifica
-    la definición de la métrica de modo que impida una comparación consistente.
+  rationale: La tesis señala riesgos de cobertura de intereses. Una mejora de la cobertura
+    sería coherente con la recuperación de caja y la evolución operativa, aunque el
+    endeudamiento y la volatilidad de resultados pueden impedir una mejora suficiente.
+  review_trigger: Dejar de creerla si una publicación financiera disponible antes
+    de 2027-09-30 informa cobertura de intereses inferior a 1,0 vez en los últimos
+    doce meses.
   secondary_hypotheses:
   - H2-OPP-MB-UGP
-  statement: Ultrapar reducirá su apalancamiento neto a un nivel que no limite materialmente
-    la reinversión antes de finalizar 2027.
+  statement: La capacidad de cubrir intereses mejorará, pero seguirá siendo un factor
+    de riesgo si la cobertura no alcanza un nivel holgado.
   status: ACTIVE
   ticker: UGP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El retorno total de UGP menos el retorno total de EWZ es inferior a
-      8 puntos porcentuales en el período definido.
+  - condition: El precio de cierre de UGP en USD el 2027-11-26 es igual o superior
+      a 6,39 USD.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: UGP obtiene un retorno total inferior al de EWZ en el período definido.
+  - condition: Antes de la fecha objetivo, la acción registra un cierre superior a
+      6,39 USD y lo mantiene durante al menos 20 sesiones bursátiles consecutivas.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El retorno total de UGP menos el retorno total de EWZ es inferior a 8 puntos porcentuales
-    en el período definido.
-  - UGP obtiene un retorno total inferior al de EWZ en el período definido.
-  horizon: medio
+  - El precio de cierre de UGP en USD el 2027-11-26 es igual o superior a 6,39 USD.
+  - Antes de la fecha objetivo, la acción registra un cierre superior a 6,39 USD y
+    lo mantiene durante al menos 20 sesiones bursátiles consecutivas.
+  horizon: largo
   id: H4-OPP-MB-UGP
   opportunity_id: OPP-MB-UGP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-22'
-    expected: 8.0
+    deadline: '2027-11-26'
+    expected: 6.39
     met: null
-    metric: Retorno total de UGP menos retorno total de EWZ en doce meses
-    prediction: Entre el cierre del 22 de noviembre de 2026 y el cierre del 22 de
-      noviembre de 2027, el retorno total de UGP, incluidos dividendos y medido en
-      dólares estadounidenses, superará al retorno total de EWZ en al menos 8 puntos
-      porcentuales.
-    unit: puntos porcentuales
-  priority: informational
+    metric: Precio de cierre de UGP en USD
+    prediction: Al cierre del 2027-11-26, el precio de UGP en USD será inferior a
+      6,39 USD, equivalente a una apreciación de menos del 10% respecto al precio
+      de referencia de 5,81 USD, sin incluir dividendos.
+    unit: USD; límite superior de la predicción
+  priority: important
   probability: 0.5
-  rationale: 'Una mejora verificable del FCF y una reducción del apalancamiento podrían
-    disminuir la percepción de riesgo y respaldar el rendimiento relativo de la acción.
-    Es una hipótesis de mercado, no una conclusión sobre valoración intrínseca: el
-    resultado también dependerá de divisas, precios de energía y condiciones generales
-    del mercado brasileño.'
-  review_trigger: Dejar de creerla al cierre del 22 de noviembre de 2027 si UGP no
-    supera a EWZ por al menos 8 puntos porcentuales; reconsiderarla antes si los resultados
-    de 2027 invalidan H2 o H3.
+  rationale: El precio de referencia indicado, 5,81 USD, está cerca del extremo bajo
+    del consenso según el contexto proporcionado, pero eso no elimina el riesgo de
+    que el mercado descuente una recuperación incompleta o una cobertura de intereses
+    insuficiente. Por ello, la hipótesis es de upside limitado, no de una subida garantizada.
+  review_trigger: Dejar de creerla si UGP cierra por encima de 6,39 USD durante 20
+    sesiones bursátiles consecutivas antes del 2027-11-26.
   secondary_hypotheses:
   - H2-OPP-MB-UGP
   - H3-OPP-MB-UGP
-  statement: La acción de UGP superará al ETF iShares MSCI Brazil (EWZ) en retorno
-    total durante los doce meses posteriores al corte, si la generación de caja y
-    el desapalancamiento se materializan.
+  statement: Pese al potencial de recuperación, el riesgo de ejecución y la volatilidad
+    limitarán la revalorización de UGP durante los próximos doce meses.
   status: ACTIVE
   ticker: UGP
   version: 1

@@ -1,0 +1,31 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; negocio ferroviario establecido con crecimiento
+  y retornos financieros observables en los datos disponibles.'
+- 'Market error: No se valida un error de valoración: el consenso ofrece anclas observadas,
+  no una valoración intrínseca.'
+- 'Thesis: La tesis a contrastar es que la operación ferroviaria estadounidense de
+  UNP puede sostener generación de caja y rentabilidad mientras transporta productos
+  de múltiples categorías. Los datos muestran c'
+generated_at: '2026-11-26T13:24:56.906227-03:00'
+id: ass-6befcce6
+recommendation: REVIEW
+risks:
+- observacion: La deuda total reportada fue 31.112 millones al 2026-09-30; no se calcula
+    deuda neta/EBITDA por incompatibilidad de escala entre los campos disponibles.
+  riesgo: Endeudamiento
+- observacion: El CAGR de ingresos FY 2022–FY 2025 calculado con datos reportados
+    es ligeramente negativo; el período TTM posterior muestra ingresos superiores
+    a FY 2025, pero no es una comparación anual equivalente.
+  riesgo: Crecimiento
+- observacion: El paquete no contiene datos de participación, capacidad, tarifas,
+    costos unitarios, inversión de capital ni retornos sobre capital para medir ventaja,
+    erosión o productividad de reinversión.
+  riesgo: Ventaja competitiva y reinversión
+- observacion: No se aportan datos sobre recompras, dividendos, adquisiciones, capex
+    histórico o decisiones de dirección que permitan evaluar asignación de capital.
+  riesgo: Asignación de capital
+score: 67
+status: COMPLETED
+version: '3.0'

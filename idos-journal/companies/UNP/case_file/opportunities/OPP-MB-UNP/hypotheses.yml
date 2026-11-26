@@ -1,186 +1,193 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El volumen comparable de 2027 aumenta menos del 2% frente a 2026.
+  - condition: Los ingresos por transporte de mercancías del ejercicio fiscal 2027
+      crecen menos del 3% frente al ejercicio fiscal 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa informa una caída interanual del volumen durante al menos
-      dos trimestres consecutivos de 2027.
+  - condition: La empresa informa una caída interanual de esos ingresos para el ejercicio
+      fiscal 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El volumen comparable de 2027 aumenta menos del 2% frente a 2026.
-  - La empresa informa una caída interanual del volumen durante al menos dos trimestres
-    consecutivos de 2027.
+  - Los ingresos por transporte de mercancías del ejercicio fiscal 2027 crecen menos
+    del 3% frente al ejercicio fiscal 2026.
+  - La empresa informa una caída interanual de esos ingresos para el ejercicio fiscal
+    2027.
   horizon: medio
   id: H1-OPP-MB-UNP
   opportunity_id: OPP-MB-UNP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-15'
-    expected: 2.0
+    deadline: '2028-03-31'
+    expected: 3.0
     met: null
-    metric: Crecimiento interanual del volumen comparable en 2027
-    prediction: En el ejercicio 2027, los carloads y otras unidades de volumen reportadas
-      por UNP aumentarán al menos un 2% frente a 2026, comparando el mismo perímetro
-      y la misma definición de volumen.
-    unit: '%'
+    metric: Crecimiento interanual de ingresos por transporte de mercancías
+    prediction: En los resultados del ejercicio fiscal 2027, los ingresos por transporte
+      de mercancías serán al menos un 3% superiores a los del ejercicio fiscal 2026,
+      comparados con la misma definición contable de la empresa.
+    unit: porcentaje mínimo
   priority: important
   probability: 0.5
-  rationale: Una mejora de la actividad industrial y de la utilización de la red puede
-    aumentar los envíos; la mayor densidad de tráfico permite absorber más volumen
-    sobre una infraestructura existente. El contexto disponible no confirma esta recuperación,
-    por lo que la hipótesis debe verificarse con los volúmenes publicados por la compañía.
-  review_trigger: Dejar de creerla si los resultados del tercer trimestre de 2027
-    muestran una caída interanual del volumen comparable y la empresa no revisa al
-    alza su perspectiva para el cierre del año.
+  rationale: La operación transporta productos de varias categorías, lo que puede
+    amortiguar la debilidad de una categoría concreta. El crecimiento de ingresos
+    TTM señalado en el contexto es compatible con esta hipótesis, pero no demuestra
+    una tendencia estructural; por eso se contrasta con el ejercicio completo siguiente.
+  review_trigger: Dejar de creerla cuando UNP publique los resultados del ejercicio
+    fiscal 2027; también si una actualización de resultados de la empresa anticipa
+    que los ingresos anuales caerán frente a 2026.
   secondary_hypotheses: []
-  statement: UNP elevará el volumen de mercancías transportadas durante 2027, sin
-    depender exclusivamente de un aumento de tarifas.
+  statement: UNP aumentará los ingresos por transporte de mercancías en el ejercicio
+    fiscal 2027 frente a 2026, respaldado por mayor actividad y una mezcla de productos
+    diversificada.
   status: ACTIVE
   ticker: UNP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF de 2027 es cero o negativo.
+  - condition: El índice operativo de 2027 supera al de 2026 en más de 1,0 punto porcentual.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF de 2027 representa menos del 10% de los ingresos de 2027.
+  - condition: Los ingresos aumentan, pero los gastos operativos crecen lo suficiente
+      para que el índice operativo incumpla el límite establecido.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF de 2027 es cero o negativo.
-  - El FCF de 2027 representa menos del 10% de los ingresos de 2027.
+  - El índice operativo de 2027 supera al de 2026 en más de 1,0 punto porcentual.
+  - Los ingresos aumentan, pero los gastos operativos crecen lo suficiente para que
+    el índice operativo incumpla el límite establecido.
   horizon: medio
   id: H2-OPP-MB-UNP
   opportunity_id: OPP-MB-UNP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-15'
-    expected: 10.0
+    deadline: '2028-03-31'
+    expected: 1.0
     met: null
-    metric: FCF 2027 como porcentaje de ingresos 2027
-    prediction: Para el ejercicio 2027, el flujo de caja libre —flujo de caja operativo
-      menos compras de propiedad y equipo, según los estados de flujo de caja— será
-      positivo y equivaldrá al menos al 10% de los ingresos del mismo ejercicio.
-    unit: '%'
-  priority: critical
+    metric: Deterioro máximo del índice operativo frente a 2026
+    prediction: El índice operativo del ejercicio fiscal 2027, calculado como gastos
+      operativos divididos por ingresos operativos y según la definición reportada
+      por UNP, no será más de 1,0 punto porcentual peor que el de 2026.
+    unit: punto porcentual
+  priority: important
   probability: 0.5
-  rationale: El contexto indica que UNP tenía FCF TTM positivo al 2026-09-30. Si los
-    ingresos y la eficiencia operativa sostienen el flujo de caja operativo y el gasto
-    de capital se mantiene financiable, la compañía debería conservar FCF positivo.
-    El dato TTM, por sí solo, no garantiza que se mantenga.
-  review_trigger: Dejar de creerla si al cierre del tercer trimestre de 2027 el FCF
-    acumulado de los últimos doce meses es negativo y la empresa no identifica una
-    causa temporal cuantificada que espere revertir antes del cierre anual.
+  rationale: La conversión de ingresos en beneficios depende de controlar los costes
+    operativos. La diversificación de productos puede estabilizar la utilización de
+    la red, pero el contexto no aporta evidencia suficiente sobre eficiencia incremental;
+    la comparación del índice operativo anual permite someter esa parte de la tesis
+    a prueba.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados auditados de
+    2027; antes, si UNP comunica una previsión anual que implique un deterioro superior
+    a 1,0 punto porcentual frente a 2026.
   secondary_hypotheses:
   - H1-OPP-MB-UNP
-  statement: UNP mantendrá una generación de flujo de caja libre significativa en
-    2027, incluso después de financiar sus necesidades de inversión en la red.
+  statement: 'UNP sostendrá la eficiencia de su operación mientras aumenta los ingresos
+    por transporte: el índice operativo de 2027 no se deteriorará de forma material
+    frente a 2026.'
   status: ACTIVE
   ticker: UNP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El ROIC calculado con estados financieros publicados es inferior al
-      12%.
+  - condition: El flujo de caja libre de 2027 es inferior al de 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El ROIC cae al menos 200 puntos básicos frente a 2026 y termina 2027
-      por debajo del 12%.
+  - condition: El flujo de caja libre de 2027 crece menos del 5% frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El resultado depende de una reclasificación contable que impida una
+      comparación homogénea.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El ROIC calculado con estados financieros publicados es inferior al 12%.
-  - El ROIC cae al menos 200 puntos básicos frente a 2026 y termina 2027 por debajo
-    del 12%.
+  - El flujo de caja libre de 2027 es inferior al de 2026.
+  - El flujo de caja libre de 2027 crece menos del 5% frente a 2026.
+  - El resultado depende de una reclasificación contable que impida una comparación
+    homogénea.
   horizon: medio
   id: H3-OPP-MB-UNP
   opportunity_id: OPP-MB-UNP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-04-30'
-    expected: 12.0
+    deadline: '2028-03-31'
+    expected: 5.0
     met: null
-    metric: ROIC de 2027
-    prediction: El ROIC de UNP para 2027 será al menos del 12%, calculado como NOPAT
-      dividido por el promedio del capital invertido al inicio y al cierre del ejercicio,
-      con NOPAT definido como EBIT después de impuestos usando la tasa efectiva reportada.
-    unit: '%'
-  priority: important
+    metric: Crecimiento interanual del flujo de caja libre
+    prediction: 'El flujo de caja libre del ejercicio fiscal 2027 será al menos un
+      5% superior al de 2026, usando en ambos años la misma definición: flujo de caja
+      operativo menos inversiones de capital.'
+    unit: porcentaje mínimo
+  priority: critical
   probability: 0.5
-  rationale: El margen bruto superior al 55% informado en el contexto sugiere una
-    actividad con capacidad de generar beneficio bruto, pero no demuestra retornos
-    atractivos sobre el capital total ni sobre el capital reinvertido. Esta hipótesis
-    comprueba esa cuestión directamente mediante una medida de ROIC calculada de forma
-    consistente.
-  review_trigger: Dejar de creerla si los resultados anuales de 2027 permiten calcular
-    un ROIC inferior al 12%; no se considerará confirmación una mejora basada únicamente
-    en cambios de clasificación contable.
+  rationale: El contexto indica que el FCF TTM superó el de FY 2025 y que el FCF fue
+    positivo, pero esa comparación no prueba crecimiento sostenido ni rendimiento
+    de la reinversión. Comparar ejercicios completos consecutivos permite verificar
+    si la generación de caja se mantiene y mejora.
+  review_trigger: Dejar de creerla cuando UNP publique el flujo de caja operativo
+    y las inversiones de capital de 2027; también si una actualización corporativa
+    indica que el FCF anual de 2027 será inferior al de 2026.
   secondary_hypotheses:
+  - H1-OPP-MB-UNP
   - H2-OPP-MB-UNP
-  statement: UNP conservará retornos operativos elevados sobre el capital invertido,
-    señal de que la inversión en la red no está deteriorando sustancialmente la economía
-    del negocio.
+  statement: UNP convertirá el desempeño operativo en una generación de caja libre
+    mayor en 2027 que en 2026.
   status: ACTIVE
   ticker: UNP
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de UNP menos la del S&P 500 es inferior a 5 puntos
-      porcentuales durante el periodo definido.
+  - condition: La rentabilidad total de UNP iguala o queda por debajo de la del S&P
+      500 Industrials durante el periodo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La acción de UNP registra una rentabilidad total negativa durante el
-      periodo, aunque supere al S&P 500.
+  - condition: La rentabilidad total de UNP supera la del índice por menos de 5 puntos
+      porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de UNP menos la del S&P 500 es inferior a 5 puntos porcentuales
-    durante el periodo definido.
-  - La acción de UNP registra una rentabilidad total negativa durante el periodo,
-    aunque supere al S&P 500.
+  - La rentabilidad total de UNP iguala o queda por debajo de la del S&P 500 Industrials
+    durante el periodo.
+  - La rentabilidad total de UNP supera la del índice por menos de 5 puntos porcentuales.
   horizon: medio
   id: H4-OPP-MB-UNP
   opportunity_id: OPP-MB-UNP
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
+    deadline: '2027-11-26'
     expected: 5.0
     met: null
-    metric: Rentabilidad total relativa de UNP frente al S&P 500
-    prediction: Desde el cierre del 2026-11-21 hasta el cierre del 2027-11-21, la
-      rentabilidad total de UNP, incluidos dividendos reinvertidos, superará en al
-      menos 5 puntos porcentuales la rentabilidad total del S&P 500.
-    unit: puntos porcentuales
+    metric: Rentabilidad total relativa de UNP frente al S&P 500 Industrials
+    prediction: Desde el cierre del 2026-11-26 hasta el cierre del 2027-11-26, la
+      rentabilidad total de UNP, incluidos dividendos reinvertidos, superará la del
+      S&P 500 Industrials por al menos 5 puntos porcentuales.
+    unit: puntos porcentuales de exceso de rentabilidad
   priority: informational
   probability: 0.5
-  rationale: El crecimiento del negocio y la conversión de beneficios en caja pueden
-    respaldar el rendimiento de la acción. Sin embargo, el rango de objetivos de analistas
-    o el crecimiento del FCF no bastan para demostrar infravaloración; la rentabilidad
-    relativa es una prueba observable del resultado de mercado de esta tesis, no una
-    garantía de que el precio actual sea atractivo.
-  review_trigger: Dejar de creerla al cierre del 2027-11-21 si la rentabilidad total
-    relativa acumulada es inferior a 5 puntos porcentuales; no se extenderá el horizonte
-    para reinterpretar el resultado.
+  rationale: El avance de la acción a 12 meses y el FCF TTM superior al de FY 2025
+    no prueban que las expectativas del mercado subestimen el crecimiento futuro.
+    Una comparación de rentabilidad total con un índice sectorial ofrece una prueba
+    observable de desempeño relativo, aunque no demuestra por sí sola una infravaloración.
+  review_trigger: Dejar de creerla al cierre del 2027-11-26 o antes si un evento corporativo
+    material hace que la cotización deje de ser comparable con el índice durante el
+    periodo.
   secondary_hypotheses:
-  - H1-OPP-MB-UNP
-  - H2-OPP-MB-UNP
-  statement: La combinación de crecimiento del volumen y FCF positivo permitirá que
-    UNP genere una rentabilidad total superior a la del mercado estadounidense durante
-    los próximos doce meses.
+  - H3-OPP-MB-UNP
+  statement: Durante los 12 meses posteriores al corte, la rentabilidad total de UNP
+    superará la del índice S&P 500 Industrials, señal de que el mercado reconocerá
+    mejor su capacidad de generar caja y sostener la operación.
   status: ACTIVE
   ticker: UNP
   version: 1
