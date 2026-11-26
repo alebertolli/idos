@@ -360,35 +360,29 @@ jobs:
             echo "::error::Scheduled DDD results PR head SHA could not be resolved"
             exit 1
           fi
-          PREVIOUS_RUN_ID=""
-          PREVIOUS_RUN_LOOKUP_OK=false
-          for attempt in {1..12}; do
-            if PREVIOUS_RUN_ID=$(gh run list --workflow ci.yml --branch codex/ddd-research-results --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // empty'); then
-              PREVIOUS_RUN_LOOKUP_OK=true
-              break
-            fi
-            echo "[WARN] Could not read previous CI run (attempt $attempt/12)"
-            sleep 5
-          done
-          if [ "$PREVIOUS_RUN_LOOKUP_OK" != "true" ]; then
-            echo "::error::Could not establish the previous scheduled results CI run"
-            exit 1
-          fi
-          PREVIOUS_RUN_ID="${PREVIOUS_RUN_ID:-0}"
-          if ! gh workflow run ci.yml --ref codex/ddd-research-results; then
+          DISPATCH_OUTPUT=""
+          if DISPATCH_OUTPUT=$(gh workflow run ci.yml --ref codex/ddd-research-results 2>&1); then
+            printf '%s\n' "$DISPATCH_OUTPUT"
+          else
+            printf '%s\n' "$DISPATCH_OUTPUT"
             echo "[WARN] CI dispatch response failed; checking whether GitHub accepted the run"
           fi
-          RUN_ID=""
-          for attempt in {1..24}; do
-            if MATCHING_RUN_ID=$(gh run list --workflow ci.yml --branch codex/ddd-research-results --event workflow_dispatch --limit 100 --json databaseId,headSha --jq ".[] | select(.headSha == \"$EXPECTED_SHA\" and .databaseId > $PREVIOUS_RUN_ID) | .databaseId" | head -n 1); then
-              RUN_ID="$MATCHING_RUN_ID"
-            else
-              echo "[WARN] GitHub Actions run list temporarily unavailable (attempt $attempt/24)"
-              RUN_ID=""
-            fi
-            if [ -n "$RUN_ID" ]; then break; fi
-            sleep 5
-          done
+          RUN_ID=$(printf '%s\n' "$DISPATCH_OUTPUT" | sed -nE 's#.*actions/runs/([0-9]+).*#\1#p' | tail -n 1)
+          if [ -n "$RUN_ID" ]; then
+            echo "[DDD] Using CI run URL returned by GitHub: $RUN_ID"
+          else
+            echo "[DDD] CI run URL unavailable; polling by exact branch, event, SHA, and dispatch time"
+            for attempt in {1..24}; do
+              if MATCHING_RUN_ID=$(gh run list --workflow ci.yml --branch codex/ddd-research-results --event workflow_dispatch --limit 100 --json databaseId,event,headBranch,headSha,createdAt --jq ".[] | select(.event == \"workflow_dispatch\" and .headBranch == \"codex/ddd-research-results\" and .headSha == \"$EXPECTED_SHA\" and .createdAt >= \"$DDD_RUN_STARTED_AT\") | .databaseId" | head -n 1); then
+                RUN_ID="$MATCHING_RUN_ID"
+              else
+                echo "[WARN] GitHub Actions run list temporarily unavailable (attempt $attempt/24)"
+                RUN_ID=""
+              fi
+              if [ -n "$RUN_ID" ]; then break; fi
+              sleep 5
+            done
+          fi
           if [ -z "$RUN_ID" ]; then
             echo "::error::CI workflow_dispatch for the current scheduled results PR head did not appear"
             exit 1
