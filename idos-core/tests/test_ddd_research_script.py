@@ -807,7 +807,7 @@ def test_scheduled_results_pr_requires_a_published_commit():
 
 
 
- 
+
 def test_resume_queue_prunes_quarantined_candidates_and_keeps_other_work(tmp_path, monkeypatch):
     queue_path = tmp_path / "cache" / "ddd_research_resume.json"
     quarantine_path = tmp_path / "cache" / "ddd_research_quarantine.json"
