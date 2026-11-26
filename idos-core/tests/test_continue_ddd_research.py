@@ -40,3 +40,44 @@ def test_continuation_does_not_dispatch_during_provider_cooldown():
 
     assert not dispatched
     assert calls == []
+
+
+ 
+def test_continuation_does_not_dispatch_when_all_due_work_is_quarantined():
+    calls = []
+    now = datetime(2026, 11, 26, 12, tzinfo=timezone.utc)
+    pending = [{"ticker": "XLF", "opp_id": "OPP-XLF", "next_attempt_date": "2026-11-23"}]
+    quarantined = [{"ticker": "xlf", "opp_id": "OPP-XLF"}]
+
+    dispatched = dispatch_if_due(
+        initial_state(),
+        pending,
+        repository="alebertolli/idos",
+        now=now,
+        quarantined=quarantined,
+        run=lambda *args, **kwargs: calls.append((args, kwargs)),
+    )
+
+    assert not dispatched
+    assert calls == []
+
+
+def test_continuation_keeps_due_candidates_not_in_quarantine():
+    calls = []
+    now = datetime(2026, 11, 26, 12, tzinfo=timezone.utc)
+    pending = [
+        {"ticker": "XLF", "opp_id": "OPP-XLF", "next_attempt_date": "2026-11-23"},
+        {"ticker": "ASML", "opp_id": "OPP-ASML", "next_attempt_date": "2026-11-23"},
+    ]
+
+    dispatched = dispatch_if_due(
+        initial_state(),
+        pending,
+        repository="alebertolli/idos",
+        now=now,
+        quarantined=[{"ticker": "XLF", "opp_id": "OPP-XLF"}],
+        run=lambda command, **kwargs: calls.append((command, kwargs)),
+    )
+
+    assert dispatched
+    assert len(calls) == 1
