@@ -274,7 +274,10 @@ def canonicalize_scenario_reference_dates(
     """
     if not isinstance(value, dict):
         return value
-    trusted_as_of = _parse_date(analysis_as_of_date) if analysis_as_of_date is not None else None
+    trusted_as_of = (
+        _parse_date(analysis_as_of_date)
+        if analysis_as_of_date is not None else None
+    )
     model_as_of = _parse_date(value.get("as_of_date"))
     reference_date = trusted_as_of or model_as_of
     if reference_date is None:
