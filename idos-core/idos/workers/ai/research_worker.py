@@ -24,7 +24,7 @@ from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.decision.scenarios import (
     canonicalize_scenario_ids,
-    canonicalize_missing_scenario_horizon,
+    canonicalize_scenario_reference_dates,
     scenario_financial_evidence_snapshot,
     scenario_source_urls_from_financial_data_evidence,
     scenario_source_urls_from_evidence,
@@ -358,7 +358,10 @@ class ResearchWorker(BaseWorker):
         score = ddd_result.get("score_general", 50)
         scenario_analysis = ddd_result.get("scenario_analysis")
         scenario_analysis = canonicalize_scenario_ids(scenario_analysis)
-        scenario_analysis = canonicalize_missing_scenario_horizon(scenario_analysis)
+        scenario_analysis = canonicalize_scenario_reference_dates(
+            scenario_analysis,
+            analysis_as_of_date=ddd_inputs["analysis_as_of_date"],
+        )
         trusted_scenario_urls = scenario_source_urls_from_evidence(
             ddd_inputs.get("scenario_market_evidence")
         )

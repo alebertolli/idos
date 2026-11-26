@@ -4,7 +4,7 @@ from zoneinfo import ZoneInfo
 
 from idos.decision.scenarios import (
     canonicalize_scenario_ids,
-    canonicalize_missing_scenario_horizon,
+    canonicalize_scenario_reference_dates,
     calculate_scenario_asymmetry,
     scenario_fingerprint,
     scenario_source_urls_from_evidence,
@@ -42,7 +42,9 @@ def test_missing_scenario_horizon_uses_disclosed_one_year_convention():
     analysis = scenario_set()
     analysis["horizon_date"] = None
 
-    corrected = canonicalize_missing_scenario_horizon(analysis)
+    corrected = canonicalize_scenario_reference_dates(
+        analysis, analysis_as_of_date=TODAY.isoformat()
+    )
 
     assert corrected["horizon_date"] == (TODAY + timedelta(days=365)).isoformat()
     assert corrected["horizon_basis"] == "idos_default_365_days"
@@ -50,11 +52,25 @@ def test_missing_scenario_horizon_uses_disclosed_one_year_convention():
     assert analysis["horizon_date"] is None
 
 
+def test_scenario_analysis_date_is_anchored_to_trusted_run_date():
+    analysis = scenario_set()
+    analysis["as_of_date"] = (TODAY - timedelta(days=25)).isoformat()
+
+    corrected = canonicalize_scenario_reference_dates(
+        analysis, analysis_as_of_date=TODAY.isoformat()
+    )
+
+    assert corrected["as_of_date"] == TODAY.isoformat()
+    assert corrected["as_of_basis"] == "idos_analysis_date"
+    assert validate_scenario_analysis(corrected, today=TODAY) == []
+    assert analysis["as_of_date"] == (TODAY - timedelta(days=25)).isoformat()
+
+
 def test_invalid_explicit_horizon_is_not_repaired():
     analysis = scenario_set()
     analysis["horizon_date"] = "not-a-date"
 
-    corrected = canonicalize_missing_scenario_horizon(analysis)
+    corrected = canonicalize_scenario_reference_dates(analysis)
 
     assert corrected["horizon_date"] == "not-a-date"
     assert corrected is analysis
