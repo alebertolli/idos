@@ -1,15 +1,18 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Ventas de LiveWire 3 en EE.UU. reportadas en el 10‑Q de Q4 2027 inferiores
-      a 8,000 unidades.
+  - condition: Ventas reportadas de LiveWire 2027 en EE.UU. menores a 8,000 unidades.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Anuncio oficial de retraso del lanzamiento más allá de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Ventas de LiveWire 3 en EE.UU. reportadas en el 10‑Q de Q4 2027 inferiores a 8,000
-    unidades.
-  horizon: corto
+  - Ventas reportadas de LiveWire 2027 en EE.UU. menores a 8,000 unidades.
+  - Anuncio oficial de retraso del lanzamiento más allá de 2027.
+  horizon: medio
   id: H1-OPP-MB-HOG
   opportunity_id: OPP-MB-HOG
   parent_id: ''
@@ -18,120 +21,146 @@ hypotheses:
     deadline: '2027-12-31'
     expected: 12000.0
     met: null
-    metric: ventas_EV_unidades
-    prediction: Ventas de LiveWire 3 ≥ 12,000 unidades en EE.UU. en 2027.
+    metric: ventas_unidades
+    prediction: Ventas de LiveWire 2027 ≥ 12,000 unidades en EE.UU. para 2027-12-31.
     unit: unidades
   priority: critical
   probability: 0.5
-  rationale: La compañía ha invertido US$1.2 bn en desarrollo de EV y ha anunciado
-    una red ampliada de puntos de carga; la tendencia de adopción de motocicletas
-    eléctricas en EE.UU. está creciendo a una tasa anual del 35 %.
-  review_trigger: Si al cierre del Q4 2027 las ventas acumuladas son < 8,000 unidades,
-    la hipótesis se descartará.
+  rationale: La compañía ha invertido US$1.2 bn en desarrollo eléctrico y ha anunciado
+    una red de distribuidores dedicada. La demanda de motocicletas eléctricas en EE.UU.
+    creció 38% en 2025‑2026, y la marca Harley tiene alta afinidad de marca entre
+    consumidores premium que buscan movilidad sostenible.
+  review_trigger: Si el informe trimestral de resultados de Q2 2027 muestra ventas
+    de LiveWire por debajo de 2,000 unidades acumuladas, dejaremos de creer la hipótesis.
   secondary_hypotheses: []
-  statement: Harley-Davidson lanzará el modelo eléctrico LiveWire 3 y alcanzará ventas
-    de al menos 12,000 unidades en EE.UU. durante 2027.
+  statement: Harley-Davidson lanzará su nuevo modelo eléctrico LiveWire 2027 y alcanzará
+    ventas acumuladas de al menos 12,000 unidades en EE.UU. antes del 31 de diciembre
+    de 2027.
   status: ACTIVE
   ticker: HOG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Deuda neta reportada en el 10‑K 2027 superior a 5,500 millones de USD.
+  - condition: Deuda neta reportada al 2028-06-30 superior a US$3.0 bn.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Incumplimiento de los objetivos de refinanciamiento anunciados en la
+      guía de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Deuda neta reportada en el 10‑K 2027 superior a 5,500 millones de USD.
-  horizon: corto
+  - Deuda neta reportada al 2028-06-30 superior a US$3.0 bn.
+  - Incumplimiento de los objetivos de refinanciamiento anunciados en la guía de 2027.
+  horizon: medio
   id: H2-OPP-MB-HOG
   opportunity_id: OPP-MB-HOG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
-    expected: 5000.0
+    deadline: '2028-06-30'
+    expected: 2500.0
     met: null
     metric: deuda_neta
-    prediction: Deuda neta ≤ 5,000 millones de USD al 31‑de‑2027.
+    prediction: Deuda neta ≤ 2,500 millones de dólares al 2028-06-30.
     unit: millones USD
   priority: important
   probability: 0.5
-  rationale: La empresa ha anunciado un plan de desinversión de activos no estratégicos
-    y la emisión de bonos senior a tasas más bajas; los flujos operativos esperados
-    aumentarán 12 % tras la mejora de márgenes.
-  review_trigger: Si al cierre del año fiscal 2027 la deuda neta supera los 5,500
-    millones de USD, la hipótesis se considerará falsificada.
-  secondary_hypotheses: []
-  statement: Harley-Davidson reducirá su deuda neta a menos de US$5 bn al 31‑de‑2027
-    mediante refinanciamiento y generación de flujo de caja.
+  rationale: La empresa ha anunciado un plan de desinversión de activos no esenciales
+    y la emisión de bonos senior a tasas más bajas. Además, la mejora esperada en
+    márgenes operativos y la venta de inventario de modelos tradicionales deberían
+    generar cash flow libre suficiente para amortizar deuda.
+  review_trigger: Si el balance del Q3 2027 muestra una deuda neta superior a US$3.2 bn,
+    la hipótesis se considerará refutada.
+  secondary_hypotheses:
+  - H1-OPP-MB-HOG
+  statement: Harley-Davidson reducirá su deuda neta total a menos de US$2.5 bn para
+    el 30 de junio de 2028 mediante refinanciamiento y generación de flujo de caja
+    operativo.
   status: ACTIVE
   ticker: HOG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: P/E reportado en Bloomberg/FactSet al 30‑de‑junio‑2028 superior a 14×.
+  - condition: Precio de cierre de HOG por debajo de 20 USD en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Caída sostenida del EPS (ganancias por acción) durante 4 trimestres
+      consecutivos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - P/E reportado en Bloomberg/FactSet al 30‑de‑junio‑2028 superior a 14×.
-  horizon: medio
+  - Precio de cierre de HOG por debajo de 20 USD en la fecha objetivo.
+  - Caída sostenida del EPS (ganancias por acción) durante 4 trimestres consecutivos.
+  horizon: largo
   id: H3-OPP-MB-HOG
   opportunity_id: OPP-MB-HOG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-06-30'
-    expected: 12.0
+    deadline: '2028-12-31'
+    expected: 25.0
     met: null
-    metric: PE_ratio
-    prediction: P/E ≤ 12× al 30‑de‑junio‑2028.
-    unit: x
+    metric: precio_accion
+    prediction: Precio de cierre de HOG ≥ 25 USD el 2028-12-31.
+    unit: USD
   priority: important
   probability: 0.5
-  rationale: Con la reducción de deuda y el impulso de los EV, los analistas ajustarán
-    sus expectativas de crecimiento; la volatilidad del sector cíclico se estabiliza
-    tras la recuperación del consumo discrecional.
-  review_trigger: Si el P/E supera 14× en la fecha objetivo, la hipótesis será rechazada.
-  secondary_hypotheses: []
-  statement: El múltiplo precio‑utilidad (P/E) de Harley-Davidson se comprimirá a
-    12× para finales de junio de 2028, reflejando la mejora de márgenes y la percepción
-    de menor riesgo financiero.
+  rationale: Los analistas subestiman la capacidad de la empresa para revertir su
+    rentabilidad mediante la línea eléctrica y la disciplina de costos. La reducción
+    de deuda y el aumento del margen operativo deberían mejorar el flujo de caja libre,
+    permitiendo recompras de acciones y elevando la valoración.
+  review_trigger: Si el precio promedio de la acción durante los últimos 30 días de
+    Q3 2028 se mantiene bajo 22 USD, abandonaremos la hipótesis.
+  secondary_hypotheses:
+  - H2-OPP-MB-HOG
+  statement: El precio de la acción de Harley-Davidson superará los US$25 por acción
+    antes del 31 de diciembre de 2028, impulsado por la mejora de márgenes y la reducción
+    de deuda.
   status: ACTIVE
   ticker: HOG
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Margen EBITDA ajustado reportado en el 10‑Q Q4 2027 inferior al 13 %.
+  - condition: Margen operativo reportado para FY 2028 inferior al 10.5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Incremento de costos de producción superior al 5% interanual.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Margen EBITDA ajustado reportado en el 10‑Q Q4 2027 inferior al 13 %.
-  horizon: corto
+  - Margen operativo reportado para FY 2028 inferior al 10.5%.
+  - Incremento de costos de producción superior al 5% interanual.
+  horizon: medio
   id: H4-OPP-MB-HOG
   opportunity_id: OPP-MB-HOG
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 15.0
+    deadline: '2028-03-31'
+    expected: 12.0
     met: null
-    metric: EBITDA_margin_ajustado
-    prediction: Margen EBITDA ajustado ≥ 15 % en Q4 2027.
-    unit: '%'
+    metric: margen_operativo_ajustado
+    prediction: Margen operativo ajustado ≥ 12% en FY 2028.
+    unit: porcentaje
   priority: critical
   probability: 0.5
-  rationale: El lanzamiento exitoso del LiveWire 3 (ver H1) generará ingresos de mayor
-    margen; simultáneamente, la empresa implementará un programa de eficiencia operativa
-    que reducirá costos fijos en 200 millones de USD.
-  review_trigger: Si el margen EBITDA ajustado en Q4 2027 es < 13 %, la hipótesis
-    se descartará.
+  rationale: La compañía ha implementado un programa de reducción de costos de $150 mm
+    y ha trasladado una mayor proporción de ventas a productos de mayor margen (accesorios
+    y eléctricos). Los benchmarks de la industria indican que una mejora del 2‑3%
+    es factible con estas iniciativas.
+  review_trigger: Si el reporte de resultados del Q4 FY 2027 muestra un margen operativo
+    ajustado bajo 9%, la hipótesis será descartada.
   secondary_hypotheses:
   - H1-OPP-MB-HOG
-  statement: El margen EBITDA ajustado de Harley-Davidson alcanzará al menos 15 %
-    en el cuarto trimestre de 2027, impulsado por mayores ventas de EV y control de
-    costos.
+  statement: El margen operativo ajustado de Harley-Davidson alcanzará al menos el
+    12% en el año fiscal 2028, reflejando eficiencias de producción y mayor contribución
+    de la línea eléctrica.
   status: ACTIVE
   ticker: HOG
   version: 1
