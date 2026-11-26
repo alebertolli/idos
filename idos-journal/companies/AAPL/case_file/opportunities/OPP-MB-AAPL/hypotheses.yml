@@ -1,152 +1,156 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El ingreso del segmento iPhone en Q2 2027 crece menos del 5% respecto
-      a Q2 2026.
+  - condition: Ventas totales del headset menores a 4 millones de unidades en el mismo
+      periodo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Apple no lanza una nueva generación de iPhone antes del 30 de junio
-      de 2027.
+  - condition: Retraso del lanzamiento del producto más allá del Q2 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El ingreso del segmento iPhone en Q2 2027 crece menos del 5% respecto a Q2 2026.
-  - Apple no lanza una nueva generación de iPhone antes del 30 de junio de 2027.
-  horizon: corto
+  - Ventas totales del headset menores a 4 millones de unidades en el mismo periodo.
+  - Retraso del lanzamiento del producto más allá del Q2 2027.
+  horizon: medio
   id: H1-OPP-MB-AAPL
   opportunity_id: OPP-MB-AAPL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-07-30'
+    deadline: '2027-12-31'
     expected: 5.0
     met: null
-    metric: crecimiento_ingreso_iPhone_Q2_2027
-    prediction: El ingreso del segmento iPhone en Q2 2027 será al menos 5% mayor que
-      en Q2 2026.
-    unit: porcentaje
+    metric: unidades vendidas
+    prediction: Las ventas acumuladas del headset superarán los 5 millones de unidades
+      dentro de los 12 meses posteriores a su lanzamiento.
+    unit: millones
   priority: critical
   probability: 0.5
-  rationale: El historial de Apple muestra que cada generación de iPhone con mejoras
-    significativas de hardware y servicios asociados genera incrementos de ingresos
-    de 4‑7% YoY. Además, la empresa ha anunciado inversiones en chips propios (Apple
-    Silicon) y en servicios de AR que se esperan integrar en el próximo modelo.
-  review_trigger: Si el reporte financiero de Q2 2027 (publicado antes del 30-07-2027)
-    muestra un crecimiento del ingreso iPhone ≤ 5%.
+  rationale: Apple ha invertido fuertemente en AR/VR, cuenta con una cadena de suministro
+    preparada y ha anunciado una fecha de lanzamiento para Q4 2027; la tendencia de
+    adopción de dispositivos premium sugiere una rápida aceptación.
+  review_trigger: Si Apple anuncia la cancelación del headset antes del 2027-06-30.
   secondary_hypotheses: []
-  statement: Apple lanzará una nueva generación de iPhone que impulsará un crecimiento
-    interanual del ingreso del segmento iPhone superior al 5% en el segundo trimestre
-    de 2027.
+  statement: Apple lanzará un headset de realidad mixta que alcanzará al menos 5 millones
+    de unidades vendidas en su primer año comercial.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen bruto anual de FY2027 es inferior al 43%.
+  - condition: EPS diluido reportado inferior a 6.80 USD (consenso estimado).
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Revisión a la baja de la guía de EPS antes del cierre del ejercicio.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen bruto anual de FY2027 es inferior al 43%.
+  - EPS diluido reportado inferior a 6.80 USD (consenso estimado).
+  - Revisión a la baja de la guía de EPS antes del cierre del ejercicio.
   horizon: medio
   id: H2-OPP-MB-AAPL
   opportunity_id: OPP-MB-AAPL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-10-15'
-    expected: 43.0
+    deadline: '2027-10-30'
+    expected: 7.5
     met: null
-    metric: margen_bruto_FY2027
-    prediction: El margen bruto reportado para FY2027 será ≥ 43%.
-    unit: porcentaje
+    metric: EPS
+    prediction: El EPS diluido reportado será igual o superior a 7.50 USD.
+    unit: USD
   priority: important
   probability: 0.5
-  rationale: Los márgenes brutos de Apple se han estabilizado entre 42% y 44% desde
-    2020, impulsados por la transición a chips internos y la expansión de servicios
-    de alto margen. No se anticipan cambios de precios significativos en componentes
-    críticos.
-  review_trigger: Si el informe anual de Apple del FY2027 (publicado antes del 15-10-2027)
-    muestra un margen bruto < 43%.
+  rationale: El impulso de servicios y la posible contribución de AR/VR aumentarán
+    los márgenes operativos; además, Apple ha mejorado su eficiencia fiscal y de capital.
+  review_trigger: Si Apple reduce su guía de EPS en el reporte preliminar Q3 2027.
   secondary_hypotheses: []
-  statement: Apple mantendrá un margen bruto anual igual o superior al 43% al cierre
-    del ejercicio fiscal 2027.
+  statement: El EPS diluido de Apple para el ejercicio fiscal 2027 superará en al
+    menos un 10 % al consenso de analistas.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El precio de cierre de AAPL el 31-12-2027 es > 296.33 USD.
+  - condition: P/S superior a 7.5 en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El market cap supera los 3.5 billones USD mientras las ventas anuales
+      son menores a 500 billones USD.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El precio de cierre de AAPL el 31-12-2027 es > 296.33 USD.
-  horizon: medio
+  - P/S superior a 7.5 en la fecha objetivo.
+  - El market cap supera los 3.5 billones USD mientras las ventas anuales son menores
+    a 500 billones USD.
+  horizon: largo
   id: H3-OPP-MB-AAPL
   opportunity_id: OPP-MB-AAPL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
-    expected: 296.33
+    deadline: '2028-06-30'
+    expected: 7.0
     met: null
-    metric: precio_cierre_AAPL_2027_12_31
-    prediction: El precio de cierre de AAPL será ≤ 296.33 USD antes del 2027-12-31.
-    unit: USD
+    metric: P/S
+    prediction: El P/S será ≤ 7.0.
+    unit: ratio
   priority: important
   probability: 0.5
-  rationale: El precio actual (347.17 USD) supera el consenso, lo que sugiere sobrevaloración.
-    Si los ingresos no cumplen con expectativas de crecimiento o si el mercado corrige
-    la valoración, el precio podría retroceder al nivel de consenso o menos.
-  review_trigger: Si el precio de cierre el 31-12-2027 supera los 296.33 USD.
+  rationale: El precio de la acción ha superado el promedio histórico del sector mientras
+    que el crecimiento de ventas se estabiliza; una mayor presión de tasas de interés
+    y la rotación de fondos hacia valoraciones más razonables impulsarán la corrección.
+  review_trigger: Si el precio de la acción se mantiene por encima de 210 USD durante
+    tres meses consecutivos después del 2028-04-01 sin cambios en ventas.
   secondary_hypotheses: []
-  statement: El precio de la acción de Apple caerá al menos un 10% por debajo del
-    consenso medio de 329.25 USD antes del 31 de diciembre de 2027.
+  statement: El múltiplo precio/ventas (P/S) de Apple caerá por debajo de 7.0 para
+    mediados de 2028, reflejando una corrección de valoración tras la sobrevaloración
+    actual.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La variación anual del EPS entre 2026 y 2027 o entre 2027 y 2028 supera
-      el 2% a favor de la dilución.
+  - condition: Crecimiento interanual de Servicios inferior al 8 %.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Apple anuncia una emisión de acciones que incrementa el número de acciones
-      en circulación en más del 2% anual.
+  - condition: Churn de suscripciones superior al 5 % en el Q3 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La variación anual del EPS entre 2026 y 2027 o entre 2027 y 2028 supera el 2%
-    a favor de la dilución.
-  - Apple anuncia una emisión de acciones que incrementa el número de acciones en
-    circulación en más del 2% anual.
-  horizon: largo
+  - Crecimiento interanual de Servicios inferior al 8 %.
+  - Churn de suscripciones superior al 5 % en el Q3 2027.
+  horizon: medio
   id: H4-OPP-MB-AAPL
   opportunity_id: OPP-MB-AAPL
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-12-31'
-    expected: 2.0
+    deadline: '2027-10-30'
+    expected: 12.0
     met: null
-    metric: dilucion_EPS_anual
-    prediction: La dilución anual del EPS será ≤ 2% en los años 2027 y 2028.
-    unit: porcentaje
-  priority: critical
+    metric: crecimiento interanual
+    prediction: Los ingresos por Servicios alcanzarán o superarán los 85 billones
+      USD.
+    unit: '%'
+  priority: important
   probability: 0.5
-  rationale: Apple ha mantenido una política de recompra de acciones y ha evitado
-    emisiones de capital significativas en los últimos años. No se han anunciado planes
-    de financiamiento mediante equity que puedan superar ese umbral.
-  review_trigger: Si el reporte financiero de cualquier trimestre de 2027 o 2028 muestra
-    una dilución del EPS > 2% respecto al año anterior.
+  rationale: Apple está expandiendo su ecosistema de suscripciones (Apple TV+, Fitness+,
+    iCloud) y ha lanzado nuevas funcionalidades de pago y contenido exclusivo, lo
+    que impulsa la retención y el ARPU.
+  review_trigger: Si Apple anuncia una reducción significativa de la base de suscriptores
+    en su reporte Q3 2027.
   secondary_hypotheses: []
-  statement: Apple no emitirá acciones adicionales que diluyan el EPS en más del 2%
-    anual hasta el 31 de diciembre de 2028.
+  statement: Los ingresos por Servicios de Apple crecerán al menos un 12 % interanual
+    en el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: AAPL
   version: 1

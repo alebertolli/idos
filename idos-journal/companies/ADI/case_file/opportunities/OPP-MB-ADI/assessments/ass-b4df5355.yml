@@ -1,0 +1,32 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No se puede validar un error de valoración: los objetivos de analistas
+  son referencias observadas, no una valoración intrínseca, y faltan expectativas
+  desglosadas y un método de valoración con inputs fechados.'
+- 'Thesis: La tesis a investigar es si la recuperación de ingresos, margen bruto y
+  FCF observada en FY 2026 puede sostenerse y traducirse en retornos sobre capital
+  atractivos. El paquete no aporta datos suficien'
+generated_at: '2026-11-26T12:16:54.697302-03:00'
+id: ass-b4df5355
+recommendation: REVIEW
+risks:
+- hecho: 'La deuda total reportada aumentó de USD 8,961 millones en FY 2025 a USD
+    11,427 millones en FY 2026; la deuda neta reportada fue negativa en USD 6,229
+    millones en FY 2026. Fuente: https://stockanalysis.com/stocks/ADI/statistics/;
+    períodos terminados el 2025-11-01 y 2026-10-31.'
+  implicacion: La deuda bruta creció, pero el paquete no permite validar los ratios
+    de apalancamiento requeridos mediante una URL de fuente autorizada.
+- hecho: 'El resumen financiero reporta cobertura de intereses de 0 para TTM terminado
+    el 2026-10-31. Fuente: https://stockanalysis.com/stocks/ADI/statistics/.'
+  implicacion: 'El valor requiere aclaración: no se proporciona el gasto por intereses
+    ni una explicación del cero, por lo que no debe interpretarse como cobertura económica
+    validada.'
+- hecho: El paquete no incluye datos de mercado direccionable, penetración, retornos
+    sobre capital, concentración de clientes ni ventaja competitiva.
+  implicacion: No se puede evaluar con esta evidencia la durabilidad de la recuperación
+    o el riesgo de erosión competitiva.
+score: 48
+status: COMPLETED
+version: '3.0'
