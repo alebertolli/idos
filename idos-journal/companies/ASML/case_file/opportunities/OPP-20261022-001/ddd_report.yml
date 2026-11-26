@@ -1,40 +1,101 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El mercado está descontando la capacidad de generación de caja libre y los márgenes
-    operativos
-  - Riesgo de restricciones de exportación EE.UU. a China como factor no plenamente
-    precalculado por analistas
-  - La posición de monopolio en EUV genera un moat duradero
-  - Precio actual 1560.5400390625 USD (yfinance, 2026-10-22)
-  - Precio objetivo medio 2149.76 USD (stockanalysis.com & yfinance, 2026-10-22)
-  - FCF 23.75B EUR (stockanalysis.com, TTM, 2026-09-27)
-  - Margen operativo 38.55% (stockanalysis.com, TTM, 2026-09-27)
-  - Crecimiento de ingresos 22.54% YoY (stockanalysis.com, TTM, 2026-09-27)
+  - El precio actual está significativamente por debajo del promedio de los objetivos
+    de los analistas, lo que indica un descuento del mercado.
+  - La alta generación de caja libre y los márgenes operativos sugieren que ASML tiene
+    capacidad para financiar expansión de capacidad EUV sin necesidad de endeudamiento
+    externo.
+  - La dependencia de pocos proveedores críticos constituye un riesgo medio‑alto para
+    la cadena de suministro.
   preguntas_abiertas:
-  - ¿Cuál es el calendario exacto de entrega de los sistemas EUV 0.55 NA?
-  - ¿Cómo evolucionarán las políticas de exportación EE.UU. respecto a la venta de
-    equipos EUV a clientes chinos?
-  - ¿Qué participación de mercado alcanzará la industria china de litografía en los
-    próximos 5 años?
-catalizadores_previos: &id001 []
+  - ¿Cuál es el nivel exacto de deuda neta de ASML y su ratio deuda/EBITDA?
+  - ¿Qué planes específicos tiene la compañía para mitigar riesgos geopolíticos en
+    ventas a China?
+  - ¿Cuál es la hoja de ruta detallada y los hitos de tiempo para la comercialización
+    de la tecnología 0.55 NA?
+catalizadores_previos: &id001
+- descripcion: Entrega y puesta en marcha de sistemas EUV 0.55 NA para nodos de 3nm/2nm
+  generated_at: '2026-10-22T20:05:17.022195-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  opp_id: OPP-20261022-001
+  probabilidad_anterior: 65
+- descripcion: Acuerdo de suministro a largo plazo con TSMC para 2028‑2030
+  generated_at: '2026-10-22T20:05:17.022195-03:00'
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: medio
+  opp_id: OPP-20261022-001
+  probabilidad_anterior: 55
+- descripcion: Aprobación de subsidios europeos para expansión de capacidad EUV
+  generated_at: '2026-10-22T20:05:17.022195-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261022-001
+  probabilidad_anterior: 45
+- descripcion: ''
+  generated_at: '2026-10-22T20:06:37.003086-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-ASML
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-10-22T20:06:37.003086-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-ASML
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-10-22T20:06:37.003086-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-ASML
+  probabilidad_anterior: null
 clasificacion_oportunidad:
   categoria: compounder
-  categorias_descartadas: turnaround, deep_value, ciclica, special_situation, distressed,
-    hype, value_trap, compounder_castigado, quality_at_fair_price
-  justificacion: ASML posee un modelo de negocio de alta barrera de entrada, liderazgo
-    tecnológico en litografía EUV, márgenes operativos superiores al 35% y crecimiento
-    de ingresos superior al 20% YoY, lo que lo convierte en un generador de flujo
-    de caja consistente y en un negocio con capacidad de reinversión y expansión a
-    largo plazo. La cotización actual (1560 USD) está significativamente por debajo
-    del consenso medio de precio objetivo (2149 USD), indicando que el mercado no
-    está valorando plenamente su potencial de crecimiento y su moat.
-comparativa_catalizadores: []
+  categorias_descartadas: compounder_castigado (no hay evidencia de deterioro temporal),
+    turnaround (no hay indicios de declive operativo), deep_value (el negocio no es
+    mediocre ni commodity), ciclica (aunque ligado al ciclo de semiconductores, su
+    posición de monopolio le otorga mayor resiliencia), special_situation (no hay
+    eventos corporativos relevantes), distressed (balance sólido), hype (no se trata
+    de un negocio sin earnings), value_trap (no hay señales de destrucción de valor
+    estructural)
+  justificacion: ASML posee un monopolio prácticamente exclusivo en litografía EUV,
+    con barreras de entrada extremadamente altas y una demanda estructural creciente
+    de la industria de semiconductores. Su desempeño financiero muestra fuerte generación
+    de caja y márgenes elevados, y los analistas proyectan un precio objetivo casi
+    60% superior al precio actual, indicando que el mercado está subvalorando su potencial
+    de crecimiento.
+comparativa_catalizadores:
+- delta_pct: 0
+  descripcion: Entrega y puesta en marcha de sistemas EUV 0.55 NA para nodos de 3nm/2nm
+  estado: vigente
+  nota_comparacion: Sin nueva información que altere la probabilidad original.
+  probabilidad_actual: 65
+  probabilidad_anterior: 65
+- delta_pct: 0
+  descripcion: Acuerdo de suministro a largo plazo con TSMC para 2028‑2030
+  estado: vigente
+  nota_comparacion: Probabilidad mantiene su estimación previa.
+  probabilidad_actual: 55
+  probabilidad_anterior: 55
+- delta_pct: 0
+  descripcion: Aprobación de subsidios europeos para expansión de capacidad EUV
+  estado: vigente
+  nota_comparacion: No se dispone de evidencia de cambio.
+  probabilidad_actual: 45
+  probabilidad_anterior: 45
 dominio_business_quality:
-  analisis: ASML controla la tecnología crítica de litografía EUV, sin sustitutos
-    viables a corto plazo. La alta complejidad de fabricación y la enorme inversión
-    de I+D (más de 15 B EUR anuales) crean una barrera de entrada que protege su posición
-    de liderazgo.
+  analisis: ASML controla prácticamente el único proceso de litografía EUV viable
+    a escala de producción, con patentes críticas y una base de clientes que depende
+    exclusivamente de su tecnología para avanzar a nodos sub‑5nm. La barrera de entrada
+    es tecnológica, de capital y de know‑how, lo que confiere un moat de alta durabilidad.
   rating: excepcional
 dominio_catalizadores:
 - descripcion: Entrega y puesta en marcha de sistemas EUV 0.55 NA para nodos de 3nm/2nm
@@ -53,63 +114,69 @@ dominio_catalizadores:
   nivel_confianza: bajo
   probabilidad_pct: 45
 dominio_esg_supply_chain:
-  analisis: ASML reporta políticas ESG alineadas con estándares europeos y ha reducido
-    su huella de carbono. La cadena de suministro está concentrada en pocos proveedores
-    de componentes ópticos y láser, lo que genera un riesgo moderado de interrupción,
-    pero la empresa mantiene acuerdos de suministro a largo plazo.
-  rating: bajo_riesgo
+  analisis: ASML enfrenta riesgos ESG limitados en su propia operación, pero su cadena
+    de suministro depende de proveedores críticos de óptica y componentes de alta
+    precisión, concentrados en pocos países (Países Bajos, Alemania, EE.UU.). Las
+    tensiones geopolíticas (EE.UU.–China) pueden afectar la disponibilidad de clientes
+    y componentes.
+  rating: medio_riesgo
 dominio_financial_health:
-  analisis: Flujo de caja libre de 23.75 B EUR (TTM) y margen operativo de 38.55 %
-    demuestran una generación de efectivo robusta. No se observan indicadores de endeudamiento
-    crítico en los datos disponibles; la empresa mantiene una sólida liquidez y capacidad
-    de inversión.
+  analisis: Free cash flow reportado de 23.7 B EUR (TTM) y margen operativo de 38.55%
+    demuestran una generación de caja superior a la media del sector. El crecimiento
+    de ingresos del 22.54% TTM indica expansión sostenida. No se dispone de datos
+    de deuda, pero la capacidad de generar caja sugiere una posición de balance sólida.
   rating: fuerte
 dominio_growth:
-  analisis: Crecimiento de ingresos del 22.54 % YoY y demanda creciente de nodos de
-    3nm y 2nm impulsan la expansión. La cartera de pedidos de EUV para 2027‑2028 se
-    estima en varios miles de millones de euros, con oportunidades en nuevos mercados
-    (automotriz, IA).
+  analisis: El crecimiento orgánico proviene del aumento de la demanda de EUV para
+    nodos avanzados (3nm, 2nm) y de la introducción de la tecnología 0.55 NA. Los
+    contratos a largo plazo con los principales foundries garantizan ingresos recurrentes.
+    No se observan oportunidades de adquisición significativas, pero la expansión
+    de capacidad EUV representa un motor de crecimiento interno.
   rating: fuerte
 dominio_management:
-  analisis: El equipo directivo ha entregado consistentemente aumentos de capacidad
-    EUV y ha gestionado relaciones estratégicas con los principales fabricantes de
-    chips. La alineación de incentivos (acciones y opciones) está bien estructurada,
-    y el historial de asignación de capital muestra reinversión en I+D y adquisiciones
-    estratégicas.
+  analisis: El equipo directivo ha liderado la transición de DUV a EUV y está impulsando
+    la próxima generación de alta NA. Su historial de inversión en capacidad de fabricación
+    y de establecimiento de relaciones a largo plazo con TSMC, Samsung y otros fabricantes
+    respalda una asignación de capital disciplinada y alineada con los intereses de
+    los accionistas.
   rating: excepcional
 dominio_riesgos:
 - impacto: alto
   probabilidad: media
-  riesgo: Restricciones de exportación EE.UU. a China
+  riesgo: Cuellos de botella en la cadena de suministro de óptica de alta precisión
+- impacto: alto
+  probabilidad: alta
+  riesgo: Tensiones geopolíticas que limiten ventas a China
 - impacto: medio
   probabilidad: media
-  riesgo: Demanda cíclica de semiconductores
-- impacto: alto
+  riesgo: Retrasos en la comercialización de la tecnología 0.55 NA
+- impacto: medio
   probabilidad: baja
-  riesgo: Concentración de clientes (pocos grandes fabricantes)
+  riesgo: Ciclo de demanda de semiconductores más bajo de lo esperado
 error_mercado:
   catalizador_cambio:
-    descripcion: Ramp‑up exitoso de la nueva generación de sistemas EUV (0.55 NA)
-      para nodos de 3nm y 2nm, con pedidos firmes de los principales fabricantes (TSMC,
-      Samsung, Intel).
+    descripcion: Ramp‑up exitoso de sistemas EUV 0.55 NA para nodos de 3nm/2nm y firma
+      de acuerdos de suministro a largo plazo con TSMC para 2028‑2030.
     horizonte: medio
     impacto: alto
     probabilidad_pct: 65
   conclusion_error_valoracion: SI
-  consenso_actual: Los analistas asumen que el precio objetivo medio (2149 USD) refleja
-    expectativas de crecimiento continuo de la demanda de EUV y de expansión de la
-    base de clientes, descontando riesgos geopolíticos y de competencia. El múltiplo
-    implícito actual sugiere que el mercado está subvaluando la capacidad de generación
-    de caja libre (23.75B EUR) y los márgenes operativos (38.55%).
-  hipotesis_contraria: El mercado podría estar sobreestimando la demanda futura de
-    EUV y subestimando riesgos regulatorios (restricciones de exportación EE.UU. a
-    China) y la posible aceleración de la competencia china en litografía. Además,
-    la alta concentración de clientes (pocos grandes fabricantes de chips) podría
-    amplificar la volatilidad de ingresos.
-  razonamiento: La brecha entre el precio actual y el consenso medio, junto con métricas
-    financieras robustas, sugiere que el mercado está descontando de forma excesiva
-    el potencial de crecimiento y la solidez del moat de ASML.
-generated_at: '2026-10-22T20:05:17.022195-03:00'
+  consenso_actual: Los analistas promedian un precio objetivo de 2112.82 USD (rango
+    849.28‑2866.0), lo que implica que el mercado está descontando significativamente
+    el crecimiento futuro de ingresos y la capacidad de ASML para ampliar su oferta
+    EUV de alta NA.
+  hipotesis_contraria: El mercado podría estar subestimando la velocidad y escala
+    del despliegue de la tecnología EUV 0.55 NA para nodos de 3nm/2nm, así como la
+    probabilidad de asegurar contratos a largo plazo con los principales fabricantes
+    (TSMC, Samsung). Además, la resiliencia de los márgenes y la generación de flujo
+    de caja libre podrían ser mayores de lo que los múltiplos actuales reflejan.
+  razonamiento: La brecha entre el precio actual (1300.39 USD) y el consenso de precio
+    objetivo (2112.82 USD) sugiere un descuento significativo que no está plenamente
+    justificado por los fundamentos financieros y la posición competitiva de ASML.
+    La evidencia de fuerte generación de caja libre (23.7 B EUR) y márgenes operativos
+    (38.55%) respalda la hipótesis de que el mercado está subvalorando la capacidad
+    de la compañía para capturar mayor cuota de mercado con EUV de alta NA.
+generated_at: '2026-11-26T12:23:41.685273-03:00'
 integridad_tesis:
   flags: []
   reason: ''
@@ -142,16 +209,16 @@ prompt_inputs:
   insider_ownership: 0
   name: ASML Holding N.V.
   operating_margin: 38.55
-  pe_ratio: 39.76
+  pe_ratio: 32.73
   products: ''
   revenue: 44980000000.0
   revenue_growth: 22.54
-  roic: 92.13
+  roic: 91.0
   sector: Technology
   ticker: ASML
 ratios_investigados: []
 research_input_snapshot:
-  analysis_as_of_date: '2026-10-22'
+  analysis_as_of_date: '2026-11-26'
   business_model: ASML Holding N.V. provides lithography solutions for the development,
     production, marketing, sales, upgrading, and servicing of advanced semiconductor
     equipment systems. The company offers lithography, metrology, and inspection systems.
@@ -173,13 +240,117 @@ research_input_snapshot:
     the Netherlands.
   capital_allocation: N/A
   ceo_tenure: 0
-  current_price: 1560.5400390625
-  current_price_as_of_date: '2026-10-22'
+  current_price: 1300.385009765625
+  current_price_as_of_date: '2026-11-25'
   current_price_source: yfinance
   debt_maturity_profile: N/A
   debt_to_equity: 0.09
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## Business
+
+
+    ASML Holding N.V. provides lithography solutions for the development, production,
+    marketing, sales, upgrading, and servicing of advanced semiconductor equipment
+    systems. The company offers lithography, metrology, and inspection systems. It
+    also provides extreme ultraviolet lithography systems; and deep ultraviolet lithography
+    systems comprising immersion and dry lithography systems solutions to manufacture
+    various range of semiconductor nodes and technologies. In addition, the company
+    offers metrology and inspection systems, including YieldStar optical metrology
+    systems, a diffraction-based wafer metrology platform to assess the quality of
+    patterns on the wafers; and HMI electron beam solutions to locate and analyze
+    individual chip defects. Further, it provides computational lithography solutions,
+    and lithography systems and control software solutions; and refurbishes and upgrades
+    lithography systems, as well as offers customer support and related services.
+    Additionally, the company offers hardware, software, and services to chipmakers
+    to produce the patterns of integrated circuits. It operates in Japan, South Korea,
+    Singapore, Taiwan, China, rest of Asia, the Netherlands, rest of Europe, the Middle
+    East, Africa, and the United States. The company was formerly known as ASM Lithography
+    Holding N.V. and changed its name to ASML Holding N.V. in 2001. ASML Holding N.V.
+    was founded in 1984 and is headquartered in Veldhoven, the Netherlands.
+
+
+    ---
+
+
+    ## Products
+
+
+    - To be identified
+
+
+    ---
+
+
+    ## Moat
+
+
+    To be analyzed
+
+
+    ---
+
+
+    ## Management
+
+
+    To be evaluated
+
+
+    ---
+
+
+    ## Competition
+
+
+    - To be identified
+
+
+    ---
+
+
+    ## Financial Highlights
+
+
+    - **ROIC**: 92.13
+
+    - **Operating Margin**: 38.55
+
+    - **Revenue Growth**: 22.54
+
+    - **FCF Yield**: 0
+
+    - **Debt/Equity**: 0.09
+
+    - **PER**: 39.76
+
+    - **EV/EBITDA**: 32.47
+
+
+    ---
+
+
+    ## Catalysts
+
+
+    - **La expansión de EUV en la fabricación de nodos avanzados impulsará ingresos.**
+    (Impact: medium, Timeline: medium)
+
+    - **Innovaciones en sistemas de litografía aumentarán la cuota de mercado.** (Impact:
+    medium, Timeline: medium)
+
+    - **Crecimiento en mercados emergentes y nuevas aplicaciones.** (Impact: medium,
+    Timeline: medium)
+
+
+    ---
+
+
+    ## Investment Thesis
+
+
+    ASML mantiene liderazgo en litografía con márgenes superiores al 50% y crecimiento
+    de ingresos del 17% CAGR, pero la valoración actual es alta y vulnerable a cambios
+    en la demanda de semiconductores.'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": "EUR", "field_sources":
     {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
@@ -225,14 +396,14 @@ research_input_snapshot:
     "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
     ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
     {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
-    "observed_at": "2026-10-22T18:26:06.413117+00:00", "period_end_date": "2026-09-27",
+    "observed_at": "2026-11-01T10:16:56.000855+00:00", "period_end_date": "2026-09-27",
     "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
     null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
     {"currency": null, "period_end_date": "2026-09-27", "period_type": "TTM", "source_url":
     "https://stockanalysis.com/stocks/ASML/statistics/", "unit": "provider_financial_currency"}},
-    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 23750000000.0}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 23700000000.0}},
     "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
-    "non_comparable_values": {"yfinance": 44.356}, "observed_at": "2026-10-22T18:26:06.413117+00:00",
+    "non_comparable_values": {"yfinance": 44.356}, "observed_at": "2026-11-01T10:16:56.000855+00:00",
     "period_end_date": "2026-09-27", "period_status": "SINGLE_SOURCE", "period_type":
     "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
     "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
@@ -241,14 +412,14 @@ research_input_snapshot:
     "2026-09-27", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
     "unit": "percentage_points", "values": {"stockanalysis.com": 38.55}}, "revenue_growth_pct":
     {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
-    {"yfinance": 55.2}, "observed_at": "2026-10-22T18:26:06.413117+00:00", "period_end_date":
+    {"yfinance": 55.2}, "observed_at": "2026-11-01T10:16:56.000855+00:00", "period_end_date":
     "2026-09-27", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
     null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
     {"currency": null, "period_end_date": "2026-09-27", "period_type": "TTM", "source_url":
     "https://stockanalysis.com/stocks/asml/financials/", "unit": "percentage_points"},
     "yfinance": {"currency": null, "period_end_date": "2026-09-27", "period_type":
     "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
-    "values": {"stockanalysis.com": 22.54}}}, "observed_at": "2026-10-22T22:33:42.367319+00:00",
+    "values": {"stockanalysis.com": 22.54}}}, "observed_at": "2026-11-25T20:18:36.538959+00:00",
     "period_end": "2026-09-27", "sources_used": ["stockanalysis.com", "yfinance"]}'
   geography: ''
   insider_ownership: 0
@@ -268,16 +439,16 @@ research_input_snapshot:
     the company offers met
   revenue: 44980000000.0
   revenue_growth: 22.54
-  roic: 92.13
+  roic: 91.0
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    2886.0, "low": 868.56, "mean": 2149.76, "median": 2149.76, "observed_at": "2026-10-22T20:04:06.918993-03:00",
-    "sources": [{"as_of_date": "2026-10-22", "name": "stockanalysis", "observed_at":
-    "2026-10-22T20:04:06.918993-03:00", "observed_date": "2026-10-22", "target_price":
-    2152.0, "url": "https://stockanalysis.com/stocks/asml/forecast/"}, {"as_of_date":
-    "2026-10-22", "name": "yfinance", "observed_at": "2026-10-22T20:04:06.918993-03:00",
-    "observed_date": "2026-10-22", "target_price": 2147.511, "url": "https://finance.yahoo.com/quote/ASML/"}]},
-    "current_quote": {"as_of_date": "2026-10-22", "currency": "USD", "price": 1560.5400390625,
-    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ASML/"}]}}'
+    2866.0, "low": 849.28, "mean": 2112.82, "median": 2112.82, "observed_at": "2026-11-26T12:23:30.340932-03:00",
+    "sources": [{"as_of_date": "2026-11-26", "name": "stockanalysis", "observed_at":
+    "2026-11-26T12:23:30.340932-03:00", "observed_date": "2026-11-26", "target_price":
+    2113.0, "url": "https://stockanalysis.com/stocks/asml/forecast/"}, {"as_of_date":
+    "2026-11-26", "name": "yfinance", "observed_at": "2026-11-26T12:23:30.340932-03:00",
+    "observed_date": "2026-11-26", "target_price": 2112.6443, "url": "https://finance.yahoo.com/quote/ASML/"}]},
+    "current_quote": {"as_of_date": "2026-11-25", "currency": "USD", "price": 1300.385009765625,
+    "sources": [{"as_of_date": "2026-11-25", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ASML/"}]}}'
   sector: Technology
   ticker: ASML
 research_trigger:
@@ -285,65 +456,71 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 838e621732ad2bf5ea29474cb76648c7b24f3cc86e3e98c87a88671e400b0a77
+    sha256: 801863cf3442125188ba0fa37f2a5619a607ff694ea5433b4f4499f6de53a392
   strategy_id: COMPOUNDER
   strategy_version: positive_fundamentals_v1
-  trigger_type: manual
-  triggered_at: '2026-10-22T20:05:17.022195-03:00'
-resumen_ejecutivo: ASML es el único proveedor de litografía EUV a escala de producción,
-  con una posición de monopolio técnico que le otorga un moat duradero. Sus finanzas
-  muestran generación de flujo de caja libre de 23.75 B EUR y márgenes operativos
-  de 38.5 %, respaldados por un crecimiento de ingresos del 22.5 % YoY. El precio
-  de mercado (1,560 USD) está por debajo del rango de precios objetivo de los analistas,
-  indicando una posible subvaloración. Los principales riesgos son geopolíticos y
-  la dependencia de un número limitado de clientes, pero los catalizadores de demanda
-  de EUV y la expansión a nodos más avanzados pueden impulsar una revaluación al alza.
+  trigger_type: monthly
+  triggered_at: '2026-11-26T12:23:41.685273-03:00'
+resumen_ejecutivo: ASML es el proveedor dominante de equipos de litografía EUV, con
+  una ventaja tecnológica que le otorga un moat excepcional. Sus métricas financieras
+  (FCF ≈ 23.7 B EUR, margen operativo ≈ 38.5%, crecimiento de ingresos ≈ 22.5% TTM)
+  indican una salud robusta. La gestión ha demostrado capacidad para ejecutar inversiones
+  de capital de gran escala y mantener relaciones estratégicas con los principales
+  fabricantes. Los principales impulsores de crecimiento son la expansión de la capacidad
+  EUV de alta NA y la firma de contratos a largo plazo. Los riesgos principales son
+  la dependencia de una cadena de suministro altamente especializada y tensiones geopolíticas
+  que podrían afectar la venta a clientes chinos. Dado el amplio margen entre el precio
+  actual y el objetivo de los analistas, existe un error de mercado que puede ser
+  aprovechado.
 risk_flags: []
 scenario_analysis:
-  as_of_date: '2026-10-22'
+  as_of_date: '2026-11-26'
   currency: USD
-  horizon_date: '2028-12-31'
+  horizon_date: '2028-11-26'
   scenarios:
   - falsifiers:
-    - Confirmación de pedidos firmes de EUV 0.55 NA para 2027
-    - Mejora sostenida del mercado de semiconductores con crecimiento >10% YoY
+    - Anuncio de ramp‑up exitoso de 0.55 NA antes de Q4‑2027
+    - Firma de contrato de suministro con TSMC para 2028‑2030
+    - Mejora de márgenes operativos por encima del 35%
     id: BEAR
     key_assumptions:
-    - Crecimiento de ingresos anual < 5%
-    - FCF cae un 30% respecto al nivel actual
-    - Márgenes operativos se reducen a ~30%
-    rationale: Escenario pesimista donde la demanda de EUV se desacelera por una recesión
-      prolongada del sector de semiconductores y se imponen restricciones de exportación
-      que limitan las ventas a China, reduciendo los ingresos y el flujo de caja libre.
+    - Retraso >12 meses en la producción en serie de EUV 0.55 NA
+    - Restricciones regulatorias que limitan ventas a clientes chinos
+    - Márgenes operativos se reducen al 30% por mayores costos de componentes
+    rationale: El precio objetivo se sitúa cercano al límite inferior del consenso
+      (849.28 USD), asumiendo que la adopción de la tecnología 0.55 NA se retrasa
+      y que persisten tensiones geopolíticas que limitan ventas a China, reduciendo
+      los ingresos esperados.
     sources:
-    - as_of_date: '2026-10-22'
+    - as_of_date: '2026-11-26'
       name: stockanalysis.com
-      url: https://stockanalysis.com/stocks/asml/forecast
-    - as_of_date: '2026-10-22'
+      url: https://stockanalysis.com/stocks/asml/forecast/
+    - as_of_date: '2026-11-25'
       name: yfinance
       url: https://finance.yahoo.com/quote/ASML/
-    target_price: 868
+    target_price: 900
   - falsifiers:
-    - Implementación de sanciones EE.UU. que bloqueen ventas a clientes clave
-    - Retraso significativo en la producción de EUV 0.55 NA
+    - Fallos técnicos que retrasen la producción de 0.55 NA
+    - Pérdida de contratos clave con TSMC o Samsung
+    - Aumento significativo de costos de componentes que reduzca márgenes bajo 35%
     id: BULL
     key_assumptions:
-    - Crecimiento de ingresos anual > 20%
-    - FCF aumenta a 35B EUR
-    - Márgenes operativos se mantienen >38%
-    rationale: Escenario optimista donde la adopción de nodos de 3nm y 2nm impulsa
-      una fuerte demanda de sistemas EUV, se firma un gran contrato con TSMC y las
-      restricciones de exportación no afectan a los principales clientes europeos
-      y estadounidenses, manteniendo márgenes operativos y aumentando el FCF en un
-      40%.
+    - Ramp‑up de EUV 0.55 NA completado en Q2‑2027 con capacidad plena
+    - Acuerdo de suministro a 5 años con TSMC y Samsung
+    - Márgenes operativos sostenidos en >40% gracias a economías de escala
+    rationale: El precio objetivo se aproxima al límite superior del consenso (2866
+      USD), bajo la hipótesis de que ASML logra una rápida adopción de la tecnología
+      0.55 NA, asegura contratos a largo plazo con los principales foundries y mantiene
+      márgenes operativos superiores al 40%, impulsando un crecimiento de ingresos
+      superior al 30% anual.
     sources:
-    - as_of_date: '2026-10-22'
+    - as_of_date: '2026-11-26'
       name: stockanalysis.com
-      url: https://stockanalysis.com/stocks/asml/forecast
-    - as_of_date: '2026-10-22'
+      url: https://stockanalysis.com/stocks/asml/forecast/
+    - as_of_date: '2026-11-25'
       name: yfinance
       url: https://finance.yahoo.com/quote/ASML/
-    target_price: 2886
+    target_price: 2800
   schema_version: bear_bull_v2
 scenario_validation:
   errors: []
@@ -351,31 +528,31 @@ scenario_validation:
 score_general: 88
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-10-22T20:04:06.918993-03:00'
+  calculado_at: '2026-11-26T12:23:30.340932-03:00'
   fuentes:
-    stockanalysis: 2152.0
-    yfinance: 2147.511
-  mediana: 2149.76
+    stockanalysis: 2113.0
+    yfinance: 2112.6443
+  mediana: 2112.82
   n_fuentes: 2
-  promedio: 2149.76
+  promedio: 2112.82
   source_references:
-  - as_of_date: '2026-10-22'
+  - as_of_date: '2026-11-26'
     name: stockanalysis
-    observed_at: '2026-10-22T20:04:06.918993-03:00'
-    observed_date: '2026-10-22'
-    target_price: 2152.0
+    observed_at: '2026-11-26T12:23:30.340932-03:00'
+    observed_date: '2026-11-26'
+    target_price: 2113.0
     url: https://stockanalysis.com/stocks/asml/forecast/
-  - as_of_date: '2026-10-22'
+  - as_of_date: '2026-11-26'
     name: yfinance
-    observed_at: '2026-10-22T20:04:06.918993-03:00'
-    observed_date: '2026-10-22'
-    target_price: 2147.511
+    observed_at: '2026-11-26T12:23:30.340932-03:00'
+    observed_date: '2026-11-26'
+    target_price: 2112.6443
     url: https://finance.yahoo.com/quote/ASML/
-  target_high: 2886.0
-  target_low: 868.56
-tesis_inversion: Invertir en ASML como un compounder de alta calidad, aprovechando
-  su moat tecnológico y la expectativa de que el mercado corrija la subvaloración
-  actual a medida que la demanda de EUV se materialice en los próximos ciclos de producción
-  de chips avanzados.
+  target_high: 2866.0
+  target_low: 849.28
+tesis_inversion: Mantener posición larga en ASML, aprovechando el desfase entre el
+  precio actual y el consenso alcista, sustentado por su moat tecnológico, fuerte
+  generación de caja y perspectivas de crecimiento impulsadas por la expansión de
+  la tecnología EUV de alta NA.
 ticker: ASML
 version: '3.0'
