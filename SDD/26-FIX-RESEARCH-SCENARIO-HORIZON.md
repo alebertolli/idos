@@ -17,3 +17,11 @@ El PR de resultados `#865` publicó el resultado parcial. El CI del commit base 
 ## Validación y seguimiento
 
 La suite remota de CI del PR debe validar los cambios y los tests de normalización. Después de integrar, el flujo DDD de producción debe comprobar que ADI ya no vuelve a la cola por `horizon_date`, que el paso de continuación se ejecuta y que otro candidato de la cola se publica. Esta nota no afirma que esa verificación de producción ya haya ocurrido.
+
+## Hallazgo adicional en producción
+
+La primera corrida sobre el código integrado volvió a diferir E. Su informe decía `as_of_date: 2026-11-01`, aunque la fecha confiable de la ejecución era `2026-11-26` y las seis fuentes citadas también estaban fechadas el 26. El validador rechazó la fecha antigua y todas las fuentes como posteriores a ella. No fue un fallo del proveedor.
+
+El seguimiento ancla `as_of_date` a la fecha ISO confiable de Research y registra `as_of_basis: idos_analysis_date`. Si el horizonte está ausente, el default de 365 días se calcula desde esa fecha confiable. Las fechas de fuente posteriores al análisis y los horizontes explícitos inválidos siguen bloqueados por el validador.
+
+La suite remota y una nueva corrida de producción deben verificar este seguimiento antes de considerarlo cerrado.
