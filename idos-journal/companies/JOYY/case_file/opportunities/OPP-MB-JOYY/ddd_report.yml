@@ -1,62 +1,100 @@
 calidad_evidencia:
-  hechos_verificados: 12
-  inferencias_llm: 6
-  preguntas_abiertas: 2
-catalizadores_previos: &id001 []
+  hechos_verificados: []
+  inferencias_llm:
+  - La reducción de ingresos entre FY 2022 y FY 2025 plantea dudas sobre el crecimiento,
+    pero no establece por sí sola la tendencia futura.
+  - El extremo bajo del consenso es un ancla adversa plausible si persisten las tendencias
+    financieras débiles; el extremo alto requiere mejora que aún no está confirmada.
+  - La evidencia disponible no basta para identificar una ventaja competitiva durable
+    ni retornos de reinversión.
+  - 'Ingresos reportados: 2,412 en FY 2022 y 2,124 en FY 2025; StockAnalysis, períodos
+    terminados 2022-12-31 y 2025-12-31.'
+  - 'FCF reportado: 224.94 en FY 2024 y 159.21 en FY 2025; StockAnalysis, períodos
+    terminados 2024-12-31 y 2025-12-31.'
+  - 'Efectivo e inversiones reportados: 1,523.0 al 2026-09-30; efectivo neto reportado:
+    1,433.0 al 2026-09-30; StockAnalysis.'
+  - Cotización USD 80.32 al 2026-10-30 y rango de objetivos analistas USD 74–125 observado
+    el 2026-11-26; Yahoo Finance y StockAnalysis.
+  preguntas_abiertas:
+  - ¿Cómo evolucionan usuarios activos, retención, gasto por usuario y monetización
+    en Bigo Live e imo?
+  - ¿Cuál es el mercado direccionable y la penetración por producto y geografía?
+  - ¿Qué explica la variación del ingreso neto FY 2025 y qué parte es recurrente?
+  - ¿Qué retornos sobre capital obtiene la empresa y cómo asigna capital entre reinversión,
+    efectivo y otras alternativas?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-11-22T08:51:18.874176-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-JOYY
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-11-22T08:51:18.874176-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-JOYY
+  probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Growth
-  justificacion: Ingresos modestos con CAGR de 1.2% y fuerte generación de flujo de
-    caja libre (74% de conversión) respaldan potencial de expansión, aunque la alta
-    volatilidad y riesgos regulatorios limitan la calificación.
+  categoria: Research requerida; calidad de evidencia financiera incompleta para una
+    tesis de crecimiento compuesto
+  justificacion: El paquete muestra FCF positivo y una posición de efectivo neto reportada,
+    pero los ingresos FY 2022–2025 disminuyeron y no hay evidencia suficiente sobre
+    mercado direccionable, penetración, retornos sobre capital o reinversión.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: Liquidez robusta (current ratio 2.08) y posición neta de efectivo, pero
-    cobertura de intereses nula (0x) y crecimiento de ingresos limitado.
-  rating: Medium
+  analisis: El modelo combina plataformas sociales y comunicación, con segmentos BIGO
+    y All Other según el resumen financiero. FCF positivo en los años reportados y
+    efectivo neto reportado son elementos favorables, pero la tendencia de ingresos,
+    la falta de métricas de usuarios y monetización, y la ausencia de evidencia de
+    retornos sobre capital impiden evaluar calidad, moat o capacidad de reinversión.
+  rating: No concluyente
 dominio_catalizadores:
-- catalizador: Expansión internacional
-  detalle: Apertura a nuevos mercados fuera de Asia podría impulsar ingresos.
-- catalizador: Mejora de monetización
-  detalle: Incremento en ingresos por publicidad y compras dentro de la app.
+- catalizador: Confirmación de crecimiento orgánico en ingresos frente a la trayectoria
+    anual observada.
+  hito: Publicación de períodos posteriores con ingresos comparables y fechados.
+- catalizador: Rebote o expansión del FCF frente al descenso reportado en FY 2025.
+  hito: Publicación de FCF comparable positivo para períodos posteriores.
+- catalizador: Evidencia de crecimiento y monetización en los productos principales.
+  hito: Datos verificables de usuarios, actividad y monetización, no presentes en
+    el paquete.
+- catalizador: Evidencia de asignación de capital y reinversión que genere retornos
+    sostenibles.
+  hito: Información de rentabilidad sobre capital y resultados de inversiones, no
+    disponible en el paquete.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- detalle: Posibles restricciones en China sobre contenido de streaming que afectarían
-    Bigo Live.
-  risk: Regulatorio
-- detalle: Presión de plataformas internacionales y locales que pueden erosionar la
-    cuota de mercado.
-  risk: Competencia
-- detalle: Volatilidad 90‑d de 24% indica sensibilidad a cambios macro y sentimentales.
-  risk: Volatilidad de mercado
+- evidencia: StockAnalysis, ingresos FY 2022 y FY 2025; período terminado 2025-12-31.
+  riesgo: 'Ingresos sin crecimiento en el historial anual disponible: FY 2025 fue
+    inferior a FY 2022.'
+- evidencia: StockAnalysis, FCF FY 2024 y FY 2025; períodos terminados 2024-12-31
+    y 2025-12-31.
+  riesgo: El FCF reportado disminuyó de FY 2024 a FY 2025.
+- evidencia: No incluidos en el paquete de investigación ni en el resumen financiero.
+  riesgo: No hay datos aportados sobre usuarios, monetización, TAM, penetración, competencia
+    o retornos sobre capital.
+- evidencia: StockAnalysis, ingreso neto FY 2024 y FY 2025; período terminado 2025-12-31.
+  riesgo: La serie de ingreso neto presenta una variación pronunciada entre FY 2024
+    y FY 2025, y no se aporta explicación ni conciliación.
 error_mercado:
-  catalizador_cambio: Una restricción regulatoria en China sobre plataformas de streaming
-    en vivo podría reducir ingresos y desplazar el precio hacia el extremo bajo del
-    consenso.
-  conclusion_error_valoracion: Existe una brecha entre la valoración de mercado y
-    el potencial de generación de efectivo, lo que sugiere una posible sobrevaloración
-    bajo escenarios de deterioro regulatorio.
-  consenso_actual:
-    currency: USD
-    high: 125.0
-    low: 74.0
-    mean: 94.26
-    source:
-    - as_of_date: '2026-11-22'
-      name: stockanalysis
-      url: https://stockanalysis.com/stocks/joyy/forecast/
-    - as_of_date: '2026-11-22'
-      name: yfinance
-      url: https://finance.yahoo.com/quote/JOYY/
-  hipotesis_contraria: El precio actual de $80.32 refleja una valoración conservadora
-    frente al rango superior del consenso, indicando posible sobrevaloración si el
-    crecimiento de usuarios se desacelera.
-  razonamiento: El consenso alto (125) asume expansión continua, pero la evidencia
-    de crecimiento de ingresos limitado y riesgos regulatorios hacen plausible que
-    el mercado esté sobrevalorando la acción.
-generated_at: '2026-11-22T08:51:18.874176-03:00'
+  catalizador_cambio: Una mejora demostrable y sostenida de ingresos y FCF, acompañada
+    por datos verificables de crecimiento de usuarios, monetización y reinversión
+    rentable, podría cambiar la lectura; esos datos no están disponibles en el paquete.
+  conclusion_error_valoracion: 'No se puede validar un error de valoración con la
+    evidencia disponible: no hay modelo de valoración defendible ni datos suficientes
+    para estimar valor intrínseco.'
+  consenso_actual: 'El consenso de precio objetivo reportado es USD 96.98, con rango
+    USD 74–125; la cotización observada fue USD 80.32 al 2026-10-30. Fuentes: StockAnalysis
+    y Yahoo Finance, observaciones del 2026-11-26.'
+  hipotesis_contraria: 'El consenso podría no reflejar adecuadamente la trayectoria
+    reciente: los ingresos FY 2025 fueron menores que FY 2022, mientras el margen
+    bruto TTM también es menor que el FY 2025 reportado.'
+generated_at: '2026-11-26T13:01:07.532261-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-JOYY
@@ -86,7 +124,7 @@ prompt_inputs:
   insider_ownership: 0
   name: JOYY Inc.
   operating_margin: 2.6
-  pe_ratio: 17.24
+  pe_ratio: 18.27
   products: ''
   revenue: 2350000000.0
   revenue_growth: 12.48
@@ -97,27 +135,26 @@ ratios_investigados:
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: revenue_cagr_3y_pct
-  period_end: '2026-09-30'
+  period_end: '2025-12-31'
   sources:
-  - as_of_date: '2026-11-22'
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/JOYY/statistics/
-  - as_of_date: '2026-11-22'
-    name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/joyy/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1
+- formula: (FCF_FY_2025 / FCF_FY_2024) - 1
   inputs:
-    FCF_FY_2024: 224.94
-    FCF_FY_2025: 159.21
-  limitations: null
+    fcf_growth_history:
+      FY 2025: -29.22
+    fcf_history:
+      FY 2024: 224.94
+      FY 2025: 159.21
+  limitations: La fuente reporta directamente el crecimiento FY 2025; ambos valores
+    de FCF son positivos y corresponden a años fiscales consecutivos.
   metric: fcf_growth_pct
   period_end: '2025-12-31'
   sources:
-  - as_of_date: '2026-11-22'
-    name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/joyy/financials/
   status: reported
   unit: percent
@@ -125,38 +162,41 @@ ratios_investigados:
 - limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
     a sus inputs de evidencia.
   metric: fcf_conversion_pct
-  period_end: '2026-09-30'
+  period_end: '2025-12-31'
   sources:
-  - as_of_date: '2026-11-22'
-    name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/JOYY/statistics/
-  - as_of_date: '2026-11-22'
-    name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/joyy/financials/
   status: unavailable
   unit: percent
   value: null
-- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
-    a sus inputs de evidencia.
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    ebitda: 156080000.0
+    net_cash_history:
+      Current: 1433.0
+  limitations: 'No se puede validar compatibilidad de escala y moneda: la serie de
+    efectivo neto usa unidades source_reported_amount y EBITDA se informa en valor
+    monetario del proveedor; no se deriva el ratio.'
   metric: net_debt_ebitda
   period_end: '2026-09-30'
   sources:
-  - as_of_date: '2026-11-22'
-    name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/joyy/financials/
-  - as_of_date: '2026-11-22'
-    name: stockanalysis.com
+  - name: StockAnalysis
     url: https://stockanalysis.com/stocks/JOYY/statistics/
   status: unavailable
   unit: x
   value: null
-- formula: (Diluted_Shares_t / Diluted_Shares_t-1) - 1
-  inputs: {}
-  limitations: Falta historial de acciones diluidas; no se dispone de datos de shares_outstanding
-    históricos.
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 47600000.0
+  limitations: Faltan acciones diluidas o acciones en circulación históricas para
+    dos períodos comparables; el dato puntual no permite calcular dilución interanual.
   metric: dilution_yoy_pct
-  period_end: null
-  sources: []
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/JOYY/statistics/
   status: unavailable
   unit: percent
   value: null
@@ -191,7 +231,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-22'
+  analysis_as_of_date: '2026-11-26'
   business_model: JOYY Inc., together with its subsidiaries, engages in the provision
     of social product matrix and communication technology. It operates through two
     segments, BIGO and All Other. The company operates Bigo Live, a social live streaming
@@ -219,7 +259,383 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.01
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    JOYY Inc. es una compañía de plataformas digitales sociales y de comunicación.
+    Opera aplicaciones para transmisiones en vivo, mensajería y comunicación por audio
+    y video, y participa en actividades de publicidad y comercio electrónico. Entre
+    los productos identificados en la investigación figuran:
+
+
+    - **Bigo Live:** transmisiones en vivo e interacción entre creadores y espectadores.
+
+    - **imo:** mensajería instantánea y comunicación por audio y video.
+
+    - **Likee:** mencionada como parte de la cartera que conviene monitorear; no se
+    aportan datos específicos sobre su desempeño.
+
+
+    El modelo descrito combina adquisición y retención de usuarios, herramientas para
+    crear e interactuar con contenido, moderación y distribución, y monetización mediante
+    regalos y servicios de transmisiones en vivo, publicidad y soluciones de comercio
+    electrónico. La información disponible no precisa la distribución geográfica de
+    los ingresos ni la exposición por país o segmento.
+
+
+    La investigación identifica posibles riesgos regulatorios en China y describe
+    una cartera con orientación internacional, pero no aporta un desglose verificable
+    de mercados. Para comparar la competencia y los riesgos sectoriales, pueden ser
+    relevantes [[GOOGL]], [[EA]], [[PSO]] y [[ROKU]], aunque la información proporcionada
+    no establece que todas sean competidoras directas de JOYY.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    Los principales mecanismos de monetización identificados son:
+
+
+    - Regalos virtuales y servicios vinculados a transmisiones en vivo.
+
+    - Publicidad.
+
+    - Compras dentro de las aplicaciones.
+
+    - Soluciones de comercio electrónico.
+
+
+    La evolución de usuarios activos, retención, creadores y monetización por usuario
+    en Bigo Live, Likee e imo es clave para evaluar estos drivers. No se aportan métricas
+    verificables de usuarios, ingresos por producto ni contribución de cada línea
+    de negocio.
+
+
+    ### Moat y competencia
+
+
+    La evaluación disponible califica el moat como **estrecho** y la posición competitiva
+    como **retador**. Se señalan como posibles ventajas los efectos de red locales,
+    el reconocimiento de marca, los datos, las herramientas para creadores y la escala
+    tecnológica; sin embargo, la evidencia proporcionada no basta para confirmar su
+    magnitud o sostenibilidad.
+
+
+    La industria compite por el tiempo de uso de los usuarios, los creadores y los
+    anunciantes. La necesidad de invertir continuamente en producto y moderación,
+    junto con la competencia de plataformas sociales, video corto, mensajería y transmisiones
+    en vivo, puede presionar la cuota de mercado y elevar los costos de adquisición.
+    Como referencias sectoriales generales, pueden seguirse [[GOOGL]], [[PSO]] y [[ROKU]];
+    la investigación no documenta comparaciones de producto o cuota de mercado con
+    estas compañías.
+
+
+    ## 3. Perfil Financiero
+
+
+    La investigación ofrece algunas métricas, pero no un conjunto completo de estados
+    financieros con referencias verificables para analizar tendencias, márgenes, retornos
+    sobre capital o valoración. Los datos siguientes deben interpretarse según el
+    alcance indicado en las fuentes aportadas.
+
+
+    | Métrica | Valor | Periodo / fecha | Observación |
+
+    |---|---:|---|---|
+
+    | CAGR de ingresos | ~1,2% | Periodo no especificado en el resumen | Dato citado
+    en la tesis DDD; no se aportan los insumos que permitan verificar el cálculo.
+    |
+
+    | Conversión de FCF | ~74% | Periodo no especificado en el resumen | Indicada
+    en DDD; falta definición del cálculo y reconciliación con estados financieros.
+    |
+
+    | FCF | USD 224,94 millones | FY 2024 | Cifra reportada en el material DDD; no
+    se incluye desglose adicional. |
+
+    | FCF | USD 159,21 millones | FY 2025 | Cifra reportada en el material DDD. |
+
+    | Crecimiento del FCF | −29,22% | FY 2025 frente a FY 2024 | Calculado como `(FCF
+    FY 2025 / FCF FY 2024) − 1`; fuente indicada: Stock Analysis, consultada el 22-11-2026.
+    |
+
+    | Current ratio | 2,08 | Fecha no especificada | Dato reportado en DDD; no se
+    adjuntan los saldos utilizados. |
+
+    | Caja neta | Positiva | Fecha no especificada | Afirmación cualitativa de DDD;
+    no se aporta importe. |
+
+    | Cobertura de intereses | 0x | Fecha no especificada | Señalada como riesgo en
+    DDD; los insumos del cálculo no están disponibles. |
+
+
+    **Fuentes incluidas en la investigación:** Stock Analysis, estadísticas y estados
+    financieros de JOYY, consultados el 22-11-2026: [Statistics](https://stockanalysis.com/stocks/JOYY/statistics/)
+    y [Financials](https://stockanalysis.com/stocks/joyy/financials/). La investigación
+    indica que el CAGR de ingresos de tres años no pudo calcularse porque no se identificaron
+    referencias explícitas a sus insumos.
+
+
+    La combinación reportada de liquidez robusta y caja neta podría dar flexibilidad
+    financiera, pero la caída interanual del FCF y la cobertura de intereses reportada
+    como 0x requieren verificación. No se proporcionan importes de deuda, efectivo,
+    gastos financieros ni vencimientos para evaluar de forma completa la estructura
+    de capital.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La información disponible no incluye datos verificables sobre historial de ejecución,
+    remuneración, participación accionaria de directivos, decisiones de asignación
+    de capital ni composición del consejo de administración.
+
+
+    La evaluación AOIF califica provisionalmente la calidad del management como **regular**,
+    el alineamiento de insiders como **débil** y la asignación de capital como **neutral**.
+    Estas categorías no están respaldadas en el material aportado por datos sobre
+    propiedad accionaria, incentivos o desempeño histórico, por lo que no deben tratarse
+    como conclusiones confirmadas.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Tesis:** JOYY combina una cartera de plataformas sociales y de comunicación
+    con varias vías de monetización y una generación de flujo de caja que se describe
+    como sólida. La posibilidad de expandirse internacionalmente y mejorar la monetización
+    mediante publicidad y compras dentro de las aplicaciones podría apoyar el crecimiento.
+    La tesis está limitada por el bajo crecimiento de ingresos reportado, la competencia
+    y la exposición regulatoria.
+
+
+    ### Elementos favorables
+
+
+    - **Diversificación de mecanismos de monetización:** transmisiones en vivo, regalos
+    y servicios asociados, publicidad y comercio electrónico.
+
+    - **Potencial de expansión internacional:** identificado como catalizador, pero
+    sin mercados objetivo, cronograma o contribución financiera cuantificados.
+
+    - **Mejora de monetización:** mayor ingreso publicitario y más compras dentro
+    de las aplicaciones son oportunidades señaladas en DDD, aún sin evidencia de resultados.
+
+    - **Liquidez y caja:** DDD reporta un current ratio de 2,08 y una posición neta
+    de efectivo, aunque no aporta importes ni fecha.
+
+    - **Generación de FCF:** la compañía es descrita como generadora de flujo de caja
+    libre; las cifras reportadas bajan de USD 224,94 millones en FY 2024 a USD 159,21
+    millones en FY 2025.
+
+
+    La oportunidad fue clasificada como **Growth** en DDD, con una justificación que
+    combina crecimiento de ingresos modesto (~1,2% CAGR, según el dato citado) y generación
+    de caja. Esa clasificación es una evaluación de investigación, no una previsión
+    confirmada.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Caso bajista
+
+
+    La combinación de crecimiento limitado, caída reportada del FCF y riesgos regulatorios
+    podría restringir la capacidad de JOYY para sostener su valoración. Una pérdida
+    de usuarios o creadores reduciría la actividad y la monetización; restricciones
+    sobre contenido o transmisiones podrían afectar especialmente a Bigo Live. La
+    competencia por usuarios, creadores y anunciantes también puede elevar los costos
+    de adquisición y erosionar la participación de mercado.
+
+
+    DDD plantea que el consenso de analistas podría sobrestimar la expansión futura
+    si persiste el crecimiento lento o empeora el entorno regulatorio. A la vez, AOIF
+    califica como de alto impacto los riesgos regulatorios y de negocio; sus probabilidades
+    son evaluaciones cualitativas, no mediciones confirmadas.
+
+
+    ### Riesgos principales
+
+
+    | Riesgo | Impacto / probabilidad según AOIF | Posible efecto |
+
+    |---|---|---|
+
+    | Regulación de contenido, privacidad o licencias | Impacto alto; probabilidad
+    media | Restricciones de producto, moderación o monetización en los mercados afectados.
+    |
+
+    | Competencia por usuarios, creadores y anunciantes | Impacto alto; probabilidad
+    alta | Menor participación, aumento de costos de adquisición y presión sobre ingresos.
+    |
+
+    | Desaceleración de usuarios o monetización | No cuantificada | Menor actividad
+    en las plataformas y deterioro de los ingresos o del FCF. |
+
+    | Caída del FCF y cobertura de intereses reportada en 0x | Señal financiera reportada
+    en DDD | Menor margen de seguridad, sujeto a verificar cifras e insumos. |
+
+
+    ### Falsadores y señales de invalidación de la tesis
+
+
+    - Disminución de la participación o actividad de usuarios en Bigo Live.
+
+    - Nuevas restricciones de contenido en China que afecten las transmisiones en
+    vivo.
+
+    - Caída abrupta del FCF o aumento sustancial de la deuda neta.
+
+    - Crecimiento de ingresos persistentemente débil, especialmente si no se materializan
+    mejoras de monetización.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    No se aportan fechas confirmadas para eventos corporativos o regulatorios específicos.
+    Los catalizadores siguientes son posibilidades identificadas en la investigación,
+    no anuncios con calendario conocido.
+
+
+    | Catalizador | Fecha esperada | Impacto potencial | Evidencia / estado |
+
+    |---|---|---|---|
+
+    | Expansión a mercados fuera de Asia | Sin fecha disponible | Positivo si amplía
+    usuarios e ingresos; depende de ejecución y economía por mercado. | Catalizador
+    propuesto en DDD; no se indican mercados ni hitos. |
+
+    | Mayor monetización mediante publicidad y compras dentro de la aplicación | Sin
+    fecha disponible | Positivo si aumenta ingresos por usuario sin deteriorar retención.
+    | Catalizador propuesto en DDD; no se aporta una serie de métricas. |
+
+    | Restricciones regulatorias sobre streaming en China | Sin fecha disponible |
+    Negativo, particularmente para Bigo Live, si limita contenido o monetización.
+    | Riesgo señalado en DDD y AOIF; no se especifica un evento regulatorio concreto.
+    |
+
+
+    ## 8. Marco de Valoración
+
+
+    La información disponible no permite construir una valoración intrínseca independiente:
+    faltan una serie financiera completa y verificable, importes de caja y deuda,
+    datos por segmento y supuestos detallados sobre crecimiento, márgenes y reinversión.
+
+
+    ### Referencia de consenso citada
+
+
+    DDD recoge, con fecha de consulta **22-11-2026**, un rango de precios objetivo
+    de analistas:
+
+
+    | Referencia | Precio objetivo (USD) | Fuente |
+
+    |---|---:|---|
+
+    | Extremo bajo del consenso | 74,00 | [Stock Analysis](https://stockanalysis.com/stocks/joyy/forecast/)
+    |
+
+    | Media del consenso | 94,26 | [Stock Analysis](https://stockanalysis.com/stocks/joyy/forecast/);
+    también se cita [Yahoo Finance](https://finance.yahoo.com/quote/JOYY/) |
+
+    | Extremo alto del consenso | 125,00 | [Stock Analysis](https://stockanalysis.com/stocks/joyy/forecast/)
+    |
+
+
+    DDD también consigna un precio de **USD 80,32**, sin aportar una fuente directa
+    ni una fecha de cotización independiente. No se debe interpretar el rango de consenso
+    como una estimación propia de valor razonable.
+
+
+    ### Escenarios aportados por DDD
+
+
+    Para un horizonte al **30-10-2027**, DDD presenta dos escenarios:
+
+
+    | Escenario | Precio objetivo | Supuestos principales | Lectura |
+
+    |---|---:|---|---|
+
+    | Bajista | USD 74,00 | Regulación restrictiva en China y crecimiento de ingresos
+    inferior a 0% anual. | Aproximación al extremo bajo del consenso ante deterioro
+    regulatorio y desaceleración de usuarios. |
+
+    | Base | USD 94,26 | CAGR de ingresos de aproximadamente 1,2%, conversión de FCF
+    de aproximadamente 74% y ausencia de eventos regulatorios mayores. | Referencia
+    cercana a la media del consenso, no valoración independiente. |
+
+
+    La investigación no proporciona un escenario alcista formal. También presenta
+    de forma incompleta la hipótesis contraria sobre el precio actual, por lo que
+    no es posible usarla como caso cuantitativo.
+
+
+    **Sensibilidades a priorizar:** crecimiento de ingresos y usuarios; retención
+    y monetización por usuario; margen y conversión de FCF; impacto de cambios regulatorios;
+    y evolución de efectivo y deuda. Hasta contar con datos verificables para esas
+    variables, el margen de seguridad se considera **insuficiente** en AOIF.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es la serie histórica de ingresos, márgenes operativos y FCF, y cómo
+    se distribuye por segmento y producto?
+
+    2. ¿Qué periodos y datos sostienen el CAGR de ingresos de aproximadamente 1,2%
+    y la conversión de FCF de aproximadamente 74%?
+
+    3. ¿Cuáles son los importes y fechas de efectivo, deuda, deuda neta y gastos por
+    intereses? ¿Cómo se calcula la cobertura de intereses reportada en 0x?
+
+    4. ¿Cómo evolucionan los usuarios activos, la retención, el número de creadores
+    y la monetización por usuario en Bigo Live, Likee e imo?
+
+    5. ¿Qué proporción de los ingresos y del FCF depende de China, y qué exposición
+    regulatoria existe en cada mercado?
+
+    6. ¿Qué evidencia de crecimiento fuera de Asia respalda la hipótesis de expansión
+    internacional?
+
+    7. ¿Qué datos permiten evaluar el posicionamiento de JOYY frente a competidores
+    de redes sociales, video, mensajería y transmisiones en vivo?
+
+    8. ¿Quiénes integran el consejo y el equipo directivo? ¿Cuál es su historial de
+    ejecución, remuneración y participación accionaria?
+
+    9. ¿Qué supuestos respaldan los objetivos de consenso de USD 74–125, y qué analistas
+    o metodologías explican la dispersión?
+
+    10. ¿Se han anunciado iniciativas concretas, con fechas y presupuesto, para aumentar
+    publicidad o compras dentro de las aplicaciones?
+
+
+    **Prioridad de seguimiento:** obtener estados financieros y datos operativos primarios,
+    confirmar las métricas citadas y separar el desempeño por producto y geografía
+    antes de actualizar la tesis o la valoración.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AMX|América Móvil, S.A.B. de C.V.]], [[EA|Electronic Arts
+    Inc]], [[GOOGL|Alphabet Inc.]], [[PSO|Pearson plc]], [[ROKU|Roku, Inc.]], [[TEO|Telecom
+    Argentina S.A.]], [[VOD|Vodafone Group Public Limited Company]], [[VZ|Verizon
+    Communications Inc.]]
+
+    - **Same Industry**: [[GOOGL|Alphabet Inc.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
     ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
@@ -254,7 +670,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-22T11:51:02.506117+00:00", "period_end": "2026-09-30",
+    "observed_at": "2026-11-26T16:00:36.316722+00:00", "period_end": "2026-09-30",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -415,12 +831,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    125.0, "low": 74.0, "mean": 94.26, "median": 94.26, "observed_at": "2026-11-22T08:51:06.483290-03:00",
-    "sources": [{"as_of_date": "2026-11-22", "name": "stockanalysis", "observed_at":
-    "2026-11-22T08:51:06.483290-03:00", "observed_date": "2026-11-22", "target_price":
-    94.26, "url": "https://stockanalysis.com/stocks/joyy/forecast/"}, {"as_of_date":
-    "2026-11-22", "name": "yfinance", "observed_at": "2026-11-22T08:51:06.483290-03:00",
-    "observed_date": "2026-11-22", "target_price": 94.26429, "url": "https://finance.yahoo.com/quote/JOYY/"}]},
+    125.0, "low": 74.0, "mean": 96.98, "median": 96.98, "observed_at": "2026-11-26T13:00:39.630144-03:00",
+    "sources": [{"as_of_date": "2026-11-26", "name": "stockanalysis", "observed_at":
+    "2026-11-26T13:00:39.630144-03:00", "observed_date": "2026-11-26", "target_price":
+    96.98, "url": "https://stockanalysis.com/stocks/joyy/forecast/"}, {"as_of_date":
+    "2026-11-26", "name": "yfinance", "observed_at": "2026-11-26T13:00:39.630144-03:00",
+    "observed_date": "2026-11-26", "target_price": 96.98067, "url": "https://finance.yahoo.com/quote/JOYY/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 80.31999969482422,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/JOYY/"}]}}'
   sector: Communication Services
@@ -430,104 +846,131 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: c050d94c501e9149483f94c65fd43dd7947d64f523df41c5e9f82d1d418228e7
+    sha256: 9b5de1c8724842f0a30fa929b8595c95b502a094dfcf1b4313c13fbbbba338b9
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-22T08:51:18.874176-03:00'
+  triggered_at: '2026-11-26T13:01:07.532261-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- Interest coverage below threshold (0 < 2.0)
+- metric: current_ratio
+  observation: 2.08 al 2026-09-30; no cruza el umbral configurado.
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/JOYY/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta historial de acciones comparable.'
+  sources: []
+  threshold: above 10 percent
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30; no se puede determinar con los datos
+    aportados si representa cobertura calculada o falta de gasto por intereses.
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/JOYY/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica al FCF TTM reportado como positivo al 2026-09-30; runway
+    no calculado.
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/JOYY/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No evaluable: no se validó compatibilidad de unidades entre efectivo
+    neto y EBITDA.'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/joyy/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/JOYY/statistics/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta historial de acciones para tres años comparables.'
+  sources: []
+  threshold: above 5 percent
 scenario_analysis:
-  as_of_date: '2026-11-22'
+  as_of_date: '2026-11-26'
   currency: USD
-  horizon_date: '2027-10-30'
+  horizon_date: '2027-11-26'
   scenarios:
   - falsifiers:
-    - Anuncio de expansión regulatoria favorable
-    - Crecimiento de ingresos superior al 5% anual
+    - Ingresos comparables de períodos posteriores muestran crecimiento sostenido.
+    - FCF comparable aumenta de forma sostenida y se acompaña de evidencia de reinversión
+      rentable.
     id: BEAR
     key_assumptions:
-    - Regulaciones restrictivas en China
-    - Crecimiento de ingresos <0% anual
-    - Mantenimiento de alta volatilidad
-    rationale: Impacto negativo de regulaciones chinas y desaceleración del crecimiento
-      de usuarios lleva el precio al extremo bajo del consenso.
+    - No se confirma una recuperación de ingresos con datos posteriores comparables.
+    - El FCF no recupera el nivel FY 2024 en períodos posteriores.
+    rationale: Ancla en el extremo bajo del rango de consenso observado, no en una
+      valoración intrínseca propia. Es coherente como resultado adverso con la contracción
+      de ingresos FY 2022–2025 y el FCF FY 2025 inferior a FY 2024, si no se demuestra
+      una reversión.
     sources:
-    - as_of_date: '2026-11-22'
-      name: stockanalysis
+    - as_of_date: '2026-11-26'
+      name: StockAnalysis, consenso de precio objetivo
       url: https://stockanalysis.com/stocks/joyy/forecast/
-    - as_of_date: '2026-11-22'
-      name: yfinance
-      url: https://finance.yahoo.com/quote/JOYY/
+    - as_of_date: '2025-12-31'
+      name: StockAnalysis, estados financieros
+      url: https://stockanalysis.com/stocks/joyy/financials/
     target_price: 74.0
   - falsifiers:
-    - Caída abrupta del FCF
-    - Incremento sustancial de deuda neta
-    id: BASE
-    key_assumptions:
-    - CAGR de ingresos ~1.2%
-    - FCF conversion ~74%
-    - Sin cambios regulatorios significativos
-    rationale: Escenario medio basado en el consenso promedio, asumiendo crecimiento
-      estable de ingresos y ausencia de eventos regulatorios mayores.
-    sources:
-    - as_of_date: '2026-11-22'
-      name: stockanalysis
-      url: https://stockanalysis.com/stocks/joyy/forecast/
-    - as_of_date: '2026-11-22'
-      name: yfinance
-      url: https://finance.yahoo.com/quote/JOYY/
-    target_price: 94.26
-  - falsifiers:
-    - Regulación restrictiva inesperada
-    - Pérdida de usuarios clave
+    - Ingresos posteriores continúan por debajo de períodos comparables previos.
+    - FCF comparable continúa deteriorándose o no se aporta evidencia de monetización
+      y retornos sobre capital.
     id: BULL
     key_assumptions:
-    - Crecimiento de ingresos >5% anual
-    - Margen bruto >38%
-    - Mantención de cobertura de intereses positiva
-    rationale: Supuestos de expansión internacional exitosa y mejora de monetización
-      que impulsan ingresos y margen, superando el rango alto del consenso.
+    - Los períodos posteriores confirman crecimiento de ingresos frente a la trayectoria
+      FY 2022–2025.
+    - El FCF se recupera y la empresa demuestra monetización y reinversión productiva.
+    rationale: Ancla en el extremo alto del rango de consenso observado, no en una
+      valoración intrínseca propia. Sería consistente con que el mercado reconozca
+      una mejora de crecimiento y FCF, pero esa mejora es un supuesto que aún requiere
+      confirmación en los datos disponibles.
     sources:
-    - as_of_date: '2026-11-22'
-      name: stockanalysis
+    - as_of_date: '2026-11-26'
+      name: StockAnalysis, consenso de precio objetivo
       url: https://stockanalysis.com/stocks/joyy/forecast/
-    - as_of_date: '2026-11-22'
-      name: yfinance
-      url: https://finance.yahoo.com/quote/JOYY/
+    - as_of_date: '2025-12-31'
+      name: StockAnalysis, estados financieros
+      url: https://stockanalysis.com/stocks/joyy/financials/
     target_price: 125.0
   schema_version: bear_bull_v2
 scenario_validation:
   errors: []
   status: valid_pending_decision_board
-score_general: 78
+score_general: 55
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-22T08:51:06.483290-03:00'
+  calculado_at: '2026-11-26T13:00:39.630144-03:00'
   fuentes:
-    stockanalysis: 94.26
-    yfinance: 94.26429
-  mediana: 94.26
+    stockanalysis: 96.98
+    yfinance: 96.98067
+  mediana: 96.98
   n_fuentes: 2
-  promedio: 94.26
+  promedio: 96.98
   source_references:
-  - as_of_date: '2026-11-22'
+  - as_of_date: '2026-11-26'
     name: stockanalysis
-    observed_at: '2026-11-22T08:51:06.483290-03:00'
-    observed_date: '2026-11-22'
-    target_price: 94.26
+    observed_at: '2026-11-26T13:00:39.630144-03:00'
+    observed_date: '2026-11-26'
+    target_price: 96.98
     url: https://stockanalysis.com/stocks/joyy/forecast/
-  - as_of_date: '2026-11-22'
+  - as_of_date: '2026-11-26'
     name: yfinance
-    observed_at: '2026-11-22T08:51:06.483290-03:00'
-    observed_date: '2026-11-22'
-    target_price: 94.26429
+    observed_at: '2026-11-26T13:00:39.630144-03:00'
+    observed_date: '2026-11-26'
+    target_price: 96.98067
     url: https://finance.yahoo.com/quote/JOYY/
   target_high: 125.0
   target_low: 74.0
-tesis_inversion: JOYY combina un sólido flujo de caja libre con una posición de efectivo
-  neto, pero su crecimiento de ingresos es bajo y enfrenta riesgos regulatorios que
-  podrían limitar la valoración futura.
+tesis_inversion: JOYY opera plataformas sociales y de comunicación, incluyendo Bigo
+  Live e imo. La tesis favorable requeriría que estas plataformas sostuvieran crecimiento
+  y monetización con reinversión rentable; la evidencia suministrada no permite validar
+  mercado direccionable, penetración, ventaja competitiva duradera ni retornos sobre
+  capital. Los datos financieros muestran FCF positivo en FY 2021–2025, pero con descenso
+  en FY 2025, ingresos inferiores a FY 2022 y un resultado neto FY 2025 muy superior
+  al de los otros períodos mostrados, cuya sostenibilidad no se puede determinar aquí.
 ticker: JOYY
 version: '3.0'

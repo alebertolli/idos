@@ -1,139 +1,148 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos netos del ejercicio fiscal 2027 son inferiores a los del
-      ejercicio fiscal 2026.
+  - condition: El margen operativo ajustado del ejercicio fiscal 2027 aumenta al menos
+      0,50 puntos porcentuales frente al ejercicio fiscal 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen operativo GAAP del ejercicio fiscal 2027 cae más de 1 punto
-      porcentual frente al ejercicio fiscal 2026.
+  - condition: La empresa reporta crecimiento de ingresos de al menos 3% en el ejercicio
+      fiscal 2027 y un aumento del margen operativo ajustado de al menos 0,50 puntos
+      porcentuales.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos netos del ejercicio fiscal 2027 son inferiores a los del ejercicio
-    fiscal 2026.
-  - El margen operativo GAAP del ejercicio fiscal 2027 cae más de 1 punto porcentual
-    frente al ejercicio fiscal 2026.
+  - El margen operativo ajustado del ejercicio fiscal 2027 aumenta al menos 0,50 puntos
+    porcentuales frente al ejercicio fiscal 2026.
+  - La empresa reporta crecimiento de ingresos de al menos 3% en el ejercicio fiscal
+    2027 y un aumento del margen operativo ajustado de al menos 0,50 puntos porcentuales.
   horizon: medio
   id: H1-OPP-MB-HPQ
   opportunity_id: OPP-MB-HPQ
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-30'
-    expected: 1.0
+    deadline: '2027-12-15'
+    expected: 0.5
     met: null
-    metric: Variación interanual de ingresos netos del ejercicio fiscal 2027
-    prediction: En el ejercicio fiscal 2027, los ingresos netos consolidados aumentarán
-      al menos 1% frente al ejercicio fiscal 2026 y el margen operativo GAAP no caerá
-      más de 1 punto porcentual respecto al ejercicio fiscal 2026.
-    unit: porcentaje mínimo
-  priority: important
+    metric: Cambio interanual del margen operativo ajustado
+    prediction: En el ejercicio fiscal 2027, el margen operativo ajustado reportado
+      por HP será menos de 0,50 puntos porcentuales superior al del ejercicio fiscal
+      2026.
+    unit: puntos porcentuales como umbral de mejora que la hipótesis predice que no
+      se alcanzará
+  priority: critical
   probability: 0.5
-  rationale: La información disponible indica crecimiento reciente de ingresos y una
-    base diversificada entre Personal Systems, Printing y Corporate Investments. La
-    diversificación podría amortiguar debilidad de un segmento, aunque no se dispone
-    de evidencia suficiente para atribuir el crecimiento ni confirmar su durabilidad.
-  review_trigger: Dejar de creerla si un informe trimestral de HP muestra una caída
-    interanual de ingresos netos durante dos trimestres consecutivos, o si los resultados
-    anuales del ejercicio fiscal 2027 incumplen cualquiera de los umbrales definidos.
+  rationale: La presión competitiva y la posible debilidad de la demanda pueden limitar
+    el crecimiento de ingresos y la expansión de márgenes. La tesis de mejora operativa
+    quedaría cuestionada si los resultados no muestran una mejora medible frente al
+    ejercicio fiscal 2026.
+  review_trigger: Dejar de creer esta hipótesis si los resultados anuales del ejercicio
+    fiscal 2027, o una actualización oficial que presente resultados completos de
+    ese ejercicio, muestran una expansión del margen operativo ajustado de al menos
+    0,50 puntos porcentuales frente al ejercicio fiscal 2026.
   secondary_hypotheses: []
-  statement: HP mantendrá crecimiento interanual de ingresos durante los próximos
-    cuatro trimestres, sin que ese crecimiento dependa de una expansión material de
-    márgenes.
+  statement: HP Inc. no logrará una mejora operativa suficiente en el ejercicio fiscal
+    2027 para compensar el bajo crecimiento de sus negocios principales.
   status: ACTIVE
   ticker: HPQ
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF TTM al cierre del ejercicio fiscal 2027 es cero o negativo.
+  - condition: La cobertura de intereses del ejercicio fiscal 2027 es igual o superior
+      a 4,0 veces, usando beneficio operativo GAAP y gasto por intereses reportados
+      en los estados financieros.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El FCF TTM al cierre del ejercicio fiscal 2027 es inferior al del cierre
-      del ejercicio fiscal 2026.
+  - condition: HP reduce el gasto por intereses y eleva el beneficio operativo de
+      forma que la cobertura calculada con esas partidas alcanza al menos 4,0 veces.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF TTM al cierre del ejercicio fiscal 2027 es cero o negativo.
-  - El FCF TTM al cierre del ejercicio fiscal 2027 es inferior al del cierre del ejercicio
-    fiscal 2026.
+  - La cobertura de intereses del ejercicio fiscal 2027 es igual o superior a 4,0
+    veces, usando beneficio operativo GAAP y gasto por intereses reportados en los
+    estados financieros.
+  - HP reduce el gasto por intereses y eleva el beneficio operativo de forma que la
+    cobertura calculada con esas partidas alcanza al menos 4,0 veces.
   horizon: medio
   id: H2-OPP-MB-HPQ
   opportunity_id: OPP-MB-HPQ
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-30'
-    expected: 5.0
+    deadline: '2027-12-15'
+    expected: 4.0
     met: null
-    metric: Variación interanual del FCF TTM al cierre del ejercicio fiscal 2027
-    prediction: Al cierre del ejercicio fiscal 2027, el FCF TTM será positivo y al
-      menos 5% superior al FCF TTM del cierre del ejercicio fiscal 2026.
-    unit: porcentaje mínimo
+    metric: Cobertura de intereses
+    prediction: La cobertura de intereses del ejercicio fiscal 2027, calculada como
+      beneficio operativo GAAP dividido por gasto por intereses, será inferior a 4,0
+      veces.
+    unit: veces; se predice un resultado inferior a este umbral
   priority: critical
   probability: 0.5
-  rationale: El contexto indica que el FCF TTM es positivo y creció interanualmente.
-    Si la generación de caja persiste junto con los ingresos, podría respaldar una
-    visión más favorable del negocio; el paquete disponible no permite establecer
-    si la mejora es estructural o temporal.
-  review_trigger: Dejar de creerla si una divulgación trimestral muestra FCF TTM negativo,
-    o si el FCF TTM publicado para el cierre del ejercicio fiscal 2027 no supera en
-    al menos 5% el comparable del ejercicio fiscal 2026.
+  rationale: Si el crecimiento y la mejora operativa son limitados, el beneficio operativo
+    puede no aumentar lo suficiente para fortalecer la capacidad de cubrir los gastos
+    por intereses. La evolución de esta métrica permitirá comprobar directamente la
+    parte financiera de la tesis.
+  review_trigger: Dejar de creer esta hipótesis si los estados financieros anuales
+    del ejercicio fiscal 2027 muestran una cobertura de intereses igual o superior
+    a 4,0 veces.
   secondary_hypotheses:
   - H1-OPP-MB-HPQ
-  statement: HP conservará un flujo de caja libre TTM positivo y superior al del periodo
-    comparable del año anterior hasta el cierre del ejercicio fiscal 2027.
+  statement: La cobertura de intereses de HP no mejorará hasta un nivel que reduzca
+    materialmente el riesgo financiero durante el ejercicio fiscal 2027.
   status: ACTIVE
   ticker: HPQ
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El rendimiento total de HP no supera al del S&P 500 en el periodo definido.
+  - condition: El precio de cierre ajustado del 2027-11-26 es superior al 85% del
+      precio de cierre ajustado del 2026-11-26.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: HP obtiene un rendimiento total negativo durante el periodo, aunque
-      el S&P 500 también baje.
+  - condition: La acción registra un rendimiento total positivo entre ambas fechas,
+      incluidos los dividendos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El rendimiento total de HP no supera al del S&P 500 en el periodo definido.
-  - HP obtiene un rendimiento total negativo durante el periodo, aunque el S&P 500
-    también baje.
+  - El precio de cierre ajustado del 2027-11-26 es superior al 85% del precio de cierre
+    ajustado del 2026-11-26.
+  - La acción registra un rendimiento total positivo entre ambas fechas, incluidos
+    los dividendos.
   horizon: medio
   id: H3-OPP-MB-HPQ
   opportunity_id: OPP-MB-HPQ
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-21'
-    expected: 5.0
+    deadline: '2027-11-26'
+    expected: -15.0
     met: null
-    metric: Rendimiento total de HP menos rendimiento total del S&P 500
-    prediction: Entre el 2026-11-21 y el 2027-11-21, el rendimiento total de HP, incluidos
-      dividendos, superará en al menos 5 puntos porcentuales el rendimiento total
-      del S&P 500 durante el mismo periodo.
-    unit: puntos porcentuales mínimos
-  priority: informational
+    metric: Variación del precio de cierre ajustado
+    prediction: El precio de cierre ajustado de HP el 2027-11-26 será al menos 15%
+      inferior al precio de cierre ajustado del 2026-11-26.
+    unit: porcentaje entre 2026-11-26 y 2027-11-26
+  priority: important
   probability: 0.5
-  rationale: El FCF TTM positivo y creciente, junto con el crecimiento reciente de
-    ingresos, podría respaldar retornos al accionista y limitar el riesgo de deterioro
-    fundamental. Sin embargo, la información disponible no permite verificar la valoración,
-    los retornos sobre capital ni la durabilidad de la mejora, por lo que la ventaja
-    bursátil es una hipótesis de menor confianza.
-  review_trigger: Dejar de creerla antes de la fecha objetivo si HP reduce o suspende
-    su dividendo ordinario, o si publica dos trimestres consecutivos con FCF TTM inferior
-    al comparable interanual. Evaluar el resultado definitivo el 2027-11-21.
+  rationale: La tesis sostiene que la acción cotiza por encima del máximo consenso
+    de analistas. Si el crecimiento o la cobertura de intereses decepcionan, el precio
+    puede ajustarse a la baja; sin embargo, esa premisa de valoración debe verificarse
+    con datos de mercado fechados y no se da por confirmada aquí.
+  review_trigger: Dejar de creer esta hipótesis si el precio de cierre ajustado al
+    2027-11-26 no muestra una caída de al menos 15% frente al 2026-11-26, o si antes
+    de esa fecha HP reporta resultados que provocan una revisión sostenida al alza
+    de sus perspectivas de crecimiento y beneficios.
   secondary_hypotheses:
   - H1-OPP-MB-HPQ
   - H2-OPP-MB-HPQ
-  statement: La acción de HP generará un rendimiento total superior al del S&P 500
-    durante los doce meses posteriores a la fecha de corte.
+  statement: La valoración de HP se contraerá durante los próximos doce meses, en
+    línea con la posibilidad de que el precio actual incorpore expectativas de crecimiento
+    y mejora operativa superiores a las que finalmente se materialicen.
   status: ACTIVE
   ticker: HPQ
   version: 1

@@ -225,3 +225,73 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-26T12:52:16.519603'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-HPQ
+    ticker: HPQ
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T12:59:08.115302'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HPQ
+    ticker: HPQ
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T12:59:08.139453'
+- data:
+    classification: Sobrevalorado
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 75a69fc26c7a8f0063fc6a148a954f4f0a4c183cd55fea1dddbbc607442ff144
+    opp_id: OPP-MB-HPQ
+    score: 68
+    strategy_version: '1.5'
+    ticker: HPQ
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-26T13:00:34.677583'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-JOYY
+    ticker: JOYY
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T13:01:07.496048'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-JOYY
+    ticker: JOYY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T13:01:07.522141'
+- data:
+    classification: Research requerida; calidad de evidencia financiera incompleta
+      para una tesis de crecimiento compuesto
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 9b5de1c8724842f0a30fa929b8595c95b502a094dfcf1b4313c13fbbbba338b9
+    opp_id: OPP-MB-JOYY
+    score: 55
+    strategy_version: '1.5'
+    ticker: JOYY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-26T13:02:29.615865'
