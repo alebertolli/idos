@@ -32,6 +32,7 @@ from idos.research.hourly_ramp import (
     resume_state as resume_hourly_ramp_state,
     record_candidate_failure as record_hourly_candidate_failure,
     save_state as save_hourly_ramp_state,
+    exclude_quarantined,
 )
 
 STALE_DAYS = 30
@@ -70,6 +71,17 @@ def _load_quarantine() -> list[dict]:
         return value.get("items", []) if value.get("schema_version") == 1 else []
     except (OSError, ValueError, AttributeError):
         return []
+
+
+def _clean_resume_queue() -> list[dict]:
+    """Remove permanently quarantined candidates so resume can scan eligible work."""
+    pending = _load_resume_queue()
+    eligible = exclude_quarantined(pending, _load_quarantine())
+    removed = len(pending) - len(eligible)
+    if removed:
+        _save_resume_queue(eligible)
+        print(f"[DDD] Removed {removed} quarantined candidate(s) from the resume queue")
+    return eligible
 
 
 def _save_quarantine(items: list[dict]) -> None:
@@ -506,7 +518,7 @@ def main():
 
     if resume_pending:
         today = datetime.now(timezone.utc).date().isoformat()
-        queue = _load_resume_queue()
+        queue = _clean_resume_queue()
         if not queue and hourly_ramp:
             # An empty checkpoint is not a reason to stop: rescan Discovery below.
             resume_pending = False
@@ -624,8 +636,9 @@ def main():
         }, indent=2), encoding='utf-8')
         return 0
 
-    quarantined_keys = {(item.get('ticker'), item.get('opp_id')) for item in _load_quarantine()}
-    opportunities = [item for item in opportunities if (item.get('ticker'), item.get('opp_id')) not in quarantined_keys]
+    quarantine_items = _load_quarantine()
+    quarantined_keys = {(item.get('ticker'), item.get('opp_id')) for item in quarantine_items if isinstance(item, dict)}
+    opportunities = exclude_quarantined(opportunities, quarantine_items)
     if not opportunities:
         print('[DDD] All selected opportunities are already quarantined; no provider calls made')
         Path('cache').mkdir(parents=True, exist_ok=True)
