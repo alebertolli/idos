@@ -14,3 +14,65 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-26T12:06:36.791692'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-AAPL
+    ticker: AAPL
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-26T12:13:38.308288'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AAPL
+    ticker: AAPL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T12:13:38.312927'
+- data:
+    classification: multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: d822063158c9c04ac06efb69b0a341c1ca7755b482ab4485709e07e971d94784
+    opp_id: OPP-MB-AAPL
+    original_status: UNDER_RESEARCH
+    score: 80
+    strategy_version: '1.5'
+    ticker: AAPL
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-26T12:14:58.657724'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ADI
+    ticker: ADI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-26T12:15:26.085469'
+- data:
+    classification: RESEARCH_REQUIRED
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 8b22dfbcae01c8ccbe5a5aee4579f4f818e4deb78d8560f042890fb3b4917598
+    opp_id: OPP-MB-ADI
+    score: 48
+    strategy_version: '1.5'
+    ticker: ADI
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-26T12:16:54.791436'

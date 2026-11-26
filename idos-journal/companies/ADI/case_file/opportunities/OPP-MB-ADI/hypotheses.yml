@@ -1,127 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos automoción Q2 FY2028 crecen menos del 5% YoY.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El lanzamiento del producto se retrasa más de 90 días después del 1‑mar‑2028.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Los ingresos automoción Q2 FY2028 crecen menos del 5% YoY.
-  - El lanzamiento del producto se retrasa más de 90 días después del 1‑mar‑2028.
-  horizon: medio
-  id: H1-OPP-MB-ADI
-  opportunity_id: OPP-MB-ADI
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2028-06-30'
-    expected: 12.0
-    met: null
-    metric: crecimiento_ingresos_automocion_yoy
-    prediction: Los ingresos del segmento automoción crecerán al menos un 12% respecto
-      al mismo trimestre del año anterior.
-    unit: '%'
-  priority: critical
-  probability: 0.5
-  rationale: El aumento de la demanda de sistemas ADAS y vehículos eléctricos requiere
-    convertidores de señal más rápidos. ADI ha invertido $1.2 bn en I+D para esta
-    línea y ha anunciado colaboraciones con fabricantes de automóviles en 2025, lo
-    que sugiere una pronta comercialización.
-  review_trigger: Si ADI anuncia antes del 1‑mar‑2028 un retraso del lanzamiento superior
-    a 90 días o la cancelación del proyecto.
-  secondary_hypotheses: []
-  statement: Analog Devices lanzará una nueva familia de convertidores de señal de
-    alta velocidad para el sector automotriz, impulsando un crecimiento del 12% YoY
-    en los ingresos de su segmento automoción en el segundo trimestre fiscal 2028.
-  status: ACTIVE
-  ticker: ADI
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: FCF margin reportado en FY2029 inferior al 25%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Incremento de la deuda neta superior al 20% YoY en el cuarto trimestre
-      de FY2029.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - FCF margin reportado en FY2029 inferior al 25%.
-  - Incremento de la deuda neta superior al 20% YoY en el cuarto trimestre de FY2029.
-  horizon: largo
-  id: H2-OPP-MB-ADI
-  opportunity_id: OPP-MB-ADI
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2029-12-31'
-    expected: 30.0
-    met: null
-    metric: FCF_margin
-    prediction: FCF margin ≥ 30% en FY2029.
-    unit: '%'
-  priority: important
-  probability: 0.5
-  rationale: La combinación de crecimiento sostenido de ingresos (CAGR 3 años ~4.1%)
-    y la mejora de la eficiencia operativa mediante la automatización de la cadena
-    de suministro debería elevar el FCF. Además, la reducción de gastos de intereses
-    esperada por la amortización de deuda reciente contribuirá al margen.
-  review_trigger: Si en el reporte del cuarto trimestre FY2029 la deuda neta aumenta
-    más del 20% YoY, indicando presión de cobertura de intereses.
-  secondary_hypotheses: []
-  statement: El margen de flujo de caja libre (FCF) de ADI alcanzará al menos el 30%
-    de los ingresos totales en el ejercicio fiscal 2029.
-  status: ACTIVE
-  ticker: ADI
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: Precio de cierre el 2028-12-31 inferior a 380 USD.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Revisión a la baja del objetivo de precio promedio de los analistas
-      a menos de 380 USD antes del 1‑jun‑2028.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Precio de cierre el 2028-12-31 inferior a 380 USD.
-  - Revisión a la baja del objetivo de precio promedio de los analistas a menos de
-    380 USD antes del 1‑jun‑2028.
-  horizon: medio
-  id: H3-OPP-MB-ADI
-  opportunity_id: OPP-MB-ADI
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2028-12-31'
-    expected: 420.0
-    met: null
-    metric: precio_accion
-    prediction: Precio de la acción ≥ 420 USD al cierre del día 2028-12-31.
-    unit: USD
-  priority: important
-  probability: 0.5
-  rationale: El precio actual (356.67 USD) está por debajo del rango bajo del consenso,
-    lo que sugiere subvaloración. Si los ingresos y el FCF margin cumplen o superan
-    las proyecciones, los analistas ajustarán al alza sus objetivos de precio.
-  review_trigger: Si antes del 1‑jun‑2028 el consenso de analistas reduce su objetivo
-    medio a menos de 380 USD.
-  secondary_hypotheses: []
-  statement: El precio de la acción de ADI superará los 420 USD antes del 31‑dic‑2028,
-    reflejando una revaluación hacia el rango bajo del consenso de analistas.
-  status: ACTIVE
-  ticker: ADI
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: La adquisición no se cierra antes del 30‑sep‑2027.
     metric: ''
     threshold: 0.0
@@ -155,6 +34,152 @@ hypotheses:
   secondary_hypotheses: []
   statement: ADI completará la adquisición de un fabricante de chips RF de nicho antes
     del 30‑sep‑2027, generando ingresos incrementales de al menos 200 MM USD en FY2028.
+  status: ACTIVE
+  ticker: ADI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos reportados de FY 2027 crecen menos de un 8% frente a FY
+      2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos de los dos últimos trimestres reportados de FY 2027, en
+      conjunto, son inferiores a los de los mismos trimestres de FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos reportados de FY 2027 crecen menos de un 8% frente a FY 2026.
+  - Los ingresos de los dos últimos trimestres reportados de FY 2027, en conjunto,
+    son inferiores a los de los mismos trimestres de FY 2026.
+  horizon: medio
+  id: H1-OPP-MB-ADI
+  opportunity_id: OPP-MB-ADI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-26'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual de ingresos de FY 2027 frente a FY 2026
+    prediction: Los ingresos reportados de FY 2027 serán al menos un 8% superiores
+      a los de FY 2026, según los estados financieros anuales de ADI.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea una recuperación observada en FY 2026, pero el contexto
+    no aporta cifras por segmento ni evidencia de que el repunte sea amplio o duradero.
+    La hipótesis depende de que la demanda de los mercados industrial y automotriz
+    se mantenga y de que la recuperación no se limite a reposición de inventarios.
+  review_trigger: Dejar de creerla cuando ADI publique resultados de FY 2027 con crecimiento
+    anual de ingresos inferior al 8%, o antes si dos trimestres consecutivos muestran
+    ingresos interanuales decrecientes.
+  secondary_hypotheses: []
+  statement: La recuperación de la demanda de ADI se sostendrá durante FY 2027 y producirá
+    crecimiento anual de ingresos, en vez de ser un repunte transitorio.
+  status: ACTIVE
+  ticker: ADI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto de FY 2027 es inferior al 68%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de FCF de FY 2027 es inferior al 25%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto cae al menos 200 puntos básicos interanuales en dos
+      trimestres consecutivos de FY 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto de FY 2027 es inferior al 68%.
+  - El margen de FCF de FY 2027 es inferior al 25%.
+  - El margen bruto cae al menos 200 puntos básicos interanuales en dos trimestres
+    consecutivos de FY 2027.
+  horizon: medio
+  id: H2-OPP-MB-ADI
+  opportunity_id: OPP-MB-ADI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-26'
+    expected: 68.0
+    met: null
+    metric: Margen bruto mínimo y margen de FCF mínimo en FY 2027
+    prediction: En FY 2027, el margen bruto será de al menos 68% y el margen de flujo
+      de caja libre será de al menos 25%, calculados con cifras anuales reportadas.
+    unit: '% de margen bruto; FCF mínimo de 25% de los ingresos'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica una mejora de margen bruto y FCF en FY 2026, pero
+    no aporta sus niveles, sus impulsores ni su sostenibilidad. Si se mantienen la
+    utilización de capacidad y la disciplina de costes mientras crecen los ingresos,
+    ADI debería preservar una elevada conversión de ventas en beneficio bruto y caja
+    libre.
+  review_trigger: Dejar de creerla al publicarse el informe anual de FY 2027 si cualquiera
+    de los dos umbrales anuales no se alcanza; abandonar antes si el margen bruto
+    disminuye al menos 200 puntos básicos interanuales durante dos trimestres consecutivos.
+  secondary_hypotheses:
+  - H1-OPP-MB-ADI
+  statement: La recuperación de ingresos se traducirá en márgenes y generación de
+    caja robustos, y no se verá anulada por presión de precios, mezcla desfavorable
+    o mayores costes.
+  status: ACTIVE
+  ticker: ADI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El retorno total de ADI menos el retorno total del SOX es inferior
+      a 5 puntos porcentuales en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ADI registra un retorno total negativo durante el periodo, aunque el
+      SOX también tenga un retorno negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El retorno total de ADI menos el retorno total del SOX es inferior a 5 puntos
+    porcentuales en el periodo.
+  - ADI registra un retorno total negativo durante el periodo, aunque el SOX también
+    tenga un retorno negativo.
+  horizon: medio
+  id: H3-OPP-MB-ADI
+  opportunity_id: OPP-MB-ADI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-26'
+    expected: 5.0
+    met: null
+    metric: Retorno total de ADI menos retorno total del SOX
+    prediction: Entre el cierre del 2026-11-26 y el cierre del 2027-11-26, el retorno
+      total de ADI, incluidos dividendos, superará el retorno total del SOX en al
+      menos 5 puntos porcentuales.
+    unit: puntos porcentuales en doce meses
+  priority: important
+  probability: 0.5
+  rationale: Si el crecimiento de ingresos y la conversión en caja se sostienen, el
+    mercado podría valorar más favorablemente la durabilidad de los beneficios de
+    ADI. Sin embargo, el contexto no proporciona valoración actual, expectativas detalladas
+    de analistas ni una comparación con sus múltiplos históricos; por ello, esta hipótesis
+    se plantea como una prueba relativa de desempeño, no como una afirmación de infravaloración.
+  review_trigger: Dejar de creerla el 2027-11-26 si ADI no supera al SOX por al menos
+    5 puntos porcentuales; abandonar antes si, tras publicarse FY 2027, los resultados
+    incumplen simultáneamente los umbrales de ingresos de H1 y de margen bruto o FCF
+    de H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-ADI
+  - H2-OPP-MB-ADI
+  statement: La acción de ADI generará un retorno total superior al del índice Philadelphia
+    Semiconductor (SOX) durante los próximos doce meses, si los resultados confirman
+    la continuidad de la recuperación.
   status: ACTIVE
   ticker: ADI
   version: 1

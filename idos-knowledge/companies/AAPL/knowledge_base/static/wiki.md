@@ -1,128 +1,142 @@
 ## 1. Visión General de la Compañía
 
-**Apple Inc. ([[AAPL]])** es una empresa tecnológica global que diseña, desarrolla y comercializa dispositivos electrónicos, software y servicios digitales. Su cadena de valor comprende el diseño de productos, chips y sistemas operativos, el abastecimiento global de componentes y la fabricación, principalmente mediante proveedores.
+**Apple Inc. ([[AAPL]])** diseña, desarrolla y comercializa hardware, software y servicios digitales. Su modelo integra dispositivos como **iPhone, Mac, iPad y wearables** con servicios como Apple Music, iCloud y App Store.
 
-Sus productos incluyen iPhone y Mac; el negocio también abarca un ecosistema de servicios recurrentes. Atiende a consumidores y pequeñas y medianas empresas. Compite en tecnología y electrónica de consumo, una industria de ciclos rápidos y elevada competencia, con demanda madura en smartphones y oportunidades de crecimiento en servicios y nuevas categorías de productos.
+La compañía opera mediante una cadena de valor que combina diseño de productos, desarrollo de software y servicios, gestión de marca y propiedad intelectual, abastecimiento global y fabricación realizada principalmente por socios. Distribuye sus productos y servicios a consumidores y empresas, entre otros canales, mediante tiendas propias y plataformas digitales. La información disponible describe una cadena de suministro global, pero no ofrece un desglose geográfico de ingresos o producción.
 
-La información de investigación disponible describe el modelo y varios indicadores financieros, pero no proporciona un desglose geográfico de ingresos ni detalles verificables sobre la distribución de la fabricación. Por tanto, no se añaden conclusiones geográficas específicas.
-
-**Fecha de referencia de los análisis:** 26 de noviembre de 2026. Los indicadores financieros se presentan como valores TTM cuando así se identifican en los inputs. No se aportaron fuentes primarias, enlaces ni fechas de publicación de los datos.
+El análisis proporcionado caracteriza a Apple como líder en mercados de tecnología de consumo y atribuye su posición a la marca, la integración de hardware y software, la escala y la base instalada de usuarios. Entre las compañías del sector incluidas en la wiki están [[MSFT]], [[GOOGL]], [[AMZN]], [[HPQ]] y [[CRM]]; la evidencia suministrada no desarrolla una comparación directa con ellas.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-Apple combina ventas de hardware con servicios recurrentes. El hardware —incluidos iPhone y Mac— proporciona acceso a una base instalada de usuarios; el ecosistema integrado de dispositivos, software y servicios puede favorecer la retención y el gasto en servicios como iCloud, Apple Music, Apple TV+ y App Store.
+### Fuentes de ingresos y drivers
 
-**Drivers de ingresos identificados:**
+| Área | Drivers indicados en la investigación |
+|---|---|
+| iPhone | Demanda, precio promedio y ciclo de renovación |
+| Mac, iPad y wearables | Volumen de ventas y evolución de la demanda |
+| Servicios | Crecimiento y monetización de Apple Music, iCloud y App Store |
+| Nuevos productos | Adopción de Apple Vision Pro y expansión de wearables |
 
-- Demanda de dispositivos y ciclos de renovación, especialmente del iPhone.
-- Crecimiento y monetización de servicios.
-- Posible expansión de nuevas categorías, incluida la realidad aumentada y virtual (AR/VR).
+El negocio combina ventas de dispositivos con servicios que pueden ampliar la relación con el cliente y diversificar los ingresos. La contribución relativa de cada producto y servicio, así como sus márgenes individuales, no está especificada en los datos recibidos.
 
-**Moat y posición competitiva:** el análisis AOIF describe una ventaja competitiva amplia basada en integración de hardware, software y servicios, marca global, escala, distribución, fidelidad de clientes y costes de cambio. La compañía se clasifica como líder en su posición competitiva. Estas valoraciones son conclusiones de los análisis recibidos, no hechos acompañados de fuentes primarias.
+### Ventaja competitiva
 
-La industria es competitiva y cambia rápidamente. Entre las compañías del sector incluidas en la base de conocimiento figuran [[MSFT]], [[GOOGL]], [[META]], [[Samsung Electronics]] y [[SONY]]; la lista disponible de compañías relacionadas también incluye [[ACN]], [[ADBE]], [[ADI]], [[ADP]], [[ALAB]], [[AMAT]], [[AMD]], [[ARM]], [[ASML]], [[AVGO]], [[BB]], [[CLS]] y [[CRM]]. La relevancia competitiva varía según producto y segmento; los inputs no proporcionan una comparación cuantitativa entre estas compañías.
+El análisis AOIF califica el moat como **amplio** y la posición competitiva como **líder**. Los elementos citados son:
+
+- Marca global y escala de distribución.
+- Integración de hardware, software y servicios.
+- Costes de cambio para usuarios vinculados al ecosistema.
+- Base instalada que puede respaldar ventas de dispositivos y servicios recurrentes.
+
+Estos elementos son una evaluación cualitativa del análisis proporcionado; no se acompañan de métricas comparativas o referencias externas que permitan cuantificar la amplitud del moat.
+
+### Dinámica competitiva
+
+Los mercados de smartphones, ordenadores y tabletas se describen como maduros y competitivos, con ciclos de renovación y presión potencial sobre precios. Los servicios y los dispositivos de realidad aumentada o virtual se identifican como áreas de oportunidad, aunque su contribución futura es incierta. Entre las compañías relacionadas del sector figuran [[MSFT]], [[HPQ]], [[GOOGL]] y [[AMZN]]; los datos disponibles no permiten establecer comparaciones cuantitativas con ellas.
 
 ## 3. Perfil Financiero
 
-Los valores siguientes proceden de los inputs DDD y AOIF. Las diferencias entre métricas de crecimiento y margen reflejan estimaciones o cálculos distintos; los inputs no especifican suficiente metodología para conciliarlas.
+Las cifras de la tabla reproducen las métricas facilitadas en los análisis. AOIF advierte que no se especifican el periodo ni la metodología de algunas métricas; deben verificarse antes de utilizarlas en una valoración.
 
-| Métrica | Valor reportado | Contexto |
+| Métrica | Valor reportado | Contexto y limitaciones |
 |---|---:|---|
-| Crecimiento de ingresos | 14,24 % TTM | DDD |
-| Crecimiento de ingresos | 15,06 % | AOIF; periodo no precisado |
-| Margen operativo | 33,17 % TTM | DDD |
-| Margen operativo | 33,01 % | AOIF; periodo no precisado |
-| Flujo de caja libre (FCF) | 136,68 mil millones USD TTM | DDD |
-| ROIC | 93,29 % | AOIF; periodo y metodología no precisados |
-| PER | 39,57x | AOIF; fecha de mercado no indicada |
-| EV/EBITDA | 29,87x | AOIF; fecha de mercado no indicada |
-| FCF yield | 0 % | AOIF; no se aporta metodología ni datos para validarlo |
+| Crecimiento de ingresos | 15,06% | Periodo y metodología no especificados en AOIF |
+| Margen operativo | 33,01% | Periodo y metodología no especificados en AOIF |
+| ROIC | 93,29% | Periodo y metodología no especificados en AOIF |
+| Margen bruto | Aproximadamente 48,8% | Reportado en DDD; periodo indicado como 2026-09-26 |
+| Crecimiento del FCF | 37,76% | Valor reportado como crecimiento histórico TTM; DDD, 2026-09-26 |
+| PER | 39,57 | AOIF; no se especifican fecha ni metodología |
+| EV/EBITDA | 29,87 | AOIF; no se especifican fecha ni metodología |
+| FCF yield | 0 | AOIF; sin detalle metodológico. No debe interpretarse como una medida verificada del rendimiento del flujo de caja |
+| Cobertura de intereses | 0 | Señalada por DDD como inferior al umbral de 2,0; requiere validación por la posible falta de detalle metodológico |
 
-Los análisis califican la salud financiera como **fuerte** y la conversión de FCF como una fortaleza cualitativa. No se aportan datos suficientes para describir deuda neta, efectivo, vencimientos, recompras por periodo, dividendos o estructura de capital en detalle. DDD menciona disciplina en recompras, pero no incluye cifras que permitan cuantificarla.
+El análisis describe la tendencia financiera como **estable** y señala una conversión históricamente elevada de beneficios en flujo de caja libre. También destaca una generación de caja sólida y un modelo relativamente ligero en capital, pero no aporta series históricas ni datos suficientes para comprobar estas afirmaciones de forma independiente.
+
+**Limitaciones de los datos:** DDD indica que no pudo calcular el crecimiento anual compuesto de ingresos a tres años por falta de referencias explícitas a los datos de entrada. AOIF señala que no cuenta con los elementos necesarios para estimar de forma fiable un valor intrínseco independiente, entre ellos un FCF normalizado y supuestos verificables de crecimiento.
 
 ## 4. Management y Gobierno Corporativo
 
-La investigación AOIF califica la calidad del management como **buena**, la asignación de capital como creadora de valor y el alineamiento de insiders como **moderado**. DDD destaca disciplina en recompras y expansión de servicios de alto margen, aunque no aporta cifras de retornos de capital ni evidencia detallada que permita evaluar esas conclusiones de forma independiente.
+AOIF evalúa la calidad del management como **buena**, la asignación de capital como **creadora de valor** y la alineación de insiders como **moderada**. El análisis atribuye a la dirección capacidad de ejecución, desarrollo del ecosistema e inversión en investigación y desarrollo, además de otras decisiones de asignación de capital.
 
-Los inputs no incluyen nombres ni evaluación individual de directivos, composición del consejo, independencia de sus miembros, estructura de incentivos, participación accionarial de insiders o transacciones de estos. Esos aspectos quedan pendientes de verificación.
+La información disponible no identifica a los integrantes del equipo directivo ni del consejo de administración. Tampoco proporciona datos de propiedad accionarial de insiders, remuneración, objetivos de incentivos, independencia del board o historial detallado de decisiones de capital. Por tanto, las calificaciones cualitativas anteriores no sustituyen una revisión específica del gobierno corporativo.
 
 ## 5. Tesis de Inversión
 
-**Tesis resumida:** Apple combina un ecosistema integrado y una posición competitiva de liderazgo con una elevada rentabilidad operativa y una importante generación de caja. Si mantiene la retención de usuarios y continúa monetizando su base instalada mediante servicios, podría sostener el crecimiento y la rentabilidad. Nuevos productos, como Vision Pro, representan una oportunidad adicional, pero su adopción e impacto económico siguen siendo inciertos.
+### Caso alcista
 
-**Evidencia y calificaciones disponibles:**
+La tesis proporcionada sostiene que Apple combina una posición sólida en hardware premium con una oportunidad de expansión en servicios y productos de realidad aumentada o virtual. Los principales argumentos son:
 
-- Margen operativo reportado de **33,17 % TTM** y FCF de **136,68 mil millones USD TTM** (DDD).
-- Crecimiento de ingresos reportado de **14,24 % TTM** (DDD), y de **15,06 %** en AOIF, con periodo no especificado.
-- Ventaja competitiva descrita como amplia y posición competitiva como líder (AOIF).
-- Calidad del negocio calificada como excepcional en DDD; salud financiera calificada como fuerte.
-- DDD clasifica la oportunidad como **quality_at_fair_price** y la valoración como **justa**, pero considera que no hay evidencia suficiente para caracterizarla como claramente barata.
+1. **Ecosistema integrado:** la combinación de hardware, software y servicios puede respaldar la retención de usuarios y la demanda de productos complementarios.
+2. **Servicios:** Apple Music, iCloud y App Store se identifican como posibles motores de crecimiento y diversificación. DDD plantea que el crecimiento de servicios podría contribuir a una revaluación, aunque no ofrece una tasa de crecimiento verificada.
+3. **Generación de caja y márgenes:** el análisis reporta un margen bruto aproximado de 48,8% y un crecimiento del FCF de 37,76% (DDD, periodo indicado: 2026-09-26). La comparabilidad y metodología de estas cifras requieren validación.
+4. **Wearables y realidad aumentada/virtual:** la expansión de wearables y la posible adopción de Apple Vision Pro aparecen como catalizadores potenciales, no como resultados confirmados.
+5. **Posición competitiva:** AOIF clasifica a Apple como líder y asigna al negocio un moat amplio, apoyándose en marca, integración, escala y costes de cambio.
 
-**Inferencias, no hechos confirmados:** DDD interpreta el margen operativo como señal de alta rentabilidad y el crecimiento de ingresos como indicio de expansión de la base de usuarios y los servicios. Los inputs no aportan datos de usuarios, crecimiento segmentado de servicios ni desglose de márgenes que confirmen esas explicaciones.
+DDD otorga un **score general de 80** y clasifica la oportunidad como “multibagger”. Esa clasificación es una conclusión del análisis recibido, no un hecho financiero verificado ni una garantía de rendimiento.
+
+**Evidencia citada:** DDD vincula sus estadísticas y el crecimiento de FCF con [Stock Analysis](https://stockanalysis.com/stocks/AAPL/statistics/), con fecha de periodo reportada **2026-09-26**. AOIF proporciona métricas y evaluaciones, pero no incluye fuentes directas para verificarlas.
 
 ## 6. Riesgos y Contra-Tesis
 
-1. **Dependencia del iPhone y de los ciclos de renovación — impacto alto, probabilidad media (AOIF).** Una desaceleración prolongada de la demanda o pérdida de cuota podría afectar ingresos y aprovechamiento del ecosistema.
-2. **Regulación y litigios sobre la App Store — impacto alto, probabilidad alta (AOIF).** Cambios en comisiones, pagos, publicidad o prácticas de plataforma podrían reducir los ingresos o márgenes de servicios. DDD también identifica este riesgo, con probabilidad media; las evaluaciones de probabilidad difieren.
-3. **Adopción más lenta de Vision Pro — impacto alto, probabilidad media (DDD).** La oportunidad de AR/VR podría tardar más de lo previsto en generar escala o ingresos recurrentes.
-4. **Crecimiento de servicios por debajo de las expectativas.** La tesis contempla que los servicios crezcan más del 20 % anual, pero los inputs no aportan una serie histórica ni el crecimiento reciente del segmento que permita verificar esa premisa.
-5. **Valoración exigente y margen de seguridad insuficiente.** AOIF reporta PER de 39,57x y EV/EBITDA de 29,87x, y concluye que el margen de seguridad es insuficiente. La fecha y las bases de cálculo de esos múltiplos no se especifican.
+### Caso bajista y riesgos principales
 
-**Contra-tesis:** el precio podría ya incorporar una parte sustancial del crecimiento futuro. Si el hardware se debilita, los servicios crecen menos de lo esperado y la regulación restringe la economía de la App Store, la rentabilidad y la valoración podrían deteriorarse. DDD califica como **incierta** la posibilidad de que exista un error de valoración del mercado.
+- **Dependencia del iPhone:** una caída sostenida de ventas, menor demanda o ciclos de renovación más largos podrían afectar ingresos y mezcla de productos. AOIF califica este riesgo como de impacto alto y probabilidad media.
+- **Presión competitiva y madurez de mercados:** smartphones, ordenadores y tabletas se describen como mercados maduros, expuestos a presión de precios.
+- **Cadena de suministro:** la dependencia de abastecimiento y fabricación global puede exponer a la compañía a interrupciones, concentración geográfica y tensiones geopolíticas. AOIF lo evalúa como un riesgo de impacto alto y probabilidad media.
+- **Regulación de la App Store:** las restricciones regulatorias podrían limitar la monetización de servicios o modificar las condiciones de operación de la plataforma. DDD incluye este factor entre sus falsadores.
+- **Adopción incierta de nuevos productos:** el ritmo de adopción de Apple Vision Pro y la contribución futura de AR/VR no están determinados.
+- **Cobertura de intereses:** DDD reporta un ratio de 0, por debajo del umbral de 2,0, y lo marca como riesgo. La cifra carece de explicación metodológica detallada y debe verificarse antes de tratarla como señal financiera confirmada.
 
-**Triggers de falsación de la tesis:**
+### Falsadores y umbrales de escenarios
 
-- Desaceleración persistente de ingresos, unidades o renovaciones del iPhone.
-- Deterioro de márgenes o conversión de caja respecto de los niveles reportados.
-- Crecimiento de servicios insuficiente para sostener las expectativas incorporadas en la tesis.
-- Cambios regulatorios o judiciales que reduzcan de forma material la monetización de la App Store.
-- Adopción de Vision Pro muy inferior a la necesaria para justificar su papel como catalizador.
+DDD enumera como falsadores de la tesis una **caída sostenida de ventas de iPhone** y **restricciones regulatorias en la App Store**. En su escenario bajista también plantea ingresos anuales por debajo del 2% y un margen bruto inferior al 45%; en el alcista, crecimiento de ingresos superior al 8% y margen bruto por encima del 48%. Son supuestos de escenarios, no previsiones verificadas.
 
 ## 7. Catalizadores y Timeline
 
-| Catalizador | Horizonte indicado | Probabilidad estimada por DDD | Impacto potencial | Estado y limitaciones |
-|---|---|---:|---|---|
-| Adopción de Vision Pro y generación de ingresos recurrentes por contenido y suscripciones AR/VR | Medio plazo | 30 % | Alto | Hipótesis vigente; sin evidencia aportada de cumplimiento o desestimación |
-| Crecimiento sostenido de servicios por encima del 20 % anual | Largo plazo | 45 % | Medio | Hipótesis vigente; DDD señala que el crecimiento total de ingresos de 14,24 % TTM no la desmiente, pero ese dato no confirma el crecimiento del segmento |
-| Posible penetración de Vision Pro de al menos 1 % de usuarios de iPhone en 18 meses | Medio plazo | 30 % | Alto | Umbral planteado como catalizador en DDD; no se proporciona una fecha de inicio para calcular el plazo |
+Las fechas siguientes corresponden al campo `period_end` de DDD y no representan necesariamente una fecha de anuncio o lanzamiento confirmada.
 
-DDD no indica fechas calendario concretas para estos eventos. El análisis de escenarios fija un horizonte hasta el **30 de noviembre de 2028**, pero no constituye una fecha prevista de materialización de los catalizadores.
-
-**Seguimiento operativo:** evolución de ingresos, unidades y renovación del iPhone; contribución de hardware y servicios; crecimiento y márgenes de servicios; y cambios regulatorios que afecten a la App Store.
+| Catalizador | Fecha indicada | Impacto potencial | Estado de evidencia |
+|---|---|---|---|
+| Crecimiento de servicios: Apple Music, iCloud y App Store | 2026-09-26 | Podría diversificar ingresos y apoyar la monetización del ecosistema | Catalizador identificado por DDD; la fuente asociada es [Stock Analysis](https://stockanalysis.com/stocks/AAPL/statistics/), sin métrica de crecimiento concreta en el material |
+| Lanzamiento/adopción de Apple Vision Pro y expansión de wearables | 2026-09-26 | Podría abrir una fuente de crecimiento si la adopción resulta significativa | Oportunidad hipotética; tasa de adopción no conocida |
+| Evolución de ventas y renovación del iPhone | Sin fecha indicada | Cambios en demanda y precio promedio podrían afectar ingresos y mezcla de productos | Driver operativo descrito por AOIF; no se aporta calendario |
+| Expansión de servicios y adopción de AR/VR | Horizonte de escenario: 2027-11-26 | En el escenario alcista contribuiría al crecimiento de ingresos y flujo de caja | Supuesto del escenario, no evento confirmado |
 
 ## 8. Marco de Valoración
 
-La clasificación DDD es **quality_at_fair_price** y la opinión de valoración es **justo**. AOIF considera insuficiente el margen de seguridad y no estima un valor intrínseco con rigor, por falta de precio y capitalización de referencia, FCF normalizado y otros supuestos necesarios.
+### Metodología apropiada
 
-**Enfoque apropiado para profundizar:**
+La evidencia disponible no permite fijar un valor intrínseco fiable. Para una valoración posterior sería pertinente combinar:
 
-- Valorar por separado el hardware y los servicios, con supuestos explícitos de crecimiento, márgenes y reinversión.
-- Usar un modelo de flujo de caja descontado sobre FCF normalizado, sometiendo a sensibilidad el crecimiento, los márgenes, el coste de capital y el valor terminal.
-- Contrastar el resultado con múltiplos de mercado, teniendo presente que los múltiplos reportados no incluyen fecha de referencia verificable en los inputs.
+- **Flujo de caja descontado (DCF):** basado en FCF normalizado, crecimiento por segmento, márgenes, reinversión y tasa de descuento.
+- **Valoración relativa:** PER y EV/EBITDA frente a empresas comparables, con ajustes por crecimiento, márgenes, mix de hardware y servicios y calidad del flujo de caja.
+- **Análisis por escenarios:** para reflejar la incertidumbre en ventas de iPhone, crecimiento de servicios, márgenes, regulación y adopción de nuevos productos.
 
-DDD aporta dos escenarios para el 30 de noviembre de 2028. No se proporciona el precio actual ni la metodología que los genera; por ello, no pueden interpretarse como rendimientos esperados ni validarse como valores intrínsecos.
+El material no proporciona cotización y fecha de referencia verificadas, FCF normalizado, supuestos completos de crecimiento ni una tasa de descuento; AOIF califica el margen de seguridad como **insuficiente** y no estima un valor intrínseco independiente.
 
-| Escenario | Precio objetivo reportado | Supuestos resumidos |
+### Referencias y escenarios recibidos
+
+DDD comunica un precio de cierre de **USD 354,82** y un consenso medio de **USD 345,63**, con un rango de **USD 250–425**. No se aporta una fecha de referencia verificable para estas cifras. DDD interpreta la diferencia entre cierre y consenso como posible sobrevaloración ligera, aunque también destaca la incertidumbre del rango.
+
+| Escenario DDD | Precio objetivo | Supuestos principales |
 |---|---:|---|
-| Bajista | 250 USD | Adopción lenta de Vision Pro, crecimiento de servicios inferior al 10 % anual y presión regulatoria |
-| Alcista | 425 USD | Penetración de Vision Pro del 1 % entre usuarios de iPhone en 18 meses e impulso de ingresos AR/VR |
+| Bajista | USD 250 | Crecimiento anual de ingresos inferior al 2%; margen bruto inferior al 45%; desaceleración del iPhone y presión regulatoria |
+| Alcista | USD 425 | Crecimiento anual de ingresos superior al 8%; margen bruto superior al 48%; expansión de servicios y adopción de AR/VR |
 
-La sensibilidad principal reside en la velocidad de adopción de Vision Pro, el crecimiento y los márgenes de servicios, la evolución del iPhone, el impacto regulatorio y la valoración terminal. AOIF no presenta escenarios numéricos utilizables, por lo que no se deben combinar ni completar con supuestos externos.
+Los precios objetivo corresponden al horizonte indicado en el análisis: **2027-11-26** (fecha de análisis: **2026-11-26**). DDD no incluye fuentes para los supuestos de los escenarios. Deben tratarse como resultados hipotéticos, no como estimaciones contrastadas.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-- ¿Cuál es la adopción real de Apple Vision Pro y cómo evoluciona durante los próximos 12–24 meses?
-- ¿Qué ingresos, costes y márgenes puede generar Vision Pro, y qué evidencia respalda el umbral de penetración del 1 % de usuarios de iPhone?
-- ¿Cuál es el crecimiento reciente de servicios por segmento y qué proporción corresponde a ingresos recurrentes?
-- ¿Qué cambios regulatorios o litigios sobre la App Store están en curso y cuál sería su impacto cuantificable en comisiones y márgenes?
-- ¿Cómo evolucionan las unidades, el ciclo de renovación y la cuota del iPhone?
-- ¿Cuál es la deuda neta, la liquidez y el calendario de vencimientos? Los inputs no permiten evaluar la estructura de capital.
-- ¿Qué fecha y metodología corresponden a los múltiplos PER y EV/EBITDA reportados, y por qué AOIF registra un FCF yield de 0 %?
-- ¿Cuáles son las fuentes, periodos y definiciones de los indicadores TTM y de las métricas AOIF? También debe reconciliarse la diferencia entre crecimiento de ingresos de 14,24 % y 15,06 %, y entre margen operativo de 33,17 % y 33,01 %.
-- ¿Qué fuentes primarias sustentan las cifras, las valoraciones de calidad y management, y los precios objetivo de 250 y 425 USD?
-- ¿Quiénes integran el consejo y el equipo directivo, y qué datos públicos existen sobre incentivos y participación accionarial de insiders?
-
-**Nota de evidencia:** los inputs identifican los análisis DDD y AOIF y una fecha de análisis de 26 de noviembre de 2026, pero no incluyen enlaces, citas a documentos externos ni fechas de publicación por métrica. Las afirmaciones y cifras anteriores se atribuyen a esos análisis; no se han añadido datos externos.
+1. **Apple Vision Pro:** ¿cuál será su tasa de adopción, escala potencial y contribución económica?
+2. **Servicios:** ¿cómo evolucionarán su crecimiento, márgenes y participación en los ingresos durante los próximos tres años?
+3. **iPhone:** ¿cómo evolucionan las ventas, el precio promedio, la mezcla de modelos y los ciclos de renovación?
+4. **FCF y crecimiento:** ¿cuáles son las series históricas comparables de ingresos y FCF, y cuál es el FCF normalizado?
+5. **Métricas financieras:** ¿qué periodos y metodologías corresponden al crecimiento de ingresos, ROIC, margen operativo, PER, EV/EBITDA y FCF yield reportados?
+6. **Cobertura de intereses:** ¿cómo se calculó el valor reportado de 0 y qué partidas se utilizaron?
+7. **Riesgo regulatorio:** ¿qué jurisdicciones y cambios regulatorios podrían afectar la monetización de App Store y otros servicios?
+8. **Cadena de suministro:** ¿qué exposición existe a interrupciones, concentración geográfica y tensiones geopolíticas?
+9. **Gobierno corporativo:** ¿quiénes integran el equipo directivo y el consejo, cómo se estructuran sus incentivos y cuál es la propiedad de insiders?
+10. **Valoración:** ¿cuáles son la cotización y fecha de referencia verificadas, los comparables adecuados y los supuestos necesarios para estimar valor intrínseco y margen de seguridad?
 
 ---
 
