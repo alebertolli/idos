@@ -42,7 +42,7 @@ def test_continuation_does_not_dispatch_during_provider_cooldown():
     assert calls == []
 
 
- 
+
 def test_continuation_does_not_dispatch_when_all_due_work_is_quarantined():
     calls = []
     now = datetime(2026, 11, 26, 12, tzinfo=timezone.utc)
