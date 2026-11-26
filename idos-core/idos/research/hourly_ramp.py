@@ -81,6 +81,27 @@ def has_due_work(
     today = current.date().isoformat()
     return any(item.get("next_attempt_date", "") <= today for item in pending)
 
+ 
+def exclude_quarantined(
+    pending: list[dict[str, Any]], quarantined: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Return pending candidates that are not parked in the durable quarantine."""
+    def candidate_key(item: dict[str, Any]) -> tuple[str, str] | None:
+        ticker = str(item.get("ticker", "")).strip().upper()
+        opp_id = str(item.get("opp_id", "")).strip()
+        return (ticker, opp_id) if ticker and opp_id else None
+
+    quarantined_keys = {
+        key
+        for item in quarantined
+        if isinstance(item, dict)
+        if (key := candidate_key(item)) is not None
+    }
+    return [
+        item for item in pending
+        if not isinstance(item, dict) or candidate_key(item) not in quarantined_keys
+    ]
+
 
 def defer_provider_retry(state: dict[str, Any], *, now: datetime | None = None) -> dict[str, Any]:
     """Apply bounded exponential cooldown without requiring a manual resume."""
