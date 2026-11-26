@@ -42,7 +42,9 @@ def test_missing_scenario_horizon_uses_disclosed_one_year_convention():
     analysis = scenario_set()
     analysis["horizon_date"] = None
 
-    corrected = canonicalize_scenario_reference_dates(analysis, analysis_as_of_date=TODAY.isoformat())
+    corrected = canonicalize_scenario_reference_dates(
+        analysis, analysis_as_of_date=TODAY.isoformat()
+    )
 
     assert corrected["horizon_date"] == (TODAY + timedelta(days=365)).isoformat()
     assert corrected["horizon_basis"] == "idos_default_365_days"
