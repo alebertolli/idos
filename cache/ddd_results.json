@@ -1,40 +1,69 @@
 {
-  "total": 2,
+  "total": 1,
   "processed": [
     {
-      "opp_id": "OPP-MB-AAPL",
-      "ticker": "AAPL",
+      "opp_id": "OPP-20261022-001",
+      "ticker": "ASML",
       "status": "completed",
-      "score": 80,
-      "reason": "stale UNDER_RESEARCH (31d > 30d)",
+      "score": 88,
+      "reason": "stale UNDER_RESEARCH (34d > 30d)",
       "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-ADI",
-      "ticker": "ADI",
-      "status": "quality_failed",
-      "score": 48,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
     }
   ],
   "skipped": [],
-  "assessments": [],
-  "errors": [
+  "assessments": [
     {
-      "ticker": "ADI",
-      "opp_id": "OPP-MB-ADI",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "ticker": "ASML",
+      "opp_id": "OPP-20261022-001",
+      "status": "auto_approved",
+      "conviction_score": 70,
+      "recommendation": "APPROVE",
+      "board_approved": true,
+      "decision_type": "BUY_LIST_ADMISSION",
+      "decision_id": "AUTO-7113d507c9f28b8a",
+      "automatic_block_reason": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 76,
+        "ValuationAssessmentEngine": 70,
+        "RecoveryAssessmentEngine": 64,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-001",
+        "RULE-003",
+        "RULE-004",
+        "RULE-005",
+        "RULE-008",
+        "RULE-010"
+      ],
+      "rules_failed": [],
+      "rules_details": {
+        "RULE-001": "Business quality: 76/70",
+        "RULE-003": "Rerating: 64/50",
+        "RULE-004": "Risk: 80/50",
+        "RULE-005": "Conviction: 70/65",
+        "RULE-008": "B/R 3.7:1 \u2705 (Bull +114.9% / Bear -30.9%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-27",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
     }
   ],
-  "status": "failed",
-  "deferred_count": 13,
+  "errors": [],
+  "status": "partial_deferred",
+  "deferred_count": 12,
   "quarantined_count": 15,
   "capacity_failure": null,
   "event_type": "monthly",

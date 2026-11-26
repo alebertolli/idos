@@ -5,14 +5,14 @@ assessments:
     engine: BusinessAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Exceptional ROIC: 92.13%'
+    - detail: 'Exceptional ROIC: 91.0%'
       type: POSITIVE
     - detail: 'High revenue growth: 22.54%'
       type: POSITIVE
     - detail: 'Excellent margins: 38.55%'
       type: POSITIVE
-    generated_at: '2026-10-22T20:08:19.924154-03:00'
-    id: BusinessAssessmentEngine-20261022200819
+    generated_at: '2026-11-26T12:25:01.286782-03:00'
+    id: BusinessAssessmentEngine-20261126122501
     recommendation: FAVORABLE
     risks: []
     score: 76
@@ -27,8 +27,8 @@ assessments:
     - detail: Private family portfolio source is not connected; portfolio fit is not
         assessed
       type: PENDING
-    generated_at: '2026-10-22T20:08:19.924216-03:00'
-    id: PortfolioAssessmentEngine-20261022200819
+    generated_at: '2026-11-26T12:25:01.286834-03:00'
+    id: PortfolioAssessmentEngine-20261126122501
     recommendation: NOT_ASSESSED
     risks:
     - detail: Do not infer capacity, diversification, or position count from missing
@@ -67,8 +67,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-10-22T20:08:19.924203-03:00'
-    id: RecoveryAssessmentEngine-20261022200819
+    generated_at: '2026-11-26T12:25:01.286825-03:00'
+    id: RecoveryAssessmentEngine-20261126122501
     recommendation: MODERATE
     risks: []
     score: 64
@@ -82,8 +82,8 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-10-22T20:08:19.924210-03:00'
-    id: RiskAssessmentEngine-20261022200819
+    generated_at: '2026-11-26T12:25:01.286830-03:00'
+    id: RiskAssessmentEngine-20261126122501
     recommendation: LOW_RISK
     risks: []
     score: 80
@@ -95,17 +95,17 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Price target upside: 37.6%'
+    - detail: 'Price target upside: 62.1%'
       type: POSITIVE
-    generated_at: '2026-10-22T20:08:19.924171-03:00'
-    id: ValuationAssessmentEngine-20261022200819
+    generated_at: '2026-11-26T12:25:01.286796-03:00'
+    id: ValuationAssessmentEngine-20261126122501
     recommendation: ATTRACTIVE
     risks: []
     score: 70
     status: COMPLETED
     version: '1.1'
 conviction_score: 70
-created_at: '2026-10-22T20:08:19.924299-03:00'
+created_at: '2026-11-26T12:25:01.286894-03:00'
 financial_data_quality:
   as_of_basis: period_end_date
   as_of_date: '2026-09-27'
@@ -117,25 +117,39 @@ financial_data_quality:
   source: stockanalysis.com
   status: good
   unreconciled_core_metrics: []
-generated_at: '2026-10-22T20:08:19.924398-03:00'
+generated_at: '2026-11-26T12:25:01.286970-03:00'
 opportunity_id: OPP-20261022-001
-reasoning: 'Rules blocked: RULE-008'
-recommendation: BLOCKED
+reasoning: 'Conviction: 70/100, 6 rules passed'
+recommendation: APPROVE
 rules_details:
   RULE-001: 'Business quality: 76/70'
   RULE-003: 'Rerating: 64/50'
   RULE-004: 'Risk: 80/50'
   RULE-005: 'Conviction: 70/65'
-  RULE-008: B/R 1.9:1 ❌ (Bull +84.9% / Bear -44.4%)
+  RULE-008: B/R 3.7:1 ✅ (Bull +114.9% / Bear -30.9%)
   RULE-010: Fuente y fecha de corte verificadas; cobertura 5/5
-rules_failed:
-- RULE-008
+rules_failed: []
 rules_passed:
 - RULE-001
 - RULE-003
 - RULE-004
 - RULE-005
+- RULE-008
 - RULE-010
-scenario_hash: eeaedd8cc0208a85fe7c66cc9a8cfa64acc6ab0029ea827a5e87171a357b79f8
-status: BLOCKED
+scenario_hash: 0132dc461c02a4e99ad9abc0548e79360881426cabe2558e3ed0335012ffb9dd
+status: AUTO_APPROVED
 type: opportunity:transitioned
+algorithm_recommendation: APPROVE
+automatic_authorization:
+  policy: all_configured_authorization_rules_v1
+  rules_passed:
+  - RULE-001
+  - RULE-003
+  - RULE-004
+  - RULE-005
+  - RULE-008
+  - RULE-010
+  proposal_hash: 7113d507c9f28b8a7784a75b5d87200e7f26b35519b6285856c9863e1629081e
+  scenario_hash: 0132dc461c02a4e99ad9abc0548e79360881426cabe2558e3ed0335012ffb9dd
+  authorized_at: '2026-11-26T12:25:01.395004-03:00'
+  scope: buy_list_only
