@@ -1,107 +1,50 @@
 {
-  "total": 2,
+  "total": 1,
   "processed": [
     {
-      "opp_id": "OPP-MB-UGP",
-      "ticker": "UGP",
+      "opp_id": "OPP-MB-WMT",
+      "ticker": "WMT",
       "status": "completed",
-      "score": 65.66,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-UNP",
-      "ticker": "UNP",
-      "status": "completed",
-      "score": 67,
-      "reason": "new entry: SCREENED (score=0)",
+      "score": 74.91,
+      "reason": "configured event trigger: quarterly_results (status=UNDER_RESEARCH)",
       "errors": []
     }
   ],
   "skipped": [],
   "assessments": [
     {
-      "ticker": "UGP",
-      "opp_id": "OPP-MB-UGP",
+      "ticker": "WMT",
+      "opp_id": "OPP-MB-WMT",
       "status": "completed",
-      "conviction_score": 66,
+      "conviction_score": 52,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "automatic_block_reason": "authorization_rules_not_all_passed",
       "assessments": {
-        "BusinessAssessmentEngine": 64,
-        "ValuationAssessmentEngine": 80,
-        "RecoveryAssessmentEngine": 54,
-        "RiskAssessmentEngine": 70,
-        "PortfolioAssessmentEngine": 50
-      },
-      "rules_passed": [
-        "RULE-003",
-        "RULE-004",
-        "RULE-005",
-        "RULE-010"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 64/70",
-        "RULE-003": "Rerating: 54/50",
-        "RULE-004": "Risk: 70/50",
-        "RULE-005": "Conviction: 66/65",
-        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual",
-        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
-      },
-      "data_quality": "good",
-      "financial_data_quality": {
-        "status": "good",
-        "core_metric_coverage": "5/5",
-        "missing_core_metrics": [],
-        "source": "stockanalysis.com",
-        "as_of_date": "2026-09-30",
-        "as_of_basis": "period_end_date",
-        "as_of_date_source": "stockanalysis.com",
-        "missing_provenance": [],
-        "conflicting_core_metrics": [],
-        "unreconciled_core_metrics": []
-      }
-    },
-    {
-      "ticker": "UNP",
-      "opp_id": "OPP-MB-UNP",
-      "status": "completed",
-      "conviction_score": 60,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": null,
-      "decision_id": null,
-      "automatic_block_reason": "authorization_rules_not_all_passed",
-      "assessments": {
-        "BusinessAssessmentEngine": 63,
+        "BusinessAssessmentEngine": 47,
         "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 54,
-        "RiskAssessmentEngine": 80,
+        "RecoveryAssessmentEngine": 49,
+        "RiskAssessmentEngine": 60,
         "PortfolioAssessmentEngine": 50
       },
       "rules_passed": [
-        "RULE-003",
         "RULE-004",
         "RULE-010"
       ],
       "rules_failed": [
         "RULE-001",
+        "RULE-003",
         "RULE-005",
         "RULE-008"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 63/70",
-        "RULE-003": "Rerating: 54/50",
-        "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 60/65",
-        "RULE-008": "B/R 1.4:1 \u274c (Bull +25.7% / Bear -17.9%)",
+        "RULE-001": "Business quality: 47/70",
+        "RULE-003": "Rerating: 49/50",
+        "RULE-004": "Risk: 60/50",
+        "RULE-005": "Conviction: 52/65",
+        "RULE-008": "B/R 0.5:1 \u274c (Bull +17.5% / Bear -38.6%)",
         "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
       },
       "data_quality": "good",
@@ -110,7 +53,7 @@
         "core_metric_coverage": "5/5",
         "missing_core_metrics": [],
         "source": "stockanalysis.com",
-        "as_of_date": "2026-09-30",
+        "as_of_date": "2026-10-31",
         "as_of_basis": "period_end_date",
         "as_of_date_source": "stockanalysis.com",
         "missing_provenance": [],
@@ -124,7 +67,7 @@
   "deferred_count": 3,
   "quarantined_count": 15,
   "capacity_failure": null,
-  "event_type": "monthly",
-  "force": false,
+  "event_type": "quarterly-results",
+  "force": true,
   "stale_days_threshold": 30
 }

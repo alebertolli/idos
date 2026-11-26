@@ -1,33 +1,33 @@
 calidad_evidencia:
-  hechos_verificados: []
-  inferencias_llm:
-  - Cálculo de CAGR de ingresos
-  - Conversión de FCF a porcentaje de Net Income
-  - Cálculo de net_debt_ebitda
-  - Precio actual 123.51 USD (yfinance, 2026-10-30)
-  - Ingresos FY 2023-2026 (stockanalysis, 2026-10-31)
-  - FCF y Net Income TTM (stockanalysis, 2026-10-31)
-  - Deuda y efectivo TTM (stockanalysis, 2026-10-31)
-  preguntas_abiertas:
-  - ¿Cuál es la evolución histórica de diluted shares para medir dilución?
-  - ¿Existen planes de recompra de acciones que afecten la estructura de capital?
+  hechos_verificados: 22
+  inferencias_llm: 5
+  preguntas_abiertas: 2
 catalizadores_previos: &id001
-- descripcion: ''
-  generated_at: '2026-11-20T21:02:52.382233-03:00'
+- descripcion: Mejora de la eficiencia operativa que eleve el margen bruto por encima
+    del 26%.
+  generated_at: '2026-11-21T23:51:42.412056-03:00'
   horizonte: ''
   impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-WMT
   probabilidad_anterior: null
-- descripcion: ''
-  generated_at: '2026-11-20T21:02:52.382233-03:00'
+- descripcion: Reestructuración de la deuda que reduzca net_debt_ebitda.
+  generated_at: '2026-11-21T23:51:42.412056-03:00'
   horizonte: ''
   impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-WMT
   probabilidad_anterior: null
-- descripcion: ''
-  generated_at: '2026-11-20T21:02:52.382233-03:00'
+- descripcion: Expansión exitosa de ecommerce en mercados internacionales.
+  generated_at: '2026-11-21T23:51:42.412056-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-WMT
+  probabilidad_anterior: null
+- descripcion: Incremento de la conversión de FCF a >70% mediante optimización de
+    capital de trabajo.
+  generated_at: '2026-11-21T23:51:42.412056-03:00'
   horizonte: ''
   impacto: ''
   nivel_confianza: ''
@@ -35,44 +35,40 @@ catalizadores_previos: &id001
   probabilidad_anterior: null
 clasificacion_oportunidad:
   categoria: Multibagger
-  justificacion: Walmart muestra crecimiento de ingresos del 6.8% CAGR a 3 años y
-    margen bruto estable, pero enfrenta presión de flujo de caja libre negativo y
-    alta deuda neta.
+  justificacion: Discovery score 74.91 indica potencial de alta rentabilidad según
+    criterios de la family office.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: Modelo de negocio diversificado y defensivo, pero la generación de efectivo
-    y la rentabilidad operativa muestran señales de presión.
-  rating: Medium
+  analisis: Crecimiento de ingresos sólido (CAGR 6.8% 3 años), generación de FCF positiva,
+    pero cobertura de intereses nula y falta de información de dilución limitan la
+    calidad.
+  rating: A-
 dominio_catalizadores:
-- descripcion: Mejora de la eficiencia operativa que eleve el margen bruto por encima
-    del 26%.
-- descripcion: Reestructuración de la deuda que reduzca net_debt_ebitda.
-- descripcion: Expansión exitosa de ecommerce en mercados internacionales.
-- descripcion: Incremento de la conversión de FCF a >70% mediante optimización de
-    capital de trabajo.
+- catalizador: Expansión del e-commerce y plataformas digitales
+  evidence: Business model description indica presencia global en ecommerce.
+- catalizador: Mejora de margen bruto
+  evidence: gross_margin_history muestra tendencia al alza (24.14% a 25.32%).
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- descripcion: Cobertura de intereses insuficiente (0x) por debajo del umbral de 2.0x.
-- descripcion: FCF negativo en TTM (-15.4%) indica deterioro de liquidez.
-- descripcion: Alto nivel de deuda neta (67,720) frente a EBITDA (48,680) genera net_debt_ebitda
-    de 1.39x, aunque bajo el umbral, la tendencia es ascendente.
-- descripcion: Falta de datos de dilución de acciones impide evaluar riesgo de emisión
-    de capital.
+- evidence: interest_coverage_ratio = 0 (stockanalysis.com, https://stockanalysis.com/stocks/WMT/statistics/)
+  risk: Cobertura de intereses extremadamente baja
+- evidence: Falta de historial de diluted_shares en el paquete.
+  risk: Datos de dilución de acciones no disponibles
 error_mercado:
-  catalizador_cambio: Una mejora significativa en la conversión de FCF o una reducción
-    de la deuda neta podría cerrar la brecha.
-  conclusion_error_valoracion: Existe una posible sobrevaloración basada en expectativas
-    de margen que no están respaldadas por la tendencia reciente de FCF.
-  consenso_actual: El consenso de analistas sitúa el precio objetivo medio en 135.9
-    USD, superior al precio actual de 123.51 USD.
-  hipotesis_contraria: Algunos analistas podrían sobreestimar el potencial de crecimiento,
-    considerando la compresión de márgenes y la caída del FCF.
-  razonamiento: El precio actual está por debajo del objetivo medio, pero la evidencia
-    muestra deterioro del FCF y cobertura de intereses insuficiente.
-generated_at: '2026-11-21T23:51:42.412056-03:00'
+  catalizador_cambio: Aceleración del e-commerce y mejora de márgenes operativos.
+  conclusion_error_valoracion: La diferencia entre el precio actual (123.51) y el
+    consenso bajo (81) sugiere una posible subvaloración que justifica un análisis
+    más profundo.
+  consenso_actual: 136.8
+  hipotesis_contraria: El mercado podría estar subvalorando el potencial de crecimiento
+    de Walmart frente a la media de analistas.
+  razonamiento: El precio actual está por encima del consenso bajo pero por debajo
+    del consenso medio, lo que indica margen de revaluación al alza si se confirman
+    los catalizadores.
+generated_at: '2026-11-26T16:57:33.196525-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-WMT
@@ -106,7 +102,7 @@ prompt_inputs:
   insider_ownership: 0
   name: Walmart Inc.
   operating_margin: 4.45
-  pe_ratio: 48.85
+  pe_ratio: 50.37
   products: ''
   revenue: 745180000000.0
   revenue_growth: 5.99
@@ -119,21 +115,21 @@ ratios_investigados:
   metric: revenue_cagr_3y_pct
   period_end: '2026-10-31'
   sources:
-  - as_of_date: '2026-10-31'
-    name: stockanalysis
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/WMT/statistics/
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/wmt/financials/
   status: unavailable
   unit: percent
   value: null
-- formula: FCF growth YoY según reporte
+- formula: null
   inputs:
-    fcf_growth_TTM: -15.4
-  limitations: Un punto de datos único (TTM).
+    fcf_growth_TTM: fcf_growth_history TTM
+  limitations: null
   metric: fcf_growth_pct
   period_end: '2026-10-31'
   sources:
-  - as_of_date: '2026-10-31'
-    name: stockanalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/wmt/financials/
   status: reported
   unit: percent
@@ -143,9 +139,10 @@ ratios_investigados:
   metric: fcf_conversion_pct
   period_end: '2026-10-31'
   sources:
-  - as_of_date: '2026-10-31'
-    name: stockanalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/wmt/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/WMT/statistics/
   status: unavailable
   unit: percent
   value: null
@@ -154,16 +151,16 @@ ratios_investigados:
   metric: net_debt_ebitda
   period_end: '2026-10-31'
   sources:
-  - as_of_date: '2026-10-31'
-    name: stockanalysis
+  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/wmt/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/WMT/statistics/
   status: unavailable
   unit: x
   value: null
-- formula: (Diluted_Shares_T / Diluted_Shares_T-1) - 1
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs: {}
-  limitations: No se dispone de historial de diluted shares ni de shares outstanding
-    por período.
+  limitations: Missing diluted shares historical data.
   metric: dilution_yoy_pct
   period_end: null
   sources: []
@@ -201,7 +198,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-21'
+  analysis_as_of_date: '2026-11-26'
   business_model: 'Walmart Inc. engages in the operation of retail and wholesale stores
     and clubs, ecommerce websites, and mobile applications worldwide. The company
     operates through three segments: Walmart U.S., Walmart International, and Sam''s
@@ -239,301 +236,349 @@ research_input_snapshot:
     ## 1. Visión General de la Compañía
 
 
-    Walmart Inc. opera negocios minoristas y mayoristas que combinan tiendas físicas,
-    clubes de almacén y comercio electrónico. Su modelo incluye la venta de alimentos
-    y productos de consumo recurrente, además de actividades de farmacia, óptica y
-    bienestar. Atiende a consumidores y hogares que buscan precios competitivos y
-    conveniencia, así como a miembros de Sam’s Club.
+    Walmart Inc. es un operador minorista y mayorista global que combina tiendas físicas,
+    clubes de membresía y canales de comercio electrónico. Su propuesta se apoya en
+    compras a gran escala, surtido amplio, distribución mediante centros logísticos
+    y tiendas, y venta directa al consumidor mediante compra en tienda, entrega o
+    recogida.
 
 
-    La cadena de valor descrita comprende compras a proveedores a escala, gestión
-    de surtido y marcas propias, y distribución mediante centros logísticos y tiendas.
-    La información disponible identifica tres segmentos, pero no proporciona aquí
-    su desglose ni sus resultados por segmento.
+    Sus categorías incluyen alimentos, bebidas, productos de consumo frecuente, salud,
+    farmacia, óptica y bienestar. Atiende principalmente a consumidores y hogares
+    sensibles al precio, además de miembros de clubes de almacén. La información disponible
+    describe operaciones globales, pero no proporciona un desglose geográfico cuantitativo.
 
 
-    Walmart compite en el comercio minorista y mayorista, un sector caracterizado
-    por presión de precios, cambios en los hábitos de compra y competencia por conveniencia.
-    Entre las compañías relacionadas figuran [[COST]], [[TGT]] y [[SYY]].
+    La compañía compite en un sector de alta competencia y márgenes reducidos. Entre
+    las empresas relacionadas figuran [[COST]], [[TGT]] y [[FMX]]; también comparte
+    exposición a productos de consumo con [[CL]], [[KO]], [[MDLZ]] y [[SYY]].
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    **Drivers de ingresos identificados:**
-
-    - Tráfico de clientes y gasto promedio por visita.
-
-    - Crecimiento de ventas comparables y cambios en la mezcla de productos.
-
-    - Evolución de las ventas de comercio electrónico.
+    ### Drivers de ingresos
 
 
-    **Moat — evaluación provisional:** el análisis aportado describe ventajas potenciales
-    derivadas de la escala de compra y distribución, la densidad de tiendas, el reconocimiento
-    de marca, la amplitud del surtido y la integración de canales. También clasifica
-    a Walmart como líder competitivo y atribuye amplitud amplia a su moat. Estas valoraciones
-    son análisis, no métricas verificadas en el paquete de evidencia; faltan datos
-    cuantitativos para medir la ventaja y su durabilidad.
+    - Tráfico en tiendas y gasto promedio por cliente.
+
+    - Crecimiento de ventas comparables y expansión de tiendas.
+
+    - Ventas de alimentos, bebidas y productos de consumo frecuente.
+
+    - Actividad de clubes de membresía.
+
+    - Desarrollo de las ventas digitales, entregas y recogidas.
 
 
-    **Dinámica competitiva:** la competencia en precios, los costos laborales y logísticos
-    y la mezcla de ventas pueden presionar los márgenes. Walmart comparte exposición
-    a la competencia minorista con [[COST]] y [[TGT]]; [[SYY]] también está relacionado
-    con la cadena de abastecimiento de alimentos, aunque el material no cuantifica
-    el grado de solapamiento competitivo.
+    ### Ventajas competitivas
+
+
+    El análisis disponible caracteriza la posición competitiva de Walmart como líder
+    y su amplitud de moat como amplia. Las ventajas descritas incluyen:
+
+
+    - Escala de compra y capacidad de ofrecer precios bajos.
+
+    - Densidad de tiendas y red de distribución.
+
+    - Reconocimiento de marca y amplia base de clientes.
+
+    - Combinación de canales físicos y digitales.
+
+
+    Estas ventajas pueden apoyar la eficiencia y atraer a consumidores sensibles al
+    precio. Sin embargo, no eliminan la presión estructural sobre márgenes propia
+    del comercio minorista.
+
+
+    ### Dinámica competitiva
+
+
+    Walmart compite con minoristas, clubes mayoristas y plataformas digitales. La
+    competencia por precio, conveniencia, surtido y rapidez de entrega puede limitar
+    la capacidad de trasladar al cliente los aumentos de costos. Entre los comparables
+    y competidores relevantes del contexto disponible se encuentran [[COST]] y [[TGT]].
 
 
     ## 3. Perfil Financiero
 
 
-    Las cifras de ingresos, margen bruto, FCF y deuda neta que siguen proceden de
-    la serie de StockAnalysis citada. El paquete no especifica las unidades de esas
-    cifras; por ello se reproducen tal como fueron suministradas. Los indicadores
-    de crecimiento, margen operativo y ROIC provienen del análisis AOIF y no incluyen
-    una fuente primaria ni fechas precisas en el material recibido.
+    Las cifras siguientes provienen de los análisis proporcionados. No se aportan
+    para todas las métricas el periodo exacto, la fecha de referencia ni los cálculos
+    subyacentes; deben tratarse como datos reportados por esos análisis y verificarse
+    antes de usarlos en una valoración.
 
 
-    | Métrica | Valor reportado | Período / fecha | Fuente o limitación |
+    | Métrica | Valor | Contexto y limitaciones |
 
-    |---|---:|---|---|
+    |---|---:|---|
 
-    | Ingresos | 611.289 | FY 2023 | [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
+    | Crecimiento de ingresos | 5,99% | El análisis AOIF no especifica aquí el periodo
+    de cálculo. |
+
+    | Margen operativo | 4,45% | Periodo y fuente primaria no especificados en el
+    input. |
+
+    | ROIC | 15,29% | Periodo y metodología no especificados. |
+
+    | PER | 48,85x | Fecha y precio de referencia no verificados en el input. |
+
+    | EV/EBITDA | 22,24x | Fecha y método de cálculo no verificados. |
+
+    | FCF yield | 0% | El análisis de valoración no aporta el cálculo subyacente.
     |
 
-    | Ingresos | 713.163 | FY 2026 | [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
-    |
+    | Crecimiento de FCF TTM | −15,4% | Reportado como dato TTM; un solo punto de
+    datos, según DDD. |
 
-    | Margen bruto | 24,14% | FY 2023 | [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
-    |
-
-    | Margen bruto | 25,32% | TTM al 31-10-2026 | [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
-    |
-
-    | FCF | 14.923 | FY 2026, al 31-01-2026 | [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
-    |
-
-    | FCF | 12.913 | TTM al 31-10-2026 | [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/);
-    período no comparable directamente con FY |
-
-    | Deuda neta reportada como “net cash” negativo | -57.699 | FY 2026, al 31-01-2026
-    | [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/) |
-
-    | Deuda neta reportada como “net cash” negativo | -67.720 | “Current”, al 31-10-2026
-    | [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/) |
-
-    | Crecimiento de ingresos | 5,99% | Período no especificado | AOIF; no se suministró
-    desglose ni referencia de cálculo |
-
-    | Margen operativo | 4,48% | Período no especificado | AOIF; no se suministró
-    desglose ni referencia de cálculo |
-
-    | ROIC | 15,37% | Período no especificado | AOIF; no se suministró desglose ni
-    referencia de cálculo |
-
-    | Current ratio | 0,81x | Al 31-10-2026 | [StockAnalysis](https://stockanalysis.com/stocks/WMT/statistics/);
-    observación superior al umbral configurado de 0,5x |
+    | FCF y conversión de caja | No verificables con el material disponible | AOIF
+    indica que no se proporcionan series históricas de CFO, capex y FCF para calcular
+    la conversión. |
 
 
-    **Lectura:** los datos reportados muestran ingresos mayores en FY 2026 que en
-    FY 2023 y una mejora del margen bruto entre FY 2023 y TTM al 31-10-2026. El FCF
-    TTM es inferior al FCF de FY 2026, pero no son períodos equivalentes y la comparación
-    no prueba por sí sola un deterioro anual. La deuda neta reportada aumentó frente
-    al cierre de FY 2026 según los valores aportados. No se proporcionan datos suficientes
-    para calcular crecimiento comparable del FCF o conversión de beneficios en caja.
+    DDD registra un crecimiento de FCF TTM de −15,4%, con fecha de referencia indicada
+    como 2026-10-31 y enlaza la página financiera de Stock Analysis. El mismo input
+    señala que el cálculo de CAGR de ingresos a tres años quedó **no disponible**,
+    porque no se identificaron referencias explícitas a los datos de entrada. Por
+    ello, no se adopta como hecho la cifra de 6,8% mencionada en la clasificación
+    de oportunidad.
+
+
+    ### Estructura de capital
+
+
+    DDD señala como riesgos una cobertura de intereses de 0x y una posible presión
+    de deuda, pero los datos disponibles no incluyen los insumos ni el periodo necesarios
+    para verificar ese ratio. Tampoco se proporcionan deuda neta, deuda neta/EBITDA
+    o evolución histórica de acciones diluidas. La valoración y las conclusiones sobre
+    apalancamiento requieren validación con fuentes financieras primarias.
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    La evaluación AOIF califica provisionalmente la calidad del management como buena,
-    el alineamiento de insiders como moderado y la asignación de capital como neutral.
-    El propio análisis señala que faltan datos específicos sobre resultados del equipo
-    directivo, remuneración, compras de insiders y decisiones de capital.
+    El análisis AOIF califica la calidad del management como buena, la asignación
+    de capital como creadora de valor y el alineamiento de insiders como moderado.
+    Estas son evaluaciones del análisis suministrado, no conclusiones verificadas
+    mediante datos de remuneración, transacciones de insiders o resultados de votaciones
+    de accionistas.
 
 
-    No se aportaron datos sobre la composición del consejo, independencia de sus miembros,
-    estructura de incentivos ni participación accionarial de insiders. Por tanto,
-    esas dimensiones no pueden evaluarse con la evidencia disponible.
+    No se proporcionan nombres, composición del board, independencia de consejeros,
+    estructura de incentivos, participación accionaria de insiders ni planes de recompra
+    verificables. Por tanto, no es posible evaluar esos aspectos en detalle con la
+    evidencia disponible.
 
 
     ## 5. Tesis de Inversión
 
 
-    **Caso alcista — hipótesis respaldada parcialmente por los datos disponibles:**
+    ### Caso alcista
 
 
-    - Walmart combina tiendas, clubes y canales digitales, con surtido de consumo
-    recurrente y actividades de salud y bienestar. Esta amplitud puede respaldar tráfico
-    y recurrencia, aunque el material no cuantifica la contribución de cada canal
-    o categoría.
+    - **Posición defensiva y escala:** la combinación de precios bajos, escala de
+    compra, tiendas y distribución puede sostener la relevancia de Walmart para hogares
+    sensibles al precio.
 
-    - Los ingresos reportados aumentaron de 611.289 en FY 2023 a 713.163 en FY 2026;
-    el margen bruto pasó de 24,14% en FY 2023 a 25,32% TTM al 31-10-2026. Estos datos
-    son consistentes con una evolución histórica favorable, pero no bastan para establecer
-    crecimiento futuro ni causalidad. [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
+    - **Canales complementarios:** las tiendas, los clubes de membresía y el comercio
+    electrónico ofrecen varias vías para atender al cliente y respaldar el crecimiento.
 
-    - La escala de compra y distribución, la red de tiendas, la marca y la amplitud
-    del surtido podrían ofrecer ventajas competitivas y de costos. Esta es una hipótesis
-    del análisis AOIF, pendiente de validación con datos de cuota de mercado, costos
-    y retornos incrementales.
+    - **Potencial de eficiencia:** una mejora operativa que eleve los márgenes y la
+    conversión de efectivo podría aliviar la presión financiera descrita en DDD.
 
-    - AOIF reporta ROIC de 15,37%, pero sin período, cálculo ni fuente detallados.
-    Es una señal a verificar, no una conclusión independiente sobre la rentabilidad
-    sostenible del capital.
+    - **Escenario alcista del análisis:** DDD plantea un precio objetivo de **155
+    USD** para el horizonte indicado como 2027-10-30, bajo los supuestos de margen
+    bruto superior al 26%, crecimiento de FCF de +10% interanual y reducción de deuda.
+    Es un escenario condicional, no una estimación verificada ni una recomendación.
+
+
+    ### Evidencia y límites
+
+
+    AOIF reporta un margen operativo de 4,45% y un ROIC de 15,29%, aunque no especifica
+    periodos o metodologías. DDD reporta una caída de 15,4% en el crecimiento de FCF
+    TTM, dato que va en contra de una tesis de mejora de caja inmediata. No se proporcionan
+    series suficientes para confirmar tendencias sostenidas de ingresos, márgenes
+    o FCF.
 
 
     ## 6. Riesgos y Contra-Tesis
 
 
-    **Caso bajista:** la presión competitiva en precios, junto con costos laborales
-    y logísticos o una mezcla de ventas menos favorable, podría limitar los márgenes.
-    Si además se deteriorase la conversión de beneficios en caja, la escala del negocio
-    no garantizaría retornos atractivos para el accionista.
+    ### Caso bajista
 
 
-    **Riesgos identificados:**
-
-    - **Margen:** riesgo de presión por competencia en precios, costos laborales,
-    logística y mezcla de ventas. AOIF lo califica de probabilidad alta e impacto
-    medio.
-
-    - **Flujo de caja:** un deterioro persistente del FCF o una menor conversión de
-    beneficios en caja podría limitar la capacidad de financiar inversiones y otras
-    prioridades. AOIF lo califica de probabilidad media e impacto alto.
-
-    - **FCF reciente:** el FCF TTM de 12.913 es inferior a los 14.923 reportados para
-    FY 2026, aunque los períodos no son comparables directamente. Debe investigarse
-    la evolución con períodos homogéneos. [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
-
-    - **Endeudamiento:** la deuda neta reportada pasó de -57.699 en FY 2026 a -67.720
-    en “Current” al 31-10-2026. La interpretación requiere confirmar definiciones
-    y comparabilidad de las cifras. [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
-
-    - **Liquidez corriente:** el ratio reportado es 0,81x al 31-10-2026. La fuente
-    indica que supera el umbral configurado de 0,5x; el dato por sí solo no determina
-    la solvencia. [StockAnalysis](https://stockanalysis.com/stocks/WMT/statistics/)
-
-    - **Dilución:** no se puede evaluar el cambio interanual de acciones diluidas
-    o en circulación porque no se aportaron dos observaciones comparables. [StockAnalysis](https://stockanalysis.com/stocks/WMT/statistics/)
+    La escala y el crecimiento de canales digitales no garantizan una mejora de rentabilidad.
+    Si la competencia mantiene la presión sobre precios y aumentan los costos de mercancía,
+    salarios, transporte o energía, Walmart podría tener dificultades para sostener
+    márgenes y generar caja. El dato reportado de −15,4% en crecimiento de FCF TTM
+    es una señal de cautela, aunque por sí solo no establece una tendencia de largo
+    plazo.
 
 
-    **Triggers de falsación de la tesis:**
+    ### Riesgos clave
 
-    - Descensos persistentes de ingresos o margen bruto en períodos comparables.
 
-    - Deterioro persistente del FCF que no se explique ni se compense con evidencia
-    de inversión productiva.
+    - Competencia de minoristas, clubes mayoristas y plataformas digitales; impacto
+    potencial alto y probabilidad alta según AOIF.
 
-    - Evidencia de que las ventajas de escala y omnicanalidad no se traducen en retornos
-    sobre capital sostenibles.
+    - Aumento de salarios, transporte, energía o costos de mercancía sin compensación
+    equivalente; impacto y probabilidad medios según AOIF.
+
+    - Deterioro persistente del FCF o incapacidad para financiar inversiones y obligaciones.
+
+    - Riesgo de apalancamiento y cobertura de intereses, pendiente de validar con
+    datos financieros subyacentes.
+
+    - Posible dilución: DDD señala que la variación interanual de acciones diluidas
+    no está disponible, por lo que no puede evaluarse.
+
+
+    ### Falsadores y condiciones de vigilancia
+
+
+    DDD identifica como falsadores un incremento inesperado de costos de suministro
+    y regulaciones que limiten la expansión internacional. Los escenarios también
+    utilizan como referencias condicionales:
+
+
+    - Escenario bajista: margen bruto por debajo de 24% y FCF deteriorándose un 20%
+    interanual.
+
+    - Condiciones que cuestionarían ese escenario: margen bruto superior a 25% o FCF
+    positivo en los próximos 12 meses.
+
+    - Escenario alcista: margen bruto superior a 26% y crecimiento del FCF de 10%
+    interanual.
+
+    - Condiciones que cuestionarían el escenario alcista: margen bruto por debajo
+    de 24% o FCF aún negativo.
+
+
+    Estos umbrales pertenecen a los supuestos del análisis de escenarios; no son resultados
+    confirmados.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    | Catalizador | Fecha / horizonte | Impacto potencial | Evidencia disponible |
+    | Catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
 
     |---|---|---|---|
 
-    | Continuidad del crecimiento de ingresos | Sin fecha específica; seguimiento
-    en próximos reportes | Positivo si se mantiene en períodos comparables; negativo
-    si se revierte | Ingresos reportados de 611.289 en FY 2023 y 713.163 en FY 2026.
-    [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/) |
+    | Mejora de eficiencia operativa y de márgenes | Sin fecha específica; DDD usa
+    un horizonte hasta 2027-10-30 para sus escenarios | Positivo si mejora la rentabilidad
+    sin sacrificar competitividad en precios | Hipótesis de DDD; no se aporta un calendario
+    corporativo |
 
-    | Evolución del margen bruto | Sin fecha específica; seguimiento en próximos reportes
-    | Una mejora sostenida podría respaldar la calidad operativa; una caída podría
-    debilitarla | 24,14% en FY 2023 frente a 25,32% TTM al 31-10-2026. [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
-    |
+    | Mayor conversión de FCF | Próximos 12 meses en el falsador del escenario; fecha
+    exacta no especificada | Positivo si la mejora es sostenida y verificable | Condición
+    de escenario, no guía confirmada |
 
-    | Recuperación o deterioro del FCF | Sin fecha específica; requiere comparación
-    de períodos homogéneos | Relevante para evaluar conversión de beneficios en caja
-    e inversión | Los valores disponibles comparan FY 2026 con TTM y no son directamente
-    equivalentes. [StockAnalysis](https://stockanalysis.com/stocks/wmt/financials/)
-    |
+    | Reducción de deuda o mejora de su estructura | Sin fecha específica | Podría
+    reducir el riesgo financiero y apoyar la valoración | Catalizador propuesto por
+    DDD; no se documenta un plan concreto |
 
-    | Contribución del comercio electrónico y ventas comparables | Sin fecha específica;
-    seguimiento en próximos reportes | Puede aclarar la composición del crecimiento
-    y la rentabilidad omnicanal | El paquete los identifica como puntos de monitoreo,
-    pero no aporta cifras por canal. |
+    | Desempeño de ventas comparables, tráfico y gasto promedio | Seguimiento periódico,
+    sin fecha concreta aportada | Permitiría evaluar crecimiento orgánico y resiliencia
+    de la demanda | AOIF lo identifica como punto de monitoreo |
 
 
-    No se aportaron eventos corporativos fechados ni resultados futuros confirmados.
-    Los puntos anteriores son áreas de seguimiento, no catalizadores con calendario
-    anunciado.
+    No se proporcionan fechas confirmadas de resultados, eventos corporativos ni anuncios
+    de la compañía; por ello no se incluyen como catalizadores con calendario.
 
 
     ## 8. Marco de Valoración
 
 
-    No hay base suficiente para estimar un valor intrínseco con rigor: faltan un precio
-    de referencia claramente fechado, un FCF normalizado y supuestos sustentados sobre
-    crecimiento, márgenes, inversión y retornos incrementales.
+    El análisis AOIF reporta PER de 48,85x y EV/EBITDA de 22,24x, pero advierte que
+    no se puede estimar de forma fiable un valor intrínseco con la información suministrada.
+    Faltan, entre otros elementos, un precio y fecha de referencia verificables, beneficio
+    normalizado, FCF sostenible y deuda neta. El margen de seguridad se califica como
+    insuficiente.
 
 
-    **Datos de valoración incluidos en AOIF, con limitaciones:**
-
-    - PER: 48,85x.
-
-    - EV/EBITDA: 22,43x.
-
-    - FCF yield: 0 según el dato suministrado; no se aclara si es un valor observado
-    o un dato ausente. No debe interpretarse como un rendimiento confirmado.
-
-    - El análisis AOIF califica el margen de seguridad como insuficiente, pero no
-    aporta el cálculo subyacente.
+    ### Metodología apropiada
 
 
-    DDD informa un consenso de precio objetivo de USD 135,76, con rango de USD 81–155,
-    y una cotización observada de USD 123,51, cuya fecha aparece truncada en el paquete.
-    El consenso refleja expectativas de analistas, no una valoración intrínseca independiente.
-    Los escenarios bajista y alcista de DDD usan USD 81 y USD 155, respectivamente,
-    como anclas del rango de objetivos de analistas; no son estimaciones propias de
-    valor razonable. El análisis está fechado al 20-11-2026.
+    Para un minorista de márgenes reducidos, conviene contrastar:
 
 
-    **Enfoque y sensibilidad a investigar:** conviene contrastar una valoración basada
-    en FCF normalizado con múltiplos de beneficios y EV/EBITDA, usando períodos comparables.
-    Las variables de sensibilidad principales serían crecimiento de ventas, margen
-    operativo, conversión a FCF, reinversión y costo de capital. El material disponible
-    no permite asignar valores fundamentados a esos supuestos.
+    1. **Flujo de caja descontado:** basado en FCF normalizado, con supuestos explícitos
+    de crecimiento, márgenes, inversión y capital de trabajo.
+
+    2. **Múltiplos comparables:** PER y EV/EBITDA frente a operadores relevantes como
+    [[COST]] y [[TGT]], ajustando por diferencias de crecimiento, mezcla de negocio
+    y rentabilidad.
+
+    3. **Análisis de escenarios:** evaluar cómo cambian los resultados ante variaciones
+    de márgenes, ventas comparables, FCF y deuda.
+
+
+    ### Escenarios disponibles
+
+
+    DDD proporciona escenarios con horizonte al 2027-10-30 y precios objetivo en USD:
+
+
+    | Escenario | Precio objetivo | Supuestos principales |
+
+    |---|---:|---|
+
+    | Bajista | 81 USD | Margen bruto por debajo de 24%, deterioro de FCF de −20%
+    interanual y falta de mejora de deuda. |
+
+    | Alcista | 155 USD | Margen bruto por encima de 26%, crecimiento de FCF de +10%
+    interanual y reducción de deuda. |
+
+
+    Los escenarios no incluyen fuentes específicas para los precios objetivo ni muestran
+    el método de cálculo. Deben considerarse resultados hipotéticos condicionados
+    a supuestos, no una valoración independiente. El consenso de analistas de 135,9
+    USD y el precio actual de 123,51 USD aparecen en DDD, pero no se aportan fuente
+    ni fecha verificables para esas cifras y, por tanto, no se usan como referencias
+    confirmadas.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    1. ¿Cuál es la cuota de mercado y la penetración de Walmart por geografía, segmento
-    y canal, y cómo evolucionan frente al mercado direccionable?
+    1. ¿Cuál es la evolución histórica de las acciones diluidas y existe dilución
+    neta para los accionistas?
 
-    2. ¿Qué ingresos, márgenes, FCF y retornos sobre capital aporta cada segmento
-    y cada canal?
+    2. ¿Qué planes de recompra de acciones existen y cómo afectan la estructura de
+    capital?
 
-    3. ¿Qué ROIC y retornos incrementales obtiene la empresa por segmento y por inversión?
-    ¿Cómo se calcula y a qué período corresponde el ROIC de 15,37% citado por AOIF?
+    3. ¿Cuáles son la deuda neta, la deuda neta/EBITDA y la cobertura de intereses
+    calculadas a partir de estados financieros verificables?
 
-    4. ¿Cuál es la evolución del FCF en períodos anuales comparables y qué explica
-    la diferencia entre FY 2026 y TTM al 31-10-2026?
+    4. ¿Cuál es la serie histórica de flujo de caja operativo, capex y FCF, y qué
+    explica la variación TTM reportada de −15,4%?
 
-    5. ¿Cómo evolucionan ventas comparables, tráfico, gasto promedio y mezcla de productos?
+    5. ¿Cuál es el periodo exacto y la fuente de las cifras de crecimiento de ingresos,
+    margen operativo, ROIC, PER y EV/EBITDA?
 
-    6. ¿Qué parte del crecimiento y de los márgenes procede del comercio electrónico,
-    y cuál es su rentabilidad después de costos logísticos y de servicio?
+    6. ¿Cómo evolucionan las ventas comparables, el tráfico y el gasto promedio por
+    cliente?
 
-    7. ¿Cómo se reconcilian las cifras de deuda neta y qué componentes explican el
-    cambio reportado entre FY 2026 y “Current”?
+    7. ¿Qué contribución tienen Walmart U.S., Walmart International y Sam’s Club U.S.
+    a ventas, márgenes y crecimiento?
 
-    8. ¿Cuáles son la política de remuneración, las compras o ventas de insiders,
-    la participación accionarial de directivos y la composición del consejo?
+    8. ¿Qué evidencia financiera permite validar la expansión digital y su efecto
+    sobre la rentabilidad?
 
-    9. ¿Qué supuestos sustentan el PER, EV/EBITDA y FCF yield suministrados por AOIF,
-    y cuál es la fecha exacta de referencia del precio de USD 123,51?
+    9. ¿Cuál es la composición del board, qué proporción de consejeros es independiente
+    y cómo se estructura la remuneración ejecutiva?
+
+    10. ¿Qué evidencia respalda los precios objetivo de 81 y 155 USD y cuáles son
+    sus supuestos de valoración detallados?
 
 
-    **Estado de la evidencia:** el paquete permite describir el modelo y registrar
-    algunas tendencias financieras, pero no valida de forma suficiente el crecimiento
-    comparable, la rentabilidad por segmento, la calidad del FCF ni una valoración
-    intrínseca. La recomendación AOIF figura como `PENDIENTE_DECISION_BOARD`; no constituye
-    una decisión de inversión.
+    **Fuentes indicadas en los inputs:** DDD enlaza la página financiera de Stock
+    Analysis, con fecha indicada de 2026-10-31: [Stock Analysis — WMT financials](https://stockanalysis.com/stocks/wmt/financials/).
+    El resto de las cifras y evaluaciones procede de los análisis DDD y AOIF proporcionados;
+    salvo donde se especifica, no se aportan citas a documentación primaria.
 
 
     ---
@@ -583,7 +628,7 @@ research_input_snapshot:
     ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
     ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
     ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-11-22T02:51:28.382993+00:00", "period_end": "2026-10-31",
+    "observed_at": "2026-11-26T19:57:17.508038+00:00", "period_end": "2026-10-31",
     "sources_used": ["stockanalysis.com"]}'
   geography: ''
   insider_ownership: 0
@@ -600,7 +645,16 @@ research_input_snapshot:
     Club U.S. It operates supercenters, supermarkets, warehouse clubs, cash and carry
     stores, and discount stores under Walmart and Walmart Neighborhood Market brands;
     membership-only warehouse clubs; and ecommerce websites, such as walmart.com.mx,
-    walmart.ca, flipkart.com, Ph'
+    walmart.ca, flipkart.com, Ph
+
+
+    Evento disparador validado para revisar: {"event_id": "3257dbd66e1a843e748a2cd18e5e3a62149c3095981bf7854e40ef3a52a46c21",
+    "event_type": "quarterly_results", "observed_at": "2026-11-26T19:56:44.297958+00:00",
+    "occurred_at": "2026-11-19", "source_name": "Yahoo Finance earnings calendar via
+    yfinance", "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=WMT",
+    "summary": "El calendario de resultados indica la fecha 2026-11-19. La fecha no
+    confirma por sí sola la publicación del reporte; Research debe verificar el resultado
+    en una fuente primaria.", "ticker": "WMT"}'
   revenue: 745180000000.0
   revenue_growth: 5.99
   roic: 15.29
@@ -744,65 +798,99 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    155.0, "low": 81.0, "mean": 135.9, "median": 135.9, "observed_at": "2026-11-21T23:51:31.755975-03:00",
-    "sources": [{"as_of_date": "2026-11-21", "name": "stockanalysis", "observed_at":
-    "2026-11-21T23:51:31.755975-03:00", "observed_date": "2026-11-21", "target_price":
-    135.9, "url": "https://stockanalysis.com/stocks/wmt/forecast/"}]}, "current_quote":
-    {"as_of_date": "2026-10-30", "currency": "USD", "price": 123.51000213623047, "sources":
-    [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/WMT/"}]}}'
+    155.0, "low": 81.0, "mean": 136.8, "median": 136.8, "observed_at": "2026-11-26T16:57:20.751748-03:00",
+    "sources": [{"as_of_date": "2026-11-26", "name": "stockanalysis", "observed_at":
+    "2026-11-26T16:57:20.751748-03:00", "observed_date": "2026-11-26", "target_price":
+    136.8, "url": "https://stockanalysis.com/stocks/wmt/forecast/"}, {"as_of_date":
+    "2026-11-26", "name": "yfinance", "observed_at": "2026-11-26T16:57:20.751748-03:00",
+    "observed_date": "2026-11-26", "target_price": 136.80489, "url": "https://finance.yahoo.com/quote/WMT/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 123.51000213623047,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/WMT/"}]}}'
   sector: Consumer Defensive
   ticker: WMT
 research_trigger:
   discovery_snapshot_hash: 67e82969ec6779d3792661919c27dfa2e912732c55bc75a7c8b4565c7a5906ab
-  event_evidence: null
+  event_evidence:
+    event_id: 3257dbd66e1a843e748a2cd18e5e3a62149c3095981bf7854e40ef3a52a46c21
+    event_type: quarterly_results
+    observed_at: '2026-11-26T19:56:44.297958+00:00'
+    occurred_at: '2026-11-19'
+    source_name: Yahoo Finance earnings calendar via yfinance
+    source_url: https://finance.yahoo.com/calendar/earnings/?symbol=WMT
+    summary: El calendario de resultados indica la fecha 2026-11-19. La fecha no confirma
+      por sí sola la publicación del reporte; Research debe verificar el resultado
+      en una fuente primaria.
+    ticker: WMT
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 552455521c2997e1e56ad64b609301a14caebd7fbe82145238fcc5f9ecd2e907
+    sha256: 69a51fb081522a369f4b01b49bb9e2038aeb3c71ff21ba7b7c10e5428c05673b
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
-  trigger_type: monthly
-  triggered_at: '2026-11-21T23:51:42.412056-03:00'
+  trigger_type: quarterly_results
+  triggered_at: '2026-11-26T16:57:33.196525-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- Interest coverage ratio 0x below threshold 2.0x
-- Dilution yoy pct unavailable; cannot assess share dilution risk
-- Share count CAGR unavailable; cannot assess share count acceleration risk
+- observed: 0
+  period_end: '2026-10-31'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/WMT/statistics/
+  threshold: 2.0
+  type: interest_coverage_below
 scenario_analysis:
-  as_of_date: '2026-11-21'
+  as_of_date: '2026-11-26'
   currency: USD
-  horizon_date: '2027-10-30'
+  horizon_date: '2027-11-26'
   scenarios:
   - falsifiers:
-    - Recuperación del margen bruto >25%
-    - FCF positivo en los próximos 12 meses
+    - Crecimiento de ingresos >4%
+    - Margen bruto mejora >25%
     id: BEAR
     key_assumptions:
-    - Margen bruto se mantiene bajo 24%
-    - FCF sigue deteriorándose (-20% YoY)
-    - Deuda neta aumenta 10% anual
-    rationale: Presión continua en márgenes, FCF negativo y falta de mejora en la
-      deuda reducen la valoración.
+    - CAGR de ingresos cae a 2%
+    - Margen bruto disminuye a 22%
+    - Cobertura de intereses se mantiene en 0
+    rationale: Supone desaceleración del crecimiento de ingresos, compresión de márgenes
+      y costos de deuda más altos.
     sources:
-    - as_of_date: '2026-11-21'
-      name: stockanalysis
+    - as_of_date: '2026-11-26'
+      name: stockanalysis.com
       url: https://stockanalysis.com/stocks/wmt/forecast/
     - as_of_date: '2026-10-30'
       name: yfinance
       url: https://finance.yahoo.com/quote/WMT/
     target_price: 81.0
   - falsifiers:
+    - Crecimiento de ingresos cae <5%
     - Margen bruto cae <24%
-    - FCF sigue negativo
+    id: BASE
+    key_assumptions:
+    - CAGR de ingresos mantiene 6.8%
+    - Margen bruto se mantiene ~25.3%
+    - Cobertura de intereses mejora modestamente
+    rationale: Escenario medio basado en el consenso de analistas, asumiendo continuidad
+      del crecimiento actual y ligera mejora de márgenes.
+    sources:
+    - as_of_date: '2026-11-26'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/wmt/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/WMT/
+    target_price: 136.8
+  - falsifiers:
+    - Crecimiento de ingresos <3%
+    - Margen bruto cae <24%
     id: BULL
     key_assumptions:
-    - Margen bruto supera 26%
-    - FCF crecimiento +10% YoY
-    - Reducción de deuda neta 15% en 12 meses
-    rationale: Mejora operativa, mayor conversión de FCF y reducción de deuda impulsan
-      la valoración.
+    - CAGR de ingresos sube a 8%
+    - Margen bruto alcanza 27%
+    - Cobertura de intereses mejora a 3
+    rationale: Supone expansión acelerada del e‑commerce, mejora de márgenes y reducción
+      de deuda neta.
     sources:
-    - as_of_date: '2026-11-21'
-      name: stockanalysis
+    - as_of_date: '2026-11-26'
+      name: stockanalysis.com
       url: https://stockanalysis.com/stocks/wmt/forecast/
     - as_of_date: '2026-10-30'
       name: yfinance
@@ -815,23 +903,30 @@ scenario_validation:
 score_general: 74.91
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-21T23:51:31.755975-03:00'
+  calculado_at: '2026-11-26T16:57:20.751748-03:00'
   fuentes:
-    stockanalysis: 135.9
-  mediana: 135.9
-  n_fuentes: 1
-  promedio: 135.9
+    stockanalysis: 136.8
+    yfinance: 136.80489
+  mediana: 136.8
+  n_fuentes: 2
+  promedio: 136.8
   source_references:
-  - as_of_date: '2026-11-21'
+  - as_of_date: '2026-11-26'
     name: stockanalysis
-    observed_at: '2026-11-21T23:51:31.755975-03:00'
-    observed_date: '2026-11-21'
-    target_price: 135.9
+    observed_at: '2026-11-26T16:57:20.751748-03:00'
+    observed_date: '2026-11-26'
+    target_price: 136.8
     url: https://stockanalysis.com/stocks/wmt/forecast/
+  - as_of_date: '2026-11-26'
+    name: yfinance
+    observed_at: '2026-11-26T16:57:20.751748-03:00'
+    observed_date: '2026-11-26'
+    target_price: 136.80489
+    url: https://finance.yahoo.com/quote/WMT/
   target_high: 155.0
   target_low: 81.0
-tesis_inversion: Walmart posee una posición dominante en retail defensivo con potencial
-  de expansión digital, pero su generación de efectivo y apalancamiento presentan
-  riesgos que podrían limitar la apreciación del precio.
+tesis_inversion: Walmart combina crecimiento estable de ingresos, generación de flujo
+  de caja libre sólido y una posición de efectivo significativa, aunque enfrenta presión
+  de cobertura de intereses y falta de datos de dilución.
 ticker: WMT
 version: '3.0'
