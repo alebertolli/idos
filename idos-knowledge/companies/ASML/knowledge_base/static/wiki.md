@@ -1,122 +1,163 @@
 ## 1. Visión General de la Compañía
 
-**ASML Holding N.V.** diseña, fabrica, vende y mantiene sistemas de litografía y soluciones relacionadas que utilizan los fabricantes de semiconductores. Sus productos incluyen sistemas de litografía **EUV** y **DUV**, además de tecnología, óptica, hardware, software, actualizaciones y servicios asociados. [AOIF, paso 1]
+**ASML Holding N.V.** diseña, fabrica, vende y da soporte a sistemas avanzados de litografía, metrología e inspección utilizados en la producción de semiconductores. Su oferta incluye sistemas de litografía EUV y DUV, sistemas de metrología óptica YieldStar, software, actualizaciones, reacondicionamiento, repuestos y servicios posventa.
 
-La compañía ocupa una posición central en la cadena de suministro de semiconductores: sus clientes son fabricantes integrados (IDM) y foundries, incluidos productores de chips avanzados. Coordina una extensa red de proveedores para desarrollar y producir sistemas de alta complejidad. [AOIF, pasos 1 y 3]
+ASML opera en la cadena de suministro de equipos para semiconductores. Sus clientes son fabricantes de chips de lógica y fundición, así como fabricantes de memoria, con presencia en Asia, Europa y Estados Unidos. La compañía integra tecnologías y componentes de una red global de proveedores especializados y mantiene relaciones de largo plazo con sus clientes mediante instalación, servicio y actualización de los equipos.
 
-El modelo combina ventas de sistemas de alto valor con ingresos recurrentes por servicio y actualizaciones. Los datos disponibles no especifican el desglose de ingresos por producto, región o tipo de cliente. [AOIF, paso 2]
+La industria es intensiva en capital y cíclica: la demanda depende, entre otros factores, de la inversión de los fabricantes de semiconductores y de la adopción de nodos avanzados. ASML ocupa una posición estratégica en la cadena de valor junto con fabricantes de chips como [[TSM]] y proveedores de equipos como [[AMAT]].
+
+**Fuente de la descripción del negocio:** análisis AOIF proporcionado; no se especificó fecha ni enlace directo para este análisis.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-Los principales drivers de ingresos identificados son:
+### Fuentes de ingresos
 
-- Demanda de sistemas EUV para fabricar nodos avanzados, incluidos 3 nm y 2 nm.
-- Adopción y escalado de la siguiente generación de EUV de alta apertura numérica (High-NA).
-- Venta de sistemas DUV.
-- Servicios, actualizaciones y mantenimiento de la base instalada. [AOIF, pasos 1 y 2; DDD, dominio_growth]
+- Venta e instalación de sistemas de litografía EUV y DUV.
+- Venta de sistemas de metrología óptica e inspección.
+- Servicios posventa, repuestos, software, actualizaciones y reacondicionamiento de equipos.
 
-La ventaja competitiva se apoya en conocimiento especializado acumulado durante décadas, propiedad intelectual, integración de óptica y sistemas complejos, y un ecosistema de proveedores difícil de replicar. La investigación caracteriza el moat como **amplio** y la posición competitiva como **líder**. DDD describe a ASML como proveedor prácticamente exclusivo de litografía EUV viable a escala de producción; esa caracterización no viene acompañada de fuentes primarias en los materiales recibidos. [AOIF, paso 3; DDD, dominio_business_quality]
+La venta de sistemas es sensible a los ciclos de inversión de los clientes. Los servicios, repuestos y actualizaciones amplían la relación comercial después de la instalación inicial.
 
-La industria exige inversiones elevadas, avances tecnológicos continuos y capacidad para gestionar ciclos de demanda. Los retrasos técnicos o dificultades de escalado en nuevas generaciones de sistemas podrían afectar el liderazgo y el crecimiento. [[AMAT]] es una compañía relacionada del sector de equipos y semiconductores, aunque los materiales no incluyen una comparación directa de productos, cuota de mercado o resultados. [AOIF, pasos 3 y 5]
+### Ventaja competitiva
+
+El análisis AOIF describe un moat amplio, sustentado en conocimiento especializado acumulado, propiedad intelectual, complejidad de ingeniería, escala, integración con proveedores y colaboración estrecha con fabricantes de chips. La posición de ASML en EUV se considera especialmente difícil de replicar. Esta ventaja no elimina los riesgos de ciclos de inversión, restricciones de exportación ni dificultades técnicas.
+
+La adopción de nodos avanzados —incluidos los de 3 nm y generaciones posteriores, según el input DDD— podría favorecer la demanda de sistemas EUV. Esa relación es un catalizador potencial, no una garantía de crecimiento.
+
+### Competencia y dinámica de la industria
+
+La industria combina altas barreras de entrada con una demanda cíclica y dependiente del gasto de capital de los fabricantes de semiconductores. La expansión de cargas de trabajo de inteligencia artificial y la miniaturización podrían apoyar la inversión en capacidad, pero los ciclos de inventario, el exceso de capacidad y los aplazamientos de proyectos pueden debilitarla. [[AMAT]] es una compañía relacionada del sector según la lista de la wiki existente; los datos proporcionados no detallan una comparación competitiva directa.
+
+**Fuente:** AOIF, análisis competitivo y de dinámica de industria; fecha y enlace no proporcionados.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes proceden de los inputs de investigación y no incluyen estados financieros, fecha de corte uniforme ni referencias a documentos originales. Deben verificarse antes de utilizarlas en una valoración.
+Las métricas siguientes proceden de los inputs suministrados y **no han sido verificadas de forma independiente**. Algunas cifras carecen de periodo o de detalle metodológico; no deben interpretarse como estados financieros auditados.
 
-| Métrica | Valor comunicado | Observaciones |
-|---|---:|---|
-| Crecimiento de ingresos | 22,54% | El input no especifica periodo ni base de comparación. [AOIF, paso 2] |
-| Margen operativo | 38,55% | Periodo y definición no especificados. [AOIF, paso 2; DDD, dominio_financial_health] |
-| ROIC | 91,0% | Periodo y metodología no especificados. [AOIF, paso 2] |
-| FCF TTM | €23.700 millones | Cifra comunicada por DDD; AOIF indica que no cuenta con datos de CFO, capex y FCF para calcular la conversión. No es posible reconciliar ambas afirmaciones con la información disponible. [DDD, dominio_financial_health; AOIF, paso 2] |
-| P/E | 32,73x | Fecha de referencia no indicada. [AOIF, paso 6] |
-| EV/EBITDA | 26,69x | Fecha de referencia no indicada. [AOIF, paso 6] |
-| FCF yield | 0 | La metodología y la fecha de referencia no se explican; no debe interpretarse como una métrica validada. [AOIF, paso 6] |
-| Deuda neta y deuda/EBITDA | No disponible | Pregunta abierta en DDD. |
+| Métrica | Valor informado | Periodo / estado | Observación |
+|---|---:|---|---|
+| Crecimiento de ingresos | 22,54% | Sin periodo indicado en AOIF | Dato informado; no verificado de forma independiente. |
+| CAGR de ingresos a 3 años | No disponible | Hasta 2026-09-27 | El cálculo fue descartado por falta de referencias explícitas a los datos de entrada. |
+| Margen operativo | 38,55% | Sin periodo indicado en AOIF | Dato informado; no verificado de forma independiente. |
+| ROIC | 91,0% | Sin periodo indicado en AOIF | Dato informado; no verificado de forma independiente. |
+| Margen bruto | Aproximadamente 54% | Sin periodo indicado en DDD | Estimación incluida en el análisis de calidad del negocio. |
+| Crecimiento del FCF | 136,1% | TTM, periodo terminado el 2026-09-27 | Reportado por la fuente secundaria citada; no se aportó el cálculo subyacente. |
+| Conversión de FCF | No disponible | — | AOIF indica que faltan cifras comparables; DDD descartó el cálculo por falta de referencias explícitas a los datos de entrada. |
+| Cobertura de intereses | 0 | DDD, fecha de consulta 2026-11-25 | Señalada como alerta; no se aportó detalle de cálculo. |
+| PER | 32,73 | Sin fecha o periodo especificados en AOIF | Métrica informada; base no detallada. |
+| EV/EBITDA | 26,69 | Sin fecha o periodo especificados en AOIF | Métrica informada; base no detallada. |
+| FCF yield | 0 | Sin fecha o metodología especificadas en AOIF | AOIF advierte que la valoración no puede estimarse con rigor con los datos disponibles. |
 
-DDD califica la salud financiera como fuerte y atribuye esa valoración a la generación de caja y al margen operativo. Sin datos reconciliados de flujo de caja, capex, deuda y periodos comparables, la capacidad de conversión de beneficios en caja y la estructura de capital quedan parcialmente indeterminadas. [DDD, dominio_financial_health; AOIF, paso 2]
+La cifra de **CAGR de ingresos de 12,73%** aparece en DDD como una inferencia del modelo, pero el cálculo correspondiente fue marcado como no disponible. Por ello, no se trata aquí como una métrica confirmada. La conversión de FCF de **171,7%** también aparece como inferencia, mientras que la documentación indica que no pudo calcularse con rigor.
+
+**Estructura de capital y dilución:** no se proporcionaron datos suficientes sobre deuda, efectivo, número de acciones o evolución de acciones en circulación. La tasa de dilución de los últimos tres años permanece como pregunta abierta.
+
+**Fuentes de métricas:** AOIF, sin fecha ni enlace directo; DDD cita [Stock Analysis — estadísticas de ASML](https://stockanalysis.com/stocks/ASML/statistics/), con fecha de consulta indicada de 2026-11-25.
 
 ## 4. Management y Gobierno Corporativo
 
-La investigación valora la calidad del equipo directivo como buena en AOIF y excepcional en DDD. Destaca su papel en la transición de DUV a EUV y en el desarrollo de High-NA. AOIF considera que la asignación de capital crea valor y que el alineamiento de insiders es moderado. [AOIF, paso 4; DDD, dominio_management]
+El análisis AOIF califica la calidad del management como **buena**, la asignación de capital como **creadora de valor** y el alineamiento de insiders como **moderado**. No se proporcionan nombres de ejecutivos, composición del consejo, políticas de remuneración, porcentajes de participación accionaria de insiders ni historial detallado de asignación de capital.
 
-No se proporcionan nombres de directivos, datos de participación accionarial de insiders, remuneración, composición del consejo, independencia de sus miembros ni historial detallado de decisiones de asignación de capital. Por ello, no es posible evaluar de forma independiente los incentivos o la supervisión del consejo.
+Estas calificaciones deben considerarse evaluaciones del análisis suministrado, no conclusiones verificadas a partir de información corporativa primaria.
+
+**Fuente:** AOIF, sin fecha ni enlace directo proporcionados.
 
 ## 5. Tesis de Inversión
 
-**Caso alcista**
+### Caso alcista
 
-- La posición tecnológica de ASML en litografía EUV ofrece una barrera de entrada elevada y una posición central en la fabricación de semiconductores avanzados. [AOIF, paso 3; DDD, dominio_business_quality]
-- La demanda de EUV para nodos avanzados y el desarrollo de High-NA podrían sostener el crecimiento si la tecnología alcanza una producción y adopción comerciales satisfactorias. [DDD, dominio_growth]
-- La combinación de venta de sistemas y servicios y actualizaciones aporta más de una fuente de ingresos, aunque el material no cuantifica su contribución relativa. [AOIF, paso 2]
-- El margen operativo comunicado de 38,55% y el ROIC comunicado de 91% apuntan a una rentabilidad elevada, sujetos a verificación de periodo y metodología. [AOIF, paso 2]
-- DDD identifica como posibles catalizadores el escalado de sistemas EUV 0.55 NA y un eventual acuerdo de suministro a largo plazo con [[TSMC]]. Estos eventos son hipótesis de la investigación, no acuerdos confirmados en los materiales recibidos. [DDD, dominio_catalizadores]
+- **Posición estratégica en litografía EUV:** el análisis AOIF describe la posición de ASML en EUV como difícil de replicar, apoyada en propiedad intelectual, ingeniería, escala y relaciones con proveedores y clientes.
+- **Exposición a nodos avanzados:** la adopción de nodos de 3 nm y posteriores podría elevar la necesidad de sistemas EUV. DDD identifica este factor como catalizador, aunque la fuente citada no aporta una cuantificación de su impacto.
+- **Ingresos posventa:** servicios, repuestos, actualizaciones y reacondicionamiento pueden prolongar la relación con los clientes más allá de la venta inicial de los sistemas.
+- **Crecimiento y generación de caja potencialmente fuertes:** DDD reporta un crecimiento del FCF TTM de 136,1% a 2026-09-27. La cifra está atribuida a una fuente secundaria y no se suministraron los importes subyacentes. AOIF también presenta métricas elevadas de crecimiento de ingresos, margen operativo y ROIC, sin verificación independiente.
+- **Posible expansión de clientes:** DDD plantea como catalizador una expansión de la base de clientes en Asia-Pacífico; no se aportan datos que permitan confirmar su magnitud o calendario.
 
-La tesis de DDD propone mantener una posición larga y describe la acción como infravalorada frente al consenso de objetivos de analistas. Sin embargo, el material no aporta fecha de cotización, fuentes de los objetivos ni metodología de valoración suficiente para confirmar esa conclusión. [DDD, tesis_inversion y error_mercado]
+La tesis depende de que los fabricantes mantengan o aumenten la inversión en capacidad, de la adopción de nodos avanzados y de que ASML entregue nuevas generaciones de equipos con éxito. La puntuación general de DDD es **68,68** y la clasificación de oportunidad indicada es «multibaggers»; son resultados del marco de análisis suministrado, no hechos operativos de la compañía.
 
 ## 6. Riesgos y Contra-Tesis
 
-**Riesgos principales**
+### Riesgos clave
 
-| Riesgo | Impacto | Probabilidad indicada | Implicación |
-|---|---|---|---|
-| Restricciones de exportación y tensiones geopolíticas, en especial respecto a China | Alto | Alta en AOIF; alta en DDD | Podrían limitar ventas o servicio a determinados clientes. [AOIF, paso 5; DDD, dominio_riesgos] |
-| Cuellos de botella en la cadena de suministro de óptica de alta precisión | Alto | Media | Podrían retrasar la producción o entrega de sistemas. [DDD, dominio_riesgos] |
-| Retrasos técnicos o problemas de escalado de EUV, incluida High-NA | Alto | Media | Podrían posponer la adopción comercial y debilitar los catalizadores esperados. [AOIF, paso 5] |
-| Ciclicidad de demanda y capacidad en la industria | No cuantificado | No indicada | Puede generar volatilidad en pedidos y actividad inversora de los clientes. [AOIF, paso 3] |
+| Riesgo | Evaluación del input | Posible efecto |
+|---|---|---|
+| Restricciones de exportación y tensiones geopolíticas | Impacto alto; probabilidad alta en AOIF | Podrían limitar ventas o servicio en mercados relevantes. |
+| Caída o aplazamiento del gasto de capital de los fabricantes de chips | Impacto alto; probabilidad media en AOIF | Podría reducir o postergar pedidos y entregas. |
+| Retrasos técnicos o de adopción en nuevas generaciones EUV y nodos avanzados | Impacto alto; probabilidad media en AOIF | Podrían retrasar el crecimiento esperado y la utilización de los sistemas. |
+| Dependencia de componentes y proveedores especializados | Riesgo señalado en el escenario alcista de DDD | Problemas de suministro podrían dificultar la producción o entrega. |
+| Posible aparición de tecnologías de litografía alternativas | Falsador propuesto por DDD | Podría debilitar la ventaja competitiva si las alternativas fueran viables a escala. |
+| Cobertura de intereses reportada como cero | Alerta de DDD | Requiere validación y contexto antes de concluir que exista un problema de solvencia. |
 
-**Contra-tesis:** la valoración puede reflejar expectativas de crecimiento que no se materialicen en los plazos previstos. Un retraso en High-NA, restricciones comerciales más amplias o problemas de suministro podrían afectar a la entrega de sistemas y a los resultados. Además, las cifras financieras y de valoración disponibles carecen de suficiente detalle para establecer cuánto crecimiento ya descuenta el precio.
+### Contra-tesis
 
-**Triggers de falsación de la tesis**
+El precio podría incorporar expectativas de crecimiento que no se materialicen si se debilita la inversión de la industria, se ralentiza la adopción de nodos avanzados o aparecen restricciones que afecten el acceso a mercados. La naturaleza cíclica del sector puede provocar descensos o aplazamientos de pedidos incluso cuando la posición competitiva de ASML siga siendo fuerte.
 
-- Retrasos persistentes o dificultades de producción en EUV High-NA.
-- Menor adopción de EUV en nodos avanzados que la supuesta por la tesis.
-- Restricciones de exportación que reduzcan materialmente las ventas o el servicio a clientes relevantes.
-- Deterioro sostenido de márgenes o de conversión de beneficios en flujo de caja libre.
-- Incapacidad para resolver cuellos de botella de proveedores críticos.
+### Triggers de falsación
+
+- Reducción inesperada del gasto de capital en semiconductores.
+- Retrasos relevantes en la adopción de nodos avanzados o en nuevas generaciones EUV.
+- Problemas de suministro de componentes críticos.
+- Desarrollo y adopción comercial de tecnologías de litografía alternativas.
+- Evidencia de que las restricciones de exportación limitan de manera material las ventas o el servicio.
+
+Los triggers anteriores son falsadores propuestos en DDD o riesgos descritos por AOIF; no se presentan como eventos ocurridos.
 
 ## 7. Catalizadores y Timeline
 
-Las probabilidades son estimaciones del input DDD, no probabilidades verificadas. Las fechas específicas de entrega o firma no están disponibles; los horizontes son los indicados por la investigación.
+| Catalizador | Fecha esperada | Impacto potencial | Evidencia disponible |
+|---|---|---|---|
+| Adopción de nodos de 3 nm y posteriores, con posible demanda de EUV avanzado | Sin fecha específica | Positivo si se traduce en pedidos, entregas y uso de sistemas | DDD, consulta de 2026-11-25; [Stock Analysis](https://stockanalysis.com/stocks/ASML/statistics/). |
+| Lanzamiento de la próxima generación de sistemas EUV | Sin fecha específica | Podría ampliar la cuota de mercado si el lanzamiento y la adopción tienen éxito | Catalizador descrito en DDD; sin calendario ni fuente directa adicional. |
+| Expansión de la base de clientes en Asia-Pacífico | Sin fecha específica | Podría ampliar la demanda y la diversificación de clientes | DDD, consulta de 2026-11-25; [Stock Analysis](https://stockanalysis.com/stocks/ASML/statistics/). |
+| Evolución de pedidos y entregas de sistemas EUV y DUV | Seguimiento continuo; sin fecha de evento | Indicador de demanda y ciclo de inversión | Punto de monitoreo de AOIF; sin enlace ni fecha de publicación. |
+| Cambios en controles de exportación, especialmente respecto de China | Seguimiento continuo; sin fecha de evento | Riesgo potencial para ventas y servicio en mercados afectados | Riesgo y punto de monitoreo de AOIF; sin enlace ni fecha de publicación. |
 
-| Catalizador | Horizonte indicado | Probabilidad DDD | Impacto potencial | Estado / condición |
-|---|---|---:|---|---|
-| Entrega y puesta en marcha de sistemas EUV 0.55 NA para nodos de 3 nm y 2 nm | Medio | 65% | Alto | Catalizador vigente según DDD. Depende del avance técnico, la entrega y la puesta en marcha. [DDD, dominio_catalizadores; comparativa_catalizadores] |
-| Acuerdo de suministro a largo plazo con [[TSMC]] para 2028–2030 | Largo | 55% | Medio | Posibilidad identificada por DDD; no se aporta evidencia de que el acuerdo esté firmado. [DDD, dominio_catalizadores; comparativa_catalizadores] |
-
-DDD indica que las probabilidades de ambos catalizadores no cambiaron respecto a su evaluación anterior. La fecha de análisis del escenario proporcionado es **26 de noviembre de 2026**; no se especifican fechas calendario concretas para el primer catalizador. [DDD, comparativa_catalizadores; scenario_analysis]
+DDD presenta escenarios de valoración con horizonte al **2027-11-26**. No se proporcionó un calendario verificable para los catalizadores operativos; por tanto, no corresponde asignar fechas concretas a lanzamientos o decisiones de clientes.
 
 ## 8. Marco de Valoración
 
-La información recibida no permite calcular de forma robusta un valor intrínseco. AOIF indica expresamente que faltan precio y fecha de referencia, beneficios normalizados y otros datos necesarios. También califica el margen de seguridad como insuficiente. [AOIF, paso 6]
+### Datos y limitaciones
 
-**Enfoques apropiados para una investigación posterior:**
+AOIF informa un PER de **32,73**, un EV/EBITDA de **26,69** y un FCF yield de **0**, pero no especifica la fecha de referencia ni la metodología de cada cifra. También señala que no puede estimarse un valor intrínseco con rigor sin precio y fecha de referencia verificables, flujo de caja normalizado, crecimiento a largo plazo, coste de capital y número de acciones.
 
-- **Flujo de caja descontado:** modelar crecimiento, márgenes, impuestos, capex, capital de trabajo y conversión de beneficios en caja. Requiere reconciliar la cifra de FCF TTM atribuida a DDD con la falta de datos de conversión señalada por AOIF.
-- **Múltiplos de beneficios y flujo de caja:** comparar P/E y EV/EBITDA con periodos históricos y compañías pertinentes, controlando por ciclo y crecimiento. Los múltiplos recibidos —32,73x P/E y 26,69x EV/EBITDA— no incluyen fecha o metodología suficientes para sacar conclusiones.
-- **Escenarios:** evaluar el efecto de retrasos o aceleración en High-NA, restricciones a China, limitaciones de suministro y cambios en la inversión de los clientes.
+DDD presenta un precio de **1.300,385 USD** —redondeado a 1.300,39 USD— con fecha 2026-11-25 y atribución a yfinance. La cifra debe tratarse como dato reportado por el input, no como cotización verificada de forma independiente. AOIF indica que falta una referencia verificable de precio, lo que impide reconciliar ambas fuentes.
 
-DDD proporciona escenarios al **26 de noviembre de 2026**, con horizonte al **26 de noviembre de 2028** y moneda USD:
+### Escenarios suministrados
 
-| Escenario | Precio objetivo proporcionado | Supuesto general descrito por DDD |
-|---|---:|---|
-| Bajista | US$900 | Adopción tecnológica más lenta; el objetivo se sitúa cerca del límite inferior del consenso citado. |
-| Alcista | US$2.800 | Despliegue más rápido de EUV 0.55 NA y ejecución favorable de los catalizadores. |
+DDD ofrece los siguientes objetivos para el horizonte **2027-11-26**. Son escenarios del modelo, no una valoración independiente ni una predicción garantizada.
 
-Estos precios objetivo no están respaldados por un modelo detallado en los materiales. DDD también cita un precio de US$1.300,39 y un consenso de objetivos de US$2.112,82, con rango de US$849,28–US$2.866,00, pero no proporciona fuentes, fecha de cotización ni metodología. Por ello, no se puede confirmar que exista una infravaloración ni usar esos valores como estimación independiente de valor razonable. [DDD, error_mercado y scenario_analysis]
+| Escenario | Precio objetivo | Supuestos clave | Racional |
+|---|---:|---|---|
+| Bajista | 849,74 USD | CAGR de ingresos de 5%; conversión de FCF de 100%; margen bruto de 48% | Menor demanda EUV y retrasos en la adopción de nodos avanzados. |
+| Alcista | 2.868,00 USD | CAGR de ingresos de 12,5%; conversión de FCF de 170%; margen bruto de 56% | Demanda robusta de EUV, expansión de clientes y mejora de márgenes. |
+
+El consenso incluido en DDD, con fecha de consulta indicada de 2026-11-25, presenta un rango de **849,74 a 2.868,00 USD** y una media de **2.113,09 USD**. No se proporciona la composición de analistas ni la metodología del consenso. La hipótesis de que el precio reportado de 1.300,39 USD subestima el potencial de ASML es una **hipótesis de valoración** del análisis DDD, no un hecho confirmado.
+
+### Sensibilidad y metodología adecuada
+
+Una valoración por escenarios debería probar, como mínimo, la sensibilidad a:
+
+- Inversión de capital y demanda de sistemas EUV/DUV.
+- Crecimiento de ingresos y ritmo de adopción de nodos avanzados.
+- Márgenes y generación de flujo de caja normalizado.
+- Coste de capital y duración del crecimiento.
+- Efecto de restricciones de exportación, retrasos técnicos y problemas de suministro.
+
+Los supuestos numéricos de los escenarios son los suministrados por DDD; no se aportaron datos suficientes para recalcularlos o validar sus sensibilidades.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Cuál es la deuda neta actual y cuál es el ratio deuda neta/EBITDA? [DDD, calidad_evidencia]
-2. ¿Qué medidas concretas adopta ASML para mitigar el riesgo de restricciones y tensiones geopolíticas en ventas y servicio a China? [DDD, calidad_evidencia]
-3. ¿Cuáles son el calendario, capacidad de producción, entregas y adopción comercial de EUV High-NA?
-4. ¿Se ha firmado un acuerdo de suministro a largo plazo con [[TSMC]] para 2028–2030, o es únicamente una posibilidad?
-5. ¿Cómo se reconcilia el FCF TTM de €23.700 millones atribuido por DDD con la ausencia de datos de CFO, capex y conversión de FCF indicada por AOIF?
-6. ¿Qué periodos, definiciones y fuentes respaldan las cifras de crecimiento de ingresos, margen operativo y ROIC?
-7. ¿Cuál es la mezcla de ingresos entre sistemas, servicio y actualizaciones, y cómo varía por región y tipo de cliente?
-8. ¿Qué proveedores son críticos para la óptica de alta precisión y qué medidas de redundancia o mitigación existen?
-9. ¿Cuál es la fecha y fuente de las métricas P/E, EV/EBITDA, precio de referencia y consenso de analistas citados?
-10. ¿Qué información pública sobre remuneración, propiedad de insiders y composición del consejo permitiría evaluar el alineamiento y la supervisión corporativa?
+1. **Dilución:** ¿Cuál fue la evolución del número de acciones y la tasa de dilución durante los últimos tres años?
+2. **Cobertura de intereses:** ¿Cómo se calculó el valor de cero reportado por DDD y qué partidas financieras lo explican?
+3. **Flujo de caja:** ¿Cuáles son los importes comparables de FCF y beneficio neto necesarios para calcular la conversión de FCF?
+4. **Crecimiento:** ¿Qué cifras de ingresos y qué periodos respaldan el CAGR a tres años? DDD descartó el cálculo por falta de referencias explícitas a los datos de entrada.
+5. **Crecimiento del FCF:** ¿Qué importes y comparativo respaldan el crecimiento TTM de 136,1% reportado por DDD?
+6. **Precio y valoración:** ¿Cuál es la fecha y base exactas de los múltiplos de AOIF, y cómo se reconcilian con el precio reportado por DDD?
+7. **Escenarios:** ¿Qué fuentes respaldan los objetivos bajista y alcista y los supuestos de crecimiento, márgenes y conversión de FCF? DDD no incluyó fuentes para los escenarios.
+8. **Management y gobierno:** ¿Quiénes integran el equipo directivo y el consejo? ¿Qué incentivos y participación accionaria tienen los insiders?
+9. **Exposición geográfica:** ¿Qué proporción de ventas y servicios está expuesta a mercados sujetos a controles de exportación?
+10. **Catalizadores:** ¿Cuál es el calendario esperado de la próxima generación de sistemas EUV y qué evidencia existe sobre la expansión de clientes en Asia-Pacífico?
+
+Hasta responder estas preguntas, las métricas financieras, el precio objetivo y algunas conclusiones de valoración deben considerarse provisionales.
 
 ---
 
