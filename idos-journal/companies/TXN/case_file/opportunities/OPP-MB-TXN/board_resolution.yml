@@ -1,5 +1,6 @@
-approved: true
-status: AUTO_APPROVED
+approved: false
+status: REVOKED_INVALID_VALUATION_BASIS
+status_before_valuation_review: AUTO_APPROVED
 decision_id: AUTO-ffdd77e3ec6406c7
 decision_type: BUY_LIST_ADMISSION
 opportunity_id: OPP-MB-TXN
@@ -13,7 +14,9 @@ rules_applied:
 - RULE-008
 - RULE-010
 sources_verified: true
-justification: Se cumplieron todas las reglas de autorización y validaciones de evidencia
-  configuradas. Autorización limitada a Buy List; no ejecuta órdenes ni crea posiciones.
+justification: La oportunidad utilizaba consenso de analistas como valor intrínseco; queda fuera de Buy List hasta tener una valuación independiente. No crea ni modifica posiciones.
 author: idos:auto-authorization
 resolved_at: '2026-11-26T13:14:29.550342-03:00'
+valuation_reviewed_at: '2026-11-27T11:53:03-03:00'
+revocation_reason: analyst_consensus_is_not_intrinsic_value
+revocation_id: AUTO-REVOKE-VALUATION-ffdd77e3ec64

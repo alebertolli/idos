@@ -76,6 +76,8 @@ def authorize_buylist_if_eligible(
     conviction = saved_opportunity.get("conviction") or {}
     target = conviction.get("intrinsic_value") or saved_opportunity.get("intrinsic_value")
     price = conviction.get("current_price") or saved_opportunity.get("current_price")
+    if _target_is_analyst_consensus(report, target, saved_opportunity):
+        return {"approved": False, "reason": "analyst_consensus_is_not_intrinsic_value"}
     if not _positive_finite(target) or not _positive_finite(price):
         return {"approved": False, "reason": "current_and_target_prices_required"}
 
@@ -290,6 +292,35 @@ def _opportunity_dir(root: Path, ticker: str, opp_id: str) -> Path:
     if journal_root not in path.parents:
         raise ValueError("Opportunity path escapes the journal")
     return path
+
+
+def _target_is_analyst_consensus(
+    report: dict[str, Any], target: Any, opportunity: dict[str, Any],
+) -> bool:
+    """Reject legacy targets that are exactly the analyst consensus mean.
+
+    Older assessments copied consensus into ``intrinsic_value``. Allow a value
+    only when a future independent valuation explicitly identifies its basis.
+    """
+    conviction = opportunity.get("conviction")
+    conviction = conviction if isinstance(conviction, dict) else {}
+    basis = opportunity.get("intrinsic_value_basis") or conviction.get("intrinsic_value_basis")
+    if isinstance(basis, str) and basis.strip().lower().replace("-", "_") in {
+        "independent_dcf", "dcf_model", "discounted_cash_flow",
+    }:
+        return False
+    snapshot = report.get("research_input_snapshot")
+    snapshot = snapshot if isinstance(snapshot, dict) else {}
+    market = snapshot.get("scenario_market_evidence")
+    market = market if isinstance(market, dict) else {}
+    consensus = market.get("analyst_target_consensus")
+    consensus = consensus if isinstance(consensus, dict) else {}
+    mean = consensus.get("mean")
+    return (
+        _positive_finite(target)
+        and _positive_finite(mean)
+        and math.isclose(float(target), float(mean), rel_tol=0.0, abs_tol=0.01)
+    )
 
 
 def _read_mapping(path: Path) -> dict[str, Any]:

@@ -10,11 +10,28 @@ from idos.decision.assessment_pipeline import (
     _financial_data_quality,
     _load_financial_data,
     _normalize_decimal_pcts,
+    _independent_intrinsic_value,
     _register_authorization_rules,
 )
 from idos.data.sqlite import SQLiteStore
 from idos.decision.orchestrator import DecisionOrchestrator
 from idos.rules.engine import RulesEngine
+
+
+def test_only_explicit_independent_valuation_is_used_as_intrinsic_value():
+    legacy = {"intrinsic_value": 339.66, "conviction": {"intrinsic_value": 339.66}}
+    consensus_labeled = {
+        "intrinsic_value": 339.66,
+        "intrinsic_value_basis": "analyst_consensus",
+    }
+    independent = {
+        "intrinsic_value": 246.67,
+        "intrinsic_value_basis": "independent_dcf",
+    }
+
+    assert _independent_intrinsic_value(legacy) is None
+    assert _independent_intrinsic_value(consensus_labeled) is None
+    assert _independent_intrinsic_value(independent) == 246.67
 
 
 def test_missing_scenario_contract_does_not_estimate_catalyst_probabilities():

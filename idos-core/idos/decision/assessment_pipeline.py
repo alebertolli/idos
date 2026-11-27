@@ -274,10 +274,8 @@ def build_context(
     company_info = {"sector": company.get("sector", "")}
 
     opp = sqlite.get_opportunity(opp_id)
-    margin_of_safety = 30.0
-    if opp:
-        cv = opp.get("conviction", {}) or {}
-        margin_of_safety = cv.get("margin_of_safety", 30.0)
+    intrinsic_value = _independent_intrinsic_value(opp or {})
+    margin_of_safety = 0.0
     current_price = None
     quote_currency = None
     target_low = None
@@ -292,12 +290,14 @@ def build_context(
         target_mean = _i.get("targetMeanPrice")
         target_low = _i.get("targetLowPrice")
         target_high = _i.get("targetHighPrice")
-        if current_price and target_mean:
-            price_margin = round((target_mean - current_price) / current_price * 100, 1)
-        else:
-            price_margin = margin_of_safety
-    except Exception:
+        # Analyst consensus is market context, not an IDOS intrinsic valuation.
+        # Only a persisted independent model may contribute to valuation scores.
+        if current_price and intrinsic_value:
+            margin_of_safety = round((intrinsic_value - current_price) / current_price * 100, 1)
         price_margin = margin_of_safety
+    except Exception:
+        price_margin = 0.0
+        margin_of_safety = 0.0
 
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
     ddd_report_path = opp_dir / "ddd_report.yml"
@@ -335,7 +335,6 @@ def build_context(
             pass
 
     target_consensus = report.get("target_consensus") or {}
-    consensus_target = target_consensus.get("promedio", 0) or 0
 
     # Catalyst-derived estimates may coexist and remain visible for context,
     # but only an automatically validated, version-matched scenario set can pass.
@@ -361,7 +360,8 @@ def build_context(
         "asymmetry": asymmetry,
         "current_price": current_price,
         "quote_currency": quote_currency,
-        "intrinsic_value": consensus_target or target_mean,
+        "intrinsic_value": intrinsic_value,
+        "intrinsic_value_basis": (opp or {}).get("intrinsic_value_basis"),
         "target_consensus": target_consensus,
         "proposed_weight": 3.0,
         "themes": [],
@@ -417,6 +417,25 @@ def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
         if de > 1:
             data["debt_equity_ratio"] = de / 100
     return data
+
+
+def _independent_intrinsic_value(opportunity: dict[str, Any]) -> float | None:
+    """Accept a target only when its persisted basis names an independent model.
+
+    Legacy values were sometimes copied from analyst consensus and cannot be
+    used as intrinsic value in Assessment or automatic Buy List authorization.
+    """
+    conviction = opportunity.get("conviction")
+    conviction = conviction if isinstance(conviction, dict) else {}
+    basis = opportunity.get("intrinsic_value_basis") or conviction.get("intrinsic_value_basis")
+    normalized_basis = basis.strip().lower().replace("-", "_") if isinstance(basis, str) else ""
+    if normalized_basis not in {"independent_dcf", "dcf_model", "discounted_cash_flow"}:
+        return None
+    value = conviction.get("intrinsic_value") or opportunity.get("intrinsic_value")
+    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
+        return None
+    return float(value)
+
 
 def _enrich_roic(data: dict[str, Any]) -> dict[str, Any]:
     roic = data.get("roic_pct")
@@ -944,6 +963,9 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
             opp.setdefault("conviction", {})["current_price"] = cp
         if iv:
             opp.setdefault("conviction", {})["intrinsic_value"] = iv
+        else:
+            opp.pop("intrinsic_value", None)
+            (opp.get("conviction") or {}).pop("intrinsic_value", None)
         sqlite.save_opportunity(opp)
         sqlite.record_transition(
             opp_id, old, new_status.value,
@@ -971,6 +993,9 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
             yaml_opp["current_price"] = cp
         if iv:
             yaml_opp["intrinsic_value"] = iv
+        else:
+            yaml_opp.pop("intrinsic_value", None)
+            (yaml_opp.get("conviction") or {}).pop("intrinsic_value", None)
         journal.save_opportunity(ticker, yaml_opp)
 
     authorization = authorize_buylist_if_eligible(
