@@ -2,144 +2,165 @@
 
 ## 1. Visión General de la Compañía
 
-Walmart Inc. es un operador minorista y mayorista global que combina tiendas físicas, clubes de membresía y canales de comercio electrónico. Su cadena de valor incluye compras a proveedores y marcas propias, gestión de inventario, centros de distribución, transporte y reposición, y ventas a través de canales físicos y digitales.
+Walmart Inc. es un operador minorista y mayorista global que combina tiendas físicas, clubes mayoristas y canales de comercio electrónico. Genera ingresos principalmente mediante la venta de mercancías y alimentos, y complementa su oferta con servicios de salud, farmacia, óptica y bienestar.
 
-Su oferta incluye alimentos y comestibles, consumibles, productos de salud y belleza, farmacia y cuidado personal. Atiende principalmente a hogares y consumidores sensibles al precio, además de clientes que valoran la conveniencia de comprar en tienda y en línea.
+Su modelo se apoya en el abastecimiento y la negociación con proveedores, la gestión de marcas propias y surtido, una red de centros logísticos y tiendas, y la venta por canales físicos y digitales. Atiende principalmente a hogares y consumidores que priorizan precios bajos y conveniencia.
 
-La información disponible describe una operación global, pero no aporta un desglose geográfico de ingresos ni resultados por país. La industria es madura, de alto volumen y márgenes estrechos. Entre las compañías relacionadas de la industria figuran [[COST]] y [[TGT]].
+Walmart compite en un sector de alto volumen y márgenes estrechos. Entre las compañías relacionadas por sector o competencia se encuentran [[COST]], [[TGT]] y [[FMX]]; también comparte exposición a categorías de consumo con [[CL]], [[KO]], [[MDLZ]] y [[SYY]].
+
+**Base de evidencia:** síntesis de los análisis AOIF y DDD proporcionados. No se especifican en esos análisis las geografías concretas ni el desglose de ingresos por región.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
 ### Drivers de ingresos
 
-- Tráfico de clientes y gasto promedio por visita.
-- Ventas comparables, mezcla de categorías y precios.
-- Conveniencia y disponibilidad de compras en tienda y en línea.
-- Amplitud de surtido y competitividad de precios.
+Los principales impulsores identificados son:
 
-### Ventajas competitivas
+- Tráfico de clientes y frecuencia de compra.
+- Ventas comparables y gasto promedio por transacción.
+- Desempeño del comercio electrónico.
+- Surtido, conveniencia y propuesta de precios bajos.
 
-La escala de compras, la densidad de la red logística y de tiendas, el reconocimiento de marca y la operación multicanal pueden ofrecer ventajas de costo y conveniencia. El análisis disponible caracteriza a Walmart como líder competitivo y califica su amplitud de moat como amplia. Estas valoraciones son análisis cualitativos; no se proporciona una medición independiente de la ventaja competitiva.
+La expansión del comercio electrónico podría contribuir al crecimiento de ingresos. Su efecto sobre los márgenes dependerá de la rentabilidad de las operaciones digitales y de su integración con la red logística; los inputs no cuantifican ese impacto.
 
-La combinación de tiendas y canales digitales permite competir tanto en proximidad física como en comercio electrónico. [[COST]] y [[TGT]] son referencias pertinentes para comparar estrategias minoristas, aunque los materiales disponibles no incluyen una comparación cuantitativa entre ellas.
+### Ventaja competitiva
+
+AOIF caracteriza el moat de Walmart como amplio y atribuye su posición a:
+
+- Escala de compras y distribución.
+- Reconocimiento de marca y propuesta de precios.
+- Amplitud de surtido y densidad de tiendas.
+- Red omnicanal que combina presencia física y digital.
+
+La evaluación también señala que la escala y la red logística respaldan la posición competitiva. Esto no elimina la presión de una industria en la que la competencia se da en precio, conveniencia, surtido y entrega.
 
 ### Dinámica competitiva
 
-La competencia en precio es intensa y la industria depende de ganar participación, mejorar productividad y combinar tiendas con canales digitales. Entre las presiones descritas se encuentran la competencia de minoristas tradicionales y plataformas digitales, así como la necesidad de mantener precios bajos.
+La competencia procede de minoristas, clubes mayoristas y plataformas digitales. El crecimiento del comercio electrónico y la automatización ofrecen oportunidades, pero también pueden requerir inversión tecnológica y logística. Walmart comparte algunas de estas dinámicas con [[COST]] y [[TGT]].
+
+**Evaluación de la fuente:** “amplitud del moat: amplio” y “posición competitiva: líder” son conclusiones del análisis AOIF, no métricas independientes verificadas en los inputs.
 
 ## 3. Perfil Financiero
 
-Las cifras siguientes proceden de los materiales de investigación suministrados. Cuando no se especifica período, fuente o metodología, deben considerarse datos reportados en el análisis, no métricas verificadas independientemente.
+| Métrica | Valor informado | Periodo / alcance | Observaciones |
+|---|---:|---|---|
+| Crecimiento de ingresos | 5,99% | Periodo no precisado en el input AOIF | AOIF lo describe como cercano al 6%. |
+| CAGR de ingresos | ~6,8% | Periodo no confirmado | DDD lo presenta como parte de su clasificación, pero la métrica figura como no disponible en la consulta de ratios. |
+| Margen operativo | 4,45% | Periodo no precisado | AOIF lo considera coherente con un modelo minorista de alto volumen. |
+| ROIC | 15,29% | Periodo no precisado | Informado por AOIF; no se aportó una serie histórica. |
+| Crecimiento de FCF | -15,4% | TTM; corte informado: 2026-10-31 | DDD informa crecimiento negativo. La fuente proporcionada es Stock Analysis. |
+| Conversión de FCF | 62% | Periodo no precisado | DDD la menciona en la justificación de la oportunidad; AOIF señala que no recibió cifras verificables para cuantificar la conversión histórica. |
+| FCF yield | 0 | Definición y periodo no precisados | Valor aportado por AOIF; no debe interpretarse como una medida verificada de generación de caja. |
+| P/E | 50,39 | Fecha de referencia no especificada | Múltiplo aportado por AOIF; valoración provisional. |
+| EV/EBITDA | 22,89 | Fecha de referencia no especificada | Múltiplo aportado por AOIF; valoración provisional. |
+| Cobertura de intereses | 0 | Periodo y cálculo no documentados | DDD lo señala como alerta inferior al umbral de 2,0; faltan inputs para validarlo. |
+| Dilución de acciones | No disponible | — | No se aportan datos de acciones diluidas ni variación interanual; no puede evaluarse el umbral del 10%. |
 
-| Métrica | Valor reportado | Observación |
-|---|---:|---|
-| Crecimiento de ingresos | 5,99% | Período y metodología no especificados en AOIF. |
-| CAGR de ingresos a 3 años | 6,8% | Reportado en DDD; el cálculo no fue validado por falta de referencias explícitas a sus inputs. |
-| Margen operativo | 4,45% | Período y fuente no especificados en AOIF. |
-| ROIC | 15,29% | Período y fuente no especificados en AOIF. |
-| Margen bruto | 24,14% → 25,32% | DDD describe una tendencia al alza; no se especifican aquí los períodos de los extremos. |
-| Crecimiento del FCF TTM | -15,4% | Reportado por DDD a partir de Stock Analysis. |
-| Generación de FCF | Positiva, según DDD | No se incluyen cifras de FCF, flujo operativo ni inversión de capital para comprobar su magnitud o conversión. |
-| FCF yield | 0 | Valor suministrado por AOIF, no validable sin FCF y capitalización bursátil. |
-| PER | 50,37 | Valor suministrado por AOIF; fecha y metodología no especificadas. |
-| EV/EBITDA | 22,89 | Valor suministrado por AOIF; fecha y metodología no especificadas. |
-| Cobertura de intereses | 0 | Señal reportada por DDD; requiere verificación de definición, período e inputs. |
-| Historial de acciones diluidas | No disponible | DDD señala que faltan datos de dilución en el paquete. |
+**Tendencia y calidad de los datos:** AOIF describe la tendencia financiera como estable, pero indica que no recibió series suficientes para analizar la evolución histórica del FCF. DDD informa un crecimiento de FCF TTM de -15,4%. Estas observaciones tienen distinto alcance: no permiten concluir por sí solas cuál es el nivel o la tendencia sostenida del FCF.
 
-AOIF califica la tendencia financiera como estable y señala que el margen operativo reducido es coherente con un modelo minorista de alto volumen. Sin datos financieros completos y comparables por período, no puede establecerse una evaluación independiente de la evolución de márgenes, generación de caja o estructura de capital.
+**Estructura de capital:** los inputs no aportan deuda neta, vencimientos, efectivo ni una serie de cobertura de intereses. Por ello, la situación de apalancamiento no puede evaluarse de forma completa.
 
-La alerta de cobertura de intereses merece investigación antes de concluir que refleja una debilidad económica efectiva: el dato aparece como cero en Stock Analysis, pero no se aportan los componentes del cálculo ni una conciliación con deuda y gastos financieros. La exposición a deuda neta tampoco está cuantificada en los materiales.
+**Fuentes citadas en los inputs:**
 
-**Fuentes de métricas citadas en DDD:**
-
-- [Stock Analysis — estadísticas de WMT](https://stockanalysis.com/stocks/WMT/statistics/), consultado en el análisis con fecha de referencia 2026-10-31.
-- [Stock Analysis — finanzas de WMT](https://stockanalysis.com/stocks/wmt/financials/), consultado en el análisis con fecha de referencia 2026-10-31.
+- Stock Analysis, estadísticas de WMT: https://stockanalysis.com/stocks/WMT/statistics/ — fuente indicada para el análisis de ratios; el input DDD asocia el periodo de corte 2026-10-31 a sus consultas, aunque no identifica qué dato concreto aparece en cada página.
+- Stock Analysis, estados financieros de WMT: https://stockanalysis.com/stocks/WMT/financials/ — fuente indicada para el crecimiento de FCF TTM de -15,4% y para la consulta de métricas financieras, con corte informado 2026-10-31.
 
 ## 4. Management y Gobierno Corporativo
 
-AOIF califica la calidad del management como buena, la asignación de capital como creadora de valor y el alineamiento de insiders como moderado. El análisis considera coherentes con las ventajas del negocio las inversiones en capacidades digitales, logística y clubes de membresía.
+AOIF califica la calidad del management como buena y la asignación de capital como neutral. También describe el alineamiento de insiders como moderado. Sin embargo, advierte que no hay información suficiente sobre resultados recientes de la dirección, remuneración o alineamiento accionarial para sostener una evaluación detallada.
 
-Estas conclusiones son cualitativas. Los materiales disponibles no detallan la trayectoria individual del equipo directivo, los incentivos ejecutivos, el porcentaje de propiedad de insiders, las operaciones de insiders ni la composición o independencia del board. Tampoco ofrecen datos suficientes para evaluar de forma independiente la asignación de capital histórica.
+Los inputs no incluyen nombres de ejecutivos, participaciones de insiders, composición del consejo, independencia de sus miembros ni datos de remuneración. Por tanto, no es posible valorar esos aspectos ni atribuirles una conclusión adicional.
 
 ## 5. Tesis de Inversión
 
-La tesis favorable se apoya en la combinación de escala, marca, red logística y presencia física con canales digitales y clubes de membresía. Esta plataforma puede respaldar una posición competitiva de liderazgo y facilitar la conveniencia y los precios competitivos.
+### Caso alcista
 
-Elementos que respaldan la tesis, con las limitaciones indicadas:
+- **Escala y propuesta de valor:** la escala de compras y distribución, el reconocimiento de marca y el posicionamiento en precios bajos pueden respaldar la captación y retención de clientes. Esta es una conclusión cualitativa de AOIF.
+- **Presencia física y digital:** la combinación de tiendas, logística y comercio electrónico ofrece una plataforma para ampliar la conveniencia y las opciones de servicio. DDD identifica la expansión del e-commerce como catalizador potencial.
+- **Crecimiento de ingresos:** AOIF informa un crecimiento de ingresos de 5,99%; DDD cita un CAGR aproximado de 6,8%. El segundo dato debe tratarse con cautela, ya que la consulta documentada de CAGR figura como no disponible.
+- **Posible mejora de márgenes y caja:** DDD plantea que una mejora del margen bruto y de la generación de efectivo podría cerrar parte de la brecha alcista. La optimización de la cadena de suministro es un catalizador potencial, no un resultado confirmado.
+- **Rentabilidad operativa:** AOIF informa un margen operativo de 4,45% y un ROIC de 15,29%. Los inputs no especifican periodo ni serie, por lo que no acreditan por sí solos la sostenibilidad futura de esos valores.
 
-- **Crecimiento de ingresos:** DDD reporta un CAGR de 6,8% a tres años y AOIF reporta crecimiento de 5,99%. Los períodos y metodologías de estas cifras no están plenamente especificados, y el cálculo del CAGR no pudo validarse de manera independiente.
-- **Desarrollo digital:** la expansión del comercio electrónico y las plataformas digitales se identifica como catalizador, aunque no se aportan métricas de ventas digitales, rentabilidad o participación.
-- **Mejora del margen bruto:** DDD reporta un aumento de 24,14% a 25,32%. Los períodos no están detallados en el material disponible.
-- **Rentabilidad sobre capital:** AOIF reporta un ROIC de 15,29%; faltan período, fuente y metodología para interpretarlo con precisión.
-- **Valoración relativa a escenarios:** el precio de referencia de 123,51 USD está por debajo del consenso medio de 136,80 USD usado en DDD y por encima del escenario bajista de 81 USD. Esto plantea una hipótesis de revalorización, no una prueba de infravaloración: AOIF indica que no puede determinar un valor intrínseco con rigor a partir de la información disponible.
+**Clasificación de oportunidad:** DDD asigna la categoría “Multibagger”, apoyándose en el crecimiento de ingresos y una conversión de FCF que estima en 62%. Esa clasificación es una hipótesis del análisis y debe leerse junto con las limitaciones de evidencia sobre el CAGR y la conversión histórica de FCF.
 
-El discovery score de 74,91 y la etiqueta “Multibagger” son clasificaciones del análisis DDD, no evidencia independiente de rentabilidad futura. El material no justifica interpretar esa etiqueta como un pronóstico confirmado.
+### Escenarios indicativos de DDD
+
+Los siguientes precios objetivo son escenarios aportados por DDD, no estimaciones independientes verificadas. El horizonte indicado es el 27 de noviembre de 2027.
+
+| Escenario | Precio objetivo (USD) | Supuestos resumidos |
+|---|---:|---|
+| Bajista | 81,0 | Crecimiento de FCF cercano a -15% interanual, margen bruto alrededor de 24%, presión continuada de costes y compresión de márgenes. |
+| Base | 136,8 | CAGR de ingresos cercano a 6,8% y margen bruto estable alrededor de 25%. |
+
+**Fecha del análisis de escenarios:** 27 de noviembre de 2026. Las fuentes específicas de los precios objetivo aparecen como no informadas en los inputs.
 
 ## 6. Riesgos y Contra-Tesis
 
 ### Riesgos principales
 
-- **Presión sobre márgenes:** salarios, transporte, pérdidas de inventario y la necesidad de conservar precios bajos pueden limitar la rentabilidad. AOIF clasifica este riesgo como de impacto alto y probabilidad alta.
-- **Competencia y pérdida de participación:** la competencia en precio y frente a minoristas tradicionales y plataformas digitales puede afectar tráfico, ventas comparables y cuota. AOIF clasifica este riesgo como de impacto medio y probabilidad alta. [[COST]] y [[TGT]] son comparables relevantes para el seguimiento de la dinámica minorista.
-- **Cobertura de intereses reportada en cero:** DDD identifica un indicador extremadamente bajo según Stock Analysis. Es una alerta que requiere validar la definición y los datos subyacentes antes de atribuirle una interpretación financiera.
-- **Caída del crecimiento del FCF:** DDD reporta crecimiento del FCF TTM de -15,4%. No se aportan cifras absolutas ni una explicación de las causas.
-- **Falta de información sobre dilución:** no se dispone de un historial de acciones diluidas en el paquete de investigación.
-- **Valoración exigente o margen de seguridad insuficiente:** AOIF califica el margen de seguridad como insuficiente y no puede establecer valor intrínseco de manera independiente. Los múltiplos reportados carecen de fecha y metodología detalladas.
+- **Competencia y precios:** la competencia en precio, surtido, conveniencia y entrega puede reducir márgenes o provocar pérdida de cuota frente a minoristas, clubes mayoristas y plataformas digitales. AOIF califica este riesgo como de impacto y probabilidad altos.
+- **Presión de costes:** salarios, logística, mermas, inversión tecnológica y descuentos pueden presionar el margen operativo. AOIF considera alta su probabilidad y medio su impacto.
+- **Generación de efectivo:** DDD informa un crecimiento de FCF TTM de -15,4%. Si persiste, podría limitar la capacidad de financiar inversiones y la tesis de mejora de caja.
+- **Cobertura de intereses:** DDD marca un ratio de 0 frente a un umbral de 2,0. Como no se proporcionan los inputs ni el cálculo, debe tratarse como una alerta pendiente de verificación, no como una conclusión financiera definitiva.
+- **Dilución:** no hay datos de acciones diluidas para evaluar la variación interanual o el umbral del 10%.
+- **Valoración:** AOIF considera exigentes los múltiplos aportados y concluye que el margen de seguridad es insuficiente. La conclusión es provisional porque faltan datos y definiciones de valoración comparables.
 
-### Contra-tesis
+### Contra-tesis de valoración
 
-El mercado podría estar asignando una valoración que ya incorpora buena parte de la resiliencia, la escala y las oportunidades digitales de Walmart. Si el crecimiento se desacelera, los costos presionan los márgenes o la inversión digital no genera retornos adecuados, la tesis de mejora operativa podría no materializarse. Además, el indicador de cobertura de intereses y la caída reportada del FCF impiden tratar la generación de caja y la estructura financiera como fortalezas plenamente verificadas.
+DDD indica un precio de referencia de **123,51 USD** y un consenso de analistas de **81,0 a 155,0 USD**, con media de **136,8 USD**. Bajo esos datos, el precio se sitúa dentro del rango: el extremo bajo deja riesgo de caída, mientras que el extremo alto implica potencial alcista si se cumplen los catalizadores. DDD también plantea la hipótesis contraria de que el precio ya incorpore gran parte del crecimiento esperado.
 
-### Falsadores a vigilar
+El precio de referencia y el consenso son datos reportados en el input DDD; no se proporciona una fuente externa concreta para verificarlos.
 
-DDD identifica expresamente:
+### Triggers de falsación
 
-- Deterioro del margen bruto.
-- Aumento significativo de la deuda neta.
+La tesis alcista perdería respaldo si:
 
-Como condiciones cuantitativas adicionales en los escenarios de DDD, el caso bajista quedaría cuestionado si el crecimiento de ingresos supera 4% o el margen bruto mejora por encima de 25%; el caso base se debilitaría si el crecimiento de ingresos cae por debajo de 5% o el margen bruto cae por debajo de 24%. Son umbrales del escenario, no resultados observados.
+- Los márgenes brutos no mejoran como se espera.
+- El crecimiento de ingresos se desacelera.
+- La mejora de la cadena de suministro no se traduce en menores costes o mejores márgenes.
+- La generación de FCF continúa deteriorándose o no se vuelve positiva en el escenario de mejora.
 
 ## 7. Catalizadores y Timeline
 
-No se proporcionan fechas específicas para eventos corporativos, publicaciones de resultados o hitos regulatorios. Por ello, los catalizadores se presentan como variables operativas de seguimiento, sin calendario confirmado.
-
-| Catalizador | Fecha esperada | Impacto potencial | Evidencia y condición de seguimiento |
+| Catalizador | Fecha esperada | Impacto potencial | Estado de evidencia |
 |---|---|---|---|
-| Expansión del comercio electrónico y plataformas digitales | Sin fecha especificada; seguimiento continuo | Positivo si impulsa ventas y conveniencia sin deteriorar la rentabilidad | DDD lo identifica como catalizador; los materiales no incluyen crecimiento ni márgenes del canal digital. |
-| Mejora del margen bruto | Sin fecha especificada; seguimiento continuo | Positivo si se sostiene y se traduce en mejor rentabilidad operativa | DDD reporta una tendencia de 24,14% a 25,32%; períodos y causas no especificados. |
-| Evolución de ventas comparables, tráfico y gasto por cliente | Próximas publicaciones operativas; fechas no incluidas | Permite evaluar el impulso subyacente del negocio | AOIF los incluye entre los principales puntos de monitoreo. |
-| Productividad logística y control de costos | Sin fecha especificada; seguimiento continuo | Positivo si compensa salarios, transporte y otros costos | AOIF destaca logística y costos como variables relevantes para los márgenes. |
+| Expansión del comercio electrónico | Sin fecha especificada; seguimiento durante el horizonte al 2027-11-27 | Podría elevar ingresos y, si mejora la economía del canal, contribuir a los márgenes. | Catalizador identificado por DDD; impacto no cuantificado. |
+| Optimización de la cadena de suministro | Sin fecha especificada | Una reducción de costes operativos podría favorecer el margen bruto. | Catalizador identificado por DDD; no se aportan objetivos ni calendario operativo. |
+| Mejora del margen bruto y de la generación de efectivo | Sin fecha especificada; escenario con horizonte al 2027-11-27 | Podría sostener la tesis de revalorización planteada por DDD. | Condición del caso alcista, no un evento confirmado. |
+| Revisión de escenarios de valoración | 2027-11-27, horizonte del análisis DDD | Permitiría contrastar los supuestos de crecimiento, margen y FCF con resultados observados. | Fecha de horizonte del escenario; no es una fecha de evento corporativo. |
 
 ## 8. Marco de Valoración
 
-AOIF no estima un valor intrínseco independiente porque faltan un precio de mercado de referencia suficientemente documentado, FCF normalizado, supuestos de descuento y datos financieros completos. También advierte que el FCF yield de 0 no puede interpretarse como rendimiento económico sin FCF y capitalización bursátil.
+AOIF considera que los múltiplos aportados —P/E de 50,39 y EV/EBITDA de 22,89— parecen exigentes y que el margen de seguridad es insuficiente. La conclusión es provisional: no se especifican fecha de cotización, definiciones de los múltiplos ni supuestos comparables.
 
-DDD plantea dos escenarios a 12 meses, con fecha de análisis 2026-11-26 y horizonte 2027-11-26:
+AOIF no estima de forma fiable el valor intrínseco porque faltan un precio de referencia validado, una serie de FCF, deuda neta y supuestos contrastables. El valor cero informado para FCF yield no debe interpretarse como valor intrínseco ni como una estimación de rendimiento confirmada.
 
-| Escenario | Precio objetivo | Supuestos clave | Lectura |
-|---|---:|---|---|
-| Bajista | 81,00 USD | CAGR de ingresos de 2%; margen bruto de 22%; compresión de márgenes y costos de deuda más altos | Escenario de desaceleración y deterioro operativo. |
-| Base | 136,80 USD | CAGR de ingresos de 6,8%; margen bruto cercano a 25,3% | Supone continuidad del crecimiento y estabilidad o ligera mejora de márgenes; se describe como basado en el consenso de analistas. |
+### Enfoque apropiado con la evidencia disponible
 
-DDD también informa un precio de referencia de 123,51 USD y un consenso medio de 136,80 USD. La diferencia entre ambos no basta para concluir que WMT está infravalorada: no se facilita la fecha de ese precio de referencia, la distribución del consenso, los múltiplos implícitos ni un escenario alcista independiente. El consenso y los precios objetivo deben tratarse como referencias de escenario, no como valor intrínseco comprobado.
+- Contrastar múltiplos con una serie histórica y con pares pertinentes, incluidos [[COST]] y [[TGT]], siempre que se utilicen definiciones y periodos homogéneos.
+- Estimar valor mediante flujos de caja solo después de obtener FCF histórico normalizado, deuda neta, inversión necesaria y supuestos explícitos de crecimiento.
+- Separar la valoración del negocio de las variaciones de precio objetivo del consenso.
 
-Para una valoración más robusta sería apropiado contrastar una valoración por flujo de caja descontado —con FCF normalizado, reinversión, coste de capital y crecimiento terminal explícitos— con múltiplos comparables y escenarios operativos. Los datos disponibles no permiten calcular de forma responsable una sensibilidad numérica. Las variables principales serían crecimiento de ingresos, margen bruto y operativo, conversión a FCF, inversión de capital, deuda neta y coste de financiación.
+### Sensibilidad disponible
+
+El análisis DDD ofrece referencias de **81,0 USD** en el escenario bajista y **136,8 USD** en el escenario base; el consenso citado llega a **155,0 USD** en su extremo alto. Estos valores no constituyen una sensibilidad calculada a partir de un modelo financiero detallado en los inputs.
+
+Los principales supuestos que habría que someter a sensibilidad son el crecimiento de ingresos, la evolución del margen bruto, la conversión de FCF, los costes logísticos y laborales, y el endeudamiento neto. Los valores de margen bruto de ~24% en el escenario bajista y ~25% en el base proceden de DDD y no están acompañados por una serie histórica verificable.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-1. ¿Qué períodos y metodologías corresponden al crecimiento de ingresos de 5,99%, el CAGR de 6,8%, el margen operativo de 4,45% y el ROIC de 15,29%?
-2. ¿Cuáles son las cifras históricas y actuales de FCF, flujo de caja operativo e inversión de capital? ¿Qué explica el crecimiento de FCF TTM reportado en -15,4%?
-3. ¿Por qué Stock Analysis muestra una cobertura de intereses de cero? ¿Qué definición, período, gasto financiero y saldo de deuda sustentan ese dato?
-4. ¿Cuál es la evolución de deuda bruta, deuda neta, vencimientos y liquidez? ¿Cómo se relaciona con la alerta de cobertura de intereses?
-5. ¿Cómo ha cambiado el número de acciones diluidas y qué efecto han tenido la remuneración en acciones y las recompras?
-6. ¿Qué proporción de ingresos y beneficios aporta el comercio electrónico, y cuál es su rentabilidad frente a las tiendas físicas?
-7. ¿Cuáles son los factores detrás de la mejora reportada del margen bruto y se ha reflejado también en el margen operativo?
-8. ¿Cuál es el precio de mercado y la fecha de referencia usados en la comparación con el consenso de 136,80 USD? ¿Cómo se distribuyen las estimaciones de analistas?
-9. ¿Qué evidencia cuantitativa respalda las evaluaciones cualitativas de calidad del management, asignación de capital y alineamiento de insiders?
-10. ¿Cuál es la composición del board, su independencia y la estructura de incentivos ejecutivos?
-11. ¿Cómo se comparan ventas comparables, crecimiento digital, márgenes y valoración con [[COST]] y [[TGT]] usando períodos y definiciones consistentes?
+1. **Ingresos:** ¿Cuál es el CAGR calculado con estados financieros verificables y qué periodo cubre? La consulta de CAGR de DDD aparece como no disponible pese a que el análisis cita un valor aproximado de 6,8%.
+2. **Flujo de caja:** ¿Cuál es el FCF absoluto y cómo han evolucionado su conversión y crecimiento en varios ejercicios? Hay una cifra de crecimiento TTM de -15,4%, pero AOIF no recibió una serie histórica verificable.
+3. **Cobertura de intereses:** ¿Cómo se calcula el valor 0 señalado por DDD y cuáles son sus componentes y periodo? Debe verificarse antes de tratarlo como una medida de riesgo concluyente.
+4. **Acciones diluidas:** ¿Cuál es la evolución interanual de las acciones diluidas y cómo afecta al valor por acción?
+5. **Deuda y liquidez:** ¿Cuál es la deuda neta, su calendario de vencimientos y la capacidad de cubrir costes financieros?
+6. **E-commerce:** ¿Qué proporción de ingresos aporta y cuál es su efecto sobre márgenes, costes logísticos y rentabilidad?
+7. **Márgenes y costes:** ¿Cómo han evolucionado los márgenes bruto y operativo frente a salarios, logística, descuentos y mermas?
+8. **Management y gobierno:** ¿Qué muestran los datos de remuneración, propiedad de insiders, composición del consejo y resultados de asignación de capital?
+9. **Valoración:** ¿A qué fecha corresponden los múltiplos de AOIF y el precio de 123,51 USD citado por DDD? ¿Qué supuestos y fuentes sustentan el rango de consenso 81–155 USD?
+10. **Competencia:** ¿Cómo evoluciona la posición de Walmart frente a [[COST]], [[TGT]] y plataformas digitales en precio, tráfico, cuota, surtido y entrega?
 
-**Base temporal de los escenarios:** 2026-11-26. **Fuentes citadas disponibles en el paquete:** páginas de estadísticas y finanzas de Stock Analysis enlazadas en la sección 3. Los análisis AOIF no incluyen referencias externas ni fechas para las métricas suministradas.
+**Estado de la decisión:** AOIF deja la recomendación como **PENDIENTE_DECISION_BOARD**. Los datos disponibles permiten formular una tesis cualitativa, pero no resuelven las principales incertidumbres de FCF, estructura de capital, dilución y valoración.
 
 ---
 
