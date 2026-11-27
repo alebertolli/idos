@@ -91,3 +91,50 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-27T01:02:26.821014'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-WMT
+    ticker: WMT
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-27T16:45:58.969895'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-WMT
+    ticker: WMT
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-27T16:45:58.977151'
+- data:
+    classification: Multibagger
+    ddd_empty: false
+    event_evidence:
+      event_id: 3257dbd66e1a843e748a2cd18e5e3a62149c3095981bf7854e40ef3a52a46c21
+      event_type: quarterly_results
+      observed_at: '2026-11-27T19:45:05.265709+00:00'
+      occurred_at: '2026-11-19'
+      source_name: Yahoo Finance earnings calendar via yfinance
+      source_url: https://finance.yahoo.com/calendar/earnings/?symbol=WMT
+      summary: El calendario de resultados indica la fecha 2026-11-19. La fecha no
+        confirma por sí sola la publicación del reporte; Research debe verificar el
+        resultado en una fuente primaria.
+      ticker: WMT
+    event_type: quarterly_results
+    hypotheses: 4
+    input_snapshot_sha256: 3149a42dd93ae804973b5fb09edc2bfb9b64b45a084971f5ba183fdef138c7d3
+    opp_id: OPP-MB-WMT
+    original_status: UNDER_RESEARCH
+    score: 74.91
+    strategy_version: '1.5'
+    ticker: WMT
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-27T16:47:22.613999'

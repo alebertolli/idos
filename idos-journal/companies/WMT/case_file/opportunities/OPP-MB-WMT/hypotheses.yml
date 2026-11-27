@@ -1,167 +1,168 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Crecimiento YoY de ventas en línea ≤ 8% en el Q2 2027.
+  - condition: La participación de e‑commerce se mantiene por debajo del 8.0% en el
+      reporte de resultados del Q4 2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Reducción significativa del número de suscriptores de Walmart+ (caída
-      >15% respecto al Q4 2026).
+  - condition: Walmart anuncia una reducción de inversión en su plataforma digital
+      antes de junio de 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Crecimiento YoY de ventas en línea ≤ 8% en el Q2 2027.
-  - Reducción significativa del número de suscriptores de Walmart+ (caída >15% respecto
-    al Q4 2026).
+  - La participación de e‑commerce se mantiene por debajo del 8.0% en el reporte de
+    resultados del Q4 2027.
+  - Walmart anuncia una reducción de inversión en su plataforma digital antes de junio
+    de 2027.
   horizon: corto
   id: H1-OPP-MB-WMT
   opportunity_id: OPP-MB-WMT
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-06-30'
-    expected: 12.0
+    deadline: '2027-12-31'
+    expected: 9.5
     met: null
-    metric: crecimiento_ventas_online_yoy
-    prediction: El reporte de resultados del Q2 2027 mostrará un crecimiento YoY de
-      ventas en línea superior al 12%.
-    unit: '%'
+    metric: participación e‑commerce sobre ingresos totales
+    prediction: La proporción de ingresos provenientes de e‑commerce alcanzará 9.5%
+      del total de ventas consolidadas.
+    unit: porcentaje
   priority: critical
   probability: 0.5
-  rationale: La expansión de Walmart+ a 30 millones de suscriptores, la integración
-    de IA para optimizar la cadena de suministro y la apertura de nuevos centros de
-    fulfillment aumentarán la capacidad de entrega y la demanda digital.
-  review_trigger: Si el informe de resultados del Q2 2027 revela un crecimiento YoY
-    de ventas en línea ≤ 8%, antes del 2027-07-15.
+  rationale: La compañía ha invertido $12 bn en infraestructura digital y logística,
+    y ha lanzado la plataforma omnicanal 'Walmart One', lo que históricamente ha impulsado
+    el crecimiento del canal online en un 1.2‑puntos porcentuales anuales en los últimos
+    tres años.
+  review_trigger: Si el reporte de resultados del Q2 2027 muestra una participación
+    de e‑commerce ≤7.5%, se reconsiderará la hipótesis.
   secondary_hypotheses: []
-  statement: Walmart incrementará su crecimiento de ventas en línea a más del 12%
-    interanual en el segundo trimestre de 2027.
+  statement: Walmart incrementará la participación de sus ventas de e‑commerce en
+    el total de ingresos a 9.5% para finales de 2027.
   status: ACTIVE
   ticker: WMT
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Margen de flujo de caja libre < 3.5% en el reporte anual 2027.
+  - condition: El flujo de caja libre reportado para FY2027 es negativo en el informe
+      anual.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Incremento de gastos de capital (CapEx) superior al 20% del flujo de
-      caja operativo, erosionando el FCF.
+  - condition: Walmart anuncia un aumento inesperado de gastos de capital superior
+      al 15% del flujo de caja operativo en 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Margen de flujo de caja libre < 3.5% en el reporte anual 2027.
-  - Incremento de gastos de capital (CapEx) superior al 20% del flujo de caja operativo,
-    erosionando el FCF.
+  - El flujo de caja libre reportado para FY2027 es negativo en el informe anual.
+  - Walmart anuncia un aumento inesperado de gastos de capital superior al 15% del
+    flujo de caja operativo en 2027.
   horizon: medio
   id: H2-OPP-MB-WMT
   opportunity_id: OPP-MB-WMT
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
-    expected: 5.0
+    deadline: '2027-09-30'
+    expected: 0.0
     met: null
-    metric: margen_flujo_caja_libre
-    prediction: El reporte anual de 2027 mostrará un margen de flujo de caja libre
-      ≥ 5%.
-    unit: '%'
+    metric: flujo de caja libre
+    prediction: El flujo de caja libre reportado para FY2027 será al menos 0 USD.
+    unit: USD
   priority: important
   probability: 0.5
-  rationale: El aumento de ventas en línea (H1) y la mejora de la eficiencia operativa
-    mediante automatización de almacenes reducirán costos, mientras que la generación
-    de efectivo de la división de comestibles se mantendrá estable.
-  review_trigger: Si el informe anual 2027 publica un margen de FCF < 3.5% antes del
-    2028-01-20.
+  rationale: La mejora en márgenes operativos y la optimización del capital de trabajo,
+    junto con la reducción de costos de suministro tras renegociar contratos con proveedores,
+    deberían revertir la generación de efectivo negativa observada en 2025‑2026.
+  review_trigger: Si el informe anual de FY2027 publicado el 30‑09‑2027 muestra flujo
+    de caja libre negativo, la hipótesis se descartará.
   secondary_hypotheses:
   - H1-OPP-MB-WMT
-  statement: El margen de flujo de caja libre (FCF/Ingresos) de Walmart alcanzará
-    al menos el 5% al cierre del año fiscal 2027.
+  statement: Walmart generará flujo de caja libre positivo (≥0) en su ejercicio fiscal
+    2027.
   status: ACTIVE
   ticker: WMT
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: P/E > 18 al 31/03/2028.
+  - condition: El P/E se mantiene por encima de 23x al 30‑jun‑2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Incremento sostenido del costo de capital que haga que el precio de
-      la acción caiga por debajo del nivel de soporte técnico sin recuperación.
+  - condition: Walmart anuncia una guía de EPS superior al consenso del 15% para FY2028.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - P/E > 18 al 31/03/2028.
-  - Incremento sostenido del costo de capital que haga que el precio de la acción
-    caiga por debajo del nivel de soporte técnico sin recuperación.
+  - El P/E se mantiene por encima de 23x al 30‑jun‑2028.
+  - Walmart anuncia una guía de EPS superior al consenso del 15% para FY2028.
   horizon: largo
   id: H3-OPP-MB-WMT
   opportunity_id: OPP-MB-WMT
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 15.0
+    deadline: '2028-06-30'
+    expected: 20.0
     met: null
-    metric: ratio_PE
-    prediction: Al cierre del mercado del 31/03/2028, el P/E de Walmart será ≤ 15.
-    unit: ''
+    metric: ratio P/E
+    prediction: El P/E reportado en Bloomberg al cierre del día 2028‑06‑30 será ≤20.
+    unit: veces
   priority: important
   probability: 0.5
-  rationale: Los inversores revalorizarán a Walmart al reconocer su sólido margen
-    de FCF (H2) y su crecimiento estable, mientras que la presión de tipos de interés
-    reducirá la prima de riesgo del sector defensivo, llevando a una valoración más
-    atractiva.
-  review_trigger: Si el P/E registrado el 31/03/2028 supera 18, o si el precio de
-    la acción permanece bajo el 90% del soporte técnico durante 3 meses consecutivos
-    después de esa fecha.
+  rationale: El mercado está descontando la presión de costos y la generación de efectivo
+    negativa; si Walmart logra revertir estas tendencias (ver H2) y estabilizar su
+    crecimiento de e‑commerce (ver H1), los analistas ajustarán a la baja las expectativas
+    de crecimiento, reduciendo el P/E.
+  review_trigger: Si el P/E al 30‑jun‑2028 supera 23, la hipótesis se invalidará.
   secondary_hypotheses:
   - H2-OPP-MB-WMT
-  statement: El ratio precio/beneficio (P/E) de Walmart caerá por debajo de 15 para
-    el 31 de marzo de 2028.
+  statement: El múltiplo precio‑beneficio (P/E) de Walmart se comprimirá a 20x antes
+    del 30‑jun‑2028, reflejando una valoración más conservadora.
   status: ACTIVE
   ticker: WMT
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Crecimiento YoY de ventas comparables ≤ 0% en el Q3 2027.
+  - condition: El margen operativo del Q1 2028 es inferior al 2.5%.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Disminución del tráfico de clientes en tiendas físicas > 5% respecto
-      al Q3 2026.
+  - condition: Walmart anuncia un aumento de costos logísticos superior al 10% del
+      margen operativo en 2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Crecimiento YoY de ventas comparables ≤ 0% en el Q3 2027.
-  - Disminución del tráfico de clientes en tiendas físicas > 5% respecto al Q3 2026.
-  horizon: corto
+  - El margen operativo del Q1 2028 es inferior al 2.5%.
+  - Walmart anuncia un aumento de costos logísticos superior al 10% del margen operativo
+    en 2027.
+  horizon: medio
   id: H4-OPP-MB-WMT
   opportunity_id: OPP-MB-WMT
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
+    deadline: '2028-04-30'
     expected: 3.0
     met: null
-    metric: crecimiento_ventas_mismo_tamano_yoy
-    prediction: El reporte de resultados del Q3 2027 mostrará un crecimiento YoY de
-      ventas comparables ≥ 3%.
-    unit: '%'
-  priority: important
+    metric: margen operativo
+    prediction: El margen operativo reportado en el Q1 2028 será de 3.0% o superior.
+    unit: porcentaje
+  priority: critical
   probability: 0.5
-  rationale: La estrategia de precios agresiva en comestibles, combinada con la expansión
-    de formatos de tienda de conveniencia en áreas suburbanas, impulsará la frecuencia
-    de compra y la lealtad del cliente.
-  review_trigger: Si el informe del Q3 2027 indica un crecimiento YoY de ventas comparables
-    ≤ 0% antes del 2027-10-15.
-  secondary_hypotheses: []
-  statement: Las ventas comparables de tiendas físicas (same-store sales) crecerán
-    al menos un 3% interanual en el tercer trimestre de 2027.
+  rationale: La automatización de centros de distribución y la expansión de la oferta
+    de marcas propias de mayor rentabilidad están generando ahorros de costos y mejores
+    precios de venta, lo que históricamente ha elevado el margen operativo en 0.4‑puntos
+    porcentuales anuales.
+  review_trigger: Si el reporte del Q1 2028 muestra margen operativo ≤2.5%, la hipótesis
+    será descartada.
+  secondary_hypotheses:
+  - H1-OPP-MB-WMT
+  statement: Walmart mejorará su margen operativo a 3.0% para el cierre del trimestre
+    Q1 2028.
   status: ACTIVE
   ticker: WMT
   version: 1
