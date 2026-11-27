@@ -33,7 +33,7 @@ def _seed_candidate(root: Path):
         "research_input_snapshot": {
             "scenario_market_evidence": {
                 "current_quote": {"sources": [{"url": "https://example.com/bear"}]},
-                "analyst_target_consensus": {"sources": [{"url": "https://example.com/base"}, {"url": "https://example.com/bull"}]},
+                "analyst_target_consensus": {"mean": 125, "sources": [{"url": "https://example.com/base"}, {"url": "https://example.com/bull"}]},
             },
         },
     }
@@ -52,6 +52,7 @@ def _seed_candidate(root: Path):
         "strategy_id": "MULTIBAGGERS", "entry_policy": "MANUAL_REVIEW",
         "approved_for_buylist": False, "thesis_active": True,
         "intrinsic_value": 246.67, "current_price": 215.52,
+        "intrinsic_value_basis": "independent_dcf",
         "conviction": {"overall": 69, "intrinsic_value": 246.67, "current_price": 215.52},
     }
     for name, data in (("ddd_report.yml", report), ("decision_proposal.yml", proposal), ("opportunity.yml", opportunity)):
@@ -102,6 +103,22 @@ def test_missing_authorization_rule_fails_closed(tmp_path):
     )
 
     assert result == {"approved": False, "reason": "authorization_rules_not_all_passed"}
+    assert not (tmp_path / "idos-journal/portfolio/buylist.yml").exists()
+
+
+def test_legacy_analyst_consensus_cannot_be_used_as_intrinsic_value(tmp_path):
+    opp_dir, proposal, opportunity = _seed_candidate(tmp_path)
+    opportunity.pop("intrinsic_value_basis")
+    opportunity["intrinsic_value"] = 125
+    opportunity["conviction"]["intrinsic_value"] = 125
+    (opp_dir / "opportunity.yml").write_text(yaml.safe_dump(opportunity), encoding="utf-8")
+
+    result = authorize_buylist_if_eligible(
+        tmp_path, "NVDA", "OPP-NVDA", proposal, opportunity,
+        {"RULE-001", "RULE-003", "RULE-004", "RULE-005", "RULE-008", "RULE-010"},
+    )
+
+    assert result == {"approved": False, "reason": "analyst_consensus_is_not_intrinsic_value"}
     assert not (tmp_path / "idos-journal/portfolio/buylist.yml").exists()
 
 
