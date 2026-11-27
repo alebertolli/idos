@@ -45,3 +45,12 @@ Límite de esta validación: no se ejecutó un recorrido live contra datos actua
 ## Límites y reversión
 
 La automatización sólo aplica a Buy List y se limita a los gates deterministas actuales. No convierte reglas fallidas, escenarios cualitativos o datos ausentes en aprobaciones. El retiro de una candidata no constituye recomendación de venta ni transacción. Para revertir el código se revierte el cambio de software; no se borran registros automáticos históricos y las entradas ya revocadas sólo se restauran mediante una evaluación vigente.
+
+
+## Incidente y corrección — 2026-11-27
+
+El Assessment de TXN del 2026-11-26 usó el objetivo medio de analistas USD 339.66 como `intrinsic_value`. Esto generó una señal de potencial alcista de 25.7%, elevó Valuation a 65 y Conviction a 66; por eso pasaron RULE-005 y los seis gates de autorización. El informe Research, sin embargo, aclaraba que el consenso no prueba valor intrínseco y que no había una valoración fundamental verificable.
+
+La corrección separa el consenso de la valuación, exige una base independiente reconocida antes de aceptar `intrinsic_value` y elimina los objetivos heredados no trazables en la siguiente evaluación. TXN fue retirada de Buy List con una revocación auditable; su aprobación original permanece en el historial. No se modificaron posiciones ni órdenes.
+
+En la ejecución DDD #1186, el job terminó correctamente, pero no procesó candidatos: el log dice que la cola estaba vacía, hubo 0 oportunidades vencidas y no encontró oportunidades elegibles; Assessment indicó que no tenía oportunidades. Es un no-op exitoso, no una corrida que haya completado Research para activos.
