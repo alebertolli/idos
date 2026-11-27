@@ -1,20 +1,21 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El volumen reportado para Packaging & Specialty Plastics en el cuarto
-      trimestre de 2027 crece menos de un 2% interanual en base comparable.
+  - condition: El volumen de ventas consolidado cae interanualmente en cualquiera
+      de los dos trimestres consecutivos más recientes publicados antes de la fecha
+      objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Dow no publica una métrica de volumen comparable que permita verificar
-      la predicción.
+  - condition: El volumen aumenta menos de un 2% interanual en alguno de esos dos
+      trimestres.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El volumen reportado para Packaging & Specialty Plastics en el cuarto trimestre
-    de 2027 crece menos de un 2% interanual en base comparable.
-  - Dow no publica una métrica de volumen comparable que permita verificar la predicción.
+  - El volumen de ventas consolidado cae interanualmente en cualquiera de los dos
+    trimestres consecutivos más recientes publicados antes de la fecha objetivo.
+  - El volumen aumenta menos de un 2% interanual en alguno de esos dos trimestres.
   horizon: medio
   id: H1-OPP-MB-DOW
   opportunity_id: OPP-MB-DOW
@@ -24,177 +25,163 @@ hypotheses:
     deadline: '2027-12-31'
     expected: 2.0
     met: null
-    metric: Crecimiento interanual del volumen de ventas comparable de Packaging &
-      Specialty Plastics en el cuarto trimestre de 2027
-    prediction: En el cuarto trimestre de 2027, el volumen de ventas de Packaging
-      & Specialty Plastics crecerá al menos un 2% interanual, excluyendo efectos de
-      divisa y cambios de perímetro, según la métrica que reporte Dow.
-    unit: porcentaje mínimo
+    metric: Crecimiento interanual del volumen de ventas consolidado en cada uno de
+      dos trimestres consecutivos
+    prediction: En los dos trimestres consecutivos más recientes publicados antes
+      del 2027-12-31, el volumen de ventas consolidado aumentará al menos un 2% interanual
+      en cada trimestre, según la métrica de volumen que reporte la compañía.
+    unit: porcentaje
   priority: important
   probability: 0.5
-  rationale: La exposición de Dow a varios mercados finales puede favorecer una recuperación
-    de volúmenes si mejora la actividad industrial y de consumo. Sin embargo, el contexto
-    disponible no cuantifica la demanda por mercado ni demuestra que la mejora reciente
-    del FCF sea duradera; por eso, el crecimiento de volúmenes debe comprobarse directamente.
-  review_trigger: Dejar de creerla si el volumen comparable del segmento cae interanualmente
-    durante dos trimestres consecutivos antes del 2027-12-31, o si el dato del cuarto
-    trimestre de 2027 queda por debajo del umbral previsto.
+  rationale: El contexto indica que el FCF TTM ha mejorado frente a los FCF negativos
+    de FY 2024 y FY 2025, pero no confirma la durabilidad de esa mejora. Un aumento
+    sostenido del volumen interanual sería evidencia observable de mayor actividad
+    operativa; no se dispone de datos suficientes para atribuirlo a crecimiento estructural
+    o ganancia de cuota.
+  review_trigger: Dejar de creerla si los dos trimestres consecutivos publicados más
+    recientes antes del 2027-12-31 no cumplen ambos el umbral de crecimiento de volumen
+    del 2% interanual.
   secondary_hypotheses: []
-  statement: La recuperación de la demanda y de las operaciones permitirá que Dow
-    aumente los volúmenes vendidos en sus negocios de empaques y plásticos especializados.
+  statement: La recuperación cíclica de DOW se traducirá en una mejora de los volúmenes
+    vendidos durante 2027, no solo en una recuperación temporal del flujo de caja.
   status: ACTIVE
   ticker: DOW
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El FCF reportado para el ejercicio 2027 es inferior a 1.000 millones
-      de dólares.
+  - condition: El FCF TTM es igual o inferior a cero en la fecha de medición.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Dow reporta FCF anual negativo para 2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La cifra no puede conciliarse con flujo de caja de operaciones menos
-      inversiones de capital.
+  - condition: El FCF TTM es positivo, pero no supera los 1.000 millones de dólares.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El FCF reportado para el ejercicio 2027 es inferior a 1.000 millones de dólares.
-  - Dow reporta FCF anual negativo para 2027.
-  - La cifra no puede conciliarse con flujo de caja de operaciones menos inversiones
-    de capital.
+  - El FCF TTM es igual o inferior a cero en la fecha de medición.
+  - El FCF TTM es positivo, pero no supera los 1.000 millones de dólares.
   horizon: medio
   id: H2-OPP-MB-DOW
   opportunity_id: OPP-MB-DOW
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-15'
+    deadline: '2027-12-31'
     expected: 1000.0
     met: null
-    metric: FCF del ejercicio 2027
-    prediction: El flujo de caja libre acumulado del ejercicio 2027 será de al menos
-      1.000 millones de dólares, calculado como flujo de caja de operaciones menos
-      inversiones de capital, de acuerdo con los estados financieros de Dow.
-    unit: millones de dólares, mínimo
+    metric: FCF TTM
+    prediction: El FCF TTM, definido como flujo de caja de operaciones menos gastos
+      de capital, será superior a 1.000 millones de dólares en la fecha del último
+      informe trimestral publicado antes del 2027-12-31.
+    unit: millones de dólares, superior a
   priority: critical
   probability: 0.5
-  rationale: El contexto señala FCF negativo en los ejercicios fiscales 2024 y 2025
-    y pérdida neta TTM, lo que impide considerar probada una recuperación. La hipótesis
-    es que la mejora reciente persista gracias a una combinación de generación operativa
-    de caja y control de inversiones; el resultado anual permitirá comprobarlo sin
-    extrapolar un trimestre aislado.
-  review_trigger: Dejar de creerla si Dow reporta FCF acumulado negativo para los
-    primeros nueve meses de 2027 y no presenta una previsión cuantificada que implique
-    FCF anual de al menos 1.000 millones de dólares; en todo caso, la hipótesis queda
-    falsada al publicarse el resultado anual de 2027.
+  rationale: El FCF TTM ha mejorado frente a los resultados negativos reportados para
+    FY 2024 y FY 2025, lo que es compatible con una recuperación. Sin embargo, la
+    variabilidad histórica y la pérdida neta TTM hacen necesario comprobar que la
+    mejora persiste y no depende de factores transitorios.
+  review_trigger: Dejar de creerla si el último informe trimestral publicado antes
+    del 2027-12-31 muestra FCF TTM de 1.000 millones de dólares o menos.
   secondary_hypotheses:
   - H1-OPP-MB-DOW
-  statement: La recuperación del flujo de caja libre de Dow se sostendrá y producirá
-    FCF positivo en el ejercicio 2027.
+  statement: La mejora del flujo de caja de DOW se sostendrá y resultará en FCF TTM
+    positivo y superior a 1.000 millones de dólares al cierre de 2027.
   status: ACTIVE
   ticker: DOW
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El resultado neto atribuible a los accionistas para los cuatro trimestres
-      terminados el 31 de diciembre de 2027 es cero o negativo.
+  - condition: Los cuatro informes trimestrales correspondientes a 2027 muestran beneficio
+      neto GAAP atribuible a accionistas comunes igual o superior a cero.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La positividad depende de una partida extraordinaria que Dow identifique
-      como no recurrente y que, excluida, deje pérdidas netas en el periodo.
+  - condition: La compañía no publica resultados trimestrales GAAP suficientes para
+      verificar el resultado antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El resultado neto atribuible a los accionistas para los cuatro trimestres terminados
-    el 31 de diciembre de 2027 es cero o negativo.
-  - La positividad depende de una partida extraordinaria que Dow identifique como
-    no recurrente y que, excluida, deje pérdidas netas en el periodo.
+  - Los cuatro informes trimestrales correspondientes a 2027 muestran beneficio neto
+    GAAP atribuible a accionistas comunes igual o superior a cero.
+  - La compañía no publica resultados trimestrales GAAP suficientes para verificar
+    el resultado antes de la fecha objetivo.
   horizon: medio
   id: H3-OPP-MB-DOW
   opportunity_id: OPP-MB-DOW
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-15'
-    expected: 0.0
+    deadline: '2028-03-31'
+    expected: 1.0
     met: null
-    metric: Resultado neto atribuible acumulado en los cuatro trimestres terminados
-      el 2027-12-31
-    prediction: El resultado neto atribuible a los accionistas acumulado en los cuatro
-      trimestres terminados el 31 de diciembre de 2027 será superior a cero.
-    unit: millones de dólares, superior a cero
+    metric: Número de trimestres de 2027 con pérdida neta GAAP
+    prediction: Al menos uno de los cuatro trimestres de 2027 para los que DOW publique
+      resultados mostrará una pérdida neta atribuible a accionistas comunes, en base
+      GAAP.
+    unit: trimestres, al menos
   priority: important
   probability: 0.5
-  rationale: La pérdida neta TTM es una evidencia contraria a la tesis de recuperación.
-    Una mejora sostenida de volúmenes y del flujo de caja podría acompañarse de una
-    recuperación de la rentabilidad, pero el FCF positivo por sí solo no garantiza
-    beneficios netos; ambos resultados deben contrastarse por separado.
-  review_trigger: Dejar de creerla si el resultado neto TTM continúa siendo negativo
-    al cierre del tercer trimestre de 2027 y Dow no reporta beneficio neto en ese
-    trimestre; la confirmación o falsación final será el resultado del cuarto trimestre
-    de 2027.
+  rationale: El contexto señala una pérdida neta TTM pese a la mejora del FCF. La
+    diferencia entre caja y beneficio puede persistir por márgenes débiles, cargos,
+    depreciación, intereses o capital circulante; el paquete disponible no permite
+    determinar cuál de esos factores predominará.
+  review_trigger: 'Dejar de creerla cuando se publiquen los resultados del cuarto
+    trimestre de 2027: la hipótesis queda refutada si los cuatro trimestres de 2027
+    reportan beneficio neto GAAP no negativo.'
   secondary_hypotheses:
-  - H1-OPP-MB-DOW
-  statement: Dow volverá a generar beneficios netos sobre una base móvil de doce meses
-    antes de que termine 2027.
+  - H2-OPP-MB-DOW
+  statement: 'La recuperación del flujo de caja no bastará por sí sola para demostrar
+    una recuperación duradera de la rentabilidad: DOW seguirá registrando al menos
+    un trimestre con pérdida neta en 2027.'
   status: ACTIVE
   ticker: DOW
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La rentabilidad total de DOW menos la del índice de referencia es inferior
-      a 5 puntos porcentuales al cierre del 31 de diciembre de 2027.
+  - condition: El retorno total de DOW menos el retorno total de XLB es inferior a
+      5 puntos porcentuales durante el periodo definido.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: DOW registra una rentabilidad total inferior a la del índice durante
-      el periodo, aunque su FCF mejore.
+  - condition: La comparación no puede calcularse con precios ajustados por dividendos
+      disponibles públicamente.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La rentabilidad total de DOW menos la del índice de referencia es inferior a 5
-    puntos porcentuales al cierre del 31 de diciembre de 2027.
-  - DOW registra una rentabilidad total inferior a la del índice durante el periodo,
-    aunque su FCF mejore.
+  - El retorno total de DOW menos el retorno total de XLB es inferior a 5 puntos porcentuales
+    durante el periodo definido.
+  - La comparación no puede calcularse con precios ajustados por dividendos disponibles
+    públicamente.
   horizon: medio
   id: H4-OPP-MB-DOW
   opportunity_id: OPP-MB-DOW
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
+    deadline: '2027-11-27'
     expected: 5.0
     met: null
-    metric: Rentabilidad total de DOW menos rentabilidad total del S&P 500 Materials
-      Select Sector Index
-    prediction: Entre el cierre del 26 de noviembre de 2026 y el cierre del 31 de
-      diciembre de 2027, la rentabilidad total de DOW, incluidos dividendos, superará
-      en al menos 5 puntos porcentuales la rentabilidad total del índice S&P 500 Materials
-      Select Sector Index.
-    unit: puntos porcentuales, mínimo
+    metric: Retorno total de DOW menos retorno total de XLB
+    prediction: Entre el cierre del 2026-11-27 y el cierre del 2027-11-27, el retorno
+      total de DOW, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      el retorno total de XLB, medidos en dólares y con dividendos reinvertidos.
+    unit: puntos porcentuales, al menos
   priority: informational
   probability: 0.5
-  rationale: Si la mejora operativa se traduce en FCF anual positivo y recuperación
-    de beneficios, el mercado podría reducir el descuento asociado a la volatilidad
-    histórica del FCF y a la pérdida neta TTM. La tesis no aporta una valoración intrínseca
-    ni evidencia de ventaja competitiva, por lo que esta predicción se limita a un
-    resultado relativo observable y no presupone un precio objetivo.
-  review_trigger: Dejar de creerla si, al cierre del 30 de junio de 2027, DOW acumula
-    una rentabilidad total inferior a la del índice en al menos 10 puntos porcentuales
-    y no ha reportado FCF positivo en los primeros seis meses de 2027; la prueba final
-    se realiza el 2027-12-31.
+  rationale: Una mejora persistente del FCF y de la actividad podría reducir la percepción
+    de riesgo cíclico y favorecer el rendimiento relativo de la acción. No obstante,
+    la información disponible no cuantifica valoración, retornos sobre capital ni
+    ventaja competitiva, por lo que no permite afirmar que DOW esté mal valorada.
+  review_trigger: Dejar de creerla al cierre del 2027-11-27 si DOW no supera a XLB
+    por al menos 5 puntos porcentuales en retorno total desde el cierre del 2026-11-27.
   secondary_hypotheses:
   - H2-OPP-MB-DOW
-  - H3-OPP-MB-DOW
-  statement: La acción de Dow superará a un índice comparable del sector de materiales
-    durante los trece meses posteriores a la fecha de corte.
+  statement: Si la recuperación de DOW es reconocida por el mercado, la acción superará
+    al ETF de materiales XLB durante los doce meses posteriores a la fecha de corte;
+    este resultado sería evidencia de revalorización relativa, no prueba por sí solo
+    de infravaloración.
   status: ACTIVE
   ticker: DOW
   version: 1

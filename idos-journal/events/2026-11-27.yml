@@ -1,0 +1,93 @@
+events:
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ADI
+    ticker: ADI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-27T00:57:23.658228'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ADI
+    ticker: ADI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-27T00:57:23.660600'
+- data:
+    classification: Multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 4ffb2556da68bc7ea233e1fa4d6f68386f83106009ee6f661103b581b028b03c
+    opp_id: OPP-MB-ADI
+    original_status: UNDER_RESEARCH
+    score: 81.78
+    strategy_version: '1.5'
+    ticker: ADI
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-27T00:58:45.301320'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DOW
+    ticker: DOW
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-27T00:59:07.477470'
+- data:
+    classification: Research requerido; oportunidad cíclica por validar
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 29eeed8064210cce5b17127097ed018d7dfe5c7944526137a762d8e33de258ce
+    opp_id: OPP-MB-DOW
+    original_status: UNDER_RESEARCH
+    score: 55
+    strategy_version: '1.5'
+    ticker: DOW
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-27T01:00:36.842456'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-E
+    ticker: E
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-27T01:01:03.714659'
+- data:
+    classification: Investigación requerida; evidencia de mercado positiva, fundamentales
+      incompletos
+    ddd_empty: false
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 4199307a2c96c17a860d2a30ab1fcd26fa1fe7db3e32b2d2b2849d918efd5e63
+    opp_id: OPP-MB-E
+    original_status: UNDER_RESEARCH
+    score: 58
+    strategy_version: '1.5'
+    ticker: E
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-27T01:02:26.821014'

@@ -1,9 +1,23 @@
 calidad_evidencia:
-  hechos_verificados: 12
-  inferencias_llm: 5
+  hechos_verificados: []
+  inferencias_llm:
+  - La integración de actividades podría diversificar fuentes de ingresos, pero el
+    paquete no demuestra que constituya una ventaja competitiva.
+  - La trayectoria histórica de FCF sugiere variabilidad; no identifica sus causas.
+  - Yfinance reporta momentum de precio a 12 meses de 64.725% y volatilidad a 90 días
+    de 29.5233% para el período terminado el 2026-10-30.
+  - Stockanalysis reporta FCF TTM de EUR 5,990 millones, ingresos TTM de EUR 110,470
+    millones y margen bruto TTM de 21.94%, al 2026-09-30.
+  - El resumen financiero registra objetivos de analistas en USD y una cotización
+    en USD, con fechas de observación indicadas.
   preguntas_abiertas:
-  - ¿Cuál es la estrategia de reducción de deuda de Eni?
-  - ¿Cómo impactará la transición energética en los flujos de caja futuros?
+  - ¿Cuáles son el ROIC, el coste de capital y los retornos incrementales de la reinversión
+    por segmento?
+  - ¿Qué capex, volúmenes, precios realizados y metas de producción respaldan la generación
+    de caja futura?
+  - ¿Qué explica el valor cero reportado para cobertura de intereses y cuál es la
+    serie de acciones diluidas?
+  - ¿Qué supuestos operativos y fecha de horizonte respaldan los objetivos de analistas?
 catalizadores_previos: &id001
 - descripcion: Mejora de márgenes y flujo de caja libre, catalizador histórico descrito
     de forma genérica y sin evidencia nueva que confirme su materialización.
@@ -29,78 +43,78 @@ catalizadores_previos: &id001
   nivel_confianza: bajo
   opp_id: OPP-COMPOUNDER-E-0001
   probabilidad_anterior: 35
-- descripcion: ''
-  generated_at: '2026-10-26T11:44:43.913563-03:00'
+- descripcion: Recuperación de precios del petróleo que mejore márgenes y flujo de
+    caja.
+  generated_at: '2026-11-26T12:42:30.750913-03:00'
   horizonte: ''
-  impacto: Mejora de márgenes y flujo de caja libre.
+  impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-E
   probabilidad_anterior: null
-- descripcion: ''
-  generated_at: '2026-10-26T11:44:43.913563-03:00'
+- descripcion: Reducción de deuda mediante venta de activos no estratégicos.
+  generated_at: '2026-11-26T12:42:30.750913-03:00'
   horizonte: ''
-  impacto: Incremento de ingresos en el segmento Global Gas & LNG.
-  nivel_confianza: ''
-  opp_id: OPP-MB-E
-  probabilidad_anterior: null
-- descripcion: ''
-  generated_at: '2026-10-26T11:44:43.913563-03:00'
-  horizonte: ''
-  impacto: Diversificación de fuentes y potencial de crecimiento a largo plazo.
+  impacto: ''
   nivel_confianza: ''
   opp_id: OPP-MB-E
   probabilidad_anterior: null
 clasificacion_oportunidad:
-  categoria: Neutral
-  justificacion: Evidencia de fuerte generación de flujo de caja y margen, pero cobertura
-    de intereses nula y alto endeudamiento generan incertidumbre.
+  categoria: Investigación requerida; evidencia de mercado positiva, fundamentales
+    incompletos
+  justificacion: El intake registra momentum de precio a 12 meses de 64.725% y drawdown
+    de 2.0619% al 2026-10-30, pero faltan datos verificables de retornos sobre capital,
+    reinversión, dilución y varias métricas de crecimiento.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: Modelo integrado con exposición global y diversificación de energía, pero
-    enfrenta presión de deuda y cobertura de intereses.
-  rating: A-
+  analisis: El carácter integrado y la diversificación geográfica y de actividades
+    constan en la descripción del negocio, pero no bastan para acreditar un moat.
+    No hay evidencia sobre coste de producción, cuota de mercado, retornos incrementales,
+    reinversión, penetración de mercado o erosión competitiva.
+  rating: No concluyente
 dominio_catalizadores:
-- descripcion: Recuperación de precios del petróleo que mejore márgenes y flujo de
-    caja.
-  fuente:
-    as_of_date: '2026-10-30'
-    name: stockanalysis
-    url: https://stockanalysis.com/stocks/E/statistics/
-- descripcion: Reducción de deuda mediante venta de activos no estratégicos.
-  fuente:
-    as_of_date: '2026-10-30'
-    name: stockanalysis
-    url: https://stockanalysis.com/stocks/E/statistics/
+- catalizador: Continuidad del FCF positivo.
+  evidencia: FCF TTM reportado de EUR 5,990 millones al 2026-09-30; la serie histórica
+    muestra variaciones entre ejercicios.
+- catalizador: Mejora sostenida de márgenes.
+  evidencia: El margen bruto TTM reportado fue 21.94% al 2026-09-30, frente a 20.16%
+    en FY 2025; no se aportan causas ni guía futura.
+- catalizador: Actualización de expectativas de mercado.
+  evidencia: El rango de objetivos de analistas reportado al 2026-11-27 es USD 49.30–61.00;
+    el paquete no incluye revisiones históricas.
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- descripcion: Cobertura de intereses insuficiente (0x) por debajo del umbral de 2.0x.
-  fuente:
-    as_of_date: '2026-10-30'
-    name: stockanalysis
-    url: https://stockanalysis.com/stocks/E/statistics/
-- descripcion: Elevado endeudamiento neto (19,760 M EUR) frente a EBITDA.
-  fuente:
-    as_of_date: '2026-10-30'
-    name: stockanalysis
-    url: https://stockanalysis.com/stocks/E/statistics/
+- evidencia: El modelo de negocio descrito incluye exploración, producción, comercialización
+    de crudo y gas, combustibles y productos químicos; el paquete no cuantifica sensibilidades.
+  riesgo: Exposición a ciclos de energía y a precios de materias primas.
+- evidencia: Stockanalysis reporta FCF de EUR 9,760 millones en FY 2022, EUR 6,380
+    millones en FY 2023, EUR 5,093 millones en FY 2024 y EUR 4,628 millones en FY
+    2025.
+  riesgo: FCF histórico volátil.
+- evidencia: Stockanalysis reporta deuda total de EUR 39,898 millones y efectivo e
+    inversiones de EUR 20,138 millones al 2026-09-30; la cobertura de intereses reportada
+    como cero no permite una interpretación fiable sin aclaración.
+  riesgo: Apalancamiento y liquidez requieren seguimiento.
+- evidencia: No se proporcionan datos verificables de capex, ROIC, dilución, reservas,
+    retornos por segmento ni objetivos de gestión.
+  riesgo: Evidencia insuficiente sobre asignación de capital y calidad del crecimiento.
 error_mercado:
-  catalizador_cambio: Reversión de precios del petróleo o mejora de la cobertura de
-    intereses.
-  conclusion_error_valoracion: El mercado podría estar subestimando riesgos de liquidez
-    y cobertura de intereses.
-  consenso_actual:
-    currency: USD
-    high: 61.0
-    low: 49.3
-    mean: 57.02
-  hipotesis_contraria: El precio actual (60.78 USD) supera el promedio del consenso,
-    indicando posible sobrevaloración.
-  razonamiento: Precio > media consenso y cobertura de intereses = 0 sugieren que
-    el mercado no refleja plenamente los riesgos financieros.
-generated_at: '2026-11-26T12:42:30.750913-03:00'
+  catalizador_cambio: Una actualización verificable de resultados, inversión, generación
+    de caja o deuda podría cambiar la lectura; el paquete no aporta calendario ni
+    previsiones de la compañía.
+  conclusion_error_valoracion: No se valida un error de valoración. Los precios objetivo
+    son referencias de consenso, no estimaciones intrínsecas independientes.
+  consenso_actual: El consenso de analistas reportado es USD 57.02, con rango USD
+    49.30–61.00 al 2026-11-27; la cotización reportada fue USD 60.785 al 2026-10-30.
+  hipotesis_contraria: La evidencia disponible no permite determinar si el mercado
+    subestima o sobreestima la capacidad de Eni para sostener flujo de caja y rentabilidad;
+    el negocio está expuesto a factores no cuantificados en el paquete.
+  razonamiento: El consenso y la cotización están en USD, pero el paquete no incluye
+    un método de valoración con inputs fechados ni evidencia suficiente para contrastar
+    las expectativas operativas.
+generated_at: '2026-11-27T01:01:03.716580-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-E
@@ -139,57 +153,63 @@ prompt_inputs:
 ratios_investigados:
 - formula: (revenue_t / revenue_t-3)^(1/3) - 1
   inputs:
-    revenue_history: missing FY 2023 data
-  limitations: Falta de datos de ingresos para FY 2023 impide calcular el CAGR de
-    3 años.
+    revenue_history: null
+  limitations: El paquete no proporciona trusted_source_urls; por tanto, no hay URL
+    autorizada para citar el ratio. Además, revenue_history contiene duplicados de
+    TTM y FY 2025 y no aporta una fila FY 2023 verificable.
   metric: revenue_cagr_3y_pct
-  period_end: '2026-09-30'
+  period_end: null
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: (FCF_t / FCF_t-1) - 1
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
   inputs:
-    fcf_growth_history: TTM
-  limitations: null
+    fcf_growth_history: null
+    fcf_history: null
+  limitations: Hay observaciones reportadas de FCF y crecimiento, pero no existe trusted_source_url
+    para respaldar el ratio con una fuente HTTPS autorizada.
   metric: fcf_growth_pct
-  period_end: '2026-09-30'
-  sources:
-  - as_of_date: '2026-10-30'
-    name: stockanalysis
-    url: https://stockanalysis.com/stocks/E/statistics/
-  status: reported
-  unit: percent
-  value: 20.53
-- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
-    a sus inputs de evidencia.
-  metric: fcf_conversion_pct
-  period_end: '2026-09-30'
-  sources:
-  - as_of_date: '2026-10-30'
-    name: stockanalysis
-    url: https://stockanalysis.com/stocks/E/statistics/
+  period_end: null
+  sources: []
   status: unavailable
   unit: percent
   value: null
-- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
-    a sus inputs de evidencia.
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf_history: null
+    net_income_history: null
+  limitations: Aunque se reportan FCF y net income TTM al 2026-09-30, falta una trusted_source_url
+    que permita validar y citar los inputs del ratio.
+  metric: fcf_conversion_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history: null
+    ebitda: null
+    total_debt_history: null
+  limitations: El paquete no aporta trusted_source_urls; además, no se proporcionó
+    una serie de EBITDA con período comparable junto a deuda y efectivo.
   metric: net_debt_ebitda
-  period_end: '2026-09-30'
-  sources:
-  - as_of_date: '2026-10-30'
-    name: stockanalysis
-    url: https://stockanalysis.com/stocks/E/statistics/
+  period_end: null
+  sources: []
   status: unavailable
   unit: x
   value: null
 - formula: (diluted_shares_t / diluted_shares_t-1) - 1
   inputs:
-    diluted_shares_history: missing
-  limitations: No se dispone de historial de acciones diluidas para calcular la dilución
-    YoY.
+    diluted_shares: null
+    diluted_shares_history: null
+    shares_outstanding: null
+    shares_outstanding_history: null
+  limitations: No se proporciona una serie de acciones diluidas o acciones en circulación
+    comparable entre períodos ni una trusted_source_url.
   metric: dilution_yoy_pct
-  period_end: '2026-09-30'
+  period_end: null
   sources: []
   status: unavailable
   unit: percent
@@ -225,7 +245,7 @@ ratios_investigados:
   unit: percent
   value: null
 research_input_snapshot:
-  analysis_as_of_date: '2026-11-26'
+  analysis_as_of_date: '2026-11-27'
   business_model: Eni S.p.A. operates as an integrated energy company in Italy, Other
     European Union, Rest of Europe, the United States, Asia, Africa, and internationally.
     The company engages in exploration, development, extracting, manufacturing, trading,
@@ -256,307 +276,329 @@ research_input_snapshot:
 
 
     Eni S.p.A. (ticker **E**) es una compañía energética integrada. Su cadena de valor
-    comprende exploración y producción de hidrocarburos, suministro y comercialización
-    de gas y LNG, refinación, fabricación de productos derivados y venta de energía.
-    Sus productos incluyen crudo, condensados, gas natural, LNG y electricidad; atiende
-    a consumidores residenciales, pequeñas empresas y clientes industriales y comerciales.
+    abarca la exploración y desarrollo de yacimientos, la producción de petróleo y
+    gas, el transporte y comercialización de gas y GNL, y actividades de refinación
+    y transformación química. Entre los productos mencionados figuran petróleo crudo,
+    condensados, gas natural, gas por tubería y GNL.
 
 
-    La compañía opera en una industria intensiva en capital y expuesta a los ciclos
-    de precios de petróleo y gas, la demanda global y factores geopolíticos. La información
-    disponible describe actividades internacionales, pero no ofrece un desglose geográfico
-    de ingresos o activos.
+    Sus clientes incluyen empresas energéticas, comercializadores, compradores mayoristas
+    y clientes industriales. La información disponible no detalla la distribución
+    geográfica de sus activos, ingresos o producción; por tanto, no permite evaluar
+    con precisión su exposición por país o región.
 
 
-    Compañías del mismo sector o con riesgos y dinámicas comparables: [[BKR]], [[BP]],
-    [[COP]], [[CVX]] y [[TS]].
+    Eni opera en una industria intensiva en capital y cíclica. Sus resultados pueden
+    variar con los precios de las materias primas, los márgenes de conversión, los
+    costes de desarrollo y las decisiones de oferta. Comparables y compañías del sector
+    incluidos en esta base: [[BP]], [[CVX]], [[EQNR]], [[SHEL]], [[TTE]], [[XOM]],
+    [[COP]], [[OXY]] y [[PBR]], entre otros.
 
 
     ## 2. Modelo de Negocio y Posición Competitiva
 
 
-    **Fuentes de ingresos y drivers:** producción de petróleo y gas; comercialización
-    de gas y LNG; refinación y venta de productos derivados; y venta de energía. Los
-    resultados dependen, entre otros factores, de los precios de hidrocarburos, los
-    márgenes de refinación y comercialización, la demanda y las condiciones operativas.
+    **Fuentes de ingresos y cadena de valor:** la compañía participa en distintas
+    etapas de la cadena energética, desde la exploración y producción de hidrocarburos
+    hasta su transporte, comercialización y venta. También se describen actividades
+    de refinación y transformación química. Los datos disponibles no desglosan ingresos,
+    volúmenes ni rentabilidad por segmento.
 
 
-    La integración vertical puede permitir que distintos segmentos compensen parcialmente
-    la volatilidad entre actividades, pero la evidencia disponible no demuestra que
-    esta protección constituya un moat duradero.
+    **Ventajas competitivas señaladas en el análisis:** la integración operativa,
+    el acceso a activos y reservas, la experiencia técnica, las relaciones comerciales
+    y la infraestructura de transporte y distribución pueden aportar ventajas. El
+    análisis AOIF califica el moat como **estrecho** y la posición competitiva como
+    **líder**; son evaluaciones analíticas suministradas, no métricas verificadas
+    con datos comparativos.
 
 
-    **Evaluación competitiva:** el análisis AOIF caracteriza a Eni como líder y atribuye
-    su posición a la escala, la integración vertical, la experiencia técnica en exploración
-    y producción y las relaciones necesarias para acceder a recursos. Califica el
-    moat como **estrecho**. Estas valoraciones no están acompañadas por métricas comparativas
-    de cuota de mercado, costes o rentabilidad frente a competidores.
-
-
-    La industria es cíclica y requiere capital significativo. Entre los factores competitivos
-    relevantes están la oferta de productores, la demanda global, los márgenes de
-    refino y la capacidad de desarrollar y operar activos.
+    **Dinámica competitiva:** el desempeño es sensible a los ciclos de petróleo y
+    gas, a los márgenes de refinación y conversión, a los costes de capital y a las
+    condiciones de oferta. La transición energética también puede afectar la demanda,
+    la composición de los ingresos y las necesidades de inversión; el impacto específico
+    sobre Eni no está cuantificado en los inputs.
 
 
     ## 3. Perfil Financiero
 
 
-    Las cifras siguientes proceden de los inputs de investigación. No se aportaron
-    series comparables ni información suficiente para verificar periodos, definiciones
-    o reconciliación con estados financieros primarios.
+    Las métricas siguientes proceden de los inputs de investigación. Cuando no se
+    especifican período, moneda, metodología o fuente, deben tratarse como **datos
+    suministrados no verificados**.
 
 
-    | Métrica | Valor informado | Observación |
+    | Métrica | Valor suministrado | Período / observaciones |
 
     |---|---:|---|
 
-    | Crecimiento de ingresos | 20,29 % | Periodo y base de comparación no especificados.
+    | Crecimiento de ingresos | 20,29% | Período y fuente no especificados; tendencia
+    no verificable |
+
+    | Margen operativo | 8,46% | Período y fuente no especificados |
+
+    | ROIC | 7,33% | Período y fuente no especificados |
+
+    | PER | 10,93 | Fecha, moneda de cotización y base del beneficio no especificadas
     |
 
-    | Margen operativo | 8,46 % | Definición y periodo no especificados. |
+    | EV/EBITDA | 6,79 | Fecha y período del EBITDA no especificados |
 
-    | ROIC | 7,33 % | No se aportó serie histórica comparable. |
+    | FCF yield | 0 | Dato señalado como pendiente de validación; no debe interpretarse
+    como una medición confirmada |
 
-    | PER | 10,93x | Múltiplo informado; fecha y metodología no detalladas. |
+    | Crecimiento del FCF | 20,53% | TTM; fuente: [Stock Analysis, estadísticas de
+    E](https://stockanalysis.com/stocks/E/statistics/), 2026-10-30 |
 
-    | EV/EBITDA | 6,79x | Múltiplo informado; fecha y metodología no detalladas. |
+    | Deuda neta | 19.760 M EUR | Fuente indicada: [Stock Analysis, estadísticas de
+    E](https://stockanalysis.com/stocks/E/statistics/), 2026-10-30 |
 
-    | FCF yield | 0 % | No se especifica la metodología; no debe interpretarse como
-    una conversión verificada. |
+    | Cobertura de intereses | 0x | Fuente indicada: [Stock Analysis, estadísticas
+    de E](https://stockanalysis.com/stocks/E/statistics/); señalada por debajo del
+    umbral de 2,0x |
 
-    | FCF TTM | 5.990 millones | Informado al 30-09-2026 en moneda del proveedor,
-    que no está identificada ni reconciliada. |
-
-    | Tendencia financiera | Estable | Evaluación del análisis AOIF sin serie temporal
-    comparable. |
-
-
-    **Estructura de capital:** no se proporcionan deuda neta, vencimientos, coste
-    de financiación, liquidez ni cobertura de intereses. Por tanto, la capacidad de
-    servicio de deuda y el perfil de vencimientos no pueden evaluarse con los datos
-    disponibles.
+    | CAGR de ingresos a 3 años | No disponible | Falta el dato de ingresos FY 2023;
+    cálculo no posible con los inputs |
 
 
-    El análisis AOIF indica que no se proporcionan datos suficientes de flujo de caja
-    operativo e inversión para verificar la conversión a FCF. La cifra de FCF TTM
-    recogida por DDD tampoco resuelve esa limitación debido a la moneda y metodología
-    no identificadas.
+    El análisis AOIF describe la tendencia financiera como «estable», pero advierte
+    que no se proporcionan períodos, monedas ni fuentes para varias métricas. También
+    indica que faltan datos por período de flujo de caja operativo, inversión de capital
+    y FCF para verificar la conversión de caja. Por ello, el crecimiento del FCF comunicado
+    y el FCF yield de 0 no bastan para establecer la calidad o sostenibilidad de la
+    generación de caja.
+
+
+    La deuda neta y la cobertura de intereses requieren validación antes de extraer
+    conclusiones firmes sobre liquidez o solvencia. En particular, una cobertura de
+    intereses de 0x sería una señal de riesgo relevante si la definición y el dato
+    se confirmaran.
 
 
     ## 4. Management y Gobierno Corporativo
 
 
-    El análisis AOIF califica la calidad del management como **buena**, el alineamiento
-    de insiders como **moderado** y la asignación de capital como **neutral**. También
-    señala que la diversificación y el desarrollo de negocios de menor intensidad
-    de carbono reflejan adaptación estratégica, aunque no ofrece evidencia cuantitativa
-    sobre su rentabilidad o ejecución.
+    El análisis AOIF califica la calidad del management como **buena**, la asignación
+    de capital como **neutral** y el alineamiento de insiders como **moderado**. Sin
+    embargo, los inputs no incluyen datos específicos sobre remuneración, participación
+    accionaria de directivos, propiedad de insiders, composición del consejo ni rendimiento
+    de inversiones recientes.
 
 
-    No se aportan datos verificables sobre decisiones específicas de asignación de
-    capital, retornos de proyectos, remuneración, propiedad accionaria de insiders,
-    composición del consejo o mecanismos de gobierno corporativo. La evaluación de
-    liderazgo debe considerarse preliminar hasta contar con fuentes primarias y métricas
-    de desempeño.
+    En consecuencia, estas valoraciones deben considerarse apreciaciones preliminares,
+    no conclusiones verificadas sobre gobierno corporativo. No hay información suficiente
+    para evaluar la independencia del consejo, la estructura de incentivos o la disciplina
+    de asignación de capital.
 
 
     ## 5. Tesis de Inversión
 
 
-    La tesis de inversión es principalmente **cíclica**. Depende de que la integración
-    de Eni y sus actividades de gas y LNG amortigüen parcialmente la volatilidad de
-    los hidrocarburos, y de que la compañía mantenga o mejore márgenes y flujo de
-    caja. La integración es una posible fuente de resiliencia, no una garantía de
-    estabilidad ni evidencia concluyente de un moat duradero.
+    **Caso potencialmente favorable:**
 
 
-    **Elementos favorables observados en los análisis:**
+    - El modelo integrado cubre varias etapas de la cadena energética y puede ofrecer
+    exposición diversificada dentro del sector.
+
+    - El análisis AOIF describe a Eni como un competidor de escala y señala como posibles
+    ventajas sus activos, infraestructura, experiencia técnica y relaciones comerciales.
+    La amplitud del moat se califica como estrecha.
+
+    - El input DDD reporta un crecimiento del FCF de **20,53% TTM**, con fuente atribuida
+    a [Stock Analysis, estadísticas de E](https://stockanalysis.com/stocks/E/statistics/),
+    con fecha de consulta 2026-10-30. El dato requiere contexto y validación adicional
+    sobre su cálculo y período de comparación.
+
+    - Una recuperación de los precios del petróleo podría mejorar los márgenes y el
+    flujo de caja, según el análisis DDD. La exposición a precios de materias primas
+    también implica el riesgo opuesto.
 
 
-    - Eni combina exploración y producción con actividades de gas, LNG, refinación
-    y comercialización.
-
-    - El análisis AOIF la clasifica como líder competitiva y estima un moat estrecho,
-    atribuido a escala, integración y experiencia técnica.
-
-    - Gas y LNG, nuevas inversiones energéticas y el desarrollo de activos podrían
-    apoyar crecimiento o diversificación, aunque no se aportaron datos segmentados
-    que permitan comprobar su contribución.
-
-    - El AOIF reporta crecimiento de ingresos de 20,29 %, margen operativo de 8,46
-    % y ROIC de 7,33 %; faltan periodos y series comparables para evaluar persistencia
-    o calidad del crecimiento.
-
-
-    **Lectura de valoración disponible:** al 20-11-2026, la opinión registrada es
-    que la valoración parece **justa**, pero la conclusión es incierta. La cotización
-    informada es de 60,785 USD al 30-10-2026 y el consenso medio observado es de 57,02
-    USD al 20-11-2026. El precio indicado supera el consenso medio y se encuentra
-    cerca del extremo alto del rango de objetivos observado; esto, por sí solo, no
-    demuestra error de valoración ni infravaloración.
+    **Síntesis:** Eni presenta exposición integrada al negocio energético y algunos
+    indicadores suministrados de margen y crecimiento de caja, pero la tesis depende
+    de validar la generación de FCF y resolver la incertidumbre sobre endeudamiento
+    y cobertura de intereses. La oportunidad fue clasificada como **Neutral** en el
+    input DDD; el AOIF dejó la recomendación como **pendiente de decisión del comité**.
 
 
     ## 6. Riesgos y Contra-Tesis
 
 
-    | Riesgo | Probabilidad informada | Impacto informado | Implicación potencial
-    |
-
-    |---|---|---|---|
-
-    | Caída o volatilidad de los precios del petróleo y el gas | Alta | Alto | Menores
-    ingresos, márgenes y generación de caja; posible presión sobre valoración. |
-
-    | Compresión de márgenes de refino y comercialización | No especificada | Alto
-    | Menor contribución de segmentos que podrían compensar parcialmente la volatilidad
-    de producción. |
-
-    | Riesgo geopolítico, contractual y operativo en países productores | Media en
-    la evaluación AOIF; sin probabilidad independiente en DDD | Alto | Interrupciones,
-    restricciones o cambios en las condiciones de producción y transporte. |
-
-    | Exposición ambiental y regulatoria de los hidrocarburos | No especificada |
-    No especificado | Riesgos sectoriales inferidos; no se aportó evaluación específica
-    de exposición o costes para Eni. |
-
-    | Endeudamiento y financiación | No evaluable | No evaluable | Faltan deuda neta,
-    vencimientos, coste de financiación, liquidez y cobertura de intereses. |
+    **Riesgos principales identificados:**
 
 
-    **Contra-tesis:** la integración puede no ser suficiente para proteger los resultados
-    de una caída de precios o márgenes; además, los beneficios potenciales de gas
-    y LNG no están demostrados con datos segmentados. La información financiera y
-    de valoración es incompleta, por lo que los múltiplos disponibles no establecen
-    por sí solos que la acción esté barata.
+    - **Cobertura de intereses:** el dato suministrado es 0x, por debajo del umbral
+    de 2,0x usado en el análisis DDD. La cifra y su definición necesitan verificarse.
+    Fuente indicada: [Stock Analysis, estadísticas de E](https://stockanalysis.com/stocks/E/statistics/),
+    2026-10-30.
+
+    - **Deuda:** se reportan 19.760 M EUR de deuda neta. Sin datos comparables de
+    EBITDA, vencimientos, liquidez y coste de financiación, no es posible estimar
+    plenamente la capacidad de servicio de deuda. Fuente indicada: [Stock Analysis,
+    estadísticas de E](https://stockanalysis.com/stocks/E/statistics/), 2026-10-30.
+
+    - **Ciclo de materias primas:** una caída o volatilidad de los precios del petróleo
+    y el gas puede afectar ingresos, márgenes, caja y valor de los activos.
+
+    - **Riesgo geopolítico y operativo:** el AOIF señala posibles interrupciones de
+    producción o transporte y exposición a jurisdicciones políticamente inestables;
+    no aporta desglose geográfico para medir la exposición de Eni.
+
+    - **Transición energética:** los efectos sobre demanda, inversión y flujos de
+    caja futuros no están cuantificados.
+
+    - **Calidad y comparabilidad de datos:** faltan períodos, fuentes o definiciones
+    para varias métricas financieras; tampoco se puede calcular el CAGR de ingresos
+    a tres años porque falta el dato FY 2023.
 
 
-    **Triggers de falsación de la tesis:**
+    **Contra-tesis de valoración:** el DDD señala que el precio indicado de **60,78
+    USD** supera la media del consenso suministrada de **57,02 USD**, lo que podría
+    sugerir sobrevaloración en relación con ese consenso. El mismo análisis plantea
+    que el mercado podría estar subestimando riesgos financieros. Ambos puntos dependen
+    de datos y estimaciones no documentados en detalle.
 
 
-    - Deterioro sostenido de márgenes y FCF que no se compense entre segmentos.
-
-    - Evidencia de que el negocio de gas y LNG no aporta el crecimiento o la resiliencia
-    esperados.
-
-    - Interrupciones geopolíticas u operativas con efectos materiales y persistentes
-    sobre producción, transporte o caja.
-
-    - Deterioro financiero que se refleje en menor liquidez, mayor coste de financiación
-    o menor capacidad de cubrir obligaciones. La comprobación requiere obtener las
-    métricas de deuda ausentes.
+    **Triggers de falsación del análisis DDD:**
 
 
-    La integridad de tesis figura como activa y sin flags en el input DDD; esto indica
-    que no se aportó evidencia de una vulneración, no que los riesgos hayan sido descartados.
+    - Caída sostenida del precio del petróleo por debajo de **70 USD/bbl**.
+
+    - Aumento inesperado de la deuda neta superior al **30% interanual**.
+
+    - Para el escenario bajista, una recuperación del petróleo superior al 10% en
+    12 meses o una mejora de la cobertura de intereses por encima de 2x invalidaría
+    sus supuestos principales.
+
+    - Para el escenario base, una caída sostenida del petróleo superior al 15% o un
+    deterioro del margen bruto superior a 3 puntos porcentuales invalidaría sus supuestos.
+
+
+    Los dos últimos puntos son falsadores definidos por el análisis de escenarios
+    suministrado, no previsiones de que esos eventos vayan a ocurrir.
 
 
     ## 7. Catalizadores y Timeline
 
 
-    Los catalizadores se registran con horizonte **medio**, impacto **medio** y probabilidad
-    estimada del **40 %** cada uno. Son hipótesis de seguimiento, no eventos fechados
-    con evidencia confirmada.
+    | Catalizador | Fecha esperada | Impacto potencial | Base de evidencia |
+
+    |---|---|---|---|
+
+    | Recuperación de los precios del petróleo | No especificada | Podría mejorar
+    márgenes y flujo de caja; también puede revertirse si los precios caen | DDD;
+    fuente indicada: [Stock Analysis, estadísticas de E](https://stockanalysis.com/stocks/E/statistics/),
+    2026-10-30 |
+
+    | Reducción de deuda mediante venta de activos no estratégicos | No especificada
+    | Podría reducir el endeudamiento, aunque no se aportan activos identificados,
+    objetivos ni calendario | DDD; fuente indicada: [Stock Analysis, estadísticas
+    de E](https://stockanalysis.com/stocks/E/statistics/), 2026-10-30 |
+
+    | Mejora de la cobertura de intereses | No especificada | Una cobertura superior
+    a 2x reduciría la preocupación señalada por el análisis, si la métrica actual
+    se confirma | DDD; objetivo analítico, sin calendario aportado |
+
+    | Evolución del petróleo y los márgenes durante los próximos 12 meses | Horizonte
+    del escenario: 2026-11-01 a 2027-11-01 | Determina la divergencia entre escenarios
+    bajista y base | Análisis de escenarios DDD, fechado 2026-11-01 |
 
 
-    | Catalizador | Horizonte esperado | Impacto | Probabilidad | Estado y limitaciones
-    |
-
-    |---|---|---|---:|---|
-
-    | Mejora de márgenes y flujo de caja libre | Medio; fecha concreta no disponible
-    | Medio | 40 % | Vigente en el registro DDD, pero descrito genéricamente y sin
-    evidencia nueva que confirme su materialización. |
-
-    | Incremento de ingresos de Global Gas & LNG | Medio; fecha concreta no disponible
-    | Medio | 40 % | Vigente en el registro DDD; no se aportaron cifras segmentadas
-    ni anuncios primarios para verificarlo. |
-
-
-    No hay fechas específicas de eventos corporativos o publicaciones asociadas a
-    estos catalizadores. El principal punto de seguimiento es comprobar si una mejora
-    de márgenes y caja coincide con un crecimiento observable de Global Gas & LNG.
+    No se proporcionan fechas de anuncios corporativos, transacciones concretas ni
+    hitos operativos que permitan asignar un calendario más preciso.
 
 
     ## 8. Marco de Valoración
 
 
-    La valoración adecuada debería considerar la naturaleza cíclica y la integración
-    del negocio. Con la información disponible, conviene tratar los múltiplos informados
-    como referencias, no como una valoración independiente: el PER de 10,93x y el
-    EV/EBITDA de 6,79x no permiten concluir infravaloración sin conocer fecha, definiciones,
-    ciclo de beneficios y comparables.
+    Los datos de valoración suministrados incluyen PER de **10,93**, EV/EBITDA de
+    **6,79** y FCF yield de **0**. El AOIF advierte que los múltiplos no están verificados
+    y que el FCF yield requiere validación. Sin período, precio comparable y definiciones
+    consistentes, no permiten concluir por sí solos que Eni cotice con descuento o
+    prima.
 
 
-    **Marco de análisis recomendado para completar la evaluación:**
+    El input DDD proporciona un consenso de precios en USD:
 
 
-    - Normalizar precios de hidrocarburos y márgenes a través del ciclo, en vez de
-    extrapolar un solo periodo.
+    | Referencia | Precio |
 
-    - Evaluar generación de caja por segmento y comprobar el puente entre flujo operativo,
-    inversión y FCF.
+    |---|---:|
 
-    - Contrastar EV/EBITDA y PER con comparables del sector, como [[BP]] y [[CVX]],
-    y con compañías de perfiles de actividad pertinentes, como [[COP]], [[BKR]] y
-    [[TS]], asegurando periodos y definiciones comparables.
+    | Bajo del consenso / objetivo del escenario bajista | 49,30 USD |
 
-    - Incorporar deuda neta, liquidez, vencimientos y coste de financiación antes
-    de estimar el valor del capital.
+    | Media del consenso / objetivo del escenario base | 57,02 USD |
 
-    - Evaluar por separado los supuestos de producción, márgenes de refino y contribución
-    de gas y LNG, si se obtienen datos segmentados.
+    | Alto del consenso | 61,00 USD |
+
+    | Precio citado en el input DDD | 60,78 USD |
 
 
-    **Referencias de precio disponibles:** el escenario DDD usa como ancla de analistas
-    un rango de 49,30–61,00 USD para el horizonte 20-11-2027, con fecha de análisis
-    20-11-2026. El extremo bajo se emplea como referencia bajista y el alto como referencia
-    alcista; no son valoraciones intrínsecas independientes. El consenso medio informado
-    es 57,02 USD. El margen de seguridad se califica como **insuficiente** en AOIF,
-    y no se puede establecer un valor intrínseco independiente con los datos disponibles.
+    El escenario bajista supone una caída anual del petróleo del 20% y una reducción
+    de dos puntos porcentuales en los márgenes brutos. El escenario base supone precios
+    del petróleo estables y márgenes brutos alrededor del 22%. Las fuentes de los
+    objetivos de escenario aparecen como nulas en el input; por ello, los valores
+    deben considerarse referencias suministradas, no estimaciones independientes validadas.
+
+
+    **Metodología apropiada para una evaluación posterior:**
+
+
+    - Valorar la compañía con flujos de caja normalizados a través del ciclo de materias
+    primas, incorporando inversión de capital, deuda y escenarios de precios.
+
+    - Contrastar la valoración con múltiplos de empresas integradas del sector, como
+    [[BP]], [[SHEL]], [[TTE]], [[XOM]] y [[CVX]], usando datos homogéneos y fechados.
+
+    - Examinar la sensibilidad a precios del petróleo y el gas, márgenes, inversión,
+    deuda neta y cobertura de intereses.
+
+
+    El AOIF considera insuficiente el margen de seguridad y señala que no puede estimar
+    un valor intrínseco independiente fiable sin precio de mercado comparable, acciones
+    diluidas, deuda neta validada, flujos normalizados y supuestos explícitos de ciclo.
 
 
     ## 9. Preguntas Abiertas y Agenda de Investigación
 
 
-    1. **Calidad y comparabilidad financiera:** ¿Qué periodo, moneda y definición
-    corresponden al crecimiento de ingresos, margen operativo, ROIC, PER y EV/EBITDA
-    informados?
+    1. **Deuda y liquidez:** ¿Cuál es el plan de reducción de deuda de Eni, qué activos
+    podrían venderse y qué calendario u objetivos existen?
 
-    2. **FCF:** ¿Cuál es la moneda y metodología del FCF TTM de 5.990 millones al
-    30-09-2026? ¿Cómo se reconcilia con estados financieros y con flujo de caja operativo
-    e inversión?
+    2. **Cobertura de intereses:** ¿Cómo se calcula el dato de 0x, a qué período corresponde
+    y es consistente con los estados financieros aplicables?
 
-    3. **Deuda y liquidez:** ¿Cuáles son deuda neta, vencimientos, coste de financiación,
-    liquidez y cobertura de intereses actuales?
+    3. **FCF:** ¿Cuál fue el flujo de caja operativo, la inversión de capital y el
+    FCF por período? ¿Cómo se define el crecimiento TTM de 20,53%?
 
-    4. **Negocios de gas y LNG:** ¿Qué ingresos, márgenes, inversiones y generación
-    de caja aporta Global Gas & LNG? ¿Hay evidencia que confirme el catalizador de
-    crecimiento?
+    4. **FCF yield:** ¿Por qué figura como 0 y cuál es el cálculo correcto con precio,
+    capitalización y FCF comparables?
 
-    5. **Integración y resiliencia:** ¿Qué datos de segmentos demuestran que la integración
-    amortigua la volatilidad durante ciclos desfavorables?
+    5. **Transición energética:** ¿Cómo podrían afectar los cambios de demanda, inversiones
+    y mezcla de productos a los flujos de caja futuros?
 
-    6. **Moat y competencia:** ¿Cómo se comparan escala, costes, rentabilidad, cuota
-    de mercado y retornos de capital de Eni frente a [[BP]], [[CVX]], [[COP]], [[BKR]]
-    y [[TS]]?
+    6. **Segmentos y geografía:** ¿Qué proporción de ingresos, producción, EBITDA
+    y activos corresponde a cada segmento y jurisdicción?
 
-    7. **Management y gobierno:** ¿Qué muestran los informes primarios sobre asignación
-    de capital, retornos de proyectos, remuneración, propiedad de insiders y composición
-    del consejo?
+    7. **Métricas financieras:** ¿A qué períodos y monedas corresponden el crecimiento
+    de ingresos de 20,29%, el margen operativo de 8,46%, el ROIC de 7,33%, el PER
+    de 10,93 y el EV/EBITDA de 6,79?
 
-    8. **Riesgos ESG y transición:** ¿Cuál es la exposición concreta a emisiones,
-    regulación, costes de transición y activos sujetos a cambios de demanda? La calificación
-    de alto riesgo disponible es una inferencia sectorial, no una evaluación específica
-    documentada.
+    8. **Valoración:** ¿Cuál es la fecha y metodología del precio de 60,78 USD y del
+    consenso de 49,30–61,00 USD? ¿Qué supuestos sustentan cada estimación?
 
-    9. **Catalizadores y valoración:** ¿Qué anuncios, datos operativos o resultados
-    permitirían confirmar la mejora de márgenes, FCF e ingresos de Global Gas & LNG?
-    ¿Qué supuestos sustentan los objetivos de analistas de 49,30–61,00 USD?
+    9. **Gobierno corporativo:** ¿Cuáles son la propiedad accionaria de directivos,
+    las políticas de remuneración, la composición e independencia del consejo y los
+    resultados de inversiones recientes?
+
+    10. **Calendario de catalizadores:** ¿Existen anuncios o fechas confirmadas para
+    ventas de activos, reducción de deuda o mejoras operativas?
 
 
-    **Estado de la decisión:** pendiente de decisión del comité. La evidencia permite
-    caracterizar a Eni como una compañía integrada y cíclica, pero no basta para verificar
-    su balance actual ni para construir una valoración independiente.
+    **Calidad de evidencia:** el input DDD informa 12 hechos verificados y 5 inferencias
+    del modelo, pero no identifica cuáles son cuáles de forma individual en el material
+    proporcionado. Las cifras que carecen de fuente, período o definición se mantienen,
+    por tanto, como datos por confirmar.
 
 
     ---
@@ -566,9 +608,16 @@ research_input_snapshot:
 
 
     - **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]],
-    [[CVX|Chevron Corporation]], [[TS|Tenaris S.A.]]
+    [[CVX|Chevron Corporation]], [[EQNR|Equinor ASA]], [[HAL|Halliburton Company]],
+    [[OXY|Occidental Petroleum Corporation]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]],
+    [[PSX|Phillips 66]], [[SHEL|Shell plc]], [[SLB|SLB N.V.]], [[TS|Tenaris S.A.]],
+    [[TTE|TotalEnergies SE]], [[UGP|Ultrapar Participações S.A.]], [[VIST|Vista Energy,
+    S.A.B. de C.V.]], [[XOM|ExxonMobil Holdings Corporation]], [[YPF|YPF Sociedad
+    Anónima]]
 
-    - **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]]'
+    - **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[EQNR|Equinor
+    ASA]], [[PBR|Petróleo Brasileiro S.A. - Petrobras]], [[SHEL|Shell plc]], [[TTE|TotalEnergies
+    SE]], [[XOM|ExxonMobil Holdings Corporation]], [[YPF|YPF Sociedad Anónima]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": "EUR", "field_sources":
     {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
@@ -799,12 +848,12 @@ research_input_snapshot:
         unit: null
     validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    61.0, "low": 49.3, "mean": 57.02, "median": 57.02, "observed_at": "2026-11-26T12:42:19.800195-03:00",
-    "sources": [{"as_of_date": "2026-11-26", "name": "stockanalysis", "observed_at":
-    "2026-11-26T12:42:19.800195-03:00", "observed_date": "2026-11-26", "target_price":
+    61.0, "low": 49.3, "mean": 57.02, "median": 57.02, "observed_at": "2026-11-27T01:00:40.032375-03:00",
+    "sources": [{"as_of_date": "2026-11-27", "name": "stockanalysis", "observed_at":
+    "2026-11-27T01:00:40.032375-03:00", "observed_date": "2026-11-27", "target_price":
     57.02, "url": "https://stockanalysis.com/stocks/e/forecast/"}, {"as_of_date":
-    "2026-11-26", "name": "yfinance", "observed_at": "2026-11-26T12:42:19.800195-03:00",
-    "observed_date": "2026-11-26", "target_price": 57.016, "url": "https://finance.yahoo.com/quote/E/"}]},
+    "2026-11-27", "name": "yfinance", "observed_at": "2026-11-27T01:00:40.032375-03:00",
+    "observed_date": "2026-11-27", "target_price": 57.016, "url": "https://finance.yahoo.com/quote/E/"}]},
     "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 60.78499984741211,
     "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/E/"}]}}'
   sector: Energy
@@ -814,92 +863,84 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: ab425b486053ad1a4e53987ed7341f88a97f1917d5c23e4ac79c86f789bff225
+    sha256: 4199307a2c96c17a860d2a30ab1fcd26fa1fe7db3e32b2d2b2849d918efd5e63
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: monthly
-  triggered_at: '2026-11-26T12:42:30.750913-03:00'
+  triggered_at: '2026-11-27T01:01:03.716580-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- description: Cobertura de intereses insuficiente (0x) indica vulnerabilidad financiera.
-  metric: interest_coverage_ratio
-  status: below
-  threshold: 2.0
-  value: 0
+- metric: current_ratio
+  observation: 1.21 al 2026-09-30, reportado por stockanalysis; supera el umbral de
+    observación.
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: No disponible; no puede evaluarse frente al umbral.
+  threshold: above 10%
+- metric: interest_coverage
+  observation: Stockanalysis reporta 0 al 2026-09-30; requiere aclaración de definición
+    y dato subyacente.
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica a la observación TTM de FCF positivo reportada al 2026-09-30;
+    no se calcula runway.
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No disponible como ratio validado; inputs y URL autorizada insuficientes.
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: No disponible; falta una serie histórica de acciones comparable.
+  threshold: above 5%
 scenario_analysis:
-  as_of_date: '2026-11-01'
+  as_of_date: '2026-11-27'
   currency: USD
-  horizon_date: '2027-11-01'
+  horizon_date: '2027-11-27'
   scenarios:
   - falsifiers:
-    - Recuperación del precio del petróleo >10% en 12 meses
-    - Mejora de cobertura de intereses >2x
+    - Un rango de consenso actualizado fuera de esta ancla.
+    - Datos operativos verificables que permitan justificar una valoración distinta.
     id: BEAR
     key_assumptions:
-    - Precio del petróleo -20% anual
-    - Márgenes brutos reducidos 2 puntos porcentuales
-    - Sin mejora en cobertura de intereses
-    rationale: Precio bajo del consenso refleja caída prolongada de precios del crudo
-      y presión sobre márgenes.
+    - Se utiliza el objetivo bajo observado de analistas como ancla, no como valoración
+      intrínseca.
+    - La evidencia disponible no permite cuantificar cambios en precios de energía,
+      producción, inversión o deuda.
+    rationale: Ancla en el extremo bajo del rango de consenso observado al 2026-11-27.
+      Representa el resultado adverso plausible dentro de ese rango si la generación
+      de caja y los márgenes no se sostienen; el paquete no permite atribuir ese extremo
+      a una previsión operativa concreta.
     sources:
-    - as_of_date: '2026-11-26'
+    - as_of_date: '2026-11-27'
       name: stockanalysis
-      url: https://stockanalysis.com/stocks/e/forecast
-    - as_of_date: '2026-11-26'
-      name: yfinance
-      url: https://finance.yahoo.com/quote/E/
+      url: https://stockanalysis.com/stocks/e/forecast/
     target_price: 49.3
   - falsifiers:
-    - Caída del precio del petróleo >15% sostenida
-    - Deterioro de margen bruto >3 puntos
-    id: BASE
-    key_assumptions:
-    - Precio del petróleo estable
-    - Márgenes brutos alrededor de 22%
-    - FCF crecimiento del 20% anual
-    rationale: Precio medio del consenso asume estabilidad de precios de energía y
-      mantenimiento de márgenes actuales.
-    sources:
-    - as_of_date: '2026-11-26'
-      name: stockanalysis
-      url: https://stockanalysis.com/stocks/e/forecast
-    - as_of_date: '2026-11-26'
-      name: yfinance
-      url: https://finance.yahoo.com/quote/E/
-    target_price: 57.02
-  - falsifiers:
-    - Precio del petróleo cae >10% sostenido
-    - Márgenes brutos disminuyen <20%
+    - Un rango de consenso actualizado fuera de esta ancla.
+    - Datos operativos verificables que contradigan la continuidad de la generación
+      de caja.
     id: BULL
     key_assumptions:
-    - Precio del petróleo +15% anual
-    - Márgenes brutos >23%
-    - FCF crecimiento >25%
-    rationale: Precio alto del consenso captura potencial de recuperación de precios
-      del crudo y mejora de márgenes.
+    - Se utiliza el objetivo alto observado de analistas como ancla, no como valoración
+      intrínseca.
+    - FCF TTM positivo y margen bruto TTM reportados no se consideran garantía de
+      continuidad.
+    rationale: Ancla en el extremo alto del rango de consenso observado al 2026-11-27.
+      Representa el mejor resultado plausible dentro de ese rango si se mantiene la
+      generación de caja reportada; el paquete no acredita qué supuestos operativos
+      respaldan el objetivo alto.
     sources:
-    - as_of_date: '2026-11-26'
+    - as_of_date: '2026-11-27'
       name: stockanalysis
-      url: https://stockanalysis.com/stocks/e/forecast
-    - as_of_date: '2026-11-26'
-      name: yfinance
-      url: https://finance.yahoo.com/quote/E/
+      url: https://stockanalysis.com/stocks/e/forecast/
     target_price: 61.0
   schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - as_of_date debe coincidir con la fecha actual del análisis
-  - 'BEAR.sources[0]: la fecha de fuente no puede superar as_of_date'
-  - 'BEAR.sources[1]: la fecha de fuente no puede superar as_of_date'
-  - 'BASE.sources[0]: la fecha de fuente no puede superar as_of_date'
-  - 'BASE.sources[1]: la fecha de fuente no puede superar as_of_date'
-  - 'BULL.sources[0]: la fecha de fuente no puede superar as_of_date'
-  - 'BULL.sources[1]: la fecha de fuente no puede superar as_of_date'
-  status: invalid_pending_revision
-score_general: 86
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-26T12:42:19.800195-03:00'
+  calculado_at: '2026-11-27T01:00:40.032375-03:00'
   fuentes:
     stockanalysis: 57.02
     yfinance: 57.016
@@ -907,22 +948,25 @@ target_consensus:
   n_fuentes: 2
   promedio: 57.02
   source_references:
-  - as_of_date: '2026-11-26'
+  - as_of_date: '2026-11-27'
     name: stockanalysis
-    observed_at: '2026-11-26T12:42:19.800195-03:00'
-    observed_date: '2026-11-26'
+    observed_at: '2026-11-27T01:00:40.032375-03:00'
+    observed_date: '2026-11-27'
     target_price: 57.02
     url: https://stockanalysis.com/stocks/e/forecast/
-  - as_of_date: '2026-11-26'
+  - as_of_date: '2026-11-27'
     name: yfinance
-    observed_at: '2026-11-26T12:42:19.800195-03:00'
-    observed_date: '2026-11-26'
+    observed_at: '2026-11-27T01:00:40.032375-03:00'
+    observed_date: '2026-11-27'
     target_price: 57.016
     url: https://finance.yahoo.com/quote/E/
   target_high: 61.0
   target_low: 49.3
-tesis_inversion: Eni muestra capacidad de generar flujo de caja y márgenes sólidos,
-  pero su alta deuda neta y falta de cobertura de intereses limitan el upside; la
-  valoración depende de la evolución de precios de energía y la gestión del balance.
+tesis_inversion: Eni combina actividades de exploración y producción, gas y LNG, refinación
+  y química, y productos energéticos, incluidas fuentes renovables. La evidencia muestra
+  FCF positivo reportado para TTM al 2026-09-30 y crecimiento de FCF reportado en
+  ese TTM, pero también una trayectoria histórica irregular; sin datos de inversión,
+  retornos sobre capital, volúmenes, precios realizados o metas de gestión, no puede
+  validarse un mecanismo de crecimiento sostenible ni una ventaja competitiva duradera.
 ticker: E
 version: '3.0'

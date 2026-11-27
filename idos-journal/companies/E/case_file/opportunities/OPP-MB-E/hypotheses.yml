@@ -43,147 +43,159 @@ hypotheses:
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La producción media del cuarto trimestre de 2027 es inferior en más
-      de un 1% a la del cuarto trimestre de 2026.
+  - condition: La producción media diaria de hidrocarburos reportada para 2027 es
+      inferior al 97% del promedio reportado para 2026.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa reduce su previsión de producción para 2027 por retrasos,
-      interrupciones o menor rendimiento de sus activos.
+  - condition: Eni informa una reducción permanente de capacidad o una interrupción
+      material que haga improbable alcanzar el umbral antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La producción media del cuarto trimestre de 2027 es inferior en más de un 1% a
-    la del cuarto trimestre de 2026.
-  - La empresa reduce su previsión de producción para 2027 por retrasos, interrupciones
-    o menor rendimiento de sus activos.
+  - La producción media diaria de hidrocarburos reportada para 2027 es inferior al
+    97% del promedio reportado para 2026.
+  - Eni informa una reducción permanente de capacidad o una interrupción material
+    que haga improbable alcanzar el umbral antes de la fecha objetivo.
   horizon: medio
   id: H1-OPP-MB-E
   opportunity_id: OPP-MB-E
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-02-28'
-    expected: 3.0
+    deadline: '2028-03-31'
+    expected: 97.0
     met: null
-    metric: Variación interanual de la producción media de hidrocarburos en el cuarto
-      trimestre
-    prediction: En el cuarto trimestre de 2027, la producción media de hidrocarburos
-      será al menos un 3% superior a la del cuarto trimestre de 2026.
-    unit: '%'
+    metric: Producción media diaria de hidrocarburos de 2027 como porcentaje del promedio
+      de 2026
+    prediction: La producción media diaria de hidrocarburos en 2027, según la métrica
+      reportada por Eni, será al menos el 97% de la producción media diaria de 2026.
+    unit: '% mínimo'
   priority: important
   probability: 0.5
-  rationale: La puesta en marcha de proyectos y la recuperación de volúmenes en activos
-    existentes pueden elevar la producción aun cuando los precios de petróleo y gas
-    fluctúen. La hipótesis se evalúa frente a la producción media reportada por la
-    propia empresa para el cuarto trimestre de 2026, evitando asumir un nivel de partida
-    no proporcionado.
-  review_trigger: Dejar de creerla si Eni comunica una reducción de al menos un 3%
-    en su guía de producción para 2027 frente a la guía inicial, o si el informe de
-    producción del tercer trimestre de 2027 muestra una caída interanual superior
-    al 1%.
+  rationale: La cartera de Eni abarca varias actividades energéticas y la tesis describe
+    un negocio integrado. Esa diversificación podría amortiguar el efecto de interrupciones
+    o descensos en activos individuales, aunque la información disponible no permite
+    confirmar tendencias recientes de producción ni metas de gestión.
+  review_trigger: Dejar de creerla si Eni comunica antes del 2028-03-31 una revisión
+    a la baja de su producción esperada para 2027 que implique una caída superior
+    al 3% frente al promedio de 2026, o si los resultados anuales de 2027 quedan por
+    debajo del umbral.
   secondary_hypotheses: []
-  statement: La producción de hidrocarburos de Eni crecerá durante 2027, apoyada por
-    la entrada en operación y la ampliación de proyectos.
+  statement: La producción de hidrocarburos de Eni se mantendrá prácticamente estable
+    durante 2027, pese a la exposición del negocio a factores de mercado y operativos
+    no cuantificados en la evidencia disponible.
   status: ACTIVE
   ticker: E
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: La deuda neta al cierre de 2027 no disminuye al menos un 5% respecto
-      al cierre de 2026.
+  - condition: El FCF TTM al 2027-09-30 es cero o negativo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La cobertura de intereses de los doce meses anteriores al cierre de
-      2027 alcanza o supera 2,5 veces.
+  - condition: El FCF TTM al 2027-09-30 es inferior al 75% del FCF TTM al 2026-09-30,
+      usando una definición comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una modificación metodológica impide comparar ambas cifras y Eni no
+      proporciona una conciliación suficiente.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La deuda neta al cierre de 2027 no disminuye al menos un 5% respecto al cierre
-    de 2026.
-  - La cobertura de intereses de los doce meses anteriores al cierre de 2027 alcanza
-    o supera 2,5 veces.
+  - El FCF TTM al 2027-09-30 es cero o negativo.
+  - El FCF TTM al 2027-09-30 es inferior al 75% del FCF TTM al 2026-09-30, usando
+    una definición comparable.
+  - Una modificación metodológica impide comparar ambas cifras y Eni no proporciona
+    una conciliación suficiente.
   horizon: medio
   id: H2-OPP-MB-E
   opportunity_id: OPP-MB-E
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: -5.0
+    deadline: '2027-11-15'
+    expected: 75.0
     met: null
-    metric: Variación de deuda neta al cierre de 2027 frente al cierre de 2026; cobertura
-      de intereses
-    prediction: Al cierre de 2027, la deuda neta será al menos un 5% inferior a la
-      del cierre de 2026 y la cobertura de intereses de los doce meses anteriores
-      será inferior a 2,5 veces.
-    unit: '% como mínimo de reducción; cobertura inferior a 2,5 veces'
+    metric: FCF TTM al 2027-09-30 como porcentaje del FCF TTM al 2026-09-30
+    prediction: El FCF TTM reportado al 2027-09-30 será positivo y equivaldrá al menos
+      al 75% del FCF TTM reportado al 2026-09-30, calculado con una definición y un
+      perímetro comparables.
+    unit: '% mínimo; FCF TTM mayor que cero'
   priority: critical
   probability: 0.5
-  rationale: La generación de caja puede destinarse a reducir deuda, pero la sensibilidad
-    de los flujos a los precios de la energía, las inversiones y el coste de financiación
-    limitan la velocidad de desapalancamiento. La hipótesis comprueba tanto la evolución
-    del balance como la capacidad de atender los intereses, sin presuponer cifras
-    actuales no incluidas en el contexto.
-  review_trigger: Dejar de creerla si Eni informa, antes del cierre de 2027, de un
-    aumento de deuda neta superior al 5% frente al cierre de 2026, o si la cobertura
-    de intereses supera 2,5 veces en dos informes trimestrales consecutivos.
-  secondary_hypotheses:
-  - H1-OPP-MB-E
-  statement: Eni reducirá su deuda neta durante 2027, pero la mejora no será suficiente
-    para que la cobertura de intereses supere 2,5 veces.
+  rationale: El FCF reportado fue positivo y creció en el TTM terminado el 2026-09-30,
+    lo que aporta evidencia de generación reciente de caja. Sin datos de inversión,
+    precios realizados, volúmenes o retornos sobre capital, no se puede concluir que
+    ese crecimiento sea estructural; por eso la hipótesis se limita a una prueba de
+    resistencia y no presupone crecimiento continuo.
+  review_trigger: Dejar de creerla cuando Eni publique el resultado del tercer trimestre
+    de 2027 o, como máximo, el 2027-11-15, si el FCF TTM es negativo o inferior al
+    umbral del 75%.
+  secondary_hypotheses: []
+  statement: Eni conservará flujo de caja libre (FCF) TTM positivo durante el año
+    siguiente a la fecha de corte, aunque no necesariamente mantenga el crecimiento
+    observado en el TTM terminado el 2026-09-30.
   status: ACTIVE
   ticker: E
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El precio de cierre en la fecha objetivo supera 60,78 USD.
+  - condition: La rentabilidad total de Eni es igual o inferior a la del índice de
+      referencia durante el periodo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El precio de cierre en la fecha objetivo es superior a 54,70 USD y,
-      simultáneamente, la empresa ha reducido su deuda neta al menos un 5% frente
-      al cierre de 2026 y ha alcanzado una cobertura de intereses de 2,5 veces o más.
+  - condition: La rentabilidad total de Eni supera la del índice, pero por menos de
+      5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden comparar los retornos con dividendos reinvertidos y fechas
+      de cierre equivalentes.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El precio de cierre en la fecha objetivo supera 60,78 USD.
-  - El precio de cierre en la fecha objetivo es superior a 54,70 USD y, simultáneamente,
-    la empresa ha reducido su deuda neta al menos un 5% frente al cierre de 2026 y
-    ha alcanzado una cobertura de intereses de 2,5 veces o más.
+  - La rentabilidad total de Eni es igual o inferior a la del índice de referencia
+    durante el periodo.
+  - La rentabilidad total de Eni supera la del índice, pero por menos de 5 puntos
+    porcentuales.
+  - No se pueden comparar los retornos con dividendos reinvertidos y fechas de cierre
+    equivalentes.
   horizon: medio
   id: H3-OPP-MB-E
   opportunity_id: OPP-MB-E
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-11-26'
-    expected: 54.7
+    deadline: '2027-11-27'
+    expected: 5.0
     met: null
-    metric: Precio de cierre de Eni
-    prediction: El precio de Eni será igual o inferior a 54,70 USD en la fecha objetivo,
-      equivalente a una caída de aproximadamente el 10% frente a 60,78 USD.
-    unit: USD por acción
-  priority: important
+    metric: Exceso de rentabilidad total de Eni frente al STOXX Europe 600 Oil & Gas
+    prediction: Entre el cierre del 2026-11-27 y el cierre del 2027-11-27, la rentabilidad
+      total de Eni, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      la rentabilidad total del índice STOXX Europe 600 Oil & Gas.
+    unit: puntos porcentuales mínimo
+  priority: informational
   probability: 0.5
-  rationale: El precio indicado supera el promedio del consenso según el contexto,
-    mientras que el endeudamiento y la cobertura de intereses limitan el margen de
-    seguridad. Si los resultados no compensan esos riesgos, una revisión de expectativas
-    o de múltiplos puede presionar la cotización. La comparación utiliza el precio
-    de referencia proporcionado y no presupone un objetivo de consenso concreto.
-  review_trigger: Dejar de creerla si el precio de cierre supera 60,78 USD durante
-    20 sesiones consecutivas, o si los resultados publicados muestran una mejora de
-    balance que cumpla simultáneamente las condiciones de reducción de deuda y cobertura
-    indicadas.
+  rationale: La acción podría beneficiarse si el mercado valora favorablemente la
+    generación reciente de FCF positivo y creciente. Sin datos de valoración, expectativas
+    del mercado ni determinantes cuantificados de resultados, esta es una hipótesis
+    de desempeño relativo, no una afirmación de infravaloración ni de ventaja competitiva.
+  review_trigger: Dejar de creerla si al cierre del 2027-11-27 el exceso de rentabilidad
+    total de Eni frente al índice es inferior a 5 puntos porcentuales; antes de esa
+    fecha, reevaluar si Eni publica una revisión material a la baja de sus perspectivas
+    financieras.
   secondary_hypotheses:
   - H2-OPP-MB-E
-  statement: El precio de Eni corregirá desde los 60,78 USD indicados en el contexto
-    antes de que la mejora operativa y financiera quede plenamente reflejada en la
-    valoración.
+  statement: En los 12 meses posteriores a la fecha de corte, la rentabilidad total
+    de la acción de Eni superará la del índice STOXX Europe 600 Oil & Gas, pero la
+    evidencia disponible no permite afirmar que ese desempeño provenga de una revalorización
+    estructural.
   status: ACTIVE
   ticker: E
   version: 1
