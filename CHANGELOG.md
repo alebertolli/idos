@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.1.6](https://github.com/alebertolli/idos/compare/v0.1.5...v0.1.6) (2026-11-28)
+
+
+### Bug Fixes
+
+* anchor scenario validation to run date ([c1aed03](https://github.com/alebertolli/idos/commit/c1aed03056436afab75dd89c4b07127a7d24330d))
+* deploy Pages from completed build artifact ([#381](https://github.com/alebertolli/idos/issues/381)) ([f6c0609](https://github.com/alebertolli/idos/commit/f6c0609cc410f2b559632349a7a894db10f2e600))
+* merge scheduled DDD results without auto-merge ([#383](https://github.com/alebertolli/idos/issues/383)) ([030a650](https://github.com/alebertolli/idos/commit/030a6506660e164be302df3bfea3297374837356))
+* normalize known scenario ids ([#379](https://github.com/alebertolli/idos/issues/379)) ([8bc16b7](https://github.com/alebertolli/idos/commit/8bc16b73fcc017f2204957f0745af5faa0b3b110))
+* pin lxml to wheel-supported versions ([6694732](https://github.com/alebertolli/idos/commit/6694732740353cd98212d01177cb84e2e8f3f91b))
+* preserve evidence provenance in scenario validation ([0bfd844](https://github.com/alebertolli/idos/commit/0bfd844d5b9d9b7642357160c410bac94c70a2b0))
+* prevent DDD scenario horizon from stalling research ([d197292](https://github.com/alebertolli/idos/commit/d19729231cab336f0962c0b2cd21c208ca1cf610))
+* refresh DDD ramp failure timestamp ([#387](https://github.com/alebertolli/idos/issues/387)) ([946c84d](https://github.com/alebertolli/idos/commit/946c84d12b1fdf058de2591c4c73854aa8d91922))
+* stop analyst consensus from approving TXN ([fba3c98](https://github.com/alebertolli/idos/commit/fba3c9839d88abb0829f2f7ce4ad0de53f0e586f))
+* unblock DDD research resume and CI publication ([dd05e53](https://github.com/alebertolli/idos/commit/dd05e53dd8da5f2a3abc0a59ae8428be0cbfb0b3))
+* verify exact DDD results CI run ([#391](https://github.com/alebertolli/idos/issues/391)) ([afb6cef](https://github.com/alebertolli/idos/commit/afb6cef363ef0475e1e65af2c3c8f4ecd6984354))
+
 ## [0.1.5](https://github.com/alebertolli/idos/compare/v0.1.4...v0.1.5) (2026-10-20)
 
 
